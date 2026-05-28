@@ -6,6 +6,10 @@ import { PainPoints } from "@/components/home/PainPoints";
 import { ServicesOverview } from "@/components/home/ServicesOverview";
 import { FeaturedWork } from "@/components/home/FeaturedWork";
 import { HowItWorks } from "@/components/home/HowItWorks";
+import { Section } from "@/components/Section";
+import { Container } from "@/components/Container";
+import { CRMBotFlow } from "@/components/CRMBotFlow";
+import { TelegramChatMock } from "@/components/TelegramChatMock";
 import { Pricing } from "@/components/home/Pricing";
 import { Testimonials } from "@/components/home/Testimonials";
 import { FAQ } from "@/components/home/FAQ";
@@ -27,6 +31,31 @@ export default async function HomePage({
       <ServicesOverview />
       <FeaturedWork />
       <HowItWorks />
+      <Section pad="default">
+        <Container>
+          <CRMBotFlow />
+        </Container>
+      </Section>
+      <Section pad="default">
+        <Container>
+          <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
+            <div>
+              <p className="t-eyebrow">Live demo</p>
+              <h2 className="mt-3 text-[clamp(28px,3vw+12px,44px)] font-medium leading-[1.1] tracking-[-0.02em] text-[color:var(--color-text-1)]">
+                See the bot qualify a lead in real time
+              </h2>
+              <p className="mt-5 max-w-[480px] text-[17px] leading-[1.55] text-[color:var(--color-text-2)]">
+                Natural conversation, instant responses, automatic scoring. The
+                prospect feels heard — your team only steps in when the deal is
+                ready to close.
+              </p>
+            </div>
+            <div className="flex justify-center md:justify-end">
+              <TelegramChatMock />
+            </div>
+          </div>
+        </Container>
+      </Section>
       <Pricing />
       <Testimonials />
       <FAQ />
