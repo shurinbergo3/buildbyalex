@@ -1,12 +1,13 @@
-export type CaseKey = "legalwin" | "visionair" | "crmbot" | "donbrava";
+export type CaseKey = "legalwin" | "visionair" | "crmbot" | "donbrava" | "bodyforge";
 
-export const caseSlugs: CaseKey[] = ["legalwin", "visionair", "crmbot", "donbrava"];
+export const caseSlugs: CaseKey[] = ["legalwin", "visionair", "crmbot", "donbrava", "bodyforge"];
 
 export const caseSlugToKey: Record<string, CaseKey> = {
   legalwin: "legalwin",
   visionair: "visionair",
   "crm-bot": "crmbot",
   donbrava: "donbrava",
+  "body-forge": "bodyforge",
 };
 
 export const caseKeyToSlug: Record<CaseKey, string> = {
@@ -14,6 +15,7 @@ export const caseKeyToSlug: Record<CaseKey, string> = {
   visionair: "visionair",
   crmbot: "crm-bot",
   donbrava: "donbrava",
+  bodyforge: "body-forge",
 };
 
 export const caseImages: Record<CaseKey, { src: string; alt: string }> = {
@@ -32,5 +34,9 @@ export const caseImages: Record<CaseKey, { src: string; alt: string }> = {
   donbrava: {
     src: "https://images.unsplash.com/photo-1601933470928-c2adde7838f8?auto=format&fit=crop&w=1600&q=80",
     alt: "Старый город Братиславы, Словакия — кейс Donbrava",
+  },
+  bodyforge: {
+    src: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=80",
+    alt: "Атлет со штангой в стойке для приседаний на закате — кейс Body Forge",
   },
 };

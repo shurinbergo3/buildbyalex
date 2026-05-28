@@ -673,6 +673,32 @@
         "url": "Pod NDA",
         "quote": "Bot pisze tak, że klienci nie domyślają się, że to nie ja. Rano otwieram Telegram, a tam już trzy wpłaty i trzy powiadomienia w czacie właściciela.",
         "quoteAuthor": "Bohdan D. · Donbrava"
+      },
+      "bodyforge": {
+        "industry": "Natywna aplikacja iOS · Fitness",
+        "title": "Body Forge — AI Fitness Coach",
+        "tagline": "Natywna aplikacja iOS do siłowni: analiza treningu przez AI, śledzenie serii na żywo i programy, które reagują na twoje prawdziwe liczby.",
+        "problem": "Ci, którzy notują treningi w notatkach, tracą jedyne dane, które mają znaczenie — kontekst serii. Notatki nie pamiętają zeszłotygodniowego ciężaru. Generyczne aplikacje fitness zalewają ekran wykresami i nigdy nie mówią, co robić dalej. Brief był jasny: trener w kieszeni, czysty tracking podczas serii, prawdziwa analiza po, program, który faktycznie się dostosowuje.",
+        "solution": "Zbudowałem natywną aplikację SwiftUI pod iOS. Podczas treningu pokazuje minimum: serie z zeszłego tygodnia, timer odpoczynku, ciężar i powtórzenia — jeden tap, żeby zapisać serię. Po sesji trener AI na GPT-4o czyta cały trening — objętość, intensywność, progresję względem ostatnich trzech tygodni — i pisze krótką personalną analizę z konkretnymi wskazówkami na następny raz (np. «wyciskanie skośne stoi 3 tygodnie — zrób deload do 80% w następnej sesji»). Programy first-class: split góra/dół, full-body dla początkujących, niestandardowe bloki. W bibliotece 200+ ćwiczeń z wideo-demo techniki. Lokalizacja RU + EN.",
+        "results": [
+          "Dostępna w App Store — Body Forge: AI Fitness Coach",
+          "Trener AI oddaje personalną analizę treningu w ~10 sekund",
+          "Ekran treningu zoptymalizowany pod jedną rękę między seriami",
+          "Biblioteka programów + pierścienie aktywności + integracja z Apple Health (puls)"
+        ],
+        "stack": [
+          "SwiftUI",
+          "Swift 5.9",
+          "iOS 17+",
+          "OpenAI GPT-4o",
+          "HealthKit",
+          "Core Data",
+          "CloudKit sync",
+          "App Store Connect"
+        ],
+        "url": "apps.apple.com/pl/app/body-forge-ai-fitness-coach/id6761138589",
+        "quote": "Analiza po treningu to ten kawałek. To jak trener, który faktycznie patrzy w cyfry i nie udaje, że wszystko jest okej, kiedy stoisz w miejscu.",
+        "quoteAuthor": "Alex S. · Body Forge"
       }
     },
     "caseMetrics": {
@@ -730,6 +756,20 @@
         {
           "value": "~$30",
           "label": "Miesięczny koszt API"
+        }
+      ],
+      "bodyforge": [
+        {
+          "value": "200+",
+          "label": "Ćwiczeń z wideo-demo"
+        },
+        {
+          "value": "~10s",
+          "label": "Czas analizy AI"
+        },
+        {
+          "value": "iOS 17+",
+          "label": "Natywny build SwiftUI"
         }
       ]
     },
@@ -1186,6 +1226,104 @@
               }
             ]
           }
+        }
+      },
+      "bodyforge": {
+        "hero": {
+          "eyebrow": "Dostępna w App Store",
+          "headline": "Trener, który mieszka na ekranie głównym",
+          "subhead": "Cztery ekrany pokazują typową sesję — plan na dziś, tracking serii, analiza AI, biblioteka programów."
+        },
+        "scenes": [
+          {
+            "tag": "Plan na dziś",
+            "title": "Jeden tap od «jestem na siłowni» do «pierwsza seria poszła»",
+            "desc": "Główny ekran zawsze otwiera dzisiejszą sesję — typ splita, liczba serii, szacowany czas. Bez ustawień i menu. Tap w Start, timer odpoczynku gotowy szybciej niż sztanga."
+          },
+          {
+            "tag": "Trening",
+            "title": "Liczby z zeszłego tygodnia — zawsze pod ręką",
+            "desc": "Podczas serii widzisz tylko to, co istotne: serie poprzedniego treningu (50 kg × 15, 60 kg × 13, 70 kg × 12), timer, który sam odlicza, jeden tap — seria zapisana."
+          },
+          {
+            "tag": "Trener AI",
+            "title": "Personalna analiza zaraz po treningu",
+            "desc": "GPT-4o czyta całą sesję — objętość, intensywność, progresję względem ostatnich trzech tygodni — i pisze ten krótki akapit, który napisałby trener. Bez generycznego «tak trzymaj»."
+          },
+          {
+            "tag": "Programy",
+            "title": "Programy, które reagują na twoje liczby",
+            "desc": "Góra/Dół, full-body, bloki własne. Wybierasz — aplikacja rozkłada go na tydzień i po cichu koryguje ciężary następnej sesji na podstawie tego, jak poszła ostatnia."
+          }
+        ],
+        "phone": {
+          "appName": "Body Forge",
+          "streakValue": "0",
+          "streakLabel": "dni z rzędu",
+          "streakSub": "STREAK",
+          "weekLabel": "W TYM TYGODNIU",
+          "weekValue": "0/7",
+          "weekdays": ["PN", "WT", "ŚR", "CZ", "PT", "SO", "ND"],
+          "todayLabel": "PLAN NA DZIŚ",
+          "todayTitle": "Góra",
+          "exercisesValue": "6",
+          "exercisesLabel": "ćwiczeń",
+          "setsValue": "18",
+          "setsLabel": "serii",
+          "minValue": "~72",
+          "minLabel": "min",
+          "startBtn": "ZACZNIJ TRENING",
+          "coachTitle": "Trener AI",
+          "coachSub": "ANALIZA OSTATNIEGO TRENINGU",
+          "analysisLabel": "ANALIZA",
+          "analysisText": "Program opiera się na pracy siłowej o umiarkowanej objętości. Ciężary są solidne — 23–28,5 kg na prostowaniach tricepsa, stabilna progresja w wiosłowaniu. Wyciskanie stoi 3 tygodnie; następna sesja — mały deload, żeby zbić plateau.",
+          "workoutTitle": "Body Forge",
+          "restLabel": "Odpoczynek",
+          "restValue": "2:55",
+          "exerciseName": "Wiosłowanie sztangą",
+          "lastSessionLabel": "Ostatni trening",
+          "prevSets": ["Seria 1   50 kg × 15", "Seria 2   60 kg × 13", "Seria 3   70 kg × 12"],
+          "weightLabel": "CIĘŻAR (KG)",
+          "weightValue": "50",
+          "repsLabel": "POWTÓRZENIA",
+          "repsValue": "16",
+          "statsTitle": "Statystyki",
+          "growthLabel": "Wskaźnik wzrostu",
+          "growthSubtitle": "9 treningów",
+          "growthBadge": "Krytyczny spadek",
+          "moveValue": "243/600",
+          "moveUnit": "kcal",
+          "moveLabel": "AKTYWNOŚĆ",
+          "exValue": "8/25",
+          "exUnit": "min",
+          "exLabel": "ĆWICZENIA",
+          "warmupValue": "6/10",
+          "warmupUnit": "h",
+          "warmupLabel": "Z ROZGRZEWKĄ",
+          "heartLabel": "Tętno",
+          "restingLabel": "Spoczynkowe",
+          "restingValue": "58",
+          "restingUnit": "bpm",
+          "workoutBpmLabel": "Na treningu",
+          "workoutBpmValue": "—",
+          "workoutBpmUnit": "bpm",
+          "weightStatLabel": "Waga",
+          "weightStatValue": "86,0",
+          "weightStatUnit": "kg",
+          "heightStatLabel": "Wzrost",
+          "heightStatValue": "179",
+          "heightStatUnit": "cm",
+          "programsTitle": "Programy",
+          "activeProgramLabel": "AKTYWNY PROGRAM",
+          "activeProgramTitle": "Góra / Dół · Siłowy",
+          "activeProgramDesc": "Split góra/dół na maksymalną siłę. Ciężkie ruchy podstawowe.",
+          "programEdit": "Edytuj program",
+          "programDays": "2 dni",
+          "programsAll": "WSZYSTKIE PROGRAMY",
+          "secondProgramTitle": "Full-body: Fundament",
+          "secondProgramDesc": "Bazowy program full body dla początkujących. 2 sesje w tygodniu z naciskiem na podstawy.",
+          "secondProgramCta": "Aktywuj",
+          "tabs": ["Trening", "Program", "Biblioteka", "Statystyki"]
         }
       }
     },

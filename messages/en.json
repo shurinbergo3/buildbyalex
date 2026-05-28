@@ -673,6 +673,32 @@
         "url": "Under NDA",
         "quote": "The bot writes the way I do — clients have no idea it isn't me. I open Telegram in the morning and three payments are already in, plus three notifications in the owner chat.",
         "quoteAuthor": "Bohdan D. · Donbrava"
+      },
+      "bodyforge": {
+        "industry": "Native iOS app · Fitness",
+        "title": "Body Forge — AI Fitness Coach",
+        "tagline": "A native iOS app for the gym: AI workout analysis, live set tracking, and programmes that respond to your real numbers.",
+        "problem": "Lifters who track workouts in a notes app lose the only data that matters — set-by-set context. Notes don't remember last week's weight. Generic 'gym tracker' apps drown the screen in graphs and never tell you what to do next. The brief was a coach in your pocket: clean tracking during the set, real analysis after, and a programme that actually adapts as you progress.",
+        "solution": "I built a native SwiftUI app for iOS. During a workout it shows the bare minimum: last week's sets, a rest timer, weight, reps — one tap to log a set. After the session, an AI coach on GPT-4o reads the whole workout — volume, intensity, progression vs the last three weeks — and writes a short, personal post-workout analysis with concrete pickups for next time ('stalled on incline press 3 weeks running — deload to 80% next week'). Programmes are first-class: an Upper/Lower split, full-body for beginners, custom blocks. The library has 200+ exercises with video form demos. Localised RU + EN.",
+        "results": [
+          "Live in the App Store — Body Forge: AI Fitness Coach",
+          "AI coach delivers a personal post-workout analysis in ~10 seconds",
+          "Workout screen optimised for one-handed use between sets",
+          "Programme library + activity rings + Apple Health heart-rate integration"
+        ],
+        "stack": [
+          "SwiftUI",
+          "Swift 5.9",
+          "iOS 17+",
+          "OpenAI GPT-4o",
+          "HealthKit",
+          "Core Data",
+          "CloudKit sync",
+          "App Store Connect"
+        ],
+        "url": "apps.apple.com/pl/app/body-forge-ai-fitness-coach/id6761138589",
+        "quote": "The post-workout analysis is the thing. It's like having a coach who actually looks at the numbers and doesn't pretend everything is fine when you stalled.",
+        "quoteAuthor": "Alex S. · Body Forge"
       }
     },
     "caseMetrics": {
@@ -730,6 +756,20 @@
         {
           "value": "~$30",
           "label": "Monthly API cost"
+        }
+      ],
+      "bodyforge": [
+        {
+          "value": "200+",
+          "label": "Exercises with video demos"
+        },
+        {
+          "value": "~10s",
+          "label": "AI analysis turnaround"
+        },
+        {
+          "value": "iOS 17+",
+          "label": "Native SwiftUI build"
         }
       ]
     },
@@ -1186,6 +1226,104 @@
               }
             ]
           }
+        }
+      },
+      "bodyforge": {
+        "hero": {
+          "eyebrow": "Live in the App Store",
+          "headline": "A coach that lives on the home screen",
+          "subhead": "Four screens cycle through what a typical session looks like — today's plan, mid-set tracking, the AI analysis, the programme library."
+        },
+        "scenes": [
+          {
+            "tag": "Today's plan",
+            "title": "One tap from 'I'm at the gym' to 'first set in'",
+            "desc": "The home screen always opens to today's session — split type, set count, estimated time. No setup, no menus. You tap Start Workout and the rest timer is ready before the bar is."
+          },
+          {
+            "tag": "Live workout",
+            "title": "Last week's numbers, always one glance away",
+            "desc": "During the set you see only what matters: the previous workout's sets (50 kg × 15, 60 kg × 13, 70 kg × 12), a rest timer that counts down on its own, one tap to log what you just did."
+          },
+          {
+            "tag": "AI Coach",
+            "title": "A post-workout analysis written for you",
+            "desc": "GPT-4o reads the whole session — volume, intensity, progression vs the last three weeks — and writes the short paragraph a coach would write. No generic 'keep it up'."
+          },
+          {
+            "tag": "Programmes",
+            "title": "Programmes that adapt to your real numbers",
+            "desc": "Upper/Lower, full-body, custom blocks. Pick one and the app schedules it across the week, quietly nudging next session's weights based on how the last one actually went."
+          }
+        ],
+        "phone": {
+          "appName": "Body Forge",
+          "streakValue": "0",
+          "streakLabel": "days in a row",
+          "streakSub": "STREAK",
+          "weekLabel": "THIS WEEK",
+          "weekValue": "0/7",
+          "weekdays": ["MO", "TU", "WE", "TH", "FR", "SA", "SU"],
+          "todayLabel": "TODAY'S PLAN",
+          "todayTitle": "Upper",
+          "exercisesValue": "6",
+          "exercisesLabel": "exercises",
+          "setsValue": "18",
+          "setsLabel": "sets",
+          "minValue": "~72",
+          "minLabel": "min",
+          "startBtn": "START WORKOUT",
+          "coachTitle": "AI Coach",
+          "coachSub": "LAST WORKOUT ANALYSIS",
+          "analysisLabel": "ANALYSIS",
+          "analysisText": "Your programme leans on moderate-volume strength work. You're moving solid weights — 23–28.5 kg on tricep extensions, steady progression on barbell rows. Bench has been flat 3 weeks; next session try a small deload to break the plateau.",
+          "workoutTitle": "Body Forge",
+          "restLabel": "Rest",
+          "restValue": "2:55",
+          "exerciseName": "Barbell Row",
+          "lastSessionLabel": "Last session",
+          "prevSets": ["Set 1   50 kg × 15", "Set 2   60 kg × 13", "Set 3   70 kg × 12"],
+          "weightLabel": "WEIGHT (KG)",
+          "weightValue": "50",
+          "repsLabel": "REPS",
+          "repsValue": "16",
+          "statsTitle": "Statistics",
+          "growthLabel": "Growth Index",
+          "growthSubtitle": "9 workouts",
+          "growthBadge": "Critical drop",
+          "moveValue": "243/600",
+          "moveUnit": "kcal",
+          "moveLabel": "ACTIVITY",
+          "exValue": "8/25",
+          "exUnit": "min",
+          "exLabel": "EXERCISES",
+          "warmupValue": "6/10",
+          "warmupUnit": "h",
+          "warmupLabel": "WITH WARM-UP",
+          "heartLabel": "Heart Rate",
+          "restingLabel": "Resting",
+          "restingValue": "58",
+          "restingUnit": "bpm",
+          "workoutBpmLabel": "Workout",
+          "workoutBpmValue": "—",
+          "workoutBpmUnit": "bpm",
+          "weightStatLabel": "Weight",
+          "weightStatValue": "86.0",
+          "weightStatUnit": "kg",
+          "heightStatLabel": "Height",
+          "heightStatValue": "179",
+          "heightStatUnit": "cm",
+          "programsTitle": "Programmes",
+          "activeProgramLabel": "ACTIVE PROGRAMME",
+          "activeProgramTitle": "Upper / Lower · Strength",
+          "activeProgramDesc": "Upper/lower split for max strength. Heavy compound work.",
+          "programEdit": "Edit programme",
+          "programDays": "2 days",
+          "programsAll": "ALL PROGRAMMES",
+          "secondProgramTitle": "Full-body: Foundations",
+          "secondProgramDesc": "Base full-body programme for beginners. 2 sessions a week, focus on the basics.",
+          "secondProgramCta": "Activate",
+          "tabs": ["Workout", "Programs", "Library", "Stats"]
         }
       }
     },

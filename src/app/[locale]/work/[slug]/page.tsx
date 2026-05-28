@@ -11,6 +11,7 @@ import { CaseMetrics, type CaseMetric } from "@/components/CaseMetrics";
 import { LegalwinShowcase } from "@/components/LegalwinShowcase";
 import { VisionairShowcase } from "@/components/VisionairShowcase";
 import { DonbravaShowcase } from "@/components/DonbravaShowcase";
+import { BodyForgeShowcase } from "@/components/BodyForgeShowcase";
 import { routing } from "@/i18n/routing";
 import { caseSlugToKey, caseImages, type CaseKey } from "@/lib/cases";
 import { SITE_URL } from "@/lib/site";
@@ -255,6 +256,7 @@ function CaseContent({ slug }: { slug: string }) {
       {key === "legalwin" && <LegalwinShowcase />}
       {key === "visionair" && <VisionairShowcase />}
       {key === "donbrava" && <DonbravaShowcase />}
+      {key === "bodyforge" && <BodyForgeShowcase />}
 
       <Section pad="default">
         <Container size="md">
