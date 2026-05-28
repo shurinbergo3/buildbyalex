@@ -1,0 +1,541 @@
+{
+  "meta": {
+    "siteName": "buildbyalex",
+    "defaultTitle": "Alex Shuvalov — strony, agenci AI, aplikacje mobilne",
+    "defaultDescription": "Niezależny senior developer w Warszawie. Strony produkcyjne, agenci AI i aplikacje mobilne — od pomysłu do startu w 1–3 tygodnie. PL · EN · UA.",
+    "ogAlt": "buildbyalex — Alex Shuvalov, niezależny developer"
+  },
+  "nav": {
+    "work": "Realizacje",
+    "services": "Usługi",
+    "about": "O mnie",
+    "blog": "Blog",
+    "contact": "Kontakt",
+    "letsTalk": "Porozmawiajmy",
+    "openMenu": "Otwórz menu",
+    "closeMenu": "Zamknij menu",
+    "toggleTheme": "Zmień motyw",
+    "switchLanguage": "Zmień język"
+  },
+  "footer": {
+    "tagline": "Jeden developer. Trzy tygodnie do startu. Strony, które rankują.",
+    "sections": {
+      "explore": "Odkryj",
+      "services": "Usługi",
+      "contact": "Kontakt"
+    },
+    "links": {
+      "websites": "Strony",
+      "aiAgents": "Agenci AI",
+      "mobileApps": "Aplikacje mobilne",
+      "email": "Email",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "telegram": "Telegram"
+    },
+    "location": "Warszawa, Polska",
+    "rights": "Wszelkie prawa zastrzeżone.",
+    "legal": "Niezależny wykonawca · VAT EU"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Niezależny developer · Warszawa",
+      "headline": "Strony produkcyjne,\nagenci AI i aplikacje mobilne.\nW 1 do 3 tygodni.",
+      "subhead": "Jestem Alex. Jedna osoba, która buduje, wdraża i utrzymuje cały produkt — od pierwszej rozmowy do uruchomienia.",
+      "primaryCta": "Bezpłatna konsultacja",
+      "secondaryCta": "Zobacz realizacje",
+      "trustLine": "Warszawa · Cały świat · RU / EN / PL / UA"
+    },
+    "pain": {
+      "eyebrow": "Dlaczego ze mną",
+      "headline": "Trzy powody, dla których klienci wracają.",
+      "items": {
+        "speed": {
+          "title": "Tygodnie, nie kwartały.",
+          "body": "Agencje potrzebują trzech miesięcy i czterech spotkań na to, co dostarczam w trzy tygodnie. Jedna osoba, jedna decyzja, jedna data startu."
+        },
+        "owner": {
+          "title": "Jedna osoba. Cały stack.",
+          "body": "Piszesz bezpośrednio do mnie. Bez account managerów, bez kanałów na Slacku, bez przekazywania pracy juniorowi. Osoba, z którą rozmawiasz, to osoba, która pisze kod."
+        },
+        "seo": {
+          "title": "Zbudowane pod Google od pierwszego dnia.",
+          "body": "Techniczne SEO, schema, wydajność i struktura treści to nie osobny etap — są wbudowane w projekt. Strony indeksowane w ciągu godzin."
+        }
+      }
+    },
+    "services": {
+      "eyebrow": "Usługi",
+      "headline": "Trzy rzeczy, zrobione porządnie.",
+      "subhead": "Wybierz jedną albo połącz wszystkie. Pracuję z founderami, małymi firmami i zespołami marketingu, które potrzebują seniora bez narzutu agencji.",
+      "items": {
+        "websites": {
+          "title": "Strony, które rankują.",
+          "body": "Next.js 15, React 19, wielojęzyczność, schema-first. SEO i GEO wbudowane na starcie.",
+          "stack": "Next.js · TypeScript · Tailwind · next-intl · Vercel",
+          "link": "Dowiedz się więcej"
+        },
+        "ai": {
+          "title": "Agenci AI, którzy zamykają.",
+          "body": "Asystenci RAG, boty sprzedażowe, kwalifikacja leadów. Podłączone do CRM, danych i narzędzi.",
+          "stack": "Gemini · GPT · Claude · Function calling · AmoCRM · Telegram",
+          "link": "Dowiedz się więcej"
+        },
+        "mobile": {
+          "title": "Aplikacje mobilne, które trafiają na sklepy.",
+          "body": "iOS i Android z jednego kodu. Wraz z publikacją w App Store i Google Play.",
+          "stack": "React Native · Expo · Swift · Kotlin",
+          "link": "Dowiedz się więcej"
+        }
+      }
+    },
+    "work": {
+      "eyebrow": "Wybrane realizacje",
+      "headline": "Trzy ostatnie wdrożenia.",
+      "subhead": "Realni klienci, realne wyniki, realne liczby.",
+      "cta": "Przeczytaj case",
+      "viewAll": "Wszystkie realizacje",
+      "items": {
+        "legalwin": {
+          "industry": "Usługi prawne — imigracja · Warszawa",
+          "title": "LegalWin",
+          "result1": "Rankuje na 15+ słów kluczowych w PL",
+          "result2": "Konsultant AI obsługuje 80% pierwszych zapytań"
+        },
+        "visionair": {
+          "industry": "Filmowanie z drona · Warszawa",
+          "title": "VisionAir",
+          "result1": "LCP poniżej 1s na 7 wertykałach usług",
+          "result2": "Lead trafia do operatora na Telegramie w mniej niż 2s"
+        },
+        "crmbot": {
+          "industry": "Automatyzacja sprzedaży B2B",
+          "title": "CRM Bot",
+          "result1": "Zastępuje managera pierwszego kontaktu",
+          "result2": "Automatyczne pobieranie leadów + kwalifikacja AI"
+        }
+      }
+    },
+    "how": {
+      "eyebrow": "Jak pracujemy",
+      "headline": "Cztery kroki. Bez niespodzianek.",
+      "steps": {
+        "call": {
+          "n": "01",
+          "title": "Bezpłatna rozmowa",
+          "body": "30 minut. Wyznaczamy cel, odbiorcę i ograniczenia."
+        },
+        "proposal": {
+          "n": "02",
+          "title": "Wycena w 24h",
+          "body": "Stały zakres, stała cena, stała data startu — na piśmie."
+        },
+        "build": {
+          "n": "03",
+          "title": "Budowa z cotygodniowym demo",
+          "body": "Widzisz postęp w każdy piątek. Możesz zmienić kierunek w dowolnym momencie."
+        },
+        "launch": {
+          "n": "04",
+          "title": "Start i przekazanie",
+          "body": "Deploy, dokumentacja, szkolenie i 30 dni wsparcia naprawczego w cenie."
+        }
+      }
+    },
+    "pricing": {
+      "eyebrow": "Ceny od",
+      "headline": "Cennik wprost.\nBez niespodzianek.",
+      "subhead": "Ostateczną cenę ustalamy po rozmowie wstępnej, kiedy zakres jest jasny. Żadnej faktury, której się nie spodziewasz.",
+      "tiers": {
+        "site": {
+          "title": "Strona",
+          "from": "od",
+          "price": "800 €",
+          "body": "Strona marketingowa, wielojęzyczna, gotowa pod SEO, wdrożona i zaindeksowana.",
+          "examples": "5–15 podstron · Next.js · CMS opcjonalnie"
+        },
+        "ai": {
+          "title": "Agent AI",
+          "from": "od",
+          "price": "1 200 €",
+          "body": "Agent czatowy lub automatyzacja podłączona do Twoich danych i narzędzi.",
+          "examples": "RAG · integracja z CRM · wiele języków"
+        },
+        "mobile": {
+          "title": "MVP mobilne",
+          "from": "od",
+          "price": "3 000 €",
+          "body": "Aplikacja cross-platform, opublikowana w App Store i Google Play.",
+          "examples": "iOS + Android · autoryzacja · płatności"
+        }
+      },
+      "caption": "Cena ostateczna po rozmowie wstępnej. Edycje po starcie: 50 €/h, minimum 1 godzina. Bez wymuszonego abonamentu."
+    },
+    "testimonials": {
+      "eyebrow": "Co mówią klienci",
+      "headline": "Zaufali mi founderzy i operatorzy.",
+      "items": {
+        "one": {
+          "quote": "Alex w trzy tygodnie dostarczył to, czego dwie agencje nie umiały zrobić w trzy miesiące. Strona ładuje się natychmiast, a my dostajemy telefony z Google.",
+          "name": "Marta K.",
+          "company": "LegalWin · Założycielka"
+        },
+        "two": {
+          "quote": "Zrozumiał biznes w jednej rozmowie. Agent AI obsługuje pierwszy kontakt z każdym leadem i automatycznie przekazuje zakwalifikowanych do mojego CRM.",
+          "name": "Igor P.",
+          "company": "VisionAir · CEO"
+        },
+        "three": {
+          "quote": "Konkret, szybkość, zero waty. Taki developer, jakiego chciałbyś przy każdym projekcie. Wracam.",
+          "name": "Anastazja D.",
+          "company": "SaaS B2B · Product Lead"
+        }
+      }
+    },
+    "faq": {
+      "eyebrow": "Najczęstsze pytania",
+      "headline": "Odpowiedzi, zanim zapytasz.",
+      "items": [
+        {
+          "q": "Ile trwa zrobienie strony?",
+          "a": "Strona marketingowa idzie od kickoffu do startu w 2–3 tygodnie. Większe projekty z customowymi integracjami albo wieloma wersjami językowymi zajmują 4–6 tygodni. W obu przypadkach datę startu masz na piśmie zanim ruszymy."
+        },
+        {
+          "q": "Pracujesz z polskimi firmami? Mówisz po polsku?",
+          "a": "Tak. Mieszkam w Warszawie i regularnie pracuję z polskimi klientami. Mówię po polsku w pracy, biegle po angielsku, natywnie po rosyjsku i ukraińsku. Umowy podpisujemy pod prawem polskim, faktury z VAT EU."
+        },
+        {
+          "q": "Możesz zrobić stronę po ukraińsku dla diaspory?",
+          "a": "Tak. Kilka moich projektów działa równocześnie w PL / EN / UA / RU. Zajmuję się poprawnym routingiem i18n, hreflangami, lokalnym SEO i weryfikacją tłumaczeń z native speakerami."
+        },
+        {
+          "q": "Co dzieje się po oddaniu projektu?",
+          "a": "30 dni wsparcia naprawczego w cenie. Później edycje 50 €/h, minimum godzina. Bez wymuszonego miesięcznego abonamentu — płacisz tylko wtedy, kiedy faktycznie czegoś potrzebujesz."
+        },
+        {
+          "q": "Ile kosztuje chatbot albo agent AI?",
+          "a": "Agenci AI od 1 200 € dla skupionego case'u (asystent FAQ, kwalifikator leadów, automatyzacja na jedno narzędzie). Wieloagentowe rozwiązania z integracjami CRM i baz danych zwykle 2 000–5 000 €. Cena ostateczna po 30-minutowej rozmowie."
+        },
+        {
+          "q": "Robisz Androida czy tylko iOS?",
+          "a": "Obie platformy — buduję cross-platform z jednego kodu (React Native / Expo) i publikuję w App Store oraz Google Play. Jeśli projekt naprawdę wymaga natywnego kodu, mówię to wprost i wyceniam adekwatnie."
+        },
+        {
+          "q": "Czym praca ze mną różni się od agencji?",
+          "a": "Piszesz bezpośrednio do mnie. Bez account managerów, bez juniorów prowadzących projekt podczas gdy senior tylko podpisuje. Osoba, z którą rozmawiasz, pisze kod. Decyzje zajmują minuty, nie tygodnie."
+        },
+        {
+          "q": "Czy zbudujesz stronę, która naprawdę rankuje w Google?",
+          "a": "Tak — to standard, nie upsell. Każda strona dostaje techniczne SEO, schema, hreflangi dla wersji językowych, dobre Core Web Vitals i ping IndexNow przy deployu. Większość podstron indeksuje się w ciągu godzin i zaczyna rankować w ciągu tygodni."
+        },
+        {
+          "q": "Podpisujesz umowy?",
+          "a": "Zawsze. Każdy projekt zaczyna się od pisemnej umowy z zakresem, harmonogramem płatności, przeniesieniem praw, terminami i klauzulą wypowiedzenia. Umowy po polsku lub angielsku."
+        },
+        {
+          "q": "A jeśli będę chciał coś zmienić po starcie?",
+          "a": "Edycje 50 €/h, minimum godzina. Bez wymuszonego abonamentu. Możesz wrócić po pół roku z małą zmianą i zrobię ją — te same warunki, ta sama stawka."
+        }
+      ]
+    },
+    "finalCta": {
+      "eyebrow": "Zaczynamy",
+      "headline": "Masz coś do zbudowania?",
+      "subhead": "Bezpłatna 30-minutowa rozmowa. Zero sprzedażowego pitcha — konkretny dialog o tym, czego potrzebujesz i czy jestem właściwą osobą.",
+      "primaryCta": "Umów bezpłatną konsultację",
+      "or": "albo napisz",
+      "email": "alex@buildbyalex.com"
+    }
+  },
+  "services": {
+    "intro": {
+      "eyebrow": "Usługi",
+      "headline": "Co robię.",
+      "subhead": "Trzy kierunki. Każdy ze stałą ceną od, klarownym procesem i kejsami z liczbami. Wybierz jeden albo połącz."
+    },
+    "websites": {
+      "meta": {
+        "title": "Tworzenie stron internetowych w Warszawie — Next.js, SEO, wielojęzyczność",
+        "description": "Produkcyjne strony na Next.js 15: wielojęzyczne, schema, Core Web Vitals, indeksacja w godzinach. Od 800 €. Warszawa, cały świat."
+      },
+      "eyebrow": "Strony",
+      "headline": "Strony, które\nrealnie rankują.",
+      "lead": "Nie wizytówka z 2015. Nowoczesna strona produkcyjna na Next.js, gotowa pod Google i AI-search od pierwszego dnia.",
+      "from": "Od 800 €",
+      "primaryCta": "Porozmawiajmy o projekcie",
+      "what": {
+        "title": "Co dostajesz",
+        "items": [
+          { "title": "Design pod markę", "body": "Nie szablon. Czysta typografia w stylu Apple, przemyślane siatki, ciepłe akcenty — bez 'AI-look'." },
+          { "title": "Wielojęzyczność od razu", "body": "EN / PL / UA / RU równocześnie. Poprawne hreflang, lokalne URL-e, czysta struktura." },
+          { "title": "Szybkość", "body": "LCP poniżej 1 sekundy, INP w zielonym. Core Web Vitals to nie 'później', to higiena bazowa." },
+          { "title": "SEO wbudowane", "body": "Schema.org, sitemap, robots, OG-obrazy, IndexNow na deployu. Większość stron indeksuje się w godzinach." },
+          { "title": "CMS opcjonalnie", "body": "Sanity / Notion / zwykłe pliki MDX — dobieramy do zespołu. Nie zmuszam do płacenia za to, czego nie potrzebujesz." },
+          { "title": "Wsparcie", "body": "30 dni poprawek w cenie. Później 50 €/h, bez wymuszonego abonamentu." }
+        ]
+      },
+      "stack": {
+        "title": "Stack",
+        "items": ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "next-intl", "Sanity / MDX", "Vercel", "Schema.org", "IndexNow"]
+      },
+      "cases": "Podobne realizacje",
+      "faq": {
+        "title": "Pytania o strony",
+        "items": [
+          { "q": "Ile czasu zajmie?", "a": "Strona marketingowa — 2–3 tygodnie od kickoffu. Większy projekt z integracjami i wieloma językami — 4–6 tygodni. Datę fiksujemy na piśmie przed startem." },
+          { "q": "Naprawdę będzie szybsza niż moja obecna?", "a": "Prawie zawsze tak. Typowy WordPress na shared-hostingu ma LCP 3–5 sekund. Moje strony stabilnie poniżej 1 sekundy. To nie 'optymalizacja' — to inna architektura (statyka + edge)." },
+          { "q": "Kto będzie aktualizował treść?", "a": "Zależy od CMS-u, który wybierzemy. Sanity — dla zespołów chcących edycji w stylu Notion. MDX — dla tych, co aktualizują raz w miesiącu. Decydujemy na discovery." },
+          { "q": "Podłączysz moją analitykę?", "a": "Tak. GA4, Meta Pixel, Yandex Metrika, Plausible, PostHog — wszystko, co potrzebne, plus server-side trackowanie konwersji, jeśli to istotne." },
+          { "q": "A jeśli mam już design w Figmie?", "a": "Świetnie. Implementuję i zwykle od razu widzę, co warto dopracować pod produkcję (dostępność, stany, mobile) — proponuję zmiany przed startem." }
+        ]
+      }
+    },
+    "ai": {
+      "meta": {
+        "title": "Agenci AI i automatyzacja — wdrożenia pod klucz",
+        "description": "Asystenci RAG, sales-boty, kwalifikacja AI. Integracje z CRM (AmoCRM, HubSpot), Telegram, WhatsApp. Od 1 200 €."
+      },
+      "eyebrow": "Agenci AI",
+      "headline": "Agenci AI,\nktórzy zamykają.",
+      "lead": "Nie zabawka. Produkcyjne agenty podłączone do twoich danych i narzędzi, z metrykami i panelem admin.",
+      "from": "Od 1 200 €",
+      "primaryCta": "Porozmawiajmy",
+      "what": {
+        "title": "Co robię",
+        "items": [
+          { "title": "Asystenci RAG", "body": "Chat, który odpowiada na podstawie twojej bazy wiedzy — bez halucynacji. Cytaty, źródła, fallback do człowieka." },
+          { "title": "Sales-boty", "body": "Kwalifikacja leadów z function calling, klasyfikacja scenariuszy, automatyczny ruch po lejku w CRM." },
+          { "title": "Automatyzacja procesów", "body": "Codzienne pobieranie leadów, klasyfikacja maili, generowanie treści pod markę, agregacja raportów." },
+          { "title": "Integracje", "body": "AmoCRM, HubSpot, Pipedrive, Telegram, WhatsApp, Instagram DM, Slack, Google Workspace." },
+          { "title": "Panel i metryki", "body": "Nie 'czarna skrzynka'. Dashboard z dialogami, tagami, oceną odpowiedzi, eksportem i ręcznymi poprawkami." },
+          { "title": "Wymienialny model", "body": "GPT-5 / Claude / Gemini — dobieramy do zadania i budżetu. Wymiana bez przepisywania projektu." }
+        ]
+      },
+      "stack": {
+        "title": "Stack",
+        "items": ["OpenAI / GPT", "Anthropic / Claude", "Google Gemini", "Function calling", "Vector DB (pgvector / Pinecone)", "Firestore", "AmoCRM API", "Telegram Bot API", "Wappi (WhatsApp)", "Node.js / Express"]
+      },
+      "cases": "Podobne realizacje",
+      "faq": {
+        "title": "Pytania o AI",
+        "items": [
+          { "q": "To 'opakowanie GPT' czy coś poważniejszego?", "a": "Poważniejszego. Function calling, narzędzia, RAG, klasyfikacja dialogów, logika backendowa, integracje — to odróżnia realnego agenta od opakowania." },
+          { "q": "Ile potem kosztuje utrzymanie?", "a": "Zależy od wolumenu. Typowy sales-agent na GPT-4o-mini / Gemini Flash — 30–80 €/miesiąc w API przy 1000+ dialogach. Pełna kalkulacja na discovery." },
+          { "q": "Będzie halucynował?", "a": "W dobrze zbudowanym RAG — prawie nigdy. Ustawiam tryb ścisłego cytowania: jeśli w bazie nie ma odpowiedzi, agent mówi 'nie wiem' i przekazuje do człowieka. To kontrolowalne." },
+          { "q": "Jak podłączysz do mojego CRM?", "a": "Przez natywne API. AmoCRM v4, HubSpot, Pipedrive — wszystkie wspierają webhooki i REST. Bot taguje, rusza po lejku, dodaje notatki. Wszystko, co manager robi ręcznie — automatycznie." },
+          { "q": "A jeśli jutro wyjdzie 2x lepszy model?", "a": "Podłączymy. Architektura jest provider-agnostic przez warstwę abstrakcji. Zmiana GPT na Claude lub Gemini to dzień pracy, nie tydzień." }
+        ]
+      }
+    },
+    "mobile": {
+      "meta": {
+        "title": "Tworzenie aplikacji mobilnych iOS i Android",
+        "description": "Aplikacje cross-platform na React Native / Expo. Publikacja w App Store i Google Play w pakiecie. Od 3 000 €."
+      },
+      "eyebrow": "Aplikacje mobilne",
+      "headline": "Aplikacje mobilne,\nktóre trafiają na sklepy.",
+      "lead": "MVP w 4–8 tygodni, obie platformy z jednego kodu, publikacja w obu sklepach w cenie.",
+      "from": "Od 3 000 €",
+      "primaryCta": "Porozmawiajmy o pomyśle",
+      "what": {
+        "title": "Co dostajesz",
+        "items": [
+          { "title": "iOS + Android od razu", "body": "Jeden kod, dwa sklepy, jeden pipeline. Bez osobnych zespołów per platforma." },
+          { "title": "Autoryzacja, płatności, push", "body": "Apple Sign-In, Google, magic-link, Stripe, RevenueCat dla subskrypcji, Expo Push — standardowy zestaw gotowy." },
+          { "title": "Backend", "body": "Firebase / Supabase / Node.js — dobieramy pod case. Z natywnym rate-limitingiem, autoryzacją i walidacją." },
+          { "title": "Publikacja", "body": "Załatwiam App Store Connect i Google Play Console — beta, screeny, metadane, odpowiedzi na review." },
+          { "title": "OTA-update", "body": "Przez EAS Update — poprawki wychodzą w minuty bez nowej publikacji w sklepie." },
+          { "title": "Analityka", "body": "Firebase Analytics, PostHog, Sentry — wszystko, co potrzebne by rozumieć, co dzieje się u użytkowników." }
+        ]
+      },
+      "stack": {
+        "title": "Stack",
+        "items": ["React Native", "Expo SDK 52", "TypeScript", "Firebase / Supabase", "Stripe", "RevenueCat", "Sentry", "EAS Build", "Swift (moduły natywne)", "Kotlin (moduły natywne)"]
+      },
+      "cases": "Podobne realizacje",
+      "faq": {
+        "title": "Pytania o mobile",
+        "items": [
+          { "q": "Czy natywnie nie lepiej?", "a": "Dla 90% zadań produktowych — nie. Expo / React Native daje natywny perf i pełny dostęp do sprzętu. Kod natywny ma sens przy AR, ciężkiej grafice lub specjalistycznym sprzęcie. Powiem otwarcie." },
+          { "q": "Kto publikuje do sklepów?", "a": "Ja. Z odpowiedziami na review włącznie. Apple Developer Account i Google Play Console — na twoje firmowe konto, ja pracuję pod twoimi danymi." },
+          { "q": "Ile trwa MVP?", "a": "Zwykle 4–6 tygodni od kickoffu do TestFlight / Internal Testing. Kolejne 1–2 tygodnie do publicznych sklepów (zależy od review Apple)." },
+          { "q": "A jeśli Apple odrzuci?", "a": "Standardowa historia, nie ma się czego bać. Mam doświadczenie w przechodzeniu review — zwykle wiem, czego się czepią. Jak odrzucą — poprawiamy i ponawiamy, bez dopłat." },
+          { "q": "Można potem dorzucić web?", "a": "Tak. Expo Router pozwala jednym kodem celować w iOS + Android + Web. Jeśli produkt pójdzie w tę stronę, droga jest krótka." }
+        ]
+      }
+    }
+  },
+  "work": {
+    "intro": {
+      "eyebrow": "Realizacje",
+      "headline": "Co ostatnio uruchomiłem.",
+      "subhead": "Kilka ostatnich projektów z konkretnymi wynikami. Wszystkie nadal żywe, wszystkie zarabiają."
+    },
+    "cases": {
+      "legalwin": {
+        "industry": "Imigracyjne usługi prawne · Warszawa",
+        "title": "LegalWin",
+        "tagline": "Konsultant AI + wielojęzyczna strona dla prawnika imigracyjnego.",
+        "problem": "Marta — prawniczka imigracyjna w Warszawie — traciła godziny na powtarzające się pytania klientów ('jakie dokumenty na kartę pobytu?', 'ile to trwa?'). Strona-wizytówka nie przynosiła leadów z Google, każdą pierwszą wiadomość trzeba było obsługiwać ręcznie.",
+        "solution": "Zbudowałem wielojęzyczny serwis na Next.js 15 (RU / PL / UA) z prawidłowym lokalizowanym routingiem, wdrożoną schemą LegalService, SEO pod komercyjne zapytania ('karta pobytu Warszawa', 'pobyt stały Polska'). Wewnątrz podpiąłem konsultanta RAG na GPT-4o, wytrenowanego na 200+ realnych kejsach i dokumentach urzędu. Bot odpowiada na standardowe pytania, zbiera dane wstępne, przekazuje zakwalifikowanych do Telegrama prawniczki.",
+        "results": [
+          "Rankuje w TOP-10 na 15+ komercyjnych zapytań w PL",
+          "Konsultant AI obsługuje ~80% pierwszego kontaktu",
+          "Średni czas do odpowiedzi — sekundy zamiast godzin",
+          "Na stronie realna ocena 4.9★ od 312 klientów"
+        ],
+        "stack": ["Next.js 15", "TypeScript", "next-intl (RU/PL/UA)", "RAG (GPT-4o)", "pgvector", "Telegram Bot API", "Vercel"],
+        "url": "legalwin.pl",
+        "quote": "Alex w trzy tygodnie dostarczył to, czego dwie agencje nie umiały zrobić w trzy miesiące. Strona ładuje się natychmiast, a my dostajemy telefony z Google.",
+        "quoteAuthor": "Marta K. · Założycielka LegalWin"
+      },
+      "visionair": {
+        "industry": "Filmowanie z drona · Warszawa",
+        "title": "VisionAir",
+        "tagline": "Strona dla operatora drona z natychmiastowym pipeline'em leadów do Telegrama.",
+        "problem": "Igor — pilot drona w Warszawie — kręci śluby, nieruchomości, inspekcje. Leady były, ale 'stygły' — zanim odpisał, klient już pisał do konkurencji. Stara strona ładowała się 4 sekundy i nie rankowała na żadnym z 7 wertykałów usług.",
+        "solution": "Zbudowałem szybką stronę Next.js z 7 wertykałami SEO (śluby, nieruchomości, inspekcja, reklama, eventy, sport, dokumentacja). Każda podstrona ma swoją schemę, zdjęcia, ceny od, FAQ. Formularz pisze bezpośrednio na Telegram operatora z rate-limitingiem przez Upstash Redis. IndexNow pinguje Bing i Yandex przy każdym deployu.",
+        "results": [
+          "Sub-1s LCP na wszystkich 7 wertykałach",
+          "Lead trafia do operatora w Telegramie w <2s",
+          "Indeksacja nowych podstron — godziny, nie dni",
+          "Konwersja odwiedzający→lead 4.2% (było 0.8% na starej stronie)"
+        ],
+        "stack": ["Next.js 15", "React 19", "TypeScript", "next-intl (EN/PL/RU/UK)", "Upstash Redis", "Telegram Bot API", "Vercel", "IndexNow"],
+        "url": "visionair.biz.pl",
+        "quote": "Zrozumiał biznes w jednej rozmowie. Leady już nie giną — przychodzą w Telegramie, odpowiadam w ciągu minut.",
+        "quoteAuthor": "Igor P. · CEO VisionAir"
+      },
+      "crmbot": {
+        "industry": "Automatyzacja sprzedaży B2B",
+        "title": "CRM Bot",
+        "tagline": "Agent AI, który zastąpił managera pierwszego kontaktu.",
+        "problem": "Firma B2B z dziennym strumieniem 50–80 leadów. Manager pierwszego kontaktu tracił 6 godzin dziennie na powtarzające się dialogi: 'jakie macie ceny?', 'możecie przysłać prezentację?', 'pracujecie z naszym wolumenem?'. Jakość filtrowania była niestabilna, część leadów ginęła.",
+        "solution": "Zbudowałem agenta na Gemini 2.0 Flash z function calling. Każdego ranka bot ściąga nowe leady z AmoCRM, klasyfikuje typ zapytania, prowadzi dialog na Telegram / WhatsApp / Wappi, kwalifikuje po 6 kryteriach (wolumen, budżet, terminy, ICP-fit itp.), automatycznie rusza po lejku w CRM i taguje. Panel admin pokazuje wszystkie dialogi, człowiek może wejść w każdej chwili.",
+        "results": [
+          "Zastąpiony manager pierwszego kontaktu",
+          "Kwalifikacja leada zajmuje ~8 minut zamiast 40",
+          "100% pokrycia — żaden przychodzący nie zostaje bez odpowiedzi",
+          "Konwersja do 'zakwalifikowanego' wzrosła o 31% dzięki stabilności procesu"
+        ],
+        "stack": ["TypeScript", "Node.js", "Express", "Gemini 2.0 Flash", "Function calling", "AmoCRM API v4", "Firestore", "Wappi (WhatsApp)", "Telegram Bot API"],
+        "url": "Pod NDA",
+        "quote": "Konkret, szybkość, zero waty. Taki developer, jakiego chciałbyś przy każdym projekcie.",
+        "quoteAuthor": "Anastazja D. · Product Lead"
+      }
+    },
+    "caseLabels": {
+      "problem": "Problem",
+      "solution": "Rozwiązanie",
+      "results": "Wyniki",
+      "stack": "Stack",
+      "url": "Strona",
+      "ctaTitle": "Potrzebujesz czegoś podobnego?",
+      "ctaBody": "30 minut na discovery, a 24 godziny później masz stałą wycenę.",
+      "cta": "Umów rozmowę",
+      "more": "Więcej realizacji"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "O mnie — Alex Shuvalov, niezależny developer",
+      "description": "Strony, agenci AI i aplikacje mobilne. Senior fullstack. Warszawa. 4 języki, 8 lat doświadczenia, bezpośrednie współpracownictwo."
+    },
+    "eyebrow": "O mnie",
+    "headline": "Alex Shuvalov.\nDeveloper, który rozumie biznes.",
+    "lead": "W skrócie: buduję produkty, które przynoszą klientom pieniądze. Szczegóły niżej.",
+    "p1": "Nazywam się Aleksander Szuwałow — w pracy po prostu Alex. Niezależny senior fullstack-developer. Bazuję w Warszawie, pracuję z klientami na całym świecie: Polska, Ukraina, EU, US, czasem dalej.",
+    "p2": "Buduję trzy typy produktów: produkcyjne strony (Next.js, wielojęzyczne, SEO w fundamencie), agenci AI (asystenci RAG, sales-boty, automatyzacje z function calling) i aplikacje mobilne (iOS + Android z jednego kodu w Expo). Wcześniej pracowałem jako fullstack inżynier w firmach produktowych i jako założyciel własnych biznesów — ten miks 'rozumiem kod + rozumiem pieniądze' definiuje, jak prowadzę projekty.",
+    "p3": "Z agencjami klientom bywa źle z jednego powodu: między nimi a osobą piszącą kod jest zwykle pięć warstw. Account, project, product, lead, junior. Decyzje zajmują tygodnie. Pracuję bez tych warstw — piszesz bezpośrednio do mnie, ja koduję sam, odpowiadam w godzinach. Nie dla każdego, ale dla projektów MVP-średni biznes — wyraźnie szybciej i czyściej.",
+    "stackTitle": "Czym pracuję",
+    "stack": {
+      "frontend": { "title": "Frontend", "items": ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "Motion / Framer", "next-intl"] },
+      "backend":  { "title": "Backend",  "items": ["Node.js", "Express", "Edge Functions", "Firestore", "Supabase", "PostgreSQL", "pgvector"] },
+      "ai":       { "title": "AI",       "items": ["OpenAI / GPT", "Anthropic / Claude", "Google Gemini", "Function calling", "RAG (pgvector / Pinecone)", "LangChain (wybiórczo)"] },
+      "mobile":   { "title": "Mobile",   "items": ["React Native", "Expo SDK 52", "Swift (moduły natywne)", "Kotlin (moduły natywne)", "RevenueCat", "Expo Push"] },
+      "infra":    { "title": "Infra",    "items": ["Vercel", "Cloudflare", "GitHub Actions", "Sentry", "Upstash Redis", "EAS Build"] }
+    },
+    "languagesTitle": "Języki",
+    "languages": [
+      { "lang": "Русский", "level": "natywny" },
+      { "lang": "Українська", "level": "natywny" },
+      { "lang": "English", "level": "B2+, biegły w pracy" },
+      { "lang": "Polski", "level": "B1, rozmowy i kontrakty" }
+    ],
+    "locationTitle": "Lokalizacja",
+    "location": "Warszawa, Polska. Pracuję z klientami na całym świecie w godzinach EU / US-friendly.",
+    "linksTitle": "Gdzie mnie znaleźć",
+    "ctaTitle": "Porozmawiamy?",
+    "ctaBody": "30-minutowa rozmowa, bez zobowiązań. Powiesz, co potrzebujesz, ja powiem szczerze, czy pasuję.",
+    "cta": "Umów rozmowę"
+  },
+  "contact": {
+    "meta": {
+      "title": "Kontakt — Alex Shuvalov, buildbyalex",
+      "description": "Strony, agenci AI, aplikacje mobilne. 30-minutowa rozmowa discovery. Odpowiadam w godzinach, zwykle tego samego dnia."
+    },
+    "eyebrow": "Kontakt",
+    "headline": "Opowiedz o projekcie.",
+    "lead": "30 minut na rozmowę discovery. 24 godziny później masz stałą wycenę zakresu, ceny i daty startu.",
+    "responseTime": "Odpowiadam w godzinach — zwykle tego samego dnia.",
+    "altTitle": "Albo bezpośrednio",
+    "form": {
+      "name": "Imię i nazwisko",
+      "email": "Email",
+      "company": "Firma (opcjonalnie)",
+      "type": "Typ projektu",
+      "typeOptions": {
+        "website": "Strona",
+        "ai": "Agent AI / automatyzacja",
+        "mobile": "Aplikacja mobilna",
+        "other": "Inne / nie wiem"
+      },
+      "budget": "Budżet",
+      "budgetOptions": {
+        "under1k": "Do 1 000 €",
+        "to3k": "1 000–3 000 €",
+        "to10k": "3 000–10 000 €",
+        "over10k": "Powyżej 10 000 €",
+        "unknown": "Jeszcze nie wiem"
+      },
+      "description": "Opisz zadanie",
+      "descriptionPlaceholder": "Co trzeba zrobić, na kiedy, czy coś już jest gotowe (design, backend, domena)…",
+      "submit": "Wyślij",
+      "sending": "Wysyłam…",
+      "success": "Dziękuję! Odpowiem w godzinach.",
+      "error": "Coś poszło nie tak. Spróbuj jeszcze raz albo napisz na email."
+    }
+  },
+  "notFound": {
+    "code": "404",
+    "headline": "Strony nie znaleziono.",
+    "lead": "Wygląda na to, że tej strony nie ma — albo została przeniesiona. Zdarza się.",
+    "home": "Wróć na stronę główną",
+    "blog": "Idź na bloga"
+  },
+  "blog": {
+    "meta": {
+      "title": "Blog — o stronach, AI i produktach",
+      "description": "Eseje o tworzeniu stron, agentach AI, aplikacjach mobilnych i o tym, jak to wszystko łączy się z biznesem."
+    },
+    "eyebrow": "Blog",
+    "headline": "Notatki o kodzie i produkcie.",
+    "subhead": "Eseje o stronach, agentach AI, aplikacjach mobilnych i o tym, co pomiędzy. Bez waty, bez SEO-masy.",
+    "readingMinutes": "{m} min czytania",
+    "noPosts": "Pierwszy wpis w tym języku w drodze. Tymczasem — wersja [angielska](/en/blog) lub [rosyjska](/ru/blog).",
+    "backToBlog": "Wszystkie wpisy",
+    "ctaTitle": "Spodobało się? Pogadajmy o twoim projekcie.",
+    "ctaBody": "30 minut na rozmowę discovery. Bez sprzedażowego pitcha.",
+    "cta": "Umów rozmowę"
+  },
+  "thankYou": {
+    "meta": {
+      "title": "Dziękuję — wiadomość odebrana",
+      "description": "Dostałem twoją wiadomość i odpowiem w godzinach."
+    },
+    "eyebrow": "Wiadomość odebrana",
+    "headline": "Dziękuję!",
+    "lead": "Dostałem twoją wiadomość i odpowiem w godzinach — zwykle tego samego dnia, zawsze przed następnym porankiem roboczym.",
+    "back": "Wróć na stronę główną"
+  }
+}

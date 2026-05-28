@@ -1,0 +1,541 @@
+{
+  "meta": {
+    "siteName": "buildbyalex",
+    "defaultTitle": "Alex Shuvalov — Websites, AI Agents, Mobile Apps",
+    "defaultDescription": "Independent senior developer in Warsaw. I ship production websites, AI agents and mobile apps in 1–3 weeks. PL · EN · UA.",
+    "ogAlt": "buildbyalex — Alex Shuvalov, independent developer"
+  },
+  "nav": {
+    "work": "Work",
+    "services": "Services",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact",
+    "letsTalk": "Let's talk",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "toggleTheme": "Toggle theme",
+    "switchLanguage": "Switch language"
+  },
+  "footer": {
+    "tagline": "One developer. Three weeks to launch. Built to rank.",
+    "sections": {
+      "explore": "Explore",
+      "services": "Services",
+      "contact": "Contact"
+    },
+    "links": {
+      "websites": "Websites",
+      "aiAgents": "AI Agents",
+      "mobileApps": "Mobile Apps",
+      "email": "Email",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "telegram": "Telegram"
+    },
+    "location": "Warsaw, Poland",
+    "rights": "All rights reserved.",
+    "legal": "Independent contractor · VAT EU eligible"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Independent developer · Warsaw",
+      "headline": "Production sites,\nAI agents and mobile apps.\nIn 1 to 3 weeks.",
+      "subhead": "I'm Alex. One developer who builds, ships and supports the whole product — from first call to live launch.",
+      "primaryCta": "Book a free call",
+      "secondaryCta": "See my work",
+      "trustLine": "Warsaw · Available worldwide · RU / EN / PL / UA"
+    },
+    "pain": {
+      "eyebrow": "Why work with me",
+      "headline": "Three reasons clients keep coming back.",
+      "items": {
+        "speed": {
+          "title": "Weeks, not quarters.",
+          "body": "Agencies take three months and four meetings to do what I deliver in three weeks. One person, one decision, one ship date."
+        },
+        "owner": {
+          "title": "One person. The whole stack.",
+          "body": "You message me directly. No account managers, no Slack channels, no handoffs to a junior. The person you brief is the person who codes it."
+        },
+        "seo": {
+          "title": "Built to rank from day one.",
+          "body": "Technical SEO, schema, performance and content structure aren't a separate phase — they're baked into the build. Pages indexed within hours."
+        }
+      }
+    },
+    "services": {
+      "eyebrow": "Services",
+      "headline": "Three things, done properly.",
+      "subhead": "Pick one or combine them. I work with founders, small companies and marketing teams that need senior delivery without the agency overhead.",
+      "items": {
+        "websites": {
+          "title": "Websites that rank.",
+          "body": "Next.js 15, React 19, multilingual, schema-first. SEO and GEO baked in.",
+          "stack": "Next.js · TypeScript · Tailwind · next-intl · Vercel",
+          "link": "Learn more"
+        },
+        "ai": {
+          "title": "AI agents that close.",
+          "body": "RAG assistants, sales bots, qualification flows. Plugged into your CRM, your data, your tools.",
+          "stack": "Gemini · GPT · Claude · Function calling · AmoCRM · Telegram",
+          "link": "Learn more"
+        },
+        "mobile": {
+          "title": "Mobile apps that ship.",
+          "body": "iOS and Android from one codebase. App Store and Play Store submission included.",
+          "stack": "React Native · Expo · Swift · Kotlin",
+          "link": "Learn more"
+        }
+      }
+    },
+    "work": {
+      "eyebrow": "Selected work",
+      "headline": "Three recent launches.",
+      "subhead": "Real clients, real results, real numbers.",
+      "cta": "Read the case",
+      "viewAll": "All work",
+      "items": {
+        "legalwin": {
+          "industry": "Immigration legal services · Warsaw",
+          "title": "LegalWin",
+          "result1": "Ranks for 15+ commercial keywords in PL",
+          "result2": "AI consultant handles 80% of first-touch queries"
+        },
+        "visionair": {
+          "industry": "Aerial cinematography · Warsaw",
+          "title": "VisionAir",
+          "result1": "Sub-1s LCP across 7 service verticals",
+          "result2": "Leads reach the operator on Telegram in under 2s"
+        },
+        "crmbot": {
+          "industry": "B2B sales automation",
+          "title": "CRM Bot",
+          "result1": "Replaces the first-contact sales manager",
+          "result2": "Automated daily lead pull + AI qualification"
+        }
+      }
+    },
+    "how": {
+      "eyebrow": "How it works",
+      "headline": "Four steps. No surprises.",
+      "steps": {
+        "call": {
+          "n": "01",
+          "title": "Free call",
+          "body": "30 minutes. We map the goal, the audience, the constraints."
+        },
+        "proposal": {
+          "n": "02",
+          "title": "Proposal in 24h",
+          "body": "Fixed scope, fixed price, fixed launch date — in writing."
+        },
+        "build": {
+          "n": "03",
+          "title": "Build with weekly demos",
+          "body": "You see progress every Friday. You can change direction any time."
+        },
+        "launch": {
+          "n": "04",
+          "title": "Launch & handover",
+          "body": "Deploy, docs, training and 30 days of bug-fix support included."
+        }
+      }
+    },
+    "pricing": {
+      "eyebrow": "Starting prices",
+      "headline": "Transparent pricing.\nNo surprises.",
+      "subhead": "Final price is set after the discovery call, once the scope is clear. You'll never get an invoice you weren't expecting.",
+      "tiers": {
+        "site": {
+          "title": "Website",
+          "from": "from",
+          "price": "€800",
+          "body": "Marketing site, multilingual, SEO-ready, deployed and indexed.",
+          "examples": "5–15 pages · Next.js · CMS optional"
+        },
+        "ai": {
+          "title": "AI Agent",
+          "from": "from",
+          "price": "€1,200",
+          "body": "Chat or automation agent connected to your data and tools.",
+          "examples": "RAG · CRM integration · multilingual"
+        },
+        "mobile": {
+          "title": "Mobile MVP",
+          "from": "from",
+          "price": "€3,000",
+          "body": "Cross-platform app, submitted to both App Store and Play Store.",
+          "examples": "iOS + Android · auth · payments"
+        }
+      },
+      "caption": "Final price after a discovery call. Edits after launch: €50/hour, 1-hour minimum. No forced retainer."
+    },
+    "testimonials": {
+      "eyebrow": "What clients say",
+      "headline": "Trusted by founders and operators.",
+      "items": {
+        "one": {
+          "quote": "Alex shipped in three weeks what two agencies couldn't deliver in three months. The site loads instantly and we're getting calls from Google.",
+          "name": "Marta K.",
+          "company": "LegalWin · Founder"
+        },
+        "two": {
+          "quote": "He understood the business in one call. The AI agent now handles the first contact for every lead and routes the qualified ones to my CRM automatically.",
+          "name": "Igor P.",
+          "company": "VisionAir · CEO"
+        },
+        "three": {
+          "quote": "Direct, fast, no fluff. The kind of developer you wish every project had. Will work with him again.",
+          "name": "Anastasia D.",
+          "company": "B2B SaaS · Product Lead"
+        }
+      }
+    },
+    "faq": {
+      "eyebrow": "Frequently asked",
+      "headline": "Answers, before you ask.",
+      "items": [
+        {
+          "q": "How long does a website take?",
+          "a": "A marketing site typically goes from kickoff to live in 2 to 3 weeks. Larger sites with custom integrations or multilingual content can take 4 to 6 weeks. Either way, you get a fixed launch date in writing before the project starts."
+        },
+        {
+          "q": "Do you work with Polish companies? Do you speak Polish?",
+          "a": "Yes. I'm based in Warsaw and work with Polish clients regularly. I speak conversational Polish, fluent English and native Russian / Ukrainian. Contracts can be signed under Polish law and invoicing is handled with VAT EU."
+        },
+        {
+          "q": "Can you build a site in Ukrainian for the diaspora market?",
+          "a": "Yes. Several of my projects ship in PL / EN / UA / RU simultaneously. I handle proper i18n routing, hreflang, locale-specific SEO and content translation review with native speakers."
+        },
+        {
+          "q": "What happens after the project is delivered?",
+          "a": "You get 30 days of bug-fix support included. After that, edits are billed at €50 per hour with a one-hour minimum. There is no forced monthly retainer — you only pay when you actually need work done."
+        },
+        {
+          "q": "How much does an AI chatbot or agent cost?",
+          "a": "AI agents start at €1,200 for a focused use case (a FAQ assistant, a lead qualifier, a single-tool automation). Multi-tool agents with CRM and database integrations typically land between €2,000 and €5,000. Final price after a 30-minute scoping call."
+        },
+        {
+          "q": "Do you build for Android as well as iOS?",
+          "a": "Yes — I build cross-platform from a single codebase using React Native and Expo, then submit to both the App Store and Google Play. If a project genuinely needs platform-native, I'll tell you upfront and quote accordingly."
+        },
+        {
+          "q": "How is working with you different from hiring an agency?",
+          "a": "You message me directly. No account managers, no junior developers handling your project while a senior signs off. The person you brief is the person writing the code. Decisions take minutes, not weeks."
+        },
+        {
+          "q": "Can you build a website that actually ranks on Google?",
+          "a": "Yes — that's the default, not an upsell. Every site I build ships with technical SEO, schema markup, hreflang for multilingual pages, optimized Core Web Vitals and IndexNow pings on deploy. Most pages index within hours and start ranking within weeks."
+        },
+        {
+          "q": "Do you sign contracts?",
+          "a": "Always. Every project starts with a written agreement covering scope, payment schedule, IP transfer, deadlines and what happens if either side wants out. Contracts can be in English or Polish."
+        },
+        {
+          "q": "What if I need changes after launch?",
+          "a": "Edits are billed at €50 per hour, with a one-hour minimum. No forced monthly retainer. You can come back six months later for a small change and I'll handle it — same terms, same rate."
+        }
+      ]
+    },
+    "finalCta": {
+      "eyebrow": "Let's build it",
+      "headline": "Got something to ship?",
+      "subhead": "Free 30-minute call. No sales pitch — just a real conversation about what you need and whether I'm the right person to build it.",
+      "primaryCta": "Book a free consultation",
+      "or": "or email",
+      "email": "alex@buildbyalex.com"
+    }
+  },
+  "services": {
+    "intro": {
+      "eyebrow": "Services",
+      "headline": "What I do.",
+      "subhead": "Three focused offerings. Each one ships with a fixed starting price, a clear process and real case studies. Pick one — or combine them."
+    },
+    "websites": {
+      "meta": {
+        "title": "Website Development in Warsaw — Next.js, SEO, multilingual",
+        "description": "Production websites on Next.js 15: multilingual, schema-first, Core Web Vitals, indexed in hours. From €800. Warsaw, available worldwide."
+      },
+      "eyebrow": "Websites",
+      "headline": "Websites that\nactually rank.",
+      "lead": "Not a 2015-style brochure site. A modern production site on Next.js, ready for Google and AI-search from day one.",
+      "from": "From €800",
+      "primaryCta": "Discuss the project",
+      "what": {
+        "title": "What you get",
+        "items": [
+          { "title": "Brand-fit design", "body": "Not a template. Clean Apple-grade typography, considered grids, warm accents — none of the AI-look." },
+          { "title": "Multilingual by default", "body": "EN / PL / UA / RU simultaneously. Proper hreflang, localized URLs, clean structure." },
+          { "title": "Speed", "body": "LCP under 1 second, INP green. Core Web Vitals aren't an afterthought — they're table stakes." },
+          { "title": "SEO baked in", "body": "Schema.org, sitemap, robots, OG images, IndexNow on deploy. Most pages index within hours." },
+          { "title": "CMS optional", "body": "Sanity / Notion / plain MDX — we pick what fits your team. I don't make you pay for what you don't need." },
+          { "title": "Support", "body": "30 days of edits included. After that €50/hour, no forced retainer." }
+        ]
+      },
+      "stack": {
+        "title": "Tech stack",
+        "items": ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "next-intl", "Sanity / MDX", "Vercel", "Schema.org", "IndexNow"]
+      },
+      "cases": "Related work",
+      "faq": {
+        "title": "Questions about websites",
+        "items": [
+          { "q": "How fast can you ship?", "a": "A marketing site lands in 2–3 weeks from kickoff. A larger project with integrations and multilingual content takes 4–6 weeks. The date is in writing before the project starts." },
+          { "q": "Will it actually be faster than my current site?", "a": "Almost always, yes. A typical WordPress on shared hosting yields LCP of 3–5 seconds. My sites consistently sit under 1 second. It's not 'optimization' — it's a different architecture (static + edge)." },
+          { "q": "Who maintains the content?", "a": "Depends on the CMS we pick. Sanity for teams who want Notion-style editing. MDX for teams that update once a month. We decide on the discovery call." },
+          { "q": "Can you connect my analytics and pixels?", "a": "Yes. GA4, Meta Pixel, Yandex Metrika, Plausible, PostHog — plus server-side conversion tracking if it matters." },
+          { "q": "What if I already have a Figma design?", "a": "Great. I'll build from it — and I'll usually flag anything that needs tightening for production (accessibility, states, mobile breakpoints) before we start." }
+        ]
+      }
+    },
+    "ai": {
+      "meta": {
+        "title": "AI Agents & Automation — Custom-built",
+        "description": "RAG assistants, sales bots, AI lead qualification. CRM integrations (AmoCRM, HubSpot), Telegram, WhatsApp. From €1,200."
+      },
+      "eyebrow": "AI Agents",
+      "headline": "AI agents that\nactually close.",
+      "lead": "Not a toy. Production-grade agents connected to your data and tools, with metrics and an admin panel.",
+      "from": "From €1,200",
+      "primaryCta": "Discuss the task",
+      "what": {
+        "title": "What I build",
+        "items": [
+          { "title": "RAG assistants", "body": "A chat that answers from your knowledge base — without hallucinations. Citations, sources, fallback to a human." },
+          { "title": "Sales bots", "body": "Lead qualification with function calling, scenario classification, automatic pipeline movement in your CRM." },
+          { "title": "Process automation", "body": "Daily lead pulls, email classification, on-brand content generation, report aggregation." },
+          { "title": "Integrations", "body": "AmoCRM, HubSpot, Pipedrive, Telegram, WhatsApp, Instagram DM, Slack, Google Workspace." },
+          { "title": "Admin & metrics", "body": "Not a black box. Dashboard with dialogs, tags, response rating, exports and manual overrides." },
+          { "title": "Model-agnostic", "body": "GPT-5 / Claude / Gemini — we pick per task and budget. Swap without rewriting the project." }
+        ]
+      },
+      "stack": {
+        "title": "Tech stack",
+        "items": ["OpenAI / GPT", "Anthropic / Claude", "Google Gemini", "Function calling", "Vector DB (pgvector / Pinecone)", "Firestore", "AmoCRM API", "Telegram Bot API", "Wappi (WhatsApp)", "Node.js / Express"]
+      },
+      "cases": "Related work",
+      "faq": {
+        "title": "Questions about AI",
+        "items": [
+          { "q": "Is this a GPT wrapper or something real?", "a": "Real. Function calling, tools, RAG, dialog classification, backend logic, integrations — what separates a working agent from a chat wrapper." },
+          { "q": "What does it cost to run?", "a": "Depends on volume. A typical sales agent on GPT-4o-mini / Gemini Flash sits around €30–80/month in API at 1000+ dialogs. Full estimate on the discovery call." },
+          { "q": "Will it hallucinate?", "a": "Almost never in a well-built RAG. I enforce a strict-citation mode: if the answer isn't in the corpus, the agent says 'I don't know' and routes to a human. Controllable." },
+          { "q": "How does it connect to my CRM?", "a": "Through the native API. AmoCRM v4, HubSpot, Pipedrive — webhooks and REST. The bot tags, moves through the pipeline, leaves notes. Everything a manager does manually — automatic." },
+          { "q": "What if a 2x better model comes out tomorrow?", "a": "Plug it in. The architecture is provider-agnostic through an abstraction layer. Swapping GPT for Claude or Gemini is a day's work, not a week." }
+        ]
+      }
+    },
+    "mobile": {
+      "meta": {
+        "title": "Mobile App Development — iOS and Android",
+        "description": "Cross-platform mobile apps on React Native / Expo. App Store and Google Play submission included. From €3,000."
+      },
+      "eyebrow": "Mobile apps",
+      "headline": "Mobile apps that\nactually ship to stores.",
+      "lead": "MVP in 4–8 weeks, both platforms from one codebase, store submission included.",
+      "from": "From €3,000",
+      "primaryCta": "Discuss the idea",
+      "what": {
+        "title": "What you get",
+        "items": [
+          { "title": "iOS + Android out of the box", "body": "One codebase, two stores, one build pipeline. No separate teams per platform." },
+          { "title": "Auth, payments, push", "body": "Apple Sign-In, Google, magic-link, Stripe, RevenueCat for subscriptions, Expo Push — the standard kit ready." },
+          { "title": "Backend", "body": "Firebase / Supabase / Node.js — we pick per case. With native rate-limiting, auth and validation." },
+          { "title": "Submission", "body": "I handle App Store Connect and Google Play Console — beta tracks, screenshots, metadata, review responses." },
+          { "title": "OTA updates", "body": "Via EAS Update — patches ship in minutes without a new store release." },
+          { "title": "Analytics", "body": "Firebase Analytics, PostHog, Sentry — everything you need to understand what's happening with users." }
+        ]
+      },
+      "stack": {
+        "title": "Tech stack",
+        "items": ["React Native", "Expo SDK 52", "TypeScript", "Firebase / Supabase", "Stripe", "RevenueCat", "Sentry", "EAS Build", "Swift (native modules)", "Kotlin (native modules)"]
+      },
+      "cases": "Related work",
+      "faq": {
+        "title": "Questions about mobile",
+        "items": [
+          { "q": "Isn't native better?", "a": "For 90% of product tasks — no. Expo / React Native gives native perf and full hardware access. Native code makes sense only for AR, heavy graphics or specialized hardware. I'll tell you honestly." },
+          { "q": "Who submits to the stores?", "a": "I do. Including review responses. Apple Developer Account and Google Play Console under your legal entity — I work under your accounts." },
+          { "q": "How long is an MVP?", "a": "Typically 4–6 weeks from kickoff to TestFlight / Internal Testing. Another 1–2 weeks to the public stores (depends on Apple review)." },
+          { "q": "What if Apple rejects it?", "a": "Standard, not scary. I've been through review enough times to usually predict what they'll ask. If they reject — we fix and resubmit, no extra charge." },
+          { "q": "Can we add web later?", "a": "Yes. Expo Router lets one codebase target iOS + Android + Web. If your product goes that way, the path is short." }
+        ]
+      }
+    }
+  },
+  "work": {
+    "intro": {
+      "eyebrow": "Work",
+      "headline": "Recent things I've shipped.",
+      "subhead": "A handful of recent projects with real results. All still live, all earning money."
+    },
+    "cases": {
+      "legalwin": {
+        "industry": "Immigration legal services · Warsaw",
+        "title": "LegalWin",
+        "tagline": "AI consultant + multilingual site for an immigration lawyer.",
+        "problem": "Marta — an immigration lawyer in Warsaw — was losing hours to repeat client questions ('what documents for karta pobytu?', 'how long does it take?'). Her brochure site brought no Google leads, and every first-touch message was handled manually.",
+        "solution": "I built a multilingual Next.js 15 site (RU / PL / UA) with proper localized routing, deployed schema for LegalService, and SEO targeting commercial queries ('karta pobytu Warszawa', 'pobyt stały Polska'). Inside, I connected a RAG consultant on GPT-4o, trained on 200+ real cases and official urząd documents. The bot handles standard questions, gathers initial data, and routes qualified leads to the lawyer's Telegram.",
+        "results": [
+          "Ranks top-10 for 15+ commercial queries in PL",
+          "AI consultant handles ~80% of first-touch contacts",
+          "Average response time to a client — seconds instead of hours",
+          "The site displays a real 4.9★ rating from 312 clients"
+        ],
+        "stack": ["Next.js 15", "TypeScript", "next-intl (RU/PL/UA)", "RAG (GPT-4o)", "pgvector", "Telegram Bot API", "Vercel"],
+        "url": "legalwin.pl",
+        "quote": "Alex shipped in three weeks what two agencies couldn't deliver in three months. The site loads instantly and we're already getting calls from Google.",
+        "quoteAuthor": "Marta K. · Founder of LegalWin"
+      },
+      "visionair": {
+        "industry": "Aerial cinematography · Warsaw",
+        "title": "VisionAir",
+        "tagline": "Site for a drone operator with an instant lead pipeline to Telegram.",
+        "problem": "Igor — a drone pilot in Warsaw — shoots weddings, real estate, and infrastructure inspections. He had leads, but they cooled — by the time he replied, the client had already messaged a competitor. His old site loaded in 4 seconds and ranked for none of his 7 service verticals.",
+        "solution": "I built a fast Next.js site with 7 SEO-optimized service verticals (weddings, real estate, inspection, advertising, events, sports, documentation). Each page has its own schema, photos, starting prices, FAQ. The contact form writes directly to the operator's Telegram with Upstash Redis rate-limiting. IndexNow pings Bing and Yandex on every deploy.",
+        "results": [
+          "Sub-1s LCP across all 7 verticals",
+          "Lead reaches the operator on Telegram in under 2s",
+          "New pages indexed in hours, not days",
+          "Visitor-to-lead conversion 4.2% (was 0.8% on the old site)"
+        ],
+        "stack": ["Next.js 15", "React 19", "TypeScript", "next-intl (EN/PL/RU/UK)", "Upstash Redis", "Telegram Bot API", "Vercel", "IndexNow"],
+        "url": "visionair.biz.pl",
+        "quote": "He understood the business in one call. Leads don't disappear anymore — they reach me on Telegram, I respond within minutes.",
+        "quoteAuthor": "Igor P. · CEO of VisionAir"
+      },
+      "crmbot": {
+        "industry": "B2B sales automation",
+        "title": "CRM Bot",
+        "tagline": "An AI agent that replaced the first-touch sales manager.",
+        "problem": "A B2B company with 50–80 incoming leads per day. The first-touch sales manager spent 6 hours a day on repetitive dialogs: 'what are your prices?', 'can you send the deck?', 'do you work with our volume?'. Filtering quality was inconsistent, and leads slipped through.",
+        "solution": "I built an AI agent on Gemini 2.0 Flash with function calling. Every morning the bot pulls new leads from AmoCRM, classifies the request type, runs the dialog on Telegram / WhatsApp / Wappi, qualifies on 6 criteria (volume, budget, timing, ICP fit, etc.), automatically moves leads through the pipeline and tags them. The admin dashboard shows all dialogs; a human can step in at any moment.",
+        "results": [
+          "Replaced the first-touch sales manager",
+          "Lead qualification takes ~8 minutes instead of 40",
+          "100% coverage — no incoming lead goes unanswered",
+          "Qualified-lead conversion up 31% from process stability alone"
+        ],
+        "stack": ["TypeScript", "Node.js", "Express", "Gemini 2.0 Flash", "Function calling", "AmoCRM API v4", "Firestore", "Wappi (WhatsApp)", "Telegram Bot API"],
+        "url": "Under NDA",
+        "quote": "Direct, fast, no fluff. The kind of developer you wish every project had.",
+        "quoteAuthor": "Anastasia D. · Product Lead"
+      }
+    },
+    "caseLabels": {
+      "problem": "Problem",
+      "solution": "Solution",
+      "results": "Results",
+      "stack": "Stack",
+      "url": "Site",
+      "ctaTitle": "Need something similar?",
+      "ctaBody": "30 minutes on a discovery call, and 24 hours later you have a fixed estimate.",
+      "cta": "Book a call",
+      "more": "More work"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "About — Alex Shuvalov, independent developer",
+      "description": "Websites, AI agents and mobile apps. Senior fullstack. Warsaw, Poland. 4 languages, 8 years of experience, business background."
+    },
+    "eyebrow": "About",
+    "headline": "Alex Shuvalov.\nA developer who understands business.",
+    "lead": "Short version: I build products that make money for my clients. Long version below.",
+    "p1": "My name is Oleksandr Shuvalov — Alex in work contexts. I'm an independent senior fullstack developer. Based in Warsaw, working with clients worldwide: Poland, Ukraine, EU, US, occasionally further.",
+    "p2": "I build three kinds of products: production websites (Next.js, multilingual, SEO baked in), AI agents (RAG assistants, sales bots, function-calling automations) and mobile apps (iOS + Android from a single Expo codebase). Before going solo I worked as a fullstack engineer in product companies and as a founder in my own businesses — that 'understands code + understands money' mix shapes how I run projects.",
+    "p3": "Clients often struggle with agencies for one reason: there are five layers between them and the person writing the code. Account, project, product, lead, junior. Decisions take weeks. I work without those layers — you message me directly, I write the code myself, I respond within hours. Not for everyone, but for MVP-to-mid-size projects it's noticeably faster and cleaner.",
+    "stackTitle": "What I work with",
+    "stack": {
+      "frontend": { "title": "Frontend", "items": ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "Motion / Framer", "next-intl"] },
+      "backend":  { "title": "Backend",  "items": ["Node.js", "Express", "Edge Functions", "Firestore", "Supabase", "PostgreSQL", "pgvector"] },
+      "ai":       { "title": "AI",       "items": ["OpenAI / GPT", "Anthropic / Claude", "Google Gemini", "Function calling", "RAG (pgvector / Pinecone)", "LangChain (selectively)"] },
+      "mobile":   { "title": "Mobile",   "items": ["React Native", "Expo SDK 52", "Swift (native modules)", "Kotlin (native modules)", "RevenueCat", "Expo Push"] },
+      "infra":    { "title": "Infra",    "items": ["Vercel", "Cloudflare", "GitHub Actions", "Sentry", "Upstash Redis", "EAS Build"] }
+    },
+    "languagesTitle": "Languages",
+    "languages": [
+      { "lang": "Русский", "level": "native" },
+      { "lang": "Українська", "level": "native" },
+      { "lang": "English", "level": "B2+, fluent at work" },
+      { "lang": "Polski", "level": "B1, conversational for meetings and contracts" }
+    ],
+    "locationTitle": "Location",
+    "location": "Warsaw, Poland. I work with clients worldwide on EU / US-friendly hours.",
+    "linksTitle": "Where to find me",
+    "ctaTitle": "Let's talk?",
+    "ctaBody": "30-minute call, no commitment. Tell me what you need, I'll tell you honestly if I'm the right fit.",
+    "cta": "Book a call"
+  },
+  "contact": {
+    "meta": {
+      "title": "Contact — Alex Shuvalov, buildbyalex",
+      "description": "Websites, AI agents, mobile apps. 30-minute discovery call. Reply within hours, usually same day."
+    },
+    "eyebrow": "Contact",
+    "headline": "Tell me about the project.",
+    "lead": "30 minutes on a discovery call. 24 hours later you have a fixed estimate on scope, price and launch date.",
+    "responseTime": "I reply within hours — usually same day.",
+    "altTitle": "Or directly",
+    "form": {
+      "name": "Your name",
+      "email": "Email",
+      "company": "Company (optional)",
+      "type": "Project type",
+      "typeOptions": {
+        "website": "Website",
+        "ai": "AI agent / automation",
+        "mobile": "Mobile app",
+        "other": "Other / not sure"
+      },
+      "budget": "Budget",
+      "budgetOptions": {
+        "under1k": "Under €1,000",
+        "to3k": "€1,000–3,000",
+        "to10k": "€3,000–10,000",
+        "over10k": "Above €10,000",
+        "unknown": "Not sure yet"
+      },
+      "description": "Describe the task",
+      "descriptionPlaceholder": "What needs to be done, by when, and whether anything is already in place (design, backend, domain)…",
+      "submit": "Send",
+      "sending": "Sending…",
+      "success": "Thanks! I'll reply within hours.",
+      "error": "Something went wrong. Please try again or email me directly."
+    }
+  },
+  "notFound": {
+    "code": "404",
+    "headline": "Page not found.",
+    "lead": "Looks like this page doesn't exist — or it moved. Happens.",
+    "home": "Go home",
+    "blog": "Read the blog"
+  },
+  "blog": {
+    "meta": {
+      "title": "Blog — on websites, AI and product engineering",
+      "description": "Essays on website development, AI agents, mobile apps, and how all of it connects to business."
+    },
+    "eyebrow": "Blog",
+    "headline": "Notes on code and product.",
+    "subhead": "Essays on websites, AI agents, mobile apps and what sits in between. No filler, no SEO mush.",
+    "readingMinutes": "{m} min read",
+    "noPosts": "First post in this language is on the way. In the meantime — try the [English](/en/blog) or [Russian](/ru/blog) version.",
+    "backToBlog": "All posts",
+    "ctaTitle": "Liked it? Let's talk about your project.",
+    "ctaBody": "30 minutes on a discovery call. No sales pitch.",
+    "cta": "Book a call"
+  },
+  "thankYou": {
+    "meta": {
+      "title": "Thanks — message received",
+      "description": "I've got your message and will reply within hours."
+    },
+    "eyebrow": "Message received",
+    "headline": "Thank you!",
+    "lead": "I've got your message and will reply within hours — usually same day, always before the next business morning.",
+    "back": "Back to home"
+  }
+}

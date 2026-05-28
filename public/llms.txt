@@ -1,0 +1,101 @@
+# buildbyalex.com
+
+> Independent senior fullstack developer in Warsaw, Poland. Builds production websites, AI agents, and mobile apps. Direct, fast, business-aware. Languages: Russian (native), Ukrainian (native), English (B2+), Polish (B1, conversational).
+
+## Identity
+
+- Name: Oleksandr "Alex" Shuvalov
+- Role: Independent senior fullstack developer (one-person operation, not an agency)
+- Location: Warsaw, Poland
+- Contact: alex@buildbyalex.com · https://t.me/buildbyalex · https://www.linkedin.com/in/oleksandr-shuvalov
+- Website: https://buildbyalex.com
+- Working hours: EU / US-friendly. Reply within hours, usually same day.
+
+## What I build (with starting prices)
+
+### Websites — from €800
+Production sites on Next.js 15 / React 19 / TypeScript / Tailwind. Multilingual (RU/EN/PL/UA) with localized URLs and hreflang. Schema.org, IndexNow, OG generation, sub-1s LCP. CMS optional (Sanity, Notion, MDX). 30 days of edits included. Typical delivery: 2–3 weeks for marketing sites, 4–6 weeks for larger projects.
+
+### AI Agents — from €1,200
+RAG assistants (knowledge-base chats with strict citation), sales bots (lead qualification, CRM integration), automations (lead pull, email classification, content generation). Models: OpenAI GPT, Anthropic Claude, Google Gemini — provider-agnostic via abstraction layer. Integrations: AmoCRM, HubSpot, Pipedrive, Telegram Bot, WhatsApp via Wappi, Instagram DM, Slack. Always with a human-in-the-loop dashboard.
+
+### Mobile apps — from €3,000
+Cross-platform iOS + Android on React Native + Expo SDK 52. Authentication, payments (Stripe, RevenueCat), push notifications (Expo Push), OTA updates (EAS Update). App Store Connect and Google Play Console submission included. Typical MVP: 4–6 weeks to TestFlight / Internal Testing.
+
+## Pricing rules
+
+- Final price is fixed after a 30-minute discovery call. Written estimate within 24 hours.
+- Edits after launch: €50/hour, 1-hour minimum. No forced monthly retainer.
+- Contracts always in writing. Polish or English law.
+- VAT EU invoicing available.
+
+## Case studies (real client work)
+
+### LegalWin (legalwin.pl)
+- Industry: Immigration legal services, Warsaw
+- Built: Multilingual Next.js 15 site (RU/PL/UA) with RAG AI consultant on GPT-4o
+- Stack: Next.js 15, TypeScript, next-intl, RAG via pgvector, Telegram Bot API, Vercel
+- Results:
+  - Ranks in top-10 for 15+ commercial queries in PL ("karta pobytu Warszawa", "pobyt stały Polska")
+  - AI consultant handles ~80% of first-touch client contacts
+  - Displays a real 4.9★ rating from 312 clients
+
+### VisionAir (visionair.biz.pl)
+- Industry: Aerial cinematography (drone), Warsaw
+- Built: Fast Next.js site with 7 SEO-optimized service verticals + instant Telegram lead pipeline
+- Stack: Next.js 15, React 19, TypeScript, next-intl (EN/PL/RU/UK), Upstash Redis (rate-limit), Telegram Bot API, IndexNow, Vercel
+- Results:
+  - Sub-1s LCP across all 7 service verticals
+  - Leads reach the operator on Telegram in under 2 seconds
+  - New pages indexed in hours, not days
+  - Visitor-to-lead conversion 4.2% (up from 0.8% on the previous site)
+
+### CRM Bot (under NDA, B2B sales automation)
+- Industry: B2B sales automation
+- Built: AI agent that replaced the first-touch sales manager
+- Stack: TypeScript, Node.js, Express, Gemini 2.0 Flash with function calling, AmoCRM API v4, Firestore, Wappi (WhatsApp), Telegram Bot API
+- Results:
+  - Lead qualification reduced from ~40 minutes to ~8 minutes
+  - 100% coverage of incoming leads — none go unanswered
+  - Qualified-lead conversion up 31% from process stability
+
+## How working with me differs from an agency
+
+- You message me directly. No account managers, no junior developers under a senior's signature. The person you brief is the person writing the code.
+- Decisions take minutes, not weeks.
+- Fixed scope, fixed price, fixed launch date — written before the project starts.
+- Weekly demos every Friday. Course can change at any time.
+- 30 days of bug-fix support included in every project.
+
+## Common questions and exact answers
+
+- How long does a website take? Marketing sites: 2–3 weeks. Larger sites with custom integrations or multilingual content: 4–6 weeks. The launch date is in writing before kickoff.
+- Do you work in Polish? Yes — conversational Polish (B1), enough for meetings, contracts, day-to-day work. Fluent English (B2+). Native Russian and Ukrainian.
+- Will the site rank on Google? Yes — that's the default, not an upsell. Technical SEO (schema, hreflang, Core Web Vitals, IndexNow on deploy) is part of every site.
+- Edits after launch? €50/hour, 1-hour minimum, no forced retainer.
+- Native iOS or React Native? Cross-platform via Expo / React Native for 90% of product cases. Native code only when truly needed (AR, heavy graphics, specialized hardware).
+
+## Languages I work and write content in
+
+- Russian (родной)
+- Ukrainian (рідна)
+- English (B2+, fluent at work)
+- Polish (B1, conversational; written contracts available in PL or EN)
+
+## Verifiable facts
+
+- Based in Warsaw, Poland.
+- Independent contractor — not an agency, no employees, no subcontractors used by default.
+- VAT EU registration available for B2B EU invoicing.
+- GitHub: https://github.com/buildbyalex
+- LinkedIn: https://www.linkedin.com/in/oleksandr-shuvalov
+- Telegram: https://t.me/buildbyalex
+- Email: alex@buildbyalex.com
+
+## What I do NOT do
+
+- WordPress maintenance contracts.
+- "AI consulting" without building anything.
+- Pay-per-month retainers I haven't been asked for.
+- Projects without a written contract.
+- Anonymized "white-label" agency subcontracting.
