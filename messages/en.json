@@ -174,21 +174,23 @@
     "testimonials": {
       "eyebrow": "What clients say",
       "headline": "Trusted by founders and operators.",
+      "subhead": "Sample testimonials shown below — real client quotes will replace these once approved for public use.",
+      "placeholderBadge": "Placeholder",
       "items": {
         "one": {
-          "quote": "Alex shipped in three weeks what two agencies couldn't deliver in three months. The site loads instantly and we're getting calls from Google.",
-          "name": "Marta K.",
-          "company": "LegalWin · Founder"
+          "quote": "Example testimonial — a short, specific quote about scope, speed and a concrete result will go here once a client has signed off on public use.",
+          "name": "Client name",
+          "company": "Industry · Role"
         },
         "two": {
-          "quote": "He understood the business in one call. The AI agent now handles the first contact for every lead and routes the qualified ones to my CRM automatically.",
-          "name": "Igor P.",
-          "company": "VisionAir · CEO"
+          "quote": "Example testimonial — a quote describing how the AI agent fits into the client's workflow and the metric it moved will go here, with permission.",
+          "name": "Client name",
+          "company": "Industry · Role"
         },
         "three": {
-          "quote": "Direct, fast, no fluff. The kind of developer you wish every project had. Will work with him again.",
-          "name": "Anastasia D.",
-          "company": "B2B SaaS · Product Lead"
+          "quote": "Example testimonial — a quote about working style and what made the engagement different from a previous agency will go here, with permission.",
+          "name": "Client name",
+          "company": "Industry · Role"
         }
       }
     },
@@ -423,6 +425,23 @@
         "quote": "Direct, fast, no fluff. The kind of developer you wish every project had.",
         "quoteAuthor": "Anastasia D. · Product Lead"
       }
+    },
+    "caseMetrics": {
+      "legalwin": [
+        { "value": "15+", "label": "Keywords in top-10" },
+        { "value": "312", "label": "Client reviews" },
+        { "value": "4.9", "label": "Average rating" }
+      ],
+      "visionair": [
+        { "value": "<1s", "label": "LCP across pages" },
+        { "value": "4", "label": "Languages" },
+        { "value": "2s", "label": "Lead-to-Telegram time" }
+      ],
+      "crmbot": [
+        { "value": "24/7", "label": "Automated coverage" },
+        { "value": "100%", "label": "Leads processed" },
+        { "value": "0", "label": "Manual first-touch steps" }
+      ]
     },
     "caseLabels": {
       "problem": "Problem",

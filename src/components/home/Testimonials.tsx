@@ -29,13 +29,17 @@ export function Testimonials() {
           <div className="mx-auto max-w-[760px] text-center">
             <p className="t-eyebrow">{t("eyebrow")}</p>
             <h2 className="mt-3 t-h2">{t("headline")}</h2>
+            <p className="mt-5 t-body-lg text-[color:var(--color-text-3)]">{t("subhead")}</p>
           </div>
         </Reveal>
 
         <div className="mt-14 grid gap-5 md:mt-20 md:grid-cols-3">
           {items.map((key, i) => (
             <Reveal key={key} delay={i * 90}>
-              <figure className="flex h-full flex-col rounded-[24px] bg-[color:var(--color-bg-elev)] p-7 md:p-8">
+              <figure className="relative flex h-full flex-col rounded-[24px] bg-[color:var(--color-bg-elev)] p-7 md:p-8">
+                <span className="absolute right-5 top-5 rounded-full border border-[color:var(--color-text-3)]/30 px-2.5 py-0.5 text-[10.5px] font-semibold uppercase tracking-[0.08em] text-[color:var(--color-text-3)]">
+                  {t("placeholderBadge")}
+                </span>
                 <Stars />
                 <blockquote className="mt-5 text-[16.5px] leading-[1.5] text-[color:var(--color-text)]">
                   “{t(`items.${key}.quote`)}”

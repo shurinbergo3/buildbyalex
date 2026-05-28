@@ -174,21 +174,23 @@
     "testimonials": {
       "eyebrow": "Co mówią klienci",
       "headline": "Zaufali mi founderzy i operatorzy.",
+      "subhead": "Poniżej — przykłady. Prawdziwe opinie klientów pojawią się tutaj po zatwierdzeniu publikacji.",
+      "placeholderBadge": "Przykład",
       "items": {
         "one": {
-          "quote": "Alex w trzy tygodnie dostarczył to, czego dwie agencje nie umiały zrobić w trzy miesiące. Strona ładuje się natychmiast, a my dostajemy telefony z Google.",
-          "name": "Marta K.",
-          "company": "LegalWin · Założycielka"
+          "quote": "Przykładowa opinia — konkretny cytat o zakresie, tempie i mierzalnym wyniku pojawi się tutaj po zgodzie klienta na publikację.",
+          "name": "Imię klienta",
+          "company": "Branża · Rola"
         },
         "two": {
-          "quote": "Zrozumiał biznes w jednej rozmowie. Agent AI obsługuje pierwszy kontakt z każdym leadem i automatycznie przekazuje zakwalifikowanych do mojego CRM.",
-          "name": "Igor P.",
-          "company": "VisionAir · CEO"
+          "quote": "Przykładowa opinia — cytat o tym, jak agent AI wpisał się w proces klienta i którą metrykę poruszył, pojawi się tutaj za zgodą klienta.",
+          "name": "Imię klienta",
+          "company": "Branża · Rola"
         },
         "three": {
-          "quote": "Konkret, szybkość, zero waty. Taki developer, jakiego chciałbyś przy każdym projekcie. Wracam.",
-          "name": "Anastazja D.",
-          "company": "SaaS B2B · Product Lead"
+          "quote": "Przykładowa opinia — cytat o stylu pracy i o tym, czym współpraca różniła się od wcześniejszego doświadczenia z agencją, pojawi się tutaj za zgodą klienta.",
+          "name": "Imię klienta",
+          "company": "Branża · Rola"
         }
       }
     },
@@ -423,6 +425,23 @@
         "quote": "Konkret, szybkość, zero waty. Taki developer, jakiego chciałbyś przy każdym projekcie.",
         "quoteAuthor": "Anastazja D. · Product Lead"
       }
+    },
+    "caseMetrics": {
+      "legalwin": [
+        { "value": "15+", "label": "Fraz w top-10" },
+        { "value": "312", "label": "Opinii klientów" },
+        { "value": "4.9", "label": "Średnia ocena" }
+      ],
+      "visionair": [
+        { "value": "<1s", "label": "LCP na podstronach" },
+        { "value": "4", "label": "Języków" },
+        { "value": "2s", "label": "Lead na Telegram" }
+      ],
+      "crmbot": [
+        { "value": "24/7", "label": "Pełne pokrycie automatyczne" },
+        { "value": "100%", "label": "Obsłużonych leadów" },
+        { "value": "0", "label": "Ręcznych kroków na starcie" }
+      ]
     },
     "caseLabels": {
       "problem": "Problem",
