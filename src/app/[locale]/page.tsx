@@ -8,7 +8,6 @@ import { FeaturedWork } from "@/components/home/FeaturedWork";
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { Section } from "@/components/Section";
 import { Container } from "@/components/Container";
-import { CRMBotFlow } from "@/components/CRMBotFlow";
 import { TelegramChatMock } from "@/components/TelegramChatMock";
 import { CRMFunnelMock } from "@/components/CRMFunnelMock";
 import { Pricing } from "@/components/home/Pricing";
@@ -35,11 +34,6 @@ export default async function HomePage({
       <ServicesOverview />
       <FeaturedWork />
       <HowItWorks />
-      <Section pad="default">
-        <Container>
-          <CRMBotFlow />
-        </Container>
-      </Section>
       <Section pad="default">
         <Container>
           <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
