@@ -7,7 +7,7 @@ import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 
 const HERO_IMAGE_URL =
-  "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2400&q=85";
+  "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=2400&q=85";
 
 export function Hero() {
   const t = useTranslations("home.hero");
@@ -19,6 +19,7 @@ export function Hero() {
   const contentRef = useRef<HTMLDivElement | null>(null);
   const chromeRef = useRef<HTMLDivElement | null>(null);
   const ringRef = useRef<HTMLDivElement | null>(null);
+  const hoverRaf = useRef(0);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -40,7 +41,6 @@ export function Hero() {
       const vh = window.innerHeight;
       const scrollZone = Math.max(1, rect.height - vh);
       const raw = reduced ? 0 : Math.min(1, Math.max(0, -rect.top / scrollZone));
-      // smoothstep easing for a more natural morph
       const p = raw * raw * (3 - 2 * raw);
 
       const w = window.innerWidth;
@@ -56,19 +56,19 @@ export function Hero() {
       frame.style.bottom = `${p * maxBottom}px`;
       frame.style.borderRadius = `${p * maxRadius}px`;
 
-      // Headline content fades & lifts as the card shrinks
-      const cp = Math.min(1, p / 0.55);
-      content.style.opacity = String(1 - cp);
-      content.style.transform = `translate3d(0, ${cp * -36}px, 0)`;
+      // Content stays visible — scales down with the card, only slightly dims
+      const scale = 1 - p * 0.18;     // 1 → 0.82
+      const opacity = 1 - p * 0.25;   // 1 → 0.75
+      const ty = p * -10;
+      content.style.opacity = String(opacity);
+      content.style.transform = `translate3d(0, ${ty}px, 0) scale(${scale})`;
 
-      // Browser chrome rises from the top edge as the card emerges
       if (chrome) {
         const ch = Math.max(0, Math.min(1, (p - 0.45) / 0.4));
         chrome.style.opacity = String(ch);
         chrome.style.transform = `translate3d(0, ${(1 - ch) * -12}px, 0)`;
       }
 
-      // Subtle outline ring strengthens as the card stands apart from the page
       if (ring) {
         ring.style.opacity = String(p * 0.9);
       }
@@ -89,10 +89,38 @@ export function Hero() {
     };
   }, []);
 
+  // Cursor spotlight — write CSS vars relative to the frame, rAF-throttled
+  const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const cx = e.clientX;
+    const cy = e.clientY;
+    if (hoverRaf.current) return;
+    hoverRaf.current = requestAnimationFrame(() => {
+      hoverRaf.current = 0;
+      const el = frameRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const x = ((cx - rect.left) / rect.width) * 100;
+      const y = ((cy - rect.top) / rect.height) * 100;
+      el.style.setProperty("--mx", `${x}%`);
+      el.style.setProperty("--my", `${y}%`);
+      el.dataset.spot = "on";
+    });
+  };
+
+  const onLeave = () => {
+    const el = frameRef.current;
+    if (!el) return;
+    el.dataset.spot = "off";
+  };
+
   return (
     <section ref={sectionRef} className="hero-scroll">
       <div className="hero-sticky">
-        <div className="hero-stage">
+        <div
+          className="hero-stage"
+          onMouseMove={onMove}
+          onMouseLeave={onLeave}
+        >
           <div ref={frameRef} className="hero-frame">
             <Image
               src={HERO_IMAGE_URL}
@@ -104,6 +132,8 @@ export function Hero() {
               draggable={false}
             />
             <div className="hero-frame-tint" aria-hidden="true" />
+            <div className="hero-flashlight" aria-hidden="true" />
+            <div className="hero-glow" aria-hidden="true" />
             <div ref={ringRef} className="hero-frame-ring" aria-hidden="true" />
             <div ref={chromeRef} className="hero-chrome" aria-hidden="true">
               <span className="hero-chrome-dot hero-chrome-dot--r" />
