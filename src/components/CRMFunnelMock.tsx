@@ -115,23 +115,28 @@ export function CRMFunnelMock() {
 
         {/* Kanban */}
         <div
-          className="relative overflow-x-auto px-3 py-4"
+          className="relative overflow-x-auto px-3 py-4 sm:px-4"
           style={{
             background:
               "linear-gradient(180deg, #0f1620 0%, #0b1018 100%)",
+            scrollSnapType: "x mandatory",
           }}
         >
           <div
-            className="grid gap-3"
+            className="grid gap-2 sm:gap-3"
             style={{
-              gridTemplateColumns: `repeat(${stages.length}, minmax(150px, 1fr))`,
+              gridTemplateColumns: `repeat(${stages.length}, minmax(132px, 1fr))`,
             }}
           >
             {stages.map((stage, i) => {
               const tone = STAGE_TONES[i] ?? STAGE_TONES[0];
               const isActive = activeStage === i;
               return (
-                <div key={stage} className="flex min-w-0 flex-col gap-2.5">
+                <div
+                  key={stage}
+                  className="flex min-w-0 flex-col gap-2.5"
+                  style={{ scrollSnapAlign: "start" }}
+                >
                   {/* Column header */}
                   <div className="flex flex-col gap-2 px-1">
                     <div
@@ -156,8 +161,10 @@ export function CRMFunnelMock() {
                     </div>
                   </div>
 
-                  {/* Column body — relative so the floating active card can sit inside */}
-                  <div className="relative flex min-h-[180px] flex-col gap-2">
+                  {/* Column body — relative so the floating active card can sit inside.
+                      Fixed min height holds the tallest possible stack (2 static + 1 active)
+                      so the kanban doesn't jump as the active card moves. */}
+                  <div className="relative flex min-h-[252px] flex-col gap-2">
                     {STATIC_CARDS.filter((c) => c.stage === i).map((c, idx) => (
                       <StaticCard
                         key={`${stage}-${idx}`}

@@ -86,7 +86,7 @@ export function GoogleSerpMock() {
       </div>
 
       {/* Google header */}
-      <div className="flex items-center gap-6 px-6 pt-5 pb-3">
+      <div className="flex items-center gap-3 px-4 pt-4 pb-3 sm:gap-6 sm:px-6 sm:pt-5">
         <GoogleLogo />
         <div className="relative flex-1">
           <div className="flex h-[44px] items-center gap-3 rounded-full border border-[#dfe1e5] px-5 shadow-[0_1px_6px_rgba(32,33,36,0.08)]">
@@ -110,7 +110,7 @@ export function GoogleSerpMock() {
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-6 border-b border-[#ebebeb] px-6 text-[13px] text-[#5f6368]">
+      <div className="flex items-center gap-4 overflow-x-auto border-b border-[#ebebeb] px-4 text-[13px] text-[#5f6368] sm:gap-6 sm:px-6">
         <Tab label="All" active />
         <Tab label="Images" />
         <Tab label="News" />
@@ -119,8 +119,8 @@ export function GoogleSerpMock() {
         <Tab label="More" />
       </div>
 
-      {/* Results */}
-      <div className="min-h-[420px] px-6 py-4">
+      {/* Results — fixed min height holds the tallest query result set so the box doesn't grow between queries */}
+      <div className="min-h-[460px] px-4 py-4 sm:min-h-[520px] sm:px-6">
         <p className="text-[12.5px] text-[#70757a]">{block.count}</p>
 
         <AnimatePresence mode="wait">
@@ -189,14 +189,10 @@ function Result({
             </span>
           )}
         </div>
-        <h3
-          className={`mt-1 text-[20px] leading-[1.3] ${
-            highlight ? "text-[#1a0dab]" : "text-[#1a0dab]"
-          } hover:underline`}
-        >
+        <h3 className="mt-1 text-[17px] leading-[1.3] text-[#1a0dab] hover:underline sm:text-[20px]">
           {item.title}
         </h3>
-        <p className="mt-1 text-[14px] leading-[1.5] text-[#4d5156]">
+        <p className="mt-1 text-[13px] leading-[1.5] text-[#4d5156] sm:text-[14px]">
           {item.snippet}
         </p>
         {item.rating && (

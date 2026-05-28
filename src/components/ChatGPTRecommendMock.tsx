@@ -102,12 +102,12 @@ export function ChatGPTRecommendMock() {
         </div>
       </div>
 
-      {/* Chat body */}
-      <div className="min-h-[520px] px-6 py-8 md:px-12" style={{ background: "#212121" }}>
-        <div className="mx-auto max-w-[680px] space-y-7">
+      {/* Chat body — fixed min height holds the full typed response so the box doesn't grow while typing */}
+      <div className="min-h-[460px] px-4 py-6 sm:min-h-[520px] sm:px-6 sm:py-8 md:px-12" style={{ background: "#212121" }}>
+        <div className="mx-auto max-w-[680px] space-y-6 sm:space-y-7">
           {phase !== "idle" && (
             <div
-              className="ml-auto max-w-[80%] rounded-2xl rounded-br-md px-4 py-3 text-[15px] leading-[1.55] text-white"
+              className="ml-auto max-w-[85%] rounded-2xl rounded-br-md px-3.5 py-2.5 text-[13.5px] leading-[1.55] text-white sm:px-4 sm:py-3 sm:text-[15px]"
               style={{ background: "#2f2f2f", animation: "ctgFadeUp 350ms ease-out both" }}
             >
               {userQuestion}
@@ -115,7 +115,7 @@ export function ChatGPTRecommendMock() {
           )}
 
           {(phase === "thinking" || phase === "typing" || phase === "done") && (
-            <div className="flex gap-4" style={{ animation: "ctgFadeUp 350ms ease-out both" }}>
+            <div className="flex gap-3 sm:gap-4" style={{ animation: "ctgFadeUp 350ms ease-out both" }}>
               <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-black/40 ring-1 ring-white/10">
                 <ChatGPTSparkle />
               </div>
@@ -123,7 +123,7 @@ export function ChatGPTRecommendMock() {
                 {phase === "thinking" ? (
                   <ThinkingDots />
                 ) : (
-                  <div className="whitespace-pre-line text-[15px] leading-[1.65] text-white/90">
+                  <div className="whitespace-pre-line text-[13.5px] leading-[1.6] text-white/90 sm:text-[15px] sm:leading-[1.65]">
                     {visibleSegments.map((seg, i) => {
                       if (seg.type === "bold")
                         return (
@@ -157,7 +157,7 @@ export function ChatGPTRecommendMock() {
       </div>
 
       {/* Input bar */}
-      <div className="border-t border-white/[0.06] px-6 py-4 md:px-12" style={{ background: "#212121" }}>
+      <div className="border-t border-white/[0.06] px-4 py-3 sm:px-6 sm:py-4 md:px-12" style={{ background: "#212121" }}>
         <div className="mx-auto flex max-w-[680px] items-center gap-2 rounded-full border border-white/10 px-4 py-2.5" style={{ background: "#2f2f2f" }}>
           <button className="text-white/50" aria-label="Attach">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
