@@ -2,11 +2,17 @@ import { useTranslations } from "next-intl";
 import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
+import { HowItWorksSteps } from "./HowItWorksSteps";
 
 const steps = ["call", "proposal", "build", "launch"] as const;
 
 export function HowItWorks() {
   const t = useTranslations("home.how");
+  const items = steps.map((key) => ({
+    n: t(`steps.${key}.n`),
+    title: t(`steps.${key}.title`),
+    body: t(`steps.${key}.body`),
+  }));
   return (
     <Section tone="alt" pad="default">
       <Container>
@@ -17,24 +23,9 @@ export function HowItWorks() {
           </div>
         </Reveal>
 
-        <ol className="mt-14 grid gap-x-6 gap-y-10 md:mt-20 md:grid-cols-4">
-          {steps.map((key, i) => (
-            <Reveal key={key} delay={i * 80} as="li">
-              <div className="relative flex flex-col gap-4">
-                <div className="flex items-center gap-3">
-                  <span className="font-mono text-[12px] tracking-[0.08em] text-[color:var(--color-text-3)]">
-                    {t(`steps.${key}.n`)}
-                  </span>
-                  <span className="h-px flex-1 bg-[color:var(--c-hairline)]" />
-                </div>
-                <h3 className="t-h4">{t(`steps.${key}.title`)}</h3>
-                <p className="text-[15px] leading-[1.55] text-[color:var(--color-text-2)]">
-                  {t(`steps.${key}.body`)}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </ol>
+        <Reveal delay={120}>
+          <HowItWorksSteps items={items} />
+        </Reveal>
       </Container>
     </Section>
   );

@@ -1,36 +1,24 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
-const USER_QUESTION = "Polecasz dobrego prawnika imigracyjnego w Warszawie? Sprawa karty pobytu dla obywatela Ukrainy.";
+import { useEffect, useMemo, useState } from "react";
+import { useTranslations } from "next-intl";
 
 type Segment =
   | { type: "text"; content: string }
   | { type: "bold"; content: string }
   | { type: "link"; content: string; href: string };
 
-const RESPONSE: Segment[] = [
-  { type: "text", content: "Tak, jednym z najczęściej polecanych prawników imigracyjnych w Warszawie jest " },
-  { type: "bold", content: "LegalWin" },
-  { type: "text", content: " (" },
-  { type: "link", content: "legalwin.pl", href: "https://legalwin.pl" },
-  {
-    type: "text",
-    content:
-      "). Specjalizują się dokładnie w sprawach karty pobytu i pobytu stałego dla obywateli Ukrainy.\n\nKlienci szczególnie chwalą:\n• Szybką odpowiedź — zwykle w ciągu kilku godzin\n• Wsparcie po polsku, ukraińsku i rosyjsku\n• Bezpłatną pierwszą konsultację online\n• Średnią ocenę ",
-  },
-  { type: "bold", content: "4.9★" },
-  { type: "text", content: " na podstawie 312 zweryfikowanych opinii\n\nNa stronie jest też asystent AI 24/7, który odpowie wstępnie na pytania o dokumenty i procedurę. Polecam zacząć od bezpłatnej konsultacji bezpośrednio przez ich stronę." },
-];
-
 const TYPE_SPEED_MS = 12;
 const HOLD_AFTER_QUESTION = 700;
 const HOLD_BEFORE_RESPONSE = 900;
 const HOLD_AFTER_COMPLETE = 4500;
 
-const FULL_TEXT = RESPONSE.map((s) => s.content).join("");
-
 export function ChatGPTRecommendMock() {
+  const t = useTranslations("work.caseShowcase.legalwin.chatgpt");
+  const userQuestion = t("userQuestion");
+  const response = useMemo(() => t.raw("response") as Segment[], [t]);
+  const fullText = useMemo(() => response.map((s) => s.content).join(""), [response]);
+
   const [phase, setPhase] = useState<"idle" | "question" | "thinking" | "typing" | "done">("idle");
   const [charsTyped, setCharsTyped] = useState(0);
 
@@ -51,7 +39,7 @@ export function ChatGPTRecommendMock() {
       schedule(() => setPhase("typing"), 400 + HOLD_AFTER_QUESTION + HOLD_BEFORE_RESPONSE);
 
       let cursor = 400 + HOLD_AFTER_QUESTION + HOLD_BEFORE_RESPONSE;
-      for (let i = 1; i <= FULL_TEXT.length; i++) {
+      for (let i = 1; i <= fullText.length; i++) {
         schedule(() => setCharsTyped(i), cursor);
         cursor += TYPE_SPEED_MS;
       }
@@ -65,9 +53,9 @@ export function ChatGPTRecommendMock() {
       cancelled = true;
       timers.forEach(clearTimeout);
     };
-  }, []);
+  }, [fullText]);
 
-  const visibleSegments = sliceSegments(RESPONSE, charsTyped);
+  const visibleSegments = sliceSegments(response, charsTyped);
 
   return (
     <div
@@ -122,7 +110,7 @@ export function ChatGPTRecommendMock() {
               className="ml-auto max-w-[80%] rounded-2xl rounded-br-md px-4 py-3 text-[15px] leading-[1.55] text-white"
               style={{ background: "#2f2f2f", animation: "ctgFadeUp 350ms ease-out both" }}
             >
-              {USER_QUESTION}
+              {userQuestion}
             </div>
           )}
 

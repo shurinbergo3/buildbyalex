@@ -5,6 +5,7 @@ import { Hero } from "@/components/home/Hero";
 import { PainPoints } from "@/components/home/PainPoints";
 import { ServicesOverview } from "@/components/home/ServicesOverview";
 import { FeaturedWork } from "@/components/home/FeaturedWork";
+import { LegalwinHomeShowcase } from "@/components/home/LegalwinHomeShowcase";
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { Section } from "@/components/Section";
 import { Container } from "@/components/Container";
@@ -33,6 +34,7 @@ export default async function HomePage({
       <PainPoints />
       <ServicesOverview />
       <FeaturedWork />
+      <LegalwinHomeShowcase />
       <HowItWorks />
       <Section pad="default">
         <Container>

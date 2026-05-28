@@ -116,6 +116,32 @@
         }
       }
     },
+    "legalwinShowcase": {
+      "eyebrow": "Case · LegalWin",
+      "headline": "Found on Google. <br></br>Named in <accent>ChatGPT</accent>.",
+      "subhead": "One site sits in the top of Google for 15+ commercial queries — and AI assistants recommend it by name. The same playbook is available to you.",
+      "metrics": [
+        { "value": "15+", "label": "queries in Google top 10" },
+        { "value": "4.9★", "label": "from 312 verified clients" },
+        { "value": "$0", "label": "spent on paid ads" }
+      ],
+      "columns": {
+        "serp": {
+          "index": "01",
+          "label": "Classic search",
+          "caption": "Real Warsaw immigration queries — legalwin.pl ranks above directories, aggregators and large firms."
+        },
+        "chatgpt": {
+          "index": "02",
+          "label": "AI search",
+          "caption": "ChatGPT names the site unprompted and surfaces social proof — rating and review count."
+        }
+      },
+      "cta": {
+        "tag": "Same playbook — for your site.",
+        "label": "Open the full LegalWin case"
+      }
+    },
     "how": {
       "eyebrow": "How it works",
       "headline": "Four steps. No surprises.",
@@ -620,6 +646,33 @@
         "url": "Under NDA",
         "quote": "Direct, fast, no fluff. The kind of developer you wish every project had.",
         "quoteAuthor": "Anastasia D. · Product Lead"
+      },
+      "donbrava": {
+        "industry": "Immigration services · Bratislava",
+        "title": "Donbrava — AI-Bohdan",
+        "tagline": "A Telegram userbot that runs sales from the owner's real account — like a live sales manager who never sleeps.",
+        "problem": "Bohdan is an immigration consultant in Slovakia, handling temporary protection (€350/person) and business services for Ukrainians (€200 paid consultations, residency, s.r.o., živnosť). Inbound on Telegram was steady, but quality suffered: evening messages sat until morning, weekends ate leads, and recurring 'what documents?' / 'how long does it take?' questions soaked up more time than the actual paying clients.",
+        "solution": "I built a Telegram userbot on Telethon + GPT-4o that runs from Bohdan's real phone number — not a @bot, a live account. It imitates his messaging style and timing (2–12 minute unread windows on first contact, a typing indicator, an explicit read-receipt delay), distinguishes services (€350 temporary protection vs €200 consultation), pulls the live EUR→UAH rate from Monobank's public API, sends the right payment details (IBAN or Mono card with the converted hryvnia amount), flags payments with a [PAYMENT_SENT] marker and quietly hands the conversation over to Bohdan. Document uploads and escalations ping the owner instantly with a deep link into the chat.",
+        "results": [
+          "≈ 210 hours of owner time returned per month — the equivalent of 1.3 full-time staff",
+          "Full 24/7 coverage — no more lost evening or weekend leads",
+          "Payment details land before the prospect can DM a competitor",
+          "Run cost ≈ $30/month in API — vs ≥ €1,200/month for a junior sales hire"
+        ],
+        "stack": [
+          "Python",
+          "Telethon (Telegram userbot)",
+          "OpenAI GPT-4o",
+          "Prompt caching",
+          "SQLite",
+          "Monobank Currency API",
+          "Docker",
+          "Dokploy",
+          "Hetzner VPS"
+        ],
+        "url": "Under NDA",
+        "quote": "The bot writes the way I do — clients have no idea it isn't me. I open Telegram in the morning and three payments are already in, plus three notifications in the owner chat.",
+        "quoteAuthor": "Bohdan D. · Donbrava"
       }
     },
     "caseMetrics": {
@@ -664,6 +717,20 @@
           "value": "0",
           "label": "Manual first-touch steps"
         }
+      ],
+      "donbrava": [
+        {
+          "value": "≈ 210 h",
+          "label": "Owner hours saved per month"
+        },
+        {
+          "value": "24/7",
+          "label": "Night & weekend coverage"
+        },
+        {
+          "value": "~$30",
+          "label": "Monthly API cost"
+        }
       ]
     },
     "caseShowcase": {
@@ -671,12 +738,268 @@
         "serp": {
           "eyebrow": "Google search",
           "headline": "First page for 15+ commercial keywords",
-          "subhead": "Real Warsaw immigration queries — legalwin.pl ranks alongside (and above) directories and large agencies."
+          "subhead": "Real Warsaw immigration queries — legalwin.pl ranks alongside (and above) directories and large agencies.",
+          "queries": [
+            {
+              "q": "Polish residence permit Warsaw",
+              "count": "About 48,200 results (0.31 sec)",
+              "results": [
+                {
+                  "site": "legalwin.pl",
+                  "breadcrumb": "https://legalwin.pl › karta-pobytu",
+                  "title": "Residence permit in Warsaw — complete 2026 guide | LegalWin",
+                  "snippet": "Step by step: documents to prepare, where to file, how long it takes. Free AI consultation 24/7. Client rating 4.9★.",
+                  "rating": "Rating 4.9 · 312 reviews"
+                },
+                {
+                  "site": "gov.pl",
+                  "breadcrumb": "https://gov.pl › residence-permits",
+                  "title": "Temporary residence permit — Republic of Poland portal",
+                  "snippet": "Official information about the procedure for applying for a temporary residence permit for foreigners…"
+                },
+                {
+                  "site": "infor.pl",
+                  "breadcrumb": "https://infor.pl › law › residence-permit",
+                  "title": "Residence permit 2025 — application, documents, fees",
+                  "snippet": "Check which documents are required for a residence permit application in 2025 and current fees…"
+                }
+              ]
+            },
+            {
+              "q": "immigration lawyer Poland",
+              "count": "About 31,700 results (0.42 sec)",
+              "results": [
+                {
+                  "site": "legalwin.pl",
+                  "breadcrumb": "https://legalwin.pl",
+                  "title": "LegalWin — immigration lawyer in Warsaw · RU · PL · UA",
+                  "snippet": "Specialization: residence permits, permanent residence, citizenship, family reunification. First consultation free. 312 satisfied clients.",
+                  "rating": "Rating 4.9 · 312 reviews"
+                },
+                {
+                  "site": "adwokat-warszawa.pl",
+                  "breadcrumb": "https://adwokat-warszawa.pl › immigration",
+                  "title": "Law Firm — immigration law Warsaw",
+                  "snippet": "Legal assistance in foreigner matters, representation before the Office for Foreigners…"
+                },
+                {
+                  "site": "panoramafirm.pl",
+                  "breadcrumb": "https://panoramafirm.pl › lawyers",
+                  "title": "Immigration lawyer Poland — firm directory",
+                  "snippet": "List of 247 firms specializing in immigration law in Poland. Reviews, contact, location…"
+                }
+              ]
+            },
+            {
+              "q": "permanent residence Poland for Ukrainians",
+              "count": "About 22,400 results (0.28 sec)",
+              "results": [
+                {
+                  "site": "legalwin.pl",
+                  "breadcrumb": "https://legalwin.pl › pobyt-staly",
+                  "title": "Permanent residence for Ukrainian citizens — 2026 guide | LegalWin",
+                  "snippet": "Requirements, documents, deadlines. AI consultant answers in Polish, Ukrainian or Russian. Rating 4.9★ from 312 clients.",
+                  "rating": "Rating 4.9 · 312 reviews"
+                },
+                {
+                  "site": "ukrayinets.pl",
+                  "breadcrumb": "https://ukrayinets.pl › permanent-residence",
+                  "title": "Permanent residence in Poland — how to obtain it",
+                  "snippet": "What you need for permanent residence, what documents to prepare, how long the decision takes…"
+                },
+                {
+                  "site": "migrant.info.pl",
+                  "breadcrumb": "https://migrant.info.pl › permanent-residence",
+                  "title": "Permanent residence permit — information for foreigners",
+                  "snippet": "Complete information about obtaining a permanent residence permit in Poland…"
+                }
+              ]
+            },
+            {
+              "q": "legal help for foreigners Warsaw",
+              "count": "About 18,900 results (0.36 sec)",
+              "results": [
+                {
+                  "site": "legalwin.pl",
+                  "breadcrumb": "https://legalwin.pl",
+                  "title": "Legal help for foreigners · Warsaw | LegalWin",
+                  "snippet": "24/7 support in three languages. Immigration cases, residence permit, citizenship. Free first online consultation.",
+                  "rating": "Rating 4.9 · 312 reviews"
+                },
+                {
+                  "site": "ngo.pl",
+                  "breadcrumb": "https://ngo.pl › legal-aid",
+                  "title": "Free legal aid for foreigners — list of organizations",
+                  "snippet": "Directory of NGOs offering free legal advice for foreigners in Warsaw…"
+                },
+                {
+                  "site": "warszawa19115.pl",
+                  "breadcrumb": "https://warszawa19115.pl › foreigners",
+                  "title": "Warsaw 19115 — help for foreigners",
+                  "snippet": "City information point for people from abroad living in the capital. Contact, opening hours…"
+                }
+              ]
+            }
+          ]
         },
         "chatgpt": {
           "eyebrow": "Recommended by AI",
           "headline": "ChatGPT names LegalWin by default",
-          "subhead": "When users ask ChatGPT for an immigration lawyer in Warsaw, the site comes back as a top recommendation — with the 4.9★ rating cited."
+          "subhead": "When users ask ChatGPT for an immigration lawyer in Warsaw, the site comes back as a top recommendation — with the 4.9★ rating cited.",
+          "userQuestion": "Can you recommend a good immigration lawyer in Warsaw? It's for a Ukrainian citizen's residence permit case.",
+          "response": [
+            {
+              "type": "text",
+              "content": "Yes, one of the most frequently recommended immigration lawyers in Warsaw is "
+            },
+            {
+              "type": "bold",
+              "content": "LegalWin"
+            },
+            {
+              "type": "text",
+              "content": " ("
+            },
+            {
+              "type": "link",
+              "content": "legalwin.pl",
+              "href": "https://legalwin.pl"
+            },
+            {
+              "type": "text",
+              "content": "). They specialize exactly in residence permit and permanent residence cases for Ukrainian citizens.\n\nWhat clients especially praise:\n• Fast response — usually within a few hours\n• Support in Polish, Ukrainian and Russian\n• Free first online consultation\n• Average rating of "
+            },
+            {
+              "type": "bold",
+              "content": "4.9★"
+            },
+            {
+              "type": "text",
+              "content": " based on 312 verified reviews\n\nThe site also has a 24/7 AI assistant that gives initial answers about documents and procedures. I recommend starting with a free consultation directly on their site."
+            }
+          ]
+        }
+      },
+      "visionair": {
+        "speed": {
+          "eyebrow": "PageSpeed Insights",
+          "headline": "Sub-1s LCP across every service page",
+          "subhead": "All 7 verticals — weddings, real estate, inspection, advertising — pass Core Web Vitals on mobile and desktop.",
+          "tabs": {
+            "mobile": "Mobile",
+            "desktop": "Desktop"
+          },
+          "categories": {
+            "performance": "Performance",
+            "accessibility": "Accessibility",
+            "bestPractices": "Best Practices",
+            "seo": "SEO"
+          },
+          "metricsHeading": "Core Web Vitals",
+          "metricLabels": {
+            "fcp": "First Contentful Paint",
+            "lcp": "Largest Contentful Paint",
+            "tbt": "Total Blocking Time",
+            "cls": "Cumulative Layout Shift",
+            "si": "Speed Index"
+          },
+          "pages": [
+            {
+              "url": "visionair.biz.pl/dron-na-wesele",
+              "label": "Wedding aerial filming",
+              "metrics": {
+                "fcp": "0.5 s",
+                "lcp": "0.8 s",
+                "tbt": "0 ms",
+                "cls": "0",
+                "si": "0.9 s"
+              }
+            },
+            {
+              "url": "visionair.biz.pl/zdjecia-nieruchomosci",
+              "label": "Real estate photos",
+              "metrics": {
+                "fcp": "0.4 s",
+                "lcp": "0.7 s",
+                "tbt": "10 ms",
+                "cls": "0",
+                "si": "0.8 s"
+              }
+            },
+            {
+              "url": "visionair.biz.pl/inspekcje-z-drona",
+              "label": "Industrial inspection",
+              "metrics": {
+                "fcp": "0.6 s",
+                "lcp": "0.9 s",
+                "tbt": "0 ms",
+                "cls": "0.01",
+                "si": "1.0 s"
+              }
+            },
+            {
+              "url": "visionair.biz.pl/reklama-z-powietrza",
+              "label": "Aerial advertising",
+              "metrics": {
+                "fcp": "0.5 s",
+                "lcp": "0.8 s",
+                "tbt": "20 ms",
+                "cls": "0",
+                "si": "0.9 s"
+              }
+            }
+          ],
+          "captionTemplate": "{url} · analyzed on a slow 4G connection"
+        },
+        "lead": {
+          "eyebrow": "Instant lead routing",
+          "headline": "From submit to Telegram in under 2 seconds",
+          "subhead": "Igor sees the lead before the visitor closes the tab — and replies before competitors even know it exists.",
+          "form": {
+            "title": "Get a quote",
+            "subtitle": "We reply on Telegram within minutes",
+            "fields": {
+              "name": "Your name",
+              "phone": "Phone number",
+              "service": "Service",
+              "date": "Event date"
+            },
+            "submit": "Send request",
+            "sending": "Sending…",
+            "sent": "Sent ✓"
+          },
+          "phone": {
+            "lockTime": "9:41",
+            "app": "VisionAir CRM",
+            "elapsedLabel": "delivered in",
+            "tag": "from visionair.biz.pl"
+          },
+          "leads": [
+            {
+              "name": "Anna K.",
+              "phone": "+48 602 ••• •••",
+              "elapsed": "1.4 s",
+              "service": "Wedding · Warsaw",
+              "date": "24.08.2026",
+              "preview": "Hi, we need a drone for an outdoor wedding in August near Warsaw. Can we talk?"
+            },
+            {
+              "name": "Tomasz W.",
+              "phone": "+48 514 ••• •••",
+              "elapsed": "1.1 s",
+              "service": "Real estate · Mokotów",
+              "date": "12.06.2026",
+              "preview": "Looking for aerial photos of a house I'm putting up for sale. When can you shoot?"
+            },
+            {
+              "name": "Magdalena R.",
+              "phone": "+48 697 ••• •••",
+              "elapsed": "1.6 s",
+              "service": "Industrial inspection",
+              "date": "Next week",
+              "preview": "We need a roof inspection on a warehouse outside the city. Quote for half a day?"
+            }
+          ]
         }
       }
     },

@@ -116,6 +116,32 @@
         }
       }
     },
+    "legalwinShowcase": {
+      "eyebrow": "Case study · LegalWin",
+      "headline": "Znaleziony w Google. <br></br>Polecany w <accent>ChatGPT</accent>.",
+      "subhead": "Jedna strona w top wynikach Google dla 15+ zapytań komercyjnych — i asystenci AI polecają ją z nazwy. Ten sam schemat dostępny dla Ciebie.",
+      "metrics": [
+        { "value": "15+", "label": "zapytań w top 10 Google" },
+        { "value": "4,9★", "label": "od 312 zweryfikowanych klientów" },
+        { "value": "0 zł", "label": "wydane na reklamy płatne" }
+      ],
+      "columns": {
+        "serp": {
+          "index": "01",
+          "label": "Klasyczne wyszukiwanie",
+          "caption": "Rzeczywiste warszawskie zapytania imigracyjne — legalwin.pl wyprzedza katalogi, agregatory i duże kancelarie."
+        },
+        "chatgpt": {
+          "index": "02",
+          "label": "Wyszukiwanie AI",
+          "caption": "ChatGPT z własnej inicjatywy wymienia nazwę i dodaje dowód społeczny — ocenę i liczbę opinii."
+        }
+      },
+      "cta": {
+        "tag": "Ten sam schemat — dla Twojej strony.",
+        "label": "Otwórz pełne case study LegalWin"
+      }
+    },
     "how": {
       "eyebrow": "Jak pracujemy",
       "headline": "Cztery kroki. Bez niespodzianek.",
@@ -671,12 +697,268 @@
         "serp": {
           "eyebrow": "Wyszukiwarka Google",
           "headline": "Pierwsza strona dla 15+ komercyjnych zapytań",
-          "subhead": "Realne warszawskie zapytania o sprawy imigracyjne — legalwin.pl wyświetla się obok (i powyżej) katalogów i dużych kancelarii."
+          "subhead": "Realne warszawskie zapytania o sprawy imigracyjne — legalwin.pl wyświetla się obok (i powyżej) katalogów i dużych kancelarii.",
+          "queries": [
+            {
+              "q": "karta pobytu Warszawa",
+              "count": "Około 48 200 wyników (0,31 s)",
+              "results": [
+                {
+                  "site": "legalwin.pl",
+                  "breadcrumb": "https://legalwin.pl › karta-pobytu",
+                  "title": "Karta pobytu w Warszawie — kompletny przewodnik 2026 | LegalWin",
+                  "snippet": "Krok po kroku: jakie dokumenty zebrać, gdzie złożyć wniosek, ile to trwa. Bezpłatna konsultacja AI 24/7. Ocena klientów 4.9★.",
+                  "rating": "Ocena 4.9 · 312 opinii"
+                },
+                {
+                  "site": "gov.pl",
+                  "breadcrumb": "https://gov.pl › karty-pobytu",
+                  "title": "Karta pobytu czasowego — Serwis Rzeczypospolitej Polskiej",
+                  "snippet": "Informacje urzędowe o procedurze ubiegania się o kartę pobytu czasowego dla obcokrajowców…"
+                },
+                {
+                  "site": "infor.pl",
+                  "breadcrumb": "https://infor.pl › prawo › karta-pobytu",
+                  "title": "Karta pobytu 2025 — wniosek, dokumenty, opłaty",
+                  "snippet": "Sprawdź, jakie dokumenty są wymagane do wniosku o kartę pobytu w 2025 roku oraz aktualne opłaty…"
+                }
+              ]
+            },
+            {
+              "q": "adwokat imigracyjny Polska",
+              "count": "Około 31 700 wyników (0,42 s)",
+              "results": [
+                {
+                  "site": "legalwin.pl",
+                  "breadcrumb": "https://legalwin.pl",
+                  "title": "LegalWin — adwokat imigracyjny w Warszawie · RU · PL · UA",
+                  "snippet": "Specjalizacja: karta pobytu, pobyt stały, obywatelstwo, łączenie rodzin. Pierwsza konsultacja bezpłatna. 312 zadowolonych klientów.",
+                  "rating": "Ocena 4.9 · 312 opinii"
+                },
+                {
+                  "site": "adwokat-warszawa.pl",
+                  "breadcrumb": "https://adwokat-warszawa.pl › imigracja",
+                  "title": "Kancelaria Adwokacka — prawo imigracyjne Warszawa",
+                  "snippet": "Pomoc prawna w sprawach cudzoziemskich, reprezentacja przed Urzędem do Spraw Cudzoziemców…"
+                },
+                {
+                  "site": "panoramafirm.pl",
+                  "breadcrumb": "https://panoramafirm.pl › adwokaci",
+                  "title": "Adwokat imigracyjny Polska — katalog kancelarii",
+                  "snippet": "Lista 247 kancelarii specjalizujących się w prawie imigracyjnym w Polsce. Opinie, kontakt, lokalizacja…"
+                }
+              ]
+            },
+            {
+              "q": "pobyt stały dla Ukraińca",
+              "count": "Około 22 400 wyników (0,28 s)",
+              "results": [
+                {
+                  "site": "legalwin.pl",
+                  "breadcrumb": "https://legalwin.pl › pobyt-staly",
+                  "title": "Pobyt stały dla obywateli Ukrainy — przewodnik 2026 | LegalWin",
+                  "snippet": "Warunki, dokumenty, terminy. AI-konsultant odpowie po polsku, ukraińsku lub rosyjsku. Ocena 4.9★ od 312 klientów.",
+                  "rating": "Ocena 4.9 · 312 opinii"
+                },
+                {
+                  "site": "ukrayinets.pl",
+                  "breadcrumb": "https://ukrayinets.pl › pobyt-staly",
+                  "title": "Постійний побут у Польщі — як отримати",
+                  "snippet": "Що потрібно для отримання постійного побуту, які документи готувати, скільки чекати рішення…"
+                },
+                {
+                  "site": "migrant.info.pl",
+                  "breadcrumb": "https://migrant.info.pl › pobyt-staly",
+                  "title": "Zezwolenie na pobyt stały — informacje dla cudzoziemców",
+                  "snippet": "Kompletne informacje o procedurze uzyskania zezwolenia na pobyt stały w Polsce…"
+                }
+              ]
+            },
+            {
+              "q": "pomoc prawna dla cudzoziemców Warszawa",
+              "count": "Około 18 900 wyników (0,36 s)",
+              "results": [
+                {
+                  "site": "legalwin.pl",
+                  "breadcrumb": "https://legalwin.pl",
+                  "title": "Pomoc prawna dla cudzoziemców · Warszawa | LegalWin",
+                  "snippet": "Wsparcie 24/7 w trzech językach. Sprawy imigracyjne, karta pobytu, obywatelstwo. Bezpłatna pierwsza konsultacja online.",
+                  "rating": "Ocena 4.9 · 312 opinii"
+                },
+                {
+                  "site": "ngo.pl",
+                  "breadcrumb": "https://ngo.pl › pomoc-prawna",
+                  "title": "Bezpłatna pomoc prawna dla cudzoziemców — lista organizacji",
+                  "snippet": "Spis organizacji pozarządowych oferujących bezpłatne porady prawne dla cudzoziemców w Warszawie…"
+                },
+                {
+                  "site": "warszawa19115.pl",
+                  "breadcrumb": "https://warszawa19115.pl › cudzoziemcy",
+                  "title": "Warszawa 19115 — pomoc dla cudzoziemców",
+                  "snippet": "Miejski punkt informacyjny dla osób z zagranicy mieszkających w stolicy. Kontakt, godziny pracy…"
+                }
+              ]
+            }
+          ]
         },
         "chatgpt": {
           "eyebrow": "Polecane przez AI",
           "headline": "ChatGPT poleca LegalWin z imienia",
-          "subhead": "Gdy użytkownicy pytają ChatGPT o prawnika imigracyjnego w Warszawie, strona wraca jako rekomendacja — z podaniem oceny 4.9★."
+          "subhead": "Gdy użytkownicy pytają ChatGPT o prawnika imigracyjnego w Warszawie, strona wraca jako rekomendacja — z podaniem oceny 4.9★.",
+          "userQuestion": "Polecasz dobrego prawnika imigracyjnego w Warszawie? Sprawa karty pobytu dla obywatela Ukrainy.",
+          "response": [
+            {
+              "type": "text",
+              "content": "Tak, jednym z najczęściej polecanych prawników imigracyjnych w Warszawie jest "
+            },
+            {
+              "type": "bold",
+              "content": "LegalWin"
+            },
+            {
+              "type": "text",
+              "content": " ("
+            },
+            {
+              "type": "link",
+              "content": "legalwin.pl",
+              "href": "https://legalwin.pl"
+            },
+            {
+              "type": "text",
+              "content": "). Specjalizują się dokładnie w sprawach karty pobytu i pobytu stałego dla obywateli Ukrainy.\n\nKlienci szczególnie chwalą:\n• Szybką odpowiedź — zwykle w ciągu kilku godzin\n• Wsparcie po polsku, ukraińsku i rosyjsku\n• Bezpłatną pierwszą konsultację online\n• Średnią ocenę "
+            },
+            {
+              "type": "bold",
+              "content": "4.9★"
+            },
+            {
+              "type": "text",
+              "content": " na podstawie 312 zweryfikowanych opinii\n\nNa stronie jest też asystent AI 24/7, który odpowie wstępnie na pytania o dokumenty i procedurę. Polecam zacząć od bezpłatnej konsultacji bezpośrednio przez ich stronę."
+            }
+          ]
+        }
+      },
+      "visionair": {
+        "speed": {
+          "eyebrow": "PageSpeed Insights",
+          "headline": "LCP poniżej sekundy na każdej stronie usługowej",
+          "subhead": "Wszystkie 7 kategorii — wesela, nieruchomości, inspekcje, reklama — przechodzi Core Web Vitals na mobile i desktopie.",
+          "tabs": {
+            "mobile": "Mobile",
+            "desktop": "Desktop"
+          },
+          "categories": {
+            "performance": "Wydajność",
+            "accessibility": "Dostępność",
+            "bestPractices": "Najlepsze praktyki",
+            "seo": "SEO"
+          },
+          "metricsHeading": "Core Web Vitals",
+          "metricLabels": {
+            "fcp": "First Contentful Paint",
+            "lcp": "Largest Contentful Paint",
+            "tbt": "Total Blocking Time",
+            "cls": "Cumulative Layout Shift",
+            "si": "Speed Index"
+          },
+          "pages": [
+            {
+              "url": "visionair.biz.pl/dron-na-wesele",
+              "label": "Dron na wesele",
+              "metrics": {
+                "fcp": "0.5 s",
+                "lcp": "0.8 s",
+                "tbt": "0 ms",
+                "cls": "0",
+                "si": "0.9 s"
+              }
+            },
+            {
+              "url": "visionair.biz.pl/zdjecia-nieruchomosci",
+              "label": "Zdjęcia nieruchomości",
+              "metrics": {
+                "fcp": "0.4 s",
+                "lcp": "0.7 s",
+                "tbt": "10 ms",
+                "cls": "0",
+                "si": "0.8 s"
+              }
+            },
+            {
+              "url": "visionair.biz.pl/inspekcje-z-drona",
+              "label": "Inspekcje przemysłowe",
+              "metrics": {
+                "fcp": "0.6 s",
+                "lcp": "0.9 s",
+                "tbt": "0 ms",
+                "cls": "0.01",
+                "si": "1.0 s"
+              }
+            },
+            {
+              "url": "visionair.biz.pl/reklama-z-powietrza",
+              "label": "Reklama z powietrza",
+              "metrics": {
+                "fcp": "0.5 s",
+                "lcp": "0.8 s",
+                "tbt": "20 ms",
+                "cls": "0",
+                "si": "0.9 s"
+              }
+            }
+          ],
+          "captionTemplate": "{url} · pomiar na wolnym 4G"
+        },
+        "lead": {
+          "eyebrow": "Natychmiastowe lead routing",
+          "headline": "Od wysłania formularza do Telegrama w mniej niż 2 sekundy",
+          "subhead": "Igor widzi leada zanim odwiedzający zamknie kartę — i odpowiada zanim konkurencja w ogóle wie, że istnieje.",
+          "form": {
+            "title": "Wyceń realizację",
+            "subtitle": "Odpowiadamy na Telegramie w kilka minut",
+            "fields": {
+              "name": "Twoje imię",
+              "phone": "Numer telefonu",
+              "service": "Usługa",
+              "date": "Data wydarzenia"
+            },
+            "submit": "Wyślij zapytanie",
+            "sending": "Wysyłam…",
+            "sent": "Wysłane ✓"
+          },
+          "phone": {
+            "lockTime": "9:41",
+            "app": "VisionAir CRM",
+            "elapsedLabel": "dostarczono w",
+            "tag": "z visionair.biz.pl"
+          },
+          "leads": [
+            {
+              "name": "Anna K.",
+              "phone": "+48 602 ••• •••",
+              "elapsed": "1.4 s",
+              "service": "Wesele · Warszawa",
+              "date": "24.08.2026",
+              "preview": "Cześć, potrzebuję drona na wesele w sierpniu pod Warszawą. Możemy porozmawiać?"
+            },
+            {
+              "name": "Tomasz W.",
+              "phone": "+48 514 ••• •••",
+              "elapsed": "1.1 s",
+              "service": "Nieruchomości · Mokotów",
+              "date": "12.06.2026",
+              "preview": "Szukam zdjęć z lotu ptaka domu na sprzedaż. Kiedy moglibyście przyjechać?"
+            },
+            {
+              "name": "Magdalena R.",
+              "phone": "+48 697 ••• •••",
+              "elapsed": "1.6 s",
+              "service": "Inspekcja przemysłowa",
+              "date": "W przyszłym tygodniu",
+              "preview": "Potrzebujemy inspekcji dachu hali pod miastem. Wycena za pół dnia?"
+            }
+          ]
         }
       }
     },

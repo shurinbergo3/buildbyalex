@@ -1,125 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "motion/react";
-
-const QUERIES = [
-  "karta pobytu Warszawa",
-  "adwokat imigracyjny Polska",
-  "pobyt stały dla Ukraińca",
-  "pomoc prawna dla cudzoziemców Warszawa",
-];
-
-const RESULTS_BY_QUERY: Record<string, ResultSet> = {
-  "karta pobytu Warszawa": {
-    count: "About 48 200 results (0.31 sec)",
-    items: [
-      {
-        site: "legalwin.pl",
-        breadcrumb: "https://legalwin.pl › karta-pobytu",
-        title: "Karta pobytu w Warszawie — kompletny przewodnik 2026 | LegalWin",
-        snippet:
-          "Krok po kroku: jakie dokumenty zebrać, gdzie złożyć wniosek, ile to trwa. Bezpłatna konsultacja AI 24/7. Ocena klientów 4.9★.",
-        rating: "Ocena 4.9 · 312 opinii",
-      },
-      {
-        site: "gov.pl",
-        breadcrumb: "https://gov.pl › karty-pobytu",
-        title: "Karta pobytu czasowego — Serwis Rzeczypospolitej Polskiej",
-        snippet:
-          "Informacje urzędowe o procedurze ubiegania się o kartę pobytu czasowego dla obcokrajowców…",
-      },
-      {
-        site: "infor.pl",
-        breadcrumb: "https://infor.pl › prawo › karta-pobytu",
-        title: "Karta pobytu 2025 — wniosek, dokumenty, opłaty",
-        snippet:
-          "Sprawdź, jakie dokumenty są wymagane do wniosku o kartę pobytu w 2025 roku oraz aktualne opłaty…",
-      },
-    ],
-  },
-  "adwokat imigracyjny Polska": {
-    count: "About 31 700 results (0.42 sec)",
-    items: [
-      {
-        site: "legalwin.pl",
-        breadcrumb: "https://legalwin.pl",
-        title: "LegalWin — adwokat imigracyjny w Warszawie · RU · PL · UA",
-        snippet:
-          "Specjalizacja: karta pobytu, pobyt stały, obywatelstwo, łączenie rodzin. Pierwsza konsultacja bezpłatna. 312 zadowolonych klientów.",
-        rating: "Ocena 4.9 · 312 opinii",
-      },
-      {
-        site: "adwokat-warszawa.pl",
-        breadcrumb: "https://adwokat-warszawa.pl › imigracja",
-        title: "Kancelaria Adwokacka — prawo imigracyjne Warszawa",
-        snippet:
-          "Pomoc prawna w sprawach cudzoziemskich, reprezentacja przed Urzędem do Spraw Cudzoziemców…",
-      },
-      {
-        site: "panoramafirm.pl",
-        breadcrumb: "https://panoramafirm.pl › adwokaci",
-        title: "Adwokat imigracyjny Polska — katalog kancelarii",
-        snippet:
-          "Lista 247 kancelarii specjalizujących się w prawie imigracyjnym w Polsce. Opinie, kontakt, lokalizacja…",
-      },
-    ],
-  },
-  "pobyt stały dla Ukraińca": {
-    count: "About 22 400 results (0.28 sec)",
-    items: [
-      {
-        site: "legalwin.pl",
-        breadcrumb: "https://legalwin.pl › pobyt-staly",
-        title: "Pobyt stały dla obywateli Ukrainy — przewodnik 2026 | LegalWin",
-        snippet:
-          "Warunki, dokumenty, terminy. AI-konsultant odpowie po polsku, ukraińsku lub rosyjsku. Ocena 4.9★ od 312 klientów.",
-        rating: "Ocena 4.9 · 312 opinii",
-      },
-      {
-        site: "ukrayinets.pl",
-        breadcrumb: "https://ukrayinets.pl › pobyt-staly",
-        title: "Постійний побут у Польщі — як отримати",
-        snippet:
-          "Що потрібно для отримання постійного побуту, які документи готувати, скільки чекати рішення…",
-      },
-      {
-        site: "migrant.info.pl",
-        breadcrumb: "https://migrant.info.pl › pobyt-staly",
-        title: "Zezwolenie na pobyt stały — informacje dla cudzoziemców",
-        snippet:
-          "Kompletne informacje o procedurze uzyskania zezwolenia na pobyt stały w Polsce…",
-      },
-    ],
-  },
-  "pomoc prawna dla cudzoziemców Warszawa": {
-    count: "About 18 900 results (0.36 sec)",
-    items: [
-      {
-        site: "legalwin.pl",
-        breadcrumb: "https://legalwin.pl",
-        title: "Pomoc prawna dla cudzoziemców · Warszawa | LegalWin",
-        snippet:
-          "Wsparcie 24/7 w trzech językach. Sprawy imigracyjne, karta pobytu, obywatelstwo. Bezpłatna pierwsza konsultacja online.",
-        rating: "Ocena 4.9 · 312 opinii",
-      },
-      {
-        site: "ngo.pl",
-        breadcrumb: "https://ngo.pl › pomoc-prawna",
-        title: "Bezpłatna pomoc prawna dla cudzoziemców — lista organizacji",
-        snippet:
-          "Spis organizacji pozarządowych oferujących bezpłatne porady prawne dla cudzoziemców w Warszawie…",
-      },
-      {
-        site: "warszawa19115.pl",
-        breadcrumb: "https://warszawa19115.pl › cudzoziemcy",
-        title: "Warszawa 19115 — pomoc dla cudzoziemców",
-        snippet:
-          "Miejski punkt informacyjny dla osób z zagranicy mieszkających w stolicy. Kontakt, godziny pracy…",
-      },
-    ],
-  },
-};
 
 type ResultItem = {
   site: string;
@@ -129,9 +12,10 @@ type ResultItem = {
   rating?: string;
 };
 
-type ResultSet = {
+type QueryBlock = {
+  q: string;
   count: string;
-  items: ResultItem[];
+  results: ResultItem[];
 };
 
 const TYPE_PER_CHAR = 55;
@@ -139,12 +23,15 @@ const HOLD_AFTER_RESULTS = 4200;
 const HOLD_BEFORE_TYPING = 600;
 
 export function GoogleSerpMock() {
+  const t = useTranslations("work.caseShowcase.legalwin.serp");
+  const queries = useMemo(() => t.raw("queries") as QueryBlock[], [t]);
+
   const [queryIndex, setQueryIndex] = useState(0);
   const [typed, setTyped] = useState("");
   const [showResults, setShowResults] = useState(false);
 
-  const query = QUERIES[queryIndex];
-  const results = RESULTS_BY_QUERY[query];
+  const block = queries[queryIndex];
+  const query = block.q;
 
   useEffect(() => {
     let cancelled = false;
@@ -164,7 +51,7 @@ export function GoogleSerpMock() {
     }
     schedule(() => setShowResults(true), cursor + 250);
     schedule(
-      () => setQueryIndex((idx) => (idx + 1) % QUERIES.length),
+      () => setQueryIndex((idx) => (idx + 1) % queries.length),
       cursor + 250 + HOLD_AFTER_RESULTS,
     );
 
@@ -172,7 +59,7 @@ export function GoogleSerpMock() {
       cancelled = true;
       timers.forEach(clearTimeout);
     };
-  }, [queryIndex, query]);
+  }, [queryIndex, query, queries.length]);
 
   return (
     <div
@@ -234,7 +121,7 @@ export function GoogleSerpMock() {
 
       {/* Results */}
       <div className="min-h-[420px] px-6 py-4">
-        <p className="text-[12.5px] text-[#70757a]">{results.count}</p>
+        <p className="text-[12.5px] text-[#70757a]">{block.count}</p>
 
         <AnimatePresence mode="wait">
           {showResults && (
@@ -246,7 +133,7 @@ export function GoogleSerpMock() {
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="mt-4 space-y-6"
             >
-              {results.items.map((item, i) => (
+              {block.results.map((item, i) => (
                 <Result key={`${query}-${i}`} item={item} highlight={i === 0} delay={i * 80} />
               ))}
             </motion.ol>

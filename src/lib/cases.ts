@@ -1,17 +1,19 @@
-export type CaseKey = "legalwin" | "visionair" | "crmbot";
+export type CaseKey = "legalwin" | "visionair" | "crmbot" | "donbrava";
 
-export const caseSlugs: CaseKey[] = ["legalwin", "visionair", "crmbot"];
+export const caseSlugs: CaseKey[] = ["legalwin", "visionair", "crmbot", "donbrava"];
 
 export const caseSlugToKey: Record<string, CaseKey> = {
   legalwin: "legalwin",
   visionair: "visionair",
   "crm-bot": "crmbot",
+  donbrava: "donbrava",
 };
 
 export const caseKeyToSlug: Record<CaseKey, string> = {
   legalwin: "legalwin",
   visionair: "visionair",
   crmbot: "crm-bot",
+  donbrava: "donbrava",
 };
 
 export const caseImages: Record<CaseKey, { src: string; alt: string }> = {
@@ -26,5 +28,9 @@ export const caseImages: Record<CaseKey, { src: string; alt: string }> = {
   crmbot: {
     src: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1600&q=80",
     alt: "Команда продаж за ноутбуками — кейс CRM Bot",
+  },
+  donbrava: {
+    src: "https://images.unsplash.com/photo-1601933470928-c2adde7838f8?auto=format&fit=crop&w=1600&q=80",
+    alt: "Старый город Братиславы, Словакия — кейс Donbrava",
   },
 };
