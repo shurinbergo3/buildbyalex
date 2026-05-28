@@ -666,6 +666,20 @@
         }
       ]
     },
+    "caseShowcase": {
+      "legalwin": {
+        "serp": {
+          "eyebrow": "Google search",
+          "headline": "First page for 15+ commercial keywords",
+          "subhead": "Real Warsaw immigration queries — legalwin.pl ranks alongside (and above) directories and large agencies."
+        },
+        "chatgpt": {
+          "eyebrow": "Recommended by AI",
+          "headline": "ChatGPT names LegalWin by default",
+          "subhead": "When users ask ChatGPT for an immigration lawyer in Warsaw, the site comes back as a top recommendation — with the 4.9★ rating cited."
+        }
+      }
+    },
     "caseLabels": {
       "problem": "Problem",
       "solution": "Solution",

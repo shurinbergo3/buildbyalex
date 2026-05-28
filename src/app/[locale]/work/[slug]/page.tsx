@@ -8,6 +8,7 @@ import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/Button";
 import { CaseMetrics, type CaseMetric } from "@/components/CaseMetrics";
+import { LegalwinShowcase } from "@/components/LegalwinShowcase";
 import { routing } from "@/i18n/routing";
 import { caseSlugToKey, caseImages, type CaseKey } from "@/lib/cases";
 import { SITE_URL } from "@/lib/site";
@@ -246,6 +247,8 @@ function CaseContent({ slug }: { slug: string }) {
       </Section>
 
       {metrics && metrics.length > 0 && <CaseMetrics metrics={metrics} />}
+
+      {key === "legalwin" && <LegalwinShowcase />}
 
       <Section pad="default">
         <Container size="md">

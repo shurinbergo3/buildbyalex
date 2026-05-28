@@ -666,6 +666,20 @@
         }
       ]
     },
+    "caseShowcase": {
+      "legalwin": {
+        "serp": {
+          "eyebrow": "Wyszukiwarka Google",
+          "headline": "Pierwsza strona dla 15+ komercyjnych zapytań",
+          "subhead": "Realne warszawskie zapytania o sprawy imigracyjne — legalwin.pl wyświetla się obok (i powyżej) katalogów i dużych kancelarii."
+        },
+        "chatgpt": {
+          "eyebrow": "Polecane przez AI",
+          "headline": "ChatGPT poleca LegalWin z imienia",
+          "subhead": "Gdy użytkownicy pytają ChatGPT o prawnika imigracyjnego w Warszawie, strona wraca jako rekomendacja — z podaniem oceny 4.9★."
+        }
+      }
+    },
     "caseLabels": {
       "problem": "Problem",
       "solution": "Rozwiązanie",
