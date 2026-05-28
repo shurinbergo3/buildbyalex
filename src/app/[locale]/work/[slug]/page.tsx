@@ -248,7 +248,9 @@ function CaseContent({ slug }: { slug: string }) {
         </Container>
       </Section>
 
-      {metrics && metrics.length > 0 && <CaseMetrics metrics={metrics} />}
+      {key !== "legalwin" && metrics && metrics.length > 0 && (
+        <CaseMetrics metrics={metrics} />
+      )}
 
       {key === "legalwin" && <LegalwinShowcase />}
       {key === "visionair" && <VisionairShowcase />}

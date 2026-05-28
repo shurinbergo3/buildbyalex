@@ -878,6 +878,69 @@
               "content": " based on 312 verified reviews\n\nThe site also has a 24/7 AI assistant that gives initial answers about documents and procedures. I recommend starting with a free consultation directly on their site."
             }
           ]
+        },
+        "siteChat": {
+          "eyebrow": "On-site AI consultant",
+          "headline": "Mila handles first contact in 10 seconds",
+          "subhead": "The bot knows every Urząd requirement, answers in three languages, and qualifies the lead before Marta opens Telegram. Drops in with one line of code.",
+          "widget": {
+            "name": "Mila",
+            "status": "LegalWin AI consultant · usually replies instantly",
+            "greeting": "Hi there! I'm Mila from LegalWin. How can I help — karta pobytu, license exchange, Kod 95 or citizenship?",
+            "inputPlaceholder": "Ask anything…",
+            "disclaimer": "Exact timelines and pricing for your case are confirmed by a specialist on a free consultation.",
+            "backdrop": "Firm founded in 2018. We work in four languages. First consultation is free.",
+            "scenarios": [
+              {
+                "topic": "Karta pobytu",
+                "exchanges": [
+                  { "type": "user", "text": "Which documents do I need for karta pobytu czasowy?" },
+                  {
+                    "type": "bot",
+                    "intro": "Core pack:",
+                    "bullets": [
+                      "Completed wniosek (2024 form)",
+                      "Passport + copies of all pages with stamps",
+                      "4 photos 35×45 mm, taken within 6 months",
+                      "Employment contract or proof of studies",
+                      "Lease agreement + meldunek",
+                      "Health insurance for at least 12 months"
+                    ],
+                    "outro": "Which of these do you already have?"
+                  },
+                  { "type": "user", "text": "All of them. How long is the wait?" },
+                  {
+                    "type": "bot",
+                    "intro": "Mazowieckie is running 6-8 months right now. You can keep working on stempel for the entire wait.",
+                    "cta": "Book a call with Marta"
+                  }
+                ]
+              },
+              {
+                "topic": "Kod 95",
+                "exchanges": [
+                  { "type": "user", "text": "What does Kod 95 cost and how long does it take?" },
+                  {
+                    "type": "bot",
+                    "intro": "Full package:",
+                    "bullets": [
+                      "35 hours of theory + 5 hours of practice",
+                      "Course runs 5–6 weeks, evening sessions",
+                      "From 1 800 zł including the exam",
+                      "Groups available in Russian and Ukrainian"
+                    ],
+                    "outro": "When do you need the certificate by?"
+                  },
+                  { "type": "user", "text": "Within a month. When does the next group start?" },
+                  {
+                    "type": "bot",
+                    "intro": "Next start is in 9 days. 4 seats left.",
+                    "cta": "Reserve a seat"
+                  }
+                ]
+              }
+            ]
+          }
         }
       },
       "visionair": {
@@ -1000,6 +1063,129 @@
               "preview": "We need a roof inspection on a warehouse outside the city. Quote for half a day?"
             }
           ]
+        }
+      },
+      "donbrava": {
+        "employee": {
+          "eyebrow": "Virtual employee",
+          "headline": "One digital hire instead of a whole shift",
+          "subhead": "AI-Bohdan works 24/7 from a real Telegram account, replies in the owner's voice, and closes payments before the prospect has time to message a competitor.",
+          "card": {
+            "badge": "AI Employee · Donbrava",
+            "name": "AI-Bohdan",
+            "role": "Sales assistant · Telegram userbot",
+            "languagesLabel": "Client languages",
+            "languages": ["EN", "RU", "UA", "PL", "SK"],
+            "skillsLabel": "What it can do",
+            "footnote": "Doesn't take vacation, doesn't ignore late-night messages, doesn't fumble payment details. Run cost: about $30/month in API.",
+            "schedule": [
+              { "label": "Schedule", "value": "24 / 7 / 365" },
+              { "label": "On the job since", "value": "February 2026" },
+              { "label": "Coverage", "value": "Temp. protection · residency · business" },
+              { "label": "Channel", "value": "Telegram (private DMs)" }
+            ],
+            "skills": [
+              { "label": "Lead qualification", "level": 98 },
+              { "label": "Sales pitch", "level": 95 },
+              { "label": "Payment details + EUR→UAH rate", "level": 92 },
+              { "label": "Human-style messaging", "level": 100 }
+            ],
+            "stats": [
+              {
+                "value": "≈ 210 h",
+                "label": "Owner hours saved per month",
+                "sub": "≈ 1.3 FTE"
+              },
+              { "value": "100%", "label": "Night & weekend coverage" },
+              { "value": "~4,200", "label": "Messages handled per month" },
+              { "value": "~$30", "label": "Monthly run cost" }
+            ]
+          }
+        },
+        "chat": {
+          "eyebrow": "Live dialog",
+          "headline": "From first 'hello' to payment details delivered",
+          "subhead": "The bot writes like Bohdan does — with pauses, delays, and a real typing indicator. On the right, the engine events firing behind the scenes.",
+          "mock": {
+            "header": {
+              "name": "Bohdan · Donbrava",
+              "status": "online"
+            },
+            "typingStatus": "typing…",
+            "input": "Message",
+            "eventsTitle": "Engine events",
+            "eventsSubtitle": "What the system is doing behind the scenes — in parallel with the friendly chat.",
+            "eventsIdle": "Waiting for the first client message…",
+            "messages": [
+              {
+                "sender": "client",
+                "text": "Hi! I heard you help with temporary protection in Slovakia. Are there still slots this week?"
+              },
+              {
+                "sender": "bot",
+                "text": "Hi! Yes, we book slots through the official system, usually within 1–3 weeks. Just for you or for the whole family?",
+                "eventsTotal": 1
+              },
+              {
+                "sender": "client",
+                "text": "Me, my wife and two kids. What's the total?"
+              },
+              {
+                "sender": "bot",
+                "text": "€350 per person, with a family discount on the kids — €1,050 in total. Paperwork is done in a day; we need passports for everyone and birth certificates for the kids. Ready to start?",
+                "eventsTotal": 2
+              },
+              {
+                "sender": "client",
+                "text": "Yes, ready. How do I pay?"
+              },
+              {
+                "sender": "bot",
+                "text": "Euro to a Slovak account or hryvnia to a Ukrainian card?"
+              },
+              {
+                "sender": "client",
+                "text": "Hryvnia to Mono is easier"
+              },
+              {
+                "sender": "bot",
+                "text": "Got it. At today's Monobank rate (1 € = 41.67 ₴) that's 43,750 ₴.\n\nMono card: 5375 4111 ████ 2843\n\nOnce we start hunting slots the payment is non-refundable. The moment I see the transfer I'll jump on a call with you.",
+                "eventsTotal": 4
+              }
+            ],
+            "events": [
+              {
+                "time": "00:00",
+                "label": "Lead identified",
+                "detail": "Intent: temporary protection (EN)",
+                "tone": "info"
+              },
+              {
+                "time": "00:14",
+                "label": "Qualification complete",
+                "detail": "Family of 4, ready to start",
+                "tone": "info"
+              },
+              {
+                "time": "00:32",
+                "label": "EUR→UAH rate fetched",
+                "detail": "Monobank rateSell · 1 € = 41.67 ₴",
+                "tone": "info"
+              },
+              {
+                "time": "00:34",
+                "label": "[PAYMENT_SENT: protection, 1050, EUR]",
+                "detail": "Mono card delivered to client",
+                "tone": "success"
+              },
+              {
+                "time": "00:34",
+                "label": "Handoff to owner",
+                "detail": "handoff_active = 1 · Bohdan got a deep link",
+                "tone": "alert"
+              }
+            ]
+          }
         }
       }
     },

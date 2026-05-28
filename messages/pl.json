@@ -646,6 +646,33 @@
         "url": "Pod NDA",
         "quote": "Konkret, szybkość, zero waty. Taki developer, jakiego chciałbyś przy każdym projekcie.",
         "quoteAuthor": "Anastazja D. · Product Lead"
+      },
+      "donbrava": {
+        "industry": "Usługi imigracyjne · Bratysława",
+        "title": "Donbrava — AI-Bohdan",
+        "tagline": "Telegramowy userbot, który prowadzi sprzedaż z prawdziwego konta właściciela — jak żywy sales manager.",
+        "problem": "Bohdan to konsultant imigracyjny na Słowacji. Załatwia tymczasową ochronę (350 €/os.) i usługi biznesowe dla Ukraińców (konsultacje 200 €, pobyt, s.r.o., živnosť). Strumień zapytań w Telegramie był stały, ale jakość kulała: wieczorne wiadomości wisiały do rana, weekendy zjadały leady, a powtarzające się 'jakie dokumenty?' i 'ile to potrwa?' wciągały więcej czasu niż realni płacący klienci.",
+        "solution": "Zbudowałem Telegramowy userbot na Telethon + GPT-4o, działający z prawdziwego numeru Bohdana — nie @bot, tylko żywe konto. Naśladuje jego styl pisania i timing (pauzy 2–12 minut przy pierwszym kontakcie, wskaźnik 'pisze', okno nieprzeczytanego przed potwierdzeniem), rozróżnia usługi (350 € ochrona vs 200 € konsultacja), pobiera kurs EUR→UAH z publicznego API Monobanku, wysyła odpowiednie dane do przelewu (IBAN lub karta Mono z przeliczeniem na hrywny), oznacza płatność markerem [PAYMENT_SENT] i po cichu oddaje rozmowę Bohdanowi. Dokumenty i eskalacje natychmiast pingują właściciela z deep-linkiem do chatu.",
+        "results": [
+          "≈ 210 godzin miesięcznie odzyskanych dla właściciela — równowartość 1.3 etatu",
+          "Pełne pokrycie 24/7 — koniec ze straconymi wieczornymi i weekendowymi leadami",
+          "Dane do przelewu lecą do klienta, zanim zdąży napisać do konkurencji",
+          "Koszt pracy ≈ $30/mies. w API — wobec ≥ €1 200/mies. pensji junior sales manager"
+        ],
+        "stack": [
+          "Python",
+          "Telethon (Telegram userbot)",
+          "OpenAI GPT-4o",
+          "Prompt caching",
+          "SQLite",
+          "Monobank Currency API",
+          "Docker",
+          "Dokploy",
+          "Hetzner VPS"
+        ],
+        "url": "Pod NDA",
+        "quote": "Bot pisze tak, że klienci nie domyślają się, że to nie ja. Rano otwieram Telegram, a tam już trzy wpłaty i trzy powiadomienia w czacie właściciela.",
+        "quoteAuthor": "Bohdan D. · Donbrava"
       }
     },
     "caseMetrics": {
@@ -689,6 +716,20 @@
         {
           "value": "0",
           "label": "Ręcznych kroków na starcie"
+        }
+      ],
+      "donbrava": [
+        {
+          "value": "≈ 210 h",
+          "label": "Godzin właściciela odzyskanych miesięcznie"
+        },
+        {
+          "value": "24/7",
+          "label": "Pokrycie nocy i weekendów"
+        },
+        {
+          "value": "~$30",
+          "label": "Miesięczny koszt API"
         }
       ]
     },
@@ -837,6 +878,69 @@
               "content": " na podstawie 312 zweryfikowanych opinii\n\nNa stronie jest też asystent AI 24/7, który odpowie wstępnie na pytania o dokumenty i procedurę. Polecam zacząć od bezpłatnej konsultacji bezpośrednio przez ich stronę."
             }
           ]
+        },
+        "siteChat": {
+          "eyebrow": "Konsultant AI na stronie",
+          "headline": "Mila obsługuje pierwszy kontakt w 10 sekund",
+          "subhead": "Bot zna wymogi Urzędu, odpowiada w trzech językach i kwalifikuje leada zanim Marta otworzy Telegram. Wpinasz go jedną linijką kodu.",
+          "widget": {
+            "name": "Mila",
+            "status": "Konsultant AI LegalWin · zwykle odpowiada natychmiast",
+            "greeting": "Dzień dobry! Nazywam się Mila, jestem z LegalWin. W czym mogę pomóc — karta pobytu, wymiana prawa jazdy, Kod 95 czy obywatelstwo?",
+            "inputPlaceholder": "Zadaj pytanie…",
+            "disclaimer": "Dokładne terminy i koszt Twojej sprawy potwierdzi nasz specjalista na bezpłatnej konsultacji.",
+            "backdrop": "Kancelaria założona w 2018. Pracujemy w czterech językach. Pierwsza konsultacja — bezpłatna.",
+            "scenarios": [
+              {
+                "topic": "Karta pobytu",
+                "exchanges": [
+                  { "type": "user", "text": "Jakie dokumenty są potrzebne do karty pobytu czasowego?" },
+                  {
+                    "type": "bot",
+                    "intro": "Komplet podstawowy:",
+                    "bullets": [
+                      "Wypełniony wniosek (formularz 2024)",
+                      "Paszport + kopie wszystkich stron ze stemplami",
+                      "4 zdjęcia 35×45 mm, nie starsze niż 6 miesięcy",
+                      "Umowa o pracę lub zaświadczenie ze studiów",
+                      "Umowa najmu + meldunek",
+                      "Ubezpieczenie zdrowotne na minimum 12 miesięcy"
+                    ],
+                    "outro": "Co z tego masz już zebrane?"
+                  },
+                  { "type": "user", "text": "Wszystko mam. Ile się czeka na decyzję?" },
+                  {
+                    "type": "bot",
+                    "intro": "W Mazowieckiem obecnie 6-8 miesięcy od daty złożenia. Na stempel można pracować przez cały ten czas.",
+                    "cta": "Umów rozmowę z Martą"
+                  }
+                ]
+              },
+              {
+                "topic": "Kod 95",
+                "exchanges": [
+                  { "type": "user", "text": "Ile kosztuje Kod 95 i jak długo trwa szkolenie?" },
+                  {
+                    "type": "bot",
+                    "intro": "Pełny pakiet:",
+                    "bullets": [
+                      "35 godzin teorii + 5 godzin praktyki",
+                      "Kurs trwa 5–6 tygodni, zajęcia wieczorami",
+                      "Cena — od 1 800 zł wraz z egzaminem",
+                      "Grupy w języku rosyjskim i ukraińskim"
+                    ],
+                    "outro": "Na kiedy potrzebujesz świadectwo?"
+                  },
+                  { "type": "user", "text": "W ciągu miesiąca. Kiedy startuje najbliższa grupa?" },
+                  {
+                    "type": "bot",
+                    "intro": "Najbliższy start — za 9 dni. Zostały 4 miejsca.",
+                    "cta": "Rezerwuję miejsce"
+                  }
+                ]
+              }
+            ]
+          }
         }
       },
       "visionair": {
@@ -959,6 +1063,129 @@
               "preview": "Potrzebujemy inspekcji dachu hali pod miastem. Wycena za pół dnia?"
             }
           ]
+        }
+      },
+      "donbrava": {
+        "employee": {
+          "eyebrow": "Wirtualny pracownik",
+          "headline": "Jeden cyfrowy pracownik zamiast całej zmiany",
+          "subhead": "AI-Bohdan pracuje 24/7 z prawdziwego konta Telegram, pisze w stylu właściciela i zamyka płatności, zanim klient zdąży napisać do konkurencji.",
+          "card": {
+            "badge": "AI Employee · Donbrava",
+            "name": "AI-Bohdan",
+            "role": "Asystent sprzedaży · Telegram userbot",
+            "languagesLabel": "Języki klientów",
+            "languages": ["PL", "EN", "RU", "UA", "SK"],
+            "skillsLabel": "Co potrafi",
+            "footnote": "Nie idzie na urlop, nie ignoruje nocnych wiadomości, nie myli danych do przelewu. Koszt pracy — około $30/mies. na API.",
+            "schedule": [
+              { "label": "Grafik", "value": "24 / 7 / 365" },
+              { "label": "W pracy od", "value": "Luty 2026" },
+              { "label": "Zakres", "value": "Ochrona tymczasowa · pobyt · biznes" },
+              { "label": "Kanał", "value": "Telegram (prywatne DM)" }
+            ],
+            "skills": [
+              { "label": "Kwalifikacja leada", "level": 98 },
+              { "label": "Pitch sprzedażowy", "level": 95 },
+              { "label": "Dane przelewu + kurs EUR→UAH", "level": 92 },
+              { "label": "Naturalna korespondencja", "level": 100 }
+            ],
+            "stats": [
+              {
+                "value": "≈ 210 h",
+                "label": "Godzin właściciela odzyskanych miesięcznie",
+                "sub": "≈ 1.3 etatu"
+              },
+              { "value": "100%", "label": "Pokrycie nocy i weekendów" },
+              { "value": "~4 200", "label": "Wiadomości miesięcznie" },
+              { "value": "~$30", "label": "Koszt pracy / mies." }
+            ]
+          }
+        },
+        "chat": {
+          "eyebrow": "Żywa rozmowa",
+          "headline": "Tak wygląda sprzedaż — od pierwszego 'cześć' po wysłane dane do przelewu",
+          "subhead": "Bot pisze jak Bohdan — z pauzami, opóźnieniami i prawdziwym wskaźnikiem 'pisze'. Po prawej — zdarzenia silnika dziejące się w tle.",
+          "mock": {
+            "header": {
+              "name": "Bohdan · Donbrava",
+              "status": "online"
+            },
+            "typingStatus": "pisze…",
+            "input": "Wiadomość",
+            "eventsTitle": "Zdarzenia silnika",
+            "eventsSubtitle": "Co system robi w tle — równolegle z przyjazną rozmową.",
+            "eventsIdle": "Czekam na pierwszą wiadomość klienta…",
+            "messages": [
+              {
+                "sender": "client",
+                "text": "Dzień dobry! Słyszałem, że pomagacie z ochroną tymczasową na Słowacji. Są jeszcze terminy w tym tygodniu?"
+              },
+              {
+                "sender": "bot",
+                "text": "Dzień dobry! Tak, terminy łapiemy oficjalnie przez system rezerwacji — zwykle 1–3 tygodnie. Dla siebie czy dla całej rodziny?",
+                "eventsTotal": 1
+              },
+              {
+                "sender": "client",
+                "text": "Z żoną i dwójką dzieci. Ile w sumie wyjdzie?"
+              },
+              {
+                "sender": "bot",
+                "text": "350 € od osoby, na dzieci zniżka rodzinna — w sumie 1 050 €. Papierkologię załatwiamy w jeden dzień, potrzebne paszporty dla wszystkich i akty urodzenia dzieci. Startujemy?",
+                "eventsTotal": 2
+              },
+              {
+                "sender": "client",
+                "text": "Tak, jestem gotów. Jak płacę?"
+              },
+              {
+                "sender": "bot",
+                "text": "Euro na słowackie konto czy hrywny na ukraińską kartę?"
+              },
+              {
+                "sender": "client",
+                "text": "Hrywny na Mono wygodniej"
+              },
+              {
+                "sender": "bot",
+                "text": "Dobrze. Po dzisiejszym kursie Monobanku (1 € = 41,67 ₴) wychodzi 43 750 ₴.\n\nKarta Mono: 5375 4111 ████ 2843\n\nPo starcie prac nad terminem wpłata jest bezzwrotna. Jak zobaczę przelew — odzwonię osobiście.",
+                "eventsTotal": 4
+              }
+            ],
+            "events": [
+              {
+                "time": "00:00",
+                "label": "Lead rozpoznany",
+                "detail": "Intencja: ochrona tymczasowa (PL)",
+                "tone": "info"
+              },
+              {
+                "time": "00:14",
+                "label": "Kwalifikacja zakończona",
+                "detail": "Rodzina 4 os., gotowi do startu",
+                "tone": "info"
+              },
+              {
+                "time": "00:32",
+                "label": "Pobrany kurs EUR→UAH",
+                "detail": "Monobank rateSell · 1 € = 41,67 ₴",
+                "tone": "info"
+              },
+              {
+                "time": "00:34",
+                "label": "[PAYMENT_SENT: protection, 1050, EUR]",
+                "detail": "Karta Mono dostarczona klientowi",
+                "tone": "success"
+              },
+              {
+                "time": "00:34",
+                "label": "Przekazanie właścicielowi",
+                "detail": "handoff_active = 1 · Bohdan dostał deep-link",
+                "tone": "alert"
+              }
+            ]
+          }
         }
       }
     },
