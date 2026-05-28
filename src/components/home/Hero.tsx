@@ -1,42 +1,98 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
-
-const showcaseImages = [
-  {
-    src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85",
-    alt: "Analytics dashboard with charts",
-    span: "md:col-span-7 md:row-span-2",
-    aspect: "aspect-[16/11] md:aspect-auto md:h-full",
-    tint: "from-[#0A1230]/30 via-transparent to-[#0A1230]/10",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=85",
-    alt: "Mobile app interface in hand",
-    span: "md:col-span-5",
-    aspect: "aspect-[4/3]",
-    tint: "from-[#1F0A30]/20 via-transparent to-[#1F0A30]/10",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=85",
-    alt: "Code editor on a clean desk",
-    span: "md:col-span-5",
-    aspect: "aspect-[4/3]",
-    tint: "from-[#301A0A]/25 via-transparent to-[#301A0A]/10",
-  },
-];
 
 export function Hero() {
   const t = useTranslations("home.hero");
   const headlineLines = t("headline").split("\n");
   const last = headlineLines.length - 1;
 
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const contentRef = useRef<HTMLDivElement | null>(null);
+  const auroraRef = useRef<HTMLDivElement | null>(null);
+  const gridRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) return;
+
+    let raf = 0;
+    let pending = false;
+
+    const tick = () => {
+      pending = false;
+      const section = sectionRef.current;
+      const content = contentRef.current;
+      const aurora = auroraRef.current;
+      const grid = gridRef.current;
+      if (!section || !content) return;
+
+      const rect = section.getBoundingClientRect();
+      const h = rect.height || 1;
+      // progress: 0 at top of viewport, 1 when scrolled by section height
+      const p = Math.min(1, Math.max(0, -rect.top / h));
+
+      // Headline: gentle lift + scale, fade as it leaves
+      const ty = p * -60; // px
+      const scale = 1 - p * 0.04;
+      const opacity = 1 - p * 0.85;
+      content.style.transform = `translate3d(0, ${ty}px, 0) scale(${scale})`;
+      content.style.opacity = String(opacity);
+
+      // Aurora: deeper parallax up
+      if (aurora) {
+        aurora.style.transform = `translate3d(0, ${p * -90}px, 0)`;
+      }
+      // Grid: opposite, very slow drift down — adds depth
+      if (grid) {
+        grid.style.transform = `translate3d(0, ${p * 30}px, 0)`;
+        grid.style.opacity = String(1 - p * 0.6);
+      }
+    };
+
+    const onScroll = () => {
+      if (pending) return;
+      pending = true;
+      raf = requestAnimationFrame(tick);
+    };
+
+    tick();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
   return (
-    <section className="relative overflow-hidden pt-20 pb-24 md:pt-28 md:pb-32">
-      <div className="hero-bg" aria-hidden="true" />
+    <section
+      ref={sectionRef}
+      className="hero-shell relative overflow-hidden pt-24 pb-28 md:pt-36 md:pb-40"
+    >
+      {/* Layer 1: drifting aurora orbs */}
+      <div ref={auroraRef} className="hero-aurora" aria-hidden="true">
+        <span className="hero-orb hero-orb--a" />
+        <span className="hero-orb hero-orb--b" />
+        <span className="hero-orb hero-orb--c" />
+      </div>
+
+      {/* Layer 2: fine architectural grid */}
+      <div ref={gridRef} className="hero-grid" aria-hidden="true" />
+
+      {/* Layer 3: subtle grain (kept from previous design) */}
+      <div className="hero-grain" aria-hidden="true" />
+
+      {/* Layer 4: bottom fade into next section for Apple-style continuity */}
+      <div className="hero-fade" aria-hidden="true" />
+
       <Container size="default" className="relative z-10">
-        <div className="mx-auto max-w-[920px] text-center">
+        <div ref={contentRef} className="mx-auto max-w-[920px] text-center will-change-transform">
           <p
             className="t-eyebrow animate-[fadeUp_700ms_cubic-bezier(0.16,1,0.3,1)_both]"
             style={{ animationDelay: "60ms" }}
@@ -44,7 +100,10 @@ export function Hero() {
             {t("eyebrow")}
           </p>
 
-          <h1 className="mt-5 t-hero animate-[fadeUp_900ms_cubic-bezier(0.16,1,0.3,1)_both]" style={{ animationDelay: "160ms" }}>
+          <h1
+            className="mt-5 t-hero animate-[fadeUp_900ms_cubic-bezier(0.16,1,0.3,1)_both]"
+            style={{ animationDelay: "160ms" }}
+          >
             {headlineLines.map((line, i) => (
               <span key={i} className="block">
                 {i === last ? <span className="hl-accent">{line}</span> : line}
@@ -77,37 +136,6 @@ export function Hero() {
           >
             {t("trustLine")}
           </p>
-        </div>
-
-        <div
-          className="mt-16 md:mt-24 animate-[fadeUp_1100ms_cubic-bezier(0.16,1,0.3,1)_both]"
-          style={{ animationDelay: "640ms" }}
-        >
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:auto-rows-[180px] md:gap-5">
-            {showcaseImages.map((img, i) => (
-              <div
-                key={img.src}
-                className={`group relative overflow-hidden rounded-[24px] md:rounded-[28px] ${img.span} ${img.aspect}`}
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  priority={i === 0}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 700px"
-                  className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
-                />
-                <div
-                  className={`pointer-events-none absolute inset-0 bg-gradient-to-tr ${img.tint}`}
-                  aria-hidden="true"
-                />
-                <div
-                  className="pointer-events-none absolute inset-0 rounded-[24px] md:rounded-[28px] ring-1 ring-inset ring-white/10"
-                  aria-hidden="true"
-                />
-              </div>
-            ))}
-          </div>
         </div>
       </Container>
 
