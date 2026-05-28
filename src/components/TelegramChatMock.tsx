@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useTranslations } from "next-intl";
 import { AnimatePresence, motion } from "motion/react";
 
 type Sender = "bot" | "prospect";
@@ -14,55 +15,15 @@ type Message = {
   pauseMs: number;
 };
 
-const SCRIPT: Message[] = [
-  {
-    sender: "bot",
-    text: "👋 Hey! Thanks for reaching out about the growth package. Mind if I ask a couple of quick questions to see if we're a fit?",
-    typingMs: 900,
-    pauseMs: 1100,
-  },
-  {
-    sender: "prospect",
-    text: "Sure, go ahead",
-    typingMs: 1100,
-    pauseMs: 700,
-  },
-  {
-    sender: "bot",
-    text: "Awesome. What's your approximate monthly revenue right now?",
-    typingMs: 1000,
-    pauseMs: 900,
-  },
-  {
-    sender: "prospect",
-    text: "Around $40k/mo, growing ~15% month over month",
-    typingMs: 1600,
-    pauseMs: 800,
-  },
-  {
-    sender: "bot",
-    text: "Nice trajectory 🚀 Are you currently using a CRM, or tracking leads in spreadsheets?",
-    typingMs: 1200,
-    pauseMs: 1000,
-  },
-  {
-    sender: "prospect",
-    text: "HubSpot, but it's getting too expensive for our team",
-    typingMs: 1500,
-    pauseMs: 800,
-  },
-  {
-    sender: "bot",
-    text: "Got it — that's exactly what we solve. I'll send a Calendly link so you can book a 20-min call with Alex this week 📅",
-    typingMs: 1400,
-    pauseMs: 1100,
-  },
-  {
-    sender: "prospect",
-    text: "Perfect, thanks! ✅",
-    typingMs: 900,
-    pauseMs: 1800,
-  },
+const PACING: Pick<Message, "typingMs" | "pauseMs">[] = [
+  { typingMs: 900, pauseMs: 1100 },
+  { typingMs: 1100, pauseMs: 700 },
+  { typingMs: 1000, pauseMs: 900 },
+  { typingMs: 1600, pauseMs: 800 },
+  { typingMs: 1200, pauseMs: 1000 },
+  { typingMs: 1500, pauseMs: 800 },
+  { typingMs: 1400, pauseMs: 1100 },
+  { typingMs: 900, pauseMs: 1800 },
 ];
 
 const LOOP_PAUSE_MS = 8000;
@@ -74,6 +35,21 @@ function formatTime(offsetSeconds: number) {
 }
 
 export function TelegramChatMock() {
+  const t = useTranslations("home.botDemo");
+  const headerName = t("header.name");
+  const headerStatus = t("header.status");
+  const inputPlaceholder = t("input");
+
+  const script = useMemo<Message[]>(() => {
+    const raw = t.raw("messages") as string[];
+    return raw.map((text, i) => ({
+      sender: (i % 2 === 0 ? "bot" : "prospect") as Sender,
+      text,
+      typingMs: PACING[i]?.typingMs ?? 1100,
+      pauseMs: PACING[i]?.pauseMs ?? 900,
+    }));
+  }, [t]);
+
   const [visibleCount, setVisibleCount] = useState(0);
   const [typingFor, setTypingFor] = useState<Sender | null>(null);
   const [cycle, setCycle] = useState(0);
@@ -93,7 +69,7 @@ export function TelegramChatMock() {
     setTypingFor(null);
 
     let cursor = 250;
-    SCRIPT.forEach((msg, i) => {
+    script.forEach((msg, i) => {
       schedule(() => setTypingFor(msg.sender), cursor);
       cursor += msg.typingMs;
       schedule(() => {
@@ -109,7 +85,7 @@ export function TelegramChatMock() {
       cancelled = true;
       timers.forEach(clearTimeout);
     };
-  }, [cycle]);
+  }, [cycle, script]);
 
   return (
     <div className="relative mx-auto" style={{ width: 340 }}>
@@ -167,12 +143,12 @@ export function TelegramChatMock() {
                   "linear-gradient(135deg, #2ea6ea 0%, #1e88c8 100%)",
               }}
             >
-              CB
+              {headerName.replace(/[^A-Za-zА-Яа-яІіЇїЄєҐґ]/g, "").slice(0, 2).toUpperCase() || "CB"}
             </div>
             <div className="min-w-0 flex-1">
               <div className="flex items-center gap-1.5">
                 <span className="truncate text-[15px] font-medium text-white">
-                  CRM Bot
+                  {headerName}
                 </span>
                 <svg
                   width="14"
@@ -193,7 +169,7 @@ export function TelegramChatMock() {
                 </svg>
               </div>
               <div className="truncate text-[12px] text-[#7d8e9c]">
-                bot · online
+                {headerStatus}
               </div>
             </div>
             <button className="p-1.5 text-[#6ab3f3]" aria-label="Call">
@@ -222,7 +198,7 @@ export function TelegramChatMock() {
 
             <div className="relative flex h-full flex-col justify-end gap-1.5">
               <AnimatePresence initial={false}>
-                {SCRIPT.slice(0, visibleCount).map((msg, i) => (
+                {script.slice(0, visibleCount).map((msg, i) => (
                   <Bubble key={`${cycle}-${i}`} sender={msg.sender} text={msg.text} />
                 ))}
                 {typingFor && (
@@ -243,7 +219,7 @@ export function TelegramChatMock() {
               </svg>
             </button>
             <div className="flex-1 rounded-2xl bg-[#242f3d] px-3 py-1.5 text-[14px] text-[#7d8e9c]">
-              Message
+              {inputPlaceholder}
             </div>
             <button className="p-1 text-[#7d8e9c]" aria-label="Voice">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">

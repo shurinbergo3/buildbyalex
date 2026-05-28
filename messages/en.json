@@ -142,6 +142,44 @@
         }
       }
     },
+    "botDemo": {
+      "eyebrow": "Live demo",
+      "headline": "See the bot qualify a lead in real time",
+      "subhead": "Natural conversation, instant responses, automatic scoring. The prospect feels heard — your team only steps in when the deal is ready to close.",
+      "header": {
+        "name": "CRM Bot",
+        "status": "bot · online"
+      },
+      "input": "Message",
+      "messages": [
+        "👋 Hey! Thanks for reaching out about the growth package. Mind if I ask a couple of quick questions to see if we're a fit?",
+        "Sure, go ahead",
+        "Awesome. What's your approximate monthly revenue right now?",
+        "Around $40k/mo, growing ~15% month over month",
+        "Nice trajectory 🚀 Are you currently using a CRM, or tracking leads in spreadsheets?",
+        "HubSpot, but it's getting too expensive for our team",
+        "Got it — that's exactly what we solve. I'll send a Calendly link so you can book a 20-min call with Alex this week 📅",
+        "Perfect, thanks! ✅"
+      ]
+    },
+    "crmFunnel": {
+      "eyebrow": "After the chat",
+      "headline": "Watch the deal move through your funnel automatically",
+      "subhead": "AmoCRM updates in real time as the bot qualifies — no manual data entry, no missed handoffs.",
+      "browserTitle": "amocrm · Sales pipeline",
+      "deal": {
+        "name": "Maria K. · Acme Co.",
+        "amount": "$2,400 / mo",
+        "tag": "From Telegram bot"
+      },
+      "stages": [
+        "New lead",
+        "Qualifying",
+        "Call booked",
+        "Proposal",
+        "Won"
+      ]
+    },
     "pricing": {
       "eyebrow": "Starting prices",
       "headline": "Transparent pricing.\nNo surprises.",
@@ -268,27 +306,70 @@
       "what": {
         "title": "What you get",
         "items": [
-          { "title": "Brand-fit design", "body": "Not a template. Clean Apple-grade typography, considered grids, warm accents — none of the AI-look." },
-          { "title": "Multilingual by default", "body": "EN / PL / UA / RU simultaneously. Proper hreflang, localized URLs, clean structure." },
-          { "title": "Speed", "body": "LCP under 1 second, INP green. Core Web Vitals aren't an afterthought — they're table stakes." },
-          { "title": "SEO baked in", "body": "Schema.org, sitemap, robots, OG images, IndexNow on deploy. Most pages index within hours." },
-          { "title": "CMS optional", "body": "Sanity / Notion / plain MDX — we pick what fits your team. I don't make you pay for what you don't need." },
-          { "title": "Support", "body": "30 days of edits included. After that €50/hour, no forced retainer." }
+          {
+            "title": "Brand-fit design",
+            "body": "Not a template. Clean Apple-grade typography, considered grids, warm accents — none of the AI-look."
+          },
+          {
+            "title": "Multilingual by default",
+            "body": "EN / PL / UA / RU simultaneously. Proper hreflang, localized URLs, clean structure."
+          },
+          {
+            "title": "Speed",
+            "body": "LCP under 1 second, INP green. Core Web Vitals aren't an afterthought — they're table stakes."
+          },
+          {
+            "title": "SEO baked in",
+            "body": "Schema.org, sitemap, robots, OG images, IndexNow on deploy. Most pages index within hours."
+          },
+          {
+            "title": "CMS optional",
+            "body": "Sanity / Notion / plain MDX — we pick what fits your team. I don't make you pay for what you don't need."
+          },
+          {
+            "title": "Support",
+            "body": "30 days of edits included. After that €50/hour, no forced retainer."
+          }
         ]
       },
       "stack": {
         "title": "Tech stack",
-        "items": ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "next-intl", "Sanity / MDX", "Vercel", "Schema.org", "IndexNow"]
+        "items": [
+          "Next.js 15",
+          "React 19",
+          "TypeScript",
+          "Tailwind CSS",
+          "next-intl",
+          "Sanity / MDX",
+          "Vercel",
+          "Schema.org",
+          "IndexNow"
+        ]
       },
       "cases": "Related work",
       "faq": {
         "title": "Questions about websites",
         "items": [
-          { "q": "How fast can you ship?", "a": "A marketing site lands in 2–3 weeks from kickoff. A larger project with integrations and multilingual content takes 4–6 weeks. The date is in writing before the project starts." },
-          { "q": "Will it actually be faster than my current site?", "a": "Almost always, yes. A typical WordPress on shared hosting yields LCP of 3–5 seconds. My sites consistently sit under 1 second. It's not 'optimization' — it's a different architecture (static + edge)." },
-          { "q": "Who maintains the content?", "a": "Depends on the CMS we pick. Sanity for teams who want Notion-style editing. MDX for teams that update once a month. We decide on the discovery call." },
-          { "q": "Can you connect my analytics and pixels?", "a": "Yes. GA4, Meta Pixel, Yandex Metrika, Plausible, PostHog — plus server-side conversion tracking if it matters." },
-          { "q": "What if I already have a Figma design?", "a": "Great. I'll build from it — and I'll usually flag anything that needs tightening for production (accessibility, states, mobile breakpoints) before we start." }
+          {
+            "q": "How fast can you ship?",
+            "a": "A marketing site lands in 2–3 weeks from kickoff. A larger project with integrations and multilingual content takes 4–6 weeks. The date is in writing before the project starts."
+          },
+          {
+            "q": "Will it actually be faster than my current site?",
+            "a": "Almost always, yes. A typical WordPress on shared hosting yields LCP of 3–5 seconds. My sites consistently sit under 1 second. It's not 'optimization' — it's a different architecture (static + edge)."
+          },
+          {
+            "q": "Who maintains the content?",
+            "a": "Depends on the CMS we pick. Sanity for teams who want Notion-style editing. MDX for teams that update once a month. We decide on the discovery call."
+          },
+          {
+            "q": "Can you connect my analytics and pixels?",
+            "a": "Yes. GA4, Meta Pixel, Yandex Metrika, Plausible, PostHog — plus server-side conversion tracking if it matters."
+          },
+          {
+            "q": "What if I already have a Figma design?",
+            "a": "Great. I'll build from it — and I'll usually flag anything that needs tightening for production (accessibility, states, mobile breakpoints) before we start."
+          }
         ]
       }
     },
@@ -305,27 +386,71 @@
       "what": {
         "title": "What I build",
         "items": [
-          { "title": "RAG assistants", "body": "A chat that answers from your knowledge base — without hallucinations. Citations, sources, fallback to a human." },
-          { "title": "Sales bots", "body": "Lead qualification with function calling, scenario classification, automatic pipeline movement in your CRM." },
-          { "title": "Process automation", "body": "Daily lead pulls, email classification, on-brand content generation, report aggregation." },
-          { "title": "Integrations", "body": "AmoCRM, HubSpot, Pipedrive, Telegram, WhatsApp, Instagram DM, Slack, Google Workspace." },
-          { "title": "Admin & metrics", "body": "Not a black box. Dashboard with dialogs, tags, response rating, exports and manual overrides." },
-          { "title": "Model-agnostic", "body": "GPT-5 / Claude / Gemini — we pick per task and budget. Swap without rewriting the project." }
+          {
+            "title": "RAG assistants",
+            "body": "A chat that answers from your knowledge base — without hallucinations. Citations, sources, fallback to a human."
+          },
+          {
+            "title": "Sales bots",
+            "body": "Lead qualification with function calling, scenario classification, automatic pipeline movement in your CRM."
+          },
+          {
+            "title": "Process automation",
+            "body": "Daily lead pulls, email classification, on-brand content generation, report aggregation."
+          },
+          {
+            "title": "Integrations",
+            "body": "AmoCRM, HubSpot, Pipedrive, Telegram, WhatsApp, Instagram DM, Slack, Google Workspace."
+          },
+          {
+            "title": "Admin & metrics",
+            "body": "Not a black box. Dashboard with dialogs, tags, response rating, exports and manual overrides."
+          },
+          {
+            "title": "Model-agnostic",
+            "body": "GPT-5 / Claude / Gemini — we pick per task and budget. Swap without rewriting the project."
+          }
         ]
       },
       "stack": {
         "title": "Tech stack",
-        "items": ["OpenAI / GPT", "Anthropic / Claude", "Google Gemini", "Function calling", "Vector DB (pgvector / Pinecone)", "Firestore", "AmoCRM API", "Telegram Bot API", "Wappi (WhatsApp)", "Node.js / Express"]
+        "items": [
+          "OpenAI / GPT",
+          "Anthropic / Claude",
+          "Google Gemini",
+          "Function calling",
+          "Vector DB (pgvector / Pinecone)",
+          "Firestore",
+          "AmoCRM API",
+          "Telegram Bot API",
+          "Wappi (WhatsApp)",
+          "Node.js / Express"
+        ]
       },
       "cases": "Related work",
       "faq": {
         "title": "Questions about AI",
         "items": [
-          { "q": "Is this a GPT wrapper or something real?", "a": "Real. Function calling, tools, RAG, dialog classification, backend logic, integrations — what separates a working agent from a chat wrapper." },
-          { "q": "What does it cost to run?", "a": "Depends on volume. A typical sales agent on GPT-4o-mini / Gemini Flash sits around €30–80/month in API at 1000+ dialogs. Full estimate on the discovery call." },
-          { "q": "Will it hallucinate?", "a": "Almost never in a well-built RAG. I enforce a strict-citation mode: if the answer isn't in the corpus, the agent says 'I don't know' and routes to a human. Controllable." },
-          { "q": "How does it connect to my CRM?", "a": "Through the native API. AmoCRM v4, HubSpot, Pipedrive — webhooks and REST. The bot tags, moves through the pipeline, leaves notes. Everything a manager does manually — automatic." },
-          { "q": "What if a 2x better model comes out tomorrow?", "a": "Plug it in. The architecture is provider-agnostic through an abstraction layer. Swapping GPT for Claude or Gemini is a day's work, not a week." }
+          {
+            "q": "Is this a GPT wrapper or something real?",
+            "a": "Real. Function calling, tools, RAG, dialog classification, backend logic, integrations — what separates a working agent from a chat wrapper."
+          },
+          {
+            "q": "What does it cost to run?",
+            "a": "Depends on volume. A typical sales agent on GPT-4o-mini / Gemini Flash sits around €30–80/month in API at 1000+ dialogs. Full estimate on the discovery call."
+          },
+          {
+            "q": "Will it hallucinate?",
+            "a": "Almost never in a well-built RAG. I enforce a strict-citation mode: if the answer isn't in the corpus, the agent says 'I don't know' and routes to a human. Controllable."
+          },
+          {
+            "q": "How does it connect to my CRM?",
+            "a": "Through the native API. AmoCRM v4, HubSpot, Pipedrive — webhooks and REST. The bot tags, moves through the pipeline, leaves notes. Everything a manager does manually — automatic."
+          },
+          {
+            "q": "What if a 2x better model comes out tomorrow?",
+            "a": "Plug it in. The architecture is provider-agnostic through an abstraction layer. Swapping GPT for Claude or Gemini is a day's work, not a week."
+          }
         ]
       }
     },
@@ -342,27 +467,71 @@
       "what": {
         "title": "What you get",
         "items": [
-          { "title": "iOS + Android out of the box", "body": "One codebase, two stores, one build pipeline. No separate teams per platform." },
-          { "title": "Auth, payments, push", "body": "Apple Sign-In, Google, magic-link, Stripe, RevenueCat for subscriptions, Expo Push — the standard kit ready." },
-          { "title": "Backend", "body": "Firebase / Supabase / Node.js — we pick per case. With native rate-limiting, auth and validation." },
-          { "title": "Submission", "body": "I handle App Store Connect and Google Play Console — beta tracks, screenshots, metadata, review responses." },
-          { "title": "OTA updates", "body": "Via EAS Update — patches ship in minutes without a new store release." },
-          { "title": "Analytics", "body": "Firebase Analytics, PostHog, Sentry — everything you need to understand what's happening with users." }
+          {
+            "title": "iOS + Android out of the box",
+            "body": "One codebase, two stores, one build pipeline. No separate teams per platform."
+          },
+          {
+            "title": "Auth, payments, push",
+            "body": "Apple Sign-In, Google, magic-link, Stripe, RevenueCat for subscriptions, Expo Push — the standard kit ready."
+          },
+          {
+            "title": "Backend",
+            "body": "Firebase / Supabase / Node.js — we pick per case. With native rate-limiting, auth and validation."
+          },
+          {
+            "title": "Submission",
+            "body": "I handle App Store Connect and Google Play Console — beta tracks, screenshots, metadata, review responses."
+          },
+          {
+            "title": "OTA updates",
+            "body": "Via EAS Update — patches ship in minutes without a new store release."
+          },
+          {
+            "title": "Analytics",
+            "body": "Firebase Analytics, PostHog, Sentry — everything you need to understand what's happening with users."
+          }
         ]
       },
       "stack": {
         "title": "Tech stack",
-        "items": ["React Native", "Expo SDK 52", "TypeScript", "Firebase / Supabase", "Stripe", "RevenueCat", "Sentry", "EAS Build", "Swift (native modules)", "Kotlin (native modules)"]
+        "items": [
+          "React Native",
+          "Expo SDK 52",
+          "TypeScript",
+          "Firebase / Supabase",
+          "Stripe",
+          "RevenueCat",
+          "Sentry",
+          "EAS Build",
+          "Swift (native modules)",
+          "Kotlin (native modules)"
+        ]
       },
       "cases": "Related work",
       "faq": {
         "title": "Questions about mobile",
         "items": [
-          { "q": "Isn't native better?", "a": "For 90% of product tasks — no. Expo / React Native gives native perf and full hardware access. Native code makes sense only for AR, heavy graphics or specialized hardware. I'll tell you honestly." },
-          { "q": "Who submits to the stores?", "a": "I do. Including review responses. Apple Developer Account and Google Play Console under your legal entity — I work under your accounts." },
-          { "q": "How long is an MVP?", "a": "Typically 4–6 weeks from kickoff to TestFlight / Internal Testing. Another 1–2 weeks to the public stores (depends on Apple review)." },
-          { "q": "What if Apple rejects it?", "a": "Standard, not scary. I've been through review enough times to usually predict what they'll ask. If they reject — we fix and resubmit, no extra charge." },
-          { "q": "Can we add web later?", "a": "Yes. Expo Router lets one codebase target iOS + Android + Web. If your product goes that way, the path is short." }
+          {
+            "q": "Isn't native better?",
+            "a": "For 90% of product tasks — no. Expo / React Native gives native perf and full hardware access. Native code makes sense only for AR, heavy graphics or specialized hardware. I'll tell you honestly."
+          },
+          {
+            "q": "Who submits to the stores?",
+            "a": "I do. Including review responses. Apple Developer Account and Google Play Console under your legal entity — I work under your accounts."
+          },
+          {
+            "q": "How long is an MVP?",
+            "a": "Typically 4–6 weeks from kickoff to TestFlight / Internal Testing. Another 1–2 weeks to the public stores (depends on Apple review)."
+          },
+          {
+            "q": "What if Apple rejects it?",
+            "a": "Standard, not scary. I've been through review enough times to usually predict what they'll ask. If they reject — we fix and resubmit, no extra charge."
+          },
+          {
+            "q": "Can we add web later?",
+            "a": "Yes. Expo Router lets one codebase target iOS + Android + Web. If your product goes that way, the path is short."
+          }
         ]
       }
     }
@@ -386,7 +555,15 @@
           "Average response time to a client — seconds instead of hours",
           "The site displays a real 4.9★ rating from 312 clients"
         ],
-        "stack": ["Next.js 15", "TypeScript", "next-intl (RU/PL/UA)", "RAG (GPT-4o)", "pgvector", "Telegram Bot API", "Vercel"],
+        "stack": [
+          "Next.js 15",
+          "TypeScript",
+          "next-intl (RU/PL/UA)",
+          "RAG (GPT-4o)",
+          "pgvector",
+          "Telegram Bot API",
+          "Vercel"
+        ],
         "url": "legalwin.pl",
         "quote": "Alex shipped in three weeks what two agencies couldn't deliver in three months. The site loads instantly and we're already getting calls from Google.",
         "quoteAuthor": "Marta K. · Founder of LegalWin"
@@ -403,7 +580,16 @@
           "New pages indexed in hours, not days",
           "Visitor-to-lead conversion 4.2% (was 0.8% on the old site)"
         ],
-        "stack": ["Next.js 15", "React 19", "TypeScript", "next-intl (EN/PL/RU/UK)", "Upstash Redis", "Telegram Bot API", "Vercel", "IndexNow"],
+        "stack": [
+          "Next.js 15",
+          "React 19",
+          "TypeScript",
+          "next-intl (EN/PL/RU/UK)",
+          "Upstash Redis",
+          "Telegram Bot API",
+          "Vercel",
+          "IndexNow"
+        ],
         "url": "visionair.biz.pl",
         "quote": "He understood the business in one call. Leads don't disappear anymore — they reach me on Telegram, I respond within minutes.",
         "quoteAuthor": "Igor P. · CEO of VisionAir"
@@ -420,7 +606,17 @@
           "100% coverage — no incoming lead goes unanswered",
           "Qualified-lead conversion up 31% from process stability alone"
         ],
-        "stack": ["TypeScript", "Node.js", "Express", "Gemini 2.0 Flash", "Function calling", "AmoCRM API v4", "Firestore", "Wappi (WhatsApp)", "Telegram Bot API"],
+        "stack": [
+          "TypeScript",
+          "Node.js",
+          "Express",
+          "Gemini 2.0 Flash",
+          "Function calling",
+          "AmoCRM API v4",
+          "Firestore",
+          "Wappi (WhatsApp)",
+          "Telegram Bot API"
+        ],
         "url": "Under NDA",
         "quote": "Direct, fast, no fluff. The kind of developer you wish every project had.",
         "quoteAuthor": "Anastasia D. · Product Lead"
@@ -428,19 +624,46 @@
     },
     "caseMetrics": {
       "legalwin": [
-        { "value": "15+", "label": "Keywords in top-10" },
-        { "value": "312", "label": "Client reviews" },
-        { "value": "4.9", "label": "Average rating" }
+        {
+          "value": "15+",
+          "label": "Keywords in top-10"
+        },
+        {
+          "value": "312",
+          "label": "Client reviews"
+        },
+        {
+          "value": "4.9",
+          "label": "Average rating"
+        }
       ],
       "visionair": [
-        { "value": "<1s", "label": "LCP across pages" },
-        { "value": "4", "label": "Languages" },
-        { "value": "2s", "label": "Lead-to-Telegram time" }
+        {
+          "value": "<1s",
+          "label": "LCP across pages"
+        },
+        {
+          "value": "4",
+          "label": "Languages"
+        },
+        {
+          "value": "2s",
+          "label": "Lead-to-Telegram time"
+        }
       ],
       "crmbot": [
-        { "value": "24/7", "label": "Automated coverage" },
-        { "value": "100%", "label": "Leads processed" },
-        { "value": "0", "label": "Manual first-touch steps" }
+        {
+          "value": "24/7",
+          "label": "Automated coverage"
+        },
+        {
+          "value": "100%",
+          "label": "Leads processed"
+        },
+        {
+          "value": "0",
+          "label": "Manual first-touch steps"
+        }
       ]
     },
     "caseLabels": {
@@ -468,18 +691,81 @@
     "p3": "Clients often struggle with agencies for one reason: there are five layers between them and the person writing the code. Account, project, product, lead, junior. Decisions take weeks. I work without those layers — you message me directly, I write the code myself, I respond within hours. Not for everyone, but for MVP-to-mid-size projects it's noticeably faster and cleaner.",
     "stackTitle": "What I work with",
     "stack": {
-      "frontend": { "title": "Frontend", "items": ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "Motion / Framer", "next-intl"] },
-      "backend":  { "title": "Backend",  "items": ["Node.js", "Express", "Edge Functions", "Firestore", "Supabase", "PostgreSQL", "pgvector"] },
-      "ai":       { "title": "AI",       "items": ["OpenAI / GPT", "Anthropic / Claude", "Google Gemini", "Function calling", "RAG (pgvector / Pinecone)", "LangChain (selectively)"] },
-      "mobile":   { "title": "Mobile",   "items": ["React Native", "Expo SDK 52", "Swift (native modules)", "Kotlin (native modules)", "RevenueCat", "Expo Push"] },
-      "infra":    { "title": "Infra",    "items": ["Vercel", "Cloudflare", "GitHub Actions", "Sentry", "Upstash Redis", "EAS Build"] }
+      "frontend": {
+        "title": "Frontend",
+        "items": [
+          "Next.js 15",
+          "React 19",
+          "TypeScript",
+          "Tailwind CSS",
+          "Motion / Framer",
+          "next-intl"
+        ]
+      },
+      "backend": {
+        "title": "Backend",
+        "items": [
+          "Node.js",
+          "Express",
+          "Edge Functions",
+          "Firestore",
+          "Supabase",
+          "PostgreSQL",
+          "pgvector"
+        ]
+      },
+      "ai": {
+        "title": "AI",
+        "items": [
+          "OpenAI / GPT",
+          "Anthropic / Claude",
+          "Google Gemini",
+          "Function calling",
+          "RAG (pgvector / Pinecone)",
+          "LangChain (selectively)"
+        ]
+      },
+      "mobile": {
+        "title": "Mobile",
+        "items": [
+          "React Native",
+          "Expo SDK 52",
+          "Swift (native modules)",
+          "Kotlin (native modules)",
+          "RevenueCat",
+          "Expo Push"
+        ]
+      },
+      "infra": {
+        "title": "Infra",
+        "items": [
+          "Vercel",
+          "Cloudflare",
+          "GitHub Actions",
+          "Sentry",
+          "Upstash Redis",
+          "EAS Build"
+        ]
+      }
     },
     "languagesTitle": "Languages",
     "languages": [
-      { "lang": "Русский", "level": "native" },
-      { "lang": "Українська", "level": "native" },
-      { "lang": "English", "level": "B2+, fluent at work" },
-      { "lang": "Polski", "level": "B1, conversational for meetings and contracts" }
+      {
+        "lang": "Русский",
+        "level": "native"
+      },
+      {
+        "lang": "Українська",
+        "level": "native"
+      },
+      {
+        "lang": "English",
+        "level": "B2+, fluent at work"
+      },
+      {
+        "lang": "Polski",
+        "level": "B1, conversational for meetings and contracts"
+      }
     ],
     "locationTitle": "Location",
     "location": "Warsaw, Poland. I work with clients worldwide on EU / US-friendly hours.",
