@@ -19,6 +19,8 @@ export function Hero() {
   const contentRef = useRef<HTMLDivElement | null>(null);
   const chromeRef = useRef<HTMLDivElement | null>(null);
   const ringRef = useRef<HTMLDivElement | null>(null);
+  const badgeRef = useRef<HTMLDivElement | null>(null);
+  const ctaRef = useRef<HTMLDivElement | null>(null);
   const hoverRaf = useRef(0);
 
   useEffect(() => {
@@ -26,22 +28,28 @@ export function Hero() {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     let raf = 0;
-    let pending = false;
+    let running = false;
+    let currentP = 0;
+    let targetP = 0;
 
-    const tick = () => {
-      pending = false;
+    const computeTarget = () => {
       const section = sectionRef.current;
-      const frame = frameRef.current;
-      const content = contentRef.current;
-      const chrome = chromeRef.current;
-      const ring = ringRef.current;
-      if (!section || !frame || !content) return;
-
+      if (!section) return;
       const rect = section.getBoundingClientRect();
       const vh = window.innerHeight;
       const scrollZone = Math.max(1, rect.height - vh);
       const raw = reduced ? 0 : Math.min(1, Math.max(0, -rect.top / scrollZone));
-      const p = raw * raw * (3 - 2 * raw);
+      targetP = raw * raw * (3 - 2 * raw);
+    };
+
+    const apply = (p: number) => {
+      const frame = frameRef.current;
+      const content = contentRef.current;
+      const chrome = chromeRef.current;
+      const ring = ringRef.current;
+      const badge = badgeRef.current;
+      const cta = ctaRef.current;
+      if (!frame || !content) return;
 
       const w = window.innerWidth;
       const isMobile = w < 768;
@@ -56,9 +64,9 @@ export function Hero() {
       frame.style.bottom = `${p * maxBottom}px`;
       frame.style.borderRadius = `${p * maxRadius}px`;
 
-      // Content stays visible — scales down with the card, only slightly dims
-      const scale = 1 - p * 0.18;     // 1 → 0.82
-      const opacity = 1 - p * 0.25;   // 1 → 0.75
+      // Content stays visible — scales down, dims only slightly
+      const scale = 1 - p * 0.18;
+      const opacity = 1 - p * 0.25;
       const ty = p * -10;
       content.style.opacity = String(opacity);
       content.style.transform = `translate3d(0, ${ty}px, 0) scale(${scale})`;
@@ -68,28 +76,65 @@ export function Hero() {
         chrome.style.opacity = String(ch);
         chrome.style.transform = `translate3d(0, ${(1 - ch) * -12}px, 0)`;
       }
-
       if (ring) {
         ring.style.opacity = String(p * 0.9);
       }
+      // Live badge: pops in late, with a small rise-and-scale
+      if (badge) {
+        const bp = Math.max(0, Math.min(1, (p - 0.6) / 0.3));
+        const eb = bp * bp * (3 - 2 * bp);
+        badge.style.opacity = String(eb);
+        badge.style.transform = `translate3d(0, ${(1 - eb) * 14}px, 0) scale(${0.86 + eb * 0.14})`;
+      }
+      // Primary CTA pulse: starts once the morph has settled — drives conversion
+      if (cta) {
+        if (p > 0.82) cta.dataset.glow = "on";
+        else delete cta.dataset.glow;
+      }
     };
 
-    tick();
-    const onScroll = () => {
-      if (pending) return;
-      pending = true;
+    // Spring/lerp loop — animation eases toward target even if user scroll-blasts past
+    const tick = () => {
+      computeTarget();
+      const diff = targetP - currentP;
+      if (Math.abs(diff) < 0.0008) {
+        currentP = targetP;
+        apply(currentP);
+        running = false;
+        return;
+      }
+      currentP += diff * 0.12;
+      apply(currentP);
       raf = requestAnimationFrame(tick);
     };
+
+    const onScroll = () => {
+      if (running) return;
+      running = true;
+      raf = requestAnimationFrame(tick);
+    };
+
+    const onResize = () => {
+      computeTarget();
+      currentP = targetP;
+      apply(currentP);
+    };
+
+    // Initial paint — snap to current scroll position, no easing
+    computeTarget();
+    currentP = targetP;
+    apply(currentP);
+
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    window.addEventListener("resize", onResize);
+
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("resize", onResize);
     };
   }, []);
 
-  // Cursor spotlight — write CSS vars relative to the frame, rAF-throttled
   const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const cx = e.clientX;
     const cy = e.clientY;
@@ -106,7 +151,6 @@ export function Hero() {
       el.dataset.spot = "on";
     });
   };
-
   const onLeave = () => {
     const el = frameRef.current;
     if (!el) return;
@@ -116,11 +160,7 @@ export function Hero() {
   return (
     <section ref={sectionRef} className="hero-scroll">
       <div className="hero-sticky">
-        <div
-          className="hero-stage"
-          onMouseMove={onMove}
-          onMouseLeave={onLeave}
-        >
+        <div className="hero-stage" onMouseMove={onMove} onMouseLeave={onLeave}>
           <div ref={frameRef} className="hero-frame">
             <Image
               src={HERO_IMAGE_URL}
@@ -140,6 +180,10 @@ export function Hero() {
               <span className="hero-chrome-dot hero-chrome-dot--y" />
               <span className="hero-chrome-dot hero-chrome-dot--g" />
               <span className="hero-chrome-url">buildbyalex.com</span>
+            </div>
+            <div ref={badgeRef} className="hero-badge" aria-hidden="true">
+              <span className="hero-badge-dot" />
+              <span className="hero-badge-text">Live · Warsaw</span>
             </div>
           </div>
 
@@ -172,7 +216,8 @@ export function Hero() {
                 </p>
 
                 <div
-                  className="mt-10 flex flex-wrap items-center justify-center gap-3 animate-[fadeUp_900ms_cubic-bezier(0.16,1,0.3,1)_both]"
+                  ref={ctaRef}
+                  className="hero-cta mt-10 flex flex-wrap items-center justify-center gap-3 animate-[fadeUp_900ms_cubic-bezier(0.16,1,0.3,1)_both]"
                   style={{ animationDelay: "380ms" }}
                 >
                   <Button href="/contact" size="lg">

@@ -1105,6 +1105,18 @@
           ]
         }
       },
+      "crmbot": {
+        "botDemo": {
+          "eyebrow": "Demo na żywo",
+          "headline": "Bot kwalifikuje leada wprost w Telegramie",
+          "subhead": "Naturalna rozmowa, błyskawiczne odpowiedzi i automatyczny scoring. Klient czuje się wysłuchany — zespół wkracza dopiero, gdy transakcja jest gotowa."
+        },
+        "funnel": {
+          "eyebrow": "Po rozmowie",
+          "headline": "Transakcja sama przesuwa się po lejku w AmoCRM",
+          "subhead": "CRM aktualizuje się na bieżąco, gdy bot kwalifikuje — bez ręcznego wprowadzania danych i utraconych zgłoszeń."
+        }
+      },
       "donbrava": {
         "employee": {
           "eyebrow": "Wirtualny pracownik",

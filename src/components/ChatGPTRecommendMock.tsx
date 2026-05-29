@@ -102,57 +102,42 @@ export function ChatGPTRecommendMock() {
         </div>
       </div>
 
-      {/* Chat body — fixed min height holds the full typed response so the box doesn't grow while typing */}
-      <div className="min-h-[460px] px-4 py-6 sm:min-h-[520px] sm:px-6 sm:py-8 md:px-12" style={{ background: "#212121" }}>
-        <div className="mx-auto max-w-[680px] space-y-6 sm:space-y-7">
-          {phase !== "idle" && (
-            <div
-              className="ml-auto max-w-[85%] rounded-2xl rounded-br-md px-3.5 py-2.5 text-[13.5px] leading-[1.55] text-white sm:px-4 sm:py-3 sm:text-[15px]"
-              style={{ background: "#2f2f2f", animation: "ctgFadeUp 350ms ease-out both" }}
-            >
-              {userQuestion}
-            </div>
-          )}
-
-          {(phase === "thinking" || phase === "typing" || phase === "done") && (
-            <div className="flex gap-3 sm:gap-4" style={{ animation: "ctgFadeUp 350ms ease-out both" }}>
-              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-black/40 ring-1 ring-white/10">
-                <ChatGPTSparkle />
+      {/* Chat body — a hidden "ghost" copy of the full conversation reserves the
+          final height, so the box is sized to its maximum from the start and never
+          grows or shrinks while the answer types out (no page jump on scroll). */}
+      <div className="px-4 py-6 sm:px-6 sm:py-8 md:px-12" style={{ background: "#212121" }}>
+        <div className="relative mx-auto max-w-[680px]">
+          {/* Ghost — invisible, in normal flow, holds the tallest state */}
+          <div aria-hidden className="invisible space-y-6 sm:space-y-7">
+            <UserBubble text={userQuestion} />
+            <AssistantRow>
+              <div className="whitespace-pre-line text-[13.5px] leading-[1.6] text-white/90 sm:text-[15px] sm:leading-[1.65]">
+                {renderSegments(response)}
               </div>
-              <div className="min-w-0 flex-1 pt-0.5">
+            </AssistantRow>
+          </div>
+
+          {/* Live — absolutely overlaid on the ghost, animates */}
+          <div className="absolute inset-0 space-y-6 sm:space-y-7">
+            {phase !== "idle" && (
+              <UserBubble text={userQuestion} animate />
+            )}
+
+            {(phase === "thinking" || phase === "typing" || phase === "done") && (
+              <AssistantRow animate>
                 {phase === "thinking" ? (
                   <ThinkingDots />
                 ) : (
                   <div className="whitespace-pre-line text-[13.5px] leading-[1.6] text-white/90 sm:text-[15px] sm:leading-[1.65]">
-                    {visibleSegments.map((seg, i) => {
-                      if (seg.type === "bold")
-                        return (
-                          <strong key={i} className="font-semibold text-white">
-                            {seg.content}
-                          </strong>
-                        );
-                      if (seg.type === "link")
-                        return (
-                          <a
-                            key={i}
-                            href={seg.href}
-                            target="_blank"
-                            rel="noreferrer noopener"
-                            className="text-[#7ab7ff] underline decoration-[#7ab7ff]/40 underline-offset-2 hover:decoration-[#7ab7ff]"
-                          >
-                            {seg.content}
-                          </a>
-                        );
-                      return <span key={i}>{seg.content}</span>;
-                    })}
+                    {renderSegments(visibleSegments)}
                     {phase === "typing" && (
                       <span className="ml-0.5 inline-block h-[14px] w-[8px] -mb-[2px] bg-white/80 align-baseline" style={{ animation: "ctgBlink 900ms steps(2) infinite" }} />
                     )}
                   </div>
                 )}
-              </div>
-            </div>
-          )}
+              </AssistantRow>
+            )}
+          </div>
         </div>
       </div>
 
@@ -184,6 +169,58 @@ export function ChatGPTRecommendMock() {
       `}</style>
     </div>
   );
+}
+
+function UserBubble({ text, animate }: { text: string; animate?: boolean }) {
+  return (
+    <div
+      className="ml-auto max-w-[85%] rounded-2xl rounded-br-md px-3.5 py-2.5 text-[13.5px] leading-[1.55] text-white sm:px-4 sm:py-3 sm:text-[15px]"
+      style={{ background: "#2f2f2f", animation: animate ? "ctgFadeUp 350ms ease-out both" : undefined }}
+    >
+      {text}
+    </div>
+  );
+}
+
+function AssistantRow({
+  children,
+  animate,
+}: {
+  children: React.ReactNode;
+  animate?: boolean;
+}) {
+  return (
+    <div className="flex gap-3 sm:gap-4" style={{ animation: animate ? "ctgFadeUp 350ms ease-out both" : undefined }}>
+      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-black/40 ring-1 ring-white/10">
+        <ChatGPTSparkle />
+      </div>
+      <div className="min-w-0 flex-1 pt-0.5">{children}</div>
+    </div>
+  );
+}
+
+function renderSegments(segments: Segment[]) {
+  return segments.map((seg, i) => {
+    if (seg.type === "bold")
+      return (
+        <strong key={i} className="font-semibold text-white">
+          {seg.content}
+        </strong>
+      );
+    if (seg.type === "link")
+      return (
+        <a
+          key={i}
+          href={seg.href}
+          target="_blank"
+          rel="noreferrer noopener"
+          className="text-[#7ab7ff] underline decoration-[#7ab7ff]/40 underline-offset-2 hover:decoration-[#7ab7ff]"
+        >
+          {seg.content}
+        </a>
+      );
+    return <span key={i}>{seg.content}</span>;
+  });
 }
 
 function sliceSegments(segments: Segment[], chars: number): Segment[] {

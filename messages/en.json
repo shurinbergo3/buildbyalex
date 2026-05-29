@@ -1105,6 +1105,18 @@
           ]
         }
       },
+      "crmbot": {
+        "botDemo": {
+          "eyebrow": "Live demo",
+          "headline": "The bot qualifies a lead right inside Telegram",
+          "subhead": "Natural conversation, instant replies and automatic scoring. The prospect feels heard — your team only steps in when the deal is ready."
+        },
+        "funnel": {
+          "eyebrow": "After the chat",
+          "headline": "The deal moves through your AmoCRM funnel by itself",
+          "subhead": "The CRM updates in real time as the bot qualifies — no manual data entry, no missed handoffs."
+        }
+      },
       "donbrava": {
         "employee": {
           "eyebrow": "Virtual employee",

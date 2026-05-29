@@ -257,16 +257,14 @@ export function DonbravaChatMock() {
               </div>
             </div>
 
-            <ol className="mt-6 space-y-3.5">
-              <AnimatePresence initial={false}>
-                {rawEvents.slice(0, visibleEvents).map((event, i) => (
-                  <motion.li
-                    key={`${cycle}-evt-${i}`}
-                    layout
-                    initial={{ opacity: 0, x: -12 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
+            {/* A hidden "ghost" of the full event list reserves the panel height up
+                front, so it opens at its maximum size and never grows as events stream
+                in — keeping the rest of the page from jumping while it animates. */}
+            <div className="relative mt-6 grid">
+              <ol aria-hidden className="invisible space-y-3.5 [grid-area:1/1]">
+                {rawEvents.map((event, i) => (
+                  <li
+                    key={`ghost-evt-${i}`}
                     className="flex items-start gap-3 rounded-xl border border-white/[0.06] bg-white/[0.025] px-3.5 py-3"
                   >
                     <EventDot tone={event.tone ?? "info"} />
@@ -285,16 +283,49 @@ export function DonbravaChatMock() {
                         </div>
                       )}
                     </div>
-                  </motion.li>
+                  </li>
                 ))}
-              </AnimatePresence>
-            </ol>
+              </ol>
 
-            {visibleEvents === 0 && (
-              <div className="mt-6 rounded-xl border border-dashed border-white/10 px-4 py-6 text-center text-[12.5px] text-white/35">
-                {t("eventsIdle")}
-              </div>
-            )}
+              <ol className="space-y-3.5 [grid-area:1/1]">
+                <AnimatePresence initial={false}>
+                  {rawEvents.slice(0, visibleEvents).map((event, i) => (
+                    <motion.li
+                      key={`${cycle}-evt-${i}`}
+                      layout
+                      initial={{ opacity: 0, x: -12 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
+                      className="flex items-start gap-3 rounded-xl border border-white/[0.06] bg-white/[0.025] px-3.5 py-3"
+                    >
+                      <EventDot tone={event.tone ?? "info"} />
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-baseline gap-3">
+                          <span className="text-[13.5px] font-medium text-white">
+                            {event.label}
+                          </span>
+                          <span className="ml-auto shrink-0 text-[11px] tabular-nums text-white/40">
+                            {event.time}
+                          </span>
+                        </div>
+                        {event.detail && (
+                          <div className="mt-1 text-[12.5px] leading-snug text-white/55">
+                            {event.detail}
+                          </div>
+                        )}
+                      </div>
+                    </motion.li>
+                  ))}
+                </AnimatePresence>
+
+                {visibleEvents === 0 && (
+                  <li className="rounded-xl border border-dashed border-white/10 px-4 py-6 text-center text-[12.5px] text-white/35">
+                    {t("eventsIdle")}
+                  </li>
+                )}
+              </ol>
+            </div>
           </div>
         </div>
       </div>

@@ -7,11 +7,11 @@ import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/Button";
-import { CaseMetrics, type CaseMetric } from "@/components/CaseMetrics";
 import { LegalwinShowcase } from "@/components/LegalwinShowcase";
 import { VisionairShowcase } from "@/components/VisionairShowcase";
 import { DonbravaShowcase } from "@/components/DonbravaShowcase";
 import { BodyForgeShowcase } from "@/components/BodyForgeShowcase";
+import { CrmbotShowcase } from "@/components/CrmbotShowcase";
 import { routing } from "@/i18n/routing";
 import { caseSlugToKey, caseImages, type CaseKey } from "@/lib/cases";
 import { SITE_URL } from "@/lib/site";
@@ -69,7 +69,6 @@ type CaseShape = {
         quoteAuthor: string;
       }
     >;
-    caseMetrics: Record<CaseKey, CaseMetric[]>;
     caseLabels: {
       problem: string;
       solution: string;
@@ -90,7 +89,6 @@ function CaseContent({ slug }: { slug: string }) {
   const messages = useMessages() as unknown as CaseShape;
   const c = messages.work.cases[key];
   const labels = messages.work.caseLabels;
-  const metrics = messages.work.caseMetrics?.[key];
   const image = caseImages[key];
 
   const articleSchema = {
@@ -249,12 +247,9 @@ function CaseContent({ slug }: { slug: string }) {
         </Container>
       </Section>
 
-      {key !== "legalwin" && metrics && metrics.length > 0 && (
-        <CaseMetrics metrics={metrics} />
-      )}
-
       {key === "legalwin" && <LegalwinShowcase />}
       {key === "visionair" && <VisionairShowcase />}
+      {key === "crmbot" && <CrmbotShowcase />}
       {key === "donbrava" && <DonbravaShowcase />}
       {key === "bodyforge" && <BodyForgeShowcase />}
 

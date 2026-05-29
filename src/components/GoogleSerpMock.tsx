@@ -119,26 +119,42 @@ export function GoogleSerpMock() {
         <Tab label="More" />
       </div>
 
-      {/* Results — fixed min height holds the tallest query result set so the box doesn't grow between queries */}
-      <div className="min-h-[460px] px-4 py-4 sm:min-h-[520px] sm:px-6">
+      {/* Results — invisible "ghosts" of every query are grid-stacked in one cell, so
+          the box is always sized to the tallest result set. The live results overlay
+          the same cell, so the box never grows or shrinks between queries (no page jump). */}
+      <div className="px-4 py-4 sm:px-6">
         <p className="text-[12.5px] text-[#70757a]">{block.count}</p>
 
-        <AnimatePresence mode="wait">
-          {showResults && (
-            <motion.ol
-              key={query}
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-4 space-y-6"
+        <div className="relative mt-4 grid">
+          {queries.map((qb) => (
+            <ol
+              key={`ghost-${qb.q}`}
+              aria-hidden
+              className="invisible space-y-6 [grid-area:1/1]"
             >
-              {block.results.map((item, i) => (
-                <Result key={`${query}-${i}`} item={item} highlight={i === 0} delay={i * 80} />
+              {qb.results.map((item, i) => (
+                <Result key={`ghost-${qb.q}-${i}`} item={item} highlight={i === 0} delay={0} />
               ))}
-            </motion.ol>
-          )}
-        </AnimatePresence>
+            </ol>
+          ))}
+
+          <AnimatePresence mode="wait">
+            {showResults && (
+              <motion.ol
+                key={query}
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                className="space-y-6 [grid-area:1/1]"
+              >
+                {block.results.map((item, i) => (
+                  <Result key={`${query}-${i}`} item={item} highlight={i === 0} delay={i * 80} />
+                ))}
+              </motion.ol>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
     </div>
   );
