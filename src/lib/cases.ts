@@ -32,8 +32,8 @@ export const caseImages: Record<CaseKey, { src: string; alt: string }> = {
     alt: "Команда продаж за ноутбуками — кейс CRM Bot",
   },
   donbrava: {
-    src: "https://images.unsplash.com/photo-1601933470928-c2adde7838f8?auto=format&fit=crop&w=1600&q=80",
-    alt: "Старый город Братиславы, Словакия — кейс Donbrava",
+    src: "https://images.unsplash.com/photo-1601972599720-36938d4ecd31?auto=format&fit=crop&w=1600&q=80",
+    alt: "Переписка с клиентом в мессенджере на смартфоне — кейс ИИ-менеджер для продаж",
   },
   bodyforge: {
     src: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=80",

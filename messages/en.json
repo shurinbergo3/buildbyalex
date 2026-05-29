@@ -566,7 +566,8 @@
     "intro": {
       "eyebrow": "Work",
       "headline": "Recent things I've shipped.",
-      "subhead": "A handful of recent projects with real results. All still live, all earning money."
+      "subhead": "A handful of recent projects with real results. All still live, all earning money.",
+      "cta": "Read case study"
     },
     "cases": {
       "legalwin": {
@@ -649,8 +650,8 @@
       },
       "donbrava": {
         "industry": "Immigration services · Bratislava",
-        "title": "Donbrava — AI-Bohdan",
-        "tagline": "A Telegram userbot that runs sales from the owner's real account — like a live sales manager who never sleeps.",
+        "title": "AI sales manager",
+        "tagline": "Replies to clients from the owner's real Telegram account — mirrors his writing style, his timing and the \"typing…\" indicator. Clients never realise they're chatting with an AI, not a real person.",
         "problem": "Bohdan is an immigration consultant in Slovakia, handling temporary protection (€350/person) and business services for Ukrainians (€200 paid consultations, residency, s.r.o., živnosť). Inbound on Telegram was steady, but quality suffered: evening messages sat until morning, weekends ate leads, and recurring 'what documents?' / 'how long does it take?' questions soaked up more time than the actual paying clients.",
         "solution": "I built a Telegram userbot on Telethon + GPT-4o that runs from Bohdan's real phone number — not a @bot, a live account. It imitates his messaging style and timing (2–12 minute unread windows on first contact, a typing indicator, an explicit read-receipt delay), distinguishes services (€350 temporary protection vs €200 consultation), pulls the live EUR→UAH rate from Monobank's public API, sends the right payment details (IBAN or Mono card with the converted hryvnia amount), flags payments with a [PAYMENT_SENT] marker and quietly hands the conversation over to Bohdan. Document uploads and escalations ping the owner instantly with a deep link into the chat.",
         "results": [

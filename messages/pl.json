@@ -566,7 +566,8 @@
     "intro": {
       "eyebrow": "Realizacje",
       "headline": "Co ostatnio uruchomiłem.",
-      "subhead": "Kilka ostatnich projektów z konkretnymi wynikami. Wszystkie nadal żywe, wszystkie zarabiają."
+      "subhead": "Kilka ostatnich projektów z konkretnymi wynikami. Wszystkie nadal żywe, wszystkie zarabiają.",
+      "cta": "Zobacz case study"
     },
     "cases": {
       "legalwin": {
@@ -649,8 +650,8 @@
       },
       "donbrava": {
         "industry": "Usługi imigracyjne · Bratysława",
-        "title": "Donbrava — AI-Bohdan",
-        "tagline": "Telegramowy userbot, który prowadzi sprzedaż z prawdziwego konta właściciela — jak żywy sales manager.",
+        "title": "Menedżer sprzedaży AI",
+        "tagline": "Odpowiada klientom z prawdziwego konta Telegram właściciela — naśladuje jego styl pisania, pauzy i wskaźnik „pisze…”. Klient nie poznaje, że rozmawia z AI, a nie z żywym człowiekiem.",
         "problem": "Bohdan to konsultant imigracyjny na Słowacji. Załatwia tymczasową ochronę (350 €/os.) i usługi biznesowe dla Ukraińców (konsultacje 200 €, pobyt, s.r.o., živnosť). Strumień zapytań w Telegramie był stały, ale jakość kulała: wieczorne wiadomości wisiały do rana, weekendy zjadały leady, a powtarzające się 'jakie dokumenty?' i 'ile to potrwa?' wciągały więcej czasu niż realni płacący klienci.",
         "solution": "Zbudowałem Telegramowy userbot na Telethon + GPT-4o, działający z prawdziwego numeru Bohdana — nie @bot, tylko żywe konto. Naśladuje jego styl pisania i timing (pauzy 2–12 minut przy pierwszym kontakcie, wskaźnik 'pisze', okno nieprzeczytanego przed potwierdzeniem), rozróżnia usługi (350 € ochrona vs 200 € konsultacja), pobiera kurs EUR→UAH z publicznego API Monobanku, wysyła odpowiednie dane do przelewu (IBAN lub karta Mono z przeliczeniem na hrywny), oznacza płatność markerem [PAYMENT_SENT] i po cichu oddaje rozmowę Bohdanowi. Dokumenty i eskalacje natychmiast pingują właściciela z deep-linkiem do chatu.",
         "results": [
