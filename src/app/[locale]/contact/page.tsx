@@ -56,13 +56,23 @@ export default async function ContactPage({
                 <h2 className="t-eyebrow">{t("altTitle")}</h2>
                 <ul className="mt-5 space-y-2.5 text-[15.5px]">
                   <li>
-                    <a href="mailto:alex@buildbyalex.com" className="font-medium hover:text-[color:var(--c-accent)]">
-                      alex@buildbyalex.com
+                    <a href="mailto:shurinbergo@gmail.com" className="font-medium hover:text-[color:var(--c-accent)]">
+                      shurinbergo@gmail.com
                     </a>
                   </li>
                   <li>
-                    <a href="https://t.me/buildbyalex" target="_blank" rel="noreferrer noopener" className="font-medium hover:text-[color:var(--c-accent)]">
-                      Telegram ↗
+                    <a href="https://t.me/sumotry" target="_blank" rel="noreferrer noopener" className="font-medium hover:text-[color:var(--c-accent)]">
+                      Telegram @sumotry ↗
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://wa.me/48453474944" target="_blank" rel="noreferrer noopener" className="font-medium hover:text-[color:var(--c-accent)]">
+                      WhatsApp ↗
+                    </a>
+                  </li>
+                  <li>
+                    <a href="tel:+48453474944" className="font-medium hover:text-[color:var(--c-accent)]">
+                      +48 453 474 944
                     </a>
                   </li>
                   <li>
