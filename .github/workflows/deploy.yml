@@ -1,4 +1,5 @@
 name: Build & Deploy
+# Pipeline: git push -> build Docker image -> push to ghcr.io -> trigger Dokploy webhook -> redeploy
 on:
   push:
     branches: [main]
