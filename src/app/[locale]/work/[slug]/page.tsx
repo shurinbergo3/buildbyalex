@@ -7,6 +7,7 @@ import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/Button";
 import { CaseCover } from "@/components/CaseCover";
+import { MacbookMock } from "@/components/MacbookMock";
 import { LegalwinShowcase } from "@/components/LegalwinShowcase";
 import { VisionairShowcase } from "@/components/VisionairShowcase";
 import { DonbravaShowcase } from "@/components/DonbravaShowcase";
@@ -132,28 +133,64 @@ function CaseContent({ slug, locale }: { slug: string; locale: string }) {
       {/* ── Hero ── */}
       <Section pad="tight" className="!pt-12 md:!pt-20">
         <Container>
-          <Reveal>
-            <p className="t-eyebrow text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
-              {c.industry}
-            </p>
-            <h1 className="mt-4 text-[clamp(40px,5.5vw+8px,72px)] font-semibold leading-[1.06] tracking-[-0.032em]">
-              {c.title}
-            </h1>
-            <p className="mt-5 max-w-[640px] text-[clamp(17px,1.2vw+13px,22px)] leading-[1.45] tracking-[-0.013em] text-[color:var(--color-text-2)]">
-              {c.tagline}
-            </p>
-          </Reveal>
+          {key === "visionair" ? (
+            <div className="grid items-center gap-10 md:grid-cols-2 md:gap-12">
+              <Reveal>
+                <div>
+                  <p className="t-eyebrow text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
+                    {c.industry}
+                  </p>
+                  <h1 className="mt-4 text-[clamp(40px,5.5vw+8px,72px)] font-semibold leading-[1.06] tracking-[-0.032em]">
+                    {c.title}
+                  </h1>
+                  <p className="mt-5 max-w-[560px] text-[clamp(17px,1.2vw+13px,22px)] leading-[1.45] tracking-[-0.013em] text-[color:var(--color-text-2)]">
+                    {c.tagline}
+                  </p>
+                  <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-5">
+                    {metrics.map((m) => (
+                      <div key={m.label}>
+                        <dt className="text-[clamp(26px,2vw+18px,36px)] font-semibold leading-none tracking-[-0.02em] text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
+                          {m.value}
+                        </dt>
+                        <dd className="mt-1.5 text-[13px] text-[color:var(--color-text-3)]">
+                          {m.label}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+              </Reveal>
 
-          <Reveal delay={150}>
-            <div className="mt-12">
-              <CaseCover
-                url={c.url}
-                liveLabel={liveLabel}
-                metrics={metrics}
-                stack={c.stack}
-              />
+              <Reveal delay={150}>
+                <MacbookMock url={c.url} image={image.src} />
+              </Reveal>
             </div>
-          </Reveal>
+          ) : (
+            <>
+              <Reveal>
+                <p className="t-eyebrow text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
+                  {c.industry}
+                </p>
+                <h1 className="mt-4 text-[clamp(40px,5.5vw+8px,72px)] font-semibold leading-[1.06] tracking-[-0.032em]">
+                  {c.title}
+                </h1>
+                <p className="mt-5 max-w-[640px] text-[clamp(17px,1.2vw+13px,22px)] leading-[1.45] tracking-[-0.013em] text-[color:var(--color-text-2)]">
+                  {c.tagline}
+                </p>
+              </Reveal>
+
+              <Reveal delay={150}>
+                <div className="mt-12">
+                  <CaseCover
+                    url={c.url}
+                    liveLabel={liveLabel}
+                    metrics={metrics}
+                    stack={c.stack}
+                  />
+                </div>
+              </Reveal>
+            </>
+          )}
         </Container>
       </Section>
 

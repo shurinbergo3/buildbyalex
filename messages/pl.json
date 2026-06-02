@@ -31,7 +31,8 @@
       "email": "Email",
       "linkedin": "LinkedIn",
       "github": "GitHub",
-      "telegram": "Telegram"
+      "telegram": "Telegram",
+      "advertising": "Reklama"
     },
     "location": "Warszawa, Polska",
     "rights": "Wszelkie prawa zastrzeżone.",
@@ -372,6 +373,13 @@
           "price": "3 000 €",
           "body": "Aplikacja cross-platform, opublikowana w App Store i Google Play.",
           "examples": "iOS + Android · autoryzacja · płatności"
+        },
+        "ads": {
+          "title": "Reklama",
+          "from": "od",
+          "price": "€500",
+          "body": "Google Ads i Meta Ads — konfiguracja i prowadzenie pod cel konwersji.",
+          "examples": "€300 konfiguracja · Google + Meta · śledzenie GA4"
         }
       },
       "caption": "Cena ostateczna po rozmowie wstępnej. Edycje po starcie: 50 €/h, minimum 1 godzina. Bez wymuszonego abonamentu."
@@ -602,7 +610,7 @@
     "intro": {
       "eyebrow": "Usługi",
       "headline": "Co robię.",
-      "subhead": "Trzy kierunki. Każdy ze stałą ceną od, klarownym procesem i kejsami z liczbami. Wybierz jeden albo połącz."
+      "subhead": "Cztery kierunki. Każdy ze stałą ceną od, klarownym procesem i kejsami z liczbami. Wybierz jeden albo połącz."
     },
     "websites": {
       "meta": {
@@ -690,8 +698,8 @@
     },
     "ai": {
       "meta": {
-        "title": "Agenci AI i automatyzacja — wdrożenia pod klucz",
-        "description": "Asystenci RAG, sales-boty, kwalifikacja AI. Integracje z CRM (AmoCRM, HubSpot), Telegram, WhatsApp. Od 1 200 €."
+        "title": "Chatbot AI i agenci AI dla firm — wdrożenie pod klucz",
+        "description": "Chatboty AI i agenci AI dla firm: asystenci RAG, sales-boty, automatyzacja obsługi klienta 24/7. Integracje z CRM (AmoCRM, HubSpot), Telegram, WhatsApp. Od 1 200 €."
       },
       "eyebrow": "Agenci AI",
       "headline": "Agenci AI,\nktórzy zamykają.",
@@ -857,6 +865,88 @@
       "startingPrice": "Cena startowa",
       "bookCta": "Bezpłatna rozmowa",
       "includedTitle": "Co wchodzi w zakres"
+    },
+    "ads": {
+      "meta": {
+        "title": "Agencja Google Ads i Meta Ads — kampanie, Warszawa",
+        "description": "Prowadzenie kampanii Google Ads i Meta Ads w Warszawie: konfiguracja, śledzenie konwersji i przejrzyste raporty. Leady, nie kliknięcia. Od €300 lub €500/mies."
+      },
+      "eyebrow": "Reklama",
+      "headline": "Reklamy, które dają\nleady, nie kliknięcia.",
+      "lead": "Google Ads i Meta Ads — konfiguracja i prowadzenie pod realną sprzedaż. Każda złotówka przypisana do konwersji: żadnych pustych wyświetleń i „czarnej skrzynki”.",
+      "from": "Od €300 za konfigurację lub €500/mies",
+      "primaryCta": "Zaplanuj kampanię",
+      "what": {
+        "title": "Co dostajesz",
+        "items": [
+          {
+            "title": "Google Ads od A do Z",
+            "body": "Sieć wyszukiwania, Performance Max, Shopping i YouTube — buduję wokół fraz, które naprawdę wpisują Twoi klienci, a nie wokół dopasowania przybliżonego na ślepo."
+          },
+          {
+            "title": "Meta Ads, które konwertują",
+            "body": "Kampanie na Facebooku i Instagramie: testy kreacji, grupy odbiorców i remarketing — z tymi samymi celami konwersji co reklama w wyszukiwarce."
+          },
+          {
+            "title": "Poprawne śledzenie konwersji",
+            "body": "GA4, Google Tag Manager i zdarzenia po stronie serwera. Liczymy leady i sprzedaż, nie kliknięcia — budżet idzie tam, gdzie działa."
+          },
+          {
+            "title": "Przejrzyste raporty",
+            "body": "Dashboard w Looker Studio, który naprawdę czytasz: koszt leada, ROAS i co zmieniło się w tym tygodniu. Bez zrzutów ekranu i żargonu."
+          },
+          {
+            "title": "Landing page, który domyka",
+            "body": "Reklama to połowa sukcesu. Zbuduję lub dopracuję stronę docelową, by kliknięcie zamieniło się w lead — jeden wykonawca, jeden standard."
+          },
+          {
+            "title": "Bez zobowiązań",
+            "body": "Miesiąc do miesiąca. Konta, dane i piksele należą do Ciebie. Odchodzisz, kiedy chcesz — nic nie jest zakładnikiem."
+          }
+        ]
+      },
+      "stack": {
+        "title": "Platformy i narzędzia",
+        "items": [
+          "Google Ads",
+          "Performance Max",
+          "Google Shopping",
+          "Meta Ads",
+          "Merchant Center",
+          "GA4",
+          "Google Tag Manager",
+          "Looker Studio",
+          "Meta Pixel"
+        ]
+      },
+      "cases": "Powiązane realizacje",
+      "faq": {
+        "title": "Pytania o reklamę",
+        "items": [
+          {
+            "q": "Jaki budżet przeznaczyć na reklamy?",
+            "a": "Dla pozyskiwania leadów w Polsce realny start to €500–1500/mies budżetu reklamowego, osobno od mojego wynagrodzenia za prowadzenie. Budżet pod Twój cel ustalamy na pierwszej rozmowie i skalujemy dopiero, gdy liczby się zgadzają."
+          },
+          {
+            "q": "Czym różni się konfiguracja od prowadzenia?",
+            "a": "Konfiguracja (od €300) to jednorazowy montaż: struktura konta, śledzenie, konwersje i pierwsze kampanie. Prowadzenie (€500/mies) to praca ciągła: optymalizacja, testy A/B, raporty i skalowanie. Wielu klientów zaczyna od konfiguracji i dodaje prowadzenie, gdy pojawiają się leady."
+          },
+          {
+            "q": "Kiedy zobaczę efekty?",
+            "a": "Kampanie w wyszukiwarce potrafią dać leady już w pierwszym tygodniu. Meta i Performance Max wychodzą z fazy uczenia w 2–4 tygodnie. Prawdziwa optymalizacja opiera się na danych, więc pierwszy miesiąc to ich zbieranie."
+          },
+          {
+            "q": "Prowadzisz i Google Ads, i Meta?",
+            "a": "Tak — i prowadzę je razem. Wspólne cele konwersji, jeden dashboard, budżet przepływa do kanału, w którym lead jest w danym miesiącu tańszy."
+          },
+          {
+            "q": "Do kogo należą konta?",
+            "a": "Do Ciebie. Pracuję na Twoich kontach Google Ads i Meta Business albo zakładam je na Twoje dane. Gdy się rozstajemy — wszystko zostaje u Ciebie: dane, piksele i historia."
+          }
+        ]
+      },
+      "startingPrice": "Cena startowa",
+      "bookCta": "Umów bezpłatną rozmowę"
     }
   },
   "work": {
@@ -1369,6 +1459,151 @@
         }
       },
       "visionair": {
+        "macbook": {
+          "headline": "Zdjęcia z drona w Warszawie",
+          "accent": "kinematograficznie",
+          "lead": "DJI Mini 4 Pro · Avata 2 FPV · 4K Cinematic. Certyfikat EASA, ubezpieczenie Compensa, loty tylko w dozwolonych strefach.",
+          "ctaGhost": "Zobacz realizacje",
+          "nav": [
+            "USŁUGI",
+            "PORTFOLIO",
+            "O NAS",
+            "KONTAKT"
+          ],
+          "stats": [
+            {
+              "k": "Doświadczenie",
+              "v": "120+ projektów"
+            },
+            {
+              "k": "Nalot",
+              "v": "450 godzin"
+            },
+            {
+              "k": "Ubezpieczenie",
+              "v": "Compensa VIG"
+            }
+          ]
+        },
+        "serp": {
+          "eyebrow": "Wyszukiwarka Google",
+          "headline": "Topowe pozycje w Google na zapytania o drona w Warszawie",
+          "subhead": "Realne zapytania komercyjne — visionair.biz.pl stoi wyżej niż agregatory, katalogi i studia foto.",
+          "relatedLabel": "Podobne wyszukiwania",
+          "queries": [
+            {
+              "q": "operator drona Warszawa",
+              "count": "Około 84 300 wyników (0,33 s)",
+              "results": [
+                {
+                  "site": "visionair.biz.pl",
+                  "breadcrumb": "https://visionair.biz.pl",
+                  "title": "Operator drona w Warszawie — VisionAir · 4K Cinematic",
+                  "snippet": "Certyfikowany pilot drona: nieruchomości, eventy i reklama. EASA, ubezpieczenie Compensa. Wycena w 24h.",
+                  "rating": "Ocena 4.9 · 26 opinii"
+                },
+                {
+                  "site": "olx.pl",
+                  "breadcrumb": "https://olx.pl › uslugi › dron",
+                  "title": "Operator drona Warszawa — ogłoszenia OLX",
+                  "snippet": "Prywatne ogłoszenia operatorów dronów w Warszawie i na Mazowszu. Ceny, kontakt, przykłady prac."
+                },
+                {
+                  "site": "fixly.pl",
+                  "breadcrumb": "https://fixly.pl › dron-warszawa",
+                  "title": "Zdjęcia z drona — znajdź fachowca, Warszawa | Fixly",
+                  "snippet": "Zamów operatora drona w Warszawie. Porównaj oferty i opinie wykonawców."
+                },
+                {
+                  "site": "dronewizja.pl",
+                  "breadcrumb": "https://dronewizja.pl",
+                  "title": "DroneWizja — zdjęcia z powietrza w Warszawie",
+                  "snippet": "Profesjonalne zdjęcia z drona: foto i wideo 4K dla firm i klientów prywatnych."
+                },
+                {
+                  "site": "youtube.com",
+                  "breadcrumb": "https://youtube.com › results",
+                  "title": "Operator drona Warszawa — filmy",
+                  "snippet": "Wybór nagrań z przykładami zdjęć lotniczych w Warszawie od lokalnych operatorów."
+                }
+              ]
+            },
+            {
+              "q": "zdjęcia z drona Warszawa",
+              "count": "Około 61 500 wyników (0,29 s)",
+              "results": [
+                {
+                  "site": "visionair.biz.pl",
+                  "breadcrumb": "https://visionair.biz.pl › uslugi",
+                  "title": "Zdjęcia z drona w Warszawie — ceny i pakiety | VisionAir",
+                  "snippet": "Ujęcia lotnicze 4K dla nieruchomości, ślubów, inspekcji i reklamy. Materiał w 48h. 120+ projektów.",
+                  "rating": "Ocena 4.9 · 26 opinii"
+                },
+                {
+                  "site": "fotodron.pl",
+                  "breadcrumb": "https://fotodron.pl › warszawa",
+                  "title": "FotoDron — zdjęcia z powietrza, Warszawa",
+                  "snippet": "Foto i wideo z drona w Warszawie: nieruchomości, eventy, budowa."
+                },
+                {
+                  "site": "skyfilm.pl",
+                  "breadcrumb": "https://skyfilm.pl › oferta",
+                  "title": "Zdjęcia lotnicze Warszawa — SkyFilm",
+                  "snippet": "Kinematograficzne ujęcia z drona. Zezwolenia, ubezpieczenie, doświadczeni piloci."
+                },
+                {
+                  "site": "panoramafirm.pl",
+                  "breadcrumb": "https://panoramafirm.pl › dron",
+                  "title": "Zdjęcia z drona Warszawa — katalog firm",
+                  "snippet": "Lista firm wykonujących zdjęcia lotnicze w Warszawie. Opinie, kontakt, lokalizacja."
+                },
+                {
+                  "site": "instagram.com",
+                  "breadcrumb": "https://instagram.com › explore",
+                  "title": "#dronwarszawa — zdjęcia i filmy",
+                  "snippet": "Świeże ujęcia lotnicze Warszawy od operatorów dronów."
+                }
+              ]
+            },
+            {
+              "q": "dron na wesele Warszawa",
+              "count": "Około 19 800 wyników (0,41 s)",
+              "results": [
+                {
+                  "site": "visionair.biz.pl",
+                  "breadcrumb": "https://visionair.biz.pl › dron-na-wesele",
+                  "title": "Dron na wesele w Warszawie | VisionAir",
+                  "snippet": "Ujęcia lotnicze Waszego wesela: wideo 4K i zdjęcia z góry. Cichy dron, współpraca z kamerzystą, bezpieczne strefy.",
+                  "rating": "Ocena 4.9 · 26 opinii"
+                },
+                {
+                  "site": "weddingdron.pl",
+                  "breadcrumb": "https://weddingdron.pl",
+                  "title": "Wesele z lotu ptaka — WeddingDron Warszawa",
+                  "snippet": "Filmowanie wesel z powietrza w Warszawie i okolicach. Pakiety pod klucz."
+                },
+                {
+                  "site": "abcslubu.pl",
+                  "breadcrumb": "https://abcslubu.pl › dron",
+                  "title": "Dron na wesele Warszawa — katalog",
+                  "snippet": "Wybór operatorów do ślubnych zdjęć lotniczych. Ceny i opinie par młodych."
+                },
+                {
+                  "site": "weselezklasa.pl",
+                  "breadcrumb": "https://weselezklasa.pl › dron",
+                  "title": "Zdjęcia ślubne z drona — porady i ceny",
+                  "snippet": "Ile kosztuje dron na wesele w Warszawie i co wchodzi w pakiet."
+                },
+                {
+                  "site": "youtube.com",
+                  "breadcrumb": "https://youtube.com › results",
+                  "title": "Dron na wesele Warszawa — filmy",
+                  "snippet": "Przykłady ślubnych zdjęć lotniczych od warszawskich operatorów."
+                }
+              ]
+            }
+          ]
+        },
         "speed": {
           "eyebrow": "PageSpeed Insights",
           "headline": "LCP poniżej sekundy na każdej stronie usługowej",

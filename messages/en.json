@@ -31,7 +31,8 @@
       "email": "Email",
       "linkedin": "LinkedIn",
       "github": "GitHub",
-      "telegram": "Telegram"
+      "telegram": "Telegram",
+      "advertising": "Advertising"
     },
     "location": "Warsaw, Poland",
     "rights": "All rights reserved.",
@@ -372,6 +373,13 @@
           "price": "€3,000",
           "body": "Cross-platform app, submitted to both App Store and Play Store.",
           "examples": "iOS + Android · auth · payments"
+        },
+        "ads": {
+          "title": "Ads",
+          "from": "from",
+          "price": "€500",
+          "body": "Google Ads and Meta Ads, set up and managed to a conversion goal.",
+          "examples": "€300 setup · Google + Meta · GA4 tracking"
         }
       },
       "caption": "Final price after a discovery call. Edits after launch: €50/hour, 1-hour minimum. No forced retainer."
@@ -602,7 +610,7 @@
     "intro": {
       "eyebrow": "Services",
       "headline": "What I do.",
-      "subhead": "Three focused offerings. Each one ships with a fixed starting price, a clear process and real case studies. Pick one — or combine them."
+      "subhead": "Four focused offerings. Each one ships with a fixed starting price, a clear process and real case studies. Pick one — or combine them."
     },
     "websites": {
       "meta": {
@@ -690,8 +698,8 @@
     },
     "ai": {
       "meta": {
-        "title": "AI Agents & Automation — Custom-built",
-        "description": "RAG assistants, sales bots, AI lead qualification. CRM integrations (AmoCRM, HubSpot), Telegram, WhatsApp. From €1,200."
+        "title": "AI Agents & Chatbots for Business — Custom-built",
+        "description": "AI agents and chatbots for business: RAG assistants, sales bots, 24/7 customer support automation. CRM integrations (AmoCRM, HubSpot), Telegram, WhatsApp. From €1,200."
       },
       "eyebrow": "AI Agents",
       "headline": "AI agents that\nactually close.",
@@ -857,6 +865,88 @@
       "startingPrice": "Starting price",
       "bookCta": "Book a free call",
       "includedTitle": "What's included"
+    },
+    "ads": {
+      "meta": {
+        "title": "Google Ads & Meta Ads Management in Poland — PPC that pays back",
+        "description": "Google Ads and Meta Ads setup and management for Poland. Conversion tracking, transparent reporting, leads — not vanity clicks. From €300 setup or €500/month."
+      },
+      "eyebrow": "Advertising",
+      "headline": "Ads that bring\nleads, not clicks.",
+      "lead": "Google Ads and Meta Ads, set up and managed for real pipeline. Every euro tracked to a conversion — no vanity metrics, no black box.",
+      "from": "From €300 setup or €500/month",
+      "primaryCta": "Plan my campaign",
+      "what": {
+        "title": "What you get",
+        "items": [
+          {
+            "title": "Google Ads, end to end",
+            "body": "Search, Performance Max, Shopping and YouTube — built around the keywords your buyers actually type, not broad-match guesswork."
+          },
+          {
+            "title": "Meta Ads that convert",
+            "body": "Facebook and Instagram campaigns with creative testing, audiences and retargeting, wired to the same conversion goals as your search ads."
+          },
+          {
+            "title": "Conversion tracking done right",
+            "body": "GA4, Google Tag Manager and server-side events. We count leads and sales, not clicks — so spend follows what works."
+          },
+          {
+            "title": "Transparent reporting",
+            "body": "A Looker Studio dashboard you actually read: cost per lead, ROAS and what changed this week. No screenshots, no jargon."
+          },
+          {
+            "title": "Landing pages that close",
+            "body": "Ads are half the job. I build or tune the landing page so the click becomes a lead — same hand, same standard."
+          },
+          {
+            "title": "No lock-in",
+            "body": "Month to month. You own the ad accounts, the data and the pixels. Leave whenever — nothing held hostage."
+          }
+        ]
+      },
+      "stack": {
+        "title": "Platforms & tools",
+        "items": [
+          "Google Ads",
+          "Performance Max",
+          "Google Shopping",
+          "Meta Ads",
+          "Merchant Center",
+          "GA4",
+          "Google Tag Manager",
+          "Looker Studio",
+          "Meta Pixel"
+        ]
+      },
+      "cases": "Related work",
+      "faq": {
+        "title": "Questions about advertising",
+        "items": [
+          {
+            "q": "How much should I budget for ads?",
+            "a": "For local lead-gen in Poland, €500–1,500/month of ad spend is a realistic start — separate from my management fee. We set the budget to your goal on the first call and scale only once the numbers work."
+          },
+          {
+            "q": "What's the difference between setup and management?",
+            "a": "Setup (from €300) is the one-time build: account structure, tracking, conversions and first campaigns. Management (€500/month) is the ongoing work — optimization, A/B tests, reporting and scaling. Many clients start with setup and add management once leads come in."
+          },
+          {
+            "q": "When will I see results?",
+            "a": "Search campaigns can bring leads in the first week. Meta and Performance Max need 2–4 weeks to exit the learning phase. Real optimization comes from data, so the first month is about gathering it."
+          },
+          {
+            "q": "Do you work with both Google Ads and Meta?",
+            "a": "Yes — and I run them together. The same conversion goals, one dashboard, budget shifted to whichever channel is cheaper per lead this month."
+          },
+          {
+            "q": "Who owns the accounts?",
+            "a": "You do. I work inside your Google Ads and Meta Business accounts, or set them up in your name. If we part ways, everything stays with you — data, pixels and history."
+          }
+        ]
+      },
+      "startingPrice": "Starting price",
+      "bookCta": "Book a free call"
     }
   },
   "work": {
@@ -1369,6 +1459,151 @@
         }
       },
       "visionair": {
+        "macbook": {
+          "headline": "Drone filming in Warsaw",
+          "accent": "cinematically",
+          "lead": "DJI Mini 4 Pro · Avata 2 FPV · 4K Cinematic. EASA-certified, Compensa insurance, flights in permitted zones only.",
+          "ctaGhost": "View cases",
+          "nav": [
+            "SERVICES",
+            "PORTFOLIO",
+            "ABOUT",
+            "CONTACT"
+          ],
+          "stats": [
+            {
+              "k": "Experience",
+              "v": "120+ projects"
+            },
+            {
+              "k": "Flight time",
+              "v": "450 hours"
+            },
+            {
+              "k": "Insurance",
+              "v": "Compensa VIG"
+            }
+          ]
+        },
+        "serp": {
+          "eyebrow": "Google Search",
+          "headline": "Top of Google for Warsaw drone-filming queries",
+          "subhead": "Real commercial searches — visionair.biz.pl ranks above aggregators, directories and photo studios.",
+          "relatedLabel": "Related searches",
+          "queries": [
+            {
+              "q": "drone operator Warsaw",
+              "count": "About 84,300 results (0.33 seconds)",
+              "results": [
+                {
+                  "site": "visionair.biz.pl",
+                  "breadcrumb": "https://visionair.biz.pl",
+                  "title": "Drone operator in Warsaw — VisionAir · 4K Cinematic",
+                  "snippet": "Certified drone pilot: real-estate, events and advertising footage. EASA, Compensa insurance. Quote within 24h.",
+                  "rating": "Rating 4.9 · 26 reviews"
+                },
+                {
+                  "site": "olx.pl",
+                  "breadcrumb": "https://olx.pl › services › drone",
+                  "title": "Drone operator Warsaw — OLX listings",
+                  "snippet": "Private listings of drone operators in Warsaw and Mazovia. Prices, contacts, sample work."
+                },
+                {
+                  "site": "fixly.pl",
+                  "breadcrumb": "https://fixly.pl › drone-warsaw",
+                  "title": "Drone filming — find a pro, Warsaw | Fixly",
+                  "snippet": "Book a drone operator in Warsaw. Compare offers and contractor reviews."
+                },
+                {
+                  "site": "dronewizja.pl",
+                  "breadcrumb": "https://dronewizja.pl",
+                  "title": "DroneWizja — aerial filming in Warsaw",
+                  "snippet": "Professional drone work: 4K photo and video for business and private clients."
+                },
+                {
+                  "site": "youtube.com",
+                  "breadcrumb": "https://youtube.com › results",
+                  "title": "Drone operator Warsaw — videos",
+                  "snippet": "A selection of aerial-filming reels from local Warsaw operators."
+                }
+              ]
+            },
+            {
+              "q": "aerial filming in Warsaw",
+              "count": "About 61,500 results (0.29 seconds)",
+              "results": [
+                {
+                  "site": "visionair.biz.pl",
+                  "breadcrumb": "https://visionair.biz.pl › services",
+                  "title": "Drone filming in Warsaw — pricing & packages | VisionAir",
+                  "snippet": "4K aerial footage for real estate, weddings, inspections and advertising. Delivered in 48h. 120+ projects.",
+                  "rating": "Rating 4.9 · 26 reviews"
+                },
+                {
+                  "site": "fotodron.pl",
+                  "breadcrumb": "https://fotodron.pl › warsaw",
+                  "title": "FotoDron — aerial filming, Warsaw",
+                  "snippet": "Drone photo and video in Warsaw: real estate, events, construction."
+                },
+                {
+                  "site": "skyfilm.pl",
+                  "breadcrumb": "https://skyfilm.pl › offer",
+                  "title": "Aerial filming Warsaw — SkyFilm",
+                  "snippet": "Cinematic drone footage. Permits, insurance, experienced pilots."
+                },
+                {
+                  "site": "panoramafirm.pl",
+                  "breadcrumb": "https://panoramafirm.pl › drone",
+                  "title": "Drone filming Warsaw — company directory",
+                  "snippet": "List of aerial-filming companies in Warsaw. Reviews, contacts, location."
+                },
+                {
+                  "site": "instagram.com",
+                  "breadcrumb": "https://instagram.com › explore",
+                  "title": "#dronwarszawa — photos and videos",
+                  "snippet": "Fresh aerial shots of Warsaw from drone operators."
+                }
+              ]
+            },
+            {
+              "q": "wedding drone Warsaw",
+              "count": "About 19,800 results (0.41 seconds)",
+              "results": [
+                {
+                  "site": "visionair.biz.pl",
+                  "breadcrumb": "https://visionair.biz.pl › dron-na-wesele",
+                  "title": "Wedding drone filming in Warsaw | VisionAir",
+                  "snippet": "Aerial footage of your wedding: 4K video and photos from above. Quiet drone, works with your videographer, safe zones.",
+                  "rating": "Rating 4.9 · 26 reviews"
+                },
+                {
+                  "site": "weddingdron.pl",
+                  "breadcrumb": "https://weddingdron.pl",
+                  "title": "Wedding from above — WeddingDron Warsaw",
+                  "snippet": "Filming weddings from the air in Warsaw and nearby. Turnkey packages."
+                },
+                {
+                  "site": "abcslubu.pl",
+                  "breadcrumb": "https://abcslubu.pl › drone",
+                  "title": "Wedding drone Warsaw — directory",
+                  "snippet": "A selection of operators for wedding aerial filming. Prices and newlywed reviews."
+                },
+                {
+                  "site": "weselezklasa.pl",
+                  "breadcrumb": "https://weselezklasa.pl › drone",
+                  "title": "Wedding aerial filming — tips and prices",
+                  "snippet": "How much a wedding drone costs in Warsaw and what the package includes."
+                },
+                {
+                  "site": "youtube.com",
+                  "breadcrumb": "https://youtube.com › results",
+                  "title": "Wedding drone Warsaw — videos",
+                  "snippet": "Examples of wedding aerial filming from Warsaw operators."
+                }
+              ]
+            }
+          ]
+        },
         "speed": {
           "eyebrow": "PageSpeed Insights",
           "headline": "Sub-1s LCP across every service page",

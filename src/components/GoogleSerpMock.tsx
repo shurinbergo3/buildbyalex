@@ -22,8 +22,12 @@ const TYPE_PER_CHAR = 55;
 const HOLD_AFTER_RESULTS = 4200;
 const HOLD_BEFORE_TYPING = 600;
 
-export function GoogleSerpMock() {
-  const t = useTranslations("work.caseShowcase.legalwin.serp");
+export function GoogleSerpMock({
+  namespace = "work.caseShowcase.legalwin.serp",
+}: {
+  namespace?: string;
+} = {}) {
+  const t = useTranslations(namespace);
   const queries = useMemo(() => t.raw("queries") as QueryBlock[], [t]);
 
   const [queryIndex, setQueryIndex] = useState(0);
