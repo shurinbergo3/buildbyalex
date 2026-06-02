@@ -7,7 +7,7 @@
 - Name: Oleksandr "Alex" Shuvalov
 - Role: Independent senior fullstack developer (one-person operation, not an agency)
 - Location: Warsaw, Poland
-- Contact: shurinbergo@gmail.com · https://t.me/buildbyalex · https://www.linkedin.com/in/oleksandr-shuvalov
+- Contact: alex@buildbyalex.com · https://t.me/buildbyalex · https://www.linkedin.com/in/oleksandr-shuvalov
 - Website: https://buildbyalex.com
 - Working hours: EU / US-friendly. Reply within hours, usually same day.
 
@@ -90,7 +90,7 @@ Cross-platform iOS + Android on React Native + Expo SDK 52. Authentication, paym
 - GitHub: https://github.com/buildbyalex
 - LinkedIn: https://www.linkedin.com/in/oleksandr-shuvalov
 - Telegram: https://t.me/buildbyalex
-- Email: shurinbergo@gmail.com
+- Email: alex@buildbyalex.com
 
 ## What I do NOT do
 

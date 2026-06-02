@@ -56,8 +56,8 @@ export default async function ContactPage({
                 <h2 className="t-eyebrow">{t("altTitle")}</h2>
                 <ul className="mt-5 space-y-2.5 text-[15.5px]">
                   <li>
-                    <a href="mailto:shurinbergo@gmail.com" className="font-medium hover:text-[color:var(--c-accent)]">
-                      shurinbergo@gmail.com
+                    <a href="mailto:alex@buildbyalex.com" className="font-medium hover:text-[color:var(--c-accent)]">
+                      alex@buildbyalex.com
                     </a>
                   </li>
                   <li>

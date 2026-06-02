@@ -96,10 +96,10 @@ export function MobileMenu() {
               <div className="flex justify-between items-center">
                 <LocaleSwitcher />
                 <a
-                  href="mailto:shurinbergo@gmail.com"
+                  href="mailto:alex@buildbyalex.com"
                   className="text-[14px] text-[color:var(--color-text-2)] underline-offset-4 hover:underline"
                 >
-                  shurinbergo@gmail.com
+                  alex@buildbyalex.com
                 </a>
               </div>
             </div>

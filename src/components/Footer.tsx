@@ -45,7 +45,7 @@ export function Footer() {
           <div className="col-span-2 md:col-span-3">
             <h4 className="t-eyebrow mb-4 text-[11px]">{t("sections.contact")}</h4>
             <ul className="space-y-2.5 text-[14px] text-[color:var(--color-text-2)]">
-              <li><a href="mailto:shurinbergo@gmail.com" className="hover:text-[color:var(--color-text)] transition-colors">shurinbergo@gmail.com</a></li>
+              <li><a href="mailto:alex@buildbyalex.com" className="hover:text-[color:var(--color-text)] transition-colors">alex@buildbyalex.com</a></li>
               <li><a href="https://t.me/sumotry" target="_blank" rel="noreferrer noopener" className="hover:text-[color:var(--color-text)] transition-colors">{t("links.telegram")} @sumotry</a></li>
               <li><a href="https://wa.me/48453474944" target="_blank" rel="noreferrer noopener" className="hover:text-[color:var(--color-text)] transition-colors">WhatsApp</a></li>
               <li><a href="tel:+48453474944" className="hover:text-[color:var(--color-text)] transition-colors">+48 453 474 944</a></li>

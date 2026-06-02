@@ -100,7 +100,7 @@ export default async function AboutPage({
       "https://t.me/sumotry",
     ],
     knowsLanguage: ["ru", "uk", "en", "pl"],
-    email: "mailto:shurinbergo@gmail.com",
+    email: "mailto:alex@buildbyalex.com",
     telephone: "+48453474944",
   };
 
@@ -181,7 +181,7 @@ export default async function AboutPage({
                 </p>
                 <h2 className="t-h2 mt-12">{t("linksTitle")}</h2>
                 <ul className="mt-6 space-y-3 text-[16px]">
-                  <li><a href="mailto:shurinbergo@gmail.com" className="hover:text-[color:var(--c-accent)]">shurinbergo@gmail.com</a></li>
+                  <li><a href="mailto:alex@buildbyalex.com" className="hover:text-[color:var(--c-accent)]">alex@buildbyalex.com</a></li>
                   <li><a href="https://t.me/sumotry" target="_blank" rel="noreferrer noopener" className="hover:text-[color:var(--c-accent)]">Telegram @sumotry ↗</a></li>
                   <li><a href="https://wa.me/48453474944" target="_blank" rel="noreferrer noopener" className="hover:text-[color:var(--c-accent)]">WhatsApp ↗</a></li>
                   <li><a href="tel:+48453474944" className="hover:text-[color:var(--c-accent)]">+48 453 474 944</a></li>
