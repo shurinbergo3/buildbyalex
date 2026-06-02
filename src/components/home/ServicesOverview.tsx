@@ -7,52 +7,18 @@ import { Reveal } from "@/components/Reveal";
 type Item = {
   key: "websites" | "ai" | "mobile";
   href: "/services/websites" | "/services/ai-agents" | "/services/mobile-apps";
-  glyph: React.ReactNode;
+  featured: boolean;
 };
 
 const items: Item[] = [
-  {
-    key: "websites",
-    href: "/services/websites",
-    glyph: (
-      <svg viewBox="0 0 80 80" fill="none" className="h-full w-full">
-        <rect x="10" y="14" width="60" height="42" rx="6" stroke="currentColor" strokeWidth="2" />
-        <path d="M10 24h60" stroke="currentColor" strokeWidth="2" />
-        <circle cx="16" cy="19" r="1.2" fill="currentColor" />
-        <circle cx="20" cy="19" r="1.2" fill="currentColor" />
-        <circle cx="24" cy="19" r="1.2" fill="currentColor" />
-        <path d="M20 34h28M20 40h36M20 46h24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <rect x="20" y="58" width="22" height="6" rx="3" fill="currentColor" opacity="0.85" />
-      </svg>
-    ),
-  },
-  {
-    key: "ai",
-    href: "/services/ai-agents",
-    glyph: (
-      <svg viewBox="0 0 80 80" fill="none" className="h-full w-full">
-        <circle cx="40" cy="40" r="22" stroke="currentColor" strokeWidth="2" />
-        <circle cx="40" cy="40" r="3.5" fill="currentColor" />
-        <path d="M40 18v6M40 56v6M18 40h6M56 40h6M24 24l4 4M52 52l4 4M24 56l4-4M52 28l4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
-    key: "mobile",
-    href: "/services/mobile-apps",
-    glyph: (
-      <svg viewBox="0 0 80 80" fill="none" className="h-full w-full">
-        <rect x="26" y="10" width="28" height="60" rx="5" stroke="currentColor" strokeWidth="2" />
-        <path d="M36 14h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <rect x="32" y="22" width="16" height="22" rx="2" fill="currentColor" opacity="0.85" />
-        <circle cx="40" cy="62" r="2.5" stroke="currentColor" strokeWidth="2" />
-      </svg>
-    ),
-  },
+  { key: "websites", href: "/services/websites", featured: false },
+  { key: "ai", href: "/services/ai-agents", featured: true },
+  { key: "mobile", href: "/services/mobile-apps", featured: false },
 ];
 
 export function ServicesOverview() {
   const t = useTranslations("home.services");
+
   return (
     <Section tone="alt" pad="default" id="services">
       <Container>
@@ -66,47 +32,117 @@ export function ServicesOverview() {
           </div>
         </Reveal>
 
-        <div className="mt-12 overflow-hidden rounded-[28px] bg-[color:var(--color-bg-elev)] shadow-[var(--shadow-card)] md:mt-16">
-          {items.map((item, i) => (
-            <Reveal key={item.key} delay={i * 80}>
-              <Link
-                href={item.href}
-                className="group relative grid grid-cols-[auto_minmax(0,1fr)] items-start gap-x-5 gap-y-4 p-7 transition-colors duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-[color:var(--c-accent-soft)] md:grid-cols-[5.5rem_5rem_minmax(0,1fr)_auto] md:items-center md:gap-x-8 md:p-9 [&:not(:first-child)]:border-t [&:not(:first-child)]:border-[color:var(--color-divider)]"
-              >
-                {/* accent rail that grows on hover */}
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute left-0 top-0 h-full w-[3px] origin-top scale-y-0 bg-[color:var(--c-accent)] transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-y-100"
-                />
+        {/* Three service cards — styled to match the pricing section */}
+        <div className="mt-12 grid gap-5 md:mt-16 md:grid-cols-3">
+          {items.map(({ key, href, featured }, i) => {
+            const bullets = t.raw(`items.${key}.bullets`) as string[];
+            return (
+              <Reveal key={key} delay={i * 90}>
+                <Link
+                  href={href}
+                  className={[
+                    "group relative flex h-full flex-col rounded-[28px] p-7 md:p-8 transition-[transform,box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]",
+                    featured
+                      ? "bg-[#0A0A0A] text-white shadow-[var(--shadow-card)]"
+                      : "bg-[color:var(--color-bg-elev)] hover:-translate-y-1 hover:shadow-[var(--shadow-card-hover)]",
+                  ].join(" ")}
+                >
+                  {featured && (
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[color:var(--c-accent)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-white">
+                      Most asked
+                    </span>
+                  )}
 
-                <span className="font-mono text-[15px] tabular-nums text-[color:var(--color-text-3)] md:text-[17px]">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-
-                <span className="grid h-14 w-14 place-items-center rounded-2xl bg-[color:var(--c-accent-soft)] text-[color:var(--c-accent-ink)] transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105 dark:text-[color:var(--c-accent)] md:h-[68px] md:w-[68px]">
-                  <span className="h-8 w-8 md:h-10 md:w-10">{item.glyph}</span>
-                </span>
-
-                <div className="col-span-2 flex flex-col gap-2 md:col-span-1">
-                  <h3 className="t-h4 font-[number:var(--fw-semi)]">{t(`items.${item.key}.title`)}</h3>
-                  <p className="max-w-[52ch] text-[15.5px] leading-[1.5] text-[color:var(--color-text-2)]">
-                    {t(`items.${item.key}.body`)}
+                  <p
+                    className={`text-[12px] font-semibold uppercase tracking-[0.08em] ${
+                      featured ? "text-white/50" : "text-[color:var(--color-text-3)]"
+                    }`}
+                  >
+                    {t(`items.${key}.category`)}
                   </p>
-                  <p className="mt-1 font-mono text-[12px] tracking-[0.01em] text-[color:var(--color-text-3)]">
-                    {t(`items.${item.key}.stack`)}
-                  </p>
-                </div>
 
-                <span className="col-span-2 inline-flex items-center gap-1.5 text-[14px] font-medium text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)] md:col-span-1 md:justify-self-end">
-                  {t(`items.${item.key}.link`)}
-                  <svg width="15" height="15" viewBox="0 0 14 14" className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
-                    <path d="M5 3l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                  </svg>
-                </span>
-              </Link>
-            </Reveal>
-          ))}
+                  <h3
+                    className={`mt-3 t-h4 font-[number:var(--fw-semi)] ${
+                      featured ? "text-white" : "text-[color:var(--color-text)]"
+                    }`}
+                  >
+                    {t(`items.${key}.title`)}
+                  </h3>
+
+                  <ul
+                    className={`mt-5 space-y-2.5 text-[15px] leading-[1.5] ${
+                      featured ? "text-white/80" : "text-[color:var(--color-text-2)]"
+                    }`}
+                  >
+                    {bullets.map((b, bi) => (
+                      <li key={bi} className="flex gap-2.5">
+                        <span
+                          className="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-[color:var(--c-accent)]"
+                          aria-hidden="true"
+                        />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-6 flex items-baseline gap-2">
+                    <span
+                      className={`text-[12px] uppercase tracking-[0.04em] ${
+                        featured ? "text-white/50" : "text-[color:var(--color-text-3)]"
+                      }`}
+                    >
+                      {t("from")}
+                    </span>
+                    <span
+                      className={`text-[clamp(28px,2.4vw,36px)] font-semibold tracking-[-0.03em] ${
+                        featured ? "text-white" : "text-[color:var(--color-text)]"
+                      }`}
+                    >
+                      {t(`items.${key}.price`)}
+                    </span>
+                  </div>
+
+                  <span
+                    className={`mt-auto inline-flex items-center gap-1.5 pt-8 text-[14px] font-medium ${
+                      featured ? "text-[color:var(--c-accent)]" : "text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]"
+                    }`}
+                  >
+                    {t(`items.${key}.link`)}
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 14 14"
+                      className="transition-transform duration-200 group-hover:translate-x-1"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 3l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                    </svg>
+                  </span>
+                </Link>
+              </Reveal>
+            );
+          })}
         </div>
+
+        {/* Fourth card — full width, advertising */}
+        <Reveal delay={300}>
+          <div className="mt-5 flex flex-col gap-4 rounded-[28px] bg-[color:var(--color-bg-alt)] p-7 ring-1 ring-[color:var(--color-divider)] md:flex-row md:items-center md:justify-between md:p-8">
+            <div className="max-w-[640px]">
+              <p className="text-[12px] font-semibold uppercase tracking-[0.08em] text-[color:var(--color-text-3)]">
+                {t("ads.category")}
+              </p>
+              <h3 className="mt-2 t-h4 font-[number:var(--fw-semi)] text-[color:var(--color-text)]">
+                {t("ads.title")}
+              </h3>
+              <p className="mt-2 text-[15.5px] leading-[1.5] text-[color:var(--color-text-2)]">
+                {t("ads.body")}
+              </p>
+            </div>
+            <p className="shrink-0 text-[15px] font-medium tracking-[-0.01em] text-[color:var(--color-text)] md:text-right">
+              {t("ads.price")}
+            </p>
+          </div>
+        </Reveal>
       </Container>
     </Section>
   );

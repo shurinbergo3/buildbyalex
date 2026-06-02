@@ -73,20 +73,48 @@
           "title": "Websites that rank.",
           "body": "Next.js 15, React 19, multilingual, schema-first. SEO and GEO baked in.",
           "stack": "Next.js · TypeScript · Tailwind · next-intl · Vercel",
-          "link": "Learn more"
+          "link": "Learn more",
+          "category": "Websites",
+          "price": "€800",
+          "bullets": [
+            "Next.js 15 + React 19",
+            "Multilingual, SEO & GEO baked in",
+            "Deployed and indexed for you"
+          ]
         },
         "ai": {
           "title": "AI agents that close.",
           "body": "RAG assistants, sales bots, qualification flows. Plugged into your CRM, your data, your tools.",
           "stack": "Gemini · GPT · Claude · Function calling · AmoCRM · Telegram",
-          "link": "Learn more"
+          "link": "Learn more",
+          "category": "AI Agents",
+          "price": "€1,200",
+          "bullets": [
+            "RAG, sales & qualification bots",
+            "Plugged into your CRM and tools",
+            "Multilingual, on your own data"
+          ]
         },
         "mobile": {
           "title": "Mobile apps that ship.",
           "body": "iOS and Android from one codebase. App Store and Play Store submission included.",
           "stack": "React Native · Expo · Swift · Kotlin",
-          "link": "Learn more"
+          "link": "Learn more",
+          "category": "Mobile Apps",
+          "price": "€3,000",
+          "bullets": [
+            "iOS + Android, one codebase",
+            "App Store & Play submission included",
+            "Auth and payments ready"
+          ]
         }
+      },
+      "from": "from",
+      "ads": {
+        "category": "Advertising",
+        "title": "Digital Advertising",
+        "body": "Google Ads, Meta Ads — setup and management.",
+        "price": "From €300 setup or €500/month management"
       }
     },
     "work": {
@@ -114,6 +142,23 @@
           "result1": "Replaces the first-contact sales manager",
           "result2": "Automated daily lead pull + AI qualification"
         }
+      },
+      "featured": {
+        "metrics": [
+          {
+            "value": "80%",
+            "label": "of first-contact handled by the bot"
+          },
+          {
+            "value": "24/7",
+            "label": "lead qualification that never sleeps"
+          },
+          {
+            "value": "<30s",
+            "label": "first response to every new lead"
+          }
+        ],
+        "seeAll": "See all 5 projects →"
       }
     },
     "legalwinShowcase": {
@@ -121,9 +166,18 @@
       "headline": "Found on Google. <br></br>Named in <accent>ChatGPT</accent>.",
       "subhead": "One site sits in the top of Google for 15+ commercial queries — and AI assistants recommend it by name. The same playbook is available to you.",
       "metrics": [
-        { "value": "15+", "label": "queries in Google top 10" },
-        { "value": "4.9★", "label": "from 312 verified clients" },
-        { "value": "$0", "label": "spent on paid ads" }
+        {
+          "value": "15+",
+          "label": "queries in Google top 10"
+        },
+        {
+          "value": "4.9★",
+          "label": "from 312 verified clients"
+        },
+        {
+          "value": "$0",
+          "label": "spent on paid ads"
+        }
       ],
       "columns": {
         "serp": {
@@ -311,6 +365,26 @@
       "primaryCta": "Book a free consultation",
       "or": "or email",
       "email": "shurinbergo@gmail.com"
+    },
+    "numbers": {
+      "stats": [
+        {
+          "value": "15+",
+          "label": "keywords in Google top-10"
+        },
+        {
+          "value": "<1s",
+          "label": "page load time (LCP)"
+        },
+        {
+          "value": "24/7",
+          "label": "AI agent availability"
+        },
+        {
+          "value": "3 wks",
+          "label": "average time to launch"
+        }
+      ]
     }
   },
   "services": {
@@ -935,7 +1009,10 @@
               {
                 "topic": "Karta pobytu",
                 "exchanges": [
-                  { "type": "user", "text": "Which documents do I need for karta pobytu czasowy?" },
+                  {
+                    "type": "user",
+                    "text": "Which documents do I need for karta pobytu czasowy?"
+                  },
                   {
                     "type": "bot",
                     "intro": "Core pack:",
@@ -949,7 +1026,10 @@
                     ],
                     "outro": "Which of these do you already have?"
                   },
-                  { "type": "user", "text": "All of them. How long is the wait?" },
+                  {
+                    "type": "user",
+                    "text": "All of them. How long is the wait?"
+                  },
                   {
                     "type": "bot",
                     "intro": "Mazowieckie is running 6-8 months right now. You can keep working on stempel for the entire wait.",
@@ -960,7 +1040,10 @@
               {
                 "topic": "Kod 95",
                 "exchanges": [
-                  { "type": "user", "text": "What does Kod 95 cost and how long does it take?" },
+                  {
+                    "type": "user",
+                    "text": "What does Kod 95 cost and how long does it take?"
+                  },
                   {
                     "type": "bot",
                     "intro": "Full package:",
@@ -972,7 +1055,10 @@
                     ],
                     "outro": "When do you need the certificate by?"
                   },
-                  { "type": "user", "text": "Within a month. When does the next group start?" },
+                  {
+                    "type": "user",
+                    "text": "Within a month. When does the next group start?"
+                  },
                   {
                     "type": "bot",
                     "intro": "Next start is in 9 days. 4 seats left.",
@@ -1128,20 +1214,50 @@
             "name": "AI-Bohdan",
             "role": "Sales assistant · Telegram userbot",
             "languagesLabel": "Client languages",
-            "languages": ["EN", "RU", "UA", "PL", "SK"],
+            "languages": [
+              "EN",
+              "RU",
+              "UA",
+              "PL",
+              "SK"
+            ],
             "skillsLabel": "What it can do",
             "footnote": "Doesn't take vacation, doesn't ignore late-night messages, doesn't fumble payment details. Run cost: about $30/month in API.",
             "schedule": [
-              { "label": "Schedule", "value": "24 / 7 / 365" },
-              { "label": "On the job since", "value": "February 2026" },
-              { "label": "Coverage", "value": "Temp. protection · residency · business" },
-              { "label": "Channel", "value": "Telegram (private DMs)" }
+              {
+                "label": "Schedule",
+                "value": "24 / 7 / 365"
+              },
+              {
+                "label": "On the job since",
+                "value": "February 2026"
+              },
+              {
+                "label": "Coverage",
+                "value": "Temp. protection · residency · business"
+              },
+              {
+                "label": "Channel",
+                "value": "Telegram (private DMs)"
+              }
             ],
             "skills": [
-              { "label": "Lead qualification", "level": 98 },
-              { "label": "Sales pitch", "level": 95 },
-              { "label": "Payment details + EUR→UAH rate", "level": 92 },
-              { "label": "Human-style messaging", "level": 100 }
+              {
+                "label": "Lead qualification",
+                "level": 98
+              },
+              {
+                "label": "Sales pitch",
+                "level": 95
+              },
+              {
+                "label": "Payment details + EUR→UAH rate",
+                "level": 92
+              },
+              {
+                "label": "Human-style messaging",
+                "level": 100
+              }
             ],
             "stats": [
               {
@@ -1149,9 +1265,18 @@
                 "label": "Owner hours saved per month",
                 "sub": "≈ 1.3 FTE"
               },
-              { "value": "100%", "label": "Night & weekend coverage" },
-              { "value": "~4,200", "label": "Messages handled per month" },
-              { "value": "~$30", "label": "Monthly run cost" }
+              {
+                "value": "100%",
+                "label": "Night & weekend coverage"
+              },
+              {
+                "value": "~4,200",
+                "label": "Messages handled per month"
+              },
+              {
+                "value": "~$30",
+                "label": "Monthly run cost"
+              }
             ]
           }
         },
@@ -1276,7 +1401,15 @@
           "streakSub": "STREAK",
           "weekLabel": "THIS WEEK",
           "weekValue": "0/7",
-          "weekdays": ["MO", "TU", "WE", "TH", "FR", "SA", "SU"],
+          "weekdays": [
+            "MO",
+            "TU",
+            "WE",
+            "TH",
+            "FR",
+            "SA",
+            "SU"
+          ],
           "todayLabel": "TODAY'S PLAN",
           "todayTitle": "Upper",
           "exercisesValue": "6",
@@ -1295,7 +1428,11 @@
           "restValue": "2:55",
           "exerciseName": "Barbell Row",
           "lastSessionLabel": "Last session",
-          "prevSets": ["Set 1   50 kg × 15", "Set 2   60 kg × 13", "Set 3   70 kg × 12"],
+          "prevSets": [
+            "Set 1   50 kg × 15",
+            "Set 2   60 kg × 13",
+            "Set 3   70 kg × 12"
+          ],
           "weightLabel": "WEIGHT (KG)",
           "weightValue": "50",
           "repsLabel": "REPS",
@@ -1336,7 +1473,12 @@
           "secondProgramTitle": "Full-body: Foundations",
           "secondProgramDesc": "Base full-body programme for beginners. 2 sessions a week, focus on the basics.",
           "secondProgramCta": "Activate",
-          "tabs": ["Workout", "Programs", "Library", "Stats"]
+          "tabs": [
+            "Workout",
+            "Programs",
+            "Library",
+            "Stats"
+          ]
         }
       }
     },

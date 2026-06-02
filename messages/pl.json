@@ -73,20 +73,48 @@
           "title": "Strony, które rankują.",
           "body": "Next.js 15, React 19, wielojęzyczność, schema-first. SEO i GEO wbudowane na starcie.",
           "stack": "Next.js · TypeScript · Tailwind · next-intl · Vercel",
-          "link": "Dowiedz się więcej"
+          "link": "Dowiedz się więcej",
+          "category": "Strony",
+          "price": "800 €",
+          "bullets": [
+            "Next.js 15 + React 19",
+            "Wielojęzyczność, SEO i GEO wbudowane",
+            "Wdrożenie i indeksacja pod klucz"
+          ]
         },
         "ai": {
           "title": "Agenci AI, którzy zamykają.",
           "body": "Asystenci RAG, boty sprzedażowe, kwalifikacja leadów. Podłączone do CRM, danych i narzędzi.",
           "stack": "Gemini · GPT · Claude · Function calling · AmoCRM · Telegram",
-          "link": "Dowiedz się więcej"
+          "link": "Dowiedz się więcej",
+          "category": "Agenci AI",
+          "price": "1 200 €",
+          "bullets": [
+            "Boty RAG, sprzedażowe i kwalifikacja",
+            "Podłączone do CRM i narzędzi",
+            "Wielojęzyczne, na Twoich danych"
+          ]
         },
         "mobile": {
           "title": "Aplikacje mobilne, które trafiają na sklepy.",
           "body": "iOS i Android z jednego kodu. Wraz z publikacją w App Store i Google Play.",
           "stack": "React Native · Expo · Swift · Kotlin",
-          "link": "Dowiedz się więcej"
+          "link": "Dowiedz się więcej",
+          "category": "Aplikacje",
+          "price": "3 000 €",
+          "bullets": [
+            "iOS i Android z jednego kodu",
+            "Publikacja w App Store i Google Play",
+            "Logowanie i płatności gotowe"
+          ]
         }
+      },
+      "from": "od",
+      "ads": {
+        "category": "Reklama",
+        "title": "Reklama cyfrowa",
+        "body": "Google Ads, Meta Ads — konfiguracja i prowadzenie.",
+        "price": "Od 300 € za setup lub 500 €/mies. prowadzenia"
       }
     },
     "work": {
@@ -114,6 +142,23 @@
           "result1": "Zastępuje managera pierwszego kontaktu",
           "result2": "Automatyczne pobieranie leadów + kwalifikacja AI"
         }
+      },
+      "featured": {
+        "metrics": [
+          {
+            "value": "80%",
+            "label": "pierwszego kontaktu obsługuje bot"
+          },
+          {
+            "value": "24/7",
+            "label": "kwalifikacja leadów bez przerwy"
+          },
+          {
+            "value": "<30s",
+            "label": "pierwsza odpowiedź na każdy lead"
+          }
+        ],
+        "seeAll": "Zobacz wszystkie 5 realizacji →"
       }
     },
     "legalwinShowcase": {
@@ -121,9 +166,18 @@
       "headline": "Znaleziony w Google. <br></br>Polecany w <accent>ChatGPT</accent>.",
       "subhead": "Jedna strona w top wynikach Google dla 15+ zapytań komercyjnych — i asystenci AI polecają ją z nazwy. Ten sam schemat dostępny dla Ciebie.",
       "metrics": [
-        { "value": "15+", "label": "zapytań w top 10 Google" },
-        { "value": "4,9★", "label": "od 312 zweryfikowanych klientów" },
-        { "value": "0 zł", "label": "wydane na reklamy płatne" }
+        {
+          "value": "15+",
+          "label": "zapytań w top 10 Google"
+        },
+        {
+          "value": "4,9★",
+          "label": "od 312 zweryfikowanych klientów"
+        },
+        {
+          "value": "0 zł",
+          "label": "wydane na reklamy płatne"
+        }
       ],
       "columns": {
         "serp": {
@@ -311,6 +365,26 @@
       "primaryCta": "Umów bezpłatną konsultację",
       "or": "albo napisz",
       "email": "shurinbergo@gmail.com"
+    },
+    "numbers": {
+      "stats": [
+        {
+          "value": "15+",
+          "label": "słów kluczowych w top-10 Google"
+        },
+        {
+          "value": "<1s",
+          "label": "czas ładowania strony (LCP)"
+        },
+        {
+          "value": "24/7",
+          "label": "dostępność agenta AI"
+        },
+        {
+          "value": "3 tyg",
+          "label": "średni czas do startu"
+        }
+      ]
     }
   },
   "services": {
@@ -935,7 +1009,10 @@
               {
                 "topic": "Karta pobytu",
                 "exchanges": [
-                  { "type": "user", "text": "Jakie dokumenty są potrzebne do karty pobytu czasowego?" },
+                  {
+                    "type": "user",
+                    "text": "Jakie dokumenty są potrzebne do karty pobytu czasowego?"
+                  },
                   {
                     "type": "bot",
                     "intro": "Komplet podstawowy:",
@@ -949,7 +1026,10 @@
                     ],
                     "outro": "Co z tego masz już zebrane?"
                   },
-                  { "type": "user", "text": "Wszystko mam. Ile się czeka na decyzję?" },
+                  {
+                    "type": "user",
+                    "text": "Wszystko mam. Ile się czeka na decyzję?"
+                  },
                   {
                     "type": "bot",
                     "intro": "W Mazowieckiem obecnie 6-8 miesięcy od daty złożenia. Na stempel można pracować przez cały ten czas.",
@@ -960,7 +1040,10 @@
               {
                 "topic": "Kod 95",
                 "exchanges": [
-                  { "type": "user", "text": "Ile kosztuje Kod 95 i jak długo trwa szkolenie?" },
+                  {
+                    "type": "user",
+                    "text": "Ile kosztuje Kod 95 i jak długo trwa szkolenie?"
+                  },
                   {
                     "type": "bot",
                     "intro": "Pełny pakiet:",
@@ -972,7 +1055,10 @@
                     ],
                     "outro": "Na kiedy potrzebujesz świadectwo?"
                   },
-                  { "type": "user", "text": "W ciągu miesiąca. Kiedy startuje najbliższa grupa?" },
+                  {
+                    "type": "user",
+                    "text": "W ciągu miesiąca. Kiedy startuje najbliższa grupa?"
+                  },
                   {
                     "type": "bot",
                     "intro": "Najbliższy start — za 9 dni. Zostały 4 miejsca.",
@@ -1128,20 +1214,50 @@
             "name": "AI-Bohdan",
             "role": "Asystent sprzedaży · Telegram userbot",
             "languagesLabel": "Języki klientów",
-            "languages": ["PL", "EN", "RU", "UA", "SK"],
+            "languages": [
+              "PL",
+              "EN",
+              "RU",
+              "UA",
+              "SK"
+            ],
             "skillsLabel": "Co potrafi",
             "footnote": "Nie idzie na urlop, nie ignoruje nocnych wiadomości, nie myli danych do przelewu. Koszt pracy — około $30/mies. na API.",
             "schedule": [
-              { "label": "Grafik", "value": "24 / 7 / 365" },
-              { "label": "W pracy od", "value": "Luty 2026" },
-              { "label": "Zakres", "value": "Ochrona tymczasowa · pobyt · biznes" },
-              { "label": "Kanał", "value": "Telegram (prywatne DM)" }
+              {
+                "label": "Grafik",
+                "value": "24 / 7 / 365"
+              },
+              {
+                "label": "W pracy od",
+                "value": "Luty 2026"
+              },
+              {
+                "label": "Zakres",
+                "value": "Ochrona tymczasowa · pobyt · biznes"
+              },
+              {
+                "label": "Kanał",
+                "value": "Telegram (prywatne DM)"
+              }
             ],
             "skills": [
-              { "label": "Kwalifikacja leada", "level": 98 },
-              { "label": "Pitch sprzedażowy", "level": 95 },
-              { "label": "Dane przelewu + kurs EUR→UAH", "level": 92 },
-              { "label": "Naturalna korespondencja", "level": 100 }
+              {
+                "label": "Kwalifikacja leada",
+                "level": 98
+              },
+              {
+                "label": "Pitch sprzedażowy",
+                "level": 95
+              },
+              {
+                "label": "Dane przelewu + kurs EUR→UAH",
+                "level": 92
+              },
+              {
+                "label": "Naturalna korespondencja",
+                "level": 100
+              }
             ],
             "stats": [
               {
@@ -1149,9 +1265,18 @@
                 "label": "Godzin właściciela odzyskanych miesięcznie",
                 "sub": "≈ 1.3 etatu"
               },
-              { "value": "100%", "label": "Pokrycie nocy i weekendów" },
-              { "value": "~4 200", "label": "Wiadomości miesięcznie" },
-              { "value": "~$30", "label": "Koszt pracy / mies." }
+              {
+                "value": "100%",
+                "label": "Pokrycie nocy i weekendów"
+              },
+              {
+                "value": "~4 200",
+                "label": "Wiadomości miesięcznie"
+              },
+              {
+                "value": "~$30",
+                "label": "Koszt pracy / mies."
+              }
             ]
           }
         },
@@ -1276,7 +1401,15 @@
           "streakSub": "STREAK",
           "weekLabel": "W TYM TYGODNIU",
           "weekValue": "0/7",
-          "weekdays": ["PN", "WT", "ŚR", "CZ", "PT", "SO", "ND"],
+          "weekdays": [
+            "PN",
+            "WT",
+            "ŚR",
+            "CZ",
+            "PT",
+            "SO",
+            "ND"
+          ],
           "todayLabel": "PLAN NA DZIŚ",
           "todayTitle": "Góra",
           "exercisesValue": "6",
@@ -1295,7 +1428,11 @@
           "restValue": "2:55",
           "exerciseName": "Wiosłowanie sztangą",
           "lastSessionLabel": "Ostatni trening",
-          "prevSets": ["Seria 1   50 kg × 15", "Seria 2   60 kg × 13", "Seria 3   70 kg × 12"],
+          "prevSets": [
+            "Seria 1   50 kg × 15",
+            "Seria 2   60 kg × 13",
+            "Seria 3   70 kg × 12"
+          ],
           "weightLabel": "CIĘŻAR (KG)",
           "weightValue": "50",
           "repsLabel": "POWTÓRZENIA",
@@ -1336,7 +1473,12 @@
           "secondProgramTitle": "Full-body: Fundament",
           "secondProgramDesc": "Bazowy program full body dla początkujących. 2 sesje w tygodniu z naciskiem na podstawy.",
           "secondProgramCta": "Aktywuj",
-          "tabs": ["Trening", "Program", "Biblioteka", "Statystyki"]
+          "tabs": [
+            "Trening",
+            "Program",
+            "Biblioteka",
+            "Statystyki"
+          ]
         }
       }
     },

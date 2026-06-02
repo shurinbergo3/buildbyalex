@@ -13,7 +13,7 @@
 
 :root {
   /* ── Neutrals (light) ── */
-  --c-bg:           #FBFBFD;   /* Apple-ish off-white */
+  --c-bg:           #FAFAF9;   /* Apple-ish warm off-white */
   --c-bg-alt:       #F4F4F2;   /* warm gray section */
   --c-bg-elev:      #FFFFFF;   /* cards on the alt bg */
   --c-text:         #0A0A0A;

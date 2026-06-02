@@ -11,6 +11,7 @@ import { Section } from "@/components/Section";
 import { Container } from "@/components/Container";
 import { TelegramChatMock } from "@/components/TelegramChatMock";
 import { CRMFunnelMock } from "@/components/CRMFunnelMock";
+import { Numbers } from "@/components/home/Numbers";
 import { Pricing } from "@/components/home/Pricing";
 import { Testimonials } from "@/components/home/Testimonials";
 import { FAQ } from "@/components/home/FAQ";
@@ -70,6 +71,7 @@ export default async function HomePage({
           </div>
         </Container>
       </Section>
+      <Numbers />
       <Pricing />
       <Testimonials />
       <FAQ />
