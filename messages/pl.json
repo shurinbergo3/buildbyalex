@@ -1854,7 +1854,7 @@
       "name": "Imię i nazwisko",
       "email": "Email",
       "company": "Firma (opcjonalnie)",
-      "type": "Typ projektu",
+      "type": "Typ projektu (opcjonalnie)",
       "typeOptions": {
         "website": "Strona",
         "ai": "Agent AI / automatyzacja",
@@ -1874,7 +1874,8 @@
       "submit": "Wyślij",
       "sending": "Wysyłam…",
       "success": "Dziękuję! Odpowiem w godzinach.",
-      "error": "Coś poszło nie tak. Spróbuj jeszcze raz albo napisz na email."
+      "error": "Coś poszło nie tak. Spróbuj jeszcze raz albo napisz na email.",
+      "phone": "Telefon (opcjonalnie)"
     }
   },
   "notFound": {

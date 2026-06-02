@@ -1854,7 +1854,7 @@
       "name": "Your name",
       "email": "Email",
       "company": "Company (optional)",
-      "type": "Project type",
+      "type": "Project type (optional)",
       "typeOptions": {
         "website": "Website",
         "ai": "AI agent / automation",
@@ -1874,7 +1874,8 @@
       "submit": "Send",
       "sending": "Sending…",
       "success": "Thanks! I'll reply within hours.",
-      "error": "Something went wrong. Please try again or email me directly."
+      "error": "Something went wrong. Please try again or email me directly.",
+      "phone": "Phone (optional)"
     }
   },
   "notFound": {

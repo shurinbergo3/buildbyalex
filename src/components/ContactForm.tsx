@@ -23,6 +23,7 @@ export function ContactForm() {
     const payload = {
       name: String(fd.get("name") ?? ""),
       email: String(fd.get("email") ?? ""),
+      phone: String(fd.get("phone") ?? ""),
       company: String(fd.get("company") ?? ""),
       type: String(fd.get("type") ?? ""),
       budget: String(fd.get("budget") ?? ""),
@@ -56,20 +57,20 @@ export function ContactForm() {
       <div className="grid gap-5 md:grid-cols-2">
         <Field name="name" label={t("name")} required />
         <Field name="email" label={t("email")} type="email" required />
+        <Field name="phone" label={t("phone")} type="tel" />
         <Field name="company" label={t("company")} />
         <SelectField
           name="type"
           label={t("type")}
-          required
           options={typeKeys.map((k) => ({ value: k, label: t(`typeOptions.${k}`) }))}
         />
+        <SelectField
+          name="budget"
+          label={t("budget")}
+          required
+          options={budgetKeys.map((k) => ({ value: k, label: t(`budgetOptions.${k}`) }))}
+        />
       </div>
-      <SelectField
-        name="budget"
-        label={t("budget")}
-        required
-        options={budgetKeys.map((k) => ({ value: k, label: t(`budgetOptions.${k}`) }))}
-      />
       <TextAreaField
         name="description"
         label={t("description")}
@@ -114,7 +115,15 @@ function Field({
         name={name}
         required={required}
         autoComplete={
-          name === "email" ? "email" : name === "name" ? "name" : name === "company" ? "organization" : "off"
+          name === "email"
+            ? "email"
+            : name === "name"
+            ? "name"
+            : name === "phone"
+            ? "tel"
+            : name === "company"
+            ? "organization"
+            : "off"
         }
         className={fieldBase}
       />

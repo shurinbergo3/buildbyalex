@@ -3,6 +3,7 @@ export const runtime = "edge";
 type Payload = {
   name: string;
   email: string;
+  phone?: string;
   company?: string;
   type: string;
   budget: string;
@@ -69,6 +70,7 @@ export async function POST(req: Request) {
 
   const name = (data.name ?? "").trim();
   const email = (data.email ?? "").trim();
+  const phone = (data.phone ?? "").trim().slice(0, 40);
   const company = (data.company ?? "").trim();
   const type = (data.type ?? "").trim();
   const budget = (data.budget ?? "").trim();
@@ -101,8 +103,9 @@ export async function POST(req: Request) {
     ``,
     `<b>Name:</b> ${escape(name)}`,
     `<b>Email:</b> ${escape(email)}`,
+    phone ? `<b>Phone:</b> ${escape(phone)}` : null,
     company ? `<b>Company:</b> ${escape(company)}` : null,
-    `<b>Type:</b> ${escape(type)}`,
+    type ? `<b>Type:</b> ${escape(type)}` : null,
     `<b>Budget:</b> ${escape(budget)}`,
     `<b>Locale:</b> ${escape(locale)}`,
     ``,
