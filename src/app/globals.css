@@ -227,25 +227,24 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
   z-index: 0;
   overflow: hidden;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;       /* fill top-to-bottom, no empty bands */
+  justify-content: center;       /* keep the column under the centred spotlight */
+  padding-top: clamp(40px, 7vh, 96px);
   user-select: none;
   pointer-events: none;
   background:
-    radial-gradient(120% 90% at 50% 0%, #0b0b10 0%, #050507 60%);
+    radial-gradient(130% 100% at 50% 0%, #0b0b10 0%, #050507 62%);
 }
 .hero-code-pre {
   margin: 0;
   padding: 0;
   font-family: var(--font-mono), ui-monospace, "SF Mono", monospace;
-  font-size: clamp(12.5px, 0.62vw + 9px, 17px);
-  line-height: 2.05;
+  font-size: clamp(12px, 0.55vw + 8.5px, 16px);
+  line-height: 1.62;
   letter-spacing: -0.005em;
   text-align: left;
   white-space: pre;
   -webkit-font-smoothing: antialiased;
-  /* slight lift so the densest code sits behind the headline block */
-  transform: translateY(-2%);
 }
 .hcl {
   display: flex;
@@ -270,12 +269,14 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
 .hero-code .t-str  { color: #8FD6A6; }
 .hero-code .t-tag  { color: #FFB386; }
 .hero-code .t-attr { color: #9DB8E0; }
+.hero-code .t-num  { color: #C9B0E8; }
+.hero-code .t-pln  { color: rgba(233, 226, 217, 0.86); }
 .hero-code .t-pun  { color: rgba(233, 226, 217, 0.42); }
 .hero-code .t-com  { color: rgba(233, 226, 217, 0.34); font-style: italic; }
 .hero-code .t-acc  { color: var(--c-accent); font-weight: 600; }
 
 @media (max-width: 640px) {
-  .hero-code-pre { font-size: 12px; line-height: 1.95; }
+  .hero-code-pre { font-size: 11.5px; line-height: 1.6; }
   .hcl-n { margin-right: 1.4ch; }
 }
 
@@ -304,24 +305,24 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
   pointer-events: none;
   z-index: 2;
   background: radial-gradient(
-    circle 260px at var(--mx) var(--my),
+    circle 340px at var(--mx) var(--my),
     transparent 0%,
-    transparent 14%,
-    rgba(4, 4, 8, 0.40) 38%,
-    rgba(4, 4, 8, 0.78) 75%,
-    rgba(2, 2, 6, 0.92) 100%
+    transparent 16%,
+    rgba(4, 4, 8, 0.34) 40%,
+    rgba(4, 4, 8, 0.74) 74%,
+    rgba(2, 2, 6, 0.90) 100%
   );
   transition: background 280ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 .hero-frame[data-spot="off"] .hero-flashlight {
   /* When the cursor leaves, lift the spotlight a touch so the card stays moody */
   background: radial-gradient(
-    circle 200px at 50% 32%,
+    circle 280px at 50% 34%,
     transparent 0%,
-    transparent 12%,
-    rgba(4, 4, 8, 0.48) 38%,
-    rgba(4, 4, 8, 0.80) 75%,
-    rgba(2, 2, 6, 0.92) 100%
+    transparent 14%,
+    rgba(4, 4, 8, 0.42) 40%,
+    rgba(4, 4, 8, 0.78) 74%,
+    rgba(2, 2, 6, 0.90) 100%
   );
 }
 
@@ -332,10 +333,10 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
   pointer-events: none;
   z-index: 3;
   background: radial-gradient(
-    circle 220px at var(--mx) var(--my),
-    rgba(255, 130, 60, 0.28) 0%,
-    rgba(255, 130, 60, 0.10) 32%,
-    transparent 65%
+    circle 280px at var(--mx) var(--my),
+    rgba(255, 130, 60, 0.26) 0%,
+    rgba(255, 130, 60, 0.09) 34%,
+    transparent 66%
   );
   mix-blend-mode: screen;
   transition: background 280ms cubic-bezier(0.16, 1, 0.3, 1);

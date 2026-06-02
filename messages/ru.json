@@ -1,9 +1,9 @@
 {
   "meta": {
     "siteName": "buildbyalex",
-    "defaultTitle": "Alex Shuvalov — сайты, AI-агенты, мобильные приложения",
-    "defaultDescription": "Независимый senior-разработчик в Варшаве. Продакшн-сайты, AI-агенты и мобильные приложения за 1–3 недели. RU · EN · PL · UA.",
-    "ogAlt": "buildbyalex — Alex Shuvalov, независимый разработчик"
+    "defaultTitle": "buildbyalex — сайты, AI-агенты и мобильные приложения",
+    "defaultDescription": "Независимый senior-разработчик в Варшаве. Продакшн-сайты, AI-агенты и мобильные приложения за 1–3 недели — от первого звонка до релиза. RU · EN · PL · UA.",
+    "ogAlt": "buildbyalex — независимый разработчик · Варшава"
   },
   "nav": {
     "work": "Работы",

@@ -1,147 +1,161 @@
 /**
  * The surface revealed under the hero spotlight.
  *
- * Not a stock photo of code — the actual (lightly edited) source of this very
- * hero, hand-tokenised so it stays crisp at any DPI and tints to the brand
- * palette. Self-referential on purpose: "this is how the thing you're looking
- * at was built." Decorative only — hidden from a11y, no pointer events.
+ * Not a stock photo of code — the actual (lightly trimmed) source of this very
+ * hero's scroll-morph, tokenised on the fly so it stays crisp at any DPI and
+ * tints to the brand palette. Self-referential on purpose: the spotlight reveals
+ * the exact animation you're watching. Decorative only — hidden from a11y.
  */
+
+const SOURCE = `import { useEffect, useRef } from "react";
+import { useTranslations } from "next-intl";
+import { Container } from "@/components/Container";
+import { Button } from "@/components/Button";
+
+// buildbyalex — hero scroll-morph. one person, end to end.
+export function Hero() {
+  const t = useTranslations("home.hero");
+  const sectionRef = useRef(null);
+  const frameRef = useRef(null);
+  const contentRef = useRef(null);
+
+  useEffect(() => {
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let currentP = 0;
+    let targetP = 0;
+
+    const computeTarget = () => {
+      const rect = sectionRef.current.getBoundingClientRect();
+      const zone = Math.max(1, rect.height - innerHeight);
+      const raw = reduced ? 0 : Math.min(1, Math.max(0, -rect.top / zone));
+      targetP = raw * raw * (3 - 2 * raw);
+    };
+
+    const apply = (p) => {
+      const frame = frameRef.current;
+      const content = contentRef.current;
+      const maxX = Math.min(160, innerWidth * 0.08);
+      frame.style.top = p * 80 + "px";
+      frame.style.left = p * maxX + "px";
+      frame.style.right = p * maxX + "px";
+      frame.style.bottom = p * 120 + "px";
+      frame.style.borderRadius = p * 28 + "px";
+      content.style.transform = "scale(" + (1 - p * 0.18) + ")";
+      content.style.opacity = 1 - p * 0.25;
+    };
+
+    // spring toward target even if the user scroll-blasts past
+    const tick = () => {
+      computeTarget();
+      const diff = targetP - currentP;
+      if (Math.abs(diff) < 0.0008) return apply(currentP);
+      currentP += diff * 0.12;
+      apply(currentP);
+      requestAnimationFrame(tick);
+    };
+
+    addEventListener("scroll", () => requestAnimationFrame(tick));
+    return () => removeEventListener("scroll", tick);
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="hero-scroll">
+      <div className="hero-sticky">
+        <div ref={frameRef} className="hero-frame">
+          <HeroCodeSurface />
+          <div className="hero-flashlight" />
+          <div className="hero-chrome">buildbyalex.com</div>
+        </div>
+        <div ref={contentRef} className="hero-content">
+          <Container size="default">
+            <h1 className="t-hero">
+              Продакшн-сайты, AI-агенты
+              и мобильные приложения.
+              <span className="hl-accent">За 1–3 недели.</span>
+            </h1>
+            <p className="hero-sub">{t("subhead")}</p>
+            <Button href="/contact" size="lg">
+              {t("primaryCta")}
+            </Button>
+          </Container>
+        </div>
+      </div>
+    </section>
+  );
+  // ● Live · Warsaw — shipped, not staged
+}`;
+
+const KEYWORDS = new Set([
+  "import", "from", "export", "default", "function", "const", "let", "var",
+  "return", "if", "else", "for", "while", "new", "await", "async", "void",
+  "typeof", "null", "true", "false", "of", "in",
+]);
+
+type Tok = { c: string; v: string };
+
+function tokenize(line: string): Tok[] {
+  if (line.length === 0) return [{ c: "sp", v: " " }];
+  const out: Tok[] = [];
+  const re =
+    /(\/\/.*$)|(`(?:[^`\\]|\\.)*`|"(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*')|(\b\d+(?:\.\d+)?(?:px|ms|vh|vw|em|%)?\b)|([A-Za-z_$][\w$]*)|(\s+)|([^\s])/g;
+  let m: RegExpExecArray | null;
+  let expectTag = false;
+  while ((m = re.exec(line)) !== null) {
+    if (m[1]) {
+      out.push({ c: "t-com", v: m[1] });
+      expectTag = false;
+    } else if (m[2]) {
+      out.push({ c: "t-str", v: m[2] });
+      expectTag = false;
+    } else if (m[3]) {
+      out.push({ c: "t-num", v: m[3] });
+      expectTag = false;
+    } else if (m[4]) {
+      const w = m[4];
+      const after = line.slice(re.lastIndex).match(/^\s*\(/);
+      if (KEYWORDS.has(w)) out.push({ c: "t-kw", v: w });
+      else if (expectTag) out.push({ c: "t-tag", v: w });
+      else if (/^[A-Z]/.test(w)) out.push({ c: "t-tag", v: w });
+      else if (after) out.push({ c: "t-fn", v: w });
+      else out.push({ c: "t-pln", v: w });
+      expectTag = false;
+    } else if (m[5]) {
+      out.push({ c: "sp", v: m[5] });
+    } else {
+      const ch = m[6];
+      out.push({ c: "t-pun", v: ch });
+      if (ch === "<") expectTag = true;
+      else if (ch !== "/") expectTag = false;
+    }
+  }
+  return out;
+}
+
+const LINES = SOURCE.split("\n");
+
 export function HeroCodeSurface() {
   return (
     <div className="hero-code" aria-hidden="true">
       <pre className="hero-code-pre">
         <code>
-          <L n={1}>
-            <K>import</K> {"{ useTranslations }"} <K>from</K> <S>&quot;next-intl&quot;</S>
-            <P>;</P>
-          </L>
-          <L n={2}>
-            <K>import</K> {"{ Container }"} <K>from</K> <S>&quot;@/components/Container&quot;</S>
-            <P>;</P>
-          </L>
-          <L n={3}> </L>
-          <L n={4}>
-            <C>{"// один человек — от первого звонка до релиза"}</C>
-          </L>
-          <L n={5}>
-            <K>export function</K> <Fn>Hero</Fn>
-            <P>() {"{"}</P>
-          </L>
-          <L n={6}>
-            {"  "}
-            <K>const</K> t <P>=</P> <Fn>useTranslations</Fn>
-            <P>(</P>
-            <S>&quot;home.hero&quot;</S>
-            <P>);</P>
-          </L>
-          <L n={7}> </L>
-          <L n={8}>
-            {"  "}
-            <K>return</K> <P>(</P>
-          </L>
-          <L n={9}>
-            {"    "}
-            <P>&lt;</P>
-            <T>section</T> <A>className</A>
-            <P>=</P>
-            <S>&quot;hero-scroll&quot;</S>
-            <P>&gt;</P>
-          </L>
-          <L n={10}>
-            {"      "}
-            <P>&lt;</P>
-            <T>h1</T> <A>className</A>
-            <P>=</P>
-            <S>&quot;t-hero&quot;</S>
-            <P>&gt;</P>
-          </L>
-          <L n={11}>
-            {"        "}
-            <S>Продакшн-сайты, AI-агенты</S>
-          </L>
-          <L n={12}>
-            {"        "}
-            <S>и мобильные приложения.</S>
-          </L>
-          <L n={13}>
-            {"        "}
-            <P>&lt;</P>
-            <T>span</T> <A>className</A>
-            <P>=</P>
-            <S>&quot;hl-accent&quot;</S>
-            <P>&gt;</P>
-            <Acc>За 1–3 недели.</Acc>
-            <P>&lt;/</P>
-            <T>span</T>
-            <P>&gt;</P>
-          </L>
-          <L n={14}>
-            {"      "}
-            <P>&lt;/</P>
-            <T>h1</T>
-            <P>&gt;</P>
-          </L>
-          <L n={15}> </L>
-          <L n={16}>
-            {"      "}
-            <P>&lt;</P>
-            <T>Button</T> <A>href</A>
-            <P>=</P>
-            <S>&quot;/contact&quot;</S> <A>size</A>
-            <P>=</P>
-            <S>&quot;lg&quot;</S>
-            <P>&gt;</P>
-          </L>
-          <L n={17}>
-            {"        {"}
-            <Fn>t</Fn>
-            <P>(</P>
-            <S>&quot;primaryCta&quot;</S>
-            <P>{")}"}</P>
-          </L>
-          <L n={18}>
-            {"      "}
-            <P>&lt;/</P>
-            <T>Button</T>
-            <P>&gt;</P>
-          </L>
-          <L n={19}>
-            {"    "}
-            <P>&lt;/</P>
-            <T>section</T>
-            <P>&gt;</P>
-          </L>
-          <L n={20}>
-            {"  "}
-            <P>);</P>
-          </L>
-          <L n={21}>
-            <P>{"}"}</P>
-          </L>
-          <L n={22}> </L>
-          <L n={23}>
-            <C>{"// ● Live · Warsaw — shipped, not staged"}</C>
-          </L>
+          {LINES.map((line, i) => (
+            <span className="hcl" key={i}>
+              <span className="hcl-n">{i + 1}</span>
+              <span className="hcl-t">
+                {tokenize(line).map((tok, j) =>
+                  tok.c === "sp" ? (
+                    tok.v
+                  ) : (
+                    <span className={tok.c} key={j}>
+                      {tok.v}
+                    </span>
+                  )
+                )}
+              </span>
+            </span>
+          ))}
         </code>
       </pre>
     </div>
   );
 }
-
-/* ── tiny token helpers — keep the JSX above readable ── */
-function L({ n, children }: { n: number; children: React.ReactNode }) {
-  return (
-    <span className="hcl">
-      <span className="hcl-n">{n}</span>
-      <span className="hcl-t">{children}</span>
-    </span>
-  );
-}
-const K = ({ children }: { children: React.ReactNode }) => <span className="t-kw">{children}</span>;
-const Fn = ({ children }: { children: React.ReactNode }) => <span className="t-fn">{children}</span>;
-const S = ({ children }: { children: React.ReactNode }) => <span className="t-str">{children}</span>;
-const T = ({ children }: { children: React.ReactNode }) => <span className="t-tag">{children}</span>;
-const A = ({ children }: { children: React.ReactNode }) => <span className="t-attr">{children}</span>;
-const P = ({ children }: { children: React.ReactNode }) => <span className="t-pun">{children}</span>;
-const C = ({ children }: { children: React.ReactNode }) => <span className="t-com">{children}</span>;
-const Acc = ({ children }: { children: React.ReactNode }) => <span className="t-acc">{children}</span>;

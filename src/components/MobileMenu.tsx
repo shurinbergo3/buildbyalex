@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Button } from "./Button";
@@ -17,6 +18,11 @@ const items = [
 export function MobileMenu() {
   const t = useTranslations("nav");
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -45,11 +51,17 @@ export function MobileMenu() {
         )}
       </button>
 
-      {open && (
+      {/*
+        Portal the overlay to <body>. The header is `position: fixed` with a
+        `backdrop-filter` when scrolled, which establishes a containing block for
+        fixed descendants — that clamped this `inset-0` overlay to the header's
+        height and let the page show through. Rendering at the body root fixes it.
+      */}
+      {mounted && open && createPortal(
         <div
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-50 flex flex-col bg-[color:var(--color-bg)]"
+          className="fixed inset-0 z-[60] flex flex-col bg-[color:var(--color-bg)]"
         >
           <div className="flex h-[var(--header-h)] items-center justify-between px-5">
             <Link href="/" onClick={() => setOpen(false)} aria-label="buildbyalex — home">
@@ -103,7 +115,8 @@ export function MobileMenu() {
               </div>
             </div>
           </nav>
-        </div>
+        </div>,
+        document.body,
       )}
     </>
   );
