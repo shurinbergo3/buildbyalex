@@ -1,4 +1,8 @@
-export const runtime = "edge";
+import { addReview } from "@/lib/store";
+import { notifyReview } from "@/lib/telegram";
+
+// Node runtime — we persist reviews to a file-based store (not available on edge).
+export const runtime = "nodejs";
 
 type Payload = {
   name: string;
@@ -7,10 +11,6 @@ type Payload = {
   quote: string;
   locale: string;
 };
-
-function escape(s: string) {
-  return s.replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" })[c]!);
-}
 
 async function rateLimit(ip: string, name: string): Promise<boolean> {
   const url = process.env.UPSTASH_REDIS_REST_URL;
@@ -26,30 +26,6 @@ async function rateLimit(ip: string, name: string): Promise<boolean> {
     return data.result === "OK";
   } catch {
     return true;
-  }
-}
-
-async function sendToTelegram(body: string): Promise<boolean> {
-  const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID;
-  if (!token || !chatId) {
-    console.warn("[review] Telegram env not configured");
-    return false;
-  }
-  try {
-    const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        chat_id: chatId,
-        text: body,
-        parse_mode: "HTML",
-        disable_web_page_preview: true,
-      }),
-    });
-    return res.ok;
-  } catch {
-    return false;
   }
 }
 
@@ -88,28 +64,22 @@ export async function POST(req: Request) {
     return Response.json({ ok: true, deduped: true });
   }
 
-  const stars = "★".repeat(Math.round(rating)) + "☆".repeat(5 - Math.round(rating));
-  const lines = [
-    `⭐ <b>New review — buildbyalex</b>`,
-    ``,
-    `<b>Rating:</b> ${stars} (${rating}/5)`,
-    `<b>Name:</b> ${escape(name)}`,
-    role ? `<b>Role:</b> ${escape(role)}` : null,
-    `<b>Locale:</b> ${escape(locale)}`,
-    ``,
-    `<b>Review:</b>`,
-    escape(quote),
-    ``,
-    `<i>IP:</i> ${escape(ip)}`,
-  ].filter(Boolean);
-
-  const ok = await sendToTelegram(lines.join("\n"));
-  if (!ok) {
-    return Response.json(
-      { ok: false, error: "Telegram delivery failed" },
-      { status: 502 },
-    );
+  let review;
+  try {
+    review = await addReview({
+      name,
+      role: role || undefined,
+      rating,
+      quote,
+      locale,
+      ip,
+    });
+  } catch (err) {
+    console.error("[review] failed to persist review", err);
+    return Response.json({ ok: false, error: "Storage error" }, { status: 500 });
   }
+
+  await notifyReview(review);
 
   return Response.json({ ok: true });
 }

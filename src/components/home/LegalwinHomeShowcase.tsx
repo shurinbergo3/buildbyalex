@@ -7,6 +7,10 @@ import { GoogleSerpMock } from "@/components/GoogleSerpMock";
 import { ChatGPTRecommendMock } from "@/components/ChatGPTRecommendMock";
 import { PhoneLeadsMock } from "@/components/PhoneLeadsMock";
 
+// Soft elevation used for the mock panels — sits cleanly on the light section.
+const PANEL =
+  "border border-[color:var(--color-divider)] bg-[color:var(--color-bg-alt)] shadow-[0_1px_2px_rgba(16,24,40,0.04),0_24px_56px_-20px_rgba(16,24,40,0.16)]";
+
 export function LegalwinHomeShowcase() {
   const t = useTranslations("home.legalwinShowcase");
 
@@ -16,11 +20,7 @@ export function LegalwinHomeShowcase() {
     { value: t("metrics.2.value"), label: t("metrics.2.label") },
   ];
 
-  const flowSteps = [
-    t("flow.steps.0"),
-    t("flow.steps.1"),
-    t("flow.steps.2"),
-  ];
+  const flowSteps = [t("flow.steps.0"), t("flow.steps.1"), t("flow.steps.2")];
 
   const annotations = [
     {
@@ -41,22 +41,22 @@ export function LegalwinHomeShowcase() {
   ];
 
   return (
-    <Section tone="ink" pad="loose" id="legalwin-showcase">
+    <Section tone="default" pad="loose" id="legalwin-showcase">
       <Container>
         {/* ── Editorial header ────────────────────────────── */}
         <Reveal>
           <div className="mx-auto max-w-[820px] text-center">
-            <p className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-3 py-1 text-[11px] font-medium uppercase tracking-[0.12em] text-[color:var(--c-accent)]">
+            <p className="inline-flex items-center gap-2 rounded-full border border-[color:var(--color-divider)] bg-[color:var(--color-bg-elev)] px-3 py-1 text-[11px] font-medium uppercase tracking-[0.12em] text-[color:var(--c-accent-ink)]">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-[color:var(--c-accent)]" />
               {t("eyebrow")}
             </p>
-            <h2 className="mt-6 text-[clamp(36px,5vw+8px,64px)] font-semibold leading-[1.04] tracking-[-0.032em] text-white">
+            <h2 className="mt-6 text-[clamp(36px,5vw+8px,64px)] font-semibold leading-[1.04] tracking-[-0.032em] text-[color:var(--color-text)]">
               {t.rich("headline", {
                 accent: (chunks) => <span className="hl-accent">{chunks}</span>,
                 br: () => <br />,
               })}
             </h2>
-            <p className="mx-auto mt-6 max-w-[640px] text-[17px] leading-[1.55] text-white/65">
+            <p className="mx-auto mt-6 max-w-[640px] text-[17px] leading-[1.55] text-[color:var(--color-text-2)]">
               {t("subhead")}
             </p>
           </div>
@@ -71,10 +71,10 @@ export function LegalwinHomeShowcase() {
                 className="flex flex-col items-center text-center sm:items-start sm:text-left"
               >
                 <span
-                  className="text-[clamp(40px,4vw+10px,56px)] font-semibold leading-none tracking-[-0.035em] text-white"
+                  className="text-[clamp(40px,4vw+10px,56px)] font-semibold leading-none tracking-[-0.035em]"
                   style={{
                     backgroundImage:
-                      "linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%)",
+                      "linear-gradient(180deg, #1d1d1f 0%, #6e6e73 100%)",
                     WebkitBackgroundClip: "text",
                     backgroundClip: "text",
                     color: "transparent",
@@ -83,7 +83,7 @@ export function LegalwinHomeShowcase() {
                 >
                   {m.value}
                 </span>
-                <span className="mt-3 text-[13.5px] leading-[1.4] text-white/55">
+                <span className="mt-3 text-[13.5px] leading-[1.4] text-[color:var(--color-text-3)]">
                   {m.label}
                 </span>
               </li>
@@ -94,17 +94,17 @@ export function LegalwinHomeShowcase() {
         {/* ── "How it works" flow legend ──────────────────── */}
         <Reveal delay={180}>
           <div className="mx-auto mt-16 max-w-[860px] md:mt-20">
-            <p className="text-center text-[11px] font-medium uppercase tracking-[0.16em] text-white/35">
+            <p className="text-center text-[11px] font-medium uppercase tracking-[0.16em] text-[color:var(--color-text-3)]">
               {t("flow.title")}
             </p>
             <ol className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-stretch sm:gap-2">
               {flowSteps.map((step, i) => (
                 <li key={i} className="flex flex-1 items-center gap-3">
-                  <div className="flex flex-1 items-center gap-3 rounded-2xl border border-white/[0.08] bg-white/[0.03] px-4 py-3.5">
-                    <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full border border-[color:var(--c-accent)]/40 text-[11px] font-semibold text-[color:var(--c-accent)]">
+                  <div className="flex flex-1 items-center gap-3 rounded-2xl border border-[color:var(--color-divider)] bg-[color:var(--color-bg-elev)] px-4 py-3.5">
+                    <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full border border-[color:var(--c-accent)]/50 text-[11px] font-semibold text-[color:var(--c-accent-ink)]">
                       {i + 1}
                     </span>
-                    <span className="text-[13px] leading-[1.35] text-white/75">
+                    <span className="text-[13px] leading-[1.35] text-[color:var(--color-text-2)]">
                       {step}
                     </span>
                   </div>
@@ -114,7 +114,7 @@ export function LegalwinHomeShowcase() {
                       height="16"
                       viewBox="0 0 16 16"
                       aria-hidden
-                      className="hidden shrink-0 text-white/25 sm:block"
+                      className="hidden shrink-0 text-[color:var(--color-text-3)] sm:block"
                     >
                       <path
                         d="M6 3l5 5-5 5"
@@ -134,7 +134,9 @@ export function LegalwinHomeShowcase() {
 
         {/* ── Discovery: dual-mock presentation ───────────── */}
         <Reveal delay={220}>
-          <div className="mt-16 overflow-hidden rounded-[28px] border border-white/[0.07] bg-gradient-to-b from-white/[0.05] to-white/[0.01] p-5 sm:p-8 md:mt-20 md:p-10">
+          <div
+            className={`mt-16 overflow-hidden rounded-[28px] p-5 sm:p-8 md:mt-20 md:p-10 ${PANEL}`}
+          >
             <div className="grid gap-10 md:grid-cols-2 md:items-stretch md:gap-8 lg:gap-12">
               <ShowcaseColumn
                 index={t("columns.serp.index")}
@@ -159,8 +161,8 @@ export function LegalwinHomeShowcase() {
         {/* ── Connector to the result ─────────────────────── */}
         <Reveal delay={120}>
           <div className="mx-auto mt-16 flex max-w-[520px] flex-col items-center md:mt-20">
-            <span className="h-10 w-px bg-gradient-to-b from-transparent to-white/20" />
-            <span className="mt-3 inline-flex items-center gap-2 rounded-full border border-[color:var(--c-accent)]/30 bg-[color:var(--c-accent)]/[0.08] px-4 py-1.5 text-[12px] font-medium text-[color:var(--c-accent)]">
+            <span className="h-10 w-px bg-gradient-to-b from-transparent to-[color:var(--color-divider)]" />
+            <span className="mt-3 inline-flex items-center gap-2 rounded-full border border-[color:var(--c-accent)]/30 bg-[color:var(--c-accent-soft)] px-4 py-1.5 text-[12px] font-medium text-[color:var(--c-accent-ink)]">
               {t("result.connector")}
             </span>
           </div>
@@ -168,38 +170,40 @@ export function LegalwinHomeShowcase() {
 
         {/* ── Result: phone leads ─────────────────────────── */}
         <Reveal delay={160}>
-          <div className="mt-10 overflow-hidden rounded-[32px] border border-white/[0.07] bg-gradient-to-b from-white/[0.04] to-transparent p-6 sm:p-10 md:mt-12 md:p-14">
+          <div
+            className={`mt-10 overflow-hidden rounded-[32px] p-6 sm:p-10 md:mt-12 md:p-14 ${PANEL}`}
+          >
             <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-16">
               {/* Explanation side */}
               <div className="order-2 lg:order-1">
                 <div className="flex items-baseline gap-4">
-                  <span className="font-mono text-[12px] tracking-[0.08em] text-white/40">
+                  <span className="font-mono text-[12px] tracking-[0.08em] text-[color:var(--color-text-3)]">
                     {t("columns.leads.index")}
                   </span>
-                  <span className="h-px flex-1 bg-white/12" />
-                  <span className="text-[13px] font-medium tracking-[-0.011em] text-white/80">
+                  <span className="h-px flex-1 bg-[color:var(--color-divider)]" />
+                  <span className="text-[13px] font-medium tracking-[-0.011em] text-[color:var(--color-text)]">
                     {t("columns.leads.label")}
                   </span>
                 </div>
 
-                <h3 className="mt-7 text-[clamp(24px,2vw+12px,34px)] font-semibold leading-[1.12] tracking-[-0.022em] text-white">
+                <h3 className="mt-7 text-[clamp(24px,2vw+12px,34px)] font-semibold leading-[1.12] tracking-[-0.022em] text-[color:var(--color-text)]">
                   {t("result.headline")}
                 </h3>
-                <p className="mt-4 max-w-[440px] text-[15.5px] leading-[1.55] text-white/60">
+                <p className="mt-4 max-w-[440px] text-[15.5px] leading-[1.55] text-[color:var(--color-text-2)]">
                   {t("result.subhead")}
                 </p>
 
                 <ul className="mt-8 flex flex-col gap-5">
                   {annotations.map((a, i) => (
                     <li key={i} className="flex gap-4">
-                      <span className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/[0.04] text-[color:var(--c-accent)]">
+                      <span className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-xl border border-[color:var(--color-divider)] bg-[color:var(--color-bg-elev)] text-[color:var(--c-accent-ink)]">
                         <AnnotationIcon name={a.icon} />
                       </span>
                       <div>
-                        <p className="text-[14.5px] font-medium leading-snug text-white/90">
+                        <p className="text-[14.5px] font-medium leading-snug text-[color:var(--color-text)]">
                           {a.title}
                         </p>
-                        <p className="mt-1 text-[13px] leading-[1.5] text-white/50">
+                        <p className="mt-1 text-[13px] leading-[1.5] text-[color:var(--color-text-3)]">
                           {a.sub}
                         </p>
                       </div>
@@ -211,7 +215,7 @@ export function LegalwinHomeShowcase() {
               {/* Phone */}
               <div className="order-1 lg:order-2">
                 <PhoneLeadsMock />
-                <p className="mx-auto mt-6 max-w-[300px] text-center text-[13px] leading-[1.5] text-white/45">
+                <p className="mx-auto mt-6 max-w-[300px] text-center text-[13px] leading-[1.5] text-[color:var(--color-text-3)]">
                   {t("columns.leads.caption")}
                 </p>
               </div>
@@ -222,10 +226,12 @@ export function LegalwinHomeShowcase() {
         {/* ── CTA ─────────────────────────────────────────── */}
         <Reveal delay={120}>
           <div className="mt-16 flex flex-col items-center gap-4 md:mt-20">
-            <p className="text-[14px] text-white/50">{t("cta.tag")}</p>
+            <p className="text-[14px] text-[color:var(--color-text-3)]">
+              {t("cta.tag")}
+            </p>
             <Link
               href={{ pathname: "/work/[slug]", params: { slug: "legalwin" } }}
-              className="group inline-flex items-center gap-2 rounded-full bg-white/95 px-6 py-3 text-[15px] font-medium leading-none tracking-[-0.011em] text-[color:#0A0A0A] transition-[transform,background] duration-300 ease-[cubic-bezier(0.28,0.11,0.32,1)] hover:bg-white active:translate-y-[1px]"
+              className="group inline-flex items-center gap-2 rounded-full bg-[color:var(--color-text)] px-6 py-3 text-[15px] font-medium leading-none tracking-[-0.011em] text-[color:var(--color-bg)] transition-[transform,opacity] duration-300 ease-[cubic-bezier(0.28,0.11,0.32,1)] hover:opacity-90 active:translate-y-[1px]"
             >
               {t("cta.label")}
               <svg
@@ -268,11 +274,11 @@ function ShowcaseColumn({
   return (
     <div className="flex h-full flex-col gap-5">
       <div className="flex items-baseline gap-4">
-        <span className="font-mono text-[12px] tracking-[0.08em] text-white/40">
+        <span className="font-mono text-[12px] tracking-[0.08em] text-[color:var(--color-text-3)]">
           {index}
         </span>
-        <span className="h-px flex-1 bg-white/12" />
-        <span className="text-[13px] font-medium tracking-[-0.011em] text-white/80">
+        <span className="h-px flex-1 bg-[color:var(--color-divider)]" />
+        <span className="text-[13px] font-medium tracking-[-0.011em] text-[color:var(--color-text)]">
           {label}
         </span>
       </div>
@@ -281,7 +287,7 @@ function ShowcaseColumn({
         {children}
       </div>
 
-      <p className="min-h-[2.8em] text-[13.5px] leading-[1.5] text-white/55">
+      <p className="min-h-[2.8em] text-[13.5px] leading-[1.5] text-[color:var(--color-text-2)]">
         {caption}
       </p>
     </div>

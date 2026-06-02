@@ -1,4 +1,8 @@
-export const runtime = "edge";
+import { addLead } from "@/lib/store";
+import { notifyLead } from "@/lib/telegram";
+
+// Node runtime — we persist leads to a file-based store (not available on edge).
+export const runtime = "nodejs";
 
 type Payload = {
   name: string;
@@ -15,10 +19,6 @@ function isValidEmail(s: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
 }
 
-function escape(s: string) {
-  return s.replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" })[c]!);
-}
-
 async function rateLimit(ip: string, email: string): Promise<boolean> {
   const url = process.env.UPSTASH_REDIS_REST_URL;
   const token = process.env.UPSTASH_REDIS_REST_TOKEN;
@@ -33,30 +33,6 @@ async function rateLimit(ip: string, email: string): Promise<boolean> {
     return data.result === "OK";
   } catch {
     return true;
-  }
-}
-
-async function sendToTelegram(body: string): Promise<boolean> {
-  const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID;
-  if (!token || !chatId) {
-    console.warn("[contact] Telegram env not configured");
-    return false;
-  }
-  try {
-    const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        chat_id: chatId,
-        text: body,
-        parse_mode: "HTML",
-        disable_web_page_preview: true,
-      }),
-    });
-    return res.ok;
-  } catch {
-    return false;
   }
 }
 
@@ -98,30 +74,27 @@ export async function POST(req: Request) {
     return Response.json({ ok: true, deduped: true });
   }
 
-  const lines = [
-    `🟢 <b>New lead — buildbyalex</b>`,
-    ``,
-    `<b>Name:</b> ${escape(name)}`,
-    `<b>Email:</b> ${escape(email)}`,
-    phone ? `<b>Phone:</b> ${escape(phone)}` : null,
-    company ? `<b>Company:</b> ${escape(company)}` : null,
-    type ? `<b>Type:</b> ${escape(type)}` : null,
-    `<b>Budget:</b> ${escape(budget)}`,
-    `<b>Locale:</b> ${escape(locale)}`,
-    ``,
-    `<b>Description:</b>`,
-    escape(description),
-    ``,
-    `<i>IP:</i> ${escape(ip)}`,
-  ].filter(Boolean);
-
-  const ok = await sendToTelegram(lines.join("\n"));
-  if (!ok) {
-    return Response.json(
-      { ok: false, error: "Telegram delivery failed" },
-      { status: 502 },
-    );
+  // Persist first so the lead is never lost, even if Telegram is down.
+  let lead;
+  try {
+    lead = await addLead({
+      name,
+      email,
+      phone: phone || undefined,
+      company: company || undefined,
+      type: type || undefined,
+      budget: budget || undefined,
+      description,
+      locale,
+      ip,
+    });
+  } catch (err) {
+    console.error("[contact] failed to persist lead", err);
+    return Response.json({ ok: false, error: "Storage error" }, { status: 500 });
   }
+
+  // Notify the admin. Don't fail the request if delivery hiccups — the lead is saved.
+  await notifyLead(lead);
 
   return Response.json({ ok: true });
 }

@@ -30,6 +30,11 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
+# Каталог для файловой БД (заявки/отзывы). Смонтируй сюда volume в Dokploy.
+ENV DATA_DIR=/app/data
+RUN mkdir -p /app/data && chown -R nextjs:nodejs /app/data
+VOLUME ["/app/data"]
+
 USER nextjs
 EXPOSE 3000
 CMD ["node", "server.js"]
