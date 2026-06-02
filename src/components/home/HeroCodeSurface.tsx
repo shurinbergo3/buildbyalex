@@ -83,6 +83,49 @@ export function Hero() {
     </section>
   );
   // ● Live · Warsaw — shipped, not staged
+}
+
+// app/api/contact/route.ts — leads land in Telegram instantly
+import { NextRequest, NextResponse } from "next/server";
+
+const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const CHAT = process.env.TELEGRAM_CHAT_ID;
+
+export async function POST(req: NextRequest) {
+  const { name, email, message } = await req.json();
+
+  if (!name || !email) {
+    return NextResponse.json({ error: "missing fields" }, { status: 400 });
+  }
+
+  const text = [
+    "🟠 Новая заявка — buildbyalex",
+    "Имя: " + name,
+    "Email: " + email,
+    "",
+    message,
+  ].join("\n");
+
+  await fetch("https://api.telegram.org/bot" + TOKEN + "/sendMessage", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ chat_id: CHAT, text, parse_mode: "HTML" }),
+  });
+
+  return NextResponse.json({ ok: true });
+}
+
+// brand tokens — warm amber on near-black ink
+export const theme = {
+  accent: "#FF6B1A",
+  accentHover: "#FF7C36",
+  ink: "#050507",
+  radius: { card: 28, pill: 999 },
+  ship: "1–3 недели",
+};
+
+export function clamp(min, val, max) {
+  return Math.max(min, Math.min(val, max));
 }`;
 
 const KEYWORDS = new Set([
@@ -131,7 +174,13 @@ function tokenize(line: string): Tok[] {
   return out;
 }
 
-const LINES = SOURCE.split("\n");
+const BASE = SOURCE.split("\n");
+
+// Repeat the source enough to fill several full-height columns on any width,
+// with continuous line numbers so it reads as one long file. overflow:hidden
+// + column-fill:auto clip whatever doesn't fit, so coverage is guaranteed.
+const LINES: string[] = [];
+for (let r = 0; r < 3; r++) LINES.push(...BASE);
 
 export function HeroCodeSurface() {
   return (
