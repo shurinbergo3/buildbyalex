@@ -54,11 +54,13 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col-reverse gap-6 border-t border-[color:var(--c-hairline)] pt-6 pb-[clamp(56px,9vw,128px)] md:flex-row md:items-center md:justify-between">
-          <p className="text-[12px] text-[color:var(--color-text-3)]">
+        <div className="relative mt-14 flex flex-col-reverse items-center gap-6 border-t border-[color:var(--c-hairline)] pt-6 pb-[clamp(56px,9vw,128px)] md:block">
+          <p className="text-center text-[12px] text-[color:var(--color-text-3)]">
             © {year} Oleksandr Shuvalov. {t("rights")} <span className="mx-1 opacity-50">·</span> {t("legal")}
           </p>
-          <LocaleSwitcher />
+          <div className="md:absolute md:right-0 md:top-6">
+            <LocaleSwitcher />
+          </div>
         </div>
       </Container>
 

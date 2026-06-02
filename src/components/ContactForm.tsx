@@ -8,6 +8,8 @@ import { Button } from "./Button";
 const typeKeys = ["website", "ai", "mobile", "other"] as const;
 const budgetKeys = ["under1k", "to3k", "to10k", "over10k", "unknown"] as const;
 
+const isValidEmail = (s: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
+
 export function ContactForm() {
   const t = useTranslations("contact.form");
   const locale = useLocale();
@@ -17,19 +19,34 @@ export function ContactForm() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setState("sending");
-    setError(null);
     const fd = new FormData(e.currentTarget);
     const payload = {
-      name: String(fd.get("name") ?? ""),
-      email: String(fd.get("email") ?? ""),
-      phone: String(fd.get("phone") ?? ""),
-      company: String(fd.get("company") ?? ""),
-      type: String(fd.get("type") ?? ""),
-      budget: String(fd.get("budget") ?? ""),
-      description: String(fd.get("description") ?? ""),
+      name: String(fd.get("name") ?? "").trim(),
+      email: String(fd.get("email") ?? "").trim(),
+      phone: String(fd.get("phone") ?? "").trim(),
+      company: String(fd.get("company") ?? "").trim(),
+      type: String(fd.get("type") ?? "").trim(),
+      budget: String(fd.get("budget") ?? "").trim(),
+      description: String(fd.get("description") ?? "").trim(),
       locale,
     };
+
+    // Client-side validation with specific, friendly messages so users
+    // aren't left guessing why a submit was rejected.
+    if (!payload.name || !payload.description) {
+      setState("error");
+      setError(t("errorRequired"));
+      return;
+    }
+    if (!isValidEmail(payload.email)) {
+      setState("error");
+      setError(t("errorEmail"));
+      (e.currentTarget.elements.namedItem("email") as HTMLInputElement | null)?.focus();
+      return;
+    }
+
+    setState("sending");
+    setError(null);
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -44,9 +61,10 @@ export function ContactForm() {
       if (payload.name) query.name = payload.name;
       if (payload.type) query.type = payload.type;
       router.push({ pathname: "/contact/thank-you", query });
-    } catch {
+    } catch (err) {
       setState("error");
-      setError(t("error"));
+      const reason = err instanceof Error ? err.message : "";
+      setError(/email/i.test(reason) ? t("errorEmail") : t("error"));
     }
   }
 

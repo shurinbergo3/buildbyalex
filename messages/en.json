@@ -45,7 +45,7 @@
       "primaryCta": "Book a free call",
       "secondaryCta": "See my work",
       "trustLine": "Warsaw · Available worldwide · RU / EN / PL / UA",
-      "reviews": "4.9 out of 5 · 47 reviews"
+      "reviews": "4.8 out of 5 · 47 reviews"
     },
     "pain": {
       "eyebrow": "Why work with me",
@@ -1312,6 +1312,11 @@
               }
             ]
           }
+        },
+        "leads": {
+          "eyebrow": "Requests on your phone",
+          "headline": "Requests land straight on your phone — 24/7",
+          "subhead": "While you sleep or sit in a meeting, the site and the AI assistant capture enquiries and forward them to you in real time — with the contact, country and the gist of the question."
         }
       },
       "visionair": {
@@ -1875,7 +1880,9 @@
       "sending": "Sending…",
       "success": "Thanks! I'll reply within hours.",
       "error": "Something went wrong. Please try again or email me directly.",
-      "phone": "Phone (optional)"
+      "phone": "Phone (optional)",
+      "errorEmail": "Check your email — that address looks incomplete.",
+      "errorRequired": "Please fill in your name, email and a short description."
     }
   },
   "notFound": {

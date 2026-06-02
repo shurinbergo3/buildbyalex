@@ -37,6 +37,17 @@ export function ThankYouExperience({
 
   const [phase, setPhase] = useState<Phase>("sending");
   const [confetti, setConfetti] = useState(false);
+  // Show the visitor's own device time on the mock phone. Seeded with a stable
+  // value so SSR and first client render match, then set to the real time.
+  const [clock, setClock] = useState("9:41");
+
+  useEffect(() => {
+    const fmt = () =>
+      new Date().toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
+    setClock(fmt());
+    const id = setInterval(() => setClock(fmt()), 30_000);
+    return () => clearInterval(id);
+  }, []);
 
   const reduceMotion = useMemo(() => {
     if (typeof window === "undefined") return false;
@@ -131,6 +142,7 @@ export function ThankYouExperience({
           <Beam delivered={delivered} reduceMotion={reduceMotion} />
           <PhoneCard
             delivered={delivered}
+            time={clock}
             name={name || t("phone.fallbackName")}
             project={projectLabel}
             app={t("phone.app")}
@@ -226,6 +238,7 @@ function Beam({ delivered, reduceMotion }: { delivered: boolean; reduceMotion: b
 /* ── PhoneCard: lock screen with the freshly arrived request notification ── */
 function PhoneCard({
   delivered,
+  time,
   name,
   project,
   app,
@@ -233,6 +246,7 @@ function PhoneCard({
   preview,
 }: {
   delivered: boolean;
+  time: string;
   name: string;
   project: string;
   app: string;
@@ -268,7 +282,7 @@ function PhoneCard({
           />
           {/* status bar */}
           <div className="relative flex items-center justify-between px-7 pt-3 text-[12px] font-semibold text-white">
-            <span className="tracking-[-0.02em]">9:41</span>
+            <span className="tracking-[-0.02em] tabular-nums">{time}</span>
             <span className="flex items-center gap-1.5" aria-hidden>
               <span className="h-1.5 w-1.5 rounded-full bg-white/80" />
               <span className="h-1.5 w-1.5 rounded-full bg-white/80" />
@@ -279,7 +293,7 @@ function PhoneCard({
           <div className="absolute left-1/2 top-2.5 h-[26px] w-[92px] -translate-x-1/2 rounded-full bg-black" />
           {/* clock */}
           <div className="relative mt-7 text-center text-white">
-            <p className="text-[60px] font-semibold leading-none tracking-[-0.03em]">9:41</p>
+            <p className="text-[60px] font-semibold leading-none tracking-[-0.03em] tabular-nums">{time}</p>
           </div>
 
           {/* notification */}
@@ -331,22 +345,17 @@ function PhoneCard({
 function AppIcon() {
   return (
     <span
-      className="grid h-[18px] w-[18px] place-items-center rounded-[6px]"
+      className="relative grid h-[18px] w-[18px] place-items-center rounded-[6px] font-semibold leading-none tracking-[-0.04em] text-white"
       style={{
         background: "linear-gradient(150deg, #ffb56b 0%, #ff7a2d 55%, #e8590c 100%)",
-        boxShadow: "0 1px 3px rgba(232,89,12,0.4)",
+        boxShadow: "0 1px 3px rgba(232,89,12,0.4), inset 0 1px 0 rgba(255,255,255,0.35)",
+        fontSize: "12px",
       }}
       aria-hidden
     >
-      <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
-        <path
-          d="M4 18V8l8-4 8 4v10M4 18h16M9 18v-5h6v5"
-          stroke="#1a0f05"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
+      b
+      {/* signature amber/white dot from the buildbyalex wordmark */}
+      <span className="absolute bottom-[3.5px] right-[3px] h-[2.5px] w-[2.5px] rounded-full bg-white" />
     </span>
   );
 }

@@ -45,7 +45,7 @@
       "primaryCta": "Bezpłatna konsultacja",
       "secondaryCta": "Zobacz realizacje",
       "trustLine": "Warszawa · Cały świat · RU / EN / PL / UA",
-      "reviews": "4,9 na 5 · 47 opinii"
+      "reviews": "4,8 na 5 · 47 opinii"
     },
     "pain": {
       "eyebrow": "Dlaczego ze mną",
@@ -1312,6 +1312,11 @@
               }
             ]
           }
+        },
+        "leads": {
+          "eyebrow": "Zgłoszenia na telefonie",
+          "headline": "Zgłoszenia trafiają prosto na telefon — 24/7",
+          "subhead": "Gdy śpisz albo jesteś na spotkaniu, strona i asystent AI zbierają zapytania i przesyłają je do Ciebie w czasie rzeczywistym — z kontaktem, krajem i sednem sprawy."
         }
       },
       "visionair": {
@@ -1875,7 +1880,9 @@
       "sending": "Wysyłam…",
       "success": "Dziękuję! Odpowiem w godzinach.",
       "error": "Coś poszło nie tak. Spróbuj jeszcze raz albo napisz na email.",
-      "phone": "Telefon (opcjonalnie)"
+      "phone": "Telefon (opcjonalnie)",
+      "errorEmail": "Sprawdź email — adres wygląda na niekompletny.",
+      "errorRequired": "Uzupełnij imię, email i krótki opis."
     }
   },
   "notFound": {

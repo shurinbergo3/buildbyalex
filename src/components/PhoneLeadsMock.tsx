@@ -226,25 +226,22 @@ const NotificationCard = memo(function NotificationCard({
 });
 
 function AppIcon() {
+  // LegalWin brand mark — gold (#caa467) serif "L" on deep navy (#0e1929),
+  // matching the identity used across the LegalWin case visuals.
   return (
     <span
-      className="grid h-[18px] w-[18px] place-items-center rounded-[6px] text-[8px] font-bold text-[#1a0f05]"
+      className="relative grid h-[18px] w-[18px] place-items-center overflow-hidden rounded-[6px]"
       style={{
-        background: "linear-gradient(150deg, #ffb56b 0%, #ff7a2d 55%, #e8590c 100%)",
-        boxShadow: "0 1px 3px rgba(232,89,12,0.4)",
+        background: "linear-gradient(155deg, #15263c 0%, #0e1929 60%, #0a121f 100%)",
+        boxShadow: "0 1px 3px rgba(0,0,0,0.45), inset 0 0 0 0.5px rgba(202,164,103,0.5)",
       }}
       aria-hidden
     >
-      {/* Scales-of-justice mark */}
-      <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
-        <path
-          d="M12 3v17M6 20h12M5 7h14M9 7l-3.5 6.5h7L9 7zm6 0l-3.5 6.5h7L15 7z"
-          stroke="#1a0f05"
-          strokeWidth="1.7"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <circle cx="12" cy="5" r="1.5" fill="#1a0f05" />
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+        {/* serif L */}
+        <path d="M9 5v12h7" stroke="#caa467" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+        {/* serif feet */}
+        <path d="M7 5h4M14 17v2.4" stroke="#caa467" strokeWidth="1.6" strokeLinecap="round" />
       </svg>
     </span>
   );

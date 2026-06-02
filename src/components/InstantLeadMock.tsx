@@ -55,6 +55,17 @@ export function InstantLeadMock() {
     date: "",
   });
   const [elapsedTick, setElapsedTick] = useState(0);
+  // Mirror the visitor's real device time on the mock phone. Seeded with the
+  // translated placeholder so SSR/first render match, then set to live time.
+  const [clock, setClock] = useState(phone.lockTime);
+
+  useEffect(() => {
+    const fmt = () =>
+      new Date().toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
+    setClock(fmt());
+    const id = setInterval(() => setClock(fmt()), 30_000);
+    return () => clearInterval(id);
+  }, []);
 
   const lead = leads[leadIndex];
 
@@ -205,7 +216,7 @@ export function InstantLeadMock() {
           <Phone
             phase={phase}
             lead={lead}
-            lockTime={phone.lockTime}
+            lockTime={clock}
             app={phone.app}
             tag={phone.tag}
           />
@@ -283,14 +294,15 @@ function Connector({
         )}
       </div>
 
+      {/* Speed badge only appears while sending / once delivered, so it never
+          sits at a confusing "0,0 s" during the typing phase. */}
       <div
-        className={`flex flex-col items-center rounded-full px-3 py-1 text-[11px] font-medium uppercase tracking-wider transition-colors ${
+        className={`flex flex-col items-center rounded-full px-3 py-1 text-[11px] font-medium uppercase tracking-wider transition-all duration-300 ${
           delivered
             ? "bg-[#0cce6b]/10 text-[#0a8a4d]"
-            : sending
-            ? "bg-[#ff6b1a]/10 text-[#c44a00]"
-            : "bg-black/5 text-[#5f6368]"
-        }`}
+            : "bg-[#ff6b1a]/10 text-[#c44a00]"
+        } ${sending || delivered ? "opacity-100" : "opacity-0"}`}
+        aria-hidden={!(sending || delivered)}
       >
         <span>{elapsedLabel}</span>
         <span className="text-[16px] font-semibold tabular-nums">
@@ -377,9 +389,17 @@ function Phone({
                 style={{ background: "rgba(28,30,38,0.72)" }}
               >
                 <div className="flex items-center gap-2">
-                  <div className="flex h-7 w-7 items-center justify-center rounded-md bg-gradient-to-br from-[#2ea6ea] to-[#1e88c8]">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
-                      <path d="m3 11 18-7-3 17-6-4-2 5-2-7-5-4Z" />
+                  {/* VisionAir brand mark — aerial-blue "V" + camera aperture dot */}
+                  <div
+                    className="relative flex h-7 w-7 items-center justify-center rounded-md"
+                    style={{
+                      background: "linear-gradient(150deg, #60a5fa 0%, #2563eb 55%, #1e40af 100%)",
+                      boxShadow: "0 1px 3px rgba(30,64,175,0.45), inset 0 1px 0 rgba(255,255,255,0.3)",
+                    }}
+                  >
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 6l7 12 7-12" stroke="white" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+                      <circle cx="12" cy="7.5" r="1.5" fill="white" />
                     </svg>
                   </div>
                   <div className="min-w-0 flex-1">

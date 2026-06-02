@@ -5,6 +5,7 @@ import { Reveal } from "@/components/Reveal";
 import { GoogleSerpMock } from "@/components/GoogleSerpMock";
 import { ChatGPTRecommendMock } from "@/components/ChatGPTRecommendMock";
 import { LegalwinSiteChatMock } from "@/components/LegalwinSiteChatMock";
+import { PhoneLeadsMock } from "@/components/PhoneLeadsMock";
 
 export function LegalwinShowcase() {
   const t = useTranslations("work.caseShowcase.legalwin");
@@ -69,6 +70,27 @@ export function LegalwinShowcase() {
           <Reveal delay={120}>
             <div className="mt-12 md:mt-16">
               <LegalwinSiteChatMock />
+            </div>
+          </Reveal>
+        </Container>
+      </Section>
+
+      <Section pad="default">
+        <Container>
+          <Reveal>
+            <div className="mx-auto max-w-[720px] text-center">
+              <p className="t-eyebrow">{t("leads.eyebrow")}</p>
+              <h2 className="mt-3 text-[clamp(28px,3vw+12px,44px)] font-medium leading-[1.1] tracking-[-0.02em] text-[color:var(--color-text-1)]">
+                {t("leads.headline")}
+              </h2>
+              <p className="mx-auto mt-5 max-w-[560px] text-[17px] leading-[1.55] text-[color:var(--color-text-2)]">
+                {t("leads.subhead")}
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={120}>
+            <div className="mt-12 md:mt-16">
+              <PhoneLeadsMock />
             </div>
           </Reveal>
         </Container>
