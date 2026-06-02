@@ -219,10 +219,10 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
                     {t("primaryCta")}
                   </Button>
                   <a
-                    href="mailto:shurinbergo@gmail.com"
+                    href="mailto:alex@buildbyalex.com"
                     className="text-[14px] text-white/70 underline underline-offset-4 hover:text-white"
                   >
-                    shurinbergo@gmail.com
+                    alex@buildbyalex.com
                   </a>
                 </div>
               </div>
