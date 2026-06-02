@@ -38,7 +38,7 @@ const LOOP_PAUSE_MS = 3200;
 /** Demo data — values the bot extracts from the conversation. */
 const FIELD_VALUES: Record<FieldKey, string> = {
   source: "Telegram",
-  revenue: "$40k/mo",
+  revenue: "€40k/mo",
   crm: "HubSpot",
   fit: "", // filled from translations (fitValue)
 };
@@ -47,11 +47,11 @@ const FIELD_ORDER: FieldKey[] = ["source", "revenue", "crm", "fit"];
 
 /** Background deals, so the board reads like a real, populated pipeline. */
 const STATIC_CARDS: { stage: number; name: string; amount: string }[] = [
-  { stage: 0, name: "Igor R.", amount: "$1.2k" },
-  { stage: 1, name: "Pavel S.", amount: "$900" },
-  { stage: 2, name: "Lena V.", amount: "$4.8k" },
-  { stage: 3, name: "Tomek W.", amount: "$2.1k" },
-  { stage: 4, name: "Olga D.", amount: "$5.6k" },
+  { stage: 0, name: "Igor R.", amount: "€1.2k" },
+  { stage: 1, name: "Pavel S.", amount: "€900" },
+  { stage: 2, name: "Lena V.", amount: "€4.8k" },
+  { stage: 3, name: "Tomek W.", amount: "€2.1k" },
+  { stage: 4, name: "Olga D.", amount: "€5.6k" },
 ];
 
 export function BotCrmSync() {

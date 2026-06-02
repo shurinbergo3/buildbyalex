@@ -13,7 +13,7 @@ export function Footer() {
     <footer className="relative isolate overflow-hidden border-t border-[color:var(--c-hairline)] bg-[color:var(--color-bg)] pt-16 md:pt-20">
       <Container className="relative z-10">
         <div className="grid grid-cols-2 gap-y-12 md:grid-cols-12 md:gap-y-0">
-          <div className="col-span-2 md:col-span-5">
+          <div className="col-span-2 md:col-span-4">
             <Link href="/" aria-label="buildbyalex — home" className="inline-block">
               <Logo size={30} />
             </Link>
@@ -23,7 +23,7 @@ export function Footer() {
             <p className="mt-6 text-[13px] text-[color:var(--color-text-3)]">{t("location")}</p>
           </div>
 
-          <div className="col-span-1 md:col-span-2 md:col-start-7">
+          <div className="col-span-1 md:col-span-2 md:col-start-6">
             <h4 className="t-eyebrow mb-4 text-[11px]">{t("sections.explore")}</h4>
             <ul className="space-y-2.5 text-[14px] text-[color:var(--color-text-2)]">
               <li><Link href="/work" className="hover:text-[color:var(--color-text)] transition-colors">{nav("work")}</Link></li>

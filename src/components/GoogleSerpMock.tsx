@@ -63,7 +63,7 @@ export function GoogleSerpMock() {
 
   return (
     <div
-      className="relative mx-auto w-full max-w-[860px] overflow-hidden rounded-2xl shadow-[0_30px_80px_-20px_rgba(20,30,50,0.35),0_0_0_1px_rgba(0,0,0,0.06)]"
+      className="relative mx-auto flex h-full w-full max-w-[860px] flex-col overflow-hidden rounded-2xl shadow-[0_30px_80px_-20px_rgba(20,30,50,0.35),0_0_0_1px_rgba(0,0,0,0.06)]"
       style={{ background: "#ffffff" }}
     >
       {/* Browser frame */}
@@ -122,7 +122,7 @@ export function GoogleSerpMock() {
       {/* Results — invisible "ghosts" of every query are grid-stacked in one cell, so
           the box is always sized to the tallest result set. The live results overlay
           the same cell, so the box never grows or shrinks between queries (no page jump). */}
-      <div className="px-4 py-4 sm:px-6">
+      <div className="min-h-0 flex-1 overflow-hidden px-4 py-4 sm:px-6">
         <p className="text-[12.5px] text-[#70757a]">{block.count}</p>
 
         <div className="relative mt-4 grid">

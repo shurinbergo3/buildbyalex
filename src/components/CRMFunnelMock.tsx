@@ -16,13 +16,13 @@ const STAGE_TONES = [
 ];
 
 const STATIC_CARDS: { stage: number; name: string; amount: string }[] = [
-  { stage: 0, name: "Igor R.", amount: "$1.2k" },
-  { stage: 0, name: "Anna T.", amount: "$3.5k" },
-  { stage: 1, name: "Pavel S.", amount: "$900" },
-  { stage: 2, name: "Lena V.", amount: "$4.8k" },
-  { stage: 3, name: "Tomek W.", amount: "$2.1k" },
-  { stage: 4, name: "Olga D.", amount: "$5.6k" },
-  { stage: 4, name: "Mark B.", amount: "$1.9k" },
+  { stage: 0, name: "Igor R.", amount: "€1.2k" },
+  { stage: 0, name: "Anna T.", amount: "€3.5k" },
+  { stage: 1, name: "Pavel S.", amount: "€900" },
+  { stage: 2, name: "Lena V.", amount: "€4.8k" },
+  { stage: 3, name: "Tomek W.", amount: "€2.1k" },
+  { stage: 4, name: "Olga D.", amount: "€5.6k" },
+  { stage: 4, name: "Mark B.", amount: "€1.9k" },
 ];
 
 export function CRMFunnelMock() {

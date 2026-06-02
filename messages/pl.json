@@ -180,7 +180,7 @@
           "label": "od 312 zweryfikowanych klientów"
         },
         {
-          "value": "0 zł",
+          "value": "0 €",
           "label": "wydane na reklamy płatne"
         }
       ],
@@ -322,7 +322,7 @@
         "👋 Cześć! Dzięki za kontakt w sprawie pakietu wzrostu. Mogę zadać kilka krótkich pytań, żeby sprawdzić, czy do siebie pasujemy?",
         "Jasne, śmiało",
         "Świetnie. Jaki jest Twój przybliżony miesięczny przychód?",
-        "Około $40k/mies., rośniemy ~15% miesięcznie",
+        "Około €40k/mies., rośniemy ~15% miesięcznie",
         "Niezła dynamika 🚀 Korzystasz teraz z CRM, czy prowadzisz leady w arkuszach?",
         "HubSpot, ale robi się za drogi dla naszego zespołu",
         "Rozumiem — to dokładnie to, co rozwiązujemy. Wyślę link do Calendly, zarezerwujesz 20-minutową rozmowę z Alexem w tym tygodniu 📅",
@@ -336,7 +336,7 @@
       "browserTitle": "amocrm · Lejek sprzedaży",
       "deal": {
         "name": "Maria K. · Acme Sp. z o.o.",
-        "amount": "$2 400 / mies.",
+        "amount": "€2 400 / mies.",
         "tag": "Z bota Telegram"
       },
       "stages": [
@@ -968,7 +968,7 @@
           "≈ 210 godzin miesięcznie odzyskanych dla właściciela — równowartość 1.3 etatu",
           "Pełne pokrycie 24/7 — koniec ze straconymi wieczornymi i weekendowymi leadami",
           "Dane do przelewu lecą do klienta, zanim zdąży napisać do konkurencji",
-          "Koszt pracy ≈ $30/mies. w API — wobec ≥ €1 200/mies. pensji junior sales manager"
+          "Koszt pracy ≈ €30/mies. w API — wobec ≥ €1 200/mies. pensji junior sales manager"
         ],
         "stack": [
           "Python",
@@ -1073,7 +1073,7 @@
           "label": "Pokrycie nocy i weekendów"
         },
         {
-          "value": "~$30",
+          "value": "~€30",
           "label": "Miesięczny koszt API"
         }
       ],
@@ -1294,7 +1294,7 @@
                     "bullets": [
                       "35 godzin teorii + 5 godzin praktyki",
                       "Kurs trwa 5–6 tygodni, zajęcia wieczorami",
-                      "Cena — od 1 800 zł wraz z egzaminem",
+                      "Cena — od €420 wraz z egzaminem",
                       "Grupy w języku rosyjskim i ukraińskim"
                     ],
                     "outro": "Na kiedy potrzebujesz świadectwo?"
@@ -1466,7 +1466,7 @@
               "SK"
             ],
             "skillsLabel": "Co potrafi",
-            "footnote": "Nie idzie na urlop, nie ignoruje nocnych wiadomości, nie myli danych do przelewu. Koszt pracy — około $30/mies. na API.",
+            "footnote": "Nie idzie na urlop, nie ignoruje nocnych wiadomości, nie myli danych do przelewu. Koszt pracy — około €30/mies. na API.",
             "schedule": [
               {
                 "label": "Grafik",
@@ -1518,7 +1518,7 @@
                 "label": "Wiadomości miesięcznie"
               },
               {
-                "value": "~$30",
+                "value": "~€30",
                 "label": "Koszt pracy / mies."
               }
             ]

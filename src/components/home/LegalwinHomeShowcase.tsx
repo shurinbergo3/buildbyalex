@@ -133,27 +133,28 @@ export function LegalwinHomeShowcase() {
         </Reveal>
 
         {/* ── Discovery: dual-mock presentation ───────────── */}
-        <div className="mt-16 grid gap-12 md:mt-20 md:grid-cols-2 md:gap-8 lg:gap-12">
-          <Reveal delay={220}>
-            <ShowcaseColumn
-              index={t("columns.serp.index")}
-              label={t("columns.serp.label")}
-              caption={t("columns.serp.caption")}
-            >
-              <GoogleSerpMock />
-            </ShowcaseColumn>
-          </Reveal>
+        <Reveal delay={220}>
+          <div className="mt-16 overflow-hidden rounded-[28px] border border-white/[0.07] bg-gradient-to-b from-white/[0.05] to-white/[0.01] p-5 sm:p-8 md:mt-20 md:p-10">
+            <div className="grid gap-10 md:grid-cols-2 md:items-stretch md:gap-8 lg:gap-12">
+              <ShowcaseColumn
+                index={t("columns.serp.index")}
+                label={t("columns.serp.label")}
+                caption={t("columns.serp.caption")}
+                fillStage
+              >
+                <GoogleSerpMock />
+              </ShowcaseColumn>
 
-          <Reveal delay={300}>
-            <ShowcaseColumn
-              index={t("columns.chatgpt.index")}
-              label={t("columns.chatgpt.label")}
-              caption={t("columns.chatgpt.caption")}
-            >
-              <ChatGPTRecommendMock />
-            </ShowcaseColumn>
-          </Reveal>
-        </div>
+              <ShowcaseColumn
+                index={t("columns.chatgpt.index")}
+                label={t("columns.chatgpt.label")}
+                caption={t("columns.chatgpt.caption")}
+              >
+                <ChatGPTRecommendMock />
+              </ShowcaseColumn>
+            </div>
+          </div>
+        </Reveal>
 
         {/* ── Connector to the result ─────────────────────── */}
         <Reveal delay={120}>
@@ -255,15 +256,17 @@ function ShowcaseColumn({
   index,
   label,
   caption,
+  fillStage = false,
   children,
 }: {
   index: string;
   label: string;
   caption: string;
+  fillStage?: boolean;
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex h-full flex-col gap-5">
       <div className="flex items-baseline gap-4">
         <span className="font-mono text-[12px] tracking-[0.08em] text-white/40">
           {index}
@@ -274,9 +277,13 @@ function ShowcaseColumn({
         </span>
       </div>
 
-      <div className="legalwin-stage">{children}</div>
+      <div className={`legalwin-stage ${fillStage ? "md:min-h-0 md:flex-1" : ""}`}>
+        {children}
+      </div>
 
-      <p className="text-[13.5px] leading-[1.5] text-white/55">{caption}</p>
+      <p className="min-h-[2.8em] text-[13.5px] leading-[1.5] text-white/55">
+        {caption}
+      </p>
     </div>
   );
 }
