@@ -385,6 +385,21 @@
           "label": "average time to launch"
         }
       ]
+    },
+    "botSync": {
+      "eyebrow": "Live demo",
+      "headline": "The bot qualifies the lead.\nYour CRM updates itself.",
+      "subhead": "One conversation, zero manual entry. While the bot chats on Telegram, the deal moves through your AmoCRM pipeline and every answer lands as a field — in real time.",
+      "fields": {
+        "source": "Source",
+        "revenue": "Revenue",
+        "crm": "Current CRM",
+        "fit": "Qualification"
+      },
+      "captured": "Filled by bot",
+      "fitValue": "Qualified",
+      "chatLabel": "Telegram",
+      "crmLabel": "AmoCRM"
     }
   },
   "services": {

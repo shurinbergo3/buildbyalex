@@ -385,6 +385,21 @@
           "label": "średni czas do startu"
         }
       ]
+    },
+    "botSync": {
+      "eyebrow": "Demo na żywo",
+      "headline": "Bot kwalifikuje leada.\nCRM aktualizuje się sam.",
+      "subhead": "Jedna rozmowa, zero ręcznego wprowadzania. Gdy bot rozmawia na Telegramie, deal przesuwa się w lejku AmoCRM, a każda odpowiedź trafia do pól — w czasie rzeczywistym.",
+      "fields": {
+        "source": "Źródło",
+        "revenue": "Przychód",
+        "crm": "Obecny CRM",
+        "fit": "Kwalifikacja"
+      },
+      "captured": "Uzupełnione przez bota",
+      "fitValue": "Zakwalifikowany",
+      "chatLabel": "Telegram",
+      "crmLabel": "AmoCRM"
     }
   },
   "services": {

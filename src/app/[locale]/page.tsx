@@ -9,8 +9,8 @@ import { LegalwinHomeShowcase } from "@/components/home/LegalwinHomeShowcase";
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { Section } from "@/components/Section";
 import { Container } from "@/components/Container";
-import { TelegramChatMock } from "@/components/TelegramChatMock";
-import { CRMFunnelMock } from "@/components/CRMFunnelMock";
+import { BotCrmSync } from "@/components/BotCrmSync";
+import { Reveal } from "@/components/Reveal";
 import { Numbers } from "@/components/home/Numbers";
 import { Pricing } from "@/components/home/Pricing";
 import { Testimonials } from "@/components/home/Testimonials";
@@ -26,8 +26,8 @@ export default async function HomePage({
   if (!(routing.locales as readonly string[]).includes(locale)) notFound();
   setRequestLocale(locale);
 
-  const tDemo = await getTranslations("home.botDemo");
-  const tFunnel = await getTranslations("home.crmFunnel");
+  const tSync = await getTranslations("home.botSync");
+  const syncHeadline = tSync("headline").split("\n");
 
   return (
     <>
@@ -39,36 +39,22 @@ export default async function HomePage({
       <HowItWorks />
       <Section pad="default">
         <Container>
-          <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
-            <div>
-              <p className="t-eyebrow">{tDemo("eyebrow")}</p>
-              <h2 className="mt-3 text-[clamp(28px,3vw+12px,44px)] font-medium leading-[1.1] tracking-[-0.02em] text-[color:var(--color-text-1)]">
-                {tDemo("headline")}
+          <Reveal>
+            <div className="mx-auto max-w-[760px] text-center">
+              <p className="t-eyebrow">{tSync("eyebrow")}</p>
+              <h2 className="mt-3 t-h2">
+                {syncHeadline.map((line, i) => (
+                  <span key={i} className="block">{line}</span>
+                ))}
               </h2>
-              <p className="mt-5 max-w-[480px] text-[17px] leading-[1.55] text-[color:var(--color-text-2)]">
-                {tDemo("subhead")}
-              </p>
+              <p className="mx-auto mt-5 max-w-[600px] t-body-lg">{tSync("subhead")}</p>
             </div>
-            <div className="flex justify-center md:justify-end">
-              <TelegramChatMock />
+          </Reveal>
+          <Reveal delay={120}>
+            <div className="mt-12 md:mt-16">
+              <BotCrmSync />
             </div>
-          </div>
-        </Container>
-      </Section>
-      <Section pad="default">
-        <Container>
-          <div className="mx-auto max-w-[720px] text-center">
-            <p className="t-eyebrow">{tFunnel("eyebrow")}</p>
-            <h2 className="mt-3 text-[clamp(28px,3vw+12px,44px)] font-medium leading-[1.1] tracking-[-0.02em] text-[color:var(--color-text-1)]">
-              {tFunnel("headline")}
-            </h2>
-            <p className="mx-auto mt-5 max-w-[560px] text-[17px] leading-[1.55] text-[color:var(--color-text-2)]">
-              {tFunnel("subhead")}
-            </p>
-          </div>
-          <div className="mt-12 md:mt-16">
-            <CRMFunnelMock />
-          </div>
+          </Reveal>
         </Container>
       </Section>
       <Numbers />
