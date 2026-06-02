@@ -43,6 +43,7 @@ export function InstantLeadMock() {
     lockTime: string;
     app: string;
     elapsedLabel: string;
+    secondsUnit: string;
     tag: string;
   };
 
@@ -208,7 +209,12 @@ export function InstantLeadMock() {
 
         {/* Connector */}
         <div className="relative hidden flex-col items-center justify-center md:flex">
-          <Connector phase={phase} elapsedMs={elapsedTick} elapsedLabel={phone.elapsedLabel} />
+          <Connector
+            phase={phase}
+            elapsedMs={elapsedTick}
+            elapsedLabel={phone.elapsedLabel}
+            secondsUnit={phone.secondsUnit}
+          />
         </div>
 
         {/* Phone */}
@@ -263,10 +269,12 @@ function Connector({
   phase,
   elapsedMs,
   elapsedLabel,
+  secondsUnit,
 }: {
   phase: Phase;
   elapsedMs: number;
   elapsedLabel: string;
+  secondsUnit: string;
 }) {
   const sending = phase === "submitting";
   const delivered = phase === "delivered" || phase === "resting";
@@ -295,18 +303,23 @@ function Connector({
       </div>
 
       {/* Speed badge only appears while sending / once delivered, so it never
-          sits at a confusing "0,0 s" during the typing phase. */}
+          sits at a confusing "0,0 s" during the typing phase. Reads as a live
+          stopwatch ticking up to the real delivery time. */}
       <div
-        className={`flex flex-col items-center rounded-full px-3 py-1 text-[11px] font-medium uppercase tracking-wider transition-all duration-300 ${
+        className={`flex flex-col items-center gap-0.5 rounded-full px-3.5 py-1.5 transition-all duration-300 ${
           delivered
             ? "bg-[#0cce6b]/10 text-[#0a8a4d]"
             : "bg-[#ff6b1a]/10 text-[#c44a00]"
         } ${sending || delivered ? "opacity-100" : "opacity-0"}`}
         aria-hidden={!(sending || delivered)}
       >
-        <span>{elapsedLabel}</span>
-        <span className="text-[16px] font-semibold tabular-nums">
-          {formatElapsed(elapsedMs)}
+        <span className="flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-wider">
+          <StopwatchIcon spinning={sending} />
+          {elapsedLabel}
+        </span>
+        <span className="flex items-baseline gap-1 tabular-nums">
+          <span className="text-[17px] font-semibold leading-none">{formatElapsed(elapsedMs)}</span>
+          <span className="text-[11px] font-medium lowercase opacity-70">{secondsUnit}</span>
         </span>
       </div>
     </div>
@@ -451,9 +464,33 @@ function parseElapsedMs(elapsed: string): number {
   return Math.round(v * 1000);
 }
 
+function StopwatchIcon({ spinning }: { spinning: boolean }) {
+  // Spins while the lead is in flight, then rests once delivered — reads as a
+  // live stopwatch so the number beneath it is clearly an elapsed time.
+  return (
+    <svg
+      width="13"
+      height="13"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={spinning ? "animate-spin" : ""}
+      style={spinning ? { animationDuration: "1.6s" } : undefined}
+      aria-hidden
+    >
+      <circle cx="12" cy="13" r="8" />
+      <path d="M12 13V8.6" />
+      <path d="M9.5 2.5h5M12 2.5v2.6" />
+    </svg>
+  );
+}
+
 function formatElapsed(ms: number): string {
   const s = ms / 1000;
-  return `${s.toFixed(1).replace(".", ",")} s`;
+  return s.toFixed(1).replace(".", ",");
 }
 
 function weekdayLabel(_lockTime: string): string {

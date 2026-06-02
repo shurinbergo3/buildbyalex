@@ -56,7 +56,7 @@ export function Footer() {
 
         <div className="relative mt-14 flex flex-col-reverse items-center gap-6 border-t border-[color:var(--c-hairline)] pt-6 pb-[clamp(56px,9vw,128px)] md:block">
           <p className="text-center text-[12px] text-[color:var(--color-text-3)]">
-            © {year} Oleksandr Shuvalov. {t("rights")} <span className="mx-1 opacity-50">·</span> {t("legal")}
+            © {year} buildbyalex. {t("rights")} <span className="mx-1 opacity-50">·</span> {t("legal")}
           </p>
           <div className="md:absolute md:right-0 md:top-6">
             <LocaleSwitcher />
@@ -70,7 +70,7 @@ export function Footer() {
         aria-hidden
         className="pointer-events-none absolute inset-x-0 -bottom-[0.16em] z-0 select-none overflow-hidden"
       >
-        <div className="mx-auto w-full max-w-[1440px] px-6 md:px-8">
+        <div className="mx-auto flex w-full max-w-[1440px] justify-center px-6 md:px-8">
           <Logo
             size="clamp(88px, 17vw, 248px)"
             showDot={false}

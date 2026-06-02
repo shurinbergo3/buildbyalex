@@ -1411,7 +1411,8 @@
             "lockTime": "9:41",
             "app": "VisionAir CRM",
             "elapsedLabel": "доставлено за",
-            "tag": "з visionair.biz.pl"
+            "tag": "з visionair.biz.pl",
+            "secondsUnit": "сек"
           },
           "leads": [
             {
