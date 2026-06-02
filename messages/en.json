@@ -194,11 +194,93 @@
           "index": "02",
           "label": "AI search",
           "caption": "ChatGPT names the site unprompted and surfaces social proof — rating and review count."
+        },
+        "leads": {
+          "index": "03",
+          "label": "Requests on your phone",
+          "caption": "Every request arrives with the contact, country and the gist of the question — all that's left is to call back."
         }
       },
       "cta": {
         "tag": "Same playbook — for your site.",
         "label": "Open the full LegalWin case"
+      },
+      "flow": {
+        "title": "How it works",
+        "steps": [
+          "A client finds LegalWin on Google and ChatGPT for high-intent queries",
+          "Reads the cases and reviews, then messages the AI assistant on the site",
+          "A ready request — contact and question — lands on your phone"
+        ]
+      },
+      "result": {
+        "connector": "→ And the result — a stream of requests",
+        "headline": "Requests land straight on your phone — 24/7",
+        "subhead": "While you sleep or sit in a meeting, the site and the AI assistant capture enquiries and forward them to you in real time.",
+        "annotations": [
+          {
+            "title": "Real time",
+            "sub": "A request hits your phone seconds after the form is sent — no lead slips through."
+          },
+          {
+            "title": "Borderless reach",
+            "sub": "Clients from Ukraine, Belarus, Georgia, Kazakhstan, Armenia and beyond."
+          },
+          {
+            "title": "Any legal matter",
+            "sub": "Residence cards, company setup in Poland, citizenship, family reunification, code 95."
+          }
+        ]
+      },
+      "phone": {
+        "time": "9:41",
+        "date": "Monday, June 2",
+        "center": "Notification Center",
+        "live": "Live",
+        "now": "now",
+        "appName": "LegalWin",
+        "leads": [
+          {
+            "code": "ua",
+            "country": "Ukraine",
+            "topic": "Residence card",
+            "name": "Oksana P.",
+            "message": "Filed 4 months ago and got a refusal. Can the decision be appealed?",
+            "ago": "just now"
+          },
+          {
+            "code": "by",
+            "country": "Belarus",
+            "topic": "Citizenship",
+            "name": "Ales M.",
+            "message": "5 years on a permanent residence card. Ready to apply for citizenship — what's needed?",
+            "ago": "3 min"
+          },
+          {
+            "code": "kz",
+            "country": "Kazakhstan",
+            "topic": "Residence / visa",
+            "name": "Aigerim S.",
+            "message": "Arriving on a D visa, I need to switch to a karta pobytu. Can you help me file it?",
+            "ago": "6 min"
+          },
+          {
+            "code": "am",
+            "country": "Armenia",
+            "topic": "Family reunification",
+            "name": "Tigran A.",
+            "message": "I want to bring my wife and child to Warsaw. Which documents do we need first?",
+            "ago": "9 min"
+          },
+          {
+            "code": "ge",
+            "country": "Georgia",
+            "topic": "Code 95 / work",
+            "name": "Nino G.",
+            "message": "I drive professionally and was refused renewal over code 95. What can be done?",
+            "ago": "12 min"
+          }
+        ]
       }
     },
     "how": {
@@ -1800,7 +1882,15 @@
     "headline": "Page not found.",
     "lead": "Looks like this page doesn't exist — or it moved. Happens.",
     "home": "Go home",
-    "blog": "Read the blog"
+    "blog": "Read the blog",
+    "status": "Error · page not found",
+    "hint": "Move your cursor — shine a light into the dark.",
+    "linksTitle": "Where to next",
+    "links": {
+      "work": "Work",
+      "services": "Services",
+      "contact": "Contact"
+    }
   },
   "blog": {
     "meta": {
@@ -1825,6 +1915,40 @@
     "eyebrow": "Message received",
     "headline": "Thank you!",
     "lead": "I've got your message and will reply within hours — usually same day, always before the next business morning.",
-    "back": "Back to home"
+    "back": "Back to home",
+    "headlineLead": "Thank you,",
+    "headlineTail": "!",
+    "eta": {
+      "label": "Reply expected",
+      "value": "within a couple of hours"
+    },
+    "delivered": "Delivered to Alex's phone",
+    "phone": {
+      "app": "buildbyalex",
+      "now": "now",
+      "fallbackName": "New request",
+      "fallbackProject": "New project",
+      "preview": "Wants to talk about a project — just landed in your inbox."
+    },
+    "stepsTitle": "What happens next",
+    "steps": [
+      {
+        "title": "Request received",
+        "body": "It's already with me — straight into my queue, nothing gets lost."
+      },
+      {
+        "title": "I read the details",
+        "body": "I go through your task and sketch the first ideas for a solution."
+      },
+      {
+        "title": "You hear from me",
+        "body": "A personal reply lands in your inbox — usually within a couple of hours."
+      }
+    ],
+    "meanwhileTitle": "While you wait",
+    "meanwhile": {
+      "work": "See recent work",
+      "services": "Explore services"
+    }
   }
 }

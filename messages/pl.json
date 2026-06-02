@@ -194,11 +194,93 @@
           "index": "02",
           "label": "Wyszukiwanie AI",
           "caption": "ChatGPT z własnej inicjatywy wymienia nazwę i dodaje dowód społeczny — ocenę i liczbę opinii."
+        },
+        "leads": {
+          "index": "03",
+          "label": "Zgłoszenia na telefonie",
+          "caption": "Każde zgłoszenie przychodzi z kontaktem, krajem i sednem sprawy — wystarczy oddzwonić."
         }
       },
       "cta": {
         "tag": "Ten sam schemat — dla Twojej strony.",
         "label": "Otwórz pełne case study LegalWin"
+      },
+      "flow": {
+        "title": "Jak to działa",
+        "steps": [
+          "Klient znajduje LegalWin w Google i ChatGPT na gorące zapytania",
+          "Czyta case studies i opinie, po czym pisze do asystenta AI na stronie",
+          "Gotowe zgłoszenie — kontakt i pytanie — trafia na Twój telefon"
+        ]
+      },
+      "result": {
+        "connector": "→ A w efekcie — strumień zgłoszeń",
+        "headline": "Zgłoszenia trafiają prosto na telefon — 24/7",
+        "subhead": "Gdy śpisz albo jesteś na spotkaniu, strona i asystent AI zbierają zapytania i przesyłają je do Ciebie w czasie rzeczywistym.",
+        "annotations": [
+          {
+            "title": "Czas rzeczywisty",
+            "sub": "Zgłoszenie trafia na telefon kilka sekund po wysłaniu formularza — żaden lead nie ginie."
+          },
+          {
+            "title": "Bez granic",
+            "sub": "Klienci z Ukrainy, Białorusi, Gruzji, Kazachstanu, Armenii i nie tylko."
+          },
+          {
+            "title": "Każda sprawa prawna",
+            "sub": "Karta pobytu, firma w Polsce, obywatelstwo, łączenie rodzin, kod 95."
+          }
+        ]
+      },
+      "phone": {
+        "time": "9:41",
+        "date": "Poniedziałek, 2 czerwca",
+        "center": "Centrum powiadomień",
+        "live": "Na żywo",
+        "now": "teraz",
+        "appName": "LegalWin",
+        "leads": [
+          {
+            "code": "ua",
+            "country": "Ukraina",
+            "topic": "Karta pobytu",
+            "name": "Oksana P.",
+            "message": "Złożyłam dokumenty 4 miesiące temu i dostałam decyzję odmowną. Da się odwołać?",
+            "ago": "przed chwilą"
+          },
+          {
+            "code": "by",
+            "country": "Białoruś",
+            "topic": "Obywatelstwo",
+            "name": "Ales M.",
+            "message": "5 lat na karcie stałego pobytu. Chcę złożyć wniosek o obywatelstwo — co dalej?",
+            "ago": "3 min"
+          },
+          {
+            "code": "kz",
+            "country": "Kazachstan",
+            "topic": "Pobyt / wiza",
+            "name": "Aigerim S.",
+            "message": "Przyjeżdżam na wizie D, muszę przejść na kartę pobytu. Pomożecie złożyć wniosek?",
+            "ago": "6 min"
+          },
+          {
+            "code": "am",
+            "country": "Armenia",
+            "topic": "Łączenie rodzin",
+            "name": "Tigran A.",
+            "message": "Chcę sprowadzić żonę i dziecko do Warszawy. Jakie dokumenty na start?",
+            "ago": "9 min"
+          },
+          {
+            "code": "ge",
+            "country": "Gruzja",
+            "topic": "Kod 95 / praca",
+            "name": "Nino G.",
+            "message": "Jeżdżę zawodowo, odmówiono mi przedłużenia przez kod 95. Co można zrobić?",
+            "ago": "12 min"
+          }
+        ]
       }
     },
     "how": {
@@ -1800,7 +1882,15 @@
     "headline": "Strony nie znaleziono.",
     "lead": "Wygląda na to, że tej strony nie ma — albo została przeniesiona. Zdarza się.",
     "home": "Wróć na stronę główną",
-    "blog": "Idź na bloga"
+    "blog": "Idź na bloga",
+    "status": "Błąd · nie znaleziono strony",
+    "hint": "Poruszaj kursorem — poświeć w ciemności.",
+    "linksTitle": "Gdzie dalej",
+    "links": {
+      "work": "Realizacje",
+      "services": "Usługi",
+      "contact": "Kontakt"
+    }
   },
   "blog": {
     "meta": {
@@ -1825,6 +1915,40 @@
     "eyebrow": "Wiadomość odebrana",
     "headline": "Dziękuję!",
     "lead": "Dostałem twoją wiadomość i odpowiem w godzinach — zwykle tego samego dnia, zawsze przed następnym porankiem roboczym.",
-    "back": "Wróć na stronę główną"
+    "back": "Wróć na stronę główną",
+    "headlineLead": "Dziękuję,",
+    "headlineTail": "!",
+    "eta": {
+      "label": "Odpowiedź spodziewana",
+      "value": "w ciągu kilku godzin"
+    },
+    "delivered": "Dostarczono na telefon Alexa",
+    "phone": {
+      "app": "buildbyalex",
+      "now": "teraz",
+      "fallbackName": "Nowe zgłoszenie",
+      "fallbackProject": "Nowy projekt",
+      "preview": "Chce porozmawiać o projekcie — zgłoszenie właśnie wpłynęło."
+    },
+    "stepsTitle": "Co dalej",
+    "steps": [
+      {
+        "title": "Zgłoszenie odebrane",
+        "body": "Jest już u mnie — od razu trafiło do realizacji, nic nie ginie."
+      },
+      {
+        "title": "Analizuję szczegóły",
+        "body": "Przeglądam zadanie i szkicuję pierwsze pomysły na rozwiązanie."
+      },
+      {
+        "title": "Odpowiadam osobiście",
+        "body": "Osobista odpowiedź trafi na Twoją skrzynkę — zwykle w ciągu kilku godzin."
+      }
+    ],
+    "meanwhileTitle": "Zanim odpiszę",
+    "meanwhile": {
+      "work": "Zobacz realizacje",
+      "services": "Usługi"
+    }
   }
 }

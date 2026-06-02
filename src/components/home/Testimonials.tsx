@@ -93,7 +93,6 @@ function ReviewCard({ r, i }: { r: Review; i: number }) {
               <path d="M8.5 12.3l2.3 2.3 4.7-5.1" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </figcaption>
-          <p className="truncate text-[12.5px] text-[color:var(--color-text-3)]">{r.role}</p>
         </div>
       </div>
 
@@ -118,7 +117,7 @@ export function Testimonials() {
 
   const total = DISTRIBUTION.reduce((a, b) => a + b, 0);
   const hasMore = list.length > COLLAPSED_COUNT;
-  const visible = expanded ? list : list.slice(0, COLLAPSED_COUNT);
+  const visible = list.slice(0, COLLAPSED_COUNT);
   const hidden = list.slice(COLLAPSED_COUNT);
 
   return (
@@ -182,7 +181,7 @@ export function Testimonials() {
           </div>
 
           <AnimatePresence initial={false}>
-            {expanded && hidden.length > 0 && (
+            {expanded && (
               <motion.div
                 key="more"
                 initial={{ opacity: 0, height: 0 }}
@@ -191,17 +190,24 @@ export function Testimonials() {
                 transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                 className="overflow-hidden"
               >
-                <div className="mt-5 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-                  {hidden.map((r, i) => (
-                    <motion.div
-                      key={r.name}
-                      initial={{ opacity: 0, y: 14 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: (i % 3) * 0.06, ease: [0.16, 1, 0.3, 1] }}
-                    >
-                      <ReviewCard r={r} i={i + COLLAPSED_COUNT} />
-                    </motion.div>
-                  ))}
+                {hidden.length > 0 && (
+                  <div className="mt-5 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                    {hidden.map((r, i) => (
+                      <motion.div
+                        key={r.name}
+                        initial={{ opacity: 0, y: 14 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: (i % 3) * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                      >
+                        <ReviewCard r={r} i={i + COLLAPSED_COUNT} />
+                      </motion.div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Leave a review — revealed together with the full list */}
+                <div className="mx-auto mt-16 max-w-[680px] md:mt-20">
+                  <ReviewForm />
                 </div>
               </motion.div>
             )}
@@ -237,13 +243,6 @@ export function Testimonials() {
             </button>
           </div>
         )}
-
-        {/* Leave a review */}
-        <Reveal>
-          <div className="mx-auto mt-16 max-w-[680px] md:mt-20">
-            <ReviewForm />
-          </div>
-        </Reveal>
       </Container>
     </Section>
   );

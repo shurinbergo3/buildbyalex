@@ -39,7 +39,10 @@ export function ContactForm() {
       if (!res.ok || !data.ok) {
         throw new Error(data.error ?? "Send failed");
       }
-      router.push("/contact/thank-you");
+      const query: Record<string, string> = {};
+      if (payload.name) query.name = payload.name;
+      if (payload.type) query.type = payload.type;
+      router.push({ pathname: "/contact/thank-you", query });
     } catch {
       setState("error");
       setError(t("error"));

@@ -66,7 +66,6 @@ export function ReviewForm() {
     const fd = new FormData(e.currentTarget);
     const payload = {
       name: String(fd.get("name") ?? ""),
-      role: String(fd.get("role") ?? ""),
       quote: String(fd.get("quote") ?? ""),
       rating,
       locale,
@@ -125,9 +124,8 @@ export function ReviewForm() {
         <StarPicker value={rating} hover={hover} onChange={setRating} onHover={setHover} />
       </div>
 
-      <div className="mt-5 grid gap-4 md:grid-cols-2">
+      <div className="mt-5">
         <ReviewField name="name" label={t("name")} required autoComplete="name" />
-        <ReviewField name="role" label={t("role")} placeholder={t("rolePlaceholder")} autoComplete="organization" />
       </div>
 
       <label className="mt-4 block">

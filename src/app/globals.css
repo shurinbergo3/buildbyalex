@@ -738,6 +738,198 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
   color: var(--color-text-2);
 }
 
+/* ───────────────────── THANK-YOU — celebration ─────────────────────
+   Drawn checkmark, radiating seal rings, a one-shot amber confetti burst
+   and the "delivered" live dot. All disabled under reduced-motion below.
+   ──────────────────────────────────────────────────────────────────── */
+.ty-seal-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 1.5px solid color-mix(in srgb, var(--c-accent) 55%, transparent);
+  opacity: 0;
+  animation: tySealPing 2.6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+.ty-seal-ring--2 { animation-delay: 1.3s; }
+@keyframes tySealPing {
+  0%   { transform: scale(0.9); opacity: 0.9; }
+  70%  { transform: scale(1.9); opacity: 0; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+
+.ty-check {
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+  animation: tyCheckDraw 0.6s var(--ease-out-apple) 0.25s forwards;
+}
+@keyframes tyCheckDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+.ty-live-dot {
+  position: relative;
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2ECC71;
+  box-shadow: 0 0 8px rgba(46, 204, 113, 0.6);
+}
+.ty-live-dot::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(46, 204, 113, 0.55);
+  animation: workLivePing 2.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.ty-step-pulse { animation: tyStepPulse 2s ease-in-out infinite; }
+@keyframes tyStepPulse { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
+
+.ty-confetti {
+  will-change: transform, opacity;
+  animation-name: tyConfetti;
+  animation-timing-function: cubic-bezier(0.3, 0.6, 0.4, 1);
+  animation-fill-mode: forwards;
+}
+@keyframes tyConfetti {
+  0%   { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+  8%   { opacity: 1; }
+  100% { transform: translate(var(--cf-drift, 0), 96vh) rotate(var(--cf-rot, 360deg)); opacity: 0; }
+}
+
+/* ───────────────────── 404 — glitch, radar scan, spotlight ─────────────────────
+   Crashed browser-window mockup. A cursor spotlight (--mx/--my, set from JS)
+   carves a bright hole in the dark; a radar sweeps; the 404 glitches on a loop.
+   ──────────────────────────────────────────────────────────────────────────── */
+.nf-frame { --mx: 50%; --my: 50%; }
+
+.nf-scan {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 150%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 300deg,
+    color-mix(in srgb, var(--c-accent) 22%, transparent) 350deg,
+    color-mix(in srgb, var(--c-accent) 40%, transparent) 360deg
+  );
+  -webkit-mask: radial-gradient(circle, #000 0%, #000 40%, transparent 70%);
+  mask: radial-gradient(circle, #000 0%, #000 40%, transparent 70%);
+  opacity: 0.5;
+  animation: nfScan 6s linear infinite;
+  will-change: transform;
+}
+@keyframes nfScan {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.nf-glitch { position: relative; }
+.nf-glitch::before,
+.nf-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.nf-glitch::before {
+  color: #00e5ff;
+  mix-blend-mode: screen;
+  animation: nfGlitchA 4.2s steps(2, end) infinite;
+}
+.nf-glitch::after {
+  color: var(--c-accent);
+  mix-blend-mode: screen;
+  animation: nfGlitchB 4.2s steps(2, end) infinite;
+}
+@keyframes nfGlitchA {
+  0%, 84%, 100% { transform: translate(0, 0); opacity: 0; clip-path: inset(0 0 0 0); }
+  85%  { transform: translate(-3px, -2px); opacity: 0.8; clip-path: inset(12% 0 58% 0); }
+  90%  { transform: translate(3px, 1px);  opacity: 0.8; clip-path: inset(62% 0 8% 0); }
+  95%  { transform: translate(-2px, 2px); opacity: 0.8; clip-path: inset(40% 0 38% 0); }
+}
+@keyframes nfGlitchB {
+  0%, 84%, 100% { transform: translate(0, 0); opacity: 0; clip-path: inset(0 0 0 0); }
+  86%  { transform: translate(3px, 2px);  opacity: 0.85; clip-path: inset(70% 0 10% 0); }
+  91%  { transform: translate(-3px, -1px); opacity: 0.85; clip-path: inset(20% 0 50% 0); }
+  96%  { transform: translate(2px, -2px); opacity: 0.85; clip-path: inset(48% 0 30% 0); }
+}
+
+.nf-blink { animation: nfBlink 1.4s steps(2) infinite; }
+@keyframes nfBlink { 50% { opacity: 0.2; } }
+
+.nf-fragment {
+  will-change: transform;
+  animation-name: nfFloat;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+@keyframes nfFloat {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50%      { transform: translateY(-16px) rotate(3deg); }
+}
+
+/* Dark mask with a bright hole that tracks the cursor */
+.nf-spot {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  background: radial-gradient(
+    circle 200px at var(--mx) var(--my),
+    transparent 0%,
+    transparent 16%,
+    rgba(6, 6, 9, 0.55) 46%,
+    rgba(6, 6, 9, 0.82) 100%
+  );
+  transition: background 260ms var(--ease-out-apple);
+}
+.nf-frame[data-spot="off"] .nf-spot {
+  background: radial-gradient(
+    circle 240px at 50% 50%,
+    transparent 0%,
+    transparent 22%,
+    rgba(6, 6, 9, 0.5) 50%,
+    rgba(6, 6, 9, 0.78) 100%
+  );
+}
+.nf-spot-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 11;
+  pointer-events: none;
+  background: radial-gradient(
+    circle 180px at var(--mx) var(--my),
+    rgba(255, 130, 60, 0.16) 0%,
+    transparent 60%
+  );
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity 260ms var(--ease-out-apple), background 260ms var(--ease-out-apple);
+}
+.nf-frame[data-spot="on"] .nf-spot-glow { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ty-seal-ring,
+  .ty-check,
+  .ty-live-dot::after,
+  .ty-step-pulse,
+  .ty-confetti,
+  .nf-scan,
+  .nf-glitch::before,
+  .nf-glitch::after,
+  .nf-blink,
+  .nf-fragment { animation: none !important; }
+  .ty-check { stroke-dashoffset: 0 !important; }
+  .nf-glitch::before, .nf-glitch::after { opacity: 0 !important; }
+}
+
 /* Headline can include a soft-amber span */
 .hl-accent {
   background: linear-gradient(180deg, var(--c-accent) 0%, var(--c-accent-ink) 100%);
