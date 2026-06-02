@@ -39,6 +39,7 @@ export function Footer() {
               <li><Link href="/services/websites" className="hover:text-[color:var(--color-text)] transition-colors">{t("links.websites")}</Link></li>
               <li><Link href="/services/ai-agents" className="hover:text-[color:var(--color-text)] transition-colors">{t("links.aiAgents")}</Link></li>
               <li><Link href="/services/mobile-apps" className="hover:text-[color:var(--color-text)] transition-colors">{t("links.mobileApps")}</Link></li>
+              <li><Link href="/services/advertising" className="hover:text-[color:var(--color-text)] transition-colors">{t("links.advertising")}</Link></li>
             </ul>
           </div>
 

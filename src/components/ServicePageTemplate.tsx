@@ -1,4 +1,6 @@
-import { useTranslations, useMessages } from "next-intl";
+import { useTranslations, useMessages, useLocale } from "next-intl";
+import { SITE_URL, localizedHref } from "@/lib/site";
+import type { Locale } from "@/i18n/routing";
 import { Container } from "./Container";
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
@@ -7,7 +9,7 @@ import { FAQAccordion, type QA } from "./FAQAccordion";
 import { HowItWorks } from "./home/HowItWorks";
 import { BotCrmSync } from "./BotCrmSync";
 
-type Branch = "websites" | "ai" | "mobile";
+type Branch = "websites" | "ai" | "mobile" | "ads";
 
 type ServiceData = {
   eyebrow: string;
@@ -23,10 +25,18 @@ type ServiceData = {
 
 type Shape = { services: Record<Branch, ServiceData> };
 
-const PRICE_KEY: Record<Branch, "site" | "ai" | "mobile"> = {
+const PRICE_KEY: Record<Branch, "site" | "ai" | "mobile" | "ads"> = {
   websites: "site",
   ai: "ai",
   mobile: "mobile",
+  ads: "ads",
+};
+
+const SERVICE_PATH: Record<Branch, string> = {
+  websites: "/services/websites",
+  ai: "/services/ai-agents",
+  mobile: "/services/mobile-apps",
+  ads: "/services/advertising",
 };
 
 function Stars({ className = "" }: { className?: string }) {
@@ -49,13 +59,35 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
   const tr = useTranslations("home.testimonials");
   const tp = useTranslations("home.pricing");
   const tSync = useTranslations("home.botSync");
+  const locale = useLocale() as Locale;
   const messages = useMessages() as unknown as Shape;
   const data: ServiceData = messages.services[branch];
   const headlineLines = t("headline").split("\n");
   const priceKey = PRICE_KEY[branch];
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: t("meta.title"),
+    serviceType: t("eyebrow"),
+    description: t("lead"),
+    areaServed: { "@type": "Country", name: "Poland" },
+    provider: { "@type": "Organization", name: "buildbyalex", url: SITE_URL },
+    url: localizedHref(locale, SERVICE_PATH[branch]),
+    offers: {
+      "@type": "Offer",
+      price: tp(`tiers.${priceKey}.price`).replace(/[^\d]/g, ""),
+      priceCurrency: "EUR",
+      url: localizedHref(locale, "/contact"),
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       {/* ── Hero ── */}
       <Section pad="tight" tone="default" className="!pt-16 md:!pt-24">
         <Container size="default">

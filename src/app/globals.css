@@ -1125,3 +1125,194 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
   .case-cta-chip-dot::after,
   .case-cta-primary::after { animation: none !important; }
 }
+
+/* ───────────────────── WORK CAROUSEL (home) ─────────────────────
+   Horizontal snap-rail. Native scroll on touch, arrow + dot control
+   on desktop. Scrollbar hidden; cards bleed to the container edge. ── */
+.work-rail {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+.work-rail::-webkit-scrollbar { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .work-rail { scroll-behavior: auto; }
+}
+
+/* ───────────────────── CASE COVER — branded key-art ─────────────────────
+   Replaces the generic stock hero photo. A dark "product key-art" panel:
+   amber aurora + dot grid + specular edge + faux browser chrome, with the
+   case's headline metrics as the focal point. The numbers ARE the cover. ── */
+.case-cover {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 28px;
+  background: #0A0A0A;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 22px 22px 24px;
+  min-height: 380px;
+  box-shadow:
+    0 40px 90px -50px rgba(0, 0, 0, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+@media (min-width: 768px) {
+  .case-cover { padding: 26px 32px 30px; min-height: 460px; }
+}
+
+.case-cover-aurora {
+  position: absolute;
+  inset: -45% -12% auto -12%;
+  height: 150%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(42% 40% at 26% 4%, rgba(255, 107, 26, 0.42), transparent 70%),
+    radial-gradient(40% 34% at 82% 0%, rgba(255, 150, 60, 0.26), transparent 72%),
+    radial-gradient(60% 50% at 50% -12%, rgba(255, 90, 10, 0.20), transparent 75%);
+  filter: blur(8px);
+  opacity: 0.85;
+  animation: caseCtaDrift 16s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+.case-cover-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(135% 90% at 50% 0%, #000 26%, transparent 82%);
+          mask-image: radial-gradient(135% 90% at 50% 0%, #000 26%, transparent 82%);
+  opacity: 0.5;
+}
+.case-cover-edge {
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  pointer-events: none;
+  z-index: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 160, 90, 0.7), transparent);
+}
+
+/* Faux browser / app chrome */
+.case-cover-chrome {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 4px;
+}
+.case-cover-dot {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+.case-cover-url {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: min(60vw, 320px);
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--font-mono), ui-monospace, "SF Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.66);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.case-cover-url svg { flex-shrink: 0; opacity: 0.7; }
+.case-cover-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
+}
+.case-cover-live-dot {
+  position: relative;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2ECC71;
+  box-shadow: 0 0 10px rgba(46, 204, 113, 0.7);
+}
+.case-cover-live-dot::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(46, 204, 113, 0.5);
+  animation: heroBadgePing 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+/* Metric key-art */
+.case-cover-metrics {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: center;
+  gap: 28px;
+  padding: 36px 0;
+}
+@media (min-width: 640px) {
+  .case-cover-metrics {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 44px 0;
+  }
+}
+.case-cover-metric { text-align: left; }
+.case-cover-num {
+  font-size: clamp(44px, 6vw + 10px, 84px);
+  font-weight: 600;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(170deg, #fff 0%, rgba(255, 179, 134, 0.95) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.case-cover-num-label {
+  margin-top: 12px;
+  font-size: 12px;
+  line-height: 1.35;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Stack chips */
+.case-cover-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.case-cover-chip {
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case-cover-aurora { animation: none !important; }
+  .case-cover-live-dot::after { animation: none !important; }
+}

@@ -36,6 +36,12 @@ export const routing = defineRouting({
       pl: "/uslugi/aplikacje-mobilne",
       ua: "/poslugy/mobilni-dodatky",
     },
+    "/services/advertising": {
+      ru: "/uslugi/reklama",
+      en: "/services/advertising",
+      pl: "/uslugi/reklama-google-ads",
+      ua: "/poslugy/reklama",
+    },
     "/work": {
       ru: "/raboty",
       en: "/work",

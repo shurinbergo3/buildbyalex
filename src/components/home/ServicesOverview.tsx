@@ -158,7 +158,7 @@ export function ServicesOverview() {
         {/* Fourth service — advertising, full width */}
         <Reveal delay={300}>
           <Link
-            href="/contact"
+            href="/services/advertising"
             className="group mt-5 flex flex-col gap-4 rounded-[28px] bg-[color:var(--color-bg-elev)] p-7 ring-1 ring-[color:var(--color-divider)] transition-shadow duration-300 hover:shadow-[var(--shadow-card-hover)] md:flex-row md:items-center md:justify-between md:p-8"
           >
             <div className="flex items-start gap-3 md:items-center">
