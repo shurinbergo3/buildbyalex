@@ -2,6 +2,17 @@ export type CaseKey = "legalwin" | "visionair" | "crmbot" | "donbrava" | "bodyfo
 
 export const caseSlugs: CaseKey[] = ["legalwin", "visionair", "crmbot", "donbrava", "bodyforge"];
 
+/** Discipline each case belongs to — drives the gallery filter. Non-localized. */
+export type CaseCategory = "web" | "ai" | "mobile";
+
+export const caseCategory: Record<CaseKey, CaseCategory> = {
+  legalwin: "web",
+  visionair: "web",
+  crmbot: "ai",
+  donbrava: "ai",
+  bodyforge: "mobile",
+};
+
 export const caseSlugToKey: Record<string, CaseKey> = {
   legalwin: "legalwin",
   visionair: "visionair",

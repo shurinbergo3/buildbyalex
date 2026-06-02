@@ -3,9 +3,12 @@ import { cn } from "@/lib/utils";
 export function Logo({
   className,
   size = 22,
+  showDot = true,
 }: {
   className?: string;
-  size?: number;
+  /** Number → px, or any CSS length (e.g. a clamp() for fluid watermarks). */
+  size?: number | string;
+  showDot?: boolean;
 }) {
   return (
     <span
@@ -19,10 +22,13 @@ export function Logo({
       <span>build</span>
       <span className="opacity-40">by</span>
       <span className="text-[color:var(--c-accent)]">alex</span>
-      <span
-        className="ml-[2px] block h-[5px] w-[5px] rounded-full bg-[color:var(--c-accent)]"
-        style={{ marginBottom: 2 }}
-      />
+      {showDot && (
+        <span
+          className="block rounded-full bg-[color:var(--c-accent)]"
+          // em units keep the dot perfectly proportional at every size.
+          style={{ width: "0.2em", height: "0.2em", marginLeft: "0.07em", marginBottom: "0.1em" }}
+        />
+      )}
     </span>
   );
 }

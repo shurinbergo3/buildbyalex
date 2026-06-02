@@ -588,6 +588,82 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
   transform: translateY(-3px);
 }
 
+/* ───────────────────── WORK SHOWCASE ─────────────────────
+   Cursor-following spotlight + luminous border on case cards,
+   plus the "all live" pulsing status dot in the header.
+   --mx / --my are set per-card from JS (default to the center).
+   ──────────────────────────────────────────────────────── */
+.work-card { --mx: 50%; --my: 50%; }
+
+/* Soft amber wash that tracks the cursor across the card surface */
+.work-card__glow {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0;
+  background: radial-gradient(
+    420px circle at var(--mx) var(--my),
+    color-mix(in srgb, var(--c-accent) 20%, transparent),
+    transparent 60%
+  );
+  mix-blend-mode: multiply;
+  transition: opacity 320ms var(--ease-out-apple);
+}
+[data-theme="dark"] .work-card__glow { mix-blend-mode: screen; }
+
+/* 1px luminous edge that lights up where the cursor is (mask shows border only) */
+.work-card__ring {
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0;
+  padding: 1px;
+  background: radial-gradient(
+    260px circle at var(--mx) var(--my),
+    color-mix(in srgb, var(--c-accent) 70%, transparent),
+    transparent 62%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  transition: opacity 320ms var(--ease-out-apple);
+}
+.work-card:hover .work-card__glow,
+.work-card:hover .work-card__ring { opacity: 1; }
+
+/* "All live" status dot */
+.work-live-dot {
+  position: relative;
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2ECC71;
+  box-shadow: 0 0 8px rgba(46, 204, 113, 0.6);
+}
+.work-live-dot::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(46, 204, 113, 0.55);
+  animation: workLivePing 2.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+@keyframes workLivePing {
+  0%   { transform: scale(0.6); opacity: 1; }
+  80%  { transform: scale(2.3); opacity: 0; }
+  100% { transform: scale(2.3); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .work-live-dot::after { animation: none !important; }
+  .work-card__glow, .work-card__ring { transition: none !important; }
+}
+
 /* ───────────────────── SCROLLBAR ───────────────────── */
 ::-webkit-scrollbar { width: 12px; }
 ::-webkit-scrollbar-thumb {

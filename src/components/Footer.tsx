@@ -10,12 +10,12 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-[color:var(--c-hairline)] bg-[color:var(--color-bg)] py-16 md:py-20">
-      <Container>
+    <footer className="relative isolate overflow-hidden border-t border-[color:var(--c-hairline)] bg-[color:var(--color-bg)] pt-16 md:pt-20">
+      <Container className="relative z-10">
         <div className="grid grid-cols-2 gap-y-12 md:grid-cols-12 md:gap-y-0">
           <div className="col-span-2 md:col-span-5">
-            <Link href="/" aria-label="buildbyalex — home">
-              <Logo size={22} />
+            <Link href="/" aria-label="buildbyalex — home" className="inline-block">
+              <Logo size={30} />
             </Link>
             <p className="mt-5 max-w-[34ch] text-[15px] leading-[1.5] text-[color:var(--color-text-2)]">
               {t("tagline")}
@@ -54,13 +54,28 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col-reverse gap-6 border-t border-[color:var(--c-hairline)] pt-6 md:flex-row md:items-center md:justify-between">
+        <div className="mt-14 flex flex-col-reverse gap-6 border-t border-[color:var(--c-hairline)] pt-6 pb-[clamp(56px,9vw,128px)] md:flex-row md:items-center md:justify-between">
           <p className="text-[12px] text-[color:var(--color-text-3)]">
             © {year} Oleksandr Shuvalov. {t("rights")} <span className="mx-1 opacity-50">·</span> {t("legal")}
           </p>
           <LocaleSwitcher />
         </div>
       </Container>
+
+      {/* Oversized brand wordmark, clipped by the footer's bottom edge — the apple.com
+          "typography is the brand" move. Faint, fading in from the top, purely decorative. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 -bottom-[0.16em] z-0 select-none overflow-hidden"
+      >
+        <div className="mx-auto w-full max-w-[1440px] px-6 md:px-8">
+          <Logo
+            size="clamp(88px, 17vw, 248px)"
+            showDot={false}
+            className="block whitespace-nowrap opacity-[0.06] [mask-image:linear-gradient(to_bottom,transparent_8%,#000_64%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_8%,#000_64%)]"
+          />
+        </div>
+      </div>
     </footer>
   );
 }
