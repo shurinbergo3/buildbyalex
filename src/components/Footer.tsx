@@ -27,7 +27,6 @@ export function Footer() {
             <h4 className="t-eyebrow mb-4 text-[11px]">{t("sections.explore")}</h4>
             <ul className="space-y-2.5 text-[14px] text-[color:var(--color-text-2)]">
               <li><Link href="/work" className="hover:text-[color:var(--color-text)] transition-colors">{nav("work")}</Link></li>
-              <li><Link href="/about" className="hover:text-[color:var(--color-text)] transition-colors">{nav("about")}</Link></li>
               <li><Link href="/blog" className="hover:text-[color:var(--color-text)] transition-colors">{nav("blog")}</Link></li>
               <li><Link href="/contact" className="hover:text-[color:var(--color-text)] transition-colors">{nav("contact")}</Link></li>
             </ul>
@@ -49,7 +48,6 @@ export function Footer() {
               <li><a href="mailto:alex@buildbyalex.com" className="hover:text-[color:var(--color-text)] transition-colors">alex@buildbyalex.com</a></li>
               <li><a href="https://t.me/sumotry" target="_blank" rel="noreferrer noopener" className="hover:text-[color:var(--color-text)] transition-colors">{t("links.telegram")} @sumotry</a></li>
               <li><a href="https://wa.me/48453474944" target="_blank" rel="noreferrer noopener" className="hover:text-[color:var(--color-text)] transition-colors">WhatsApp</a></li>
-              <li><a href="tel:+48453474944" className="hover:text-[color:var(--color-text)] transition-colors">+48 453 474 944</a></li>
               <li><a href="https://www.linkedin.com/in/oleksandr-shuvalov" target="_blank" rel="noreferrer noopener" className="hover:text-[color:var(--color-text)] transition-colors">{t("links.linkedin")}</a></li>
             </ul>
           </div>

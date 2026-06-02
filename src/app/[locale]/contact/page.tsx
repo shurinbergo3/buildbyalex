@@ -71,11 +71,6 @@ export default async function ContactPage({
                     </a>
                   </li>
                   <li>
-                    <a href="tel:+48453474944" className="font-medium hover:text-[color:var(--c-accent)]">
-                      +48 453 474 944
-                    </a>
-                  </li>
-                  <li>
                     <a href="https://www.linkedin.com/in/oleksandr-shuvalov" target="_blank" rel="noreferrer noopener" className="font-medium hover:text-[color:var(--c-accent)]">
                       LinkedIn ↗
                     </a>

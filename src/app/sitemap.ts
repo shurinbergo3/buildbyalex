@@ -6,7 +6,6 @@ import { caseKeyToSlug, type CaseKey } from "@/lib/cases";
 
 const staticPaths: (keyof typeof routing.pathnames)[] = [
   "/",
-  "/about",
   "/services",
   "/services/websites",
   "/services/ai-agents",

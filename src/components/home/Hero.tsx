@@ -1,13 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
-
-const HERO_IMAGE_URL =
-  "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=2400&q=85";
+import { HeroCodeSurface } from "@/components/home/HeroCodeSurface";
 
 export function Hero() {
   const t = useTranslations("home.hero");
@@ -162,15 +159,7 @@ export function Hero() {
       <div className="hero-sticky">
         <div className="hero-stage" onMouseMove={onMove} onMouseLeave={onLeave}>
           <div ref={frameRef} className="hero-frame">
-            <Image
-              src={HERO_IMAGE_URL}
-              alt=""
-              fill
-              priority
-              sizes="100vw"
-              className="hero-frame-img"
-              draggable={false}
-            />
+            <HeroCodeSurface />
             <div className="hero-frame-tint" aria-hidden="true" />
             <div className="hero-flashlight" aria-hidden="true" />
             <div className="hero-glow" aria-hidden="true" />

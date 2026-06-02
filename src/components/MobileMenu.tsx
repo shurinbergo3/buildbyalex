@@ -10,7 +10,6 @@ import { Logo } from "./Logo";
 const items = [
   { href: "/work", key: "work" },
   { href: "/services", key: "services" },
-  { href: "/about", key: "about" },
   { href: "/blog", key: "blog" },
   { href: "/contact", key: "contact" },
 ] as const;

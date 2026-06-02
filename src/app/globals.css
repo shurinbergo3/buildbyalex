@@ -218,10 +218,65 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
   will-change: top, left, right, bottom, border-radius;
   cursor: crosshair;
 }
-.hero-frame-img {
-  object-fit: cover;
+/* The revealed surface: real source, hand-tokenised to the brand palette.
+   Sits at the bottom of the stack; the flashlight mask above hides all but
+   the spotlit area, so it reads as a moody, bespoke code wall. */
+.hero-code {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   user-select: none;
   pointer-events: none;
+  background:
+    radial-gradient(120% 90% at 50% 0%, #0b0b10 0%, #050507 60%);
+}
+.hero-code-pre {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-mono), ui-monospace, "SF Mono", monospace;
+  font-size: clamp(12.5px, 0.62vw + 9px, 17px);
+  line-height: 2.05;
+  letter-spacing: -0.005em;
+  text-align: left;
+  white-space: pre;
+  -webkit-font-smoothing: antialiased;
+  /* slight lift so the densest code sits behind the headline block */
+  transform: translateY(-2%);
+}
+.hcl {
+  display: flex;
+  align-items: baseline;
+}
+.hcl-n {
+  flex: none;
+  width: 2.4ch;
+  margin-right: 2.2ch;
+  text-align: right;
+  color: rgba(233, 226, 217, 0.16);
+  font-variant-numeric: tabular-nums;
+}
+.hcl-t {
+  color: rgba(233, 226, 217, 0.9);
+  white-space: pre;
+}
+/* syntax tokens — restrained: amber keywords, warm-green strings,
+   one cool slate for attributes, the rest dimmed off-white */
+.hero-code .t-kw   { color: #FF8A3D; }
+.hero-code .t-fn   { color: #F0B886; }
+.hero-code .t-str  { color: #8FD6A6; }
+.hero-code .t-tag  { color: #FFB386; }
+.hero-code .t-attr { color: #9DB8E0; }
+.hero-code .t-pun  { color: rgba(233, 226, 217, 0.42); }
+.hero-code .t-com  { color: rgba(233, 226, 217, 0.34); font-style: italic; }
+.hero-code .t-acc  { color: var(--c-accent); font-weight: 600; }
+
+@media (max-width: 640px) {
+  .hero-code-pre { font-size: 12px; line-height: 1.95; }
+  .hcl-n { margin-right: 1.4ch; }
 }
 
 /* Tint — base dark wash + the warm amber radial gradient (kept from prior design) */
