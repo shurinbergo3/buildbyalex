@@ -4,6 +4,8 @@ import { Section } from "./Section";
 import { Reveal } from "./Reveal";
 import { Button } from "./Button";
 import { FAQAccordion, type QA } from "./FAQAccordion";
+import { HowItWorks } from "./home/HowItWorks";
+import { BotCrmSync } from "./BotCrmSync";
 
 type Branch = "websites" | "ai" | "mobile";
 
@@ -21,14 +23,40 @@ type ServiceData = {
 
 type Shape = { services: Record<Branch, ServiceData> };
 
+const PRICE_KEY: Record<Branch, "site" | "ai" | "mobile"> = {
+  websites: "site",
+  ai: "ai",
+  mobile: "mobile",
+};
+
+function Stars({ className = "" }: { className?: string }) {
+  return (
+    <div className={`flex gap-0.5 ${className}`} aria-label="5 out of 5">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <svg key={i} width="15" height="15" viewBox="0 0 16 16" aria-hidden="true">
+          <path
+            d="M8 1.5l1.96 4.27 4.7.55-3.5 3.2.96 4.62L8 11.9l-4.12 2.24.96-4.62-3.5-3.2 4.7-.55L8 1.5z"
+            fill="var(--c-accent)"
+          />
+        </svg>
+      ))}
+    </div>
+  );
+}
+
 export function ServicePageTemplate({ branch }: { branch: Branch }) {
   const t = useTranslations(`services.${branch}`);
+  const tr = useTranslations("home.testimonials");
+  const tp = useTranslations("home.pricing");
+  const tSync = useTranslations("home.botSync");
   const messages = useMessages() as unknown as Shape;
   const data: ServiceData = messages.services[branch];
   const headlineLines = t("headline").split("\n");
+  const priceKey = PRICE_KEY[branch];
 
   return (
     <>
+      {/* ── Hero ── */}
       <Section pad="tight" tone="default" className="!pt-16 md:!pt-24">
         <Container size="default">
           <Reveal>
@@ -45,11 +73,18 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-4">
                   <Button href="/contact" size="lg">{t("primaryCta")}</Button>
-                  <span className="text-[15px] text-[color:var(--color-text-3)]">
-                    {t("from")}
+                  <span className="text-[15px] text-[color:var(--color-text-3)]">{t("from")}</span>
+                </div>
+
+                {/* Social proof */}
+                <div className="mt-8 flex items-center gap-3">
+                  <Stars />
+                  <span className="text-[13.5px] text-[color:var(--color-text-2)]">
+                    <span className="font-semibold text-[color:var(--color-text)]">{tr("rating")}</span> · {tr("count")}
                   </span>
                 </div>
               </div>
+
               <div className="md:col-span-5">
                 <div className="rounded-[28px] bg-[color:var(--color-bg-alt)] p-7 md:p-9">
                   <h3 className="t-eyebrow">{t("stack.title")}</h3>
@@ -70,7 +105,32 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
         </Container>
       </Section>
 
-      <Section pad="default" tone="alt">
+      {/* ── Live demo (AI service only — the synced bot↔CRM stage) ── */}
+      {branch === "ai" && (
+        <Section pad="default" tone="alt">
+          <Container>
+            <Reveal>
+              <div className="mx-auto max-w-[760px] text-center">
+                <p className="t-eyebrow">{t("demoEyebrow")}</p>
+                <h2 className="mt-3 t-h2">
+                  {tSync("headline").split("\n").map((l, i) => (
+                    <span key={i} className="block">{l}</span>
+                  ))}
+                </h2>
+                <p className="mx-auto mt-5 max-w-[600px] t-body-lg">{tSync("subhead")}</p>
+              </div>
+            </Reveal>
+            <Reveal delay={120}>
+              <div className="mt-12 md:mt-16">
+                <BotCrmSync />
+              </div>
+            </Reveal>
+          </Container>
+        </Section>
+      )}
+
+      {/* ── What's included ── */}
+      <Section pad="default" tone={branch === "ai" ? "default" : "alt"}>
         <Container>
           <Reveal>
             <h2 className="t-h2 mb-12 md:mb-16">{t("what.title")}</h2>
@@ -90,7 +150,39 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
         </Container>
       </Section>
 
+      {/* ── Process (shared 4-step) ── */}
+      <HowItWorks />
+
+      {/* ── Pricing for this service ── */}
       <Section pad="default" tone="default">
+        <Container size="sm">
+          <Reveal>
+            <div className="relative flex flex-col rounded-[28px] bg-[color:var(--color-bg-alt)] p-8 md:p-10">
+              <p className="t-eyebrow">{t("startingPrice")}</p>
+              <div className="mt-4 flex items-baseline gap-2">
+                <span className="text-[13px] uppercase tracking-[0.04em] text-[color:var(--color-text-3)]">
+                  {tp(`tiers.${priceKey}.from`)}
+                </span>
+                <span className="text-[clamp(40px,5vw,60px)] font-semibold tracking-[-0.03em] text-[color:var(--color-text)]">
+                  {tp(`tiers.${priceKey}.price`)}
+                </span>
+              </div>
+              <p className="mt-4 text-[16px] leading-[1.55] text-[color:var(--color-text-2)]">
+                {tp(`tiers.${priceKey}.body`)}
+              </p>
+              <p className="mt-3 text-[13px] tracking-[0.02em] text-[color:var(--color-text-3)]">
+                {tp(`tiers.${priceKey}.examples`)}
+              </p>
+              <div className="mt-8">
+                <Button href="/contact" size="lg" className="w-full sm:w-auto">{t("bookCta")}</Button>
+              </div>
+            </div>
+          </Reveal>
+        </Container>
+      </Section>
+
+      {/* ── FAQ ── */}
+      <Section pad="default" tone="alt">
         <Container size="md">
           <Reveal>
             <h2 className="t-h2 mb-10 md:mb-12 text-center">{t("faq.title")}</h2>
@@ -99,6 +191,7 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
         </Container>
       </Section>
 
+      {/* ── Final CTA ── */}
       <Section pad="default" tone="default">
         <Container size="md">
           <Reveal>
@@ -115,15 +208,21 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
                 <h2 className="text-[clamp(28px,3.6vw,42px)] font-semibold leading-[1.1] tracking-[-0.024em]">
                   {t("primaryCta")}
                 </h2>
+                <div className="mt-5 flex items-center justify-center gap-2.5">
+                  <Stars />
+                  <span className="text-[13.5px] text-white/70">
+                    <span className="font-semibold text-white">{tr("rating")}</span> · {tr("count")}
+                  </span>
+                </div>
                 <div className="mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-3">
                   <Button href="/contact" size="lg">
                     {t("primaryCta")}
                   </Button>
                   <a
-                    href="mailto:alex@buildbyalex.com"
+                    href="mailto:shurinbergo@gmail.com"
                     className="text-[14px] text-white/70 underline underline-offset-4 hover:text-white"
                   >
-                    alex@buildbyalex.com
+                    shurinbergo@gmail.com
                   </a>
                 </div>
               </div>

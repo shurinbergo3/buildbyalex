@@ -81,20 +81,22 @@
             "Next.js 15 + React 19",
             "Wielojęzyczność, SEO i GEO wbudowane",
             "Wdrożenie i indeksacja pod klucz"
-          ]
+          ],
+          "desc": "Strony marketingowe, landingi i firmowe — wielojęzyczne."
         },
         "ai": {
           "title": "Agenci AI, którzy zamykają.",
           "body": "Asystenci RAG, boty sprzedażowe, kwalifikacja leadów. Podłączone do CRM, danych i narzędzi.",
           "stack": "Gemini · GPT · Claude · Function calling · AmoCRM · Telegram",
           "link": "Dowiedz się więcej",
-          "category": "Agenci AI",
+          "category": "AI i automatyzacja",
           "price": "1 200 €",
           "bullets": [
             "Boty RAG, sprzedażowe i kwalifikacja",
             "Podłączone do CRM i narzędzi",
             "Wielojęzyczne, na Twoich danych"
-          ]
+          ],
+          "desc": "Agenci czatowi i sprzedażowi, automatyzacja procesów i wdrożenie AI w Twoich narzędziach."
         },
         "mobile": {
           "title": "Aplikacje mobilne, które trafiają na sklepy.",
@@ -107,7 +109,8 @@
             "iOS i Android z jednego kodu",
             "Publikacja w App Store i Google Play",
             "Logowanie i płatności gotowe"
-          ]
+          ],
+          "desc": "Aplikacje cross-platform iOS i Android — od MVP po publikację w sklepach."
         }
       },
       "from": "od",
@@ -116,7 +119,8 @@
         "title": "Reklama cyfrowa",
         "body": "Google Ads, Meta Ads — konfiguracja i prowadzenie.",
         "price": "Od 300 € za setup lub 500 €/mies. prowadzenia"
-      }
+      },
+      "badge": "Najczęściej wybierane"
     },
     "work": {
       "eyebrow": "Wybrane realizacje",
@@ -294,64 +298,133 @@
       "eyebrow": "Co mówią klienci",
       "headline": "Zaufali mi founderzy i operatorzy.",
       "subhead": "Kilka słów od founderów i zespołów, dla których realizowałem projekty.",
-      "rating": "4,9",
+      "rating": "4,8",
       "count": "47 opinii",
       "list": [
         {
           "name": "Marek Wójcik",
           "role": "Założyciel · Stryke Apparel",
           "date": "2 tygodnie temu",
-          "quote": "Sklep ruszył w 11 dni — wielojęzyczny, szybki i już na pierwszej stronie dla trzech głównych fraz."
+          "quote": "Sklep ruszył w 11 dni — wielojęzyczny, szybki i już na pierwszej stronie dla trzech głównych fraz.",
+          "rating": 5
         },
         {
           "name": "Anna Kovalenko",
           "role": "Marketing · Lumière Clinic",
           "date": "miesiąc temu",
-          "quote": "Bot na Telegramie prowadzi teraz pierwszą rozmowę z każdym leadem. Handlowiec wchodzi tylko, gdy deal jest gorący."
+          "quote": "Bot na Telegramie prowadzi teraz pierwszą rozmowę z każdym leadem. Handlowiec wchodzi tylko, gdy deal jest gorący.",
+          "rating": 5
         },
         {
           "name": "Dmytro Orlov",
           "role": "Dyrektor operacyjny · Vector Logistics",
           "date": "3 tygodnie temu",
-          "quote": "Leady trafiają do CRM z już wypełnionymi polami. Koniec z kopiowaniem z czatów — lejek przesuwa się sam."
+          "quote": "Leady trafiają do CRM z już wypełnionymi polami. Koniec z kopiowaniem z czatów — lejek przesuwa się sam.",
+          "rating": 5
         },
         {
           "name": "Katarzyna Nowak",
           "role": "Właścicielka · Belle Studio",
           "date": "miesiąc temu",
-          "quote": "Aplikacja w App Store i Google Play w trzy tygodnie. Dzięki dokumentacji zespół przejął ją beze mnie."
+          "quote": "Aplikacja w App Store i Google Play w trzy tygodnie. Dzięki dokumentacji zespół przejął ją beze mnie.",
+          "rating": 5
         },
         {
           "name": "Tomasz Lewandowski",
           "role": "Dyrektor · Nest Estate",
           "date": "2 miesiące temu",
-          "quote": "Postawił nam Google i Meta Ads od zera. Koszt leada spadł o jakąś jedną trzecią w pierwszym miesiącu."
+          "quote": "Postawił nam Google i Meta Ads od zera. Koszt leada spadł o jakąś jedną trzecią w pierwszym miesiącu.",
+          "rating": 5
         },
         {
           "name": "Oleh Hrytsenko",
           "role": "Współzałożyciel · NorthPeak",
           "date": "5 dni temu",
-          "quote": "Przebudował stronę i po sześciu tygodniach ChatGPT zaczął nas polecać z nazwy. Nie wiedziałem, że to możliwe."
+          "quote": "Przebudował stronę i po sześciu tygodniach ChatGPT zaczął nas polecać z nazwy. Nie wiedziałem, że to możliwe.",
+          "rating": 5
         },
         {
           "name": "Natalia Boyko",
           "role": "Head of growth · EduLab",
           "date": "3 miesiące temu",
-          "quote": "Strony zaczęły otwierać się natychmiast. Współczynnik odrzuceń na mobile wyraźnie spadł w kilka tygodni."
+          "quote": "Strony zaczęły otwierać się natychmiast. Współczynnik odrzuceń na mobile wyraźnie spadł w kilka tygodni.",
+          "rating": 5
         },
         {
           "name": "Piotr Zieliński",
           "role": "Wspólnik · Lex Partners",
           "date": "6 tygodni temu",
-          "quote": "Demo w każdy piątek — zero niespodzianek. Dostarczył dokładnie to, co ustaliliśmy, w obiecanym terminie."
+          "quote": "Demo w każdy piątek — zero niespodzianek. Dostarczył dokładnie to, co ustaliliśmy, w obiecanym terminie.",
+          "rating": 5
         },
         {
           "name": "Michał Kaczmarek",
           "role": "Właściciel · Forma Fitness",
           "date": "2 tygodnie temu",
-          "quote": "Rozmowa wprost z osobą, która to buduje, to inna liga. Szybkie odpowiedzi, bez głuchego telefonu przez account managerów."
+          "quote": "Rozmowa wprost z osobą, która to buduje, to inna liga. Szybkie odpowiedzi, bez głuchego telefonu przez account managerów.",
+          "rating": 5
+        },
+        {
+          "name": "Sofia Adamczyk",
+          "role": "Właścicielka · Brew & Bloom",
+          "date": "tydzień temu",
+          "quote": "Strona rezerwacji, menu i zamówienia online — wszystko ruszyło w dwa tygodnie. Stali klienci zamawiają teraz przez stronę, a nie dzwonią.",
+          "rating": 5
+        },
+        {
+          "name": "Wiktor Kowalczyk",
+          "role": "Założyciel · Tablo",
+          "date": "miesiąc temu",
+          "quote": "Zamienił stos notatek w Notion w działający panel. Sam onboarding zmniejszył liczbę zgłoszeń do supportu o połowę.",
+          "rating": 5
+        },
+        {
+          "name": "Iryna Savchenko",
+          "role": "Marketing · Verde Cosmetics",
+          "date": "2 tygodnie temu",
+          "quote": "Ostatecznie zrobił świetnie, ale pierwszy termin przesunął się o jakiś tydzień. Trzeba przyznać — uprzedził wcześniej, a dopracowanie było tego warte.",
+          "rating": 4
+        },
+        {
+          "name": "Bartosz Nowicki",
+          "role": "CEO · Hauz Interiors",
+          "date": "miesiąc temu",
+          "quote": "Stara strona wyglądała jak z 2014. Nowa otwiera się natychmiast i wreszcie mamy zapytania z Google, a nie tylko z polecenia.",
+          "rating": 5
+        },
+        {
+          "name": "Kamil Pawlak",
+          "role": "Założyciel · Trek Gear",
+          "date": "miesiąc temu",
+          "quote": "Efekt jest w porządku i działa stabilnie. Ale szło wolniej niż obiecywał — kilka razy musiałem sam dopominać się o status w gorącym okresie.",
+          "rating": 3
+        },
+        {
+          "name": "Olena Tkachenko",
+          "role": "Właścicielka · Mira Jewelry",
+          "date": "3 tygodnie temu",
+          "quote": "Przeniósł cały sklep bez utraty ani jednego zamówienia. Zakupy są płynniejsze, a porzuconych koszyków w pierwszym miesiącu wyraźnie ubyło.",
+          "rating": 5
         }
-      ]
+      ],
+      "showAll": "Pokaż wszystkie {count} {count, plural, one {opinię} few {opinie} many {opinii} other {opinii}}",
+      "showLess": "Zwiń",
+      "form": {
+        "title": "Zostaw opinię",
+        "subhead": "Pracowaliśmy razem? Kilka słów pomaga kolejnym founderom się zdecydować.",
+        "rating": "Ocena",
+        "ratingRequired": "Wybierz ocenę",
+        "name": "Imię",
+        "role": "Stanowisko i firma",
+        "rolePlaceholder": "np. Założyciel · Nova Studio",
+        "text": "Opinia",
+        "textPlaceholder": "Co zadziałało, co można poprawić…",
+        "submit": "Wyślij opinię",
+        "sending": "Wysyłanie…",
+        "successTitle": "Dziękuję za opinię!",
+        "successBody": "Trafiła do moderacji i pojawi się po zatwierdzeniu.",
+        "error": "Nie udało się wysłać. Spróbuj ponownie."
+      }
     },
     "faq": {
       "eyebrow": "Najczęstsze pytania",
@@ -527,7 +600,11 @@
             "a": "Świetnie. Implementuję i zwykle od razu widzę, co warto dopracować pod produkcję (dostępność, stany, mobile) — proponuję zmiany przed startem."
           }
         ]
-      }
+      },
+      "demoEyebrow": "Na żywo",
+      "startingPrice": "Cena startowa",
+      "bookCta": "Bezpłatna rozmowa",
+      "includedTitle": "Co wchodzi w zakres"
     },
     "ai": {
       "meta": {
@@ -608,7 +685,11 @@
             "a": "Podłączymy. Architektura jest provider-agnostic przez warstwę abstrakcji. Zmiana GPT na Claude lub Gemini to dzień pracy, nie tydzień."
           }
         ]
-      }
+      },
+      "demoEyebrow": "Na żywo",
+      "startingPrice": "Cena startowa",
+      "bookCta": "Bezpłatna rozmowa",
+      "includedTitle": "Co wchodzi w zakres"
     },
     "mobile": {
       "meta": {
@@ -689,7 +770,11 @@
             "a": "Tak. Expo Router pozwala jednym kodem celować w iOS + Android + Web. Jeśli produkt pójdzie w tę stronę, droga jest krótka."
           }
         ]
-      }
+      },
+      "demoEyebrow": "Na żywo",
+      "startingPrice": "Cena startowa",
+      "bookCta": "Bezpłatna rozmowa",
+      "includedTitle": "Co wchodzi w zakres"
     }
   },
   "work": {
@@ -697,7 +782,8 @@
       "eyebrow": "Realizacje",
       "headline": "Co ostatnio uruchomiłem.",
       "subhead": "Kilka ostatnich projektów z konkretnymi wynikami. Wszystkie nadal żywe, wszystkie zarabiają.",
-      "cta": "Zobacz case study"
+      "cta": "Zobacz case study",
+      "live": "Wszystko na produkcji"
     },
     "cases": {
       "legalwin": {
@@ -723,7 +809,11 @@
         ],
         "url": "legalwin.pl",
         "quote": "Alex w trzy tygodnie dostarczył to, czego dwie agencje nie umiały zrobić w trzy miesiące. Strona ładuje się natychmiast, a my dostajemy telefony z Google.",
-        "quoteAuthor": "Marta K. · Założycielka LegalWin"
+        "quoteAuthor": "Marta K. · Założycielka LegalWin",
+        "metric": {
+          "value": "15+",
+          "label": "fraz w top-10"
+        }
       },
       "visionair": {
         "industry": "Filmowanie z drona · Warszawa",
@@ -749,7 +839,11 @@
         ],
         "url": "visionair.biz.pl",
         "quote": "Zrozumiał biznes w jednej rozmowie. Leady już nie giną — przychodzą w Telegramie, odpowiadam w ciągu minut.",
-        "quoteAuthor": "Igor P. · CEO VisionAir"
+        "quoteAuthor": "Igor P. · CEO VisionAir",
+        "metric": {
+          "value": "4.2%",
+          "label": "konwersja na lead"
+        }
       },
       "crmbot": {
         "industry": "Automatyzacja sprzedaży B2B",
@@ -776,7 +870,11 @@
         ],
         "url": "Pod NDA",
         "quote": "Konkret, szybkość, zero waty. Taki developer, jakiego chciałbyś przy każdym projekcie.",
-        "quoteAuthor": "Anastazja D. · Product Lead"
+        "quoteAuthor": "Anastazja D. · Product Lead",
+        "metric": {
+          "value": "+31%",
+          "label": "kwalifikowanych leadów"
+        }
       },
       "donbrava": {
         "industry": "Usługi imigracyjne · Bratysława",
@@ -803,7 +901,11 @@
         ],
         "url": "Pod NDA",
         "quote": "Bot pisze tak, że klienci nie domyślają się, że to nie ja. Rano otwieram Telegram, a tam już trzy wpłaty i trzy powiadomienia w czacie właściciela.",
-        "quoteAuthor": "Bohdan D. · Donbrava"
+        "quoteAuthor": "Bohdan D. · Donbrava",
+        "metric": {
+          "value": "210 h",
+          "label": "oszczędności miesięcznie"
+        }
       },
       "bodyforge": {
         "industry": "Natywna aplikacja iOS · Fitness",
@@ -829,7 +931,11 @@
         ],
         "url": "apps.apple.com/pl/app/body-forge-ai-fitness-coach/id6761138589",
         "quote": "Analiza po treningu to ten kawałek. To jak trener, który faktycznie patrzy w cyfry i nie udaje, że wszystko jest okej, kiedy stoisz w miejscu.",
-        "quoteAuthor": "Alex S. · Body Forge"
+        "quoteAuthor": "Alex S. · Body Forge",
+        "metric": {
+          "value": "200+",
+          "label": "ćwiczeń z wideo"
+        }
       }
     },
     "caseMetrics": {
@@ -1548,6 +1654,12 @@
       "ctaBody": "30 minut na discovery, a 24 godziny później masz stałą wycenę.",
       "cta": "Umów rozmowę",
       "more": "Więcej realizacji"
+    },
+    "filters": {
+      "all": "Wszystkie",
+      "web": "Strony",
+      "ai": "Agenci AI",
+      "mobile": "Aplikacje"
     }
   },
   "about": {
