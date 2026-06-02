@@ -295,12 +295,16 @@ function CrmPanel({
 }) {
   return (
     <div className="flex min-w-0 flex-col" style={{ background: "#0B0E13" }}>
-      {/* AmoCRM header */}
+      {/* CRM header */}
       <div className="flex items-center gap-2.5 border-b border-white/[0.06] px-4 py-3">
-        <div className="flex h-7 w-7 items-center justify-center rounded-md bg-gradient-to-br from-[#3b82f6] to-[#1e40af] text-[11px] font-bold text-white">
-          A
+        <div className="flex h-7 w-7 items-center justify-center rounded-md" style={{ background: "rgba(255,122,45,0.16)" }}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="text-[color:var(--c-accent)]">
+            <rect x="3" y="4" width="5" height="16" rx="1.4" fill="currentColor" opacity="0.9" />
+            <rect x="9.5" y="4" width="5" height="11" rx="1.4" fill="currentColor" opacity="0.6" />
+            <rect x="16" y="4" width="5" height="7" rx="1.4" fill="currentColor" opacity="0.35" />
+          </svg>
         </div>
-        <span className="text-[13px] font-medium text-white/85">amoCRM</span>
+        <span className="text-[13px] font-medium text-white/85">CRM</span>
         <span className="text-white/25">·</span>
         <span className="text-[12px] text-white/45">Sales pipeline</span>
       </div>

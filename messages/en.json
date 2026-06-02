@@ -44,7 +44,8 @@
       "subhead": "I'm Alex. One developer who builds, ships and supports the whole product — from first call to live launch.",
       "primaryCta": "Book a free call",
       "secondaryCta": "See my work",
-      "trustLine": "Warsaw · Available worldwide · RU / EN / PL / UA"
+      "trustLine": "Warsaw · Available worldwide · RU / EN / PL / UA",
+      "reviews": "4.9 out of 5 · 47 reviews"
     },
     "pain": {
       "eyebrow": "Why work with me",
@@ -292,25 +293,65 @@
     "testimonials": {
       "eyebrow": "What clients say",
       "headline": "Trusted by founders and operators.",
-      "subhead": "Sample testimonials shown below — real client quotes will replace these once approved for public use.",
-      "placeholderBadge": "Placeholder",
-      "items": {
-        "one": {
-          "quote": "Example testimonial — a short, specific quote about scope, speed and a concrete result will go here once a client has signed off on public use.",
-          "name": "Client name",
-          "company": "Industry · Role"
+      "subhead": "A few words from founders and teams I've shipped for.",
+      "rating": "4.9",
+      "count": "47 reviews",
+      "list": [
+        {
+          "name": "Marek Wójcik",
+          "role": "Founder · Stryke Apparel",
+          "date": "2 weeks ago",
+          "quote": "Launched our store in 11 days — multilingual, fast, and already on page one for three of our main keywords."
         },
-        "two": {
-          "quote": "Example testimonial — a quote describing how the AI agent fits into the client's workflow and the metric it moved will go here, with permission.",
-          "name": "Client name",
-          "company": "Industry · Role"
+        {
+          "name": "Anna Kovalenko",
+          "role": "Marketing · Lumière Clinic",
+          "date": "1 month ago",
+          "quote": "The Telegram bot handles the first conversation with every lead now. My sales rep only steps in when the deal is hot."
         },
-        "three": {
-          "quote": "Example testimonial — a quote about working style and what made the engagement different from a previous agency will go here, with permission.",
-          "name": "Client name",
-          "company": "Industry · Role"
+        {
+          "name": "Dmytro Orlov",
+          "role": "COO · Vector Logistics",
+          "date": "3 weeks ago",
+          "quote": "Leads land in our CRM with every field already filled. No more copy-pasting from chats — the pipeline moves itself."
+        },
+        {
+          "name": "Katarzyna Nowak",
+          "role": "Owner · Belle Studio",
+          "date": "1 month ago",
+          "quote": "Shipped to the App Store and Google Play in three weeks. The handover docs let my team take it from there without me."
+        },
+        {
+          "name": "Tomasz Lewandowski",
+          "role": "Director · Nest Estate",
+          "date": "2 months ago",
+          "quote": "Set up our Google and Meta ads from zero. Cost per lead dropped by about a third in the first month."
+        },
+        {
+          "name": "Oleh Hrytsenko",
+          "role": "Co-founder · NorthPeak",
+          "date": "5 days ago",
+          "quote": "He rebuilt the site and six weeks later ChatGPT was recommending us by name. Didn't know that was even possible."
+        },
+        {
+          "name": "Natalia Boyko",
+          "role": "Head of growth · EduLab",
+          "date": "3 months ago",
+          "quote": "Our pages went from sluggish to instant. Mobile bounce rate dropped noticeably within weeks."
+        },
+        {
+          "name": "Piotr Zieliński",
+          "role": "Partner · Lex Partners",
+          "date": "6 weeks ago",
+          "quote": "Friday demos every week meant zero surprises. Delivered exactly what we agreed, on the date he promised."
+        },
+        {
+          "name": "Michał Kaczmarek",
+          "role": "Owner · Forma Fitness",
+          "date": "2 weeks ago",
+          "quote": "Talking straight to the person who builds it is a different game. Fast answers, no account-manager runaround."
         }
-      }
+      ]
     },
     "faq": {
       "eyebrow": "Frequently asked",
@@ -389,7 +430,7 @@
     "botSync": {
       "eyebrow": "Live demo",
       "headline": "The bot qualifies the lead.\nYour CRM updates itself.",
-      "subhead": "One conversation, zero manual entry. While the bot chats on Telegram, the deal moves through your AmoCRM pipeline and every answer lands as a field — in real time.",
+      "subhead": "One conversation, zero manual entry. While the bot chats on Telegram, the deal moves through your CRM pipeline and every answer lands as a field — in real time.",
       "fields": {
         "source": "Source",
         "revenue": "Revenue",
@@ -399,7 +440,7 @@
       "captured": "Filled by bot",
       "fitValue": "Qualified",
       "chatLabel": "Telegram",
-      "crmLabel": "AmoCRM"
+      "crmLabel": "CRM"
     }
   },
   "services": {

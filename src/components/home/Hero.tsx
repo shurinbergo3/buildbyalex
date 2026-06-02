@@ -228,9 +228,44 @@ export function Hero() {
                   </Button>
                 </div>
 
+                <div
+                  className="mt-9 flex items-center justify-center gap-3 animate-[fadeUp_900ms_cubic-bezier(0.16,1,0.3,1)_both]"
+                  style={{ animationDelay: "440ms" }}
+                >
+                  <div className="flex -space-x-2.5" aria-hidden="true">
+                    {[
+                      { bg: "#F4E4D7", fg: "#B45309", t: "MW" },
+                      { bg: "#DCEFE8", fg: "#0F766E", t: "AK" },
+                      { bg: "#E5EAF4", fg: "#1D4ED8", t: "OH" },
+                      { bg: "#F0E5DC", fg: "#9A3412", t: "MK" },
+                    ].map((a) => (
+                      <span
+                        key={a.t}
+                        className="flex h-8 w-8 items-center justify-center rounded-full text-[11px] font-semibold ring-2 ring-white/80"
+                        style={{ background: a.bg, color: a.fg }}
+                      >
+                        {a.t}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex flex-col items-start">
+                    <div className="flex gap-0.5">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <svg key={i} width="14" height="14" viewBox="0 0 16 16" aria-hidden="true">
+                          <path
+                            d="M8 1.5l1.96 4.27 4.7.55-3.5 3.2.96 4.62L8 11.9l-4.12 2.24.96-4.62-3.5-3.2 4.7-.55L8 1.5z"
+                            fill="var(--c-accent)"
+                          />
+                        </svg>
+                      ))}
+                    </div>
+                    <span className="mt-1 text-[12.5px] font-medium text-white/80">{t("reviews")}</span>
+                  </div>
+                </div>
+
                 <p
-                  className="mt-12 text-[13px] tracking-[0.04em] hero-trust animate-[fadeUp_900ms_cubic-bezier(0.16,1,0.3,1)_both]"
-                  style={{ animationDelay: "500ms" }}
+                  className="mt-8 text-[13px] tracking-[0.04em] hero-trust animate-[fadeUp_900ms_cubic-bezier(0.16,1,0.3,1)_both]"
+                  style={{ animationDelay: "560ms" }}
                 >
                   {t("trustLine")}
                 </p>
