@@ -1121,6 +1121,18 @@
                   "breadcrumb": "https://infor.pl › prawo › karta-pobytu",
                   "title": "Karta pobytu 2025 — wniosek, dokumenty, opłaty",
                   "snippet": "Sprawdź, jakie dokumenty są wymagane do wniosku o kartę pobytu w 2025 roku oraz aktualne opłaty…"
+                },
+                {
+                  "site": "migrapolska.pl",
+                  "breadcrumb": "https://migrapolska.pl › karta-pobytu",
+                  "title": "Karta pobytu w Warszawie — terminy i dokumenty 2026",
+                  "snippet": "Jakie dokumenty są potrzebne do karty pobytu czasowego i ile trwa rozpatrzenie w Mazowieckiem."
+                },
+                {
+                  "site": "forum.expaci.pl",
+                  "breadcrumb": "https://forum.expaci.pl › temat",
+                  "title": "Karta pobytu: osobiste doświadczenia z Warszawy",
+                  "snippet": "Wątek na forum, gdzie użytkownicy dzielą się doświadczeniem ze składania wniosków."
                 }
               ]
             },
@@ -1146,6 +1158,18 @@
                   "breadcrumb": "https://panoramafirm.pl › adwokaci",
                   "title": "Adwokat imigracyjny Polska — katalog kancelarii",
                   "snippet": "Lista 247 kancelarii specjalizujących się w prawie imigracyjnym w Polsce. Opinie, kontakt, lokalizacja…"
+                },
+                {
+                  "site": "kancelaria-migra.pl",
+                  "breadcrumb": "https://kancelaria-migra.pl › uslugi",
+                  "title": "Kancelaria prawa migracyjnego — Warszawa",
+                  "snippet": "Usługi prawne dla cudzoziemców: pobyt, PR, biznes. Pierwsza konsultacja płatna."
+                },
+                {
+                  "site": "prawnik.pl",
+                  "breadcrumb": "https://prawnik.pl › katalog",
+                  "title": "Prawnicy imigracyjni w Polsce — katalog",
+                  "snippet": "Baza zweryfikowanych prawników migracyjnych. Opinie i oceny."
                 }
               ]
             },
@@ -1171,6 +1195,18 @@
                   "breadcrumb": "https://migrant.info.pl › pobyt-staly",
                   "title": "Zezwolenie na pobyt stały — informacje dla cudzoziemców",
                   "snippet": "Kompletne informacje o procedurze uzyskania zezwolenia na pobyt stały w Polsce…"
+                },
+                {
+                  "site": "ua-in-pl.com",
+                  "breadcrumb": "https://ua-in-pl.com › pobyt-staly",
+                  "title": "Pobyt stały dla Ukraińców — warunki 2026",
+                  "snippet": "Kto może złożyć wniosek o pobyt stały po 5 latach na karcie pobytu."
+                },
+                {
+                  "site": "facebook.com",
+                  "breadcrumb": "https://facebook.com › groups",
+                  "title": "Ukraińcy w Warszawie — społeczność",
+                  "snippet": "Grupa wzajemnej pomocy: dokumenty, praca, pobyt stały. 48 000 osób."
                 }
               ]
             },
@@ -1196,10 +1232,23 @@
                   "breadcrumb": "https://warszawa19115.pl › cudzoziemcy",
                   "title": "Warszawa 19115 — pomoc dla cudzoziemców",
                   "snippet": "Miejski punkt informacyjny dla osób z zagranicy mieszkających w stolicy. Kontakt, godziny pracy…"
+                },
+                {
+                  "site": "pomoc-prawna.pl",
+                  "breadcrumb": "https://pomoc-prawna.pl › cudzoziemcy",
+                  "title": "Pomoc prawna dla cudzoziemców — konsultacje",
+                  "snippet": "Płatne i bezpłatne konsultacje dotyczące legalizacji pobytu w Polsce."
+                },
+                {
+                  "site": "migrant.gov.pl",
+                  "breadcrumb": "https://migrant.gov.pl › informacje",
+                  "title": "Informacje dla migrantów — portal urzędowy",
+                  "snippet": "Rządowe informacje o zezwoleniach na pobyt i procedurach dla cudzoziemców."
                 }
               ]
             }
-          ]
+          ],
+          "relatedLabel": "Podobne wyszukiwania"
         },
         "chatgpt": {
           "eyebrow": "Polecane przez AI",
@@ -1746,9 +1795,18 @@
       "ctaAvailable": "Wolny na nowe projekty",
       "ctaNote": "Bez sprzedażowego pitcha — po prostu rozłożymy zadanie.",
       "ctaSteps": [
-        { "k": "30 min", "v": "rozmowa discovery" },
-        { "k": "24 godz.", "v": "stała wycena" },
-        { "k": "0", "v": "ukrytych faktur" }
+        {
+          "k": "30 min",
+          "v": "rozmowa discovery"
+        },
+        {
+          "k": "24 godz.",
+          "v": "stała wycena"
+        },
+        {
+          "k": "0",
+          "v": "ukrytych faktur"
+        }
       ]
     },
     "filters": {

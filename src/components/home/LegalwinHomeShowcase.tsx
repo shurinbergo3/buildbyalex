@@ -140,7 +140,6 @@ export function LegalwinHomeShowcase() {
                 index={t("columns.serp.index")}
                 label={t("columns.serp.label")}
                 caption={t("columns.serp.caption")}
-                fillStage
               >
                 <GoogleSerpMock />
               </ShowcaseColumn>
@@ -149,6 +148,7 @@ export function LegalwinHomeShowcase() {
                 index={t("columns.chatgpt.index")}
                 label={t("columns.chatgpt.label")}
                 caption={t("columns.chatgpt.caption")}
+                fillStage
               >
                 <ChatGPTRecommendMock />
               </ShowcaseColumn>

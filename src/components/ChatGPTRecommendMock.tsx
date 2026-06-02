@@ -59,7 +59,7 @@ export function ChatGPTRecommendMock() {
 
   return (
     <div
-      className="relative mx-auto w-full max-w-[860px] overflow-hidden rounded-2xl shadow-[0_30px_80px_-20px_rgba(0,0,0,0.55),0_0_0_1px_rgba(255,255,255,0.04)]"
+      className="relative mx-auto flex h-full w-full max-w-[860px] flex-col overflow-hidden rounded-2xl shadow-[0_30px_80px_-20px_rgba(0,0,0,0.55),0_0_0_1px_rgba(255,255,255,0.04)]"
       style={{ background: "#212121" }}
     >
       {/* Browser frame */}
@@ -105,7 +105,7 @@ export function ChatGPTRecommendMock() {
       {/* Chat body — a hidden "ghost" copy of the full conversation reserves the
           final height, so the box is sized to its maximum from the start and never
           grows or shrinks while the answer types out (no page jump on scroll). */}
-      <div className="px-4 py-6 sm:px-6 sm:py-8 md:px-12" style={{ background: "#212121" }}>
+      <div className="min-h-0 flex-1 px-4 py-6 sm:px-6 sm:py-8 md:px-12" style={{ background: "#212121" }}>
         <div className="relative mx-auto max-w-[680px]">
           {/* Ghost — invisible, in normal flow, holds the tallest state */}
           <div aria-hidden className="invisible space-y-6 sm:space-y-7">
