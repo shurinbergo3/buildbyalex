@@ -23,7 +23,7 @@ export function Footer() {
             <p className="mt-6 text-[13px] text-[color:var(--color-text-3)]">{t("location")}</p>
           </div>
 
-          <div className="col-span-1 md:col-span-2 md:col-start-6">
+          <div className="col-span-1 md:col-span-2 md:col-start-5">
             <h4 className="t-eyebrow mb-4 text-[11px]">{t("sections.explore")}</h4>
             <ul className="space-y-2.5 text-[14px] text-[color:var(--color-text-2)]">
               <li><Link href="/work" className="hover:text-[color:var(--color-text)] transition-colors">{nav("work")}</Link></li>

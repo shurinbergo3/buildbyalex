@@ -945,3 +945,183 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
   color: transparent;
   -webkit-text-fill-color: transparent;
 }
+
+/* ───────────────────── CASE CTA — premium conversion card ─────────────────────
+   Dark "product page" CTA at the foot of every case study. Layered amber
+   aurora + dot grid + specular edge for depth; a 3-step process rail turns the
+   "30 min → 24h → fixed estimate" promise into something tangible. ─────────── */
+.case-cta-card {
+  isolation: isolate;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow:
+    0 50px 110px -55px rgba(0, 0, 0, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Drifting amber aurora — the main "wow" light source */
+.case-cta-aurora {
+  position: absolute;
+  inset: -45% -12% auto -12%;
+  height: 160%;
+  pointer-events: none;
+  background:
+    radial-gradient(42% 38% at 28% 6%, rgba(255, 107, 26, 0.45), transparent 70%),
+    radial-gradient(38% 34% at 80% 0%, rgba(255, 150, 60, 0.30), transparent 72%),
+    radial-gradient(62% 52% at 50% -12%, rgba(255, 90, 10, 0.22), transparent 75%);
+  filter: blur(6px);
+  opacity: 0.9;
+  animation: caseCtaDrift 16s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+@keyframes caseCtaDrift {
+  0%   { transform: translate3d(-2%, 0, 0) scale(1);      opacity: 0.78; }
+  50%  { transform: translate3d(3%, 1.6%, 0) scale(1.06); opacity: 1; }
+  100% { transform: translate3d(-1%, -1%, 0) scale(1.02); opacity: 0.85; }
+}
+
+/* Fine dot grid, masked to fade toward the bottom */
+.case-cta-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(125% 78% at 50% 0%, #000 28%, transparent 80%);
+          mask-image: radial-gradient(125% 78% at 50% 0%, #000 28%, transparent 80%);
+  opacity: 0.55;
+}
+
+/* Specular highlight along the top edge */
+.case-cta-edge {
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255, 160, 90, 0.7), transparent);
+}
+
+/* Availability chip with pulsing dot (reuses heroBadgePing) */
+.case-cta-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 13px 6px 11px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.82);
+}
+.case-cta-chip-dot {
+  position: relative;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2ECC71;
+  box-shadow: 0 0 10px rgba(46, 204, 113, 0.7);
+}
+.case-cta-chip-dot::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(46, 204, 113, 0.5);
+  animation: heroBadgePing 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.case-cta-eyebrow {
+  margin-top: 18px;
+  font-family: var(--font-mono), ui-monospace, "SF Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+}
+
+/* 3-step process rail */
+.case-cta-rail {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 32px;
+  width: 100%;
+}
+.case-cta-step {
+  flex: 1 1 0;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 17px 14px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 400ms var(--ease-out-apple), background 400ms var(--ease-out-apple),
+    border-color 400ms var(--ease-out-apple);
+}
+.case-cta-step:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 122, 45, 0.35);
+}
+.case-cta-step-k {
+  font-family: var(--font-mono), ui-monospace, "SF Mono", monospace;
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  background: linear-gradient(180deg, #fff 0%, rgba(255, 179, 134, 0.9) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.case-cta-step-v {
+  font-size: 13.5px;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.case-cta-note {
+  margin-top: 26px;
+  font-family: var(--font-mono), ui-monospace, "SF Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.42);
+}
+
+/* Primary CTA — amber glow + occasional shine sweep */
+.case-cta-primary {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 16px 38px -14px rgba(255, 107, 26, 0.75);
+}
+.case-cta-primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -65%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(110deg, transparent, rgba(255, 255, 255, 0.38), transparent);
+  transform: skewX(-18deg);
+  animation: caseCtaShine 6s ease-in-out 1.4s infinite;
+}
+@keyframes caseCtaShine {
+  0%   { left: -65%; }
+  22%  { left: 135%; }
+  100% { left: 135%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case-cta-aurora,
+  .case-cta-chip-dot::after,
+  .case-cta-primary::after { animation: none !important; }
+}

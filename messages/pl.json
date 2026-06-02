@@ -1741,7 +1741,15 @@
       "ctaTitle": "Potrzebujesz czegoś podobnego?",
       "ctaBody": "30 minut na discovery, a 24 godziny później masz stałą wycenę.",
       "cta": "Umów rozmowę",
-      "more": "Więcej realizacji"
+      "more": "Więcej realizacji",
+      "ctaEyebrow": "Discovery → Wycena",
+      "ctaAvailable": "Wolny na nowe projekty",
+      "ctaNote": "Bez sprzedażowego pitcha — po prostu rozłożymy zadanie.",
+      "ctaSteps": [
+        { "k": "30 min", "v": "rozmowa discovery" },
+        { "k": "24 godz.", "v": "stała wycena" },
+        { "k": "0", "v": "ukrytych faktur" }
+      ]
     },
     "filters": {
       "all": "Wszystkie",

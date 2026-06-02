@@ -79,6 +79,10 @@ type CaseShape = {
       ctaBody: string;
       cta: string;
       more: string;
+      ctaEyebrow: string;
+      ctaAvailable: string;
+      ctaNote: string;
+      ctaSteps: { k: string; v: string }[];
     };
   };
 };
@@ -256,30 +260,48 @@ function CaseContent({ slug }: { slug: string }) {
       <Section pad="default">
         <Container size="md">
           <Reveal>
-            <div className="relative overflow-hidden rounded-[36px] bg-[#0A0A0A] px-8 py-16 text-center text-white md:px-12 md:py-24">
-              <div
-                className="pointer-events-none absolute -top-1/3 left-1/2 h-[120%] w-[120%] -translate-x-1/2 opacity-60"
-                aria-hidden="true"
-                style={{
-                  background:
-                    "radial-gradient(ellipse 50% 40% at 50% 0%, rgba(255,107,26,0.35), transparent 70%)",
-                }}
-              />
-              <div className="relative z-10">
-                <h2 className="text-[clamp(28px,3.6vw,44px)] font-semibold leading-[1.1] tracking-[-0.024em]">
+            <div className="case-cta-card relative overflow-hidden rounded-[36px] bg-[#0A0A0A] px-6 py-16 text-center text-white sm:px-10 md:px-14 md:py-24">
+              <div className="case-cta-aurora" aria-hidden="true" />
+              <div className="case-cta-grid" aria-hidden="true" />
+              <div className="case-cta-edge" aria-hidden="true" />
+
+              <div className="relative z-10 mx-auto flex max-w-[660px] flex-col items-center">
+                <span className="case-cta-chip">
+                  <span className="case-cta-chip-dot" aria-hidden="true" />
+                  {labels.ctaAvailable}
+                </span>
+
+                <span className="case-cta-eyebrow">{labels.ctaEyebrow}</span>
+
+                <h2 className="mt-4 text-[clamp(30px,4vw,50px)] font-semibold leading-[1.05] tracking-[-0.03em]">
                   {labels.ctaTitle}
                 </h2>
-                <p className="mx-auto mt-5 max-w-[520px] text-[16.5px] leading-[1.55] text-white/70">
+                <p className="mx-auto mt-4 max-w-[480px] text-[16.5px] leading-[1.55] text-white/65">
                   {labels.ctaBody}
                 </p>
-                <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-                  <Button href="/contact" size="lg">
+
+                <ol className="case-cta-rail">
+                  {labels.ctaSteps.map((s, i) => (
+                    <li className="case-cta-step" key={i}>
+                      <span className="case-cta-step-k">{s.k}</span>
+                      <span className="case-cta-step-v">{s.v}</span>
+                    </li>
+                  ))}
+                </ol>
+
+                <div className="mt-9 flex flex-wrap items-center justify-center gap-3.5">
+                  <Button href="/contact" size="lg" className="case-cta-primary">
                     {labels.cta}
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M5 12h14M13 5l7 7-7 7" />
+                    </svg>
                   </Button>
                   <Button href="/work" variant="ghost" size="lg" className="!text-white !border-white/20 hover:!bg-white/10">
                     {labels.more}
                   </Button>
                 </div>
+
+                <p className="case-cta-note">{labels.ctaNote}</p>
               </div>
             </div>
           </Reveal>

@@ -1741,7 +1741,15 @@
       "ctaTitle": "Need something similar?",
       "ctaBody": "30 minutes on a discovery call, and 24 hours later you have a fixed estimate.",
       "cta": "Book a call",
-      "more": "More work"
+      "more": "More work",
+      "ctaEyebrow": "Discovery → Estimate",
+      "ctaAvailable": "Open for new projects",
+      "ctaNote": "No sales pitch — just a clear read on your scope.",
+      "ctaSteps": [
+        { "k": "30 min", "v": "discovery call" },
+        { "k": "24 hours", "v": "fixed estimate" },
+        { "k": "0", "v": "hidden invoices" }
+      ]
     },
     "filters": {
       "all": "All",
