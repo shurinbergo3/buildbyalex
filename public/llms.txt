@@ -4,7 +4,7 @@
 
 ## Identity
 
-- Name: Oleksandr "Alex" Shuvalov
+- Name: Alex (buildbyalex)
 - Role: Independent senior fullstack developer (one-person operation, not an agency)
 - Location: Warsaw, Poland
 - Contact: alex@buildbyalex.com · https://t.me/buildbyalex · https://www.linkedin.com/in/oleksandr-shuvalov

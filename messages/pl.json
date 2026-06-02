@@ -1,9 +1,9 @@
 {
   "meta": {
     "siteName": "buildbyalex",
-    "defaultTitle": "Alex Shuvalov — strony, agenci AI, aplikacje mobilne",
+    "defaultTitle": "buildbyalex — strony, agenci AI i aplikacje mobilne",
     "defaultDescription": "Niezależny senior developer w Warszawie. Strony produkcyjne, agenci AI i aplikacje mobilne — od pomysłu do startu w 1–3 tygodnie. PL · EN · UA.",
-    "ogAlt": "buildbyalex — Alex Shuvalov, niezależny developer"
+    "ogAlt": "buildbyalex — niezależny developer · Warszawa"
   },
   "nav": {
     "work": "Realizacje",
@@ -2053,13 +2053,13 @@
   },
   "about": {
     "meta": {
-      "title": "O mnie — Alex Shuvalov, niezależny developer",
+      "title": "O mnie — niezależny developer · buildbyalex",
       "description": "Strony, agenci AI i aplikacje mobilne. Senior fullstack. Warszawa. 4 języki, 8 lat doświadczenia, bezpośrednie współpracownictwo."
     },
     "eyebrow": "O mnie",
-    "headline": "Alex Shuvalov.\nDeveloper, który rozumie biznes.",
+    "headline": "Alex.\nDeveloper, który rozumie biznes.",
     "lead": "W skrócie: buduję produkty, które przynoszą klientom pieniądze. Szczegóły niżej.",
-    "p1": "Nazywam się Aleksander Szuwałow — w pracy po prostu Alex. Niezależny senior fullstack-developer. Bazuję w Warszawie, pracuję z klientami na całym świecie: Polska, Ukraina, EU, US, czasem dalej.",
+    "p1": "Jestem Alex — niezależny senior fullstack-developer. Bazuję w Warszawie, pracuję z klientami na całym świecie: Polska, Ukraina, EU, US, czasem dalej.",
     "p2": "Buduję trzy typy produktów: produkcyjne strony (Next.js, wielojęzyczne, SEO w fundamencie), agenci AI (asystenci RAG, sales-boty, automatyzacje z function calling) i aplikacje mobilne (iOS + Android z jednego kodu w Expo). Wcześniej pracowałem jako fullstack inżynier w firmach produktowych i jako założyciel własnych biznesów — ten miks 'rozumiem kod + rozumiem pieniądze' definiuje, jak prowadzę projekty.",
     "p3": "Z agencjami klientom bywa źle z jednego powodu: między nimi a osobą piszącą kod jest zwykle pięć warstw. Account, project, product, lead, junior. Decyzje zajmują tygodnie. Pracuję bez tych warstw — piszesz bezpośrednio do mnie, ja koduję sam, odpowiadam w godzinach. Nie dla każdego, ale dla projektów MVP-średni biznes — wyraźnie szybciej i czyściej.",
     "stackTitle": "Czym pracuję",
@@ -2149,7 +2149,7 @@
   },
   "contact": {
     "meta": {
-      "title": "Kontakt — Alex Shuvalov, buildbyalex",
+      "title": "Kontakt — buildbyalex",
       "description": "Strony, agenci AI, aplikacje mobilne. 30-minutowa rozmowa discovery. Odpowiadam w godzinach, zwykle tego samego dnia."
     },
     "eyebrow": "Kontakt",

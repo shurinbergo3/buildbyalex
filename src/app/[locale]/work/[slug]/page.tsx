@@ -118,7 +118,7 @@ function CaseContent({ slug, locale }: { slug: string; locale: string }) {
     mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
     author: {
       "@type": "Person",
-      name: "Oleksandr Shuvalov",
+      name: "Alex",
       url: SITE_URL,
     },
     publisher: {

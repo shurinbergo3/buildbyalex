@@ -92,7 +92,7 @@ export default async function BlogPostPage({
     inLanguage: locale === "ua" ? "uk" : locale,
     author: {
       "@type": "Person",
-      name: "Oleksandr Shuvalov",
+      name: "Alex",
       url: "https://buildbyalex.com",
     },
     publisher: { "@type": "Organization", name: "buildbyalex" },
