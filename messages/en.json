@@ -663,12 +663,6 @@
         }
       ]
     },
-    "billboard": {
-      "kicker": "One person. Full stack.",
-      "line1": "One developer.",
-      "line2": "The whole product.",
-      "caption": "From first call to live launch — design, build, ship and support, handled end to end."
-    },
     "caseReveal": {
       "eyebrow": "Featured project",
       "cta": "View case study"
