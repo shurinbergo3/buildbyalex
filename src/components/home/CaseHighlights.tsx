@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Link } from "@/i18n/navigation";
 
@@ -37,12 +37,46 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
   const [playing, setPlaying] = useState(true);
 
   const go = (i: number) => setActive(((i % n) + n) % n);
+  // Manual paging pauses autoplay so browsing isn't interrupted.
+  const nav = (i: number) => {
+    setPlaying(false);
+    go(i);
+  };
   const item = items[active];
   const autoplay = playing && !reduce;
 
+  const touchX = useRef<number | null>(null);
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchX.current = e.touches[0].clientX;
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchX.current;
+    touchX.current = null;
+    if (Math.abs(dx) > 44) nav(active + (dx < 0 ? 1 : -1));
+  };
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "ArrowRight") {
+      e.preventDefault();
+      nav(active + 1);
+    } else if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      nav(active - 1);
+    }
+  };
+
   return (
     <div className="relative mt-10 md:mt-14">
-      <div className="relative h-[clamp(440px,70vh,760px)] overflow-hidden rounded-[26px] bg-black shadow-[0_50px_140px_-50px_rgba(0,0,0,0.55)] sm:rounded-[30px]">
+      <div
+        role="group"
+        aria-roledescription="carousel"
+        aria-label={`${active + 1} / ${n}`}
+        tabIndex={0}
+        onKeyDown={onKeyDown}
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+        className="relative h-[clamp(440px,70vh,760px)] overflow-hidden rounded-[26px] bg-black shadow-[0_50px_140px_-50px_rgba(0,0,0,0.55)] outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--c-accent)] sm:rounded-[30px]"
+      >
         <AnimatePresence initial={false}>
           <motion.div
             key={item.key}
@@ -129,8 +163,20 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
           </motion.div>
         </AnimatePresence>
 
-        {/* Floating control */}
+        {/* Floating control — prev · dots · next · play, flip through every case */}
         <div className="absolute bottom-5 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2.5">
+          <button
+            type="button"
+            onClick={() => nav(active - 1)}
+            aria-label="Previous case"
+            className="flex h-9 w-9 items-center justify-center rounded-full text-white backdrop-blur-md transition-transform duration-200 hover:scale-105"
+            style={GLASS}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+
           <div className="flex items-center gap-2 rounded-full px-3.5 py-2.5 backdrop-blur-md" style={GLASS}>
             {items.map((it, i) => {
               const isActive = i === active;
@@ -138,7 +184,7 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
                 <button
                   key={it.key}
                   type="button"
-                  onClick={() => go(i)}
+                  onClick={() => nav(i)}
                   aria-label={it.title}
                   aria-current={isActive}
                   className="relative h-1.5 overflow-hidden rounded-full transition-[width] duration-300"
@@ -159,6 +205,18 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
               );
             })}
           </div>
+
+          <button
+            type="button"
+            onClick={() => nav(active + 1)}
+            aria-label="Next case"
+            className="flex h-9 w-9 items-center justify-center rounded-full text-white backdrop-blur-md transition-transform duration-200 hover:scale-105"
+            style={GLASS}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
 
           <button
             type="button"
