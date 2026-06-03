@@ -9,8 +9,8 @@ import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/Button";
 import { routing, type Locale } from "@/i18n/routing";
-import { getAllPostSlugs, getPost } from "@/lib/blog";
-import { SITE_URL } from "@/lib/site";
+import { getAllPostSlugs, getPost, getClusterSlugs } from "@/lib/blog";
+import { SITE_URL, htmlLang } from "@/lib/site";
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
@@ -27,12 +27,25 @@ export async function generateMetadata({
   const post = getPost(locale as Locale, slug);
   if (!post) return {};
   const url = `${SITE_URL}/${locale}/blog/${slug}`;
+
+  // hreflang: link every translated variant of this article (same `cluster`).
+  // Without this the 4 language versions look unrelated to Google.
+  const cluster = getClusterSlugs(post.cluster);
+  const languages: Record<string, string> = {};
+  for (const [loc, locSlug] of Object.entries(cluster)) {
+    languages[htmlLang(loc as Locale)] = `${SITE_URL}/${loc}/blog/${locSlug}`;
+  }
+  const defaultSlug = cluster[routing.defaultLocale as Locale];
+  if (defaultSlug) {
+    languages["x-default"] = `${SITE_URL}/${routing.defaultLocale}/blog/${defaultSlug}`;
+  }
+
   return {
     metadataBase: new URL(SITE_URL),
     title: post.title,
     description: post.description,
     keywords: post.keywords,
-    alternates: { canonical: url },
+    alternates: { canonical: url, languages },
     openGraph: {
       type: "article",
       title: post.title,

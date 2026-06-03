@@ -1,22 +1,24 @@
 import type { ReactNode } from "react";
 
-/* Single source of truth for the four service icons + their routes.
+/* Single source of truth for the service icons + their routes.
    Shared by the home ServicesOverview, the desktop nav mega-dropdown and the
    mobile menu accordion so the iconography never drifts between surfaces. */
 
-export type ServiceKey = "websites" | "ai" | "mobile" | "ads";
+export type ServiceKey = "websites" | "ai" | "automation" | "mobile" | "ads";
 
 export type ServiceHref =
   | "/services/websites"
   | "/services/ai-agents"
+  | "/services/automation"
   | "/services/mobile-apps"
   | "/services/advertising";
 
-export const SERVICE_KEYS: ServiceKey[] = ["websites", "ai", "mobile", "ads"];
+export const SERVICE_KEYS: ServiceKey[] = ["websites", "ai", "automation", "mobile", "ads"];
 
 export const serviceHref: Record<ServiceKey, ServiceHref> = {
   websites: "/services/websites",
   ai: "/services/ai-agents",
+  automation: "/services/automation",
   mobile: "/services/mobile-apps",
   ads: "/services/advertising",
 };
@@ -38,6 +40,14 @@ export const serviceGlyph: Record<ServiceKey, ReactNode> = {
       <circle cx="29" cy="24" r="2" fill="currentColor" />
       <path d="M24 8v6M18 34v4M30 34v4" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
       <circle cx="24" cy="7" r="2" fill="currentColor" />
+    </svg>
+  ),
+  automation: (
+    <svg viewBox="0 0 48 48" fill="none" className="h-full w-full" aria-hidden="true">
+      <circle cx="11" cy="24" r="4.5" stroke="currentColor" strokeWidth="2.2" />
+      <circle cx="37" cy="13" r="4.5" stroke="currentColor" strokeWidth="2.2" />
+      <circle cx="37" cy="35" r="4.5" stroke="currentColor" strokeWidth="2.2" />
+      <path d="M15.5 24c5-1 8-9 17-11M15.5 24c5 1 8 9 17 11" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
     </svg>
   ),
   mobile: (

@@ -12,8 +12,9 @@ import { AiSyncShowcase } from "./AiSyncShowcase";
 import { AdsShowcase } from "./AdsShowcase";
 import { WebsiteShowcase } from "./WebsiteShowcase";
 import { MobileAppShowcase } from "./MobileAppShowcase";
+import { AutomationShowcase } from "./AutomationShowcase";
 
-type Branch = "websites" | "ai" | "mobile" | "ads";
+type Branch = "websites" | "ai" | "automation" | "mobile" | "ads";
 
 type ServiceData = {
   eyebrow: string;
@@ -29,9 +30,10 @@ type ServiceData = {
 
 type Shape = { services: Record<Branch, ServiceData> };
 
-const PRICE_KEY: Record<Branch, "site" | "ai" | "mobile" | "ads"> = {
+const PRICE_KEY: Record<Branch, "site" | "ai" | "automation" | "mobile" | "ads"> = {
   websites: "site",
   ai: "ai",
+  automation: "automation",
   mobile: "mobile",
   ads: "ads",
 };
@@ -39,6 +41,7 @@ const PRICE_KEY: Record<Branch, "site" | "ai" | "mobile" | "ads"> = {
 const SERVICE_PATH: Record<Branch, string> = {
   websites: "/services/websites",
   ai: "/services/ai-agents",
+  automation: "/services/automation",
   mobile: "/services/mobile-apps",
   ads: "/services/advertising",
 };
@@ -48,6 +51,7 @@ const SERVICE_PATH: Record<Branch, string> = {
 const DEMOS: Partial<Record<Branch, ComponentType>> = {
   websites: WebsiteShowcase,
   ai: AiSyncShowcase,
+  automation: AutomationShowcase,
   mobile: MobileAppShowcase,
   ads: AdsShowcase,
 };

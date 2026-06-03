@@ -1,6 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { routing } from "@/i18n/routing";
+import { routing, type Locale } from "@/i18n/routing";
+import { HomeJsonLd } from "@/components/HomeJsonLd";
 import { Hero } from "@/components/home/Hero";
 import { PainPoints } from "@/components/home/PainPoints";
 import { ServicesOverview } from "@/components/home/ServicesOverview";
@@ -31,6 +32,7 @@ export default async function HomePage({
 
   return (
     <>
+      <HomeJsonLd locale={locale as Locale} />
       <Hero />
       <PainPoints />
       <ServicesOverview />

@@ -27,6 +27,10 @@
         "title": "AI agents",
         "tagline": "Chat & sales bots, workflow automation"
       },
+      "automation": {
+        "title": "Automation",
+        "tagline": "Wire tools together, kill the busywork"
+      },
       "mobile": {
         "title": "Mobile apps",
         "tagline": "iOS & Android from one codebase"
@@ -52,7 +56,8 @@
       "linkedin": "LinkedIn",
       "github": "GitHub",
       "telegram": "Telegram",
-      "advertising": "Advertising"
+      "advertising": "Advertising",
+      "automation": "Automation"
     },
     "location": "Warsaw, Poland",
     "rights": "All rights reserved.",
@@ -141,7 +146,13 @@
         "body": "Google Ads, Meta Ads — setup and management.",
         "price": "From €300 setup or €500/month management"
       },
-      "badge": "Most asked"
+      "badge": "Most asked",
+      "automation": {
+        "category": "Automation",
+        "title": "Business process automation",
+        "body": "Leads, CRM, notifications, reports — I wire your tools into a flow that runs itself.",
+        "price": "From €600"
+      }
     },
     "work": {
       "eyebrow": "Selected work",
@@ -386,6 +397,13 @@
           "price": "€1,200",
           "body": "Chat or automation agent connected to your data and tools.",
           "examples": "RAG · CRM integration · multilingual"
+        },
+        "automation": {
+          "title": "Automation",
+          "from": "from",
+          "price": "€600",
+          "body": "Your tools wired into one automatic flow — no manual data shuffling.",
+          "examples": "Make · n8n · API · CRM · Telegram"
         },
         "mobile": {
           "title": "Mobile MVP",
@@ -888,8 +906,8 @@
     },
     "ai": {
       "meta": {
-        "title": "AI Agents & Chatbots for Business — Built on Your Data",
-        "description": "AI agents trained on your data (RAG), wired into your CRM and Telegram/WhatsApp. Multilingual, no hallucinations. From €1,200. Let's scope it in 30 min."
+        "title": "AI Agents & Business Process Automation — Done For You",
+        "description": "AI agents and chatbots built on your data (RAG) plus process automation: wired into your CRM, Telegram and WhatsApp. Multilingual, no hallucinations. From €1,200. Let's scope it in 30 min."
       },
       "eyebrow": "AI Agents",
       "headline": "AI agents that\nactually close.",
@@ -978,6 +996,136 @@
       "startingPrice": "Starting price",
       "bookCta": "Book a free call",
       "includedTitle": "What's included"
+    },
+    "automation": {
+      "meta": {
+        "title": "Business Process Automation — Integrations Done For You",
+        "description": "I wire your tools into one automatic flow: leads, CRM, Telegram, sheets, reports. No manual copy-paste, no missed leads. From €600. Let's scope it in 30 min."
+      },
+      "eyebrow": "Automation",
+      "headline": "Automation that\nkills the busywork.",
+      "lead": "I connect your tools into one flow that runs itself: a lead comes in — data is enriched, lands in your CRM, the team gets pinged, the report builds itself. No copy-paste, no forgotten leads.",
+      "from": "From €600",
+      "primaryCta": "Discuss your process",
+      "what": {
+        "title": "What I automate",
+        "items": [
+          {
+            "title": "Leads & enquiries",
+            "body": "Leads from your site, forms, ads and messengers land in your CRM with fields filled — no manual re-entry."
+          },
+          {
+            "title": "CRM pipeline",
+            "body": "Deals move through stages automatically: tags, tasks for managers, reminders — AmoCRM, HubSpot, Pipedrive."
+          },
+          {
+            "title": "Notifications",
+            "body": "Telegram, WhatsApp, Slack, email — the team hears about what matters in seconds, not the next day."
+          },
+          {
+            "title": "Documents & reports",
+            "body": "Contracts and quotes generated from templates, exports to Google Sheets, daily and weekly reports on autopilot."
+          },
+          {
+            "title": "Data sync",
+            "body": "Site, CRM, sheets, inventory, accounting — data moves between systems via API, no duplicates, no drift."
+          },
+          {
+            "title": "AI in the loop",
+            "body": "Where decisions are needed: email classification, enquiry parsing, conversation summaries, on-brand replies."
+          }
+        ]
+      },
+      "stack": {
+        "title": "Stack",
+        "items": [
+          "Make (Integromat)",
+          "n8n",
+          "Zapier",
+          "Webhooks / REST API",
+          "AmoCRM API",
+          "HubSpot API",
+          "Telegram Bot API",
+          "Wappi (WhatsApp)",
+          "Google Workspace API",
+          "Node.js / Express"
+        ]
+      },
+      "cases": "Related work",
+      "faq": {
+        "title": "Automation questions",
+        "items": [
+          {
+            "q": "How is this different from an AI agent?",
+            "a": "An AI agent is a conversation — a bot talks to your customer. Automation is the plumbing between systems: lead → CRM → notification → report, no human in between. They often run together: the agent talks, the automation moves data behind the scenes."
+          },
+          {
+            "q": "Do you build on Make, Zapier or code?",
+            "a": "Depends on the job. Simple flows go on Make or n8n — fast and cheap to maintain. Complex logic, load and non-standard APIs I build in Node.js. I often mix: no-code for the skeleton, code for the critical steps."
+          },
+          {
+            "q": "What does it cost to run per month?",
+            "a": "On n8n on your own server — near zero, just hosting. On Make/Zapier — their usage-based subscription, usually €20–100/mo. I size it to your volume on the discovery call."
+          },
+          {
+            "q": "What if one of the services changes its API?",
+            "a": "I build in error handling and failure alerts — if a step breaks, you know immediately, not a week later through vanished leads. Fixes are covered by support."
+          },
+          {
+            "q": "How long does it take to set up?",
+            "a": "A single flow (lead → CRM → notification) takes 3–7 days. A chain of several processes with enrichment and reports is 2–3 weeks. Scope and date fixed in writing before we start."
+          },
+          {
+            "q": "Can you connect to my system?",
+            "a": "If it has an API or webhooks — almost certainly yes. AmoCRM, HubSpot, Pipedrive, Telegram, WhatsApp, Google Workspace, Notion, hundreds of apps via Make/Zapier. If the API is closed, I'll tell you straight on the call."
+          }
+        ]
+      },
+      "demoEyebrow": "Live",
+      "startingPrice": "Starting price",
+      "bookCta": "Free call",
+      "includedTitle": "What's included",
+      "demo": {
+        "headline": "One flow.\nZero manual work.",
+        "subhead": "A typical chain: a lead comes in — and everything else moves on its own, all the way to CRM, team and report.",
+        "badge": "Auto",
+        "trigger": {
+          "title": "New lead from the site",
+          "meta": "Form · ad · messenger"
+        },
+        "steps": [
+          {
+            "title": "Classify",
+            "meta": "AI parses the lead"
+          },
+          {
+            "title": "Enrich",
+            "meta": "Pulls in the data"
+          },
+          {
+            "title": "Push to CRM",
+            "meta": "Fields & stage set"
+          },
+          {
+            "title": "Notify",
+            "meta": "Telegram in 2 sec"
+          }
+        ],
+        "stats": [
+          {
+            "value": "~8 h/wk",
+            "label": "saved on busywork"
+          },
+          {
+            "value": "0",
+            "label": "leads missed"
+          },
+          {
+            "value": "<2 sec",
+            "label": "to team response"
+          }
+        ]
+      }
     },
     "mobile": {
       "meta": {
@@ -1814,12 +1962,13 @@
         "macbook": {
           "headline": "Drone filming in Warsaw",
           "accent": "cinematically",
-          "lead": "DJI Mini 4 Pro · Avata 2 FPV · 4K Cinematic. EASA-certified, Compensa insurance, flights in permitted zones only.",
+          "lead": "Book a drone operator in Warsaw and across Europe. DJI Mini 4 Pro · Avata 2 FPV · 4K Cinematic. EASA-certified, Compensa insurance, flights in permitted zones only. Quote within 24 hours.",
           "ctaGhost": "View cases",
           "nav": [
             "SERVICES",
             "PORTFOLIO",
             "ABOUT",
+            "BLOG",
             "CONTACT"
           ],
           "stats": [
@@ -1841,7 +1990,8 @@
             "Real estate",
             "Inspection",
             "Advertising"
-          ]
+          ],
+          "ratingCount": "based on 26 reviews"
         },
         "serp": {
           "eyebrow": "Google Search",

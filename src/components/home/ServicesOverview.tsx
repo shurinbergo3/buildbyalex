@@ -119,8 +119,32 @@ export function ServicesOverview() {
           })}
         </div>
 
-        {/* Fourth service — advertising, full width */}
-        <Reveal delay={300}>
+        {/* Automation — full width, the cross-cutting "connect everything" service */}
+        <Reveal delay={280}>
+          <Link
+            href="/services/automation"
+            className="group mt-5 flex flex-col gap-4 rounded-[28px] bg-[color:var(--color-bg-elev)] p-7 ring-1 ring-[color:var(--color-divider)] transition-shadow duration-300 hover:shadow-[var(--shadow-card-hover)] md:flex-row md:items-center md:justify-between md:p-8"
+          >
+            <div className="flex items-start gap-3 md:items-center">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[color:var(--c-accent-soft)] text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
+                <span className="h-6 w-6">{serviceGlyph.automation}</span>
+              </span>
+              <div className="max-w-[640px]">
+                <p className="text-[12px] font-semibold uppercase tracking-[0.08em] text-[color:var(--color-text-3)]">
+                  {t("automation.category")}
+                </p>
+                <h3 className="mt-1 t-h4 font-[number:var(--fw-semi)] text-[color:var(--color-text)]">{t("automation.title")}</h3>
+                <p className="mt-1.5 text-[14.5px] leading-[1.5] text-[color:var(--color-text-2)]">{t("automation.body")}</p>
+              </div>
+            </div>
+            <p className="shrink-0 text-[14.5px] font-medium tracking-[-0.01em] text-[color:var(--color-text)] md:text-right">
+              {t("automation.price")}
+            </p>
+          </Link>
+        </Reveal>
+
+        {/* Advertising — full width */}
+        <Reveal delay={320}>
           <Link
             href="/services/advertising"
             className="group mt-5 flex flex-col gap-4 rounded-[28px] bg-[color:var(--color-bg-elev)] p-7 ring-1 ring-[color:var(--color-divider)] transition-shadow duration-300 hover:shadow-[var(--shadow-card-hover)] md:flex-row md:items-center md:justify-between md:p-8"

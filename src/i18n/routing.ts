@@ -24,6 +24,12 @@ export const routing = defineRouting({
       pl: "/uslugi/agenci-ai",
       ua: "/poslugy/ai-agenty",
     },
+    "/services/automation": {
+      ru: "/uslugi/avtomatizaciya-biznes-processov",
+      en: "/services/automation",
+      pl: "/uslugi/automatyzacja-procesow",
+      ua: "/poslugy/avtomatyzaciya-biznes-procesiv",
+    },
     "/services/mobile-apps": {
       ru: "/uslugi/mobilnye-prilozheniya",
       en: "/services/mobile-apps",

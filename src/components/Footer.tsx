@@ -37,6 +37,7 @@ export function Footer() {
             <ul className="space-y-2.5 text-[14px] text-[color:var(--color-text-2)]">
               <li><Link href="/services/websites" className="hover:text-[color:var(--color-text)] transition-colors">{t("links.websites")}</Link></li>
               <li><Link href="/services/ai-agents" className="hover:text-[color:var(--color-text)] transition-colors">{t("links.aiAgents")}</Link></li>
+              <li><Link href="/services/automation" className="hover:text-[color:var(--color-text)] transition-colors">{t("links.automation")}</Link></li>
               <li><Link href="/services/mobile-apps" className="hover:text-[color:var(--color-text)] transition-colors">{t("links.mobileApps")}</Link></li>
               <li><Link href="/services/advertising" className="hover:text-[color:var(--color-text)] transition-colors">{t("links.advertising")}</Link></li>
             </ul>
