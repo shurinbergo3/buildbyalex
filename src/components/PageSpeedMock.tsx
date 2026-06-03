@@ -12,8 +12,12 @@ type PageBlock = {
 
 const HOLD_PAGE_MS = 4200;
 
-export function PageSpeedMock() {
-  const t = useTranslations("work.caseShowcase.visionair.speed");
+export function PageSpeedMock({
+  namespace = "work.caseShowcase.visionair.speed",
+}: {
+  namespace?: string;
+} = {}) {
+  const t = useTranslations(namespace);
   const pages = useMemo(() => t.raw("pages") as PageBlock[], [t]);
   const tabs = t.raw("tabs") as { mobile: string; desktop: string };
   const categories = t.raw("categories") as {
@@ -30,7 +34,10 @@ export function PageSpeedMock() {
     si: string;
   };
   const metricsHeading = t("metricsHeading");
-  const caption = t("captionTemplate");
+  // captionTemplate carries a literal "{url}" placeholder that this component
+  // swaps in per active page. Pass it through as an ICU arg so next-intl doesn't
+  // treat the brace as a required variable (which would error → render the key).
+  const caption = t("captionTemplate", { url: "{url}" });
 
   const [pageIndex, setPageIndex] = useState(0);
   const [cycle, setCycle] = useState(0);

@@ -94,10 +94,10 @@ export function GoogleSerpMock({
       </div>
 
       {/* Google header */}
-      <div className="flex items-center gap-3 px-4 pt-4 pb-3 sm:gap-6 sm:px-6 sm:pt-5">
+      <div className="flex items-center gap-3 px-4 pt-3 pb-2.5 sm:gap-6 sm:px-6 sm:pt-4">
         <GoogleLogo />
         <div className="relative flex-1">
-          <div className="flex h-[44px] items-center gap-3 rounded-full border border-[#dfe1e5] px-5 shadow-[0_1px_6px_rgba(32,33,36,0.08)]">
+          <div className="flex h-[42px] items-center gap-3 rounded-full border border-[#dfe1e5] px-5 shadow-[0_1px_6px_rgba(32,33,36,0.08)]">
             <span className="min-h-[20px] flex-1 text-[16px] text-[#202124]">
               {typed}
               <span className="ml-0.5 inline-block h-[16px] w-[1.5px] -mb-[2px] animate-pulse bg-[#202124]" />
@@ -130,15 +130,15 @@ export function GoogleSerpMock({
       {/* Results — invisible "ghosts" of every query are grid-stacked in one cell, so
           the box is always sized to the tallest result set. The live results overlay
           the same cell, so the box never grows or shrinks between queries (no page jump). */}
-      <div className="px-4 py-4 pb-6 sm:px-6">
+      <div className="px-4 py-3 pb-4 sm:px-6">
         <p className="text-[12.5px] text-[#70757a]">{block.count}</p>
 
-        <div className="relative mt-4 grid">
+        <div className="relative mt-3 grid">
           {queries.map((qb) => (
             <ol
               key={`ghost-${qb.q}`}
               aria-hidden
-              className="invisible space-y-6 [grid-area:1/1]"
+              className="invisible space-y-5 [grid-area:1/1]"
             >
               {qb.results.map((item, i) => (
                 <Result key={`ghost-${qb.q}-${i}`} item={item} highlight={i === 0} delay={0} />
@@ -154,7 +154,7 @@ export function GoogleSerpMock({
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                className="space-y-6 [grid-area:1/1]"
+                className="space-y-5 [grid-area:1/1]"
               >
                 {block.results.map((item, i) => (
                   <Result key={`${query}-${i}`} item={item} highlight={i === 0} delay={i * 80} />
@@ -165,13 +165,13 @@ export function GoogleSerpMock({
         </div>
 
         {/* Related searches — fills the page bottom, authentic Google block */}
-        <div className="mt-7 border-t border-[#ebebeb] pt-5">
-          <p className="text-[15px] font-medium text-[#202124]">{related}</p>
-          <div className="mt-3 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+        <div className="mt-5 border-t border-[#ebebeb] pt-4">
+          <p className="text-[14px] font-medium text-[#202124]">{related}</p>
+          <div className="mt-2.5 grid grid-cols-1 gap-2 sm:grid-cols-2">
             {relatedQueries.map((rq, i) => (
               <div
                 key={i}
-                className="flex items-center gap-3 rounded-full bg-[#f1f3f4] px-4 py-2.5 text-[13.5px] text-[#202124]"
+                className="flex items-center gap-3 rounded-full bg-[#f1f3f4] px-4 py-2 text-[13px] text-[#202124]"
               >
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" className="shrink-0 text-[#5f6368]">
                   <circle cx="11" cy="11" r="6" stroke="currentColor" strokeWidth="2" />
@@ -232,7 +232,7 @@ function Result({
             </span>
           )}
         </div>
-        <h3 className="mt-1 text-[17px] leading-[1.3] text-[#1a0dab] hover:underline sm:text-[20px]">
+        <h3 className="mt-1 text-[16px] leading-[1.3] text-[#1a0dab] hover:underline sm:text-[18px]">
           {item.title}
         </h3>
         <p className="mt-1 text-[13px] leading-[1.5] text-[#4d5156] sm:text-[14px]">
@@ -252,7 +252,7 @@ function Result({
 function Tab({ label, active }: { label: string; active?: boolean }) {
   return (
     <div
-      className={`relative py-3 ${
+      className={`relative py-2.5 ${
         active ? "text-[#1a73e8]" : "text-[#5f6368]"
       }`}
     >

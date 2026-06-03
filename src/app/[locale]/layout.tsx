@@ -12,6 +12,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider, type Theme } from "@/components/ThemeProvider";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { YandexMetrika } from "@/components/YandexMetrika";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -101,6 +102,7 @@ export default async function LocaleLayout({
             <Footer />
             <Analytics />
             <SpeedInsights />
+            <YandexMetrika />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

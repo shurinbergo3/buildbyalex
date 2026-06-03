@@ -7,7 +7,7 @@ import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/Button";
 import { CaseCover } from "@/components/CaseCover";
-import { MacbookMock } from "@/components/MacbookMock";
+import { VisionairHeroMock } from "@/components/VisionairHeroMock";
 import { LegalwinShowcase } from "@/components/LegalwinShowcase";
 import { VisionairShowcase } from "@/components/VisionairShowcase";
 import { DonbravaShowcase } from "@/components/DonbravaShowcase";
@@ -134,7 +134,7 @@ function CaseContent({ slug, locale }: { slug: string; locale: string }) {
       <Section pad="tight" className="!pt-12 md:!pt-20">
         <Container>
           {key === "visionair" ? (
-            <div className="grid items-center gap-10 md:grid-cols-2 md:gap-12">
+            <div className="grid items-center gap-10 md:grid-cols-[0.92fr_1.08fr] md:gap-12 lg:gap-16">
               <Reveal>
                 <div>
                   <p className="t-eyebrow text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
@@ -143,7 +143,7 @@ function CaseContent({ slug, locale }: { slug: string; locale: string }) {
                   <h1 className="mt-4 text-[clamp(40px,5.5vw+8px,72px)] font-semibold leading-[1.06] tracking-[-0.032em]">
                     {c.title}
                   </h1>
-                  <p className="mt-5 max-w-[560px] text-[clamp(17px,1.2vw+13px,22px)] leading-[1.45] tracking-[-0.013em] text-[color:var(--color-text-2)]">
+                  <p className="mt-5 max-w-[520px] text-[clamp(17px,1.2vw+13px,22px)] leading-[1.45] tracking-[-0.013em] text-[color:var(--color-text-2)]">
                     {c.tagline}
                   </p>
                   <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-5">
@@ -158,11 +158,28 @@ function CaseContent({ slug, locale }: { slug: string; locale: string }) {
                       </div>
                     ))}
                   </dl>
+                  {isLink && (
+                    <a
+                      href={`https://${c.url.replace(/^https?:\/\//, "")}`}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="mt-8 inline-flex items-center gap-2 rounded-full border border-[color:var(--c-hairline)] bg-[color:var(--color-bg-alt)] py-2 pl-3.5 pr-4 text-[14px] font-medium text-[color:var(--color-text)] transition-colors hover:border-[color:var(--c-accent)] hover:text-[color:var(--c-accent-ink)] dark:hover:text-[color:var(--c-accent)]"
+                    >
+                      <span className="relative grid h-2 w-2 place-items-center">
+                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[color:var(--c-accent)] opacity-75" />
+                        <span className="relative h-1.5 w-1.5 rounded-full bg-[color:var(--c-accent)]" />
+                      </span>
+                      {liveLabel} · {c.url}
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M7 17 17 7M9 7h8v8" />
+                      </svg>
+                    </a>
+                  )}
                 </div>
               </Reveal>
 
               <Reveal delay={150}>
-                <MacbookMock url={c.url} image={image.src} />
+                <VisionairHeroMock url={c.url} />
               </Reveal>
             </div>
           ) : (

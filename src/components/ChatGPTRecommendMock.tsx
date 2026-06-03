@@ -82,7 +82,7 @@ export function ChatGPTRecommendMock() {
       </div>
 
       {/* ChatGPT app header */}
-      <div className="flex items-center justify-between border-b border-white/[0.06] px-5 py-3" style={{ background: "#212121" }}>
+      <div className="flex items-center justify-between border-b border-white/[0.06] px-5 py-2.5" style={{ background: "#212121" }}>
         <div className="flex items-center gap-2 text-white/90">
           <span className="text-[15px] font-semibold">ChatGPT</span>
           <span className="rounded bg-white/10 px-1.5 py-0.5 text-[10px] font-medium">5</span>
@@ -105,20 +105,20 @@ export function ChatGPTRecommendMock() {
       {/* Chat body — a hidden "ghost" copy of the full conversation reserves the
           final height, so the box is sized to its maximum from the start and never
           grows or shrinks while the answer types out (no page jump on scroll). */}
-      <div className="min-h-0 flex-1 px-4 py-6 sm:px-6 sm:py-8 md:px-12" style={{ background: "#212121" }}>
+      <div className="min-h-0 flex-1 px-4 py-4 sm:px-6 sm:py-5 md:px-12" style={{ background: "#212121" }}>
         <div className="relative mx-auto max-w-[680px]">
           {/* Ghost — invisible, in normal flow, holds the tallest state */}
-          <div aria-hidden className="invisible space-y-6 sm:space-y-7">
+          <div aria-hidden className="invisible space-y-4 sm:space-y-5">
             <UserBubble text={userQuestion} />
             <AssistantRow>
-              <div className="whitespace-pre-line text-[13.5px] leading-[1.6] text-white/90 sm:text-[15px] sm:leading-[1.65]">
+              <div className="whitespace-pre-line text-[13px] leading-[1.55] text-white/90 sm:text-[14px] sm:leading-[1.6]">
                 {renderSegments(response)}
               </div>
             </AssistantRow>
           </div>
 
           {/* Live — absolutely overlaid on the ghost, animates */}
-          <div className="absolute inset-0 space-y-6 sm:space-y-7">
+          <div className="absolute inset-0 space-y-4 sm:space-y-5">
             {phase !== "idle" && (
               <UserBubble text={userQuestion} animate />
             )}
@@ -128,7 +128,7 @@ export function ChatGPTRecommendMock() {
                 {phase === "thinking" ? (
                   <ThinkingDots />
                 ) : (
-                  <div className="whitespace-pre-line text-[13.5px] leading-[1.6] text-white/90 sm:text-[15px] sm:leading-[1.65]">
+                  <div className="whitespace-pre-line text-[13px] leading-[1.55] text-white/90 sm:text-[14px] sm:leading-[1.6]">
                     {renderSegments(visibleSegments)}
                     {phase === "typing" && (
                       <span className="ml-0.5 inline-block h-[14px] w-[8px] -mb-[2px] bg-white/80 align-baseline" style={{ animation: "ctgBlink 900ms steps(2) infinite" }} />
@@ -142,8 +142,8 @@ export function ChatGPTRecommendMock() {
       </div>
 
       {/* Input bar */}
-      <div className="border-t border-white/[0.06] px-4 py-3 sm:px-6 sm:py-4 md:px-12" style={{ background: "#212121" }}>
-        <div className="mx-auto flex max-w-[680px] items-center gap-2 rounded-full border border-white/10 px-4 py-2.5" style={{ background: "#2f2f2f" }}>
+      <div className="border-t border-white/[0.06] px-4 py-2.5 sm:px-6 sm:py-3 md:px-12" style={{ background: "#212121" }}>
+        <div className="mx-auto flex max-w-[680px] items-center gap-2 rounded-full border border-white/10 px-4 py-2" style={{ background: "#2f2f2f" }}>
           <button className="text-white/50" aria-label="Attach">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
               <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -174,7 +174,7 @@ export function ChatGPTRecommendMock() {
 function UserBubble({ text, animate }: { text: string; animate?: boolean }) {
   return (
     <div
-      className="ml-auto max-w-[85%] rounded-2xl rounded-br-md px-3.5 py-2.5 text-[13.5px] leading-[1.55] text-white sm:px-4 sm:py-3 sm:text-[15px]"
+      className="ml-auto max-w-[85%] rounded-2xl rounded-br-md px-3.5 py-2 text-[13px] leading-[1.5] text-white sm:px-4 sm:py-2.5 sm:text-[14px]"
       style={{ background: "#2f2f2f", animation: animate ? "ctgFadeUp 350ms ease-out both" : undefined }}
     >
       {text}

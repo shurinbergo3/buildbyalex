@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { Logo } from "./Logo";
@@ -8,12 +8,13 @@ import { Button } from "./Button";
 import { ThemeToggle } from "./ThemeToggle";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 import { MobileMenu } from "./MobileMenu";
+import { NavServices } from "./NavServices";
 import { cn } from "@/lib/utils";
 
-const navItems = [
+const linkItems = [
   { href: "/work", key: "work" },
-  { href: "/services", key: "services" },
   { href: "/blog", key: "blog" },
+  { href: "/contact", key: "contact" },
 ] as const;
 
 export function Header() {
@@ -47,20 +48,29 @@ export function Header() {
 
         <nav className="hidden md:block" aria-label="Primary">
           <ul className="flex items-center gap-7">
-            {navItems.map((item) => {
+            {linkItems.map((item) => {
               const active = pathname === item.href || pathname?.startsWith(`${item.href}/`);
+              const node = (
+                <Link
+                  href={item.href}
+                  className={cn(
+                    "text-[14px] font-medium tracking-[-0.011em] text-[color:var(--color-text-2)] transition-colors hover:text-[color:var(--color-text)]",
+                    active && "text-[color:var(--color-text)]",
+                  )}
+                >
+                  {t(item.key)}
+                </Link>
+              );
+              // Slot the services mega-dropdown right after "Работы".
               return (
-                <li key={item.key}>
-                  <Link
-                    href={item.href}
-                    className={cn(
-                      "text-[14px] font-medium tracking-[-0.011em] text-[color:var(--color-text-2)] transition-colors hover:text-[color:var(--color-text)]",
-                      active && "text-[color:var(--color-text)]",
-                    )}
-                  >
-                    {t(item.key)}
-                  </Link>
-                </li>
+                <Fragment key={item.key}>
+                  <li>{node}</li>
+                  {item.key === "work" && (
+                    <li>
+                      <NavServices />
+                    </li>
+                  )}
+                </Fragment>
               );
             })}
           </ul>

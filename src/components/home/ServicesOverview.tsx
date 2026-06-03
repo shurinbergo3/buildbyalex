@@ -3,55 +3,19 @@ import { Link } from "@/i18n/navigation";
 import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
+import { serviceGlyph, serviceHref, type ServiceKey } from "@/components/serviceGlyphs";
 
 type Item = {
-  key: "websites" | "ai" | "mobile";
-  href: "/services/websites" | "/services/ai-agents" | "/services/mobile-apps";
+  key: Extract<ServiceKey, "websites" | "ai" | "mobile">;
+  href: (typeof serviceHref)[Extract<ServiceKey, "websites" | "ai" | "mobile">];
   featured: boolean;
   glyph: React.ReactNode;
 };
 
 const items: Item[] = [
-  {
-    key: "websites",
-    href: "/services/websites",
-    featured: false,
-    glyph: (
-      <svg viewBox="0 0 48 48" fill="none" className="h-full w-full">
-        <rect x="6" y="9" width="36" height="26" rx="4" stroke="currentColor" strokeWidth="2.2" />
-        <path d="M6 16h36" stroke="currentColor" strokeWidth="2.2" />
-        <circle cx="11" cy="12.5" r="1" fill="currentColor" />
-        <circle cx="15" cy="12.5" r="1" fill="currentColor" />
-        <path d="M13 23h16M13 28h12" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
-    key: "ai",
-    href: "/services/ai-agents",
-    featured: true,
-    glyph: (
-      <svg viewBox="0 0 48 48" fill="none" className="h-full w-full">
-        <rect x="12" y="14" width="24" height="20" rx="6" stroke="currentColor" strokeWidth="2.2" />
-        <circle cx="19" cy="24" r="2" fill="currentColor" />
-        <circle cx="29" cy="24" r="2" fill="currentColor" />
-        <path d="M24 8v6M18 34v4M30 34v4" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
-        <circle cx="24" cy="7" r="2" fill="currentColor" />
-      </svg>
-    ),
-  },
-  {
-    key: "mobile",
-    href: "/services/mobile-apps",
-    featured: false,
-    glyph: (
-      <svg viewBox="0 0 48 48" fill="none" className="h-full w-full">
-        <rect x="15" y="6" width="18" height="36" rx="4" stroke="currentColor" strokeWidth="2.2" />
-        <path d="M21 9h6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
-        <circle cx="24" cy="37" r="1.4" fill="currentColor" />
-      </svg>
-    ),
-  },
+  { key: "websites", href: serviceHref.websites, featured: false, glyph: serviceGlyph.websites },
+  { key: "ai", href: serviceHref.ai, featured: true, glyph: serviceGlyph.ai },
+  { key: "mobile", href: serviceHref.mobile, featured: false, glyph: serviceGlyph.mobile },
 ];
 
 export function ServicesOverview() {
@@ -163,10 +127,7 @@ export function ServicesOverview() {
           >
             <div className="flex items-start gap-3 md:items-center">
               <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[color:var(--c-accent-soft)] text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
-                <svg viewBox="0 0 48 48" fill="none" className="h-6 w-6">
-                  <path d="M8 30V18l22-8v28l-22-8Z" stroke="currentColor" strokeWidth="2.2" strokeLinejoin="round" />
-                  <path d="M30 16c4 1.5 4 14.5 0 16" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
-                </svg>
+                <span className="h-6 w-6">{serviceGlyph.ads}</span>
               </span>
               <div className="max-w-[640px]">
                 <p className="text-[12px] font-semibold uppercase tracking-[0.08em] text-[color:var(--color-text-3)]">

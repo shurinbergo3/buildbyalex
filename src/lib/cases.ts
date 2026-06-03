@@ -35,8 +35,8 @@ export const caseImages: Record<CaseKey, { src: string; alt: string }> = {
     alt: "Современное офисное здание в Варшаве — кейс LegalWin",
   },
   visionair: {
-    src: "https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=1600&q=80",
-    alt: "Аэросъёмка побережья с дрона — кейс VisionAir",
+    src: "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1600&q=80",
+    alt: "Кинематографичная аэросъёмка побережья с дрона — кейс VisionAir",
   },
   crmbot: {
     src: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1600&q=80",

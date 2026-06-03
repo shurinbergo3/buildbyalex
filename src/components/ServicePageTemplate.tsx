@@ -1,3 +1,4 @@
+import type { ComponentType } from "react";
 import { useTranslations, useMessages, useLocale } from "next-intl";
 import { SITE_URL, localizedHref } from "@/lib/site";
 import type { Locale } from "@/i18n/routing";
@@ -7,7 +8,10 @@ import { Reveal } from "./Reveal";
 import { Button } from "./Button";
 import { FAQAccordion, type QA } from "./FAQAccordion";
 import { HowItWorks } from "./home/HowItWorks";
-import { BotCrmSync } from "./BotCrmSync";
+import { AiSyncShowcase } from "./AiSyncShowcase";
+import { AdsShowcase } from "./AdsShowcase";
+import { WebsiteShowcase } from "./WebsiteShowcase";
+import { MobileAppShowcase } from "./MobileAppShowcase";
 
 type Branch = "websites" | "ai" | "mobile" | "ads";
 
@@ -39,6 +43,15 @@ const SERVICE_PATH: Record<Branch, string> = {
   ads: "/services/advertising",
 };
 
+// Per-branch animated demo. Each showcase owns its own Section + heading copy,
+// so the template just drops it in as a single node.
+const DEMOS: Partial<Record<Branch, ComponentType>> = {
+  websites: WebsiteShowcase,
+  ai: AiSyncShowcase,
+  mobile: MobileAppShowcase,
+  ads: AdsShowcase,
+};
+
 function Stars({ className = "" }: { className?: string }) {
   return (
     <div className={`flex gap-0.5 ${className}`} aria-label="5 out of 5">
@@ -58,12 +71,13 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
   const t = useTranslations(`services.${branch}`);
   const tr = useTranslations("home.testimonials");
   const tp = useTranslations("home.pricing");
-  const tSync = useTranslations("home.botSync");
+  const tNav = useTranslations("nav");
   const locale = useLocale() as Locale;
   const messages = useMessages() as unknown as Shape;
   const data: ServiceData = messages.services[branch];
   const headlineLines = t("headline").split("\n");
   const priceKey = PRICE_KEY[branch];
+  const Demo = DEMOS[branch];
 
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -82,11 +96,25 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
     },
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: tNav("home"), item: localizedHref(locale, "/") },
+      { "@type": "ListItem", position: 2, name: tNav("services"), item: localizedHref(locale, "/services") },
+      { "@type": "ListItem", position: 3, name: t("eyebrow"), item: localizedHref(locale, SERVICE_PATH[branch]) },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       {/* ── Hero ── */}
       <Section pad="tight" tone="default" className="!pt-16 md:!pt-24">
@@ -137,32 +165,11 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
         </Container>
       </Section>
 
-      {/* ── Live demo (AI service only — the synced bot↔CRM stage) ── */}
-      {branch === "ai" && (
-        <Section pad="default" tone="alt">
-          <Container>
-            <Reveal>
-              <div className="mx-auto max-w-[760px] text-center">
-                <p className="t-eyebrow">{t("demoEyebrow")}</p>
-                <h2 className="mt-3 t-h2">
-                  {tSync("headline").split("\n").map((l, i) => (
-                    <span key={i} className="block">{l}</span>
-                  ))}
-                </h2>
-                <p className="mx-auto mt-5 max-w-[600px] t-body-lg">{tSync("subhead")}</p>
-              </div>
-            </Reveal>
-            <Reveal delay={120}>
-              <div className="mt-12 md:mt-16">
-                <BotCrmSync />
-              </div>
-            </Reveal>
-          </Container>
-        </Section>
-      )}
+      {/* ── Service demo (per-branch animated showcase; each owns its section) ── */}
+      {Demo && <Demo />}
 
       {/* ── What's included ── */}
-      <Section pad="default" tone={branch === "ai" ? "default" : "alt"}>
+      <Section pad="default" tone={Demo ? "default" : "alt"}>
         <Container>
           <Reveal>
             <h2 className="t-h2 mb-12 md:mb-16">{t("what.title")}</h2>

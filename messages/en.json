@@ -15,7 +15,27 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "toggleTheme": "Toggle theme",
-    "switchLanguage": "Switch language"
+    "switchLanguage": "Switch language",
+    "home": "Home",
+    "servicesMenu": {
+      "label": "All services",
+      "websites": {
+        "title": "Websites",
+        "tagline": "Multilingual sites that rank"
+      },
+      "ai": {
+        "title": "AI agents",
+        "tagline": "Chat & sales bots, workflow automation"
+      },
+      "mobile": {
+        "title": "Mobile apps",
+        "tagline": "iOS & Android from one codebase"
+      },
+      "ads": {
+        "title": "Advertising",
+        "tagline": "Google Ads & Meta Ads built for leads"
+      }
+    }
   },
   "footer": {
     "tagline": "One developer. Three weeks to launch. Built to rank.",
@@ -614,14 +634,176 @@
     },
     "websites": {
       "meta": {
-        "title": "Website Development in Warsaw — Next.js, SEO, multilingual",
-        "description": "Production websites on Next.js 15: multilingual, schema-first, Core Web Vitals, indexed in hours. From €800. Warsaw, available worldwide."
+        "title": "Web Development in Warsaw — from €800, live in 1–3 wks",
+        "description": "Business websites in Warsaw on Next.js: multilingual EN/PL/UA/RU, SEO built in, live in 1–3 weeks. From €800, you own the code. Book a free call."
       },
       "eyebrow": "Websites",
       "headline": "Websites that\nactually rank.",
       "lead": "Not a 2015-style brochure site. A modern production site on Next.js, ready for Google and AI-search from day one.",
       "from": "From €800",
       "primaryCta": "Discuss the project",
+      "demo": {
+        "eyebrow": "Live preview",
+        "headline": "Sites that get found —\nand never make you wait",
+        "subhead": "Here's what the result looks like: a sharp site on every screen, a #1 spot in Google and a 100/100 Lighthouse score.",
+        "site": {
+          "brand": "Northpeak",
+          "url": "northpeak.studio",
+          "nav": [
+            "Product",
+            "Work",
+            "Pricing",
+            "Contact"
+          ],
+          "heroTitle": "A launch people notice.",
+          "heroSub": "A marketing site ready to sell from day one.",
+          "cta": "Get started",
+          "langs": "RU · PL · EN · UA",
+          "badge": "Lighthouse 100",
+          "desktopLabel": "Desktop",
+          "mobileLabel": "Mobile"
+        },
+        "serp": {
+          "eyebrow": "Found on Google",
+          "caption": "Structure, speed and SEO are baked into the code — so pages reach the top for the queries that matter.",
+          "relatedLabel": "Related searches",
+          "queries": [
+            {
+              "q": "web design warsaw",
+              "count": "About 1,240,000 results",
+              "results": [
+                {
+                  "site": "northpeak.studio",
+                  "breadcrumb": "northpeak.studio › services › websites",
+                  "title": "Web development in Warsaw — live in 1–3 weeks",
+                  "snippet": "Marketing sites, landing pages and corporate sites on Next.js. Multilingual, SEO and analytics done. Free intro call.",
+                  "rating": "4.9 · 47 reviews"
+                },
+                {
+                  "site": "agencja-web.pl",
+                  "breadcrumb": "agencja-web.pl › offer",
+                  "title": "Web design agency — Warsaw",
+                  "snippet": "Professional websites for businesses: custom design, CMS and support."
+                },
+                {
+                  "site": "studio-x.pl",
+                  "breadcrumb": "studio-x.pl › websites",
+                  "title": "Websites — design and development",
+                  "snippet": "Modern sites, stores and landing pages. Free quote in 24h."
+                }
+              ]
+            },
+            {
+              "q": "landing page development",
+              "count": "About 938,000 results",
+              "results": [
+                {
+                  "site": "northpeak.studio",
+                  "breadcrumb": "northpeak.studio › landing-pages",
+                  "title": "Landing page, done end to end — design, copy, analytics",
+                  "snippet": "Landing pages that turn traffic into leads. A/B tests and CRM integration included.",
+                  "rating": "4.9 · 47 reviews"
+                },
+                {
+                  "site": "landing-pro.io",
+                  "breadcrumb": "landing-pro.io › services",
+                  "title": "High-converting landing pages for startups",
+                  "snippet": "We build landing pages focused on conversion and sales."
+                },
+                {
+                  "site": "webmaster.com",
+                  "breadcrumb": "webmaster.com › blog",
+                  "title": "How to build a landing page that sells",
+                  "snippet": "A step-by-step guide for beginners."
+                }
+              ]
+            },
+            {
+              "q": "next.js website for business",
+              "count": "About 612,000 results",
+              "results": [
+                {
+                  "site": "northpeak.studio",
+                  "breadcrumb": "northpeak.studio › tech",
+                  "title": "Next.js 15 websites — speed and SEO out of the box",
+                  "snippet": "Server rendering, a perfect Lighthouse score and multilingual support. Indexable from day one.",
+                  "rating": "4.9 · 47 reviews"
+                },
+                {
+                  "site": "dev-house.io",
+                  "breadcrumb": "dev-house.io › services",
+                  "title": "Next.js development agency",
+                  "snippet": "We build fast, scalable web apps with React and Next.js."
+                },
+                {
+                  "site": "smashing.com",
+                  "breadcrumb": "smashing.com › articles",
+                  "title": "Why Next.js is a solid choice for business",
+                  "snippet": "We break down the framework's benefits for commercial projects."
+                }
+              ]
+            }
+          ]
+        },
+        "speed": {
+          "eyebrow": "Loads instantly",
+          "caption": "100/100 in Lighthouse isn't a one-off trick — it's the baseline for every page, even on slow 4G.",
+          "tabs": {
+            "mobile": "Mobile",
+            "desktop": "Desktop"
+          },
+          "categories": {
+            "performance": "Performance",
+            "accessibility": "Accessibility",
+            "bestPractices": "Best Practices",
+            "seo": "SEO"
+          },
+          "metricLabels": {
+            "fcp": "First Contentful Paint",
+            "lcp": "Largest Contentful Paint",
+            "tbt": "Total Blocking Time",
+            "cls": "Cumulative Layout Shift",
+            "si": "Speed Index"
+          },
+          "metricsHeading": "Core Web Vitals",
+          "captionTemplate": "{url} · measured on slow 4G",
+          "pages": [
+            {
+              "url": "northpeak.studio",
+              "label": "Home",
+              "metrics": {
+                "fcp": "0.8 s",
+                "lcp": "1.1 s",
+                "tbt": "0 ms",
+                "cls": "0",
+                "si": "1.0 s"
+              }
+            },
+            {
+              "url": "northpeak.studio/services",
+              "label": "Services",
+              "metrics": {
+                "fcp": "0.7 s",
+                "lcp": "1.0 s",
+                "tbt": "10 ms",
+                "cls": "0",
+                "si": "0.9 s"
+              }
+            },
+            {
+              "url": "northpeak.studio/contact",
+              "label": "Contact",
+              "metrics": {
+                "fcp": "0.6 s",
+                "lcp": "0.9 s",
+                "tbt": "0 ms",
+                "cls": "0",
+                "si": "0.8 s"
+              }
+            }
+          ]
+        }
+      },
       "what": {
         "title": "What you get",
         "items": [
@@ -688,6 +870,14 @@
           {
             "q": "What if I already have a Figma design?",
             "a": "Great. I'll build from it — and I'll usually flag anything that needs tightening for production (accessibility, states, mobile breakpoints) before we start."
+          },
+          {
+            "q": "Does a multilingual site cost extra?",
+            "a": "Less than you'd expect, because i18n is part of my stack, not a bolt-on plugin. The first language sets the structure; each extra locale mainly adds content and translation review, not a second build. A four-language site (EN/PL/UA/RU) usually lands a few hundred euros above a single-language one — exact figure after the discovery call."
+          },
+          {
+            "q": "Who owns the code, domain and hosting once it's done?",
+            "a": "You do, all of it. The domain and hosting (Vercel) are registered in your name, the source code lives in your GitHub, and the IP transfer is written into the contract. Nothing is rented or locked to me — bring in another developer later and they inherit a clean repo and carry on."
           }
         ]
       },
@@ -698,8 +888,8 @@
     },
     "ai": {
       "meta": {
-        "title": "AI Agents & Chatbots for Business — Custom-built",
-        "description": "AI agents and chatbots for business: RAG assistants, sales bots, 24/7 customer support automation. CRM integrations (AmoCRM, HubSpot), Telegram, WhatsApp. From €1,200."
+        "title": "AI Agents & Chatbots for Business — Built on Your Data",
+        "description": "AI agents trained on your data (RAG), wired into your CRM and Telegram/WhatsApp. Multilingual, no hallucinations. From €1,200. Let's scope it in 30 min."
       },
       "eyebrow": "AI Agents",
       "headline": "AI agents that\nactually close.",
@@ -773,6 +963,14 @@
           {
             "q": "What if a 2x better model comes out tomorrow?",
             "a": "Plug it in. The architecture is provider-agnostic through an abstraction layer. Swapping GPT for Claude or Gemini is a day's work, not a week."
+          },
+          {
+            "q": "How long does it take to launch an AI agent?",
+            "a": "A focused bot — a FAQ assistant or a lead qualifier — ships in 1–2 weeks from kickoff. An agent with RAG over your knowledge base and a CRM integration takes 3–4 weeks. I fix the scope and date in writing before we start, then show progress as we build."
+          },
+          {
+            "q": "Can one bot answer in several languages on my own data?",
+            "a": "Yes. A single agent handles Polish, Russian, Ukrainian and English, replying in whatever language the customer writes in. The RAG layer is built on your documents and knowledge base, so answers come from your sources — not the model's general knowledge. Your data stays yours and is never used to train anyone else's model."
           }
         ]
       },
@@ -783,14 +981,46 @@
     },
     "mobile": {
       "meta": {
-        "title": "Mobile App Development — iOS and Android",
-        "description": "Cross-platform mobile apps on React Native / Expo. App Store and Google Play submission included. From €3,000."
+        "title": "iOS & Android App Development — one codebase, from €3,000",
+        "description": "Cross-platform iOS + Android app from one codebase: MVP in 4–8 weeks, auth and payments, store submission included. Prices in EUR. Book a free call."
       },
       "eyebrow": "Mobile apps",
       "headline": "Mobile apps that\nactually ship to stores.",
       "lead": "MVP in 4–8 weeks, both platforms from one codebase, store submission included.",
       "from": "From €3,000",
       "primaryCta": "Discuss the idea",
+      "demo": {
+        "eyebrow": "Live preview",
+        "headline": "An app that's ready\nfor the stores",
+        "subhead": "One codebase — iOS and Android. From MVP to App Store and Google Play release, with native speed and animations.",
+        "appName": "Glide",
+        "homeTitle": "Home",
+        "ctaLabel": "Get started",
+        "successTitle": "Order placed",
+        "successSub": "Notification sent",
+        "storeRating": "4.9",
+        "stores": {
+          "ios": "App Store",
+          "android": "Google Play"
+        },
+        "scenes": [
+          {
+            "tag": "01 · Onboarding",
+            "title": "A frictionless start",
+            "desc": "Sign-up, Google and Apple login, payments — ready out of the box. Users are in within seconds."
+          },
+          {
+            "tag": "02 · Home screen",
+            "title": "Native-grade speed",
+            "desc": "60 fps, gestures and smooth animations like the top apps — from one codebase for iOS and Android."
+          },
+          {
+            "tag": "03 · Release",
+            "title": "Store release, handled",
+            "desc": "Build, icons, screenshots and submission to the App Store and Google Play are on me — you get a finished app."
+          }
+        ]
+      },
       "what": {
         "title": "What you get",
         "items": [
@@ -858,6 +1088,14 @@
           {
             "q": "Can we add web later?",
             "a": "Yes. Expo Router lets one codebase target iOS + Android + Web. If your product goes that way, the path is short."
+          },
+          {
+            "q": "Who owns the code and the app once it's delivered?",
+            "a": "You do — fully. The source code, your App Store Connect and Google Play accounts, the backend and all keys are set up under your legal entity and transferred to you by contract. I don't hold the project hostage or lock you in: you can keep building it yourself or hand it to any other developer."
+          },
+          {
+            "q": "What does it cost to run the app after launch?",
+            "a": "Less than agencies make you fear. Backend hosting and services are typically €10–50/month depending on load; the store accounts are $99/year for Apple and a one-time $25 for Google. Updates and fixes for new iOS/Android versions are €50/hour with no forced retainer — you only pay when something actually needs doing."
           }
         ]
       },
@@ -868,14 +1106,120 @@
     },
     "ads": {
       "meta": {
-        "title": "Google Ads & Meta Ads Management in Poland — PPC that pays back",
-        "description": "Google Ads and Meta Ads setup and management for Poland. Conversion tracking, transparent reporting, leads — not vanity clicks. From €300 setup or €500/month."
+        "title": "Google Ads & Meta Ads Management | Warsaw",
+        "description": "PPC built for leads, not clicks: setup, management, ROAS reporting. From €300 setup or €500/month. Book a free call to plan your campaign."
       },
       "eyebrow": "Advertising",
       "headline": "Ads that bring\nleads, not clicks.",
       "lead": "Google Ads and Meta Ads, set up and managed for real pipeline. Every euro tracked to a conversion — no vanity metrics, no black box.",
       "from": "From €300 setup or €500/month",
       "primaryCta": "Plan my campaign",
+      "demo": {
+        "eyebrow": "Ad accounts",
+        "headline": "See where every euro goes —\nand how many leads it brings",
+        "subhead": "Google Ads and Meta Ads in one dashboard: spend, leads, cost per lead and ROAS — in real time. No black box.",
+        "liveLabel": "Live",
+        "tabs": {
+          "google": "Google Ads",
+          "meta": "Meta Ads"
+        },
+        "kpis": {
+          "spend": "Spend",
+          "leads": "Leads",
+          "cpl": "Cost/lead",
+          "roas": "ROAS"
+        },
+        "columns": {
+          "campaign": "Campaign",
+          "spend": "Spend",
+          "leads": "Leads",
+          "cpl": "CPL"
+        },
+        "google": {
+          "kpis": {
+            "spend": "€1,840",
+            "leads": "73",
+            "cpl": "€25",
+            "roas": "5.1×"
+          },
+          "campaigns": [
+            {
+              "name": "Search — high-intent",
+              "spend": "€820",
+              "leads": "38",
+              "cpl": "€22"
+            },
+            {
+              "name": "Performance Max",
+              "spend": "€640",
+              "leads": "24",
+              "cpl": "€27"
+            },
+            {
+              "name": "Shopping — catalog",
+              "spend": "€380",
+              "leads": "11",
+              "cpl": "€35"
+            }
+          ]
+        },
+        "meta": {
+          "kpis": {
+            "spend": "€1,210",
+            "leads": "58",
+            "cpl": "€21",
+            "roas": "4.4×"
+          },
+          "campaigns": [
+            {
+              "name": "Lead Ads — cold",
+              "spend": "€520",
+              "leads": "27",
+              "cpl": "€19"
+            },
+            {
+              "name": "Site retargeting",
+              "spend": "€410",
+              "leads": "21",
+              "cpl": "€20"
+            },
+            {
+              "name": "Lookalike 1%",
+              "spend": "€280",
+              "leads": "10",
+              "cpl": "€28"
+            }
+          ]
+        },
+        "feedLabel": "New leads",
+        "feed": [
+          {
+            "name": "Igor R.",
+            "source": "Google · Search",
+            "value": "€2,400"
+          },
+          {
+            "name": "Anna T.",
+            "source": "Meta · Lead Ads",
+            "value": "€1,200"
+          },
+          {
+            "name": "Pavel S.",
+            "source": "Google · PMax",
+            "value": "€3,500"
+          },
+          {
+            "name": "Lena V.",
+            "source": "Meta · Retarget",
+            "value": "€900"
+          },
+          {
+            "name": "Tomek W.",
+            "source": "Google · Shopping",
+            "value": "€1,800"
+          }
+        ]
+      },
       "what": {
         "title": "What you get",
         "items": [
@@ -942,6 +1286,14 @@
           {
             "q": "Who owns the accounts?",
             "a": "You do. I work inside your Google Ads and Meta Business accounts, or set them up in your name. If we part ways, everything stays with you — data, pixels and history."
+          },
+          {
+            "q": "Google Ads or Meta — which is right for my business?",
+            "a": "It depends on demand. If people already search for your service on Google, starting with Search captures the hottest leads and usually a better cost-per-acquisition for B2B and local services. Meta is stronger when demand needs warming up — new audiences, retargeting, a visual product. On the call I look at your niche and often suggest starting with one channel, then adding the second once it pays back."
+          },
+          {
+            "q": "How do you charge — a percentage of ad spend?",
+            "a": "No. A flat €500/month to manage, with no cut of your ad spend — so I have zero incentive to inflate the budget whether you spend €500 or €5,000. You pay the ad budget straight to Google and Meta from your own card. Your Looker Studio report shows cost per lead and ROAS, so you see exactly where the money works."
           }
         ]
       },
@@ -1483,6 +1835,12 @@
               "k": "Insurance",
               "v": "Compensa VIG"
             }
+          ],
+          "services": [
+            "Weddings",
+            "Real estate",
+            "Inspection",
+            "Advertising"
           ]
         },
         "serp": {
@@ -2156,6 +2514,26 @@
     "headline": "Tell me about the project.",
     "lead": "30 minutes on a discovery call. 24 hours later you have a fixed estimate on scope, price and launch date.",
     "responseTime": "I reply within hours — usually same day.",
+    "availability": "Available for new projects",
+    "formTitle": "Tell me about the project",
+    "formSub": "The more detail, the sharper the estimate. I reply personally.",
+    "steps": {
+      "title": "How we start",
+      "items": [
+        {
+          "title": "Reply in hours",
+          "desc": "I write back the same day and offer a call slot."
+        },
+        {
+          "title": "Discovery call",
+          "desc": "30 minutes: goals, scope and what matters to you."
+        },
+        {
+          "title": "Fixed estimate in 24h",
+          "desc": "Price, timeline and a launch plan — no surprises."
+        }
+      ]
+    },
     "altTitle": "Or directly",
     "form": {
       "name": "Your name",

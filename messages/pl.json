@@ -15,7 +15,27 @@
     "openMenu": "Otwórz menu",
     "closeMenu": "Zamknij menu",
     "toggleTheme": "Zmień motyw",
-    "switchLanguage": "Zmień język"
+    "switchLanguage": "Zmień język",
+    "home": "Strona główna",
+    "servicesMenu": {
+      "label": "Wszystkie usługi",
+      "websites": {
+        "title": "Strony",
+        "tagline": "Wielojęzyczne strony, które rankują"
+      },
+      "ai": {
+        "title": "Agenci AI",
+        "tagline": "Boty czatowe i sprzedażowe, automatyzacja"
+      },
+      "mobile": {
+        "title": "Aplikacje mobilne",
+        "tagline": "iOS i Android z jednej bazy kodu"
+      },
+      "ads": {
+        "title": "Reklama",
+        "tagline": "Google Ads i Meta Ads pod leady"
+      }
+    }
   },
   "footer": {
     "tagline": "Jeden developer. Trzy tygodnie do startu. Strony, które rankują.",
@@ -614,14 +634,176 @@
     },
     "websites": {
       "meta": {
-        "title": "Tworzenie stron internetowych w Warszawie — Next.js, SEO, wielojęzyczność",
-        "description": "Produkcyjne strony na Next.js 15: wielojęzyczne, schema, Core Web Vitals, indeksacja w godzinach. Od 800 €. Warszawa, cały świat."
+        "title": "Tworzenie stron internetowych Warszawa — od €800",
+        "description": "Strony dla firm w Warszawie na Next.js: wielojęzyczne, SEO w standardzie, gotowe w 1–3 tygodnie. Od €800, kod i domena Twoje. Darmowa rozmowa."
       },
       "eyebrow": "Strony",
       "headline": "Strony, które\nrealnie rankują.",
       "lead": "Nie wizytówka z 2015. Nowoczesna strona produkcyjna na Next.js, gotowa pod Google i AI-search od pierwszego dnia.",
       "from": "Od 800 €",
       "primaryCta": "Porozmawiajmy o projekcie",
+      "demo": {
+        "eyebrow": "Podgląd na żywo",
+        "headline": "Strony, które są znajdowane —\ni nie każą czekać",
+        "subhead": "Tak wygląda efekt: dopracowana strona na każdym ekranie, pozycja #1 w Google i wynik 100/100 w Lighthouse.",
+        "site": {
+          "brand": "Northpeak",
+          "url": "northpeak.studio",
+          "nav": [
+            "Produkt",
+            "Realizacje",
+            "Cennik",
+            "Kontakt"
+          ],
+          "heroTitle": "Start, który widać.",
+          "heroSub": "Strona marketingowa gotowa sprzedawać od pierwszego dnia.",
+          "cta": "Zaczynamy",
+          "langs": "RU · PL · EN · UA",
+          "badge": "Lighthouse 100",
+          "desktopLabel": "Desktop",
+          "mobileLabel": "Mobile"
+        },
+        "serp": {
+          "eyebrow": "Znajdują w Google",
+          "caption": "Struktura, szybkość i SEO są wpisane w kod — dlatego strony trafiają na top dla najważniejszych fraz.",
+          "relatedLabel": "Podobne wyszukiwania",
+          "queries": [
+            {
+              "q": "tworzenie stron warszawa",
+              "count": "Około 1 240 000 wyników",
+              "results": [
+                {
+                  "site": "northpeak.studio",
+                  "breadcrumb": "northpeak.studio › usługi › strony",
+                  "title": "Tworzenie stron w Warszawie — start w 1–3 tygodnie",
+                  "snippet": "Strony marketingowe, landingi i firmowe na Next.js. Wielojęzyczność, SEO i analityka pod klucz. Bezpłatna rozmowa.",
+                  "rating": "4,9 · 47 opinii"
+                },
+                {
+                  "site": "agencja-web.pl",
+                  "breadcrumb": "agencja-web.pl › oferta",
+                  "title": "Agencja tworzenia stron — Warszawa",
+                  "snippet": "Profesjonalne strony WWW dla firm: indywidualny projekt, CMS i wsparcie."
+                },
+                {
+                  "site": "studio-x.pl",
+                  "breadcrumb": "studio-x.pl › strony",
+                  "title": "Strony internetowe — projekt i wdrożenie",
+                  "snippet": "Nowoczesne strony, sklepy i landing page. Bezpłatna wycena w 24h."
+                }
+              ]
+            },
+            {
+              "q": "landing page pod klucz",
+              "count": "Około 938 000 wyników",
+              "results": [
+                {
+                  "site": "northpeak.studio",
+                  "breadcrumb": "northpeak.studio › landingi",
+                  "title": "Landing page pod klucz — projekt, treść, analityka",
+                  "snippet": "Strony docelowe, które zamieniają ruch w leady. Testy A/B i integracja z CRM w cenie.",
+                  "rating": "4,9 · 47 opinii"
+                },
+                {
+                  "site": "landing-pro.pl",
+                  "breadcrumb": "landing-pro.pl › uslugi",
+                  "title": "Skuteczny landing page dla firm",
+                  "snippet": "Tworzymy landing page nastawione na konwersję i sprzedaż."
+                },
+                {
+                  "site": "webmaster.pl",
+                  "breadcrumb": "webmaster.pl › blog",
+                  "title": "Jak zrobić landing page, który sprzedaje",
+                  "snippet": "Poradnik krok po kroku dla początkujących."
+                }
+              ]
+            },
+            {
+              "q": "strona na next.js dla firmy",
+              "count": "Około 612 000 wyników",
+              "results": [
+                {
+                  "site": "northpeak.studio",
+                  "breadcrumb": "northpeak.studio › technologie",
+                  "title": "Strony na Next.js 15 — szybkość i SEO od razu",
+                  "snippet": "Renderowanie po stronie serwera, idealny Lighthouse i wielojęzyczność. Gotowe do indeksacji od pierwszego dnia.",
+                  "rating": "4,9 · 47 opinii"
+                },
+                {
+                  "site": "dev-house.io",
+                  "breadcrumb": "dev-house.io › services",
+                  "title": "Next.js development agency",
+                  "snippet": "We build fast, scalable web apps with React and Next.js."
+                },
+                {
+                  "site": "smashing.com",
+                  "breadcrumb": "smashing.com › articles",
+                  "title": "Dlaczego Next.js to dobry wybór dla firmy",
+                  "snippet": "Rozkładamy zalety frameworka dla projektów komercyjnych."
+                }
+              ]
+            }
+          ]
+        },
+        "speed": {
+          "eyebrow": "Ładuje się błyskawicznie",
+          "caption": "100/100 w Lighthouse to nie jednorazowa sztuczka — to standard dla każdej strony, nawet na wolnym 4G.",
+          "tabs": {
+            "mobile": "Mobile",
+            "desktop": "Desktop"
+          },
+          "categories": {
+            "performance": "Wydajność",
+            "accessibility": "Dostępność",
+            "bestPractices": "Najlepsze praktyki",
+            "seo": "SEO"
+          },
+          "metricLabels": {
+            "fcp": "First Contentful Paint",
+            "lcp": "Largest Contentful Paint",
+            "tbt": "Total Blocking Time",
+            "cls": "Cumulative Layout Shift",
+            "si": "Speed Index"
+          },
+          "metricsHeading": "Core Web Vitals",
+          "captionTemplate": "{url} · pomiar na wolnym 4G",
+          "pages": [
+            {
+              "url": "northpeak.studio",
+              "label": "Strona główna",
+              "metrics": {
+                "fcp": "0,8 s",
+                "lcp": "1,1 s",
+                "tbt": "0 ms",
+                "cls": "0",
+                "si": "1,0 s"
+              }
+            },
+            {
+              "url": "northpeak.studio/uslugi",
+              "label": "Usługi",
+              "metrics": {
+                "fcp": "0,7 s",
+                "lcp": "1,0 s",
+                "tbt": "10 ms",
+                "cls": "0",
+                "si": "0,9 s"
+              }
+            },
+            {
+              "url": "northpeak.studio/kontakt",
+              "label": "Kontakt",
+              "metrics": {
+                "fcp": "0,6 s",
+                "lcp": "0,9 s",
+                "tbt": "0 ms",
+                "cls": "0",
+                "si": "0,8 s"
+              }
+            }
+          ]
+        }
+      },
       "what": {
         "title": "Co dostajesz",
         "items": [
@@ -688,6 +870,14 @@
           {
             "q": "A jeśli mam już design w Figmie?",
             "a": "Świetnie. Implementuję i zwykle od razu widzę, co warto dopracować pod produkcję (dostępność, stany, mobile) — proponuję zmiany przed startem."
+          },
+          {
+            "q": "Płacę jednorazowo czy w abonamencie?",
+            "a": "Jednorazowo — płacisz za zbudowaną stronę i jest Twoja. Bez przymusowego abonamentu 99–300 zł/mies. za «utrzymanie», na którym żyje pół rynku. Hosting na Vercel kosztuje grosze albo nic, a poprawki po starcie rozliczam €50/godz., minimum godzina — płacisz tylko wtedy, gdy faktycznie czegoś potrzebujesz."
+          },
+          {
+            "q": "Czyja jest strona, kod i domena po zakończeniu?",
+            "a": "Twoja w całości. Domenę i hosting (Vercel) rejestruję na Twoje dane, kod źródłowy trafia do Twojego repozytorium na GitHubie, a przeniesienie praw autorskich jest zapisane w umowie. Żadnego «kodu w wynajmie» ani uzależnienia ode mnie — inny programista przejmie czyste repo i kontynuuje bez problemu."
           }
         ]
       },
@@ -698,8 +888,8 @@
     },
     "ai": {
       "meta": {
-        "title": "Chatbot AI i agenci AI dla firm — wdrożenie pod klucz",
-        "description": "Chatboty AI i agenci AI dla firm: asystenci RAG, sales-boty, automatyzacja obsługi klienta 24/7. Integracje z CRM (AmoCRM, HubSpot), Telegram, WhatsApp. Od 1 200 €."
+        "title": "Chatbot AI dla firm — wdrożenie na danych Twojej firmy",
+        "description": "Agenci AI na danych Twojej firmy (RAG), wpięci w CRM oraz Telegram/WhatsApp. Wielojęzyczni, bez halucynacji. Od €1 200. Omówmy zakres w 30 minut."
       },
       "eyebrow": "Agenci AI",
       "headline": "Agenci AI,\nktórzy zamykają.",
@@ -773,6 +963,14 @@
           {
             "q": "A jeśli jutro wyjdzie 2x lepszy model?",
             "a": "Podłączymy. Architektura jest provider-agnostic przez warstwę abstrakcji. Zmiana GPT na Claude lub Gemini to dzień pracy, nie tydzień."
+          },
+          {
+            "q": "Ile trwa wdrożenie agenta AI?",
+            "a": "Skupiony bot — asystent FAQ albo kwalifikacja leadów — uruchamiam w 1–2 tygodnie od startu. Agent z RAG na Twojej bazie wiedzy i integracją z CRM to 3–4 tygodnie. Zakres i datę ustalam na piśmie przed startem, a postępy pokazuję na bieżąco."
+          },
+          {
+            "q": "Czy jeden bot odpowie w kilku językach na danych mojej firmy?",
+            "a": "Tak. Jeden agent prowadzi rozmowę po polsku, rosyjsku, ukraińsku i angielsku — odpowiada w języku, w którym napisał klient. Warstwa RAG działa na Twoich dokumentach i bazie wiedzy, więc odpowiedzi pochodzą z Twoich źródeł, a nie z ogólnej wiedzy modelu. Twoje dane zostają u Ciebie i nie trafiają na trening cudzych modeli."
           }
         ]
       },
@@ -783,14 +981,46 @@
     },
     "mobile": {
       "meta": {
-        "title": "Tworzenie aplikacji mobilnych iOS i Android",
-        "description": "Aplikacje cross-platform na React Native / Expo. Publikacja w App Store i Google Play w pakiecie. Od 3 000 €."
+        "title": "Tworzenie aplikacji mobilnych iOS i Android — od €3 000",
+        "description": "Aplikacja iOS + Android z jednej bazy kodu: MVP w 4–8 tygodni, logowanie i płatności, publikacja w sklepach w cenie. Ceny w EUR. Bezpłatna rozmowa."
       },
       "eyebrow": "Aplikacje mobilne",
       "headline": "Aplikacje mobilne,\nktóre trafiają na sklepy.",
       "lead": "MVP w 4–8 tygodni, obie platformy z jednego kodu, publikacja w obu sklepach w cenie.",
       "from": "Od 3 000 €",
       "primaryCta": "Porozmawiajmy o pomyśle",
+      "demo": {
+        "eyebrow": "Podgląd na żywo",
+        "headline": "Aplikacja gotowa\ndo publikacji w sklepach",
+        "subhead": "Jeden kod — iOS i Android. Od MVP do publikacji w App Store i Google Play, z natywną szybkością i animacjami.",
+        "appName": "Glide",
+        "homeTitle": "Start",
+        "ctaLabel": "Zaczynamy",
+        "successTitle": "Zamówienie złożone",
+        "successSub": "Powiadomienie wysłane",
+        "storeRating": "4,9",
+        "stores": {
+          "ios": "App Store",
+          "android": "Google Play"
+        },
+        "scenes": [
+          {
+            "tag": "01 · Onboarding",
+            "title": "Start bez tarcia",
+            "desc": "Rejestracja, logowanie Google i Apple, płatności — gotowe od ręki. Użytkownik działa w kilka sekund."
+          },
+          {
+            "tag": "02 · Ekran główny",
+            "title": "Natywna szybkość",
+            "desc": "60 fps, gesty i płynne animacje jak w topowych aplikacjach — z jednego kodu na iOS i Android."
+          },
+          {
+            "tag": "03 · Publikacja",
+            "title": "Wydanie pod klucz",
+            "desc": "Build, ikony, zrzuty i submit do App Store i Google Play biorę na siebie — dostajesz gotową aplikację."
+          }
+        ]
+      },
       "what": {
         "title": "Co dostajesz",
         "items": [
@@ -858,6 +1088,14 @@
           {
             "q": "Można potem dorzucić web?",
             "a": "Tak. Expo Router pozwala jednym kodem celować w iOS + Android + Web. Jeśli produkt pójdzie w tę stronę, droga jest krótka."
+          },
+          {
+            "q": "Do kogo należy kod i aplikacja po jej wykonaniu?",
+            "a": "Do Ciebie — w całości. Kod źródłowy, konta App Store Connect i Google Play, backend i wszystkie klucze są zakładane na Twoją firmę i przekazywane na podstawie umowy. Nie trzymam projektu w zakładnikach ani nie uzależniam Cię od siebie: aplikację możesz rozwijać sam albo z dowolnym innym programistą."
+          },
+          {
+            "q": "Ile kosztuje utrzymanie aplikacji po wdrożeniu?",
+            "a": "Mniej, niż straszą software house'y. Hosting backendu i usługi to zwykle €10–50/mies. zależnie od ruchu, a konta w sklepach to $99/rok u Apple i jednorazowe $25 w Google. Poprawki i aktualizacje pod nowe wersje iOS/Androida rozliczam €50/h, bez obowiązkowego abonamentu — płacisz tylko wtedy, gdy faktycznie coś trzeba zrobić."
           }
         ]
       },
@@ -868,14 +1106,120 @@
     },
     "ads": {
       "meta": {
-        "title": "Agencja Google Ads i Meta Ads — kampanie, Warszawa",
-        "description": "Prowadzenie kampanii Google Ads i Meta Ads w Warszawie: konfiguracja, śledzenie konwersji i przejrzyste raporty. Leady, nie kliknięcia. Od €300 lub €500/mies."
+        "title": "Google Ads i Meta Ads — prowadzenie | Warszawa",
+        "description": "Kampanie nastawione na leady, nie kliknięcia: konfiguracja, prowadzenie, raporty ROAS. Od €300 setup lub €500/mies. Umów bezpłatną rozmowę."
       },
       "eyebrow": "Reklama",
       "headline": "Reklamy, które dają\nleady, nie kliknięcia.",
       "lead": "Google Ads i Meta Ads — konfiguracja i prowadzenie pod realną sprzedaż. Każda złotówka przypisana do konwersji: żadnych pustych wyświetleń i „czarnej skrzynki”.",
       "from": "Od €300 za konfigurację lub €500/mies",
       "primaryCta": "Zaplanuj kampanię",
+      "demo": {
+        "eyebrow": "Konta reklamowe",
+        "headline": "Widać, gdzie idzie każde euro —\ni ile leadów przynosi",
+        "subhead": "Google Ads i Meta Ads w jednym dashboardzie: wydatki, leady, koszt leada i ROAS — w czasie rzeczywistym. Bez czarnej skrzynki.",
+        "liveLabel": "Live",
+        "tabs": {
+          "google": "Google Ads",
+          "meta": "Meta Ads"
+        },
+        "kpis": {
+          "spend": "Wydatki",
+          "leads": "Leady",
+          "cpl": "Koszt/lead",
+          "roas": "ROAS"
+        },
+        "columns": {
+          "campaign": "Kampania",
+          "spend": "Wydatki",
+          "leads": "Leady",
+          "cpl": "CPL"
+        },
+        "google": {
+          "kpis": {
+            "spend": "€1 840",
+            "leads": "73",
+            "cpl": "€25",
+            "roas": "5.1×"
+          },
+          "campaigns": [
+            {
+              "name": "Sieć wyszukiwania — wysoka intencja",
+              "spend": "€820",
+              "leads": "38",
+              "cpl": "€22"
+            },
+            {
+              "name": "Performance Max",
+              "spend": "€640",
+              "leads": "24",
+              "cpl": "€27"
+            },
+            {
+              "name": "Shopping — katalog",
+              "spend": "€380",
+              "leads": "11",
+              "cpl": "€35"
+            }
+          ]
+        },
+        "meta": {
+          "kpis": {
+            "spend": "€1 210",
+            "leads": "58",
+            "cpl": "€21",
+            "roas": "4.4×"
+          },
+          "campaigns": [
+            {
+              "name": "Lead Ads — zimny ruch",
+              "spend": "€520",
+              "leads": "27",
+              "cpl": "€19"
+            },
+            {
+              "name": "Remarketing strony",
+              "spend": "€410",
+              "leads": "21",
+              "cpl": "€20"
+            },
+            {
+              "name": "Lookalike 1%",
+              "spend": "€280",
+              "leads": "10",
+              "cpl": "€28"
+            }
+          ]
+        },
+        "feedLabel": "Nowe leady",
+        "feed": [
+          {
+            "name": "Igor R.",
+            "source": "Google · Wyszukiwarka",
+            "value": "€2 400"
+          },
+          {
+            "name": "Anna T.",
+            "source": "Meta · Lead Ads",
+            "value": "€1 200"
+          },
+          {
+            "name": "Pavel S.",
+            "source": "Google · PMax",
+            "value": "€3 500"
+          },
+          {
+            "name": "Lena V.",
+            "source": "Meta · Remarketing",
+            "value": "€900"
+          },
+          {
+            "name": "Tomek W.",
+            "source": "Google · Shopping",
+            "value": "€1 800"
+          }
+        ]
+      },
       "what": {
         "title": "Co dostajesz",
         "items": [
@@ -942,6 +1286,14 @@
           {
             "q": "Do kogo należą konta?",
             "a": "Do Ciebie. Pracuję na Twoich kontach Google Ads i Meta Business albo zakładam je na Twoje dane. Gdy się rozstajemy — wszystko zostaje u Ciebie: dane, piksele i historia."
+          },
+          {
+            "q": "Google Ads czy Meta — co wybrać dla mojej firmy?",
+            "a": "To zależy od popytu. Jeśli klienci już szukają Twojej usługi w Google, start od kampanii w sieci wyszukiwania łapie najgorętsze leady i zwykle daje lepszy koszt pozyskania w B2B i usługach lokalnych. Meta sprawdza się, gdy popyt trzeba rozgrzać — nowe grupy odbiorców, remarketing, produkt wizualny. Na rozmowie patrzę na Twoją branżę i często radzę zacząć od jednego kanału, a drugi dołączyć, gdy pierwszy się zwraca."
+          },
+          {
+            "q": "Jak się rozliczasz — procent od budżetu reklamowego?",
+            "a": "Nie. Stałe €500/mies. za prowadzenie, bez prowizji od wydatków na reklamę — nie mam żadnego interesu w pompowaniu budżetu, czy wydasz €500, czy €5 000. Budżet reklamowy płacisz bezpośrednio Google i Meta ze swojej karty. W raporcie Looker Studio widzisz koszt leada i ROAS, więc dokładnie wiesz, gdzie pieniądze pracują."
           }
         ]
       },
@@ -1483,6 +1835,12 @@
               "k": "Ubezpieczenie",
               "v": "Compensa VIG"
             }
+          ],
+          "services": [
+            "Wesela",
+            "Nieruchomości",
+            "Inspekcja",
+            "Reklama"
           ]
         },
         "serp": {
@@ -2156,6 +2514,26 @@
     "headline": "Opowiedz o projekcie.",
     "lead": "30 minut na rozmowę discovery. 24 godziny później masz stałą wycenę zakresu, ceny i daty startu.",
     "responseTime": "Odpowiadam w godzinach — zwykle tego samego dnia.",
+    "availability": "Dostępny dla nowych projektów",
+    "formTitle": "Opowiedz o projekcie",
+    "formSub": "Im więcej szczegółów, tym dokładniejsza wycena. Odpowiadam osobiście.",
+    "steps": {
+      "title": "Jak zaczynamy",
+      "items": [
+        {
+          "title": "Odpowiedź w godzinach",
+          "desc": "Piszę tego samego dnia i proponuję termin rozmowy."
+        },
+        {
+          "title": "Rozmowa discovery",
+          "desc": "30 minut: cele, zakres i co jest dla Ciebie ważne."
+        },
+        {
+          "title": "Stała wycena w 24h",
+          "desc": "Cena, terminy i plan startu — bez niespodzianek."
+        }
+      ]
+    },
     "altTitle": "Albo bezpośrednio",
     "form": {
       "name": "Imię i nazwisko",
