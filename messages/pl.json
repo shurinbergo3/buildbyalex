@@ -668,6 +668,10 @@
       "line1": "Jeden człowiek.",
       "line2": "Cały produkt.",
       "caption": "Od pierwszej rozmowy do startu — projekt, kod, wdrożenie i wsparcie od A do Z."
+    },
+    "caseReveal": {
+      "eyebrow": "Z portfolio",
+      "cta": "Zobacz case study"
     }
   },
   "services": {
