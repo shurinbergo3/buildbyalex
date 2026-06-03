@@ -1,0 +1,134 @@
+---
+title: "CRM Telegram & WhatsApp Integration: How to Never Lose a Lead"
+description: "Why leads slip through messengers and how to wire Telegram and WhatsApp into your CRM: instant alerts, auto-deals, two-way sync, full coverage."
+date: "2026-05-20"
+cluster: "crm-telegram-whatsapp-integration"
+keywords:
+  - "CRM Telegram WhatsApp integration"
+  - "WhatsApp CRM integration"
+  - "Telegram Bot API CRM"
+  - "AmoCRM HubSpot Pipedrive messengers"
+  - "lead automation messengers"
+---
+
+Leads from Telegram and WhatsApp don't slip away because there are too few of them. They slip because they land where nobody counts them: a rep's personal inbox, a shared chat, the unread pile. The fix is to wire your messengers into a CRM so every incoming message becomes a deal with filled-in fields within seconds, and the team gets pinged the moment it arrives. Below: how it works technically, who's fine with no-code and who needs code, and what you actually get out of it.
+
+## Where leads actually go missing
+
+I've dug through this with dozens of clients in Warsaw, and the picture is almost always the same:
+
+- A WhatsApp message hits one employee's personal number — and that person is on holiday. Nobody else sees it.
+- A lead writes on Telegram at 10:40pm. The rep sees it in the morning; the lead already went to a competitor.
+- The lead exists, but it's not in the CRM. At the standup the manager asks "how many leads yesterday?" — no answer, because there's nothing to count.
+- One person owns a conversation, gets sick, and the whole message history dies with their phone access.
+
+The common denominator: the communication channel and the system of record live apart. Until they're connected, a "lost lead" isn't a bug — it's how the setup works.
+
+## What the messenger ⇄ CRM link must do
+
+The goal isn't "connect Telegram to a CRM." It's to close four specific gaps:
+
+1. **Instant notification.** A new message pings the team's work chat within seconds — name, text, channel.
+2. **Auto-created deal.** A new contact becomes a new deal with fields filled: source, channel, first message, date, tag.
+3. **Two-way sync.** The rep replies from the CRM — the message goes out to the messenger. The client writes — it lands back in the deal. No window-switching.
+4. **Deduplication.** If the contact already exists (matching phone or username), the message attaches to the existing deal instead of spawning duplicates.
+
+Everything else is on top. These four are the floor below which it isn't really an "integration."
+
+## How it works technically
+
+### Telegram: Bot API + webhook
+
+The cleanest path is the **Telegram Bot API**. Create a bot via @BotFather, get a token. There are two ways to receive messages: polling and **webhook**. For production, always webhook: you tell Telegram "send all updates to this URL," and on every message Telegram itself `POST`s to your endpoint.
+
+The flow:
+
+```
+Client → Telegram bot → webhook (POST to your URL)
+       → your handler parses the update
+       → looks up the contact in the CRM by chat_id / username
+       → none → creates contact + deal (AmoCRM API v4 / HubSpot / Pipedrive)
+       → exists → appends the message to the existing deal
+       → pings the team's work chat
+```
+
+If you need a personal/business Telegram number rather than a bot, that's no longer Bot API — it's tools like Wappi or Wazzup that hold a session on a phone number. A bot is simpler, cheaper, and more stable; a number is for when clients must see a real person, not "@company_bot."
+
+### WhatsApp: API or connector
+
+Two honest paths for WhatsApp:
+
+- **WhatsApp Business API** (via Meta / a BSP provider) — official, reliable, needs business verification and message templates. Right for volume.
+- **A connector like Wappi** — holds WhatsApp on a number and gives you a webhook for incoming plus a REST endpoint to send. Faster to start, cheaper early on, but it's an unofficial channel — handle it carefully.
+
+The processing logic is identical to Telegram: an incoming message arrives via webhook → you parse it → you write to the CRM.
+
+### CRM: where and how to write
+
+- **AmoCRM API v4.** Create a deal via `POST /api/v4/leads`, a contact via `/api/v4/contacts`, link them, set custom fields (source, channel) and a tag. Auth is OAuth 2.0 with a long-lived token. Store the conversation in deal notes or via the "Unsorted" chat API.
+- **HubSpot.** Contacts and Deals objects via the CRM API, joined with associations. Hang a workflow on deal creation to set a task and an owner immediately.
+- **Pipedrive.** Persons and Deals via the REST API, custom fields by key. Activities for rep tasks.
+
+Same principle everywhere: **the messenger webhook is the trigger, the CRM API is the action.** Between them sits your code or a no-code scenario that decides "create or append."
+
+## What it looks like in the flow (step by step)
+
+1. A client writes on WhatsApp: "How much for a website?"
+2. Wappi fires a webhook to your endpoint: number, text, timestamp.
+3. The handler looks up the number in AmoCRM. Not found.
+4. It creates a contact (phone + profile name), creates a deal, sets "Source: WhatsApp," tag "new-2026-05," puts the first message in a note.
+5. It pings the team Telegram chat: "🟢 New lead · WhatsApp · +48… · 'How much for a website?' · [open in CRM]".
+6. The rep opens the card, replies straight from the CRM. The reply goes out to WhatsApp via API.
+7. The client answers — the message attaches to the same deal. No duplicates.
+
+From "client hit send" to "team saw it": seconds, not hours.
+
+## No-code or code: who needs what
+
+I build both. The line is simple.
+
+**No-code (Make, n8n, Zapier) fits if:**
+
+- Up to ~300–500 messages a month.
+- Logic is linear: arrive → create deal → notify.
+- You're fine paying platform tiers and living with their operation limits.
+
+I like n8n in particular: you can self-host it, so you don't pay per operation and don't hit someone else's caps.
+
+**You need code if:**
+
+- Volume is high or you need real dedup across several signals.
+- Routing is complex (different reps by product/language/region).
+- You need lead qualification before the deal is created (that's where an AI agent comes in).
+- Speed and control matter: your own webhook handler responds in milliseconds and doesn't depend on a third party's uptime.
+
+A common sensible hybrid: webhook and routing logic in code, notifications and small actions through n8n. That's [business process automation](/en/services/automation) in its purest form — connecting systems so there's no human relay in between.
+
+## What you must not break
+
+- **Dedup from day one.** Without it, a month later you've got three cards for one client and your reporting lies.
+- **Webhook idempotency.** Telegram and WhatsApp providers can deliver the same event twice. The handler must survive that without creating duplicates.
+- **Logging.** Every incoming message goes to a log. When a lead "disappears" (and that question will come), you need to prove whether the message arrived.
+- **CRM-side retries.** APIs fail. A retry queue is mandatory — otherwise an AmoCRM outage still loses the lead.
+
+## What you actually get
+
+After this kind of wiring, the numbers hold steady: leads reach the team in seconds, coverage is 100% (everything that hits a messenger is in the CRM), and the manager sees a real daily inbound count for the first time. The rep stops living in seven windows and replies from one CRM. Most importantly, "forgot to reply" disappears as a category, because an unanswered deal is visible — not buried in someone's DMs.
+
+## FAQ
+
+**Can I connect both Telegram and WhatsApp to one CRM?**
+Yes. Each channel has its own webhook, but they write into one CRM with a "Source" field. The card shows where the client came from and where the conversation continues.
+
+**AmoCRM, HubSpot, or Pipedrive — which one?**
+All three integrate via API. AmoCRM is handier for CIS markets and messengers out of the box, HubSpot for complex funnels and marketing, Pipedrive is the simplest for a small sales team. Pick the one your team will actually use.
+
+**Bot or personal number?**
+A bot is cheaper, more stable, official. A personal number is for when the client must talk to a human, not "@bot." I often set up both: the bot qualifies, the human closes.
+
+**What does it cost and how long does it take?**
+A basic single-channel link with notifications and auto-deals starts at €600 and usually takes 1–2 weeks. Two-way sync, dedup, and routing cost more, depending on the logic.
+
+---
+
+If leads are leaking out of your messengers, [drop me a message](/en/contact) — in 30 minutes I'll map your flow and tell you exactly where the hole is and how to close it.

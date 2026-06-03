@@ -1,0 +1,129 @@
+---
+title: "Make, n8n czy Zapier: co wybrać do automatyzacji (2025–2026)"
+description: "Uczciwe porównanie Make, n8n i Zapier: realne ceny, limity operacji, self-hosting, próg wejścia i kiedy porzucić no-code na rzecz własnego kodu."
+date: "2026-02-11"
+cluster: "make-vs-n8n-vs-zapier"
+keywords:
+  - "make vs zapier vs n8n"
+  - "porównanie make n8n zapier"
+  - "n8n self-hosting"
+  - "limity operacji zapier"
+  - "najlepsze narzędzie do automatyzacji 2026"
+---
+
+W skrócie, bez owijania: **Zapier** — gdy musisz połączyć dwie aplikacje w 10 minut i nie jesteś programistą. **Make** — gdy logika to coś więcej niż „trigger → akcja", a liczysz pieniądze. **n8n** — gdy wolumen urósł, dane muszą zostać na własnym serwerze albo chcesz płacić prawie zero i nie boisz się Dockera. Buduję automatyzacje na wszystkich trzech i dobieram pod zadanie, nie pod hype. Poniżej: gdzie każde realnie wygrywa i kiedy wyrośniesz z no-code.
+
+## Najważniejsza różnica to model rozliczeń
+
+To pierwsze, co myli ludzi i przez co przepłacają 3–5x. Każde liczy „pracę" inaczej.
+
+- **Zapier** liczy **taski (tasks)**. Jeden task = jedna akcja. Scenariusz „formularz → zapis do Google Sheets → wiadomość na Slack" = 2 taski na uruchomienie. 100 zgłoszeń miesięcznie = 200 tasków.
+- **Make** liczy **operacje (operations)**. Każdy moduł-krok w scenariuszu to jedna operacja. Ten sam 3-krokowy przepływ = 3 operacje na uruchomienie. Podobnie do Zapiera, ale operacje są wyraźnie tańsze.
+- **n8n** liczy **executions (całe uruchomienia workflow)**. Workflow z 20 krokami = **1 execution**. I tu, przy skali, kryje się różnica w pieniądzach.
+
+Zapamiętaj tę liczbę: workflow z 20 krokami uruchamiany 1000 razy w miesiącu to 1000 executions w n8n, ale 20 000 operacji w Make i 20 000 tasków w Zapierze. Przy identycznym obciążeniu rachunki różnią się wielokrotnie.
+
+## Realne ceny (2025–2026)
+
+| | Zapier | Make | n8n (Cloud) | n8n (self-hosted) |
+|---|---|---|---|---|
+| Plan darmowy | 100 tasków/mies., Zapy 2-krokowe | 1 000 operacji/mies., 2 scenariusze | trial | bez limitu* |
+| Start (płatny) | ~$20/mies., 750 tasków | ~$9–10/mies., 10 000 operacji | €24/mies., 2 500 executions | ~€5–10/mies. (serwer) |
+| Poziom biznes | $50–100+/mies. | $30–60/mies. | €60/mies., 10 000 executions | ten sam serwer |
+| Liczy | taski (akcje) | operacje (kroki) | executions (uruchomienia) | executions |
+| Self-hosting | nie | nie | nie | **tak** |
+| Integracje | 7 000–8 000+ | 2 000+ | 400+ node'ów + dowolne HTTP/API | to samo |
+| Własny JS/kod | ograniczony | tak (moduł kodu) | **tak, pełny** | tak |
+
+\* Self-hosted n8n (Community Edition) nie ma limitu executions, workflow ani objętości danych — ogranicza Cię tylko moc serwera. Płacisz hostingowi (VPS €5–10/mies.), nie n8n.
+
+Jedno ostrzeżenie co do Make: od końca sierpnia 2025 przeszli z „operacji" na **kredyty**. Większość akcji konwertuje się 1:1, ale część (moduły AI, ciężkie operacje) zjada teraz więcej. Policz własny scenariusz, nie cenę z reklamy.
+
+## Próg wejścia
+
+**Zapier** — najprostszy. Liniowy kreator „jeśli to → wtedy to". Można złożyć działającą automatyzację, ani razu nie otwierając dokumentacji. Cena prostoty to sufit: rozgałęzienia, pętle i złożona logika są albo niewygodne, albo niemożliwe.
+
+**Make** — wizualny graf modułów połączonych strzałkami. Widzisz cały przepływ danych — rozgałęzienia, iteratory, agregatory. Kilka wieczorów na opanowanie. To złoty środek: mocniejszy od Zapiera, wciąż no-code.
+
+**n8n** — wygląda jak Make (node'y, połączenia), ale jest dla ludzi, którym nie przeszkadza wrzucenie kawałka JavaScriptu w node. Bez programistycznego myślenia próg jest wyższy. W zamian sufit złożoności praktycznie nie istnieje.
+
+## Kiedy wygrywa każde z nich
+
+### Zapier wygrywa, gdy
+
+- Nie jesteś programistą i potrzebujesz tego na wczoraj.
+- Potrzebujesz niszowej integracji — Zapier ma 7 000+, najwięcej ze wszystkich.
+- Wolumen jest mały: dziesiątki–setki tasków miesięcznie.
+- Zespół jest nietechniczny i musi sam edytować automatyzacje.
+
+Gdzie uderzysz w ścianę: przy rosnącym wolumenie rachunek rośnie liniowo i boleśnie. 5–10 aktywnych Zapów przy przyzwoitym ruchu to już $50–100+/mies., a dalej tylko gorzej.
+
+### Make wygrywa, gdy
+
+- Logika to coś więcej niż liniowa: rozgałęzienia, filtry, pętle po tablicach, agregacja.
+- Chcesz mocy na poziomie Zapiera, ale płacić mniej więcej jedną trzecią.
+- Chcesz wizualnej kontroli nad przepływem danych (debugowanie krok po kroku jest świetne).
+- Wolumen jest średni i przewidywalny.
+
+Dla 80% małych firm Make to właściwy domyślny wybór. Najczęściej tu zaczynam.
+
+### n8n wygrywa, gdy
+
+- Wolumen jest duży, a rozliczenie za operacje/taski staje się rozbojem.
+- Dane **muszą** zostać na Twojej infrastrukturze (prawo, medycyna, finanse, wrażliwe na RODO).
+- Potrzebujesz prawdziwego kodu: własne funkcje JS/Python, niestandardowe API, własna logika.
+- Masz kogoś technicznego (siebie lub wykonawcę), kto ogarnie serwer.
+- Chcesz agentów AI z narzędziami — n8n jest tu najmocniejszy.
+
+Gdzie boli: self-hosting to obowiązek. Aktualizacje, backupy, łatki bezpieczeństwa, uptime. Serwer za €7 miesięcznie to nie „za darmo" — to „za darmo plus Twój czas".
+
+## Przykład z praktyki: policzmy
+
+Sklep internetowy: 1 500 zamówień miesięcznie. Każde zamówienie uruchamia 8-krokowy scenariusz (weryfikacja płatności, zapis do CRM, mail do klienta, powiadomienie magazynu, aktualizacja arkusza, tag, Slack, wysyłka do księgowości).
+
+- **Zapier:** 1 500 × 8 = 12 000 tasków/mies. → plan Professional, ~$70–100/mies.
+- **Make:** 1 500 × 8 = 12 000 operacji/mies. → ~$30–40/mies.
+- **n8n self-hosted:** 1 500 executions → VPS za €7/mies., z zapasem na wzrost o rząd wielkości.
+
+Ta sama automatyzacja, różnica w rachunku 10x+. Przy takim wolumenie self-hosted n8n zwraca godzinę konfiguracji w kilka tygodni.
+
+## Kiedy porzucić no-code i napisać własny kod
+
+No-code jest świetny, dopóki mieścisz się w jego granicach. Sygnały, że już z niego wyrosłeś:
+
+- **Scenariusz stał się nieczytelny.** 40+ modułów, których nikt poza autorem nie zrozumie. To już nie „low-code", to spaghetti w przeglądarce.
+- **Potrzebujesz transakcji i spójności.** Pieniądze, stany magazynowe, rezerwacje — tam, gdzie wpół wykonany scenariusz to błąd, a nie „no trudno".
+- **Latencja i wolumen.** No-code dokłada narzut na każdym kroku. Tysiące uruchomień na minutę to nie jego liga.
+- **Złożony stan i logika biznesowa.** Gdy logiki jest więcej niż „wywołaj to API", kod wyrazi ją czyściej i taniej w utrzymaniu.
+- **Koszt operacji przerósł pensję.** Gdy rachunek no-code kosztuje jak mała usługa, czasem taniej napisać tę usługę raz.
+
+Szczerze: często zostawiam **hybrydę**. n8n lub Make orkiestrują proste fragmenty, a ciężka logika żyje we własnym serwisie (Node/Python) wołanym przez webhook. Najlepsze z obu światów.
+
+## Moja rekomendacja według scenariusza
+
+- **Nie programista, szybko, mały wolumen** → **Zapier**.
+- **Mała/średnia firma, nietrywialna logika, chcesz oszczędzić** → **Make**.
+- **Duży wolumen / własne dane / potrzeba kodu / agenci AI** → **n8n (self-hosted)**.
+- **Złożone transakcje, duże obciążenie, krytyczna spójność** → **własny kod** (często w parze z n8n).
+
+Nie wybieraj narzędzia „na zawsze". Regularnie przenoszę klientów z Zapiera na Make wraz ze wzrostem wolumenu, a z Make na n8n — gdy ścianą staje się cena lub prywatność.
+
+## FAQ
+
+**Czy n8n jest naprawdę darmowy?**
+Community Edition tak — licencja pozwala na darmowe użycie, również w biznesie. Płacisz tylko za serwer (VPS €5–10/mies.). Jest też płatny n8n Cloud, jeśli nie chcesz bawić się w serwer.
+
+**Czy Make naprawdę kosztuje jedną trzecią tego co Zapier?**
+Przy porównywalnym obciążeniu zwykle tak, bo operacje są tańsze niż taski. Ale po przejściu Make na kredyty (sierpień 2025) policz własny scenariusz — zwłaszcza jeśli używasz modułów AI.
+
+**Czy mogę zacząć na Zapierze i przejść później?**
+Tak i to normalna ścieżka. Logikę przenosi się ręcznie — migracji „jednym kliknięciem" nie ma — ale przy jasnych scenariuszach to dzień lub dwa pracy.
+
+**Co wybrać do agentów AI?**
+n8n — ma najlepsze wsparcie node'ów LLM, narzędzi i wzorców agentowych od ręki. Make potrafi moduły AI, ale kosztują więcej w kredytach. Zapier jest tu najsłabszy z trójki.
+
+---
+
+Dobieram stack pod Twoje obciążenie, budżet i wymagania co do danych — bez przywiązania do jednego dostawcy. [Automatyzacja procesów biznesowych](/pl/uslugi/automatyzacja-procesow) to usługa, w której robię to kompleksowo.
+
+Opisz swój proces — w 30 minut powiem, czy to Zapier, Make, n8n, czy już własny kod: [napisz do mnie](/pl/kontakt).

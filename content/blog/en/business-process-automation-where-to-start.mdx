@@ -1,0 +1,118 @@
+---
+title: "Business Process Automation: Where to Start in 2025–2026"
+description: "Business process automation pays off when you start with one expensive process, not all of them. Here's the ROI formula, the tools, and the order to do it in."
+date: "2026-01-14"
+cluster: "automation-where-to-start"
+keywords:
+  - "business process automation"
+  - "where to start automation"
+  - "no-code automation"
+  - "Make n8n Zapier"
+  - "automation ROI"
+---
+
+You don't start business process automation by picking a tool, and you don't start by "digitizing everything." You find the **one** process that repeats most often and costs the most, and you automate only that. Then the next one. Everything else is a way to spend money with nothing to show for it.
+
+I'm Alex. I build automation for small businesses in Warsaw as one person, with no agency markup. Here's how I decide what to automate first, and how I work out whether it pays off.
+
+## Do the math first, don't "digitize"
+
+Nine out of ten articles tell you to "analyze your processes and set KPIs." True, but useless without numbers. Here's the formula I actually use to decide whether something is worth building:
+
+> **minutes per run × runs per month ÷ 60 × hourly rate**
+
+Example. Someone issues invoices by hand: 12 minutes per invoice, 90 invoices a month.
+
+- 12 × 90 ÷ 60 = **18 hours a month**.
+- At an €15/hour loaded rate that's **≈€270/month**, or ~€3,200/year on one process alone.
+
+Now it's obvious: a €600 automation pays for itself in roughly **2–3 months**. And automating a process that takes 40 minutes a month will never pay back — so don't touch it.
+
+Build this little table for 5–7 routine processes. Whichever one has the most "hours per month" is your first candidate. Not the most annoying one — the most expensive one.
+
+## What's actually worth automating first
+
+Across my projects in Poland, three things pay back fastest. Not because they're trendy, but because they repeat dozens of times a week and have almost no exceptions.
+
+### 1. Inbound lead handling
+
+Website form → lead lands in the CRM → a Telegram notification fires to the salesperson → an auto-reply goes to the client: "got it, we'll respond within the hour." Today this is often done by hand, with a 2–3 hour delay, and some leads quietly leak away.
+
+Automation closes the gap to seconds. A first reply in 60 seconds instead of 3 hours is a conversion difference, not a cosmetic one.
+
+### 2. Invoicing and documents
+
+Client data flows from the CRM straight into the invoicing system (iFirma, wFirma, Fakturownia, or your stack), the invoice generates and sends with no human touch. Same workflow handles overdue-invoice reminders.
+
+### 3. Moving data between systems
+
+The quietest time sink: someone copies data from email into a spreadsheet, from the spreadsheet into the CRM, from the CRM into Excel for a report. Every copy-paste is both time and an error waiting to happen. Wiring the systems together kills both.
+
+Notice: none of the three is "AI." Most small-business automation isn't about artificial intelligence at all — it's about getting two programs to talk to each other.
+
+## No-code or code: where the line is
+
+This is the first question I get, and the answer depends on the process, not on fashion.
+
+**No-code / low-code (Make, n8n, Zapier)** fits when:
+
+- The process is clear and mostly linear ("if a lead comes in, do A, B, C").
+- Exceptions are rare — fewer than 15–20% of cases go off-script.
+- You're connecting popular services that already have ready-made connectors.
+
+**Zapier** is the easiest, but it gets expensive at volume. **Make** gives you more flexible scenarios for less money. **n8n** can run on your own server — then you pay only for hosting (~€20–50/month) instead of per operation, and your data never leaves your side. For a Poland-based business with data requirements, that's often the deciding argument.
+
+**Full code** is needed when:
+
+- The logic is complex, with lots of branching and more than 20% exceptions.
+- Volume is high and the no-code subscription balloons to €300–500/month.
+- You need to integrate with a system that has no ready connector, only an API.
+
+In practice I start with no-code for the MVP and move to code only the parts where no-code hits a ceiling on price or flexibility. Not ideology — economics.
+
+## Minimum viable automation
+
+The big mistake is trying to automate the whole process in one go: the data handoff, the enrichment, the deduplication, the analytics, the alerts, all at once. The result is slow, expensive, and fragile.
+
+I do the opposite. First, **just the handoff and the logging** — the most boring, most frequent piece. Ship it, watch **7 clean days** with no failures. Only then add data enrichment, dedupe checks, alerts. Each layer goes on after the previous one has proven it works.
+
+That way the first result shows up in a week, not two months, and you don't pay for features you turn out not to need.
+
+## Common mistakes
+
+1. **Automating chaos.** If the process isn't defined and everyone does it their own way, you'll automate the mess and get a faster mess. Sort it out by hand first, learn what works, then lock it into code.
+2. **Starting with a tool, not a problem.** "We need Make" is not a task. "We lose 18 hours a month on invoicing" is.
+3. **Automating the rare.** A 40-minutes-a-month process isn't worth your time or mine.
+4. **Full autonomy with no human.** Money movements, anything sent to clients, data deletion — always behind a human confirmation, or at minimum a log you can check.
+5. **No owner.** If nobody watches the automation, the first failure sends everyone back to manual and the workflow quietly dies.
+
+## A simple roadmap
+
+If you want to start yourself, step by step:
+
+1. **List 5–7 routine processes** and run the formula above to see how many hours a month each one eats.
+2. **Take the most expensive one** of those that repeat often and have few exceptions.
+3. **Write it out step by step** — what, from where, to where, under what condition. If you can't describe it, it's too early to automate.
+4. **Build an MVP** in no-code: handoff and logging only. Ship it.
+5. **Let it run a week.** Measure the time actually saved.
+6. **Paid off? Take the next process.** Didn't? Find out why before you scale.
+
+For budget orientation: automating a single process starts at €600 one-time with me, plus subscriptions or hosting (often €0–25/month on n8n). More on the approach and examples on the [business process automation](/en/services/automation) page.
+
+## FAQ
+
+**How much does it cost to automate one process?**
+From €600 for one process on no-code/low-code. Plus subscriptions or hosting — usually €0–25/month if we run n8n on your own server. Complex multi-step scenarios with code cost more; I quote per task.
+
+**How fast does it pay back?**
+By the "hours × rate" formula. A typical case saving 15–20 hours a month pays back in 2–3 months. If the math says payback takes over a year, it's too early to automate that process.
+
+**Make, n8n, or Zapier — which one?**
+Zapier is the simplest but gets pricey at volume. Make is more flexible for the same money. n8n runs on your own server, cheap at volume, and your data stays with you. For Poland-based businesses with data requirements I usually reach for n8n.
+
+**What if the process changes later?**
+A well-built automation is modular: you change one block, not the whole chain. That's exactly why I don't wire everything into one monolith — later edits stay cheap.
+
+---
+
+If you have a process that's clearly eating hours every week — [drop me a line](/en/contact), and in 30 minutes we'll work out whether automating it pays off.

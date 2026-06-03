@@ -1,0 +1,114 @@
+---
+title: "Ile kosztuje chatbot AI lub agent dla firmy w 2025–2026"
+description: "Realne ceny budowy chatbota i agenta AI: od €1200 za bota pod jedno zadanie do €5000 za agenta wielonarzędziowego z CRM. Plus koszty API. Bez lania wody."
+date: "2026-02-25"
+cluster: "ai-chatbot-cost"
+keywords:
+  - "ile kosztuje chatbot AI"
+  - "cena agenta AI"
+  - "koszt stworzenia chatbota"
+  - "ile kosztuje agent AI"
+---
+
+Krótka odpowiedź: chatbot pod jedno zadanie kosztuje **od €1200**, asystent RAG na Twojej bazie wiedzy to **€1500–3000**, a agent wielonarzędziowy z CRM i integracjami **€2000–5000**. Do tego tokeny API: **€30–80/mies.** przy 1000+ rozmów miesięcznie na tańszych modelach. To budowa pod siebie, którą posiadasz — nie subskrypcja gotowej platformy.
+
+Długa odpowiedź niżej: co dokładnie podbija cenę, gdzie da się ciąć, a gdzie cięcie wróci drożej.
+
+## Co właściwie wyceniamy
+
+Pytając "ile kosztuje chatbot", ludzie mylą trzy różne rzeczy:
+
+1. **Subskrypcję gotowej platformy.** Tidio, ManyChat, Intercom. Od €15 do €500/mies. Nie posiadasz logiki, płacisz wiecznie, ograniczasz się do tego, co umie kreator.
+2. **Budowę pod siebie (jednorazowo + utrzymanie).** Twój kod, Twoja logika, dowolna integracja. O tym jest ten tekst.
+3. **Projekt korporacyjny.** Contact center na 50 stanowisk, compliance, on-premise. €50 000+ i osobna rozmowa.
+
+Większość małych i średnich firm trafia do drugiego koszyka. Dalej tylko o nim.
+
+## Trzy poziomy: chatbot, agent RAG, wielonarzędziowy
+
+Cena skacze nie od liczby przycisków, lecz od tego, **co bot robi**.
+
+**Chatbot pod jedno zadanie** — odpowiada według scenariusza lub krótkiej bazy FAQ. Nie wywołuje zewnętrznych funkcji, nie zapisuje do CRM. Przyjmuje pytanie, daje odpowiedź.
+
+**Agent RAG** — odpowiada na podstawie faktów z Twojej bazy wiedzy (dokumenty, cenniki, regulaminy), a nie "zmyśla". RAG = wyszukiwanie po Twoich danych + odpowiedź ściśle z tego, co znaleziono. Jeśli odpowiedzi nie ma w bazie, mówi "nie wiem" i przekazuje człowiekowi.
+
+**Agent wielonarzędziowy** — rozmowa plus działania. Sprawdza kalendarz, rezerwuje termin, zapisuje lead do CRM, wysyła potwierdzenie, przesuwa po lejku. Tu wchodzi function calling — model sam decyduje, którą funkcję wywołać i z jakimi parametrami. Więcej o różnicy w materiale [czym jest agent AI](/pl/uslugi/agenci-ai).
+
+## Tabela: ceny budowy
+
+| Typ | Co robi | Budowa (jednorazowo) | API/mies. (1000+ rozmów) | Czas |
+|---|---|---|---|---|
+| Chatbot pod jedno zadanie | Scenariusz lub FAQ, jeden kanał | €1200–2000 | €30–50 | 1–2 tyg. |
+| Agent RAG | Odpowiedzi z bazy wiedzy | €1500–3000 | €40–80 | 2–4 tyg. |
+| Wielonarzędziowy + CRM | Rozmowa + działania + integracje | €2000–5000 | €50–120 | 3–6 tyg. |
+
+Ceny zakładają jeden–dwa kanały i jasny proces. Dalej to, co je podbija i obniża.
+
+## Co podbija cenę
+
+- **Liczba integracji.** Jeden CRM przez API to kilka dni. CRM + kalendarz + płatności + e-mail + Telegram + WhatsApp to już €4000–5000, bo każda integracja wymaga własnej obsługi błędów i testów.
+- **Rozmiar i bałagan bazy wiedzy.** 20 czystych FAQ — szybko. 400 PDF-ów w różnych formatach do sparsowania i wyczyszczenia — to osobna praca za €500–1500.
+- **Kanały.** Widżet na stronie to baza. WhatsApp Business API, Telegram, Instagram — każdy kanał to własna autoryzacja i własne zasady.
+- **Wielojęzyczność.** PL/EN/UA/RU w jednym agencie to architektura, nie checkbox. +20–30% do ceny.
+- **Wymagania co do dokładności.** Tematyka prawna lub medyczna, gdzie halucynacja = ryzyko. Tryb ścisłego cytowania, testy, człowiek w pętli — drożej.
+- **Dashboard i analityka.** Tagi, ręczne poprawki, statystyki rozmów — to osobny frontend.
+
+## Co obniża cenę
+
+- **Jedno zadanie zamiast "wszystko naraz."** Bot kwalifikujący leady — €1500. Bot, który "sprzedaje, wspiera, rezerwuje i liczy" — €5000 i ryzyko, że nic nie dopracujesz.
+- **Czysta baza wiedzy.** Daj 30 gotowych pytań i odpowiedzi zamiast chaotycznego folderu, a oszczędzisz tydzień.
+- **Jeden kanał na start.** Uruchom na stronie, dopracuj, potem rozszerzaj.
+- **Tani model tam, gdzie wystarcza.** GPT-4o-mini lub Gemini Flash radzą sobie z 80% zadań wsparcia. Drogi model nie jest potrzebny wszędzie.
+
+## Koszt miesięczny: skąd się bierze
+
+To nie subskrypcja, tylko płatność za faktyczne użycie. Dwie części.
+
+**Tokeny API.** Każda rozmowa to zapytanie do modelu, rozliczane za ilość tekstu na wejściu i wyjściu.
+
+- GPT-4o-mini / Gemini Flash: **€30–80/mies.** przy 1000 rozmów.
+- GPT-4o / Claude Sonnet: **€100–400/mies.** przy tym samym wolumenie.
+
+Rozpiętość w wierszu wynika z długości rozmów i rozmiaru kontekstu (duża baza wiedzy = więcej tokenów na zapytanie).
+
+**Hosting.** Vercel, Cloudflare Workers, Railway — **€0–25/mies.** przy typowym obciążeniu małej firmy. RAG wymaga bazy wektorowej (Pinecone, Supabase pgvector) — kolejne **€0–20/mies.**
+
+Razem typowy agent RAG na tanim modelu: **€40–100/mies.** w pracy. Porównaj z tym, ile gotowa platforma weźmie za ten sam wolumen w subskrypcji — często €200–500/mies., i bez prawa do własnego kodu.
+
+## ROI: kiedy się zwraca
+
+Liczyć trzeba nie "ile kosztuje bot", lecz "ile kosztuje to, co zastępuje".
+
+Konsultant pierwszego kontaktu w Polsce to **€800–2000/mies.** Jeśli agent zdejmuje 30–50% jego rutyny (kwalifikacja leadów, typowe pytania, rezerwacje), budowa za €2500 zwraca się w 2–3 miesiące, a dalej płacisz tylko €50–100/mies. za API.
+
+Gdzie się NIE zwraca:
+
+- **Poniżej 50 leadów miesięcznie** — odpowiadanie samemu jest tańsze i szybsze.
+- **Proces jeszcze nieustabilizowany** — najpierw dopracuj ręcznie, potem automatyzuj. Inaczej zakodujesz chaos.
+- **Złożony produkt, gdzie pierwszy kontakt = ekspertyza.** Tu bot jest przeszkodą, nie pomocą.
+
+## Tanio vs. dobrze
+
+"Agent AI pod klucz za €99" z reklamy to albo nakładka na cudze API bez kontroli z Twojej strony, albo platforma, z której nie odejdziesz. Darmowe plany kreatorów nadają się do sprawdzenia hipotezy, nie do prowadzenia firmy.
+
+*Dobrze* tani bot to **wąskie zadanie, tani model, czysta baza, jeden kanał**. Taki kosztuje €1200–1500, zwraca się i się nie rozpada.
+
+*Źle* tani bot to ten, gdzie oszczędzono na obsłudze błędów, testach i człowieku w pętli. Działa w demie, psuje się na trzecim realnym kliencie. Przeróbka kosztuje więcej niż zrobienie dobrze od razu.
+
+## FAQ
+
+**Czym chatbot różni się od agenta AI w cenie?**
+Chatbot odpowiada — od €1200. Agent działa (CRM, kalendarz, płatności) — od €2000. Różnica w cenie to liczba integracji i obsługa błędów, nie "inteligencja" modelu.
+
+**Ile realnie kosztuje API miesięcznie?**
+Na tanich modelach (GPT-4o-mini, Gemini Flash) €30–80 przy 1000+ rozmów. Na drogich (GPT-4o, Claude Sonnet) €100–400. Dokładna kwota zależy od długości rozmów i rozmiaru bazy wiedzy.
+
+**Czy da się zmieścić w €1200?**
+Tak — chatbot pod jedno zadanie, jeden kanał, gotowa baza FAQ. Wszystko ponad to (CRM, kilka kanałów, wielojęzyczność) podbija cenę.
+
+**Czy subskrypcja gotowej platformy nie jest tańsza?**
+Na start tak. W horyzoncie roku często nie: €200–500/mies. subskrypcji kontra €50–100/mies. API plus Twój własny kod. I z platformy nie odejdziesz bez przeróbki.
+
+---
+
+Chcesz konkret pod swoje zadanie, a nie zakres z artykułu? [Napisz](/pl/kontakt) — w 30 minut omówimy proces i dam wycenę z ceną stałą.

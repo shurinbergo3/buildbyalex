@@ -1,0 +1,143 @@
+---
+title: "Multilingual Website for Business in Poland: hreflang & SEO"
+description: "How to build a multilingual website for a business in Poland the right way: localized URLs, hreflang reciprocity, x-default, the duplicate-content myth and local SEO."
+date: "2026-04-22"
+cluster: "multilingual-site-poland"
+keywords:
+  - "multilingual website SEO"
+  - "hreflang"
+  - "website for business in Poland"
+  - "international SEO"
+  - "local SEO Warsaw"
+---
+
+If you run a business in Warsaw or anywhere in Poland, you almost certainly need a site in at least two languages: Polish plus one or two of English, Russian, Ukrainian. Not because it looks nice, but because your customer searches in their own language, and Google shows them whatever version you gave it. No version means the customer goes to a competitor who has one.
+
+Here's how to do it technically right, without the two mistakes that sink most attempts: broken hreflang and the fear of "duplicate content" that doesn't actually exist.
+
+## Who in Poland actually needs a multilingual site
+
+Not everyone. If you're a neighborhood café serving only local Poles, Polish alone is fine. But in Warsaw that's the rare case.
+
+A multilingual site is mandatory if:
+
+- **You serve the diaspora.** Poland is home to over a million Ukrainians and hundreds of thousands of Russian speakers. If you're a dentist, lawyer, realtor, beauty professional, or fitness coach, half your market isn't searching in Polish.
+- **You're B2B with foreign clients.** Then you need English, and often it's the primary language, not Polish.
+- **You sell services to migrants.** Legalization, accounting, translation, relocation. Here the client's language is the product itself.
+
+For buildbyalex the typical stack is **PL + EN + RU + UA**: Polish for the local market and Google.pl, English for international clients and expats, Russian and Ukrainian for the diaspora.
+
+## The core rule: one language, one URL
+
+The most common mistake is switching language via cookie or JavaScript without changing the address. The content changes, but the URL stays `myfirm.pl/services`. To Google that's **one page**. It never sees the Russian version, never indexes it, never shows it to a Russian-speaking user.
+
+Every language version must live on its own unique URL. There are three working options:
+
+1. **Subdirectories:** `myfirm.pl/pl/`, `myfirm.pl/ru/` — my default choice. One domain, all SEO authority pools in one place, simple to set up.
+2. **Subdomains:** `ru.myfirm.pl` — harder, authority gets diluted.
+3. **Separate domains:** `myfirm.pl` and `myfirm.ru` — only if you genuinely have different markets and budgets.
+
+For a business in Poland the right answer in 99% of cases is subdirectories on a single `.pl` domain.
+
+### Localized slugs, not just a language prefix
+
+This is where people do half the job and stop: they translate the content but leave the URL in English or transliteration. That's a missed opportunity.
+
+Compare:
+
+```
+Bad:   myfirm.pl/ru/services
+Good:  myfirm.pl/ru/uslugi
+       myfirm.pl/pl/uslugi-prawne
+       myfirm.pl/ua/poslugy
+```
+
+A slug is also text — Google reads it and the user sees it. A localized URL puts a keyword right in the address and improves click-through in the results. On buildbyalex that's exactly the setup: [/en/services/websites](/en/services/websites) for the English version, with its own slug per language.
+
+## hreflang: how to connect the versions
+
+You have localized URLs. Now you need to tell Google that these are **the same page in different languages**, not four random pages. That's what the `hreflang` attribute does.
+
+In the `<head>` of each version you list all the others plus the page itself:
+
+```html
+<link rel="alternate" hreflang="pl" href="https://myfirm.pl/pl/uslugi" />
+<link rel="alternate" hreflang="ru" href="https://myfirm.pl/ru/uslugi" />
+<link rel="alternate" hreflang="uk" href="https://myfirm.pl/ua/poslugy" />
+<link rel="alternate" hreflang="en" href="https://myfirm.pl/en/services" />
+<link rel="alternate" hreflang="x-default" href="https://myfirm.pl/pl/uslugi" />
+```
+
+Three things have to be correct, or Google ignores the entire block:
+
+### 1. Reciprocity
+
+If the Polish page links to the Russian one via hreflang, the Russian page **must** link back to the Polish one. The relationship only works both ways. A one-way link means Google drops the whole cluster. Analysis of live implementations shows roughly 75% of hreflang setups contain exactly this error: a missing return tag.
+
+### 2. x-default
+
+The `x-default` line tells Google which version to serve a user whose language you didn't anticipate. A Czech, a German, a Spaniard — where do they go? Usually to the English or Polish version. Not strictly required, but strongly recommended.
+
+### 3. Self-canonical, not cross-canonical
+
+Each language version points its canonical **at itself**:
+
+```html
+<!-- on the page /ru/uslugi -->
+<link rel="canonical" href="https://myfirm.pl/ru/uslugi" />
+```
+
+The common disaster is setting the canonical on every language version to the Polish one. You're literally telling Google: "the Russian and Ukrainian versions are copies, don't index them." And it won't. Each version is its own canonical.
+
+Language codes follow ISO 639-1: `pl`, `ru`, `en`. For Ukrainian use **`uk`** (not `ua`; `ua` is a country code, not a language code — though `ua` is fine as a URL prefix).
+
+## The duplicate-content myth
+
+The main fear that stops businesses from going multilingual: "Google will penalize me for duplicate content."
+
+It won't. That's a myth.
+
+The same content **in different languages** is not a duplicate. A Polish text and its Russian translation are two different pages with different content as far as Google is concerned, because the words are literally different. There's no penalty that can physically apply here.
+
+A duplicate is when **the same language** page is reachable at multiple addresses (with and without `www`, with and without a trailing `/`, with UTM tags). That's solved with self-canonical. Translations are precisely what hreflang exists for.
+
+The one real danger is raw machine translation published as-is. Google treats that as low-quality content and may demote it. Translation should be done by a human who understands the market. A machine draft is fine, but only with native-speaker editing on top.
+
+## Local SEO for the Polish market
+
+Multilingual is half the job. The other half is being found locally.
+
+- **Google Business Profile** in Polish, tied to your Warsaw address. This is the top source of local customers.
+- **Local keywords in slugs and titles:** not just "legal services" but "lawyer in Warsaw," "prawnik Warszawa."
+- **NAP consistency:** name, address, phone written identically on the site, in Google, and in directories.
+- **LocalBusiness schema** with address, hours, and service area.
+- **Local phone and address** in a visible spot. The Polish customer needs to see you're actually here, not a call center abroad.
+
+Local signals are shared across all language versions — Google understands this is one business in one place, just talking to customers in their languages.
+
+## Common mistakes
+
+- **The language switcher breaks the URL** — the version never gets indexed.
+- **No return hreflang link** — the whole cluster is ignored.
+- **Cross-canonical to the main language** — translations drop out of the index.
+- **Machine translation without editing** — demotion for low quality.
+- **One slug for all languages** (`/ru/services`) — you lose keywords in the URL.
+- **Translated the menu, forgot the meta tags** — title and description stay in Polish in the Russian results.
+
+## FAQ
+
+**Will Google penalize the same text in different languages?**
+No. A translation isn't a duplicate. A duplicate is identical content in one language across different URLs, solved with self-canonical. Translations are what hreflang is built for.
+
+**Subdirectories, subdomains, or separate domains?**
+For a business in Poland, subdirectories (`/ru/`, `/pl/`) on a single `.pl` domain. All SEO authority pools in one place and maintenance is simpler.
+
+**Do I need hreflang with only two languages?**
+Yes. Even for PL + EN. Without it Google may show the English version to a Polish user and vice versa, and both versions compete against each other in the results.
+
+**Can I use machine translation?**
+As a draft, yes. But publishing raw machine translation is a no: Google demotes it and the customer feels the fakeness. At minimum, native-speaker editing tuned to the market.
+
+---
+
+I build multilingual sites with localized URLs and correct hreflang at the core — not a plugin bolted onto a finished site, but architecture from day one. [Get in touch](/en/contact) and within 24 hours of a short call you'll have a fixed quote.

@@ -1,0 +1,106 @@
+---
+title: "Ile kosztuje aplikacja mobilna w 2025–2026 (iOS + Android)"
+description: "Realny koszt stworzenia aplikacji mobilnej na iOS i Android w 2025–2026: MVP od €3000, ceny według złożoności, cross-platform, terminy realizacji."
+date: "2026-03-25"
+cluster: "mobile-app-cost"
+keywords:
+  - "ile kosztuje aplikacja mobilna"
+  - "koszt stworzenia aplikacji mobilnej"
+  - "cena aplikacji iOS Android"
+  - "tworzenie aplikacji React Native"
+---
+
+Krótka odpowiedź: działająca aplikacja mobilna na iOS i Android w 2025–2026 kosztuje **od €3000 za MVP do €30 000+ za pełny produkt**. MVP za €3000 to jedna aplikacja na obie platformy w 4–8 tygodni — nie „od 99 zł" z reklamy.
+
+Dłuższa odpowiedź jest poniżej. Konkretne kwoty w euro, bez agencyjnych widełek „od 20 tys. do 500 tys. zł", według których nie da się zaplanować budżetu.
+
+## Co decyduje o cenie
+
+Trzy rzeczy:
+
+1. **Co aplikacja robi.** Lista treści z powiadomieniami push to jedno. Marketplace z logowaniem, płatnościami, czatem i mapą to coś zupełnie innego.
+2. **Jak jest zbudowana.** Natywnie (osobny kod Swift na iOS i Kotlin na Android) czy cross-platform (jeden kod React Native + Expo na obie platformy).
+3. **Kto ją robi.** Junior za €1000, który nie doprowadzi do publikacji w sklepach; agencja za €50 000; albo jeden senior, który składa całość — to trzy różne produkty.
+
+## Natywnie kontra cross-platform
+
+To główne rozwidlenie, które decyduje o połowie budżetu.
+
+**Natywnie** to dwie osobne aplikacje. Jeden programista na Swift dla iOS, drugi na Kotlin dla Androida. Płacisz dwa razy za tę samą funkcjonalność. Ma sens przy grach, ciężkiej grafice albo niskopoziomowej pracy z kamerą czy Bluetooth na granicy możliwości sprzętu.
+
+**Cross-platform (React Native + Expo)** to jeden kod, który kompiluje się do prawdziwych natywnych aplikacji na obie platformy. Około 90% kodu jest wspólne. To obniża budżet o 40–60% wobec natywnej budowy i zostawia jeden kod do utrzymania zamiast dwóch.
+
+Dla 90% aplikacji biznesowych — dostawa, rezerwacje, usługi, lojalność, narzędzia wewnętrzne — React Native to właściwy wybór. Instagram, Discord i Shopify działają na React Native. To nie jest kompromis.
+
+Buduję na **React Native + Expo**. Dlatego MVP startuje od €3000, a nie od €15 000, jak wycenia zespół natywny.
+
+## Ceny według złożoności
+
+| Typ | Co wchodzi | Cena | Termin |
+|---|---|---|---|
+| **MVP** | 1 aplikacja iOS+Android, 5–8 ekranów, logowanie, podstawowy backend, publikacja w obu sklepach | od €3000 | 4–8 tygodni |
+| **Standardowy produkt** | Płatności (Stripe / RevenueCat), push, profile, kanał treści, panel admina, analityka | €6000–15 000 | 8–14 tygodni |
+| **Złożona aplikacja** | Czat na żywo, mapy/geolokalizacja, tryb offline, role i uprawnienia, integracje z CRM/ERP | €15 000–30 000+ | 14–24 tygodni |
+
+### MVP — od €3000
+
+Minimalny działający produkt. 5–8 ekranów, rejestracja i logowanie, prosty backend, dane oraz — obowiązkowo — **publikacja w App Store i Google Play wliczona w cenę**. To pierwsza wersja, którą oddajesz realnym użytkownikom, żeby sprawdzić pomysł, zanim włożysz w niego €20 000.
+
+Za €3000 dostajesz jedną działającą aplikację na obu platformach, a nie prototyp w Figmie.
+
+### Standardowy produkt — €6000–15 000
+
+Gdy aplikacja ma model biznesowy. Tu wchodzą płatności: jednorazowe zakupy i checkout przez **Stripe**, subskrypcje w aplikacji przez **RevenueCat** (obsługuje billing Apple i Google w jednej integracji). Plus powiadomienia push, profile użytkowników, kanał treści, analityka i panel admina, którym zarządzasz samodzielnie.
+
+### Złożona aplikacja — €15 000–30 000+
+
+Czat na żywo, mapy z geolokalizacją, synchronizacja offline, role i uprawnienia, integracje z Twoim CRM lub magazynem. To już nie „aplikacja", tylko produkt, wokół którego budujesz biznes.
+
+## Koszty stałe (o których się zapomina)
+
+Cena budowy to nie cały koszt. Co dalej:
+
+- **Apple Developer Program** — $99/rok. Wymagany do publikacji w App Store.
+- **Google Play Console** — $25, jednorazowo. Płacisz raz, masz na zawsze.
+- **Backend i hosting** — €0–50/mies. na starcie (Supabase, Railway, Vercel mają darmowe plany pokrywające MVP). Rośnie z ruchem.
+- **Powiadomienia push** — darmowe przez Expo na starcie.
+- **Utrzymanie i aktualizacje** — załóż 15–20% kosztu budowy rocznie. iOS i Android wypuszczają nowe wersje co roku, aplikacja musi pozostać zgodna.
+
+## Czego zwykle brakuje w wycenie
+
+Te punkty zamieniają „€3000" w €5000 po starcie, jeśli nie ustalisz ich wcześniej:
+
+- **Design.** Własny UI pod markę zamiast komponentów systemowych dodaje 20–30%.
+- **Treści i teksty.** Opis do sklepów, zrzuty ekranu, ikona — kto je robi?
+- **Konta w sklepach.** Rejestracja Apple Developer trwa do tygodnia (weryfikacja). Zacznij wcześniej.
+- **Odrzucenia Apple.** Pierwsza publikacja bywa odrzucana przez drobiazg. Załóż 1–2 iteracje.
+
+## Ile biorę ja
+
+Jestem jednym senior fullstack developerem w Warszawie, nie agencją. Robię całą aplikację: design, kod, backend, publikację w obu sklepach.
+
+- **MVP od €3000.** iOS+Android, 4–8 tygodni, publikacja w cenie.
+- **Standardowy produkt od €6000.** Płatności, push, panel admina.
+- **Złożone — wycena indywidualna.** Po 30-minutowej rozmowie discovery dostajesz stałą wycenę z datą wydania.
+
+Cena końcowa jest ustalona przed startem. Żadnych dopłat, o których nie uprzedziłem. Więcej na stronie [tworzenie aplikacji mobilnych](/pl/uslugi/aplikacje-mobilne).
+
+## FAQ
+
+**Ile trwa stworzenie aplikacji?**
+MVP — 4–8 tygodni. Standardowy produkt — 8–14 tygodni. Złożona aplikacja — 14–24 tygodni. Jeśli ktoś obiecuje aplikację w tydzień, to szablon z kreatora, nie produkt.
+
+**Czy potrzebuję osobnych wersji na iOS i Android?**
+Nie. Z React Native + Expo jedna aplikacja działa na obu platformach z jednego kodu. Płacenie dwa razy nie ma sensu, chyba że robisz grę albo aplikację z ciężką grafiką.
+
+**Czy publikacja w App Store i Google Play jest w cenie?**
+Tak, u mnie jest. Wgrywam aplikację do obu sklepów, przygotowuję wizytówkę i doprowadzam do zatwierdzenia. Potrzebujesz tylko konta developera ($99/rok Apple, $25 jednorazowo Google).
+
+**Czy mogę dodać płatności i subskrypcje?**
+Tak. Płatności jednorazowe przez Stripe, subskrypcje w aplikacji przez RevenueCat, który obsługuje billing Apple i Google w jednej integracji.
+
+---
+
+Krótko: działająca aplikacja na iOS i Android w 2025–2026 kosztuje **€3000–15 000** dla większości zastosowań. Mniej to kompromis jakości albo niedokończone wydanie.
+
+Chcesz konkret pod swój projekt? [Napisz do mnie](/pl/kontakt) — w 24 godziny będziesz mieć stałą wycenę z datą wydania.

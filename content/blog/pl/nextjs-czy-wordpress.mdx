@@ -1,0 +1,102 @@
+---
+title: "Next.js czy WordPress: na czym zbudować stronę firmową w 2025–2026"
+description: "Uczciwe porównanie Next.js i WordPress: szybkość, Core Web Vitals, SEO, bezpieczeństwo, koszt na 3 lata. Kiedy co naprawdę wygrywa — bez reklamy."
+date: "2026-04-08"
+cluster: "nextjs-vs-wordpress"
+keywords:
+  - "next.js czy wordpress"
+  - "wordpress czy next.js"
+  - "next.js vs wordpress"
+  - "co wybrać next.js czy wordpress"
+---
+
+Krótka odpowiedź: zależy od tego, kto będzie wypełniał stronę treścią i jak często. Jeśli masz osobę, która co tydzień publikuje artykuły i nie chce dzwonić do programisty o każdy przecinek — WordPress wciąż ma sens. Jeśli ważniejsza jest szybkość, bezpieczeństwo, czyste techniczne SEO i strona, która za rok nie zamieni się w zoo wtyczek — wygrywa Next.js.
+
+Robię jedno i drugie (a właściwie częściej przenoszę klientów z WordPressa na Next.js niż odwrotnie), więc bez fanatyzmu. WordPress ma realne zalety. Next.js też. Rozłóżmy to na czynniki, z liczbami.
+
+## Porównanie w jednej tabeli
+
+| Kryterium | WordPress | Next.js |
+|---|---|---|
+| LCP (mobile, typowa strona) | 2–5 s | 0,4–1,2 s |
+| Zalicza Core Web Vitals | ~44% stron | ~3x częściej |
+| Hosting rocznie | 250–1100 PLN (+ wtyczki premium 450–2700 PLN) | 0–550 PLN (CDN / Vercel) |
+| Bezpieczeństwo | 11 000+ podatności w 2025, 90%+ we wtyczkach | brak wtyczek — brak tej powierzchni ataku |
+| Kto publikuje treść | dowolny nietechniczny pracownik | potrzebna warstwa CMS (Sanity / MDX) |
+| Utrzymanie | aktualizacje wtyczek/rdzenia co tydzień | aktualizacja frameworka raz na kwartał |
+| Koszt wdrożenia | niższy (2200–11 000 PLN) | wyższy (3500–18 000 PLN) |
+| Elastyczność integracji | przez wtyczki (gotowe, ale ciężkie) | przez kod (dowolna logika, ale drożej) |
+
+## Szybkość i Core Web Vitals
+
+Tu różnica jest realna, nie marketingowa.
+
+Typowa strona WordPress to PHP renderujący stronę przy każdym żądaniu, plus 15–30 wtyczek, każda ciągnie własny CSS i JS. Efekt: LCP 2–5 sekund na mobile, INP w żółtej strefie. Według danych samego Google, Core Web Vitals na mobile zalicza około 44% stron WordPress — czyli ponad połowa nie przechodzi progu, którego Google używa przy rankingu.
+
+Next.js domyślnie serwuje statyczny HTML z CDN-a (SSG) lub renderuje na serwerze z cache (SSR). Obrazy są optymalizowane automatycznie, JS dzielony na chunki. Na realnych projektach trzymam LCP w okolicy 0,5–1 sekundy. To nie magia — to architektura, w której jest szybko domyślnie, a nie po trzech wtyczkach do cache.
+
+Da się przyspieszyć WordPressa? Tak. WP Rocket, porządny hosting (Kinsta, WP Engine), usunięcie zbędnych wtyczek — i wyciśniesz przyzwoity wynik. Ale walczysz z platformą, a nie pracujesz z nią. I jedna aktualizacja wtyczki potrafi to wszystko cofnąć.
+
+## SEO
+
+Tu trzeba rozdzielić dwie warstwy SEO.
+
+**Techniczne SEO** (szybkość, czysty HTML, schema, hreflang, indeksacja) — Next.js jest mocniejszy. Core Web Vitals to czynnik rankingowy, a szybka strona indeksuje się w godziny. Wielojęzyczność z poprawnym `hreflang` to decyzja architektoniczna — w Next.js kontroluję ją kodem, a nie wtyczką Polylang, która narzuca własne reguły.
+
+**Treściowe SEO** (publikacja, optymalizacja tekstów, meta tagi ręką marketera) — WordPress jest mocniejszy. Yoast / Rank Math dają nietechnicznej osobie zrozumiały interfejs: napisz artykuł, ustaw meta, opublikuj. W Next.js potrzebna jest do tego osobna warstwa CMS.
+
+Widziałem migracje z WordPressa na Next.js, gdzie ruch organiczny wzrósł o 20–40% w kwartał — nie z nowych treści, tylko z odzyskania pozycji dzięki samej szybkości. Ale to działa tylko, jeśli treść już była. Szybka pusta strona się nie pozycjonuje.
+
+## Bezpieczeństwo i utrzymanie
+
+WordPress to najpopularniejszy CMS na świecie (~43% stron) i właśnie dlatego najczęściej atakowany. W 2025 roku w ekosystemie wykryto 11 000+ podatności, a ponad 90% było we wtyczkach i motywach, nie w rdzeniu. To nie znaczy, że WordPress jest „dziurawy” — rdzeń jest dość solidny. Ale każda wtyczka to cudzy kod z uprawnieniami do Twojej strony.
+
+Praktyka: WordPress wymaga uwagi **co tydzień**. Zaktualizowałeś wtyczkę — sprawdź, czy nie rozjechała się strona. Nie zaktualizowałeś — zostawiłeś dziurę. To albo Twój czas, albo 130–450 PLN/mies. za utrzymanie.
+
+Next.js bez wtyczek i bez panelu admina na publicznym URL praktycznie nie ma tej powierzchni ataku. W statycznych plikach na CDN-ie nie ma czego włamać. Utrzymanie to aktualizacja zależności raz na kwartał. Mniej rutyny — ale gdy coś się psuje, naprawia to programista, a nie Ty przez panel.
+
+## Koszt na 3 lata
+
+Klasyczna pułapka to patrzeć tylko na cenę wdrożenia.
+
+**WordPress:** wdrożenie 2200–11 000 PLN. Dalej: hosting 250–1100 PLN/rok, wtyczki premium (Elementor Pro, WPML, formularze, backupy) 450–2700 PLN/rok, utrzymanie 130–450 PLN/mies., jeśli nie robisz sam. Na 3 lata realnie wychodzi 13 000–40 000 PLN.
+
+**Next.js:** wdrożenie 3500–18 000 PLN (drożej, bo to kod, a nie składanie z gotowych bloków). Dalej: hosting 0–550 PLN/rok, brak wtyczek, minimalne utrzymanie. Na 3 lata — 6500–22 000 PLN, jeśli nie dodajesz dużej funkcjonalności.
+
+Werdykt finansowy nie jest jednoznaczny: na małym projekcie z minimum wtyczek WordPress jest tańszy i we wdrożeniu, i w sumie. Na projekcie, gdzie liczy się szybkość i wtyczki się mnożą, Next.js dogania i wyprzedza w 2–3 lata.
+
+## Kiedy WordPress to dobry wybór
+
+Uczciwie, bez haczyka:
+
+- **Projekt treściowy z nietechnicznym zespołem.** Blog, media, magazyn, gdzie ludzie publikują codziennie i nie powinni wiedzieć, co to git.
+- **Minimalny budżet, proste zadanie.** Wizytówka, która ma „po prostu być”, a Ty chętnie klikasz w Elementorze.
+- **Potrzebujesz ekosystemu gotowych rozwiązań.** Rezerwacje, członkostwa, fora, LMS — na WordPressie to wtyczka na godzinę; na Next.js to tygodnie pracy.
+- **WooCommerce do małego sklepu.** Jeśli masz 50–200 produktów i standardową logikę — WooCommerce działa.
+
+## Kiedy wygrywa Next.js
+
+- **Szybkość i SEO to priorytet.** Gdy pozycje w Google i konwersja zależą od tego, czy strona ładuje się w 0,8 czy 3 sekundy.
+- **Unikalna logika.** Panele klienta, ceny B2B, integracje z CRM/ERP, niestandardowy e-commerce — to kod, nie wtyczka.
+- **Poważna wielojęzyczność.** PL/EN/UA z poprawnym hreflang i rozdzieloną treścią — w Next.js jest czysto; w WordPressie to WPML i kompromisy.
+- **Nie chcesz utrzymywać strony co tydzień.** Wdrożone — działa, minimum rutyny.
+
+Jeśli potrzebujesz właśnie takiej strony — produkcyjny Next.js z SEO w rdzeniu — to [moja robota](/pl/uslugi/strony-internetowe).
+
+## FAQ
+
+**Czy WordPress umiera?**
+Nie. 43% sieci nie zniknie. Ale dla nowej strony firmowej, gdzie liczy się szybkość i SEO, wybór coraz częściej pada na Next.js lub Astro.
+
+**Da się połączyć — WordPress jako CMS, Next.js jako frontend?**
+Tak, to „headless WordPress”: treść edytowana w znanym panelu, serwowana przez szybki front Next.js. Wygodne, gdy zespół lubi WordPressa, ale potrzebujesz szybkości. Minus — dwie warstwy zamiast jednej, drożej w utrzymaniu.
+
+**Co indeksuje się szybciej w Google?**
+Przy reszcie równej — Next.js, dzięki szybkości i czystemu HTML. Ale o tym decyduje nie platforma, tylko schema, hreflang i sensowna treść.
+
+**Czy naprawdę da się przyspieszyć WordPressa do poziomu Next.js?**
+Do „blisko” — tak, z dobrym hostingiem i cache. Do „jeden do jednego” — prawie nigdy, bo render PHP i wtyczki zawsze ciągną w dół.
+
+---
+
+Nie wiesz, co pasuje do Twojego projektu? [Napisz do mnie](/pl/kontakt) — w 24 godziny dam uczciwą rekomendację i wycenę z ceną stałą.

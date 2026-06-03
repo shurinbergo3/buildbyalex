@@ -1,0 +1,102 @@
+---
+title: "Next.js vs WordPress: What to Build Your Business Site On in 2025–2026"
+description: "An honest Next.js vs WordPress comparison: speed, Core Web Vitals, SEO, security, 3-year cost. When each one genuinely wins — no sales pitch."
+date: "2026-04-08"
+cluster: "nextjs-vs-wordpress"
+keywords:
+  - "next.js vs wordpress"
+  - "wordpress vs next.js"
+  - "next.js or wordpress for business"
+  - "next.js wordpress comparison"
+---
+
+Short answer: it depends on who fills the site with content and how often. If you have someone publishing articles weekly who doesn't want to call a developer over every comma — WordPress still makes sense. If you care more about speed, security, clean technical SEO, and a site that won't turn into a plugin zoo within a year — Next.js wins.
+
+I build both (well, I migrate clients from WordPress to Next.js more often than the reverse), so let's skip the dogma. WordPress has real strengths. So does Next.js. Here's the breakdown, with numbers.
+
+## The comparison in one table
+
+| Criterion | WordPress | Next.js |
+|---|---|---|
+| LCP (mobile, typical site) | 2–5s | 0.4–1.2s |
+| Passes Core Web Vitals | ~44% of sites | ~3x more often |
+| Hosting per year | €60–250 (+ premium plugins €100–600) | €0–120 (CDN / Vercel) |
+| Security | 11,000+ vulnerabilities in 2025, 90%+ in plugins | no plugins — no attack surface |
+| Who publishes content | any non-technical staff | needs a CMS layer (Sanity / MDX) |
+| Maintenance | plugin/core updates weekly | framework update once a quarter |
+| Build cost | lower (€500–2,500) | higher (€800–4,000) |
+| Integration flexibility | via plugins (ready, but heavy) | via code (any logic, but pricier) |
+
+## Speed and Core Web Vitals
+
+This is where the gap is real, not marketing.
+
+A typical WordPress site is PHP rendering a page on every request, plus 15–30 plugins each dragging in their own CSS and JS. The result: LCP of 2–5 seconds on mobile, INP in the yellow zone. Per Google's own data, roughly 44% of WordPress sites pass Core Web Vitals on mobile — meaning more than half fail the threshold Google itself uses when ranking.
+
+Next.js serves static HTML from a CDN by default (SSG) or renders on the server with caching (SSR). Images are optimized automatically, JS is split into chunks. On real projects I keep LCP around 0.5–1 second. That's not magic — it's an architecture that's fast by default, not after three caching plugins.
+
+Can you speed up WordPress? Yes. WP Rocket, decent hosting (Kinsta, WP Engine), cutting dead-weight plugins — you'll get a respectable result. But you're fighting the platform, not working with it. And one plugin update can undo all of it.
+
+## SEO
+
+Here you have to separate two layers of SEO.
+
+**Technical SEO** (speed, clean HTML, schema, hreflang, indexation) — Next.js is stronger. Core Web Vitals is a ranking factor, and a fast site gets indexed in hours. Multilingual setup with correct `hreflang` is an architectural decision, and in Next.js I control it in code, not via a Polylang plugin that sets its own rules.
+
+**Content SEO** (publishing, optimizing copy, meta tags by a marketer's own hand) — WordPress is stronger. Yoast / Rank Math give a non-technical person a clear interface: write the article, set the meta, publish. In Next.js that needs a separate CMS layer.
+
+I've seen WordPress-to-Next.js migrations where organic traffic rose 20–40% in a quarter — not from new content, just from rankings recovering on speed alone. But that only works if the content was already there. A fast empty site doesn't rank.
+
+## Security and maintenance
+
+WordPress is the most popular CMS in the world (~43% of sites), which is exactly why it's the most attacked. In 2025 the ecosystem logged 11,000+ vulnerabilities, and over 90% were in plugins and themes, not the core. That doesn't mean WordPress is "leaky" — the core is fairly solid. But every plugin is someone else's code with permissions on your site.
+
+Reality: WordPress needs attention **every week**. Update a plugin — check the layout didn't break. Don't update — you left a hole open. That's either your time or €30–100/month for maintenance.
+
+Next.js, with no plugins and no admin panel on a public URL, has almost none of that attack surface. There's nothing to hack in static files on a CDN. Maintenance is updating dependencies once a quarter. Less routine — but when something breaks, a developer fixes it, not you through a dashboard.
+
+## 3-year cost
+
+The classic trap is looking only at the build price.
+
+**WordPress:** build €500–2,500. Then: hosting €60–250/year, premium plugins (Elementor Pro, WPML, forms, backups) €100–600/year, maintenance €30–100/month if you don't do it yourself. Over 3 years that realistically lands at €3,000–9,000.
+
+**Next.js:** build €800–4,000 (pricier, because it's code, not assembled from ready blocks). Then: hosting €0–120/year, no plugins, minimal maintenance. Over 3 years — €1,500–5,000, if you don't add major functionality.
+
+The money verdict isn't one-sided: on a small project with few plugins, WordPress is cheaper both at build and in total. On a project where speed matters and plugins multiply, Next.js catches up and pulls ahead over 2–3 years.
+
+## When WordPress is the right call
+
+Honestly, no catch:
+
+- **A content project with a non-technical team.** Blog, media, magazine, where people publish daily and shouldn't need to know what git is.
+- **Minimal budget, simple job.** A business-card site that just needs to exist, and you're happy clicking around in Elementor.
+- **You need an ecosystem of ready solutions.** Booking, memberships, forums, LMS — on WordPress that's a one-hour plugin; on Next.js it's weeks of development.
+- **WooCommerce for a small shop.** If you have 50–200 products and standard logic, WooCommerce works.
+
+## When Next.js wins
+
+- **Speed and SEO are the priority.** When Google rankings and conversion hinge on whether the site loads in 0.8 or 3 seconds.
+- **Unique logic.** Customer accounts, B2B pricing, CRM/ERP integrations, non-standard e-commerce — that's code, not a plugin.
+- **Serious multilingual.** EN/PL/UA with proper hreflang and separated content — in Next.js that's clean; in WordPress it's WPML and compromises.
+- **You don't want to maintain a site every week.** Ship it, it runs, minimal routine.
+
+If that's the site you need — production Next.js with SEO at the core — that's [what I do](/en/services/websites).
+
+## FAQ
+
+**Is WordPress dying?**
+No. 43% of the web isn't going anywhere. But for a new business site where speed and SEO matter, the choice increasingly leans to Next.js or Astro.
+
+**Can you combine them — WordPress as CMS, Next.js as frontend?**
+Yes, that's "headless WordPress": content edited in the familiar admin, served by a fast Next.js front end. Handy when the team loves WordPress but you need speed. Downside — two layers instead of one, more expensive to maintain.
+
+**Which gets indexed in Google faster?**
+All else equal, Next.js, thanks to speed and clean HTML. But the platform isn't what decides it — schema, hreflang, and real content do.
+
+**Can you really speed WordPress up to Next.js levels?**
+To "close" — yes, with good hosting and caching. To "identical" — almost never, because PHP rendering and plugins always drag it down.
+
+---
+
+Not sure which fits your project? [Drop me a line](/en/contact) — within 24 hours I'll give you an honest recommendation and a fixed quote.

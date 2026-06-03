@@ -1,0 +1,143 @@
+---
+title: "Wielojęzyczna strona dla firmy w Polsce: hreflang i SEO"
+description: "Jak poprawnie zbudować wielojęzyczną stronę dla firmy w Polsce: zlokalizowane adresy URL, wzajemność hreflang, x-default, mit duplikatów treści i lokalne SEO."
+date: "2026-04-22"
+cluster: "multilingual-site-poland"
+keywords:
+  - "wielojęzyczna strona internetowa"
+  - "hreflang"
+  - "strona dla firmy w Polsce"
+  - "SEO międzynarodowe"
+  - "lokalne SEO Warszawa"
+---
+
+Jeśli prowadzisz firmę w Warszawie albo gdziekolwiek w Polsce, prawie na pewno potrzebujesz strony w co najmniej dwóch językach: polskim plus jednym lub dwóch z angielskiego, rosyjskiego, ukraińskiego. Nie dlatego, że tak ładnie wygląda, tylko dlatego, że klient szuka w swoim języku, a Google pokazuje mu tę wersję, którą mu dałeś. Brak wersji oznacza, że klient idzie do konkurencji, która ją ma.
+
+Poniżej jak zrobić to technicznie dobrze, bez dwóch błędów, na których wykłada się większość prób: zepsutego hreflang i strachu przed „duplikatami treści”, który tak naprawdę nie istnieje.
+
+## Kto w Polsce naprawdę potrzebuje strony wielojęzycznej
+
+Nie każdy. Jeśli jesteś osiedlową kawiarnią obsługującą wyłącznie miejscowych Polaków, polski wystarczy. Ale w Warszawie to rzadki przypadek.
+
+Strona wielojęzyczna jest konieczna, gdy:
+
+- **Obsługujesz diasporę.** W Polsce mieszka ponad milion Ukraińców i setki tysięcy osób rosyjskojęzycznych. Jeśli jesteś dentystą, prawnikiem, pośrednikiem nieruchomości, kosmetyczką czy trenerem personalnym, połowa twojego rynku nie szuka po polsku.
+- **Działasz w B2B z klientami z zagranicy.** Wtedy potrzebujesz angielskiego i często to on jest językiem podstawowym, nie polski.
+- **Sprzedajesz usługi migrantom.** Legalizacja, księgowość, tłumaczenia, relokacja. Tu język klienta jest samym produktem.
+
+Dla buildbyalex typowy zestaw to **PL + EN + RU + UA**: polski dla rynku lokalnego i Google.pl, angielski dla klientów międzynarodowych i ekspatów, rosyjski i ukraiński dla diaspory.
+
+## Główna zasada: jeden język, jeden URL
+
+Najczęstszy błąd to przełączanie języka przez cookie albo JavaScript bez zmiany adresu. Treść się zmienia, ale URL zostaje `mojafirma.pl/uslugi`. Dla Google to **jedna strona**. Nigdy nie widzi wersji rosyjskiej, nie indeksuje jej i nie pokazuje rosyjskojęzycznemu użytkownikowi.
+
+Każda wersja językowa musi żyć pod własnym, unikalnym adresem. Są trzy działające opcje:
+
+1. **Podkatalogi:** `mojafirma.pl/pl/`, `mojafirma.pl/ru/` — mój domyślny wybór. Jedna domena, cała moc SEO kumuluje się w jednym miejscu, prosta konfiguracja.
+2. **Subdomeny:** `ru.mojafirma.pl` — trudniejsze, autorytet się rozprasza.
+3. **Osobne domeny:** `mojafirma.pl` i `mojafirma.ru` — tylko jeśli naprawdę masz różne rynki i budżety.
+
+Dla firmy w Polsce w 99% przypadków poprawna odpowiedź to podkatalogi na jednej domenie `.pl`.
+
+### Zlokalizowane slugi, nie tylko prefiks języka
+
+Tu ludzie robią połowę roboty i kończą: tłumaczą treść, ale zostawiają URL po angielsku albo w transliteracji. To zmarnowana szansa.
+
+Porównaj:
+
+```
+Źle:   mojafirma.pl/ru/services
+Dobrze: mojafirma.pl/ru/uslugi
+        mojafirma.pl/pl/uslugi-prawne
+        mojafirma.pl/ua/poslugy
+```
+
+Slug to też tekst — Google go czyta, a użytkownik widzi. Zlokalizowany URL umieszcza słowo kluczowe wprost w adresie i podnosi klikalność w wynikach. Na buildbyalex jest dokładnie tak: [/pl/uslugi/strony-internetowe](/pl/uslugi/strony-internetowe) dla wersji polskiej, z własnym slugiem na każdy język.
+
+## hreflang: jak połączyć wersje
+
+Masz zlokalizowane adresy URL. Teraz trzeba powiedzieć Google, że to **ta sama strona w różnych językach**, a nie cztery przypadkowe strony. Za to odpowiada atrybut `hreflang`.
+
+W sekcji `<head>` każdej wersji wypisujesz wszystkie pozostałe plus samą stronę:
+
+```html
+<link rel="alternate" hreflang="pl" href="https://mojafirma.pl/pl/uslugi" />
+<link rel="alternate" hreflang="ru" href="https://mojafirma.pl/ru/uslugi" />
+<link rel="alternate" hreflang="uk" href="https://mojafirma.pl/ua/poslugy" />
+<link rel="alternate" hreflang="en" href="https://mojafirma.pl/en/services" />
+<link rel="alternate" hreflang="x-default" href="https://mojafirma.pl/pl/uslugi" />
+```
+
+Trzy rzeczy muszą być poprawne, inaczej Google zignoruje cały blok:
+
+### 1. Wzajemność (reciprocity)
+
+Jeśli strona polska wskazuje na rosyjską przez hreflang, rosyjska **musi** wskazywać z powrotem na polską. Relacja działa tylko w obie strony. Jednokierunkowe powiązanie oznacza, że Google odrzuca cały klaster. Analiza wdrożeń pokazuje, że około 75% konfiguracji hreflang zawiera dokładnie ten błąd — brak tagu zwrotnego.
+
+### 2. x-default
+
+Linia `x-default` mówi Google, którą wersję podać użytkownikowi, którego języka nie przewidziałeś. Czech, Niemiec, Hiszpan — dokąd ich skierować? Zwykle do wersji angielskiej albo polskiej. Nie jest obowiązkowy, ale zdecydowanie zalecany.
+
+### 3. Self-canonical, nie cross-canonical
+
+Każda wersja językowa wskazuje canonical **na samą siebie**:
+
+```html
+<!-- na stronie /ru/uslugi -->
+<link rel="canonical" href="https://mojafirma.pl/ru/uslugi" />
+```
+
+Częsta katastrofa to ustawienie na wszystkich wersjach językowych canonical na polską. Mówisz wtedy Google wprost: „wersja rosyjska i ukraińska to kopie, nie indeksuj ich”. I nie zaindeksuje. Każda wersja to własny canonical.
+
+Kody języka według ISO 639-1: `pl`, `ru`, `en`. Dla ukraińskiego używaj **`uk`** (nie `ua`; `ua` to kod kraju, nie języka — choć `ua` jest w porządku jako prefiks w adresie URL).
+
+## Mit duplikatów treści
+
+Główny strach, który powstrzymuje firmy przed wersjami językowymi: „Google ukarze mnie za zduplikowaną treść”.
+
+Nie ukarze. To mit.
+
+Ta sama treść **w różnych językach** nie jest duplikatem. Polski tekst i jego rosyjskie tłumaczenie to dla Google dwie różne strony o różnej zawartości, bo słowa są dosłownie inne. Żadna kara fizycznie nie może tu zadziałać.
+
+Duplikat to sytuacja, gdy strona **w jednym języku** jest dostępna pod wieloma adresami (z `www` i bez, z `/` na końcu i bez, z parametrami UTM). To rozwiązuje self-canonical. A tłumaczenia to dokładnie to, do czego istnieje hreflang.
+
+Jedyne realne zagrożenie to surowe tłumaczenie maszynowe opublikowane bez zmian. To Google traktuje jako treść niskiej jakości i może obniżyć pozycję. Tłumaczenie powinien zrobić człowiek, który rozumie rynek. Wersja robocza z maszyny jest okej, ale tylko z redakcją native speakera.
+
+## Lokalne SEO pod rynek polski
+
+Wielojęzyczność to połowa pracy. Druga połowa to bycie znalezionym lokalnie.
+
+- **Profil Firmy w Google** po polsku, powiązany z adresem w Warszawie. To główne źródło lokalnych klientów.
+- **Lokalne słowa kluczowe w slugach i tytułach:** nie po prostu „usługi prawne”, ale „prawnik w Warszawie”, „prawnik Warszawa”.
+- **Spójność NAP:** nazwa, adres, telefon zapisane identycznie na stronie, w Google i w katalogach.
+- **Schema LocalBusiness** z adresem, godzinami i obszarem działania.
+- **Lokalny telefon i adres** w widocznym miejscu. Polski klient musi widzieć, że naprawdę tu jesteś, a nie call center za granicą.
+
+Sygnały lokalne są wspólne dla wszystkich wersji językowych — Google rozumie, że to jedna firma w jednym miejscu, tylko rozmawiająca z klientami w ich językach.
+
+## Częste błędy
+
+- **Przełącznik języka psuje URL** — wersja nigdy nie zostaje zaindeksowana.
+- **Brak zwrotnego linku hreflang** — cały klaster zignorowany.
+- **Cross-canonical na język główny** — tłumaczenia wypadają z indeksu.
+- **Tłumaczenie maszynowe bez redakcji** — obniżenie za niską jakość.
+- **Jeden slug dla wszystkich języków** (`/ru/services`) — tracisz słowa kluczowe w URL.
+- **Przetłumaczone menu, zapomniane meta tagi** — title i description zostają po polsku w wynikach rosyjskich.
+
+## FAQ
+
+**Czy Google ukarze za ten sam tekst w różnych językach?**
+Nie. Tłumaczenie to nie duplikat. Duplikatem jest identyczna treść w jednym języku pod różnymi adresami URL, rozwiązywana przez self-canonical. Tłumaczenia to to, do czego stworzono hreflang.
+
+**Podkatalogi, subdomeny czy osobne domeny?**
+Dla firmy w Polsce — podkatalogi (`/ru/`, `/pl/`) na jednej domenie `.pl`. Cała moc SEO kumuluje się w jednym miejscu, a utrzymanie jest prostsze.
+
+**Czy potrzebuję hreflang przy tylko dwóch językach?**
+Tak. Nawet przy PL + EN. Bez niego Google może pokazać wersję angielską polskiemu użytkownikowi i odwrotnie, a obie wersje konkurują ze sobą w wynikach.
+
+**Czy mogę użyć tłumaczenia maszynowego?**
+Jako wersji roboczej — tak. Ale publikowanie surowego tłumaczenia maszynowego to błąd: Google obniża pozycję, a klient czuje sztuczność. Minimum to redakcja native speakera pod rynek.
+
+---
+
+Buduję strony wielojęzyczne ze zlokalizowanymi adresami URL i poprawnym hreflang u podstaw — nie wtyczką doklejoną do gotowej strony, ale architekturą od pierwszego dnia. [Napisz do mnie](/pl/kontakt), a w ciągu 24 godzin po krótkiej rozmowie dostaniesz wycenę z ceną stałą.

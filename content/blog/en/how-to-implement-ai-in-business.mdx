@@ -1,0 +1,136 @@
+---
+title: "How to Implement AI in Business: A Step-by-Step Plan Without the Hype"
+description: "A realistic plan for implementing AI in business: where AI pays off, how to pick the first use case, data readiness, build vs buy, and budgets in euros."
+date: "2026-01-28"
+cluster: "how-to-implement-ai"
+keywords:
+  - "how to implement AI in business"
+  - "AI implementation for small business"
+  - "AI use case selection"
+  - "build vs buy AI"
+---
+
+Short answer: start with **one** repetitive process that's already stable and eats 10+ hours a week, ship an MVP on it in 4–6 weeks for €600–2,500, measure the time saved, and only then scale. Everything else here is the detail on how not to burn money along the way.
+
+I'm Alex, I build automation and AI solutions for businesses in Warsaw as a one-person operation, not an agency. Over the last two years I've seen dozens of "implement AI for us" requests, and in half of them the honest answer was "you don't need it." Below is the plan I actually use with clients.
+
+## Where AI pays off, and where it doesn't
+
+AI doesn't "boost business efficiency." AI is good at three concrete things:
+
+1. **Understanding text and replying in text** — support, lead qualification, answering from a knowledge base.
+2. **Turning unstructured into structured** — pulling data out of emails, invoices, PDFs, voice notes.
+3. **Generating drafts** — product descriptions, newsletters, replies, reports.
+
+If your pain fits one of those three, AI will pay off. If your pain is "I want more customers" or "my finances are a mess," that's not an AI task — that's marketing or bookkeeping.
+
+### Signs a process is ready for AI
+
+- It **repeats** many times a week.
+- It's **describable in words** ("if a customer asks X, we answer Y").
+- A mistake is **not catastrophic**, or is easily caught by a human.
+- A real person **already spends meaningful time** on it.
+
+Booking appointments, answering the same delivery questions, triaging inbound leads — yes. Deciding whether to approve a €50,000 loan — no.
+
+## Step 1. Pick ONE first use case
+
+The most common mistake is "let's automate everything." It doesn't work. Walk through your departments and ask one question: **where does a real person spend the most repetitive time?**
+
+List 5–10 processes. Then rank them on a simple matrix: **time saved ÷ implementation complexity**. Take the top row.
+
+Typical good first use cases for a small business in Poland:
+
+- **Knowledge-base chat assistant (RAG)** on your site — answers questions about services, pricing, and documents from your own materials.
+- **Inbound lead qualification** — a Telegram/WhatsApp bot asks 6–8 questions and hands the sales rep only qualified leads.
+- **Email/inbox triage** — classify, auto-answer the simple ones, escalate the hard ones.
+- **Draft generation** — product descriptions for e-commerce, first-pass replies to reviews.
+
+## Step 2. Check your data readiness
+
+AI is a layer on top of your data. If there's no knowledge base — or it lives in employees' heads and chat logs — you build that first.
+
+The quick audit I run in an hour:
+
+- **Where does the data live?** (website, Notion, Google Docs, CRM, the head of your support lead)
+- **What's its quality?** Current? Free of contradictions?
+- **Is there an API?** So AI can write to the CRM/calendar, not just read.
+
+A RAG assistant needs only 20–50 pages of decently written material. If you don't have that, it's not a reason to skip AI — it's the first task of the project: collect and clean the base. Usually a day or two of work.
+
+## Step 3. Build vs buy — the honest breakdown
+
+Three options, each with its own zone.
+
+**Buy an off-the-shelf SaaS** (Intercom, Crisp AI, Tidio, etc.). Take it if you need a standard FAQ chat and nothing more. Pros: live in an hour, €30–100/mo. Cons: no deep integration into your processes, your data sits with the vendor, customization hits the ceiling of their product.
+
+**Use ChatGPT/Claude by hand.** For drafts, research, one-off tasks — great and nearly free (€20–25/mo for Plus/Pro). This isn't "implementing AI," it's giving your staff a tool. Start here before paying for development.
+
+**Commission a custom solution.** Take it when you need CRM/calendar/inventory integration, control over your data, provider independence, and logic tailored to your process. That's the territory I work in.
+
+The rule is simple: **don't pay for development of something a €50/mo tool already solves.** And don't try to stretch an off-the-shelf SaaS over a complex integrated process — it comes out more expensive and worse.
+
+## Step 4. Pick the model for the job
+
+Under the hood of any modern solution is a large language model: GPT, Claude, or Gemini. There's no "best one" — there's the right one for the task:
+
+- **High-volume simple dialogue** (FAQ, classification) → **Gemini Flash** or **GPT-4o-mini**. Cheap: €20–80/mo for 1,000 conversations.
+- **Complex instructions, long documents** → **Claude** (Sonnet). Holds context and follows rules better.
+- **Balanced all-rounder** → **GPT-4o**. €100–400/mo at the same volume.
+
+Two technical terms worth knowing as the buyer:
+
+- **RAG (retrieval-augmented generation)** — the model answers strictly from your base instead of making things up. No answer in the base → it says "I don't know." This cures the main fear: hallucinations.
+- **Function calling** — the model can call your functions: book the calendar, create a deal in the CRM, send an SMS. This turns a chatbot into an [AI agent](/en/services/ai-agents) that doesn't just reply — it **acts**.
+
+Good architecture is provider-independent: swapping GPT for Claude is a day of work, not a rewrite.
+
+## Step 5. Ship an MVP and measure
+
+Not a "big platform" — an MVP on one task in 4–6 weeks. From day one, set a **success metric and a go/no-go threshold**:
+
+> "Within 1 month the bot must remove 50% of inbound questions from the rep OR save 10+ hours — otherwise we kill it."
+
+The non-negotiables I always build in:
+
+- **Human in the loop.** Dashboard, tags, manual overrides. AI doesn't run in a black box.
+- **Escalation to a human** when the model isn't confident.
+- **No full autonomy with money.** A human confirms every transaction.
+
+## Budget and timeline: real numbers
+
+These are development prices for Poland, the same ones on my site:
+
+| Solution | Build (one-off) | Running (per month) | Timeline |
+|---|---|---|---|
+| Process automation (rules + AI) | from €600 | €0–50 | 2–4 wks |
+| RAG assistant / simple bot | from €1,200 | €20–120 | 3–5 wks |
+| AI agent with CRM integration | €2,500–5,000 | €30–200 | 5–8 wks |
+
+Running cost is mostly model API calls plus hosting (Vercel/Cloudflare, €0–25/mo). For comparison: a first-contact rep in Poland costs €1,000–2,000/mo. A well-chosen first use case pays for itself in 1–3 months.
+
+## What NOT to do
+
+1. **Don't automate chaos.** Fix the process by hand first, then take the human off it. AI will speed up a bad process too — into "fast and bad."
+2. **Don't buy "turnkey AI for €99 from an ad."** If you don't understand what's inside, nothing inside works.
+3. **Don't launch without a metric.** "Feels more modern" is not a metric.
+4. **Don't pin everything to one model** without an abstraction layer. Tomorrow a model twice as good or half the price ships — you need to be able to switch.
+5. **Don't forget the team.** If staff don't understand why this exists and what changes in their work, the tool sits unused.
+
+## FAQ
+
+**Where do I start on a minimal budget?**
+With ChatGPT or Claude Pro at €20/mo for staff, plus simple automation of one process from €600. Don't start with a big custom agent.
+
+**Will the AI make up answers?**
+In a properly built RAG, almost never. You set a strict mode: no answer in the base → "I don't know" → hand off to a human.
+
+**How long until the first result?**
+An MVP on one task is 4–6 weeks. The first measurable saving usually lands within the first month of operation.
+
+**Do I have to lay people off after implementing it?**
+Usually no. AI takes the routine (30–60% of repetitive tasks), people handle what needs judgment. More often it's not headcount cuts but growth without new hires.
+
+---
+
+If you have a specific process eating your time, [drop me a line](/en/contact) — in 30 minutes we'll figure out whether it's an AI task or not.
