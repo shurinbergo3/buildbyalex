@@ -642,6 +642,26 @@
       "fitValue": "Qualified",
       "chatLabel": "Telegram",
       "crmLabel": "CRM"
+    },
+    "scrollStory": {
+      "eyebrow": "How it works",
+      "chapters": [
+        {
+          "kicker": "01 — Lead",
+          "title": "A lead lands. Instantly.",
+          "body": "Someone messages on Telegram, WhatsApp or the site. The bot greets them in under a second — no one on your team has to be awake."
+        },
+        {
+          "kicker": "02 — Qualify",
+          "title": "The AI agent qualifies it.",
+          "body": "Natural questions, real answers. Revenue, current stack, intent — captured as the conversation flows and scored automatically."
+        },
+        {
+          "kicker": "03 — CRM",
+          "title": "The deal moves itself.",
+          "body": "Every answer lands as a field. The deal advances through your pipeline to Won — zero manual entry, zero missed handoffs."
+        }
+      ]
     }
   },
   "services": {

@@ -642,6 +642,26 @@
       "fitValue": "Zakwalifikowany",
       "chatLabel": "Telegram",
       "crmLabel": "CRM"
+    },
+    "scrollStory": {
+      "eyebrow": "Jak to działa",
+      "chapters": [
+        {
+          "kicker": "01 — Zgłoszenie",
+          "title": "Zgłoszenie wpada. Natychmiast.",
+          "body": "Klient pisze na Telegramie, WhatsAppie lub na stronie. Bot odpowiada w mniej niż sekundę — nawet w nocy, bez udziału zespołu."
+        },
+        {
+          "kicker": "02 — Kwalifikacja",
+          "title": "Agent AI je kwalifikuje.",
+          "body": "Naturalne pytania, prawdziwe odpowiedzi. Obrót, obecne narzędzia, intencja — zapisywane w trakcie rozmowy i oceniane automatycznie."
+        },
+        {
+          "kicker": "03 — CRM",
+          "title": "Deal przesuwa się sam.",
+          "body": "Każda odpowiedź ląduje jako pole. Deal przechodzi lejek aż do „Wygrane” — bez ręcznego wpisywania i utraconych leadów."
+        }
+      ]
     }
   },
   "services": {
