@@ -5,7 +5,6 @@ import { HomeJsonLd } from "@/components/HomeJsonLd";
 import { Hero } from "@/components/home/Hero";
 import { PainPoints } from "@/components/home/PainPoints";
 import { ServicesOverview } from "@/components/home/ServicesOverview";
-import { CinematicCaseReveal } from "@/components/home/CinematicCaseReveal";
 import { FeaturedWork } from "@/components/home/FeaturedWork";
 import { LegalwinHomeShowcase } from "@/components/home/LegalwinHomeShowcase";
 import { HowItWorks } from "@/components/home/HowItWorks";
@@ -31,7 +30,6 @@ export default async function HomePage({
       <Hero />
       <PainPoints />
       <ServicesOverview />
-      <CinematicCaseReveal />
       <FeaturedWork />
       <LegalwinHomeShowcase />
       <HowItWorks />

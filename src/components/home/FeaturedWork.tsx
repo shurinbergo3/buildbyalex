@@ -3,8 +3,8 @@ import { Link } from "@/i18n/navigation";
 import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
-import { WorkCarousel, type CarouselItem } from "@/components/home/WorkCarousel";
-import { caseSlugs, caseKeyToSlug, type CaseKey } from "@/lib/cases";
+import { CaseHighlights, type HighlightItem } from "@/components/home/CaseHighlights";
+import { caseSlugs, caseKeyToSlug, caseImages, type CaseKey } from "@/lib/cases";
 
 type CaseShape = {
   work: {
@@ -13,6 +13,7 @@ type CaseShape = {
       {
         industry: string;
         title: string;
+        tagline: string;
         results: string[];
         metric: { value: string; label: string };
       }
@@ -22,18 +23,21 @@ type CaseShape = {
 
 export function FeaturedWork() {
   const t = useTranslations("home.work");
+  const tReveal = useTranslations("home.caseReveal");
   const messages = useMessages() as unknown as CaseShape;
 
-  const items: CarouselItem[] = caseSlugs.map((key) => {
+  const items: HighlightItem[] = caseSlugs.map((key) => {
     const c = messages.work.cases[key];
     return {
       key,
       slug: caseKeyToSlug[key],
       industry: c.industry,
       title: c.title,
+      tagline: c.tagline,
       results: c.results,
       metricValue: c.metric.value,
       metricLabel: c.metric.label,
+      image: caseImages[key],
     };
   });
 
@@ -49,7 +53,7 @@ export function FeaturedWork() {
         </Reveal>
 
         <Reveal delay={120}>
-          <WorkCarousel items={items} cta={t("cta")} />
+          <CaseHighlights items={items} ctaLabel={tReveal("cta")} />
         </Reveal>
 
         <Reveal delay={200}>
