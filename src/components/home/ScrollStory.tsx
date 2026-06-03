@@ -94,14 +94,14 @@ export function ScrollStory() {
         />
 
         <Container className="relative">
-          <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:gap-16">
+          <div className="grid items-center gap-7 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:gap-16">
             {/* ── Chapter copy ── */}
             <div className="relative">
               <p className="t-eyebrow" style={{ color: "var(--c-accent)" }}>
                 {tStory("eyebrow")}
               </p>
 
-              <div className="relative mt-6 min-h-[260px] sm:min-h-[240px]">
+              <div className="relative mt-5 min-h-[150px] sm:mt-6 lg:min-h-[240px]">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={active}
@@ -253,7 +253,7 @@ function ChatPanel({ messages, count }: { messages: string[]; count: number }) {
   return (
     <div className="flex min-w-0 flex-col" style={{ background: "#0e1621" }}>
       <div
-        className="relative h-[300px] overflow-hidden px-3 py-3 sm:h-[380px]"
+        className="relative h-[210px] overflow-hidden px-3 py-3 sm:h-[360px]"
         style={{
           background:
             "radial-gradient(ellipse at top, rgba(46,87,121,0.18) 0%, transparent 55%), #0e1621",

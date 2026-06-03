@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { routing, type Locale } from "@/i18n/routing";
 import { HomeJsonLd } from "@/components/HomeJsonLd";
 import { Hero } from "@/components/home/Hero";
+import { CinematicBillboard } from "@/components/home/CinematicBillboard";
 import { PainPoints } from "@/components/home/PainPoints";
 import { ServicesOverview } from "@/components/home/ServicesOverview";
 import { FeaturedWork } from "@/components/home/FeaturedWork";
@@ -28,6 +29,7 @@ export default async function HomePage({
     <>
       <HomeJsonLd locale={locale as Locale} />
       <Hero />
+      <CinematicBillboard />
       <PainPoints />
       <ServicesOverview />
       <FeaturedWork />

@@ -662,6 +662,12 @@
           "body": "Every answer lands as a field. The deal advances through your pipeline to Won — zero manual entry, zero missed handoffs."
         }
       ]
+    },
+    "billboard": {
+      "kicker": "One person. Full stack.",
+      "line1": "One developer.",
+      "line2": "The whole product.",
+      "caption": "From first call to live launch — design, build, ship and support, handled end to end."
     }
   },
   "services": {
