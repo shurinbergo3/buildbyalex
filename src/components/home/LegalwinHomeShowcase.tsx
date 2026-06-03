@@ -132,28 +132,35 @@ export function LegalwinHomeShowcase() {
           </div>
         </Reveal>
 
-        {/* ── Discovery: dual-mock presentation ───────────── */}
+        {/* ── Discovery: stacked, one channel after another ─── */}
         <Reveal delay={220}>
           <div
             className={`mt-16 overflow-hidden rounded-[28px] p-5 sm:p-8 md:mt-20 md:p-10 ${PANEL}`}
           >
-            <div className="grid gap-10 md:grid-cols-2 md:items-stretch md:gap-8 lg:gap-12">
-              <ShowcaseColumn
+            <div className="flex flex-col gap-14 md:gap-20">
+              <ShowcaseRow
                 index={t("columns.serp.index")}
                 label={t("columns.serp.label")}
                 caption={t("columns.serp.caption")}
               >
                 <GoogleSerpMock />
-              </ShowcaseColumn>
+              </ShowcaseRow>
 
-              <ShowcaseColumn
+              {/* sequence connector — same client, the next channel */}
+              <div className="flex flex-col items-center -my-6 md:-my-10" aria-hidden="true">
+                <span className="h-8 w-px bg-gradient-to-b from-[color:var(--color-divider)] to-transparent md:h-12" />
+                <svg width="18" height="18" viewBox="0 0 16 16" className="-mt-1 text-[color:var(--color-text-3)]">
+                  <path d="M8 3v8m0 0L4.5 7.5M8 11l3.5-3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                </svg>
+              </div>
+
+              <ShowcaseRow
                 index={t("columns.chatgpt.index")}
                 label={t("columns.chatgpt.label")}
                 caption={t("columns.chatgpt.caption")}
-                fillStage
               >
                 <ChatGPTRecommendMock />
-              </ShowcaseColumn>
+              </ShowcaseRow>
             </div>
           </div>
         </Reveal>
@@ -258,36 +265,33 @@ export function LegalwinHomeShowcase() {
   );
 }
 
-function ShowcaseColumn({
+function ShowcaseRow({
   index,
   label,
   caption,
-  fillStage = false,
   children,
 }: {
   index: string;
   label: string;
   caption: string;
-  fillStage?: boolean;
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex h-full flex-col gap-5">
-      <div className="flex items-baseline gap-4">
+    <div className="flex flex-col gap-5">
+      {/* label bar — aligned to the mock's natural width so it reads as a titled window */}
+      <div className="mx-auto flex w-full max-w-[860px] items-baseline gap-4">
         <span className="font-mono text-[12px] tracking-[0.08em] text-[color:var(--color-text-3)]">
           {index}
         </span>
         <span className="h-px flex-1 bg-[color:var(--color-divider)]" />
-        <span className="text-[13px] font-medium tracking-[-0.011em] text-[color:var(--color-text)]">
+        <span className="text-[13.5px] font-medium tracking-[-0.011em] text-[color:var(--color-text)]">
           {label}
         </span>
       </div>
 
-      <div className={`legalwin-stage ${fillStage ? "md:min-h-0 md:flex-1" : ""}`}>
-        {children}
-      </div>
+      <div className="legalwin-stage">{children}</div>
 
-      <p className="min-h-[2.8em] text-[13.5px] leading-[1.5] text-[color:var(--color-text-2)]">
+      <p className="mx-auto max-w-[620px] text-center text-[13.5px] leading-[1.5] text-[color:var(--color-text-2)]">
         {caption}
       </p>
     </div>
