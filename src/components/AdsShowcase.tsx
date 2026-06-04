@@ -42,9 +42,11 @@ export function AdsShowcase() {
   const data: Record<Platform, PlatformData> = { google, meta };
 
   const [platform, setPlatform] = useState<Platform>("google");
-  const [feedItems, setFeedItems] = useState<FeedItem[]>(() => feed.slice(0, 3));
+  // Start the feed already full (4 rows) so the window is at its final height
+  // on first paint and never grows when the first lead streams in.
+  const [feedItems, setFeedItems] = useState<FeedItem[]>(() => feed.slice(0, 4));
   const [leadCount, setLeadCount] = useState(31);
-  const feedCursor = useRef(3);
+  const feedCursor = useRef(4);
 
   // Auto-cycle the active platform tab (mouse/keyboard can still override).
   useEffect(() => {
@@ -133,52 +135,27 @@ export function AdsShowcase() {
               </div>
 
               <div className="grid gap-0 md:grid-cols-[1fr_240px]">
-                {/* Left: KPIs + campaign table */}
-                <div className="min-w-0 p-5">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={platform}
-                      initial={reduce ? false : { opacity: 0, y: 6 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={reduce ? undefined : { opacity: 0, y: -6 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {/* KPI tiles */}
-                      <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4">
-                        <Kpi label={kpiLabels.spend} value={active.kpis.spend} />
-                        <Kpi label={kpiLabels.leads} value={active.kpis.leads} accent={tone.dot} />
-                        <Kpi label={kpiLabels.cpl} value={active.kpis.cpl} />
-                        <Kpi label={kpiLabels.roas} value={active.kpis.roas} accent="#34d399" />
-                      </div>
-
-                      {/* Campaign table */}
-                      <div className="mt-5 overflow-hidden rounded-xl border border-white/5">
-                        <div
-                          className="grid grid-cols-[1fr_64px_56px_56px] gap-2 px-3.5 py-2 text-[10.5px] font-medium uppercase tracking-wider text-white/40"
-                          style={{ background: "rgba(255,255,255,0.02)" }}
-                        >
-                          <span>{columns.campaign}</span>
-                          <span className="text-right">{columns.spend}</span>
-                          <span className="text-right">{columns.leads}</span>
-                          <span className="text-right">{columns.cpl}</span>
-                        </div>
-                        {active.campaigns.map((c) => (
-                          <div
-                            key={c.name}
-                            className="grid grid-cols-[1fr_64px_56px_56px] items-center gap-2 border-t border-white/5 px-3.5 py-2.5 text-[12.5px]"
-                          >
-                            <span className="flex min-w-0 items-center gap-2 text-white/85">
-                              <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: tone.dot }} />
-                              <span className="truncate">{c.name}</span>
-                            </span>
-                            <span className="text-right tabular-nums text-white/60">{c.spend}</span>
-                            <span className="text-right tabular-nums font-medium text-white">{c.leads}</span>
-                            <span className="text-right tabular-nums text-white/60">{c.cpl}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </motion.div>
-                  </AnimatePresence>
+                {/* Left: KPIs + campaign table. An invisible sizer holds the
+                    panel's height constant (both platforms share the same
+                    layout) while the animated copy crossfades on top — so
+                    swapping Google ↔ Meta never collapses the window. */}
+                <div className="relative min-w-0 p-5">
+                  <div aria-hidden className="invisible">
+                    <Panel data={active} kpiLabels={kpiLabels} columns={columns} dot={tone.dot} />
+                  </div>
+                  <div className="absolute inset-0 p-5">
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={platform}
+                        initial={reduce ? false : { opacity: 0, y: 6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={reduce ? undefined : { opacity: 0, y: -6 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Panel data={active} kpiLabels={kpiLabels} columns={columns} dot={tone.dot} />
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
                 </div>
 
                 {/* Right: live lead feed */}
@@ -219,6 +196,57 @@ export function AdsShowcase() {
         </Reveal>
       </Container>
     </Section>
+  );
+}
+
+function Panel({
+  data,
+  kpiLabels,
+  columns,
+  dot,
+}: {
+  data: PlatformData;
+  kpiLabels: { spend: string; leads: string; cpl: string; roas: string };
+  columns: { campaign: string; spend: string; leads: string; cpl: string };
+  dot: string;
+}) {
+  return (
+    <>
+      {/* KPI tiles */}
+      <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+        <Kpi label={kpiLabels.spend} value={data.kpis.spend} />
+        <Kpi label={kpiLabels.leads} value={data.kpis.leads} accent={dot} />
+        <Kpi label={kpiLabels.cpl} value={data.kpis.cpl} />
+        <Kpi label={kpiLabels.roas} value={data.kpis.roas} accent="#34d399" />
+      </div>
+
+      {/* Campaign table */}
+      <div className="mt-5 overflow-hidden rounded-xl border border-white/5">
+        <div
+          className="grid grid-cols-[1fr_64px_56px_56px] gap-2 px-3.5 py-2 text-[10.5px] font-medium uppercase tracking-wider text-white/40"
+          style={{ background: "rgba(255,255,255,0.02)" }}
+        >
+          <span>{columns.campaign}</span>
+          <span className="text-right">{columns.spend}</span>
+          <span className="text-right">{columns.leads}</span>
+          <span className="text-right">{columns.cpl}</span>
+        </div>
+        {data.campaigns.map((c) => (
+          <div
+            key={c.name}
+            className="grid grid-cols-[1fr_64px_56px_56px] items-center gap-2 border-t border-white/5 px-3.5 py-2.5 text-[12.5px]"
+          >
+            <span className="flex min-w-0 items-center gap-2 text-white/85">
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: dot }} />
+              <span className="truncate">{c.name}</span>
+            </span>
+            <span className="text-right tabular-nums text-white/60">{c.spend}</span>
+            <span className="text-right tabular-nums font-medium text-white">{c.leads}</span>
+            <span className="text-right tabular-nums text-white/60">{c.cpl}</span>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
 

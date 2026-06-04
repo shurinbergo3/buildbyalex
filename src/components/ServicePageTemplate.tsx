@@ -1,6 +1,7 @@
 import type { ComponentType } from "react";
 import { useTranslations, useMessages, useLocale } from "next-intl";
 import { SITE_URL, localizedHref } from "@/lib/site";
+import { cn } from "@/lib/utils";
 import type { Locale } from "@/i18n/routing";
 import { Container } from "./Container";
 import { Section } from "./Section";
@@ -121,7 +122,33 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       {/* ── Hero ── */}
-      <Section pad="tight" tone="default" className="!pt-16 md:!pt-24">
+      <Section
+        pad="tight"
+        tone="default"
+        className={cn("!pt-16 md:!pt-24", branch === "ads" && "overflow-hidden")}
+      >
+        {branch === "ads" && (
+          <div aria-hidden className="pointer-events-none absolute inset-0">
+            {/* warm accent glow, top-right behind the platforms card */}
+            <div
+              className="absolute -right-[12%] -top-[28%] h-[620px] w-[620px] rounded-full opacity-70"
+              style={{
+                background:
+                  "radial-gradient(circle, color-mix(in srgb, var(--c-accent) 22%, transparent), transparent 68%)",
+              }}
+            />
+            {/* softer counter-glow, top-left */}
+            <div
+              className="absolute -left-[10%] -top-[20%] h-[460px] w-[460px] rounded-full opacity-60"
+              style={{
+                background:
+                  "radial-gradient(circle, color-mix(in srgb, var(--c-accent) 10%, transparent), transparent 70%)",
+              }}
+            />
+            {/* fade the whole thing into the page background toward the bottom */}
+            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent to-[color:var(--color-bg)]" />
+          </div>
+        )}
         <Container size="default">
           <Reveal>
             <div className="grid gap-12 md:grid-cols-12 md:gap-16">

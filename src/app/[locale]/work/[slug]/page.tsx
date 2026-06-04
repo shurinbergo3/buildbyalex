@@ -8,6 +8,7 @@ import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/Button";
 import { CaseCover } from "@/components/CaseCover";
 import { VisionairHeroMock } from "@/components/VisionairHeroMock";
+import { BodyForgeHeroMock } from "@/components/BodyForgeHeroMock";
 import { LegalwinShowcase } from "@/components/LegalwinShowcase";
 import { VisionairShowcase } from "@/components/VisionairShowcase";
 import { DonbravaShowcase } from "@/components/DonbravaShowcase";
@@ -180,6 +181,66 @@ function CaseContent({ slug, locale }: { slug: string; locale: string }) {
 
               <Reveal delay={150}>
                 <VisionairHeroMock url={c.url} />
+              </Reveal>
+            </div>
+          ) : key === "bodyforge" ? (
+            <div className="grid items-center gap-10 md:grid-cols-[1.02fr_0.98fr] md:gap-12 lg:gap-16">
+              <Reveal>
+                <div>
+                  <p className="t-eyebrow text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
+                    {c.industry}
+                  </p>
+                  <h1 className="mt-4 text-[clamp(40px,5.5vw+8px,72px)] font-semibold leading-[1.06] tracking-[-0.032em]">
+                    {c.title}
+                  </h1>
+                  <p className="mt-5 max-w-[520px] text-[clamp(17px,1.2vw+13px,22px)] leading-[1.45] tracking-[-0.013em] text-[color:var(--color-text-2)]">
+                    {c.tagline}
+                  </p>
+                  <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-5">
+                    {metrics.map((m) => (
+                      <div key={m.label}>
+                        <dt className="text-[clamp(26px,2vw+18px,36px)] font-semibold leading-none tracking-[-0.02em] text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
+                          {m.value}
+                        </dt>
+                        <dd className="mt-1.5 text-[13px] text-[color:var(--color-text-3)]">
+                          {m.label}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                  {c.stack.length > 0 && (
+                    <ul className="mt-7 flex flex-wrap gap-2">
+                      {c.stack.slice(0, 5).map((tech) => (
+                        <li
+                          key={tech}
+                          className="rounded-full border border-[color:var(--c-hairline)] bg-[color:var(--color-bg-alt)] px-3 py-1 text-[12.5px] font-medium text-[color:var(--color-text-3)]"
+                        >
+                          {tech}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {isLink && (
+                    <a
+                      href={`https://${c.url.replace(/^https?:\/\//, "")}`}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="mt-8 inline-flex items-center gap-2.5 rounded-full border border-[color:var(--c-hairline)] bg-[color:var(--color-bg-alt)] py-2 pl-3.5 pr-4 text-[14px] font-medium text-[color:var(--color-text)] transition-colors hover:border-[color:var(--c-accent)] hover:text-[color:var(--c-accent-ink)] dark:hover:text-[color:var(--c-accent)]"
+                    >
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M16.36 12.79c-.02-2.13 1.74-3.15 1.82-3.2-0.99-1.45-2.53-1.65-3.08-1.67-1.31-.13-2.56.77-3.22.77-.66 0-1.69-.75-2.78-.73-1.43.02-2.75.83-3.48 2.11-1.48 2.57-.38 6.37 1.07 8.45.71 1.02 1.55 2.16 2.66 2.12 1.07-.04 1.47-.69 2.76-.69 1.29 0 1.65.69 2.78.67 1.15-.02 1.87-1.04 2.57-2.06.81-1.18 1.14-2.32 1.16-2.38-.03-.01-2.23-.86-2.26-3.39zM14.23 6.31c.58-.71.98-1.69.87-2.67-.84.03-1.86.56-2.47 1.26-.54.62-1.02 1.62-.89 2.58.94.07 1.9-.47 2.49-1.17z" />
+                      </svg>
+                      App Store · {liveLabel}
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M7 17 17 7M9 7h8v8" />
+                      </svg>
+                    </a>
+                  )}
+                </div>
+              </Reveal>
+
+              <Reveal delay={150}>
+                <BodyForgeHeroMock />
               </Reveal>
             </div>
           ) : (
