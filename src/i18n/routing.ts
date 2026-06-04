@@ -36,6 +36,12 @@ export const routing = defineRouting({
       pl: "/uslugi/aplikacje-mobilne",
       ua: "/poslugy/mobilni-dodatky",
     },
+    "/services/telegram-bots": {
+      ru: "/uslugi/telegram-boty-i-mini-prilozheniya",
+      en: "/services/telegram-bots",
+      pl: "/uslugi/boty-telegram-i-mini-aplikacje",
+      ua: "/poslugy/telegram-boty-i-mini-dodatky",
+    },
     "/services/advertising": {
       ru: "/uslugi/reklama",
       en: "/services/advertising",

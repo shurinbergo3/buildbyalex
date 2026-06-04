@@ -4,22 +4,24 @@ import type { ReactNode } from "react";
    Shared by the home ServicesOverview, the desktop nav mega-dropdown and the
    mobile menu accordion so the iconography never drifts between surfaces. */
 
-export type ServiceKey = "websites" | "ai" | "automation" | "mobile" | "ads";
+export type ServiceKey = "websites" | "ai" | "automation" | "mobile" | "telegram" | "ads";
 
 export type ServiceHref =
   | "/services/websites"
   | "/services/ai-agents"
   | "/services/automation"
   | "/services/mobile-apps"
+  | "/services/telegram-bots"
   | "/services/advertising";
 
-export const SERVICE_KEYS: ServiceKey[] = ["websites", "ai", "automation", "mobile", "ads"];
+export const SERVICE_KEYS: ServiceKey[] = ["websites", "ai", "automation", "mobile", "telegram", "ads"];
 
 export const serviceHref: Record<ServiceKey, ServiceHref> = {
   websites: "/services/websites",
   ai: "/services/ai-agents",
   automation: "/services/automation",
   mobile: "/services/mobile-apps",
+  telegram: "/services/telegram-bots",
   ads: "/services/advertising",
 };
 
@@ -55,6 +57,12 @@ export const serviceGlyph: Record<ServiceKey, ReactNode> = {
       <rect x="15" y="6" width="18" height="36" rx="4" stroke="currentColor" strokeWidth="2.2" />
       <path d="M21 9h6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
       <circle cx="24" cy="37" r="1.4" fill="currentColor" />
+    </svg>
+  ),
+  telegram: (
+    <svg viewBox="0 0 48 48" fill="none" className="h-full w-full" aria-hidden="true">
+      <path d="M42 9 6 23l11 3.5L21 39l5-8 11 8L42 9Z" stroke="currentColor" strokeWidth="2.2" strokeLinejoin="round" strokeLinecap="round" />
+      <path d="m17 26.5 19-13.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   ),
   ads: (

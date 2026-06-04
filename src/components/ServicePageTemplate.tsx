@@ -14,8 +14,9 @@ import { AdsShowcase } from "./AdsShowcase";
 import { WebsiteShowcase } from "./WebsiteShowcase";
 import { MobileAppShowcase } from "./MobileAppShowcase";
 import { AutomationShowcase } from "./AutomationShowcase";
+import { TelegramMiniAppShowcase } from "./TelegramMiniAppShowcase";
 
-type Branch = "websites" | "ai" | "automation" | "mobile" | "ads";
+type Branch = "websites" | "ai" | "automation" | "mobile" | "telegram" | "ads";
 
 type ServiceData = {
   eyebrow: string;
@@ -31,11 +32,12 @@ type ServiceData = {
 
 type Shape = { services: Record<Branch, ServiceData> };
 
-const PRICE_KEY: Record<Branch, "site" | "ai" | "automation" | "mobile" | "ads"> = {
+const PRICE_KEY: Record<Branch, "site" | "ai" | "automation" | "mobile" | "telegram" | "ads"> = {
   websites: "site",
   ai: "ai",
   automation: "automation",
   mobile: "mobile",
+  telegram: "telegram",
   ads: "ads",
 };
 
@@ -44,6 +46,7 @@ const SERVICE_PATH: Record<Branch, string> = {
   ai: "/services/ai-agents",
   automation: "/services/automation",
   mobile: "/services/mobile-apps",
+  telegram: "/services/telegram-bots",
   ads: "/services/advertising",
 };
 
@@ -54,6 +57,7 @@ const DEMOS: Partial<Record<Branch, ComponentType>> = {
   ai: AiSyncShowcase,
   automation: AutomationShowcase,
   mobile: MobileAppShowcase,
+  telegram: TelegramMiniAppShowcase,
   ads: AdsShowcase,
 };
 
