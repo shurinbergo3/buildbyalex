@@ -142,8 +142,9 @@ export function LegalwinHomeShowcase() {
                 index={t("columns.serp.index")}
                 label={t("columns.serp.label")}
                 caption={t("columns.serp.caption")}
+                maxWidth="440px"
               >
-                <GoogleSerpMock />
+                <GoogleSerpMock maxWidth="440px" />
               </ShowcaseRow>
 
               {/* sequence connector — same client, the next channel */}
@@ -270,16 +271,19 @@ function ShowcaseRow({
   label,
   caption,
   children,
+  maxWidth = "860px",
 }: {
   index: string;
   label: string;
   caption: string;
   children: React.ReactNode;
+  /** Width of the title rule, kept aligned to the mock's width. */
+  maxWidth?: string;
 }) {
   return (
     <div className="flex flex-col gap-5">
       {/* label bar — aligned to the mock's natural width so it reads as a titled window */}
-      <div className="mx-auto flex w-full max-w-[860px] items-baseline gap-4">
+      <div className="mx-auto flex w-full items-baseline gap-4" style={{ maxWidth }}>
         <span className="font-mono text-[12px] tracking-[0.08em] text-[color:var(--color-text-3)]">
           {index}
         </span>

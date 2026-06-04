@@ -24,8 +24,11 @@ const HOLD_BEFORE_TYPING = 600;
 
 export function GoogleSerpMock({
   namespace = "work.caseShowcase.legalwin.serp",
+  maxWidth,
 }: {
   namespace?: string;
+  /** Override the mock's max width (e.g. "440px"). Defaults to 860px. */
+  maxWidth?: string;
 } = {}) {
   const t = useTranslations(namespace);
   const queries = useMemo(() => t.raw("queries") as QueryBlock[], [t]);
@@ -72,7 +75,7 @@ export function GoogleSerpMock({
   return (
     <div
       className="relative mx-auto w-full max-w-[860px] overflow-hidden rounded-2xl shadow-[0_30px_80px_-20px_rgba(20,30,50,0.35),0_0_0_1px_rgba(0,0,0,0.06)]"
-      style={{ background: "#ffffff" }}
+      style={{ background: "#ffffff", ...(maxWidth ? { maxWidth } : null) }}
     >
       {/* Browser frame */}
       <div className="flex items-center gap-3 border-b border-black/5 px-4 py-3" style={{ background: "#f1f3f4" }}>
