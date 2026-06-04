@@ -93,7 +93,20 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
         tabIndex={0}
         onKeyDown={onKeyDown}
         className="flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain pb-1 outline-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:gap-5"
-        style={{ scrollPaddingInline: "0px" }}
+        style={{
+          scrollPaddingInline: "0px",
+          // Full-bleed: escape the container so neighbouring cards have room to
+          // breathe instead of being chopped at the content edge.
+          marginInline: "calc(50% - 50vw)",
+          paddingInline: "max(1.5rem, calc(50vw - 50%))",
+          // Soft edge-fade so the peeking neighbours dissolve into the page
+          // rather than ending on a hard vertical cut.
+          ["--fade" as string]: "clamp(28px, 7vw, 120px)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent 0, #000 var(--fade), #000 calc(100% - var(--fade)), transparent 100%)",
+          maskImage:
+            "linear-gradient(to right, transparent 0, #000 var(--fade), #000 calc(100% - var(--fade)), transparent 100%)",
+        }}
       >
         {items.map((it, i) => {
           const isActive = i === active;

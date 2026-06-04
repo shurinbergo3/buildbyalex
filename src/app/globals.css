@@ -130,6 +130,10 @@
 /* ───────────────────── RESET ───────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { padding: 0; margin: 0; }
+/* Lets full-bleed sections (e.g. the case carousel) escape the container
+   without introducing a horizontal scrollbar. `clip` (not `hidden`) keeps
+   position:sticky working. */
+body { overflow-x: clip; }
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
