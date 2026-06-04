@@ -12,7 +12,7 @@ import { useTranslations } from "next-intl";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 
-// buildbyalex — hero scroll-morph. one person, end to end.
+// buildbyalex — hero scroll-morph. idea to release, end to end.
 export function Hero() {
   const t = useTranslations("home.hero");
   const sectionRef = useRef(null);
@@ -69,9 +69,9 @@ export function Hero() {
         <div ref={contentRef} className="hero-content">
           <Container size="default">
             <h1 className="t-hero">
-              Продакшн-сайты, AI-агенты
+              Сайты, AI-агенты
               и мобильные приложения.
-              <span className="hl-accent">За 1–3 недели.</span>
+              <span className="hl-accent">Под ключ за 1–3 недели.</span>
             </h1>
             <p className="hero-sub">{t("subhead")}</p>
             <Button href="/contact" size="lg">

@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "buildbyalex",
     "defaultTitle": "buildbyalex — Websites, AI Agents & Mobile Apps",
-    "defaultDescription": "Independent senior developer in Warsaw. Production websites, AI agents and mobile apps in 1–3 weeks — from the first call to release. RU · EN · PL · UA.",
+    "defaultDescription": "Turnkey development in Warsaw: websites, AI agents and mobile apps in 1–3 weeks — from the first call to release. RU · EN · PL · UA.",
     "ogAlt": "buildbyalex — independent developer · Warsaw"
   },
   "nav": {
@@ -42,7 +42,7 @@
     }
   },
   "footer": {
-    "tagline": "One developer. Three weeks to launch. Built to rank.",
+    "tagline": "Turnkey development. Three weeks to launch. Built to rank.",
     "sections": {
       "explore": "Explore",
       "services": "Services",
@@ -65,9 +65,9 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "Independent developer · Warsaw",
-      "headline": "Production sites,\nAI agents and mobile apps.\nIn 1 to 3 weeks.",
-      "subhead": "I'm Alex. One developer who builds, ships and supports the whole product — from first call to live launch.",
+      "eyebrow": "Turnkey development · Warsaw",
+      "headline": "Websites, AI agents\nand mobile apps.\nTurnkey in 1 to 3 weeks.",
+      "subhead": "Design, code, CRM and messenger integrations, launch and support — handled end to end. From first call to live, with no dropped deadlines.",
       "primaryCta": "Book a free call",
       "secondaryCta": "See my work",
       "trustLine": "Warsaw · Available worldwide · RU / EN / PL / UA",
@@ -79,11 +79,11 @@
       "items": {
         "speed": {
           "title": "Weeks, not quarters.",
-          "body": "Agencies take three months and four meetings to do what I deliver in three weeks. One person, one decision, one ship date."
+          "body": "Agencies take three months and four meetings to do what gets shipped here in three weeks. Minimal back-and-forth: one decision, one ship date."
         },
         "owner": {
-          "title": "One person. The whole stack.",
-          "body": "You message me directly. No account managers, no Slack channels, no handoffs to a junior. The person you brief is the person who codes it."
+          "title": "No middlemen. The whole stack.",
+          "body": "You talk straight to the people designing and writing the code. No account managers, no endless Slack channels, no handoffs to a junior."
         },
         "seo": {
           "title": "Built to rank from day one.",

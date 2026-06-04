@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "buildbyalex",
     "defaultTitle": "buildbyalex — strony, agenci AI i aplikacje mobilne",
-    "defaultDescription": "Niezależny senior developer w Warszawie. Strony produkcyjne, agenci AI i aplikacje mobilne — od pomysłu do startu w 1–3 tygodnie. PL · EN · UA.",
+    "defaultDescription": "Realizacje pod klucz w Warszawie: strony, agenci AI i aplikacje mobilne w 1–3 tygodnie — od pomysłu do startu. PL · EN · UA.",
     "ogAlt": "buildbyalex — niezależny developer · Warszawa"
   },
   "nav": {
@@ -42,7 +42,7 @@
     }
   },
   "footer": {
-    "tagline": "Jeden developer. Trzy tygodnie do startu. Strony, które rankują.",
+    "tagline": "Realizacje pod klucz. Trzy tygodnie do startu. Strony, które rankują.",
     "sections": {
       "explore": "Odkryj",
       "services": "Usługi",
@@ -65,9 +65,9 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "Niezależny developer · Warszawa",
-      "headline": "Strony produkcyjne,\nagenci AI i aplikacje mobilne.\nW 1 do 3 tygodni.",
-      "subhead": "Jestem Alex. Jedna osoba, która buduje, wdraża i utrzymuje cały produkt — od pierwszej rozmowy do uruchomienia.",
+      "eyebrow": "Realizacje pod klucz · Warszawa",
+      "headline": "Strony, agenci AI\ni aplikacje mobilne.\nPod klucz w 1–3 tygodnie.",
+      "subhead": "Projekt, kod, integracje z CRM i komunikatorami, wdrożenie i wsparcie — kompleksowo, pod klucz. Od pierwszej rozmowy do startu, bez utraconych terminów.",
       "primaryCta": "Bezpłatna konsultacja",
       "secondaryCta": "Zobacz realizacje",
       "trustLine": "Warszawa · Cały świat · RU / EN / PL / UA",
@@ -79,11 +79,11 @@
       "items": {
         "speed": {
           "title": "Tygodnie, nie kwartały.",
-          "body": "Agencje potrzebują trzech miesięcy i czterech spotkań na to, co dostarczam w trzy tygodnie. Jedna osoba, jedna decyzja, jedna data startu."
+          "body": "Agencje potrzebują trzech miesięcy i czterech spotkań na to, co tu powstaje w trzy tygodnie. Minimum ustaleń: jedna decyzja, jedna data startu."
         },
         "owner": {
-          "title": "Jedna osoba. Cały stack.",
-          "body": "Piszesz bezpośrednio do mnie. Bez account managerów, bez kanałów na Slacku, bez przekazywania pracy juniorowi. Osoba, z którą rozmawiasz, to osoba, która pisze kod."
+          "title": "Bez pośredników. Cały stack.",
+          "body": "Rozmawiasz wprost z osobami, które projektują i piszą kod. Bez account managerów, bez niekończących się kanałów na Slacku, bez przekazywania zadań juniorom."
         },
         "seo": {
           "title": "Zbudowane pod Google od pierwszego dnia.",
