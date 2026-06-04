@@ -17,7 +17,7 @@ export function SmoothScroll() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const lenis = new Lenis({
-      lerp: 0.12, // proportional catch-up — snappy, settles fast (no long glide)
+      lerp: 0.2, // barely-there smoothing — a hint of glide, no viscous lag
       smoothWheel: true,
       wheelMultiplier: 1,
       touchMultiplier: 1.6,
