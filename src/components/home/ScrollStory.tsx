@@ -100,8 +100,11 @@ export function ScrollStory() {
               <p className="t-eyebrow" style={{ color: "var(--c-accent)" }}>
                 {tStory("eyebrow")}
               </p>
+              <p className="mt-3 max-w-[400px] text-[14px] leading-[1.5] text-white/55 sm:text-[15px]">
+                {tStory("lead")}
+              </p>
 
-              <div className="relative mt-5 min-h-[150px] sm:mt-6 lg:min-h-[240px]">
+              <div className="relative mt-5 min-h-[140px] sm:mt-6 lg:min-h-[230px]">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={active}
@@ -113,10 +116,10 @@ export function ScrollStory() {
                     <span className="text-[12px] font-semibold uppercase tracking-[0.18em] text-white/40">
                       {chapter.kicker}
                     </span>
-                    <h2 className="mt-3 text-[clamp(30px,3.4vw+14px,52px)] font-semibold leading-[1.05] tracking-[-0.025em]">
+                    <h2 className="mt-2.5 text-[clamp(26px,3.4vw+14px,52px)] font-semibold leading-[1.05] tracking-[-0.025em] sm:mt-3">
                       {chapter.title}
                     </h2>
-                    <p className="mt-5 max-w-[420px] text-[17px] leading-[1.55] text-white/65">
+                    <p className="mt-3.5 max-w-[420px] text-[15px] leading-[1.5] text-white/65 sm:mt-5 sm:text-[17px] sm:leading-[1.55]">
                       {chapter.body}
                     </p>
                   </motion.div>
@@ -124,7 +127,7 @@ export function ScrollStory() {
               </div>
 
               {/* Progress rail */}
-              <div className="mt-8 flex items-center gap-3">
+              <div className="mt-6 flex items-center gap-3 sm:mt-8">
                 {chapters.map((_, i) => (
                   <button
                     key={i}
@@ -253,7 +256,7 @@ function ChatPanel({ messages, count }: { messages: string[]; count: number }) {
   return (
     <div className="flex min-w-0 flex-col" style={{ background: "#0e1621" }}>
       <div
-        className="relative h-[210px] overflow-hidden px-3 py-3 sm:h-[360px]"
+        className="relative h-[164px] overflow-hidden px-3 py-3 sm:h-[360px]"
         style={{
           background:
             "radial-gradient(ellipse at top, rgba(46,87,121,0.18) 0%, transparent 55%), #0e1621",
@@ -330,9 +333,9 @@ function CrmPanel({
         <span className="text-[13px] font-medium text-white/85">CRM</span>
       </div>
 
-      <div className="flex flex-1 flex-col gap-4 px-4 py-4">
+      <div className="flex flex-1 flex-col gap-3 px-4 py-3.5 sm:gap-4 sm:py-4">
         {/* Pipeline rail */}
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-1.5 sm:gap-2">
           {stages.map((stage, i) => {
             const done = i < activeStage;
             const isActive = i === activeStage;
@@ -391,7 +394,7 @@ function CrmPanel({
             </span>
           </div>
 
-          <div className="mt-2.5 flex flex-col gap-1.5">
+          <div className="mt-2.5 hidden flex-col gap-1.5 sm:flex">
             <AnimatePresence initial={false}>
               {FIELD_ORDER.filter((k) => fields.includes(k)).map((k) => (
                 <motion.div

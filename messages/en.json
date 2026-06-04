@@ -645,6 +645,7 @@
     },
     "scrollStory": {
       "eyebrow": "How it works",
+      "lead": "A live example: the bot runs the chat while the deal moves itself through your CRM, filling fields as it goes — no manager.",
       "chapters": [
         {
           "kicker": "01 — Lead",

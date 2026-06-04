@@ -645,6 +645,7 @@
     },
     "scrollStory": {
       "eyebrow": "Jak to działa",
+      "lead": "Żywy przykład: bot prowadzi rozmowę, a deal sam przesuwa się w CRM i uzupełnia pola — bez menedżera.",
       "chapters": [
         {
           "kicker": "01 — Zgłoszenie",
