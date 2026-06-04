@@ -204,10 +204,22 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
   inset: 0;
 }
 
+/* Spotlight position — registered so it can be animated (idle float) */
+@property --mx {
+  syntax: "<length-percentage>";
+  inherits: true;
+  initial-value: 50%;
+}
+@property --my {
+  syntax: "<length-percentage>";
+  inherits: true;
+  initial-value: 30%;
+}
+
 /* The morphing frame: starts full-bleed (inset 0, radius 0), ends as a card */
 .hero-frame {
-  --mx: 50%;
-  --my: 30%;
+  --mx: 22%;
+  --my: 44%;
   position: absolute;
   top: 0;
   left: 0;
@@ -329,9 +341,10 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
   transition: background 280ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 .hero-frame[data-spot="off"] .hero-flashlight {
-  /* When the cursor leaves, lift the spotlight a touch so the card stays moody */
+  /* When the cursor leaves, pull the spotlight a touch tighter so the card
+     stays moody — position now rides the idle-float variables (see below) */
   background: radial-gradient(
-    circle 280px at 50% 34%,
+    circle 280px at var(--mx) var(--my),
     transparent 0%,
     transparent 14%,
     rgba(4, 4, 8, 0.42) 40%,
@@ -357,11 +370,26 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
 }
 .hero-frame[data-spot="off"] .hero-glow {
   background: radial-gradient(
-    circle 180px at 50% 32%,
-    rgba(255, 130, 60, 0.18) 0%,
-    rgba(255, 130, 60, 0.06) 32%,
-    transparent 65%
+    circle 200px at var(--mx) var(--my),
+    rgba(255, 130, 60, 0.20) 0%,
+    rgba(255, 130, 60, 0.07) 34%,
+    transparent 66%
   );
+}
+
+/* Idle drift — when the cursor isn't on the frame, the side-anchored light
+   breathes gently up and down. Active hover (data-spot="on") drops the
+   animation so the JS-set --mx/--my take over instantly. */
+@keyframes heroIdleFloat {
+  0%   { --mx: 21%; --my: 40%; }
+  50%  { --mx: 24%; --my: 58%; }
+  100% { --mx: 21%; --my: 40%; }
+}
+.hero-frame:not([data-spot="on"]) {
+  animation: heroIdleFloat 9s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-frame:not([data-spot="on"]) { animation: none; }
 }
 
 /* Hairline ring that strengthens as the card stands apart */

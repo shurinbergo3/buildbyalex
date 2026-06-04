@@ -57,12 +57,22 @@ export function FeaturedWork() {
         </Reveal>
 
         <Reveal delay={200}>
-          <div className="mt-8 text-center md:text-left">
+          <div className="mt-10 flex justify-center md:justify-start">
             <Link
               href="/work"
-              className="inline-flex items-center gap-1 text-[14px] font-medium text-[color:var(--color-text-2)] transition-colors duration-200 hover:text-[color:var(--c-accent-ink)] dark:hover:text-[color:var(--c-accent)]"
+              className="group inline-flex items-center gap-2 rounded-full border border-[color:var(--color-divider)] bg-[color:var(--color-bg-elev)] px-6 py-3 text-[15px] font-[number:var(--fw-semi)] text-[color:var(--color-text)] shadow-[var(--shadow-card)] transition-all duration-200 ease-[cubic-bezier(0.28,0.11,0.32,1)] hover:-translate-y-0.5 hover:border-[color:var(--c-accent)] hover:text-[color:var(--c-accent-ink)] hover:shadow-[var(--shadow-card-hover)] dark:hover:text-[color:var(--c-accent)]"
             >
               {t("featured.seeAll")}
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                className="text-[color:var(--c-accent)] transition-transform duration-200 group-hover:translate-x-1"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </Link>
           </div>
         </Reveal>

@@ -22,11 +22,6 @@ export type HighlightItem = {
   image: { src: string; alt: string };
 };
 
-const GLASS = {
-  background: "rgba(0,0,0,0.04)",
-  border: "1px solid color-mix(in srgb, var(--color-text-1) 14%, transparent)",
-} as const;
-
 export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ctaLabel: string }) {
   const n = items.length;
   const trackRef = useRef<HTMLUListElement>(null);
@@ -92,6 +87,9 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
         aria-roledescription="carousel"
         tabIndex={0}
         onKeyDown={onKeyDown}
+        // Release this rail from Lenis so trackpad / wheel gestures scroll it
+        // sideways natively instead of being hijacked into vertical page scroll.
+        data-lenis-prevent
         className="flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain pb-1 outline-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:gap-5"
         style={{
           scrollPaddingInline: "0px",
@@ -183,21 +181,20 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
       </ul>
 
       {/* Controls — below the track, never over the cards */}
-      <div className="mt-6 flex items-center justify-center gap-4">
+      <div className="mt-7 flex items-center justify-center gap-5">
         <button
           type="button"
           onClick={() => stepTo(active - 1)}
           disabled={active === 0}
           aria-label="Previous case"
-          className="flex h-10 w-10 items-center justify-center rounded-full text-[color:var(--color-text-1)] transition-all duration-200 hover:bg-[color:var(--color-bg-alt)] disabled:cursor-not-allowed disabled:opacity-30"
-          style={GLASS}
+          className="flex h-12 w-12 items-center justify-center rounded-full border border-[color:var(--color-divider)] bg-[color:var(--color-bg-elev)] text-[color:var(--color-text)] shadow-[var(--shadow-card)] transition-all duration-200 ease-[cubic-bezier(0.28,0.11,0.32,1)] hover:-translate-y-0.5 hover:border-[color:var(--c-accent)] hover:text-[color:var(--c-accent)] active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-25 disabled:shadow-none disabled:hover:translate-y-0 disabled:hover:border-[color:var(--color-divider)] disabled:hover:text-[color:var(--color-text)]"
         >
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
-            <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2.5">
           {items.map((it, i) => (
             <button
               key={it.key}
@@ -205,11 +202,11 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
               onClick={() => stepTo(i)}
               aria-label={it.title}
               aria-current={i === active}
-              className="h-2 rounded-full transition-all duration-300"
+              className="h-2.5 rounded-full transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
               style={{
-                width: i === active ? 26 : 8,
+                width: i === active ? 30 : 9,
                 background:
-                  i === active ? "var(--c-accent)" : "color-mix(in srgb, var(--color-text-1) 22%, transparent)",
+                  i === active ? "var(--c-accent)" : "color-mix(in srgb, var(--color-text-3) 45%, transparent)",
               }}
             />
           ))}
@@ -220,11 +217,10 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
           onClick={() => stepTo(active + 1)}
           disabled={active === n - 1}
           aria-label="Next case"
-          className="flex h-10 w-10 items-center justify-center rounded-full text-[color:var(--color-text-1)] transition-all duration-200 hover:bg-[color:var(--color-bg-alt)] disabled:cursor-not-allowed disabled:opacity-30"
-          style={GLASS}
+          className="flex h-12 w-12 items-center justify-center rounded-full border border-[color:var(--color-divider)] bg-[color:var(--color-bg-elev)] text-[color:var(--color-text)] shadow-[var(--shadow-card)] transition-all duration-200 ease-[cubic-bezier(0.28,0.11,0.32,1)] hover:-translate-y-0.5 hover:border-[color:var(--c-accent)] hover:text-[color:var(--c-accent)] active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-25 disabled:shadow-none disabled:hover:translate-y-0 disabled:hover:border-[color:var(--color-divider)] disabled:hover:text-[color:var(--color-text)]"
         >
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
-            <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
       </div>
