@@ -38,6 +38,10 @@
       "ads": {
         "title": "Reklama",
         "tagline": "Google Ads i Meta Ads pod leady"
+      },
+      "telegram": {
+        "title": "Boty Telegram",
+        "tagline": "Boty i Mini Apps z płatnością w czacie"
       }
     }
   },
@@ -152,6 +156,12 @@
         "title": "Automatyzacja procesów biznesowych",
         "body": "Leady, CRM, powiadomienia, raporty — łączę narzędzia w proces, który działa sam.",
         "price": "Od €600"
+      },
+      "telegram": {
+        "category": "Telegram",
+        "title": "Boty Telegram i Mini Apps",
+        "body": "Boty do zgłoszeń i obsługi + mini-aplikacje ze sklepem i płatnością prosto w czacie.",
+        "price": "od €300"
       }
     },
     "work": {
@@ -418,6 +428,13 @@
           "price": "€500",
           "body": "Google Ads i Meta Ads — konfiguracja i prowadzenie pod cel konwersji.",
           "examples": "€300 konfiguracja · Google + Meta · śledzenie GA4"
+        },
+        "telegram": {
+          "title": "Bot Telegram",
+          "from": "od",
+          "price": "€300",
+          "body": "Bot do zgłoszeń i obsługi 24/7; Mini App ze sklepem i płatnością ★ — w kolejnym kroku.",
+          "examples": "Bot API · Mini App · Stars/TON · CRM"
         }
       },
       "caption": "Cena ostateczna po rozmowie wstępnej. Edycje po starcie: 50 €/h, minimum 1 godzina. Bez wymuszonego abonamentu."
@@ -1472,6 +1489,154 @@
       },
       "startingPrice": "Cena startowa",
       "bookCta": "Umów bezpłatną rozmowę"
+    },
+    "telegram": {
+      "meta": {
+        "title": "Boty Telegram i Mini Aplikacje pod klucz — od €300",
+        "description": "Boty do sprzedaży, obsługi i zbierania zgłoszeń + Telegram Mini Apps: sklep, rezerwacja i płatności ★ Stars / TON bez wychodzenia z czatu. Integracja z CRM. Ceny w EUR."
+      },
+      "eyebrow": "Boty Telegram i Mini Apps",
+      "headline": "Boty Telegram i mini-aplikacje,\nktóre sprzedają.",
+      "lead": "Bot zbiera zgłoszenia i odpowiada 24/7, a Mini App otwiera sklep, rezerwację i płatność bezpośrednio w Telegramie — bez instalacji i bez przechodzenia na stronę.",
+      "from": "Od €300",
+      "primaryCta": "Porozmawiajmy o bocie",
+      "demo": {
+        "eyebrow": "Demo na żywo",
+        "headline": "Sklep i płatność —\nw Telegramie",
+        "subhead": "Klient klika przycisk w czacie, otwiera się mini-aplikacja, wybiera usługę i płaci ★ Stars — nie wychodząc z komunikatora.",
+        "botName": "Studio Nova",
+        "botStatus": "bot · online",
+        "scenes": [
+          {
+            "tag": "01 · Bot",
+            "title": "Start prosto w czacie",
+            "desc": "Bot wita klienta, odpowiada na pytania i otwiera aplikację jednym przyciskiem — bez instalacji."
+          },
+          {
+            "tag": "02 · Mini App",
+            "title": "Sklep w Telegramie",
+            "desc": "Katalog, rezerwacja lub koszyk otwierają się na czacie. Natywna szybkość, Twoja marka, zero tarcia."
+          },
+          {
+            "tag": "03 · Płatność ★",
+            "title": "Płatność bez wychodzenia",
+            "desc": "Płatność przez Telegram Stars lub TON — zamówienie i kontakt trafiają od razu do Twojego CRM."
+          }
+        ],
+        "chat": {
+          "greeting": "Cześć! 👋 Chcesz się umówić? Otwórz aplikację 👇",
+          "openApp": "Otwórz aplikację",
+          "done": "Gotowe! ✅ Czwartek 18:00 potwierdzony"
+        },
+        "app": {
+          "title": "Studio Nova",
+          "subtitle": "Wybierz usługę",
+          "items": [
+            {
+              "name": "Strzyżenie + stylizacja",
+              "price": "★ 300"
+            },
+            {
+              "name": "Koloryzacja",
+              "price": "★ 650"
+            },
+            {
+              "name": "Pielęgnacja włosów",
+              "price": "★ 200"
+            }
+          ],
+          "pay": "Zapłać",
+          "paid": "Zapłacono",
+          "paidSub": "Termin zarezerwowany · paragon w czacie"
+        },
+        "chips": [
+          "Telegram Stars",
+          "TON Pay",
+          "Synchronizacja CRM"
+        ]
+      },
+      "what": {
+        "title": "Co otrzymujesz",
+        "items": [
+          {
+            "title": "Bot do sprzedaży i zgłoszeń",
+            "body": "Zbiera zgłoszenia, odpowiada na częste pytania, kwalifikuje leady i przekazuje zespołowi tylko ciepłe — 24/7, w kilku językach."
+          },
+          {
+            "title": "Telegram Mini App",
+            "body": "Pełna aplikacja w Telegramie: sklep, rezerwacja, koszyk, konto. Bez instalacji i bez przechodzenia na stronę."
+          },
+          {
+            "title": "Płatności w czacie",
+            "body": "Telegram Stars, TON lub Stripe / Przelewy24 — klient płaci bez wychodzenia z komunikatora. Paragon trafia do czatu."
+          },
+          {
+            "title": "Integracja z CRM",
+            "body": "Każde zgłoszenie i płatność trafiają do amoCRM, Bitrix24, HubSpot lub Arkuszy Google — bez ręcznego przepisywania."
+          },
+          {
+            "title": "Boty do kanałów i społeczności",
+            "body": "Zbieranie zgłoszeń z kanału, moderacja, dostęp płatny, auto-publikacja i wysyłki do segmentów."
+          },
+          {
+            "title": "Analityka i wsparcie",
+            "body": "Panel z metrykami, logi rozmów, hosting i poprawki. Widzisz, co się dzieje, i płacisz tylko za to, czego potrzebujesz."
+          }
+        ]
+      },
+      "stack": {
+        "title": "Technologie",
+        "items": [
+          "Telegram Bot API",
+          "Mini Apps (TWA)",
+          "TypeScript",
+          "Node.js / Python",
+          "aiogram / grammY",
+          "TON Connect",
+          "Telegram Stars",
+          "Supabase / Postgres",
+          "n8n / Make",
+          "amoCRM · Bitrix24"
+        ]
+      },
+      "cases": "Podobne realizacje",
+      "faq": {
+        "title": "Pytania o Telegram",
+        "items": [
+          {
+            "q": "Czym Mini App jest lepsza od strony lub aplikacji?",
+            "a": "Mini App działa w Telegramie: klient niczego nie instaluje i jest już zalogowany. Otwiera się z bota w sekundę, działa z natywną szybkością i od razu wie, kto jest użytkownikiem. Dla rezerwacji, sklepu i płatności to mniej tarcia niż strona — i ułamek kosztu natywnej aplikacji."
+          },
+          {
+            "q": "Jak popularny jest Telegram w Polsce?",
+            "a": "Telegram to drugi komunikator w Polsce po WhatsAppie — około 4 mln użytkowników i rośnie. Dla osób ukraińsko- i rosyjskojęzycznych to główny kanał. Jeśli Twoi klienci są na Telegramie, bot i Mini App docierają tam, gdzie już są."
+          },
+          {
+            "q": "Jak klienci płacą w Telegramie?",
+            "a": "Przez Telegram Stars (wbudowana waluta) lub krypto przez TON — płatność bez wychodzenia z czatu. Dla kart i złotówek podłączam Stripe lub Przelewy24 wewnątrz Mini App. Dobieramy pod Twoją grupę odbiorców."
+          },
+          {
+            "q": "Ile kosztuje i ile trwa?",
+            "a": "Prosty bot do zgłoszeń — od €300, 1–2 tygodnie. Bot z odpowiedziami AI i integracją CRM — od €700. Mini App ze sklepem i płatnością — od €1 500. Dokładną wycenę i termin podaję po krótkiej rozmowie, gdy znamy zakres."
+          },
+          {
+            "q": "Czy można połączyć bota z moim CRM i stroną?",
+            "a": "Tak. Zgłoszenia i płatności zapisują się w amoCRM, Bitrix24, HubSpot lub arkuszu, bot odpytuje Twoją stronę / API, a powiadomienia lecą do Twojego Telegrama. To dokładnie łączenie narzędzi — bez ręcznego przenoszenia danych."
+          },
+          {
+            "q": "Do kogo należy bot po oddaniu?",
+            "a": "Do Ciebie — w całości. Kod źródłowy, token bota, konta płatności i baza są zarejestrowane na Twoją firmę i przekazywane umową. Nie wiążę Cię ze sobą: rozwijaj sam lub z dowolnym programistą."
+          },
+          {
+            "q": "Ile kosztuje utrzymanie po starcie?",
+            "a": "Hosting to zwykle €5–30/mies. zależnie od obciążenia. API Telegrama jest darmowe. Poprawki — €50/godz. bez obowiązkowego abonamentu: płacisz tylko, gdy realnie coś zmieniamy."
+          }
+        ]
+      },
+      "demoEyebrow": "Na żywo",
+      "startingPrice": "Cena startowa",
+      "bookCta": "Bezpłatna rozmowa",
+      "includedTitle": "Co wchodzi w skład"
     }
   },
   "work": {

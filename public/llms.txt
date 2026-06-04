@@ -22,6 +22,9 @@ RAG assistants (knowledge-base chats with strict citation), sales bots (lead qua
 ### Mobile apps — from €3,000
 Cross-platform iOS + Android on React Native + Expo SDK 52. Authentication, payments (Stripe, RevenueCat), push notifications (Expo Push), OTA updates (EAS Update). App Store Connect and Google Play Console submission included. Typical MVP: 4–6 weeks to TestFlight / Internal Testing.
 
+### Telegram bots & Mini Apps — from €300
+Sales/support/lead-capture bots and Telegram Mini Apps (TWA): storefront, booking, cart and account inside Telegram with no install. In-chat payments via Telegram Stars, TON (TON Connect), or Stripe/Przelewy24. CRM integration (AmoCRM, Bitrix24, HubSpot, Google Sheets), channel & community bots, broadcasts. Stack: Telegram Bot API, aiogram/grammY, TypeScript, Node.js/Python, Supabase/Postgres. Context: Telegram is Poland's #2 messenger (~4M users) and the primary channel for Ukrainian/Russian-speaking audiences. Simple lead bot from €300 (1–2 weeks); bot + AI + CRM from €700; Mini App with storefront and checkout from €1,500.
+
 ## Pricing rules
 
 - Final price is fixed after a 30-minute discovery call. Written estimate within 24 hours.

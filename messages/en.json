@@ -38,6 +38,10 @@
       "ads": {
         "title": "Advertising",
         "tagline": "Google Ads & Meta Ads built for leads"
+      },
+      "telegram": {
+        "title": "Telegram bots",
+        "tagline": "Bots & Mini Apps with in-chat payments"
       }
     }
   },
@@ -152,6 +156,12 @@
         "title": "Business process automation",
         "body": "Leads, CRM, notifications, reports — I wire your tools into a flow that runs itself.",
         "price": "From €600"
+      },
+      "telegram": {
+        "category": "Telegram",
+        "title": "Telegram bots & Mini Apps",
+        "body": "Bots for leads and support + mini-apps with a storefront and payments right in the chat.",
+        "price": "from €300"
       }
     },
     "work": {
@@ -418,6 +428,13 @@
           "price": "€500",
           "body": "Google Ads and Meta Ads, set up and managed to a conversion goal.",
           "examples": "€300 setup · Google + Meta · GA4 tracking"
+        },
+        "telegram": {
+          "title": "Telegram bot",
+          "from": "from",
+          "price": "€300",
+          "body": "A 24/7 bot for leads and support; a Mini App with storefront and ★ checkout as the next step.",
+          "examples": "Bot API · Mini App · Stars/TON · CRM"
         }
       },
       "caption": "Final price after a discovery call. Edits after launch: €50/hour, 1-hour minimum. No forced retainer."
@@ -1472,6 +1489,154 @@
       },
       "startingPrice": "Starting price",
       "bookCta": "Book a free call"
+    },
+    "telegram": {
+      "meta": {
+        "title": "Telegram Bots & Mini Apps, Done For You — from €300",
+        "description": "Sales, support and lead-capture bots + Telegram Mini Apps: storefront, booking and ★ Stars / TON payments without leaving the chat. CRM integration. Prices in EUR."
+      },
+      "eyebrow": "Telegram Bots & Mini Apps",
+      "headline": "Telegram bots and mini-apps\nthat actually sell.",
+      "lead": "A bot captures leads and answers 24/7, while a Mini App opens your storefront, booking and checkout right inside Telegram — no install, no detour to a website.",
+      "from": "From €300",
+      "primaryCta": "Discuss a bot",
+      "demo": {
+        "eyebrow": "Live demo",
+        "headline": "Storefront and checkout —\ninside Telegram",
+        "subhead": "The client taps a button in the chat, a mini-app opens, they pick a service and pay with ★ Stars — without ever leaving the messenger.",
+        "botName": "Studio Nova",
+        "botStatus": "bot · online",
+        "scenes": [
+          {
+            "tag": "01 · Bot",
+            "title": "Starts in the chat",
+            "desc": "The bot greets the client, answers questions and opens the app with one button — no install needed."
+          },
+          {
+            "tag": "02 · Mini App",
+            "title": "Storefront inside Telegram",
+            "desc": "Catalog, booking or cart open on top of the chat. Native speed, your brand, zero friction."
+          },
+          {
+            "tag": "03 · ★ Payment",
+            "title": "Checkout without leaving",
+            "desc": "Pay via Telegram Stars or TON — the order and contact land straight in your CRM."
+          }
+        ],
+        "chat": {
+          "greeting": "Hi! 👋 Ready to book? Open the app 👇",
+          "openApp": "Open app",
+          "done": "Done! ✅ Thursday 6:00 PM is confirmed"
+        },
+        "app": {
+          "title": "Studio Nova",
+          "subtitle": "Choose a service",
+          "items": [
+            {
+              "name": "Cut + styling",
+              "price": "★ 300"
+            },
+            {
+              "name": "Coloring",
+              "price": "★ 650"
+            },
+            {
+              "name": "Hair treatment",
+              "price": "★ 200"
+            }
+          ],
+          "pay": "Pay",
+          "paid": "Paid",
+          "paidSub": "Slot booked · receipt in chat"
+        },
+        "chips": [
+          "Telegram Stars",
+          "TON Pay",
+          "CRM sync"
+        ]
+      },
+      "what": {
+        "title": "What you get",
+        "items": [
+          {
+            "title": "Sales & lead bot",
+            "body": "Captures leads, answers FAQs, qualifies and hands only warm ones to your team — 24/7, in several languages."
+          },
+          {
+            "title": "Telegram Mini App",
+            "body": "A full app inside Telegram: storefront, booking, cart, account. No install, no detour to a website."
+          },
+          {
+            "title": "In-chat payments",
+            "body": "Telegram Stars, TON, or Stripe / local gateways — the client pays without leaving the messenger. Receipt lands in the chat."
+          },
+          {
+            "title": "CRM integration",
+            "body": "Every lead and payment flows into amoCRM, Bitrix24, HubSpot or Google Sheets — no manual copy-paste."
+          },
+          {
+            "title": "Channel & community bots",
+            "body": "Lead capture from a channel, moderation, paid-access gating, auto-posting and segmented broadcasts."
+          },
+          {
+            "title": "Analytics & support",
+            "body": "A metrics dashboard, conversation logs, hosting and changes. You see what's happening and pay only for what you need."
+          }
+        ]
+      },
+      "stack": {
+        "title": "Tech",
+        "items": [
+          "Telegram Bot API",
+          "Mini Apps (TWA)",
+          "TypeScript",
+          "Node.js / Python",
+          "aiogram / grammY",
+          "TON Connect",
+          "Telegram Stars",
+          "Supabase / Postgres",
+          "n8n / Make",
+          "amoCRM · Bitrix24"
+        ]
+      },
+      "cases": "Related work",
+      "faq": {
+        "title": "Telegram questions",
+        "items": [
+          {
+            "q": "Why is a Mini App better than a website or app?",
+            "a": "A Mini App lives inside Telegram: the client installs nothing and is already logged in. It opens from the bot in a second, runs at native speed and instantly knows who the user is. For booking, storefronts and payments that's less friction than a website — and a fraction of the cost of a native app."
+          },
+          {
+            "q": "How popular is Telegram in Poland?",
+            "a": "Telegram is the #2 messenger in Poland after WhatsApp — around 4 million users, and growing. For Ukrainian- and Russian-speaking audiences it's the primary channel. If your clients are on Telegram, the bot and Mini App meet them where they already are."
+          },
+          {
+            "q": "How do clients pay inside Telegram?",
+            "a": "Via Telegram Stars (the built-in currency) or crypto through TON — payment happens without leaving the chat. For cards and PLN / EUR I plug in Stripe, Przelewy24 or a local gateway inside the Mini App. We pick what fits your audience."
+          },
+          {
+            "q": "How much and how long?",
+            "a": "A simple lead bot — from €300, 1–2 weeks. A bot with AI replies and CRM integration — from €700. A Mini App with a storefront and checkout — from €1,500. Exact quote and timeline after a short call, once the scope is clear."
+          },
+          {
+            "q": "Can it connect to my CRM and site?",
+            "a": "Yes. Leads and payments write to amoCRM, Bitrix24, HubSpot or a sheet, the bot calls your site / API, and notifications hit your Telegram. This is exactly the 'connect your tools' work — no manual data transfer."
+          },
+          {
+            "q": "Who owns the bot after delivery?",
+            "a": "You do — fully. Source code, bot token, payment accounts and the database are registered to your entity and handed over by contract. I don't lock you in: grow it yourself or with any developer."
+          },
+          {
+            "q": "What does it cost to run?",
+            "a": "Hosting is usually €5–30/mo depending on load. The Telegram API is free. Changes are €50/hr with no mandatory retainer — you pay only when something actually changes."
+          }
+        ]
+      },
+      "demoEyebrow": "Live",
+      "startingPrice": "Starting price",
+      "bookCta": "Free call",
+      "includedTitle": "What's included"
     }
   },
   "work": {
