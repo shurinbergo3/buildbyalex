@@ -9,7 +9,6 @@ import { FeaturedWork } from "@/components/home/FeaturedWork";
 import { LegalwinHomeShowcase } from "@/components/home/LegalwinHomeShowcase";
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { ScrollStory } from "@/components/home/ScrollStory";
-import { Numbers } from "@/components/home/Numbers";
 import { Pricing } from "@/components/home/Pricing";
 import { Testimonials } from "@/components/home/Testimonials";
 import { FAQ } from "@/components/home/FAQ";
@@ -34,7 +33,6 @@ export default async function HomePage({
       <LegalwinHomeShowcase />
       <HowItWorks />
       <ScrollStory />
-      <Numbers />
       <Pricing />
       <Testimonials />
       <FAQ />
