@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { HeroCodeSurface } from "@/components/home/HeroCodeSurface";
 
 export function Hero() {
   const t = useTranslations("home.hero");
+  const locale = useLocale();
   const headlineLines = t("headline").split("\n");
   const last = headlineLines.length - 1;
 
@@ -146,12 +147,14 @@ export function Hero() {
       apply(currentP);
     };
 
-    // Pick the source by viewport — a lighter, portrait clip on phones, the
-    // wide one on desktop — then prime it so the first scroll-seek is instant.
+    // Pick the source by locale (the Russian clip opens on the RU hero, the
+    // intl clip warps straight into the wordmark) and by viewport (a lighter
+    // encode on phones), then prime it so the first scroll-seek is instant.
     const video = videoRef.current;
     if (video && !reduced) {
       const isMobileV = window.matchMedia("(max-width: 767px)").matches;
-      video.src = isMobileV ? "/hero-reveal-mobile.mp4" : "/hero-reveal.mp4";
+      const base = locale === "ru" ? "/hero-reveal" : "/hero-reveal-intl";
+      video.src = isMobileV ? `${base}-mobile.mp4` : `${base}.mp4`;
       video.load();
       const prime = () => {
         video.play().then(() => video.pause()).catch(() => {});
@@ -173,7 +176,7 @@ export function Hero() {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
     };
-  }, []);
+  }, [locale]);
 
   const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const cx = e.clientX;
