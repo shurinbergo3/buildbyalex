@@ -75,7 +75,7 @@ export function Hero() {
         // it's already in motion, never a hard cut to a mid frame.
         const fade = smooth(clamp01(p / 0.2));
         video.style.opacity = String(fade);
-        const dur = video.duration || 5.333;
+        const dur = video.duration || 8.067;
         const scrub = smooth(clamp01(p / 0.85)); // 0→1, logo settled by p≈0.85
         const time = scrub * (dur - 0.001);
         if (Math.abs(video.currentTime - time) > 0.012) {
