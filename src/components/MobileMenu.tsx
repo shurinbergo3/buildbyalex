@@ -173,7 +173,7 @@ export function MobileMenu() {
                 {t("letsTalk")}
               </Button>
               <div className="flex items-center justify-between">
-                <LocaleSwitcher />
+                <LocaleSwitcher placement="top-start" />
                 <a
                   href="mailto:alex@buildbyalex.com"
                   className="text-[14px] text-[color:var(--color-text-2)] underline-offset-4 hover:underline"

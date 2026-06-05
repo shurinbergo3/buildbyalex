@@ -31,23 +31,23 @@ export const caseKeyToSlug: Record<CaseKey, string> = {
 
 export const caseImages: Record<CaseKey, { src: string; alt: string }> = {
   legalwin: {
-    src: "https://images.unsplash.com/photo-1589994965851-a8f479c573a9?auto=format&fit=crop&w=1600&q=80",
-    alt: "Современное офисное здание в Варшаве — кейс LegalWin",
+    src: "/cases/legalwin-passport.jpg",
+    alt: "Паспорта на фоне европейской площади — иммиграционный кейс LegalWin",
   },
   visionair: {
-    src: "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1600&q=80",
-    alt: "Кинематографичная аэросъёмка побережья с дрона — кейс VisionAir",
+    src: "/cases/visionair-warsaw.jpg",
+    alt: "Аэросъёмка центра Варшавы на закате с дрона — кейс VisionAir",
   },
   crmbot: {
-    src: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1600&q=80",
-    alt: "Команда продаж за ноутбуками — кейс CRM Bot",
+    src: "/cases/crm-ai.jpg",
+    alt: "Светящийся силуэт ИИ-нейросети в темноте — кейс CRM Bot",
   },
   donbrava: {
-    src: "https://images.unsplash.com/photo-1601972599720-36938d4ecd31?auto=format&fit=crop&w=1600&q=80",
-    alt: "Переписка с клиентом в мессенджере на смартфоне — кейс ИИ-менеджер для продаж",
+    src: "/cases/donbrava-chat.jpg",
+    alt: "Переписка в мессенджере на смартфоне в полумраке — кейс ИИ-менеджер для продаж",
   },
   bodyforge: {
-    src: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=80",
-    alt: "Атлет со штангой в стойке для приседаний на закате — кейс Body Forge",
+    src: "/cases/bodyforge-gym.jpg",
+    alt: "Гантель в драматичном свете тёмного зала — кейс Body Forge",
   },
 };

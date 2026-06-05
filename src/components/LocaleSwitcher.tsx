@@ -21,7 +21,15 @@ const longLabels: Record<Locale, string> = {
   ua: "Українська",
 };
 
-export function LocaleSwitcher({ minimal = false }: { minimal?: boolean }) {
+type Placement = "bottom-end" | "top-start";
+
+export function LocaleSwitcher({
+  minimal = false,
+  placement = "bottom-end",
+}: {
+  minimal?: boolean;
+  placement?: Placement;
+}) {
   const locale = useLocale() as Locale;
   const t = useTranslations("nav");
   const router = useRouter();
@@ -66,7 +74,11 @@ export function LocaleSwitcher({ minimal = false }: { minimal?: boolean }) {
       {open && (
         <ul
           role="listbox"
-          className="absolute right-0 z-50 mt-2 min-w-[160px] overflow-hidden rounded-2xl border border-[color:var(--c-hairline)] bg-[color:var(--color-bg-elev)] py-1.5 shadow-[var(--shadow-card)]"
+          className={cn(
+            "absolute z-50 min-w-[160px] overflow-hidden rounded-2xl border border-[color:var(--c-hairline)] bg-[color:var(--color-bg-elev)] py-1.5 shadow-[var(--shadow-card)]",
+            placement === "bottom-end" && "right-0 mt-2",
+            placement === "top-start" && "bottom-full left-0 mb-2",
+          )}
         >
           {routing.locales.map((l) => (
             <li key={l}>
