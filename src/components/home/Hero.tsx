@@ -70,10 +70,13 @@ export function Hero() {
       // warp-zoom that resolves into the buildbyalex wordmark by the time the
       // window has finished collapsing.
       if (video) {
-        const fade = clamp01((p - 0.34) / 0.16);
+        // Eases in from the very first scroll (smoothstep, so no pop) and
+        // scrubs across almost the whole section — by the time it's visible
+        // it's already in motion, never a hard cut to a mid frame.
+        const fade = smooth(clamp01(p / 0.2));
         video.style.opacity = String(fade);
         const dur = video.duration || 5.333;
-        const scrub = smooth(clamp01((p - 0.32) / 0.5)); // 0→1 across p 0.32→0.82
+        const scrub = smooth(clamp01(p / 0.85)); // 0→1, logo settled by p≈0.85
         const time = scrub * (dur - 0.001);
         if (Math.abs(video.currentTime - time) > 0.012) {
           try {
@@ -86,7 +89,7 @@ export function Hero() {
 
       // Headline scales down with the morph, then clears out so the logo
       // payoff lands on a clean stage.
-      const contentFade = clamp01((p - 0.32) / 0.24);
+      const contentFade = clamp01((p - 0.06) / 0.34);
       const scale = 1 - p * 0.18;
       const opacity = (1 - p * 0.25) * (1 - contentFade);
       const ty = p * -10 - contentFade * 24;
