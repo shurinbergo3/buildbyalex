@@ -61,11 +61,17 @@ export function Hero() {
       const maxBottom = isMobile ? 72 : 120;
       const maxRadius = isMobile ? 20 : 28;
 
-      frame.style.top = `${p * maxTop}px`;
-      frame.style.left = `${p * maxX}px`;
-      frame.style.right = `${p * maxX}px`;
-      frame.style.bottom = `${p * maxBottom}px`;
-      frame.style.borderRadius = `${p * maxRadius}px`;
+      // Window-collapse runs on a compressed progress so the frame finishes
+      // folding earlier in the scroll (RU a touch quicker) — independent of
+      // the video scrub below, which stays on the raw progress.
+      const morphEnd = locale === "ru" ? 0.74 : 0.84;
+      const mp = clamp01(p / morphEnd);
+
+      frame.style.top = `${mp * maxTop}px`;
+      frame.style.left = `${mp * maxX}px`;
+      frame.style.right = `${mp * maxX}px`;
+      frame.style.bottom = `${mp * maxBottom}px`;
+      frame.style.borderRadius = `${mp * maxRadius}px`;
 
       // Logo-reveal video: scrubbed by scroll. The code wall hands off to the
       // warp-zoom that resolves into the buildbyalex wordmark by the time the
@@ -104,7 +110,7 @@ export function Hero() {
         chrome.style.transform = `translate3d(0, ${(1 - ch) * -12}px, 0)`;
       }
       if (ring) {
-        ring.style.opacity = String(p * 0.9);
+        ring.style.opacity = String(mp * 0.9);
       }
       // Live badge: pops in late, with a small rise-and-scale
       if (badge) {
