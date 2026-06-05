@@ -147,6 +147,26 @@ export function LegalwinScrollStory() {
 
   const chapter = chapters[active];
 
+  // The three screens — container-agnostic (h-full flex-col), so the same
+  // markup drops into the MacBook (desktop) and the phone frame (mobile).
+  const screens = (
+    <AnimatePresence mode="wait">
+      {active === 0 ? (
+        <motion.div key="google" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.35 }} className="absolute inset-0">
+          <GoogleScreen query={query} typed={query.slice(0, gTyped)} count={block.count} results={block.results} showResults={gResults} />
+        </motion.div>
+      ) : active === 1 ? (
+        <motion.div key="chatgpt" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.35 }} className="absolute inset-0">
+          <ChatGptScreen question={userQuestion} showQuestion={cgQuestion} segments={sliceSegments(response, cgChars)} typing={cgChars < fullText.length} />
+        </motion.div>
+      ) : (
+        <motion.div key="site" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.35 }} className="absolute inset-0">
+          <WebsiteScreen site={site} showChat={siteChat} />
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+
   return (
     <div ref={ref} className="relative mt-16 md:mt-20" style={{ height: "340vh" }}>
       <div className="sticky top-0 flex h-[100svh] items-center overflow-hidden">
@@ -247,53 +267,7 @@ export function LegalwinScrollStory() {
                     </div>
                     {/* Screen */}
                     <div className="relative aspect-[16/10] overflow-hidden rounded-[11px] bg-white">
-                    <AnimatePresence mode="wait">
-                      {active === 0 ? (
-                        <motion.div
-                          key="google"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.35 }}
-                          className="absolute inset-0"
-                        >
-                          <GoogleScreen
-                            query={query}
-                            typed={query.slice(0, gTyped)}
-                            count={block.count}
-                            results={block.results}
-                            showResults={gResults}
-                          />
-                        </motion.div>
-                      ) : active === 1 ? (
-                        <motion.div
-                          key="chatgpt"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.35 }}
-                          className="absolute inset-0"
-                        >
-                          <ChatGptScreen
-                            question={userQuestion}
-                            showQuestion={cgQuestion}
-                            segments={sliceSegments(response, cgChars)}
-                            typing={cgChars < fullText.length}
-                          />
-                        </motion.div>
-                      ) : (
-                        <motion.div
-                          key="site"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.35 }}
-                          className="absolute inset-0"
-                        >
-                          <WebsiteScreen site={site} showChat={siteChat} />
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                    {screens}
 
                     {/* Screen-off dim while the lid is still opening */}
                     {!reduce && (
