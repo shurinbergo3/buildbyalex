@@ -13,6 +13,7 @@ export function Hero() {
 
   const sectionRef = useRef<HTMLElement | null>(null);
   const frameRef = useRef<HTMLDivElement | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const contentRef = useRef<HTMLDivElement | null>(null);
   const chromeRef = useRef<HTMLDivElement | null>(null);
   const ringRef = useRef<HTMLDivElement | null>(null);
@@ -39,8 +40,12 @@ export function Hero() {
       targetP = raw * raw * (3 - 2 * raw);
     };
 
+    const clamp01 = (v: number) => (v < 0 ? 0 : v > 1 ? 1 : v);
+    const smooth = (v: number) => v * v * (3 - 2 * v);
+
     const apply = (p: number) => {
       const frame = frameRef.current;
+      const video = videoRef.current;
       const content = contentRef.current;
       const chrome = chromeRef.current;
       const ring = ringRef.current;
@@ -61,10 +66,30 @@ export function Hero() {
       frame.style.bottom = `${p * maxBottom}px`;
       frame.style.borderRadius = `${p * maxRadius}px`;
 
-      // Content stays visible — scales down, dims only slightly
+      // Logo-reveal video: scrubbed by scroll. The code wall hands off to the
+      // warp-zoom that resolves into the buildbyalex wordmark by the time the
+      // window has finished collapsing.
+      if (video) {
+        const fade = clamp01((p - 0.34) / 0.16);
+        video.style.opacity = String(fade);
+        const dur = video.duration || 5.333;
+        const scrub = smooth(clamp01((p - 0.32) / 0.5)); // 0→1 across p 0.32→0.82
+        const time = scrub * (dur - 0.001);
+        if (Math.abs(video.currentTime - time) > 0.012) {
+          try {
+            video.currentTime = time;
+          } catch {
+            /* seek not ready yet — next tick retries */
+          }
+        }
+      }
+
+      // Headline scales down with the morph, then clears out so the logo
+      // payoff lands on a clean stage.
+      const contentFade = clamp01((p - 0.32) / 0.24);
       const scale = 1 - p * 0.18;
-      const opacity = 1 - p * 0.25;
-      const ty = p * -10;
+      const opacity = (1 - p * 0.25) * (1 - contentFade);
+      const ty = p * -10 - contentFade * 24;
       content.style.opacity = String(opacity);
       content.style.transform = `translate3d(0, ${ty}px, 0) scale(${scale})`;
 
@@ -117,6 +142,16 @@ export function Hero() {
       apply(currentP);
     };
 
+    // Prime the reveal video so the first scroll-seek is instant, not a stall.
+    const video = videoRef.current;
+    if (video && !reduced) {
+      const prime = () => {
+        video.play().then(() => video.pause()).catch(() => {});
+      };
+      if (video.readyState >= 1) prime();
+      else video.addEventListener("loadedmetadata", prime, { once: true });
+    }
+
     // Initial paint — snap to current scroll position, no easing
     computeTarget();
     currentP = targetP;
@@ -160,6 +195,16 @@ export function Hero() {
         <div className="hero-stage" onMouseMove={onMove} onMouseLeave={onLeave}>
           <div ref={frameRef} className="hero-frame">
             <HeroCodeSurface />
+            <video
+              ref={videoRef}
+              className="hero-reveal-video"
+              src="/hero-reveal.mp4"
+              poster="/hero-reveal-poster.jpg"
+              muted
+              playsInline
+              preload="auto"
+              aria-hidden="true"
+            />
             <div className="hero-frame-tint" aria-hidden="true" />
             <div className="hero-flashlight" aria-hidden="true" />
             <div className="hero-glow" aria-hidden="true" />

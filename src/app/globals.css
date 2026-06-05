@@ -306,6 +306,23 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
   .hcl-n { width: 2.4ch; margin-right: 1.4ch; }
 }
 
+/* Scroll-scrubbed logo reveal — sits above the code wall and the mood layers
+   (tint/flashlight/glow) so the wordmark resolves clean, but below the window
+   chrome + live badge so the collapsing browser frame still reads. */
+.hero-reveal-video {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity;
+}
+
 /* Tint — base dark wash + the warm amber radial gradient (kept from prior design) */
 .hero-frame-tint {
   position: absolute;
