@@ -19,7 +19,9 @@ const GOLD = "#CBA45C";
 const GOLD_HI = "#E6CB87";
 const INK = "#1a160c";
 
-// The live site's own hero backdrop — Warsaw skyline with the Palace of Culture.
+// The hero backdrop — a real top-down aerial frame from the drone operator.
+const DRONE_IMG = "/cases/visionair-drone.jpg";
+// Warsaw skyline — kept for the mobile portfolio grid.
 const WARSAW_IMG =
   "https://images.unsplash.com/photo-1519197924294-4ba991a11128?auto=format&fit=crop&w=1600&q=80";
 // A cinematic top-down aerial — the footage the service delivers — for the
@@ -133,7 +135,7 @@ function Laptop({ copy, domain, reduce }: { copy: Copy; domain: string; reduce: 
 function DesktopSite({ copy, reduce }: { copy: Copy; reduce: boolean }) {
   return (
     <div className="absolute inset-0 text-white">
-      <Image src={WARSAW_IMG} alt="" aria-hidden="true" fill sizes="(max-width:768px) 90vw, 540px" className="scale-[1.05] object-cover" />
+      <Image src={DRONE_IMG} alt="" aria-hidden="true" fill sizes="(max-width:768px) 90vw, 540px" className="scale-[1.05] object-cover" />
       <div className="absolute inset-0" style={{ background: CINEMA_GRADE }} />
       <div className="absolute inset-0" style={{ background: FLOOR_GRADE }} />
       <div className="absolute inset-0" style={{ background: GOLD_BLOOM }} />
@@ -280,7 +282,7 @@ function MobileSite({ copy }: { copy: Copy }) {
     <div className="flex flex-col text-white">
       {/* hero — one screenful */}
       <section className="relative aspect-[9/19] overflow-hidden">
-        <Image src={WARSAW_IMG} alt="" aria-hidden="true" fill sizes="180px" className="scale-[1.08] object-cover" style={{ objectPosition: "60% 30%" }} />
+        <Image src={DRONE_IMG} alt="" aria-hidden="true" fill sizes="180px" className="scale-[1.08] object-cover" style={{ objectPosition: "center" }} />
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(8,10,15,0.72) 0%, rgba(8,10,15,0.4) 36%, rgba(8,10,15,0.94) 100%)" }} />
         <div className="absolute inset-0" style={{ background: "radial-gradient(88% 46% at 72% 18%, rgba(203,164,92,0.26), transparent 60%)" }} />
 
