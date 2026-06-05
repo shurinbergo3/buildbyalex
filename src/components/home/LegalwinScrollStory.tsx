@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import {
   AnimatePresence,
@@ -147,8 +147,23 @@ export function LegalwinScrollStory() {
 
   const chapter = chapters[active];
 
-  // The three screens — container-agnostic (h-full flex-col), so the same
-  // markup drops into the MacBook (desktop) and the phone frame (mobile).
+  // Faithful mini: render the screens at a fixed design width and scale the
+  // whole laptop screen to the device, so the MacBook reads identically (just
+  // smaller) on phones instead of clipping its fixed-px content.
+  const DESIGN_W = 760;
+  const screenRef = useRef<HTMLDivElement>(null);
+  const [screenScale, setScreenScale] = useState(1);
+  useEffect(() => {
+    const el = screenRef.current;
+    if (!el || typeof ResizeObserver === "undefined") return;
+    const update = () => setScreenScale(el.clientWidth / DESIGN_W);
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  // The three screens — container-agnostic (h-full flex-col).
   const screens = (
     <AnimatePresence mode="wait">
       {active === 0 ? (
@@ -228,12 +243,11 @@ export function LegalwinScrollStory() {
               </div>
             </div>
 
-            {/* ── Pinned device ── */}
+            {/* ── Pinned MacBook (every breakpoint, scaled to fit) ── */}
             <div className="relative">
-            {/* Desktop: MacBook (hidden on mobile) */}
             <motion.div
               style={reduce ? undefined : { opacity: deviceOpacity }}
-              className="hidden [perspective:1800px] will-change-transform lg:block"
+              className="[perspective:1800px] will-change-transform"
             >
               {/* Focused glow behind the laptop */}
               <div
@@ -268,8 +282,13 @@ export function LegalwinScrollStory() {
                       <span className="h-[3px] w-[3px] rounded-full bg-white/30 ring-1 ring-white/10" />
                     </div>
                     {/* Screen */}
-                    <div className="relative aspect-[16/10] overflow-hidden rounded-[11px] bg-white">
-                    {screens}
+                    <div ref={screenRef} className="relative aspect-[16/10] overflow-hidden rounded-[11px] bg-white">
+                    <div
+                      className="absolute left-0 top-0 origin-top-left"
+                      style={{ width: DESIGN_W, height: (DESIGN_W * 10) / 16, transform: `scale(${screenScale})` }}
+                    >
+                      {screens}
+                    </div>
 
                     {/* Screen-off dim while the lid is still opening */}
                     {!reduce && (
@@ -304,31 +323,6 @@ export function LegalwinScrollStory() {
                   style={{ background: "linear-gradient(180deg, #0c0d11 0%, #1a1c22 100%)" }}
                 />
                 <div className="mx-auto mt-3 h-[18px] w-[78%] rounded-[50%] bg-black/40 blur-md" />
-              </div>
-            </motion.div>
-
-            {/* Mobile: phone frame with the same screens */}
-            <motion.div
-              style={reduce ? undefined : { opacity: deviceOpacity }}
-              className="mx-auto w-full max-w-[200px] will-change-transform lg:hidden"
-            >
-              <div
-                className="relative rounded-[42px] p-[10px] shadow-[0_50px_120px_-40px_rgba(0,0,0,0.9),0_0_0_1px_rgba(255,255,255,0.07),inset_0_1px_0_rgba(255,255,255,0.10)]"
-                style={{ background: "linear-gradient(180deg, #2a2e36 0%, #15171c 45%, #0a0b0f 100%)" }}
-              >
-                <div className="relative overflow-hidden rounded-[34px] bg-black p-[3px]">
-                  {/* speaker pill */}
-                  <div className="absolute left-1/2 top-[6px] z-20 h-[5px] w-[44px] -translate-x-1/2 rounded-full bg-white/15" />
-                  {/* screen */}
-                  <div className="relative aspect-[9/15.5] overflow-hidden rounded-[31px] bg-white">
-                    {screens}
-                    <div
-                      aria-hidden
-                      className="pointer-events-none absolute inset-0"
-                      style={{ background: "linear-gradient(125deg, rgba(255,255,255,0.10) 0%, transparent 28%, transparent 100%)" }}
-                    />
-                  </div>
-                </div>
               </div>
             </motion.div>
             </div>
