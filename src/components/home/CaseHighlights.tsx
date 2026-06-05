@@ -63,9 +63,18 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
     sync();
     track.addEventListener("scroll", sync, { passive: true });
     window.addEventListener("resize", sync);
+    // Direction-aware wheel: horizontal-dominant gestures drive the rail and
+    // are kept from bubbling to Lenis (which would hijack them into vertical
+    // page scroll); vertical-dominant gestures pass straight through so the
+    // page keeps scrolling normally while the cursor sits over the carousel.
+    const onWheel = (e: WheelEvent) => {
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) e.stopPropagation();
+    };
+    track.addEventListener("wheel", onWheel, { passive: true });
     return () => {
       track.removeEventListener("scroll", sync);
       window.removeEventListener("resize", sync);
+      track.removeEventListener("wheel", onWheel);
     };
   }, [sync]);
 
@@ -87,9 +96,6 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
         aria-roledescription="carousel"
         tabIndex={0}
         onKeyDown={onKeyDown}
-        // Release this rail from Lenis so trackpad / wheel gestures scroll it
-        // sideways natively instead of being hijacked into vertical page scroll.
-        data-lenis-prevent
         className="flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain pb-1 outline-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:gap-5"
         style={{
           scrollPaddingInline: "0px",

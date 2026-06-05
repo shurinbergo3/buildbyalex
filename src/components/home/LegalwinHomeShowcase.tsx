@@ -3,9 +3,8 @@ import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
-import { GoogleSerpMock } from "@/components/GoogleSerpMock";
-import { ChatGPTRecommendMock } from "@/components/ChatGPTRecommendMock";
 import { PhoneLeadsMock } from "@/components/PhoneLeadsMock";
+import { LegalwinScrollStory } from "@/components/home/LegalwinScrollStory";
 
 // Soft elevation used for the mock panels — sits cleanly on the light section.
 const PANEL =
@@ -132,39 +131,8 @@ export function LegalwinHomeShowcase() {
           </div>
         </Reveal>
 
-        {/* ── Discovery: stacked, one channel after another ─── */}
-        <Reveal delay={220}>
-          <div
-            className={`mt-16 overflow-hidden rounded-[28px] p-5 sm:p-8 md:mt-20 md:p-10 ${PANEL}`}
-          >
-            <div className="flex flex-col gap-14 md:gap-20">
-              <ShowcaseRow
-                index={t("columns.serp.index")}
-                label={t("columns.serp.label")}
-                caption={t("columns.serp.caption")}
-                maxWidth="440px"
-              >
-                <GoogleSerpMock maxWidth="440px" />
-              </ShowcaseRow>
-
-              {/* sequence connector — same client, the next channel */}
-              <div className="flex flex-col items-center -my-6 md:-my-10" aria-hidden="true">
-                <span className="h-8 w-px bg-gradient-to-b from-[color:var(--color-divider)] to-transparent md:h-12" />
-                <svg width="18" height="18" viewBox="0 0 16 16" className="-mt-1 text-[color:var(--color-text-3)]">
-                  <path d="M8 3v8m0 0L4.5 7.5M8 11l3.5-3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                </svg>
-              </div>
-
-              <ShowcaseRow
-                index={t("columns.chatgpt.index")}
-                label={t("columns.chatgpt.label")}
-                caption={t("columns.chatgpt.caption")}
-              >
-                <ChatGPTRecommendMock />
-              </ShowcaseRow>
-            </div>
-          </div>
-        </Reveal>
+        {/* ── Discovery: scroll-pinned MacBook — Google #1 → ChatGPT ─── */}
+        <LegalwinScrollStory />
 
         {/* ── Connector to the result ─────────────────────── */}
         <Reveal delay={120}>
@@ -263,42 +231,6 @@ export function LegalwinHomeShowcase() {
         </Reveal>
       </Container>
     </Section>
-  );
-}
-
-function ShowcaseRow({
-  index,
-  label,
-  caption,
-  children,
-  maxWidth = "860px",
-}: {
-  index: string;
-  label: string;
-  caption: string;
-  children: React.ReactNode;
-  /** Width of the title rule, kept aligned to the mock's width. */
-  maxWidth?: string;
-}) {
-  return (
-    <div className="flex flex-col gap-5">
-      {/* label bar — aligned to the mock's natural width so it reads as a titled window */}
-      <div className="mx-auto flex w-full items-baseline gap-4" style={{ maxWidth }}>
-        <span className="font-mono text-[12px] tracking-[0.08em] text-[color:var(--color-text-3)]">
-          {index}
-        </span>
-        <span className="h-px flex-1 bg-[color:var(--color-divider)]" />
-        <span className="text-[13.5px] font-medium tracking-[-0.011em] text-[color:var(--color-text)]">
-          {label}
-        </span>
-      </div>
-
-      <div className="legalwin-stage">{children}</div>
-
-      <p className="mx-auto max-w-[620px] text-center text-[13.5px] leading-[1.5] text-[color:var(--color-text-2)]">
-        {caption}
-      </p>
-    </div>
   );
 }
 

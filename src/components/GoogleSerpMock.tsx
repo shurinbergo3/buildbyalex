@@ -100,17 +100,17 @@ export function GoogleSerpMock({
       <div className="flex items-center gap-3 px-4 pt-3 pb-2.5 sm:gap-6 sm:px-6 sm:pt-4">
         <GoogleLogo />
         <div className="relative flex-1">
-          <div className="flex h-[42px] items-center gap-3 rounded-full border border-[#dfe1e5] px-5 shadow-[0_1px_6px_rgba(32,33,36,0.08)]">
-            <span className="min-h-[20px] flex-1 text-[16px] text-[#202124]">
+          <div className="flex min-h-[42px] items-center gap-3 rounded-full border border-[#dfe1e5] px-5 py-1.5 shadow-[0_1px_6px_rgba(32,33,36,0.08)]">
+            <span className="min-w-0 flex-1 break-words text-[16px] leading-[1.3] text-[#202124]">
               {typed}
-              <span className="ml-0.5 inline-block h-[16px] w-[1.5px] -mb-[2px] animate-pulse bg-[#202124]" />
+              <span className="ml-0.5 inline-block h-[16px] w-[1.5px] -mb-[2px] animate-pulse bg-[#202124] align-middle" />
             </span>
-            <button className="text-[#4285f4]" aria-label="Search by voice">
+            <button className="shrink-0 text-[#4285f4]" aria-label="Search by voice">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2z" />
               </svg>
             </button>
-            <button className="text-[#4285f4]" aria-label="Search">
+            <button className="shrink-0 text-[#4285f4]" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                 <circle cx="11" cy="11" r="6" stroke="currentColor" strokeWidth="2.2" />
                 <path d="m20 20-3.5-3.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
