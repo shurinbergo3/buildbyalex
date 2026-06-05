@@ -577,21 +577,22 @@ function WebsiteScreen({ site, showChat }: { site: SiteData; showChat: boolean }
             </span>
           </div>
 
-          {/* Hero */}
-          <div className="flex min-h-0 flex-1 items-center px-5 sm:px-7">
-            <div className="grid w-full items-center gap-4 lg:grid-cols-[1fr_auto]">
+          {/* Hero — top-aligned so long (RU/UA/PL) copy flows down and clips at
+              the fold instead of spilling up into the header. */}
+          <div className="flex min-h-0 flex-1 items-start overflow-hidden px-5 pt-3 sm:px-7 sm:pt-4">
+            <div className="grid w-full items-start gap-4 lg:grid-cols-[1fr_auto]">
               <div className="max-w-[460px]">
                 <p className="flex items-center gap-2 text-[9px] font-semibold uppercase tracking-[0.18em] text-[#d6b060]">
                   <span className="h-px w-5 bg-[#d6b060]/70" />
                   {site.badge}
                 </p>
-                <h3 className="mt-2.5 font-serif text-[clamp(18px,3.2vw,30px)] font-semibold leading-[1.08] tracking-[-0.01em] text-white">
+                <h3 className="mt-2 font-serif text-[clamp(17px,2.7vw,26px)] font-semibold leading-[1.06] tracking-[-0.01em] text-white">
                   {site.title}
                 </h3>
-                <p className="mt-1 font-serif text-[clamp(15px,2.6vw,24px)] italic leading-[1.1] text-[#e8c879]">
+                <p className="mt-1 font-serif text-[clamp(14px,2.1vw,20px)] italic leading-[1.1] text-[#e8c879]">
                   {site.titleAccent}
                 </p>
-                <p className="mt-3 max-w-[380px] text-[11px] leading-[1.5] text-white/60">{site.subhead}</p>
+                <p className="mt-2.5 max-w-[380px] text-[11px] leading-[1.45] text-white/60">{site.subhead}</p>
 
                 <div className="mt-3.5 flex items-center gap-2">
                   <span className="inline-flex items-center gap-1.5 rounded-full border border-[#d6b060]/40 px-2.5 py-1 text-[10px] text-white/85">
