@@ -32,17 +32,35 @@ type Segment =
   | { type: "bold"; content: string }
   | { type: "link"; content: string; href: string };
 
+type SiteData = {
+  url: string;
+  badge: string;
+  nav: string[];
+  consult: string;
+  title: string;
+  titleAccent: string;
+  subhead: string;
+  rating: string;
+  ratingLabel: string;
+  ctaPrimary: string;
+  ctaSecondary: string;
+  chat: { name: string; role: string; message: string; placeholder: string };
+};
+
 const EASE = [0.16, 1, 0.3, 1] as const;
 
-// Scroll-progress timeline (0 → 1 over the pinned section).
-const LID_END = 0.12; // lid finishes opening
-const G_TYPE_START = 0.16;
-const G_TYPE_END = 0.34;
-const G_RESULTS_AT = 0.38;
-const CHAPTER_SPLIT = 0.5; // Google → ChatGPT
-const CG_Q_AT = 0.54;
-const CG_TYPE_START = 0.58;
-const CG_TYPE_END = 0.92;
+// Scroll-progress timeline (0 → 1 over the pinned section), three chapters:
+// Google search → ChatGPT → the live legalwin.pl site.
+const LID_END = 0.1; // lid finishes opening
+const G_TYPE_START = 0.13;
+const G_TYPE_END = 0.27;
+const G_RESULTS_AT = 0.3;
+const SPLIT_1 = 0.4; // Google → ChatGPT
+const CG_Q_AT = 0.43;
+const CG_TYPE_START = 0.46;
+const CG_TYPE_END = 0.66;
+const SPLIT_2 = 0.7; // ChatGPT → live site
+const SITE_CHAT_AT = 0.82; // chat widget greeting lands
 
 const clamp01 = (v: number) => (v < 0 ? 0 : v > 1 ? 1 : v);
 const span = (v: number, a: number, b: number) => clamp01((v - a) / (b - a));
@@ -63,9 +81,33 @@ export function LegalwinScrollStory() {
   const response = useMemo(() => tCg.raw("response") as Segment[], [tCg]);
   const fullText = useMemo(() => response.map((s) => s.content).join(""), [response]);
 
+  const site = useMemo(
+    () => ({
+      url: t("site.url"),
+      badge: t("site.badge"),
+      nav: t.raw("site.nav") as string[],
+      consult: t("site.consult"),
+      title: t("site.title"),
+      titleAccent: t("site.titleAccent"),
+      subhead: t("site.subhead"),
+      rating: t("site.rating"),
+      ratingLabel: t("site.ratingLabel"),
+      ctaPrimary: t("site.ctaPrimary"),
+      ctaSecondary: t("site.ctaSecondary"),
+      chat: {
+        name: t("site.chat.name"),
+        role: t("site.chat.role"),
+        message: t("site.chat.message"),
+        placeholder: t("site.chat.placeholder"),
+      },
+    }),
+    [t],
+  );
+
   const chapters = [
     { kicker: t("columns.serp.index"), label: t("columns.serp.label"), caption: t("columns.serp.caption") },
     { kicker: t("columns.chatgpt.index"), label: t("columns.chatgpt.label"), caption: t("columns.chatgpt.caption") },
+    { kicker: t("columns.site.index"), label: t("columns.site.label"), caption: t("columns.site.caption") },
   ];
 
   const reduce = useReducedMotion();
@@ -83,9 +125,10 @@ export function LegalwinScrollStory() {
   const [gResults, setGResults] = useState(false);
   const [cgQuestion, setCgQuestion] = useState(false);
   const [cgChars, setCgChars] = useState(0);
+  const [siteChat, setSiteChat] = useState(false);
 
   useMotionValueEvent(scrollYProgress, "change", (p) => {
-    const nextActive = p < CHAPTER_SPLIT ? 0 : 1;
+    const nextActive = p < SPLIT_1 ? 0 : p < SPLIT_2 ? 1 : 2;
     setActive((c) => (c === nextActive ? c : nextActive));
 
     const typed = Math.round(span(p, G_TYPE_START, G_TYPE_END) * query.length);
@@ -97,14 +140,17 @@ export function LegalwinScrollStory() {
     setCgQuestion((c) => (c === q ? c : q));
     const chars = Math.round(span(p, CG_TYPE_START, CG_TYPE_END) * fullText.length);
     setCgChars((c) => (c === chars ? c : chars));
+
+    const chat = p >= SITE_CHAT_AT;
+    setSiteChat((c) => (c === chat ? c : chat));
   });
 
   const chapter = chapters[active];
 
   return (
-    <div ref={ref} className="relative mt-16 md:mt-20" style={{ height: "300vh" }}>
+    <div ref={ref} className="relative mt-16 md:mt-20" style={{ height: "340vh" }}>
       <div className="sticky top-0 flex h-[100svh] items-center overflow-hidden">
-        <div className="relative w-full overflow-hidden rounded-[28px] border border-white/10 bg-[#0b0d12] px-5 py-10 text-white shadow-[0_40px_120px_-40px_rgba(0,0,0,0.7)] sm:px-8 md:px-12 md:py-14">
+        <div className="relative flex min-h-[88svh] w-full flex-col justify-center overflow-hidden rounded-[28px] border border-white/10 bg-[#0b0d12] px-5 py-10 text-white shadow-[0_40px_120px_-40px_rgba(0,0,0,0.7)] sm:px-8 md:px-12 md:py-14">
           {/* Ambient glow */}
           <div
             aria-hidden
@@ -167,6 +213,16 @@ export function LegalwinScrollStory() {
               style={reduce ? undefined : { opacity: deviceOpacity }}
               className="[perspective:1800px] will-change-transform"
             >
+              {/* Focused glow behind the laptop */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[78%] w-[86%] -translate-x-1/2 -translate-y-1/2 rounded-[40px] opacity-80 blur-[60px]"
+                style={{
+                  background:
+                    "radial-gradient(60% 60% at 50% 40%, rgba(255,122,45,0.22) 0%, rgba(120,150,255,0.10) 45%, transparent 75%)",
+                }}
+              />
+
               {/* Lid */}
               <motion.div
                 style={{
@@ -174,13 +230,23 @@ export function LegalwinScrollStory() {
                   transformOrigin: "bottom center",
                   transformStyle: "preserve-3d",
                 }}
-                className="relative mx-auto w-full max-w-[760px]"
+                className="relative mx-auto w-full max-w-[780px]"
               >
-                <div className="relative overflow-hidden rounded-[18px] border border-white/15 bg-[#0b0e13] p-[6px] shadow-[0_30px_80px_-30px_rgba(0,0,0,0.8)]">
-                  {/* Camera notch */}
-                  <div className="absolute left-1/2 top-[7px] z-10 h-1 w-1 -translate-x-1/2 rounded-full bg-white/25" />
-                  {/* Screen */}
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-[12px] bg-white">
+                {/* Aluminium body */}
+                <div
+                  className="relative rounded-[22px] p-[9px] shadow-[0_60px_140px_-40px_rgba(0,0,0,0.9),0_0_0_1px_rgba(255,255,255,0.07),inset_0_1px_0_rgba(255,255,255,0.10)]"
+                  style={{ background: "linear-gradient(180deg, #2a2e36 0%, #15171c 38%, #0a0b0f 100%)" }}
+                >
+                  {/* top edge sheen */}
+                  <div aria-hidden className="pointer-events-none absolute inset-x-8 top-[2px] h-px rounded-full bg-white/30" />
+                  {/* Black bezel */}
+                  <div className="relative rounded-[14px] bg-[#050608] p-[3px] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.6)]">
+                    {/* Camera notch */}
+                    <div className="absolute left-1/2 top-[5px] z-10 flex -translate-x-1/2 items-center">
+                      <span className="h-[3px] w-[3px] rounded-full bg-white/30 ring-1 ring-white/10" />
+                    </div>
+                    {/* Screen */}
+                    <div className="relative aspect-[16/10] overflow-hidden rounded-[11px] bg-white">
                     <AnimatePresence mode="wait">
                       {active === 0 ? (
                         <motion.div
@@ -199,7 +265,7 @@ export function LegalwinScrollStory() {
                             showResults={gResults}
                           />
                         </motion.div>
-                      ) : (
+                      ) : active === 1 ? (
                         <motion.div
                           key="chatgpt"
                           initial={{ opacity: 0 }}
@@ -214,6 +280,17 @@ export function LegalwinScrollStory() {
                             segments={sliceSegments(response, cgChars)}
                             typing={cgChars < fullText.length}
                           />
+                        </motion.div>
+                      ) : (
+                        <motion.div
+                          key="site"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.35 }}
+                          className="absolute inset-0"
+                        >
+                          <WebsiteScreen site={site} showChat={siteChat} />
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -235,6 +312,7 @@ export function LegalwinScrollStory() {
                           "linear-gradient(125deg, rgba(255,255,255,0.10) 0%, transparent 30%, transparent 100%)",
                       }}
                     />
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -446,6 +524,133 @@ function ChatGptScreen({
         </div>
       </div>
       <style>{`@keyframes lsBlink{50%{opacity:0}}`}</style>
+    </div>
+  );
+}
+
+/* ───────────────────────── WEBSITE SCREEN ───────────────────────── */
+
+function WebsiteScreen({ site, showChat }: { site: SiteData; showChat: boolean }) {
+  return (
+    <div className="flex h-full flex-col bg-[#0a0c11]">
+      <BrowserChrome url={site.url} />
+      <div className="relative min-h-0 flex-1 overflow-hidden">
+        {/* Warsaw-skyline ambience + brand wash */}
+        <div
+          aria-hidden
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(120% 90% at 78% -10%, rgba(214,176,96,0.18) 0%, transparent 45%), linear-gradient(180deg, #11141c 0%, #0a0c11 60%, #07080c 100%)",
+          }}
+        />
+        <div
+          aria-hidden
+          className="absolute inset-x-0 bottom-0 h-[55%] opacity-40"
+          style={{
+            backgroundImage:
+              "linear-gradient(to top, rgba(0,0,0,0.6), transparent), repeating-linear-gradient(90deg, rgba(120,140,180,0.10) 0 2px, transparent 2px 13px)",
+            maskImage: "linear-gradient(to top, black, transparent)",
+          }}
+        />
+
+        <div className="relative flex h-full flex-col">
+          {/* Top nav */}
+          <div className="flex items-center justify-between px-4 pt-3 sm:px-6">
+            <div className="flex items-center gap-2">
+              <span className="flex h-6 w-6 items-center justify-center rounded-md border border-[#d6b060]/50 bg-[#d6b060]/10 text-[9px] font-bold tracking-tight text-[#e8c879]">
+                LW
+              </span>
+              <span className="hidden text-[10px] font-semibold uppercase tracking-[0.18em] text-white/80 sm:inline">
+                LegalWin
+              </span>
+            </div>
+            <nav className="hidden items-center gap-4 text-[10.5px] text-white/65 md:flex">
+              {site.nav.map((n) => (
+                <span key={n}>{n}</span>
+              ))}
+            </nav>
+            <span className="flex items-center gap-1 rounded-full bg-[#d6b060] px-3 py-1 text-[10px] font-semibold text-[#1a1408]">
+              {site.consult} →
+            </span>
+          </div>
+
+          {/* Hero */}
+          <div className="flex min-h-0 flex-1 items-center px-5 sm:px-7">
+            <div className="grid w-full items-center gap-4 lg:grid-cols-[1fr_auto]">
+              <div className="max-w-[460px]">
+                <p className="flex items-center gap-2 text-[9px] font-semibold uppercase tracking-[0.18em] text-[#d6b060]">
+                  <span className="h-px w-5 bg-[#d6b060]/70" />
+                  {site.badge}
+                </p>
+                <h3 className="mt-2.5 font-serif text-[clamp(18px,3.2vw,30px)] font-semibold leading-[1.08] tracking-[-0.01em] text-white">
+                  {site.title}
+                </h3>
+                <p className="mt-1 font-serif text-[clamp(15px,2.6vw,24px)] italic leading-[1.1] text-[#e8c879]">
+                  {site.titleAccent}
+                </p>
+                <p className="mt-3 max-w-[380px] text-[11px] leading-[1.5] text-white/60">{site.subhead}</p>
+
+                <div className="mt-3.5 flex items-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[#d6b060]/40 px-2.5 py-1 text-[10px] text-white/85">
+                    <span className="text-[#e8c879]">★★★★★</span>
+                    <span className="font-semibold">{site.rating}</span>
+                  </span>
+                  <span className="text-[9px] uppercase tracking-[0.14em] text-white/45">{site.ratingLabel}</span>
+                </div>
+
+                <div className="mt-4 flex flex-wrap items-center gap-2.5">
+                  <span className="rounded-full bg-[#d6b060] px-3.5 py-1.5 text-[11px] font-semibold text-[#1a1408]">
+                    {site.ctaPrimary} →
+                  </span>
+                  <span className="rounded-full border border-white/20 px-3.5 py-1.5 text-[11px] font-medium text-white/85">
+                    {site.ctaSecondary}
+                  </span>
+                </div>
+              </div>
+
+              {/* Chat widget */}
+              <div className="hidden w-[210px] lg:block">
+                <AnimatePresence>
+                  {showChat && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 14 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.45, ease: EASE }}
+                      className="rounded-2xl border border-white/10 bg-[#14161d]/95 p-3 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.8)] backdrop-blur"
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-[#d6b060] to-[#9c7a2e] text-[10px] font-bold text-[#1a1408]">
+                          {site.chat.name.charAt(0)}
+                        </span>
+                        <div className="leading-tight">
+                          <p className="text-[11px] font-semibold text-white">{site.chat.name}</p>
+                          <p className="text-[8.5px] text-white/45">{site.chat.role}</p>
+                        </div>
+                        <span className="ml-auto h-1.5 w-1.5 rounded-full bg-[#27c93f]" />
+                      </div>
+                      <motion.p
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.4, delay: 0.25 }}
+                        className="mt-2.5 rounded-xl rounded-tl-sm bg-white/[0.06] px-2.5 py-2 text-[10px] leading-[1.45] text-white/80"
+                      >
+                        {site.chat.message}
+                      </motion.p>
+                      <div className="mt-2.5 flex items-center gap-1.5 rounded-full border border-white/10 px-2.5 py-1.5">
+                        <span className="flex-1 truncate text-[9.5px] text-white/35">{site.chat.placeholder}</span>
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" className="text-[#d6b060]">
+                          <path d="M3 11l18-8-8 18-2-7-8-3z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+                        </svg>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -241,6 +241,11 @@
           "index": "03",
           "label": "Requests on your phone",
           "caption": "Every request arrives with the contact, country and the gist of the question — all that's left is to call back."
+        },
+        "site": {
+          "index": "03",
+          "label": "The live site",
+          "caption": "The same traffic lands on a site built to convert — a premium page with an AI assistant, ready to capture leads."
         }
       },
       "cta": {
@@ -323,6 +328,31 @@
             "ago": "12 min"
           }
         ]
+      },
+      "site": {
+        "url": "legalwin.pl",
+        "badge": "WARSAW · SINCE 2019",
+        "nav": [
+          "Services",
+          "Pricing",
+          "Cases",
+          "FAQ",
+          "Contacts"
+        ],
+        "consult": "Consultation",
+        "title": "Karta pobytu, residence & permanent stay in Poland.",
+        "titleAccent": "Immigration consultants · Warsaw.",
+        "subhead": "Residence cards, citizenship, licence exchange, Kod 95 and legalisation. The LegalWin team in Warsaw since 2019.",
+        "rating": "4.9",
+        "ratingLabel": "client reviews",
+        "ctaPrimary": "Free consultation",
+        "ctaSecondary": "All services",
+        "chat": {
+          "name": "Mila",
+          "role": "LegalWin manager",
+          "message": "Hi! How can I help — residence card, licence exchange, citizenship?",
+          "placeholder": "Ask a question…"
+        }
       }
     },
     "how": {

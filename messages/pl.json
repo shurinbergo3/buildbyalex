@@ -241,6 +241,11 @@
           "index": "03",
           "label": "Zgłoszenia na telefonie",
           "caption": "Każde zgłoszenie przychodzi z kontaktem, krajem i sednem sprawy — wystarczy oddzwonić."
+        },
+        "site": {
+          "index": "03",
+          "label": "Żywa strona",
+          "caption": "Ten sam ruch trafia na stronę, która sprzedaje — premium landing z asystentem AI, gotowy zbierać zgłoszenia."
         }
       },
       "cta": {
@@ -323,6 +328,31 @@
             "ago": "12 min"
           }
         ]
+      },
+      "site": {
+        "url": "legalwin.pl",
+        "badge": "WARSZAWA · OD 2019",
+        "nav": [
+          "Usługi",
+          "Cennik",
+          "Case studies",
+          "FAQ",
+          "Kontakt"
+        ],
+        "consult": "Konsultacja",
+        "title": "Karta pobytu, pobyt czasowy i stały w Polsce.",
+        "titleAccent": "Konsultanci imigracyjni · Warszawa.",
+        "subhead": "Karta pobytu, obywatelstwo, wymiana prawa jazdy, Kod 95 i legalizacja. Zespół LegalWin w Warszawie od 2019 roku.",
+        "rating": "4.9",
+        "ratingLabel": "opinie klientów",
+        "ctaPrimary": "Bezpłatna konsultacja",
+        "ctaSecondary": "Wszystkie usługi",
+        "chat": {
+          "name": "Mila",
+          "role": "menedżer LegalWin",
+          "message": "Dzień dobry! W czym mogę pomóc — karta pobytu, wymiana prawa jazdy, obywatelstwo?",
+          "placeholder": "Zadaj pytanie…"
+        }
       }
     },
     "how": {
