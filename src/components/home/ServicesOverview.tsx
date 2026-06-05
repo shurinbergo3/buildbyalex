@@ -33,7 +33,7 @@ const Aura = ({ className = "" }: { className?: string }) => (
 );
 
 const tileBase =
-  "group relative flex h-full flex-col overflow-hidden rounded-[28px] p-7 transition-[transform,box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--c-accent)] focus-visible:ring-offset-2 md:p-8";
+  "group relative flex h-full flex-col overflow-hidden rounded-[28px] p-6 transition-[transform,box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--c-accent)] focus-visible:ring-offset-2 md:p-7";
 const tileLight =
   "bg-[color:var(--color-bg-elev)] ring-1 ring-[color:var(--color-divider)] hover:-translate-y-1 hover:shadow-[var(--shadow-card-hover)]";
 
@@ -72,7 +72,7 @@ export function ServicesOverview() {
           </div>
         </Reveal>
 
-        <div className="mt-12 grid gap-4 md:mt-16 md:grid-cols-6 md:gap-5">
+        <div className="mt-10 grid gap-4 md:mt-12 md:grid-cols-6">
           {/* ── AI — big dark hero ── */}
           <Reveal className="md:col-span-4 md:col-start-3 md:row-span-2 md:row-start-1">
             <Link
@@ -93,14 +93,14 @@ export function ServicesOverview() {
                 </span>
               </div>
 
-              <h3 className="relative mt-6 text-[clamp(24px,2vw+14px,34px)] font-[number:var(--fw-semi)] leading-[1.1] tracking-[-0.02em] text-white">
+              <h3 className="relative mt-5 text-[clamp(23px,1.6vw+14px,32px)] font-[number:var(--fw-semi)] leading-[1.1] tracking-[-0.02em] text-white">
                 {t("items.ai.title")}
               </h3>
-              <p className="relative mt-3 max-w-[460px] text-[15px] leading-[1.55] text-white/70">
+              <p className="relative mt-2.5 max-w-[460px] text-[15px] leading-[1.5] text-white/70">
                 {t("items.ai.desc")}
               </p>
 
-              <span className="relative mt-5 inline-flex items-center gap-1.5 text-[14px] font-medium text-[color:var(--c-accent)]">
+              <span className="relative mt-4 inline-flex items-center gap-1.5 text-[14px] font-medium text-[color:var(--c-accent)]">
                 {t("items.ai.link")}
                 <Arrow className="transition-transform duration-200 group-hover:translate-x-1" />
               </span>
@@ -121,14 +121,14 @@ export function ServicesOverview() {
                 <GlyphChip k="websites" />
                 <Cat>{t("items.websites.category")}</Cat>
               </div>
-              <h3 className="relative mt-5 t-h4 font-[number:var(--fw-semi)] text-[color:var(--color-text)]">
+              <h3 className="relative mt-4 t-h4 font-[number:var(--fw-semi)] text-[color:var(--color-text)]">
                 {t("items.websites.title")}
               </h3>
-              <p className="relative mt-2.5 text-[14.5px] leading-[1.5] text-[color:var(--color-text-2)]">
+              <p className="relative mt-2 text-[14px] leading-[1.5] text-[color:var(--color-text-2)]">
                 {t("items.websites.desc")}
               </p>
               <BrowserArt />
-              <span className="relative mt-auto inline-flex items-center gap-1.5 pt-6 text-[14px] font-medium text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
+              <span className="relative mt-auto inline-flex items-center gap-1.5 pt-5 text-[14px] font-medium text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
                 {t("items.websites.link")}
                 <Arrow className="transition-transform duration-200 group-hover:translate-x-1" />
               </span>
@@ -143,14 +143,14 @@ export function ServicesOverview() {
                 <GlyphChip k="mobile" />
                 <Cat>{t("items.mobile.category")}</Cat>
               </div>
-              <h3 className="relative mt-5 t-h4 font-[number:var(--fw-semi)] text-[color:var(--color-text)]">
+              <h3 className="relative mt-4 t-h4 font-[number:var(--fw-semi)] text-[color:var(--color-text)]">
                 {t("items.mobile.title")}
               </h3>
-              <p className="relative mt-2.5 text-[14.5px] leading-[1.5] text-[color:var(--color-text-2)]">
+              <p className="relative mt-2 text-[14px] leading-[1.5] text-[color:var(--color-text-2)]">
                 {t("items.mobile.desc")}
               </p>
               <PhoneArt />
-              <span className="relative mt-auto inline-flex items-center gap-1.5 pt-6 text-[14px] font-medium text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
+              <span className="relative mt-auto inline-flex items-center gap-1.5 pt-5 text-[14px] font-medium text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
                 {t("items.mobile.link")}
                 <Arrow className="transition-transform duration-200 group-hover:translate-x-1" />
               </span>
@@ -178,7 +178,7 @@ export function ServicesOverview() {
 /** AI hero — a Telegram chat on the left flowing into a CRM "deal won" card. */
 function BotChatArt({ bullets, wonLabel }: { bullets: string[]; wonLabel: string }) {
   return (
-    <div aria-hidden className="relative mt-auto grid items-end gap-4 pt-8 sm:grid-cols-[1.2fr_1fr]">
+    <div aria-hidden className="relative mt-5 grid flex-1 content-center gap-3 pt-2 sm:grid-cols-[1.2fr_1fr]">
       {/* Chat */}
       <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-3.5 backdrop-blur-sm">
         <div className="flex flex-col gap-2">
@@ -233,9 +233,9 @@ function BrowserArt() {
   return (
     <div
       aria-hidden
-      className="relative mt-5 overflow-hidden rounded-xl border border-[color:var(--color-divider)] bg-[color:var(--color-bg)] shadow-[0_10px_30px_-18px_rgba(0,0,0,0.4)]"
+      className="relative mt-4 overflow-hidden rounded-xl border border-[color:var(--color-divider)] bg-[color:var(--color-bg)] shadow-[0_10px_30px_-18px_rgba(0,0,0,0.4)]"
     >
-      <div className="flex items-center gap-1.5 border-b border-[color:var(--color-divider)] px-3 py-2">
+      <div className="flex items-center gap-1.5 border-b border-[color:var(--color-divider)] px-3 py-1.5">
         <span className="h-2 w-2 rounded-full bg-[#FF5F57]" />
         <span className="h-2 w-2 rounded-full bg-[#FEBC2E]" />
         <span className="h-2 w-2 rounded-full bg-[#28C840]" />
@@ -243,7 +243,7 @@ function BrowserArt() {
           site.com
         </span>
       </div>
-      <div className="flex items-center gap-3 p-3.5">
+      <div className="flex items-center gap-3 p-3">
         <Ring value={98} />
         <div className="flex flex-1 flex-col gap-1.5">
           <span className="h-2 w-3/4 rounded-full bg-[color:var(--color-divider)]" />
@@ -258,25 +258,25 @@ function BrowserArt() {
 }
 
 function Ring({ value }: { value: number }) {
-  const r = 22;
+  const r = 18;
   const c = 2 * Math.PI * r;
   return (
-    <span className="relative grid h-14 w-14 shrink-0 place-items-center">
-      <svg width="56" height="56" viewBox="0 0 56 56" className="-rotate-90">
-        <circle cx="28" cy="28" r={r} fill="none" stroke="var(--color-divider)" strokeWidth="4" />
+    <span className="relative grid h-12 w-12 shrink-0 place-items-center">
+      <svg width="48" height="48" viewBox="0 0 48 48" className="-rotate-90">
+        <circle cx="24" cy="24" r={r} fill="none" stroke="var(--color-divider)" strokeWidth="3.5" />
         <circle
-          cx="28"
-          cy="28"
+          cx="24"
+          cy="24"
           r={r}
           fill="none"
           stroke="var(--c-accent)"
-          strokeWidth="4"
+          strokeWidth="3.5"
           strokeLinecap="round"
           strokeDasharray={c}
           strokeDashoffset={c * (1 - value / 100)}
         />
       </svg>
-      <span className="absolute text-[13px] font-semibold text-[color:var(--color-text)]">{value}</span>
+      <span className="absolute text-[12px] font-semibold text-[color:var(--color-text)]">{value}</span>
     </span>
   );
 }
@@ -284,10 +284,10 @@ function Ring({ value }: { value: number }) {
 /** Mobile — a small phone with an app screen. */
 function PhoneArt() {
   return (
-    <div aria-hidden className="mt-5 flex justify-center">
-      <div className="relative w-[132px] overflow-hidden rounded-[22px] border border-[color:var(--color-divider)] bg-[color:var(--color-bg)] p-2 shadow-[0_14px_36px_-18px_rgba(0,0,0,0.45)]">
-        <div className="absolute left-1/2 top-2 h-1 w-10 -translate-x-1/2 rounded-full bg-[color:var(--color-divider)]" />
-        <div className="mt-4 rounded-[14px] bg-[color:var(--color-bg-alt)] p-2.5">
+    <div aria-hidden className="mt-4 flex justify-center">
+      <div className="relative w-[150px] overflow-hidden rounded-[18px] border border-[color:var(--color-divider)] bg-[color:var(--color-bg)] p-2 shadow-[0_14px_36px_-18px_rgba(0,0,0,0.45)]">
+        <div className="absolute left-1/2 top-1.5 h-1 w-8 -translate-x-1/2 rounded-full bg-[color:var(--color-divider)]" />
+        <div className="mt-3 rounded-[12px] bg-[color:var(--color-bg-alt)] p-2.5">
           <div className="flex items-center gap-2">
             <span className="h-6 w-6 rounded-lg bg-[color:var(--c-accent)]" />
             <span className="flex flex-1 flex-col gap-1">
@@ -295,19 +295,14 @@ function PhoneArt() {
               <span className="h-1.5 w-1/2 rounded-full bg-[color:var(--color-divider)]" />
             </span>
           </div>
-          <div className="mt-2.5 flex flex-col gap-1.5">
-            {[0, 1, 2].map((i) => (
+          <div className="mt-2 flex flex-col gap-1.5">
+            {[0, 1].map((i) => (
               <span key={i} className="flex items-center gap-2 rounded-lg bg-[color:var(--color-bg)] p-1.5">
                 <span className="h-4 w-4 rounded-md bg-[color:var(--c-accent-soft)]" />
                 <span className="h-1.5 flex-1 rounded-full bg-[color:var(--color-divider)]" />
               </span>
             ))}
           </div>
-        </div>
-        <div className="mt-2 flex justify-center gap-3 py-1">
-          <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--c-accent)]" />
-          <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-divider)]" />
-          <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-divider)]" />
         </div>
       </div>
     </div>
