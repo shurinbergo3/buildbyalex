@@ -97,7 +97,7 @@
     },
     "services": {
       "eyebrow": "Services",
-      "headline": "Three things, done properly.",
+      "headline": "Websites, AI and apps that bring you clients.",
       "subhead": "Pick one or combine them. I work with founders, small companies and marketing teams that need senior delivery without the agency overhead.",
       "items": {
         "websites": {
@@ -352,7 +352,8 @@
           "role": "LegalWin manager",
           "message": "Hi! How can I help — residence card, licence exchange, citizenship?",
           "placeholder": "Ask a question…"
-        }
+        },
+        "viewSite": "View the live site"
       }
     },
     "how": {

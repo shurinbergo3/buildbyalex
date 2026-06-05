@@ -97,7 +97,7 @@
     },
     "services": {
       "eyebrow": "Usługi",
-      "headline": "Trzy rzeczy, zrobione porządnie.",
+      "headline": "Strony, AI i aplikacje, które przynoszą klientów.",
       "subhead": "Wybierz jedną albo połącz wszystkie. Pracuję z founderami, małymi firmami i zespołami marketingu, które potrzebują seniora bez narzutu agencji.",
       "items": {
         "websites": {
@@ -352,7 +352,8 @@
           "role": "menedżer LegalWin",
           "message": "Dzień dobry! W czym mogę pomóc — karta pobytu, wymiana prawa jazdy, obywatelstwo?",
           "placeholder": "Zadaj pytanie…"
-        }
+        },
+        "viewSite": "Zobacz stronę"
       }
     },
     "how": {

@@ -9,6 +9,7 @@ import { Button } from "@/components/Button";
 import { CaseCover } from "@/components/CaseCover";
 import { VisionairHeroMock } from "@/components/VisionairHeroMock";
 import { BodyForgeHeroMock } from "@/components/BodyForgeHeroMock";
+import { LegalwinHeroMock } from "@/components/LegalwinHeroMock";
 import { LegalwinShowcase } from "@/components/LegalwinShowcase";
 import { VisionairShowcase } from "@/components/VisionairShowcase";
 import { DonbravaShowcase } from "@/components/DonbravaShowcase";
@@ -315,6 +316,26 @@ function CaseContent({ slug, locale }: { slug: string; locale: string }) {
                 </Reveal>
               </div>
             </div>
+          ) : key === "legalwin" ? (
+            <>
+              <Reveal>
+                <p className="t-eyebrow text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
+                  {c.industry}
+                </p>
+                <h1 className="mt-4 text-[clamp(40px,5.5vw+8px,72px)] font-semibold leading-[1.06] tracking-[-0.032em]">
+                  {c.title}
+                </h1>
+                <p className="mt-5 max-w-[640px] text-[clamp(17px,1.2vw+13px,22px)] leading-[1.45] tracking-[-0.013em] text-[color:var(--color-text-2)]">
+                  {c.tagline}
+                </p>
+              </Reveal>
+
+              <Reveal delay={150}>
+                <div className="mt-12">
+                  <LegalwinHeroMock />
+                </div>
+              </Reveal>
+            </>
           ) : (
             <>
               <Reveal>

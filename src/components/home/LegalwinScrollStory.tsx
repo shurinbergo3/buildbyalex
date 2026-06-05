@@ -150,7 +150,7 @@ export function LegalwinScrollStory() {
   // Faithful mini: render the screens at a fixed design width and scale the
   // whole laptop screen to the device, so the MacBook reads identically (just
   // smaller) on phones instead of clipping its fixed-px content.
-  const DESIGN_W = 760;
+  const DESIGN_W = 680;
   const screenRef = useRef<HTMLDivElement>(null);
   const [screenScale, setScreenScale] = useState(1);
   useEffect(() => {
