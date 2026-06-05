@@ -6,9 +6,10 @@ import { Reveal } from "@/components/Reveal";
 import { serviceGlyph, serviceHref } from "@/components/serviceGlyphs";
 
 /* ────────────────────────────────────────────────────────────────────────
-   Services — apple.com-style bento. One big dark "AI" hero tile anchors the
-   grid; two medium capability tiles stack beside it; three compact priced
-   tiles run along the bottom. Asymmetric sizes, soft tiles, one accent.
+   Services — apple.com-style bento with brand illustrations. The big dark AI
+   tile carries a live chat→CRM mock; the two capability tiles each hold a
+   small product mock (browser, phone); the three priced tiles round it off.
+   Soft gradient auras + frosted glyph chips give it the premium feel.
    ──────────────────────────────────────────────────────────────────────── */
 
 const Arrow = ({ className = "" }: { className?: string }) => (
@@ -17,7 +18,12 @@ const Arrow = ({ className = "" }: { className?: string }) => (
   </svg>
 );
 
-/* Soft brand-tinted gradient glow in a tile corner — brightens on hover. */
+const Check = ({ className = "" }: { className?: string }) => (
+  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+    <path d="M5 13l4 4L19 7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
 const Aura = ({ className = "" }: { className?: string }) => (
   <span
     aria-hidden
@@ -42,10 +48,15 @@ export function ServicesOverview() {
           : "bg-gradient-to-br from-[color:var(--c-accent-soft)] to-transparent text-[color:var(--c-accent-ink)] ring-[color:var(--c-accent)]/20 shadow-[0_6px_16px_-6px_rgba(255,122,45,0.45)] dark:text-[color:var(--c-accent)]"
       }`}
     >
-      {/* specular sheen */}
       <span aria-hidden className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/25 to-transparent opacity-60" />
       <span className="relative h-6 w-6">{serviceGlyph[k]}</span>
     </span>
+  );
+
+  const Cat = ({ children, dark = false }: { children: React.ReactNode; dark?: boolean }) => (
+    <p className={`text-[12px] font-semibold uppercase tracking-[0.08em] ${dark ? "text-white/55" : "text-[color:var(--color-text-3)]"}`}>
+      {children}
+    </p>
   );
 
   return (
@@ -62,30 +73,21 @@ export function ServicesOverview() {
         </Reveal>
 
         <div className="mt-12 grid gap-4 md:mt-16 md:grid-cols-6 md:gap-5">
-          {/* ── AI — big dark hero (right, two rows tall) ── */}
+          {/* ── AI — big dark hero ── */}
           <Reveal className="md:col-span-4 md:col-start-3 md:row-span-2 md:row-start-1">
             <Link
               href={serviceHref.ai}
               className={`${tileBase} bg-[#0A0A0A] text-white shadow-[var(--shadow-card)] hover:-translate-y-1 hover:shadow-[var(--shadow-card-hover)]`}
             >
-              {/* decorative glyph art */}
               <span
                 aria-hidden
-                className="pointer-events-none absolute -bottom-10 -right-8 h-56 w-56 text-[color:var(--c-accent)] opacity-[0.07] transition-transform duration-500 group-hover:scale-110"
-              >
-                {serviceGlyph.ai}
-              </span>
-              <span
-                aria-hidden
-                className="pointer-events-none absolute -right-1/4 top-1/3 h-[360px] w-[360px] rounded-full opacity-50 blur-[100px]"
-                style={{ background: "radial-gradient(circle, rgba(255,122,45,0.18) 0%, transparent 70%)" }}
+                className="pointer-events-none absolute -right-1/4 top-0 h-[420px] w-[420px] rounded-full opacity-60 blur-[110px]"
+                style={{ background: "radial-gradient(circle, rgba(255,122,45,0.20) 0%, transparent 70%)" }}
               />
 
               <div className="relative flex items-center gap-3">
                 <GlyphChip k="ai" dark />
-                <p className="text-[12px] font-semibold uppercase tracking-[0.08em] text-white/55">
-                  {t("items.ai.category")}
-                </p>
+                <Cat dark>{t("items.ai.category")}</Cat>
                 <span className="ml-auto rounded-full bg-[color:var(--c-accent)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.06em] text-white">
                   {t("badge")}
                 </span>
@@ -94,82 +96,76 @@ export function ServicesOverview() {
               <h3 className="relative mt-6 text-[clamp(24px,2vw+14px,34px)] font-[number:var(--fw-semi)] leading-[1.1] tracking-[-0.02em] text-white">
                 {t("items.ai.title")}
               </h3>
-              <p className="relative mt-3 max-w-[440px] text-[15px] leading-[1.55] text-white/70">
+              <p className="relative mt-3 max-w-[460px] text-[15px] leading-[1.55] text-white/70">
                 {t("items.ai.desc")}
               </p>
 
-              <ul className="relative mt-6 grid gap-2.5 border-t border-white/10 pt-6 text-[14.5px] leading-[1.5] text-white/80 sm:grid-cols-2">
-                {(t.raw("items.ai.bullets") as string[]).map((b, i) => (
-                  <li key={i} className="flex gap-2.5">
-                    <span className="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-[color:var(--c-accent)]" aria-hidden="true" />
-                    {b}
-                  </li>
-                ))}
-              </ul>
-
-              <span className="relative mt-auto inline-flex items-center gap-1.5 pt-7 text-[14px] font-medium text-[color:var(--c-accent)]">
+              <span className="relative mt-5 inline-flex items-center gap-1.5 text-[14px] font-medium text-[color:var(--c-accent)]">
                 {t("items.ai.link")}
+                <Arrow className="transition-transform duration-200 group-hover:translate-x-1" />
+              </span>
+
+              {/* Live chat → CRM mock fills the tile */}
+              <BotChatArt
+                bullets={t.raw("items.ai.bullets") as string[]}
+                wonLabel={t("items.ai.title")}
+              />
+            </Link>
+          </Reveal>
+
+          {/* ── Websites — medium ── */}
+          <Reveal delay={90} className="md:col-span-2 md:col-start-1 md:row-start-1">
+            <Link href={serviceHref.websites} className={`${tileBase} ${tileLight}`}>
+              <Aura />
+              <div className="relative flex items-center gap-3">
+                <GlyphChip k="websites" />
+                <Cat>{t("items.websites.category")}</Cat>
+              </div>
+              <h3 className="relative mt-5 t-h4 font-[number:var(--fw-semi)] text-[color:var(--color-text)]">
+                {t("items.websites.title")}
+              </h3>
+              <p className="relative mt-2.5 text-[14.5px] leading-[1.5] text-[color:var(--color-text-2)]">
+                {t("items.websites.desc")}
+              </p>
+              <BrowserArt />
+              <span className="relative mt-auto inline-flex items-center gap-1.5 pt-6 text-[14px] font-medium text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
+                {t("items.websites.link")}
                 <Arrow className="transition-transform duration-200 group-hover:translate-x-1" />
               </span>
             </Link>
           </Reveal>
 
-          {/* ── Websites — medium (top-left) ── */}
-          <Reveal delay={90} className="md:col-span-2 md:col-start-1 md:row-start-1">
-            <MediumTile
-              glyph={<GlyphChip k="websites" />}
-              category={t("items.websites.category")}
-              title={t("items.websites.title")}
-              desc={t("items.websites.desc")}
-              bullets={t.raw("items.websites.bullets") as string[]}
-              link={t("items.websites.link")}
-              href={serviceHref.websites}
-            />
-          </Reveal>
-
-          {/* ── Mobile — medium (bottom-left) ── */}
+          {/* ── Mobile — medium ── */}
           <Reveal delay={150} className="md:col-span-2 md:col-start-1 md:row-start-2">
-            <MediumTile
-              glyph={<GlyphChip k="mobile" />}
-              category={t("items.mobile.category")}
-              title={t("items.mobile.title")}
-              desc={t("items.mobile.desc")}
-              bullets={t.raw("items.mobile.bullets") as string[]}
-              link={t("items.mobile.link")}
-              href={serviceHref.mobile}
-            />
+            <Link href={serviceHref.mobile} className={`${tileBase} ${tileLight}`}>
+              <Aura />
+              <div className="relative flex items-center gap-3">
+                <GlyphChip k="mobile" />
+                <Cat>{t("items.mobile.category")}</Cat>
+              </div>
+              <h3 className="relative mt-5 t-h4 font-[number:var(--fw-semi)] text-[color:var(--color-text)]">
+                {t("items.mobile.title")}
+              </h3>
+              <p className="relative mt-2.5 text-[14.5px] leading-[1.5] text-[color:var(--color-text-2)]">
+                {t("items.mobile.desc")}
+              </p>
+              <PhoneArt />
+              <span className="relative mt-auto inline-flex items-center gap-1.5 pt-6 text-[14px] font-medium text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
+                {t("items.mobile.link")}
+                <Arrow className="transition-transform duration-200 group-hover:translate-x-1" />
+              </span>
+            </Link>
           </Reveal>
 
-          {/* ── Bottom row: three compact priced tiles ── */}
+          {/* ── Three compact priced tiles ── */}
           <Reveal delay={220} className="md:col-span-2 md:col-start-1 md:row-start-3">
-            <SmallTile
-              glyph={<GlyphChip k="automation" />}
-              category={t("automation.category")}
-              title={t("automation.title")}
-              body={t("automation.body")}
-              price={t("automation.price")}
-              href="/services/automation"
-            />
+            <SmallTile glyph={<GlyphChip k="automation" />} category={<Cat>{t("automation.category")}</Cat>} title={t("automation.title")} body={t("automation.body")} price={t("automation.price")} href="/services/automation" motif="flow" />
           </Reveal>
           <Reveal delay={280} className="md:col-span-2 md:col-start-3 md:row-start-3">
-            <SmallTile
-              glyph={<GlyphChip k="telegram" />}
-              category={t("telegram.category")}
-              title={t("telegram.title")}
-              body={t("telegram.body")}
-              price={t("telegram.price")}
-              href="/services/telegram-bots"
-            />
+            <SmallTile glyph={<GlyphChip k="telegram" />} category={<Cat>{t("telegram.category")}</Cat>} title={t("telegram.title")} body={t("telegram.body")} price={t("telegram.price")} href="/services/telegram-bots" motif="chat" />
           </Reveal>
           <Reveal delay={340} className="md:col-span-2 md:col-start-5 md:row-start-3">
-            <SmallTile
-              glyph={<GlyphChip k="ads" />}
-              category={t("ads.category")}
-              title={t("ads.title")}
-              body={t("ads.body")}
-              price={t("ads.price")}
-              href="/services/advertising"
-            />
+            <SmallTile glyph={<GlyphChip k="ads" />} category={<Cat>{t("ads.category")}</Cat>} title={t("ads.title")} body={t("ads.body")} price={t("ads.price")} href="/services/advertising" motif="bars" />
           </Reveal>
         </div>
       </Container>
@@ -177,49 +173,144 @@ export function ServicesOverview() {
   );
 }
 
-/* ───────────────────────── MEDIUM TILE ───────────────────────── */
+/* ───────────────────────── ILLUSTRATIONS ───────────────────────── */
 
-function MediumTile({
-  glyph,
-  category,
-  title,
-  desc,
-  bullets,
-  link,
-  href,
-}: {
-  glyph: React.ReactNode;
-  category: string;
-  title: string;
-  desc: string;
-  bullets: string[];
-  link: string;
-  href: React.ComponentProps<typeof Link>["href"];
-}) {
+/** AI hero — a Telegram chat on the left flowing into a CRM "deal won" card. */
+function BotChatArt({ bullets, wonLabel }: { bullets: string[]; wonLabel: string }) {
   return (
-    <Link href={href} className={`${tileBase} ${tileLight}`}>
-      <Aura />
-      <div className="relative flex items-center gap-3">
-        {glyph}
-        <p className="text-[12px] font-semibold uppercase tracking-[0.08em] text-[color:var(--color-text-3)]">{category}</p>
+    <div aria-hidden className="relative mt-auto grid items-end gap-4 pt-8 sm:grid-cols-[1.2fr_1fr]">
+      {/* Chat */}
+      <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-3.5 backdrop-blur-sm">
+        <div className="flex flex-col gap-2">
+          <span className="max-w-[88%] self-start rounded-2xl rounded-bl-[6px] px-3 py-1.5 text-[12.5px] leading-[1.35] text-white" style={{ background: "#182533" }}>
+            👋 Подберу решение и отвечу за секунду
+          </span>
+          <span className="max-w-[80%] self-end rounded-2xl rounded-br-[6px] px-3 py-1.5 text-[12.5px] leading-[1.35] text-white" style={{ background: "#2b5278" }}>
+            Сколько стоит AI-бот?
+          </span>
+          <span className="max-w-[92%] self-start rounded-2xl rounded-bl-[6px] px-3 py-1.5 text-[12.5px] leading-[1.35] text-white" style={{ background: "#182533" }}>
+            От €600. Соберу заявку и передам в CRM
+          </span>
+        </div>
       </div>
-      <h3 className="relative mt-5 t-h4 font-[number:var(--fw-semi)] text-[color:var(--color-text)]">{title}</h3>
-      <p className="relative mt-2.5 text-[14.5px] leading-[1.5] text-[color:var(--color-text-2)]">{desc}</p>
 
-      <ul className="relative mt-5 space-y-2.5 border-t border-[color:var(--color-divider)] pt-5 text-[14.5px] leading-[1.5] text-[color:var(--color-text-2)]">
-        {bullets.slice(0, 3).map((b, i) => (
-          <li key={i} className="flex gap-2.5">
-            <span className="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-[color:var(--c-accent)]" aria-hidden="true" />
-            {b}
-          </li>
-        ))}
-      </ul>
+      {/* CRM deal card */}
+      <div
+        className="relative overflow-hidden rounded-2xl border p-3.5"
+        style={{
+          background: "linear-gradient(180deg, rgba(255,122,45,0.12) 0%, rgba(255,122,45,0.03) 100%)",
+          borderColor: "rgba(255,122,45,0.45)",
+          boxShadow: "0 0 0 1px rgba(255,122,45,0.16), 0 12px 30px -12px rgba(255,122,45,0.4)",
+        }}
+      >
+        <div className="flex items-center justify-between">
+          <span className="text-[11px] font-semibold uppercase tracking-wider text-white/55">CRM</span>
+          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400">
+            <Check />
+          </span>
+        </div>
+        <div className="mt-2 text-[13px] font-semibold text-white">Maria K. · Acme Co.</div>
+        <div className="mt-0.5 text-[11.5px] text-white/60">€2,400 / mo</div>
+        <div className="mt-2.5 flex flex-col gap-1.5">
+          {bullets.slice(0, 2).map((b, i) => (
+            <span key={i} className="flex items-center gap-1.5 text-[10.5px] text-white/55">
+              <Check className="shrink-0 text-[color:var(--c-accent)]" />
+              <span className="truncate">{b}</span>
+            </span>
+          ))}
+        </div>
+        <div className="mt-2.5 h-[3px] w-full overflow-hidden rounded-full bg-white/10">
+          <div className="h-full w-[88%] rounded-full" style={{ background: "var(--c-accent)" }} />
+        </div>
+        <span className="sr-only">{wonLabel}</span>
+      </div>
+    </div>
+  );
+}
 
-      <span className="relative mt-auto inline-flex items-center gap-1.5 pt-6 text-[14px] font-medium text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
-        {link}
-        <Arrow className="transition-transform duration-200 group-hover:translate-x-1" />
-      </span>
-    </Link>
+/** Websites — a tiny browser window with a Lighthouse-style speed score. */
+function BrowserArt() {
+  return (
+    <div
+      aria-hidden
+      className="relative mt-5 overflow-hidden rounded-xl border border-[color:var(--color-divider)] bg-[color:var(--color-bg)] shadow-[0_10px_30px_-18px_rgba(0,0,0,0.4)]"
+    >
+      <div className="flex items-center gap-1.5 border-b border-[color:var(--color-divider)] px-3 py-2">
+        <span className="h-2 w-2 rounded-full bg-[#FF5F57]" />
+        <span className="h-2 w-2 rounded-full bg-[#FEBC2E]" />
+        <span className="h-2 w-2 rounded-full bg-[#28C840]" />
+        <span className="ml-2 flex-1 truncate rounded-full bg-[color:var(--color-bg-alt)] px-2.5 py-1 text-[10px] text-[color:var(--color-text-3)]">
+          site.com
+        </span>
+      </div>
+      <div className="flex items-center gap-3 p-3.5">
+        <Ring value={98} />
+        <div className="flex flex-1 flex-col gap-1.5">
+          <span className="h-2 w-3/4 rounded-full bg-[color:var(--color-divider)]" />
+          <span className="h-2 w-1/2 rounded-full bg-[color:var(--color-divider)]" />
+          <span className="mt-1 inline-flex w-fit items-center gap-1 rounded-full bg-[color:var(--c-accent-soft)] px-2 py-0.5 text-[10px] font-medium text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
+            <Check className="h-2.5 w-2.5" /> топ-10 Google
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Ring({ value }: { value: number }) {
+  const r = 22;
+  const c = 2 * Math.PI * r;
+  return (
+    <span className="relative grid h-14 w-14 shrink-0 place-items-center">
+      <svg width="56" height="56" viewBox="0 0 56 56" className="-rotate-90">
+        <circle cx="28" cy="28" r={r} fill="none" stroke="var(--color-divider)" strokeWidth="4" />
+        <circle
+          cx="28"
+          cy="28"
+          r={r}
+          fill="none"
+          stroke="var(--c-accent)"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeDasharray={c}
+          strokeDashoffset={c * (1 - value / 100)}
+        />
+      </svg>
+      <span className="absolute text-[13px] font-semibold text-[color:var(--color-text)]">{value}</span>
+    </span>
+  );
+}
+
+/** Mobile — a small phone with an app screen. */
+function PhoneArt() {
+  return (
+    <div aria-hidden className="mt-5 flex justify-center">
+      <div className="relative w-[132px] overflow-hidden rounded-[22px] border border-[color:var(--color-divider)] bg-[color:var(--color-bg)] p-2 shadow-[0_14px_36px_-18px_rgba(0,0,0,0.45)]">
+        <div className="absolute left-1/2 top-2 h-1 w-10 -translate-x-1/2 rounded-full bg-[color:var(--color-divider)]" />
+        <div className="mt-4 rounded-[14px] bg-[color:var(--color-bg-alt)] p-2.5">
+          <div className="flex items-center gap-2">
+            <span className="h-6 w-6 rounded-lg bg-[color:var(--c-accent)]" />
+            <span className="flex flex-1 flex-col gap-1">
+              <span className="h-1.5 w-3/4 rounded-full bg-[color:var(--color-divider)]" />
+              <span className="h-1.5 w-1/2 rounded-full bg-[color:var(--color-divider)]" />
+            </span>
+          </div>
+          <div className="mt-2.5 flex flex-col gap-1.5">
+            {[0, 1, 2].map((i) => (
+              <span key={i} className="flex items-center gap-2 rounded-lg bg-[color:var(--color-bg)] p-1.5">
+                <span className="h-4 w-4 rounded-md bg-[color:var(--c-accent-soft)]" />
+                <span className="h-1.5 flex-1 rounded-full bg-[color:var(--color-divider)]" />
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className="mt-2 flex justify-center gap-3 py-1">
+          <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--c-accent)]" />
+          <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-divider)]" />
+          <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-divider)]" />
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -232,20 +323,25 @@ function SmallTile({
   body,
   price,
   href,
+  motif,
 }: {
   glyph: React.ReactNode;
-  category: string;
+  category: React.ReactNode;
   title: string;
   body: string;
   price: string;
   href: React.ComponentProps<typeof Link>["href"];
+  motif: "flow" | "chat" | "bars";
 }) {
   return (
     <Link href={href} className={`${tileBase} ${tileLight}`}>
       <Aura />
-      <div className="relative flex items-center gap-3">
-        {glyph}
-        <p className="text-[12px] font-semibold uppercase tracking-[0.08em] text-[color:var(--color-text-3)]">{category}</p>
+      <div className="relative flex items-center justify-between gap-3">
+        <div className="flex items-center gap-3">
+          {glyph}
+          {category}
+        </div>
+        <Motif kind={motif} />
       </div>
       <h3 className="relative mt-4 t-h4 font-[number:var(--fw-semi)] text-[color:var(--color-text)]">{title}</h3>
       <p className="relative mt-2 text-[14px] leading-[1.5] text-[color:var(--color-text-2)]">{body}</p>
@@ -255,5 +351,38 @@ function SmallTile({
         <Arrow className="text-[color:var(--c-accent)] transition-transform duration-200 group-hover:translate-x-1" />
       </div>
     </Link>
+  );
+}
+
+/** Tiny accent motif in the corner of a priced tile. */
+function Motif({ kind }: { kind: "flow" | "chat" | "bars" }) {
+  const stroke = "var(--c-accent)";
+  return (
+    <span aria-hidden className="opacity-70">
+      {kind === "flow" && (
+        <svg width="44" height="20" viewBox="0 0 44 20" fill="none">
+          <circle cx="6" cy="10" r="3" fill={stroke} />
+          <circle cx="22" cy="4" r="3" fill={stroke} opacity="0.6" />
+          <circle cx="22" cy="16" r="3" fill={stroke} opacity="0.6" />
+          <circle cx="38" cy="10" r="3" fill={stroke} opacity="0.35" />
+          <path d="M9 10l10-5M9 10l10 5M25 5l10 4M25 15l10-4" stroke={stroke} strokeWidth="1.4" opacity="0.5" />
+        </svg>
+      )}
+      {kind === "chat" && (
+        <svg width="34" height="22" viewBox="0 0 34 22" fill="none">
+          <rect x="1" y="2" width="22" height="13" rx="4" fill={stroke} opacity="0.18" />
+          <path d="M6 19l4-5" stroke={stroke} strokeWidth="1.4" opacity="0.3" />
+          <path d="M14 8.5l5 3 9-7" stroke={stroke} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      )}
+      {kind === "bars" && (
+        <svg width="34" height="22" viewBox="0 0 34 22" fill="none">
+          <rect x="2" y="13" width="5" height="7" rx="1.5" fill={stroke} opacity="0.4" />
+          <rect x="11" y="8" width="5" height="12" rx="1.5" fill={stroke} opacity="0.6" />
+          <rect x="20" y="3" width="5" height="17" rx="1.5" fill={stroke} />
+          <path d="M3 9l9-4 9-3" stroke={stroke} strokeWidth="1.4" strokeLinecap="round" opacity="0.5" />
+        </svg>
+      )}
+    </span>
   );
 }
