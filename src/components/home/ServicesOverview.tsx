@@ -72,49 +72,9 @@ export function ServicesOverview() {
           </div>
         </Reveal>
 
-        <div className="mt-10 grid gap-4 md:mt-12 md:grid-cols-6">
-          {/* ── AI — big dark hero ── */}
-          <Reveal className="md:col-span-4 md:col-start-3 md:row-span-2 md:row-start-1">
-            <Link
-              href={serviceHref.ai}
-              className={`${tileBase} bg-[#0A0A0A] text-white shadow-[var(--shadow-card)] hover:-translate-y-1 hover:shadow-[var(--shadow-card-hover)]`}
-            >
-              <span
-                aria-hidden
-                className="pointer-events-none absolute -right-1/4 top-0 h-[420px] w-[420px] rounded-full opacity-60 blur-[110px]"
-                style={{ background: "radial-gradient(circle, rgba(255,122,45,0.20) 0%, transparent 70%)" }}
-              />
-
-              <div className="relative flex items-center gap-3">
-                <GlyphChip k="ai" dark />
-                <Cat dark>{t("items.ai.category")}</Cat>
-                <span className="ml-auto rounded-full bg-[color:var(--c-accent)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.06em] text-white">
-                  {t("badge")}
-                </span>
-              </div>
-
-              <h3 className="relative mt-5 text-[clamp(23px,1.6vw+14px,32px)] font-[number:var(--fw-semi)] leading-[1.1] tracking-[-0.02em] text-white">
-                {t("items.ai.title")}
-              </h3>
-              <p className="relative mt-2.5 max-w-[460px] text-[15px] leading-[1.5] text-white/70">
-                {t("items.ai.desc")}
-              </p>
-
-              <span className="relative mt-4 inline-flex items-center gap-1.5 text-[14px] font-medium text-[color:var(--c-accent)]">
-                {t("items.ai.link")}
-                <Arrow className="transition-transform duration-200 group-hover:translate-x-1" />
-              </span>
-
-              {/* Live chat → CRM mock fills the tile */}
-              <BotChatArt
-                bullets={t.raw("items.ai.bullets") as string[]}
-                wonLabel={t("items.ai.title")}
-              />
-            </Link>
-          </Reveal>
-
-          {/* ── Websites — medium ── */}
-          <Reveal delay={90} className="md:col-span-2 md:col-start-1 md:row-start-1">
+        <div className="mt-10 grid gap-4 md:mt-12 md:grid-cols-3 md:gap-5">
+          {/* ── Row 1: capability tiles ── */}
+          <Reveal delay={0}>
             <Link href={serviceHref.websites} className={`${tileBase} ${tileLight}`}>
               <Aura />
               <div className="relative flex items-center gap-3">
@@ -135,8 +95,40 @@ export function ServicesOverview() {
             </Link>
           </Reveal>
 
-          {/* ── Mobile — medium ── */}
-          <Reveal delay={150} className="md:col-span-2 md:col-start-1 md:row-start-2">
+          {/* AI — dark, badged, but the same size as its siblings */}
+          <Reveal delay={90}>
+            <Link
+              href={serviceHref.ai}
+              className={`${tileBase} bg-[#0A0A0A] text-white shadow-[var(--shadow-card)] hover:-translate-y-1 hover:shadow-[var(--shadow-card-hover)]`}
+            >
+              <span
+                aria-hidden
+                className="pointer-events-none absolute -right-1/4 -top-1/4 h-72 w-72 rounded-full opacity-60 blur-[90px]"
+                style={{ background: "radial-gradient(circle, rgba(255,122,45,0.20) 0%, transparent 70%)" }}
+              />
+              <div className="relative flex items-center gap-3">
+                <GlyphChip k="ai" dark />
+                <Cat dark>{t("items.ai.category")}</Cat>
+              </div>
+              <span className="relative mt-3 w-fit rounded-full bg-[color:var(--c-accent)] px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.06em] text-white">
+                {t("badge")}
+              </span>
+              <h3 className="relative mt-3 t-h4 font-[number:var(--fw-semi)] text-white">
+                {t("items.ai.title")}
+              </h3>
+              <p className="relative mt-2 text-[14px] leading-[1.5] text-white/70">
+                {t("items.ai.desc")}
+              </p>
+              <AiChatArt />
+              <span className="relative mt-auto inline-flex items-center gap-1.5 pt-5 text-[14px] font-medium text-[color:var(--c-accent)]">
+                {t("items.ai.link")}
+                <Arrow className="transition-transform duration-200 group-hover:translate-x-1" />
+              </span>
+            </Link>
+          </Reveal>
+
+          {/* Mobile */}
+          <Reveal delay={150}>
             <Link href={serviceHref.mobile} className={`${tileBase} ${tileLight}`}>
               <Aura />
               <div className="relative flex items-center gap-3">
@@ -157,14 +149,14 @@ export function ServicesOverview() {
             </Link>
           </Reveal>
 
-          {/* ── Three compact priced tiles ── */}
-          <Reveal delay={220} className="md:col-span-2 md:col-start-1 md:row-start-3">
+          {/* ── Row 2: priced tiles ── */}
+          <Reveal delay={220}>
             <SmallTile glyph={<GlyphChip k="automation" />} category={<Cat>{t("automation.category")}</Cat>} title={t("automation.title")} body={t("automation.body")} price={t("automation.price")} href="/services/automation" motif="flow" />
           </Reveal>
-          <Reveal delay={280} className="md:col-span-2 md:col-start-3 md:row-start-3">
+          <Reveal delay={280}>
             <SmallTile glyph={<GlyphChip k="telegram" />} category={<Cat>{t("telegram.category")}</Cat>} title={t("telegram.title")} body={t("telegram.body")} price={t("telegram.price")} href="/services/telegram-bots" motif="chat" />
           </Reveal>
-          <Reveal delay={340} className="md:col-span-2 md:col-start-5 md:row-start-3">
+          <Reveal delay={340}>
             <SmallTile glyph={<GlyphChip k="ads" />} category={<Cat>{t("ads.category")}</Cat>} title={t("ads.title")} body={t("ads.body")} price={t("ads.price")} href="/services/advertising" motif="bars" />
           </Reveal>
         </div>
@@ -175,54 +167,35 @@ export function ServicesOverview() {
 
 /* ───────────────────────── ILLUSTRATIONS ───────────────────────── */
 
-/** AI hero — a Telegram chat on the left flowing into a CRM "deal won" card. */
-function BotChatArt({ bullets, wonLabel }: { bullets: string[]; wonLabel: string }) {
+/** AI tile — a compact chat with a "→ CRM · deal won" chip. */
+function AiChatArt() {
   return (
-    <div aria-hidden className="relative mt-5 grid flex-1 content-center gap-3 pt-2 sm:grid-cols-[1.2fr_1fr]">
-      {/* Chat */}
-      <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-3.5 backdrop-blur-sm">
-        <div className="flex flex-col gap-2">
-          <span className="max-w-[88%] self-start rounded-2xl rounded-bl-[6px] px-3 py-1.5 text-[12.5px] leading-[1.35] text-white" style={{ background: "#182533" }}>
-            👋 Подберу решение и отвечу за секунду
-          </span>
-          <span className="max-w-[80%] self-end rounded-2xl rounded-br-[6px] px-3 py-1.5 text-[12.5px] leading-[1.35] text-white" style={{ background: "#2b5278" }}>
-            Сколько стоит AI-бот?
-          </span>
-          <span className="max-w-[92%] self-start rounded-2xl rounded-bl-[6px] px-3 py-1.5 text-[12.5px] leading-[1.35] text-white" style={{ background: "#182533" }}>
-            От €600. Соберу заявку и передам в CRM
-          </span>
-        </div>
+    <div aria-hidden className="relative mt-4 rounded-2xl border border-white/10 bg-white/[0.03] p-3 backdrop-blur-sm">
+      <div className="flex flex-col gap-1.5">
+        <span className="max-w-[90%] self-start rounded-2xl rounded-bl-[5px] px-2.5 py-1.5 text-[12px] leading-[1.35] text-white" style={{ background: "#182533" }}>
+          👋 Отвечу за секунду и соберу заявку
+        </span>
+        <span className="max-w-[78%] self-end rounded-2xl rounded-br-[5px] px-2.5 py-1.5 text-[12px] leading-[1.35] text-white" style={{ background: "#2b5278" }}>
+          Сколько стоит?
+        </span>
+        <span className="max-w-[92%] self-start rounded-2xl rounded-bl-[5px] px-2.5 py-1.5 text-[12px] leading-[1.35] text-white" style={{ background: "#182533" }}>
+          От €600. Передам в CRM ✅
+        </span>
       </div>
 
-      {/* CRM deal card */}
       <div
-        className="relative overflow-hidden rounded-2xl border p-3.5"
-        style={{
-          background: "linear-gradient(180deg, rgba(255,122,45,0.12) 0%, rgba(255,122,45,0.03) 100%)",
-          borderColor: "rgba(255,122,45,0.45)",
-          boxShadow: "0 0 0 1px rgba(255,122,45,0.16), 0 12px 30px -12px rgba(255,122,45,0.4)",
-        }}
+        className="mt-2.5 flex items-center justify-between rounded-xl border px-2.5 py-2"
+        style={{ background: "rgba(255,122,45,0.10)", borderColor: "rgba(255,122,45,0.40)" }}
       >
-        <div className="flex items-center justify-between">
-          <span className="text-[11px] font-semibold uppercase tracking-wider text-white/55">CRM</span>
-          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400">
-            <Check />
-          </span>
-        </div>
-        <div className="mt-2 text-[13px] font-semibold text-white">Maria K. · Acme Co.</div>
-        <div className="mt-0.5 text-[11.5px] text-white/60">€2,400 / mo</div>
-        <div className="mt-2.5 flex flex-col gap-1.5">
-          {bullets.slice(0, 2).map((b, i) => (
-            <span key={i} className="flex items-center gap-1.5 text-[10.5px] text-white/55">
-              <Check className="shrink-0 text-[color:var(--c-accent)]" />
-              <span className="truncate">{b}</span>
-            </span>
-          ))}
-        </div>
-        <div className="mt-2.5 h-[3px] w-full overflow-hidden rounded-full bg-white/10">
-          <div className="h-full w-[88%] rounded-full" style={{ background: "var(--c-accent)" }} />
-        </div>
-        <span className="sr-only">{wonLabel}</span>
+        <span className="flex items-center gap-1.5 text-[11px] font-medium text-white/80">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" style={{ color: "var(--c-accent)" }}>
+            <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          Лид в CRM
+        </span>
+        <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-400">
+          <Check /> Сделка
+        </span>
       </div>
     </div>
   );
