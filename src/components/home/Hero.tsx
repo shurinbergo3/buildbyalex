@@ -87,9 +87,10 @@ export function Hero() {
         }
       }
 
-      // Headline scales down with the morph, then clears out so the logo
-      // payoff lands on a clean stage.
-      const contentFade = clamp01((p - 0.06) / 0.34);
+      // Headline clears out fast — the reveal video opens on the same hero,
+      // so the foreground copy must be gone before that frame shows or the
+      // two stack into a ghosted double.
+      const contentFade = clamp01(p / 0.12);
       const scale = 1 - p * 0.18;
       const opacity = (1 - p * 0.25) * (1 - contentFade);
       const ty = p * -10 - contentFade * 24;
@@ -145,9 +146,13 @@ export function Hero() {
       apply(currentP);
     };
 
-    // Prime the reveal video so the first scroll-seek is instant, not a stall.
+    // Pick the source by viewport — a lighter, portrait clip on phones, the
+    // wide one on desktop — then prime it so the first scroll-seek is instant.
     const video = videoRef.current;
     if (video && !reduced) {
+      const isMobileV = window.matchMedia("(max-width: 767px)").matches;
+      video.src = isMobileV ? "/hero-reveal-mobile.mp4" : "/hero-reveal.mp4";
+      video.load();
       const prime = () => {
         video.play().then(() => video.pause()).catch(() => {});
       };
@@ -201,7 +206,6 @@ export function Hero() {
             <video
               ref={videoRef}
               className="hero-reveal-video"
-              src="/hero-reveal.mp4"
               poster="/hero-reveal-poster.jpg"
               muted
               playsInline
