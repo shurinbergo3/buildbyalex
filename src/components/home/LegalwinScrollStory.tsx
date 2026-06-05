@@ -170,7 +170,7 @@ export function LegalwinScrollStory() {
   return (
     <div ref={ref} className="relative mt-16 md:mt-20" style={{ height: "340vh" }}>
       <div className="sticky top-0 flex h-[100svh] items-center overflow-hidden">
-        <div className="relative flex min-h-[88svh] w-full flex-col justify-center overflow-hidden rounded-[28px] border border-white/10 bg-[#0b0d12] px-5 py-10 text-white shadow-[0_40px_120px_-40px_rgba(0,0,0,0.7)] sm:px-8 md:px-12 md:py-14">
+        <div className="relative flex min-h-[88svh] w-full flex-col justify-center overflow-hidden rounded-[24px] border border-white/10 bg-[#0b0d12] px-4 py-7 text-white shadow-[0_40px_120px_-40px_rgba(0,0,0,0.7)] sm:rounded-[28px] sm:px-8 sm:py-10 md:px-12 md:py-14">
           {/* Ambient glow */}
           <div
             aria-hidden
@@ -178,7 +178,7 @@ export function LegalwinScrollStory() {
             style={{ background: "radial-gradient(circle, rgba(255,122,45,0.16) 0%, transparent 70%)" }}
           />
 
-          <div className="relative grid items-center gap-8 lg:grid-cols-[minmax(0,360px)_minmax(0,1fr)] lg:gap-14">
+          <div className="relative grid items-center gap-5 lg:grid-cols-[minmax(0,360px)_minmax(0,1fr)] lg:gap-14">
             {/* ── Chapter copy ── */}
             <div className="relative">
               <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[color:var(--c-accent)]">
@@ -186,7 +186,7 @@ export function LegalwinScrollStory() {
                 {t("eyebrow")}
               </p>
 
-              <div className="relative mt-5 min-h-[148px] lg:min-h-[180px]">
+              <div className="relative mt-4 min-h-[112px] sm:mt-5 sm:min-h-[148px] lg:min-h-[180px]">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={active}
@@ -209,7 +209,7 @@ export function LegalwinScrollStory() {
               </div>
 
               {/* Progress rail */}
-              <div className="mt-7 flex items-center gap-3">
+              <div className="mt-5 flex items-center gap-3 sm:mt-7">
                 {chapters.map((_, i) => (
                   <span
                     key={i}
@@ -310,7 +310,7 @@ export function LegalwinScrollStory() {
             {/* Mobile: phone frame with the same screens */}
             <motion.div
               style={reduce ? undefined : { opacity: deviceOpacity }}
-              className="mx-auto w-full max-w-[248px] will-change-transform lg:hidden"
+              className="mx-auto w-full max-w-[200px] will-change-transform lg:hidden"
             >
               <div
                 className="relative rounded-[42px] p-[10px] shadow-[0_50px_120px_-40px_rgba(0,0,0,0.9),0_0_0_1px_rgba(255,255,255,0.07),inset_0_1px_0_rgba(255,255,255,0.10)]"
@@ -320,7 +320,7 @@ export function LegalwinScrollStory() {
                   {/* speaker pill */}
                   <div className="absolute left-1/2 top-[6px] z-20 h-[5px] w-[44px] -translate-x-1/2 rounded-full bg-white/15" />
                   {/* screen */}
-                  <div className="relative aspect-[9/17] overflow-hidden rounded-[31px] bg-white">
+                  <div className="relative aspect-[9/15.5] overflow-hidden rounded-[31px] bg-white">
                     {screens}
                     <div
                       aria-hidden
@@ -537,23 +537,25 @@ function WebsiteScreen({ site, showChat }: { site: SiteData; showChat: boolean }
     <div className="flex h-full flex-col bg-[#0a0c11]">
       <BrowserChrome url={site.url} />
       <div className="relative min-h-0 flex-1 overflow-hidden">
-        {/* Warsaw-skyline ambience + brand wash */}
+        {/* Real Warsaw-skyline hero (from the live site, compressed) */}
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url(/cases/legalwin-hero.jpg)" }}
+        />
+        {/* Legibility wash — darker where the copy sits (top-left), gold hint */}
         <div
           aria-hidden
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(120% 90% at 78% -10%, rgba(214,176,96,0.18) 0%, transparent 45%), linear-gradient(180deg, #11141c 0%, #0a0c11 60%, #07080c 100%)",
+              "radial-gradient(120% 90% at 80% -10%, rgba(214,176,96,0.16) 0%, transparent 45%), linear-gradient(105deg, rgba(7,8,12,0.88) 0%, rgba(7,8,12,0.5) 52%, rgba(7,8,12,0.2) 100%)",
           }}
         />
         <div
           aria-hidden
-          className="absolute inset-x-0 bottom-0 h-[55%] opacity-40"
-          style={{
-            backgroundImage:
-              "linear-gradient(to top, rgba(0,0,0,0.6), transparent), repeating-linear-gradient(90deg, rgba(120,140,180,0.10) 0 2px, transparent 2px 13px)",
-            maskImage: "linear-gradient(to top, black, transparent)",
-          }}
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(180deg, rgba(7,8,12,0.45) 0%, transparent 35%, rgba(7,8,12,0.55) 100%)" }}
         />
 
         <div className="relative flex h-full flex-col">
