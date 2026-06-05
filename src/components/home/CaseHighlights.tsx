@@ -25,24 +25,31 @@ export type HighlightItem = {
 export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ctaLabel: string }) {
   const n = items.length;
   const trackRef = useRef<HTMLUListElement>(null);
+  const rafRef = useRef(0);
   const [active, setActive] = useState(0);
 
+  // rAF-throttled so the scroll listener never does layout-reading work more
+  // than once per frame — kills the jitter when swiping the rail sideways.
   const sync = useCallback(() => {
-    const track = trackRef.current;
-    if (!track) return;
-    const center = track.scrollLeft + track.clientWidth / 2;
-    let best = 0;
-    let bestD = Infinity;
-    Array.from(track.children).forEach((ch, i) => {
-      const el = ch as HTMLElement;
-      const c = el.offsetLeft + el.clientWidth / 2;
-      const d = Math.abs(c - center);
-      if (d < bestD) {
-        bestD = d;
-        best = i;
-      }
+    if (rafRef.current) return;
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = 0;
+      const track = trackRef.current;
+      if (!track) return;
+      const center = track.scrollLeft + track.clientWidth / 2;
+      let best = 0;
+      let bestD = Infinity;
+      Array.from(track.children).forEach((ch, i) => {
+        const el = ch as HTMLElement;
+        const c = el.offsetLeft + el.clientWidth / 2;
+        const d = Math.abs(c - center);
+        if (d < bestD) {
+          bestD = d;
+          best = i;
+        }
+      });
+      setActive(best);
     });
-    setActive(best);
   }, []);
 
   const stepTo = useCallback((i: number) => {
@@ -75,6 +82,7 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
       track.removeEventListener("scroll", sync);
       window.removeEventListener("resize", sync);
       track.removeEventListener("wheel", onWheel);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, [sync]);
 
@@ -123,7 +131,7 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
                 href={{ pathname: "/work/[slug]", params: { slug: it.slug } }}
                 aria-label={it.title}
                 data-active={isActive}
-                className="group relative block h-[clamp(440px,62vh,660px)] overflow-hidden rounded-[26px] bg-black opacity-100 transition-[transform,opacity] duration-500 data-[active=false]:scale-[0.965] data-[active=false]:opacity-55 sm:rounded-[30px]"
+                className="group relative block h-[clamp(440px,62vh,660px)] overflow-hidden rounded-[26px] bg-black opacity-100 transition-[transform,opacity] duration-500 data-[active=false]:scale-[0.965] data-[active=false]:opacity-[0.72] sm:rounded-[30px]"
               >
                 {/* Photo */}
                 <div
@@ -138,13 +146,13 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
                   className="absolute inset-0"
                   style={{
                     background:
-                      "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.5) 38%, rgba(0,0,0,0.12) 68%, rgba(0,0,0,0.32) 100%)",
+                      "linear-gradient(to top, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.86) 26%, rgba(0,0,0,0.6) 48%, rgba(0,0,0,0.28) 70%, rgba(0,0,0,0.14) 100%)",
                   }}
                 />
                 <div
                   aria-hidden
                   className="absolute inset-0"
-                  style={{ background: "linear-gradient(to right, rgba(0,0,0,0.5) 0%, transparent 60%)" }}
+                  style={{ background: "linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.12) 45%, transparent 68%)" }}
                 />
 
                 {/* Copy */}
