@@ -212,6 +212,25 @@ function CaseContent({ slug, locale }: { slug: string; locale: string }) {
                   maskImage: "radial-gradient(78% 78% at 50% 28%, #000, transparent 82%)",
                 }}
               />
+              {/* Platform glyphs — iOS + Android watermark for a "ships on both" feel */}
+              <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+                {/* Apple — top-right, lime-tinted near the aurora */}
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="#C8FF00"
+                  className="absolute -right-6 -top-4 h-40 w-40 opacity-[0.07] sm:h-52 sm:w-52 md:h-64 md:w-64"
+                >
+                  <path d="M16.36 12.79c-.02-2.13 1.74-3.15 1.82-3.2-0.99-1.45-2.53-1.65-3.08-1.67-1.31-.13-2.56.77-3.22.77-.66 0-1.69-.75-2.78-.73-1.43.02-2.75.83-3.48 2.11-1.48 2.57-.38 6.37 1.07 8.45.71 1.02 1.55 2.16 2.66 2.12 1.07-.04 1.47-.69 2.76-.69 1.29 0 1.65.69 2.78.67 1.15-.02 1.87-1.04 2.57-2.06.81-1.18 1.14-2.32 1.16-2.38-.03-.01-2.23-.86-2.26-3.39zM14.23 6.31c.58-.71.98-1.69.87-2.67-.84.03-1.86.56-2.47 1.26-.54.62-1.02 1.62-.89 2.58.94.07 1.9-.47 2.49-1.17z" />
+                </svg>
+                {/* Android — bottom-left, cool white */}
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="#ffffff"
+                  className="absolute -bottom-5 -left-5 h-36 w-36 opacity-[0.05] sm:h-44 sm:w-44 md:h-56 md:w-56"
+                >
+                  <path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24a11.43 11.43 0 0 0-8.94 0L5.65 5.67c-.19-.29-.57-.39-.87-.2-.27.18-.37.54-.22.83L6.4 9.48A10.81 10.81 0 0 0 1 18h22a10.81 10.81 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z" />
+                </svg>
+              </div>
 
               <div className="relative grid items-center gap-10 md:grid-cols-[1.02fr_0.98fr] md:gap-12 lg:gap-16">
                 <Reveal>

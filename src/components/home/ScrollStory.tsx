@@ -94,17 +94,17 @@ export function ScrollStory() {
         />
 
         <Container className="relative">
-          <div className="grid items-center gap-7 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:gap-16">
+          <div className="grid items-center gap-5 sm:gap-7 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:gap-16">
             {/* ── Chapter copy ── */}
             <div className="relative">
               <p className="t-eyebrow" style={{ color: "var(--c-accent)" }}>
                 {tStory("eyebrow")}
               </p>
-              <p className="mt-3 max-w-[400px] text-[14px] leading-[1.5] text-white/55 sm:text-[15px]">
+              <p className="mt-3 hidden max-w-[400px] text-[14px] leading-[1.5] text-white/55 sm:block sm:text-[15px]">
                 {tStory("lead")}
               </p>
 
-              <div className="relative mt-5 min-h-[140px] sm:mt-6 lg:min-h-[230px]">
+              <div className="relative mt-4 min-h-[118px] sm:mt-6 sm:min-h-[140px] lg:min-h-[230px]">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={active}
@@ -127,7 +127,7 @@ export function ScrollStory() {
               </div>
 
               {/* Progress rail */}
-              <div className="mt-6 flex items-center gap-3 sm:mt-8">
+              <div className="mt-5 flex items-center gap-3 sm:mt-8">
                 {chapters.map((_, i) => (
                   <button
                     key={i}
@@ -256,7 +256,7 @@ function ChatPanel({ messages, count }: { messages: string[]; count: number }) {
   return (
     <div className="flex min-w-0 flex-col" style={{ background: "#0e1621" }}>
       <div
-        className="relative h-[164px] overflow-hidden px-3 py-3 sm:h-[360px]"
+        className="relative h-[186px] overflow-hidden px-3 py-3 sm:h-[360px]"
         style={{
           background:
             "radial-gradient(ellipse at top, rgba(46,87,121,0.18) 0%, transparent 55%), #0e1621",
@@ -285,7 +285,7 @@ function Bubble({ bot, text }: { bot: boolean; text: string }) {
       className={`flex ${bot ? "justify-start" : "justify-end"}`}
     >
       <div
-        className={`max-w-[84%] rounded-2xl px-3 py-1.5 text-[13px] leading-[1.4] text-white shadow-sm ${
+        className={`max-w-[84%] rounded-2xl px-3 py-1.5 text-[13.5px] leading-[1.42] text-white shadow-sm sm:text-[13px] ${
           bot ? "rounded-bl-[6px]" : "rounded-br-[6px]"
         }`}
         style={{ background: bot ? "#182533" : "#2b5278" }}
@@ -354,7 +354,7 @@ function CrmPanel({
                   )}
                 </span>
                 <span
-                  className="text-[11.5px] font-medium uppercase tracking-wider transition-colors duration-500"
+                  className="text-[12px] font-medium uppercase tracking-wider transition-colors duration-500 sm:text-[11.5px]"
                   style={{ color: isActive ? "#fff" : done ? "rgba(255,255,255,0.5)" : "rgba(255,255,255,0.3)" }}
                 >
                   {stage}

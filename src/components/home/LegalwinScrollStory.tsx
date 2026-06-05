@@ -210,13 +210,13 @@ export function LegalwinScrollStory() {
                     exit={reduce ? { opacity: 0 } : { opacity: 0, y: -12 }}
                     transition={{ duration: 0.45, ease: EASE }}
                   >
-                    <span className="font-mono text-[12px] tracking-[0.08em] text-white/40">
+                    <span className="font-mono text-[12px] tracking-[0.08em] text-white/55">
                       {chapter.kicker}
                     </span>
                     <h3 className="mt-2 text-[clamp(26px,2.4vw+16px,40px)] font-semibold leading-[1.06] tracking-[-0.025em]">
                       {chapter.label}
                     </h3>
-                    <p className="mt-3.5 max-w-[400px] text-[14.5px] leading-[1.55] text-white/60 sm:text-[15.5px]">
+                    <p className="mt-3.5 max-w-[400px] text-[15px] leading-[1.6] text-white/80 sm:text-[16px]">
                       {chapter.caption}
                     </p>
                   </motion.div>
@@ -531,11 +531,17 @@ function WebsiteScreen({ site, showChat }: { site: SiteData; showChat: boolean }
     <div className="flex h-full flex-col bg-[#0a0c11]">
       <BrowserChrome url={site.url} />
       <div className="relative min-h-0 flex-1 overflow-hidden">
-        {/* Real Warsaw-skyline hero (from the live site, compressed) */}
+        {/* Real Warsaw-skyline hero (from the live site). Cropped to the lower
+            skyline and blurred so the screenshot's own baked-in headline never
+            shows through and doubles the live copy we render on top. */}
         <div
           aria-hidden
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url(/cases/legalwin-hero.jpg)" }}
+          className="absolute inset-0 bg-cover bg-bottom"
+          style={{
+            backgroundImage: "url(/cases/legalwin-hero.jpg)",
+            filter: "blur(5px) saturate(0.9)",
+            transform: "scale(1.12)",
+          }}
         />
         {/* Legibility wash — darker where the copy sits (top-left), gold hint */}
         <div
@@ -543,7 +549,7 @@ function WebsiteScreen({ site, showChat }: { site: SiteData; showChat: boolean }
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(120% 90% at 80% -10%, rgba(214,176,96,0.16) 0%, transparent 45%), linear-gradient(105deg, rgba(7,8,12,0.88) 0%, rgba(7,8,12,0.5) 52%, rgba(7,8,12,0.2) 100%)",
+              "radial-gradient(120% 90% at 80% -10%, rgba(214,176,96,0.14) 0%, transparent 45%), linear-gradient(105deg, rgba(7,8,12,0.94) 0%, rgba(7,8,12,0.68) 52%, rgba(7,8,12,0.42) 100%)",
           }}
         />
         <div
