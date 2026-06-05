@@ -228,10 +228,12 @@ export function LegalwinScrollStory() {
               </div>
             </div>
 
-            {/* ── Pinned MacBook ── */}
+            {/* ── Pinned device ── */}
+            <div className="relative">
+            {/* Desktop: MacBook (hidden on mobile) */}
             <motion.div
               style={reduce ? undefined : { opacity: deviceOpacity }}
-              className="[perspective:1800px] will-change-transform"
+              className="hidden [perspective:1800px] will-change-transform lg:block"
             >
               {/* Focused glow behind the laptop */}
               <div
@@ -304,6 +306,32 @@ export function LegalwinScrollStory() {
                 <div className="mx-auto mt-3 h-[18px] w-[78%] rounded-[50%] bg-black/40 blur-md" />
               </div>
             </motion.div>
+
+            {/* Mobile: phone frame with the same screens */}
+            <motion.div
+              style={reduce ? undefined : { opacity: deviceOpacity }}
+              className="mx-auto w-full max-w-[248px] will-change-transform lg:hidden"
+            >
+              <div
+                className="relative rounded-[42px] p-[10px] shadow-[0_50px_120px_-40px_rgba(0,0,0,0.9),0_0_0_1px_rgba(255,255,255,0.07),inset_0_1px_0_rgba(255,255,255,0.10)]"
+                style={{ background: "linear-gradient(180deg, #2a2e36 0%, #15171c 45%, #0a0b0f 100%)" }}
+              >
+                <div className="relative overflow-hidden rounded-[34px] bg-black p-[3px]">
+                  {/* speaker pill */}
+                  <div className="absolute left-1/2 top-[6px] z-20 h-[5px] w-[44px] -translate-x-1/2 rounded-full bg-white/15" />
+                  {/* screen */}
+                  <div className="relative aspect-[9/17] overflow-hidden rounded-[31px] bg-white">
+                    {screens}
+                    <div
+                      aria-hidden
+                      className="pointer-events-none absolute inset-0"
+                      style={{ background: "linear-gradient(125deg, rgba(255,255,255,0.10) 0%, transparent 28%, transparent 100%)" }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+            </div>
           </div>
         </div>
       </div>
