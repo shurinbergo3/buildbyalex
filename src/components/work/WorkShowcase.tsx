@@ -58,13 +58,14 @@ export function WorkShowcase({
   return (
     <>
       {/* ───────── Header ───────── */}
-      <header className="relative overflow-hidden pt-16 pb-10 md:pt-24 md:pb-14">
+      <header className="relative overflow-hidden pt-16 pb-9 md:pt-24 md:pb-12">
+        {/* twin accent auroras for an editorial, Apple-keynote backdrop */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 -top-24 -z-10 h-[460px]"
+          className="pointer-events-none absolute inset-x-0 -top-28 -z-10 h-[520px]"
           style={{
             background:
-              "radial-gradient(ellipse 55% 70% at 18% 0%, color-mix(in srgb, var(--c-accent) 16%, transparent), transparent 70%)",
+              "radial-gradient(ellipse 50% 64% at 16% 0%, color-mix(in srgb, var(--c-accent) 18%, transparent), transparent 68%), radial-gradient(ellipse 44% 56% at 92% 6%, color-mix(in srgb, var(--c-accent) 10%, transparent), transparent 70%)",
           }}
         />
         <Container>
@@ -78,7 +79,7 @@ export function WorkShowcase({
             </span>
           </div>
 
-          <h1 className="mt-5 max-w-[15ch] text-[clamp(40px,5.5vw+8px,76px)] font-semibold leading-[1.04] tracking-[-0.034em]">
+          <h1 className="mt-5 max-w-[16ch] text-[clamp(42px,5.8vw+8px,82px)] font-semibold leading-[1.02] tracking-[-0.036em]">
             {labels.headline}
           </h1>
           <p className="mt-6 max-w-[560px] text-[clamp(17px,1.2vw+13px,21px)] leading-[1.5] tracking-[-0.013em] text-[color:var(--color-text-2)]">
@@ -132,7 +133,7 @@ export function WorkShowcase({
       {/* ───────── Gallery ───────── */}
       <section className="pb-20 md:pb-28">
         <Container>
-          <div className="grid grid-cols-1 gap-5 md:gap-6 lg:grid-cols-12">
+          <div className="grid grid-cols-1 gap-4 sm:gap-5 lg:grid-cols-12 lg:gap-6">
             <AnimatePresence mode="popLayout" initial={false}>
               {visible.map((c, i) => (
                 <CaseCard
@@ -141,6 +142,7 @@ export function WorkShowcase({
                   index={i}
                   featured={i === 0}
                   cta={labels.cta}
+                  categoryLabel={filters[c.category]}
                   reduce={!!reduce}
                 />
               ))}
@@ -152,19 +154,25 @@ export function WorkShowcase({
   );
 }
 
-/* ─────────────────────────── Card ─────────────────────────── */
+/* ─────────────────────────── Card ───────────────────────────
+   Image-forward, cinematic overlay cards — the whole tile is the
+   photograph, with a graded scrim carrying white type at the foot.
+   The lead case spans the full width as a wide banner; the rest sit
+   two-up. Cards tilt toward the cursor and light a luminous edge. */
 
 const CaseCard = memo(function CaseCard({
   data,
   index,
   featured,
   cta,
+  categoryLabel,
   reduce,
 }: {
   data: GalleryCase;
   index: number;
   featured: boolean;
   cta: string;
+  categoryLabel: string;
   reduce: boolean;
 }) {
   const ref = useRef<HTMLAnchorElement>(null);
@@ -172,7 +180,7 @@ const CaseCard = memo(function CaseCard({
   const ry = useMotionValue(0);
   const srx = useSpring(rx, { stiffness: 150, damping: 18, mass: 0.4 });
   const sry = useSpring(ry, { stiffness: 150, damping: 18, mass: 0.4 });
-  const tilt = featured ? 3 : 5;
+  const tilt = featured ? 2.5 : 4;
   const rotateX = useTransform(srx, [-0.5, 0.5], [tilt, -tilt]);
   const rotateY = useTransform(sry, [-0.5, 0.5], [-tilt, tilt]);
 
@@ -201,7 +209,7 @@ const CaseCard = memo(function CaseCard({
   return (
     <motion.article
       layout
-      initial={reduce ? false : { opacity: 0, y: 16, scale: 0.985 }}
+      initial={reduce ? false : { opacity: 0, y: 18, scale: 0.985 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.97 }}
       transition={{
@@ -222,96 +230,105 @@ const CaseCard = memo(function CaseCard({
         aria-label={`${data.title} — ${data.industry}`}
       >
         <motion.div
-          style={{ rotateX, rotateY, transformPerspective: 1000 }}
-          className={`relative flex h-full transform-gpu overflow-hidden rounded-[24px] border border-[color:var(--c-hairline)] bg-[color:var(--color-bg-elev)] shadow-[var(--shadow-card)] transition-[box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:shadow-[var(--shadow-card-hover)] md:rounded-[28px] ${
-            featured ? "flex-col lg:flex-row" : "flex-col"
+          style={{ rotateX, rotateY, transformPerspective: 1100 }}
+          className={`relative flex h-full transform-gpu flex-col justify-end overflow-hidden rounded-[24px] border border-[color:var(--c-hairline)] bg-[#0b0b0c] shadow-[var(--shadow-card)] transition-[box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:shadow-[var(--shadow-card-hover)] md:rounded-[30px] ${
+            featured
+              ? "aspect-[16/12] sm:aspect-[16/9] lg:aspect-[21/8]"
+              : "aspect-[16/12] sm:aspect-[4/3]"
           }`}
         >
-          {/* Image */}
-          <div
-            className={`relative overflow-hidden ${
-              featured
-                ? "aspect-[16/10] lg:aspect-auto lg:min-h-[440px] lg:w-[58%]"
-                : "aspect-[16/10] w-full"
-            }`}
-          >
-            <Image
-              src={data.imageSrc}
-              alt={data.imageAlt}
-              fill
-              sizes={featured ? "(max-width: 1024px) 100vw, 58vw" : "(max-width: 1024px) 100vw, 50vw"}
-              className="object-cover transition-transform duration-[700ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05]"
-            />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+          {/* Photograph — slow cinematic zoom on hover */}
+          <Image
+            src={data.imageSrc}
+            alt={data.imageAlt}
+            fill
+            sizes={featured ? "(max-width: 1024px) 100vw, 1180px" : "(max-width: 1024px) 100vw, 50vw"}
+            className="absolute inset-0 object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
+          />
 
-            {/* Index chip */}
-            <span className="absolute left-4 top-4 inline-flex items-center rounded-full border border-white/25 bg-black/30 px-2.5 py-1 font-mono text-[11px] tabular-nums text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-md">
+          {/* Graded scrim — guarantees white type legibility over any photo */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background: featured
+                ? "linear-gradient(90deg, rgba(6,7,9,0.86) 0%, rgba(6,7,9,0.52) 38%, rgba(6,7,9,0.08) 64%, transparent 100%), linear-gradient(0deg, rgba(6,7,9,0.78) 0%, transparent 46%)"
+                : "linear-gradient(0deg, rgba(6,7,9,0.90) 2%, rgba(6,7,9,0.42) 42%, rgba(6,7,9,0.04) 72%, transparent 100%)",
+            }}
+          />
+
+          {/* ── Top meta row ── */}
+          <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between p-5 md:p-6">
+            <span className="inline-flex items-center rounded-full border border-white/20 bg-black/25 px-2.5 py-1 font-mono text-[11px] tabular-nums text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-md">
               {String(index + 1).padStart(2, "0")}
             </span>
-
-            {/* Metric chip — the headline number */}
-            <div className="absolute bottom-4 left-4 right-4 flex items-end gap-3">
-              <div className="inline-flex items-baseline gap-2 rounded-2xl border border-white/12 bg-black/35 px-3.5 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.14)] backdrop-blur-md">
-                <span
-                  className={`font-mono font-semibold tabular-nums tracking-tight text-white ${
-                    featured ? "text-[26px] md:text-[30px]" : "text-[22px]"
-                  }`}
-                >
-                  {data.metricValue}
-                </span>
-                <span className="max-w-[14ch] text-[12px] leading-[1.25] text-white/72">
-                  {data.metricLabel}
-                </span>
-              </div>
-            </div>
+            <span className="inline-flex items-center rounded-full border border-white/15 bg-black/25 px-2.5 py-1 text-[11px] font-medium uppercase tracking-[0.08em] text-white/85 backdrop-blur-md">
+              {categoryLabel}
+            </span>
           </div>
 
-          {/* Content */}
+          {/* ── Foot content ── */}
           <div
-            className={`relative flex flex-1 flex-col ${
-              featured ? "gap-4 p-7 md:p-10 lg:justify-center" : "gap-3 p-6 md:p-7"
+            className={`relative z-10 flex flex-col p-5 md:p-7 ${
+              featured ? "gap-3.5 md:max-w-[60%] md:p-9 lg:p-11" : "gap-2.5"
             }`}
           >
-            <span className="inline-flex w-fit items-center gap-2 text-[12px] font-medium uppercase tracking-[0.04em] text-[color:var(--color-text-3)]">
+            <span className="inline-flex w-fit items-center gap-2 text-[12px] font-medium uppercase tracking-[0.05em] text-white/65">
               <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--c-accent)]" aria-hidden="true" />
               {data.industry}
             </span>
 
-            <h2 className={featured ? "t-h2" : "t-h3"}>{data.title}</h2>
+            <h2
+              className={`font-semibold leading-[1.05] tracking-[-0.028em] text-white ${
+                featured
+                  ? "text-[clamp(30px,3.4vw+10px,54px)]"
+                  : "text-[clamp(22px,1.4vw+15px,30px)]"
+              }`}
+            >
+              {data.title}
+            </h2>
 
             <p
-              className={`text-[color:var(--color-text-2)] ${
+              className={`text-white/72 ${
                 featured
-                  ? "max-w-[48ch] text-[17px] leading-[1.5]"
-                  : "line-clamp-2 text-[15px] leading-[1.5]"
+                  ? "max-w-[46ch] text-[16.5px] leading-[1.5]"
+                  : "line-clamp-2 text-[14.5px] leading-[1.45]"
               }`}
             >
               {data.tagline}
             </p>
 
-            <span
-              className={`inline-flex items-center gap-1.5 text-[14px] font-medium text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)] ${
-                featured ? "pt-2" : "mt-auto pt-3"
-              }`}
-            >
-              {cta}
-              <svg
-                width="15"
-                height="15"
-                viewBox="0 0 14 14"
-                className="transition-transform duration-200 group-hover:translate-x-1"
-                aria-hidden="true"
-              >
-                <path
-                  d="M5 3l4 4-4 4"
-                  stroke="currentColor"
-                  strokeWidth="1.6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                />
-              </svg>
-            </span>
+            {/* metric + CTA row */}
+            <div className={`mt-1.5 flex flex-wrap items-center gap-x-5 gap-y-3 ${featured ? "md:mt-3" : ""}`}>
+              <div className="flex items-baseline gap-2">
+                <span
+                  className={`font-mono font-semibold tabular-nums tracking-tight text-[color:var(--c-accent)] ${
+                    featured ? "text-[30px] md:text-[38px]" : "text-[24px]"
+                  }`}
+                >
+                  {data.metricValue}
+                </span>
+                <span className="max-w-[16ch] text-[12px] leading-[1.2] text-white/55">
+                  {data.metricLabel}
+                </span>
+              </div>
+
+              <span className="inline-flex items-center gap-1.5 text-[14px] font-medium text-white transition-colors">
+                {cta}
+                <span className="grid h-6 w-6 place-items-center rounded-full border border-white/25 bg-white/[0.08] transition-[transform,background-color,border-color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-0.5 group-hover:border-[color:var(--c-accent)] group-hover:bg-[color:var(--c-accent)] group-hover:text-black">
+                  <svg width="13" height="13" viewBox="0 0 14 14" aria-hidden="true">
+                    <path
+                      d="M5 3l4 4-4 4"
+                      stroke="currentColor"
+                      strokeWidth="1.7"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      fill="none"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </div>
           </div>
 
           {/* Cursor-following spotlight glow */}

@@ -13,18 +13,24 @@ import { motion, useReducedMotion } from "motion/react";
 
 const ACCENT = "#C8FF00";
 const VIDEO_SRC = "/cases/bodyforge-app.mp4";
-const POSTER_SRC = "/cases/bodyforge-app-poster.jpg";
+const POSTER_SRC = "/cases/bodyforge-app-poster.webp";
 
 export function BodyForgeHeroMock() {
   const reduce = useReducedMotion();
 
   return (
     <div className="relative mx-auto flex w-full max-w-[420px] justify-center py-[6%]">
-      {/* lime bloom tying the dark device into the page */}
+      {/* wide lime halo — lifts the dark device off the equally-dark stage */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-[-18%] top-[2%] -z-10 h-[88%]"
-        style={{ background: "radial-gradient(56% 52% at 50% 40%, rgba(200,255,0,0.30), transparent 72%)" }}
+        className="pointer-events-none absolute inset-x-[-26%] top-[-4%] -z-10 h-[100%]"
+        style={{ background: "radial-gradient(54% 50% at 50% 42%, rgba(200,255,0,0.42), rgba(200,255,0,0.12) 46%, transparent 72%)" }}
+      />
+      {/* tight bright core right behind the phone for a backlit-screen feel */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-[6%] top-[10%] -z-10 h-[72%] rounded-[44%]"
+        style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(200,255,0,0.30), transparent 70%)", filter: "blur(26px)" }}
       />
       {/* soft floor shadow grounding the phone */}
       <div
@@ -39,7 +45,7 @@ export function BodyForgeHeroMock() {
         transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut" }}
         className="relative w-full max-w-[330px]"
       >
-        <div className="relative aspect-[315/640] w-full rounded-[16%/7.8%] bg-[#0a0a0a] p-[2.8%] shadow-[0_44px_90px_-28px_rgba(0,0,0,0.7),inset_0_0_0_1px_rgba(255,255,255,0.06),inset_0_0_0_2px_rgba(0,0,0,1)]">
+        <div className="relative aspect-[315/640] w-full rounded-[16%/7.8%] bg-[#0a0a0a] p-[2.8%] shadow-[0_44px_90px_-28px_rgba(0,0,0,0.7),0_0_60px_-6px_rgba(200,255,0,0.45),0_0_0_1px_rgba(200,255,0,0.18),inset_0_0_0_1px_rgba(255,255,255,0.10),inset_0_0_0_2px_rgba(0,0,0,1)]">
           {/* side button highlights */}
           <span aria-hidden className="absolute -left-[2px] top-[18%] h-[10%] w-[3px] rounded-r-full bg-white/[0.06]" />
           <span aria-hidden className="absolute -right-[2px] top-[24%] h-[15%] w-[3px] rounded-l-full bg-white/[0.06]" />

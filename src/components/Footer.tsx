@@ -49,12 +49,11 @@ export function Footer() {
               <li><a href="mailto:alex@buildbyalex.com" className="hover:text-[color:var(--color-text)] transition-colors">alex@buildbyalex.com</a></li>
               <li><a href="https://t.me/sumotry" target="_blank" rel="noreferrer noopener" className="hover:text-[color:var(--color-text)] transition-colors">{t("links.telegram")} @sumotry</a></li>
               <li><a href="https://wa.me/48453474944" target="_blank" rel="noreferrer noopener" className="hover:text-[color:var(--color-text)] transition-colors">WhatsApp</a></li>
-              <li><a href="https://www.linkedin.com/in/oleksandr-shuvalov" target="_blank" rel="noreferrer noopener" className="hover:text-[color:var(--color-text)] transition-colors">{t("links.linkedin")}</a></li>
             </ul>
           </div>
         </div>
 
-        <div className="relative mt-14 flex flex-col-reverse items-center gap-6 border-t border-[color:var(--c-hairline)] pt-6 pb-[clamp(56px,9vw,128px)] md:block">
+        <div className="relative mt-14 flex flex-col-reverse items-center gap-6 border-t border-[color:var(--c-hairline)] pt-6 pb-8 md:block md:pb-10">
           <p className="text-center text-[12px] text-[color:var(--color-text-3)]">
             © {year} buildbyalex. {t("rights")} <span className="mx-1 opacity-50">·</span> {t("legal")}
           </p>
@@ -64,19 +63,25 @@ export function Footer() {
         </div>
       </Container>
 
-      {/* Oversized brand wordmark, clipped by the footer's bottom edge — the apple.com
-          "typography is the brand" move. Faint, fading in from the top, purely decorative. */}
+      {/* Oversized brand wordmark standing on a reflective floor — the apple.com
+          "typography is the brand" move, with a mirrored echo fading downward.
+          A flow element so the mirror always has room; purely decorative. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 -bottom-[0.16em] z-0 select-none overflow-hidden"
+        className="pointer-events-none relative z-0 mt-2 flex select-none flex-col items-center overflow-hidden"
       >
-        <div className="mx-auto flex w-full max-w-[1440px] justify-center px-6 md:px-8">
-          <Logo
-            size="clamp(88px, 17vw, 248px)"
-            showDot={false}
-            className="block whitespace-nowrap opacity-[0.06] [mask-image:linear-gradient(to_bottom,transparent_8%,#000_64%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_8%,#000_64%)]"
-          />
-        </div>
+        {/* the wordmark — brighter than before, fading in from the top */}
+        <Logo
+          size="clamp(76px, 16.5vw, 252px)"
+          showDot={false}
+          className="block whitespace-nowrap opacity-[0.13] [mask-image:linear-gradient(to_bottom,transparent_2%,#000_52%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_2%,#000_52%)]"
+        />
+        {/* mirrored reflection — flipped, dimmer, fading out into the floor */}
+        <Logo
+          size="clamp(76px, 16.5vw, 252px)"
+          showDot={false}
+          className="-mt-[0.02em] block scale-y-[-1] whitespace-nowrap opacity-[0.06] blur-[0.6px] [mask-image:linear-gradient(to_bottom,transparent_38%,#000_104%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_38%,#000_104%)]"
+        />
       </div>
     </footer>
   );

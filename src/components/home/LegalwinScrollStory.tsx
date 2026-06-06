@@ -538,7 +538,7 @@ function WebsiteScreen({ site, showChat }: { site: SiteData; showChat: boolean }
           aria-hidden
           className="absolute inset-0 bg-cover bg-bottom"
           style={{
-            backgroundImage: "url(/cases/legalwin-hero.jpg)",
+            backgroundImage: "url(/cases/legalwin-hero.webp)",
             filter: "blur(5px) saturate(0.9)",
             transform: "scale(1.12)",
           }}

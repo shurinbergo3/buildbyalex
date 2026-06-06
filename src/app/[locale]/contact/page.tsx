@@ -30,7 +30,6 @@ const CHANNELS = [
   { key: "email", href: "mailto:alex@buildbyalex.com", label: "alex@buildbyalex.com", external: false },
   { key: "telegram", href: "https://t.me/sumotry", label: "Telegram @sumotry", external: true },
   { key: "whatsapp", href: "https://wa.me/48453474944", label: "WhatsApp", external: true },
-  { key: "linkedin", href: "https://www.linkedin.com/in/oleksandr-shuvalov", label: "LinkedIn", external: true },
 ] as const;
 
 export default async function ContactPage({
@@ -47,7 +46,7 @@ export default async function ContactPage({
   return (
     <Section pad="tight" className="!pt-16 md:!pt-24">
       <Container>
-        <div className="grid gap-14 md:grid-cols-12 md:gap-16">
+        <div className="grid gap-14 md:grid-cols-12 md:items-start md:gap-16">
           {/* ── Left: pitch, trust, process, channels ── */}
           <div className="md:col-span-5">
             <Reveal>
@@ -127,9 +126,19 @@ export default async function ContactPage({
           </div>
 
           {/* ── Right: form ── */}
-          <div className="md:col-span-7">
+          <div className="md:col-span-7 md:sticky md:top-24">
             <Reveal delay={100}>
-              <div className="rounded-[28px] border border-[color:var(--c-hairline)] bg-[color:var(--color-bg-alt)] p-6 md:p-9">
+              <div className="relative overflow-hidden rounded-[28px] border border-[color:var(--c-hairline)] bg-[color:var(--color-bg-alt)] p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_28px_60px_-32px_rgba(0,0,0,0.22)] md:p-9">
+                {/* hairline accent across the top edge */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--c-accent)] to-transparent opacity-60"
+                />
+                {/* soft accent glow tucked into the corner */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute -right-24 -top-24 h-56 w-56 rounded-full bg-[color:var(--c-accent)] opacity-[0.07] blur-3xl"
+                />
                 <h2 className="t-h3">{t("formTitle")}</h2>
                 <p className="mt-2 mb-7 text-[15.5px] leading-[1.5] text-[color:var(--color-text-2)]">{t("formSub")}</p>
                 <ContactForm />
@@ -177,9 +186,5 @@ function ChannelIcon({ name }: { name: string }) {
       </svg>
     );
   }
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M6.94 5A1.94 1.94 0 1 1 3 5a1.94 1.94 0 0 1 3.94 0zM3.3 8.5h3.3V21H3.3V8.5zm5.4 0H12v1.7h.05c.45-.85 1.55-1.75 3.2-1.75 3.4 0 4.05 2.25 4.05 5.15V21h-3.3v-5.55c0-1.32-.02-3.02-1.85-3.02-1.85 0-2.13 1.44-2.13 2.92V21H8.7V8.5z" />
-    </svg>
-  );
+  return null;
 }

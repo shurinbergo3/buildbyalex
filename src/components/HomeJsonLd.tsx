@@ -19,7 +19,6 @@ import { SITE_URL, localizedHref, htmlLang } from "@/lib/site";
 
 const PERSON_NAME = "Oleksandr Shuvalov";
 const SAME_AS = [
-  "https://www.linkedin.com/in/oleksandr-shuvalov",
   "https://github.com/buildbyalex",
   "https://t.me/sumotry",
 ];

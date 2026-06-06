@@ -215,7 +215,7 @@ export function Hero() {
             <video
               ref={videoRef}
               className="hero-reveal-video"
-              poster="/hero-reveal-poster.jpg"
+              poster="/hero-reveal-poster.webp"
               muted
               playsInline
               preload="auto"

@@ -31,23 +31,23 @@ export const caseKeyToSlug: Record<CaseKey, string> = {
 
 export const caseImages: Record<CaseKey, { src: string; alt: string }> = {
   legalwin: {
-    src: "/cases/legalwin-passport.jpg",
-    alt: "Паспорта на фоне европейской площади — иммиграционный кейс LegalWin",
+    src: "/cases/legalwin-passport.webp",
+    alt: "Паспорт у иллюминатора самолёта на закате — иммиграционный кейс LegalWin",
   },
   visionair: {
-    src: "/cases/visionair-warsaw.jpg",
+    src: "/cases/visionair-warsaw.webp",
     alt: "Аэросъёмка центра Варшавы на закате с дрона — кейс VisionAir",
   },
   crmbot: {
-    src: "/cases/crm-ai.jpg",
-    alt: "Светящийся силуэт ИИ-нейросети в темноте — кейс CRM Bot",
+    src: "/cases/crm-ai.webp",
+    alt: "Синяя сеть из узлов и связей на тёмном фоне — кейс CRM Bot",
   },
   donbrava: {
-    src: "/cases/donbrava-chat.jpg",
-    alt: "Переписка в мессенджере на смартфоне в полумраке — кейс ИИ-менеджер для продаж",
+    src: "/cases/donbrava-chat.webp",
+    alt: "Человек переписывается в мессенджере на смартфоне — кейс ИИ-менеджер для продаж",
   },
   bodyforge: {
-    src: "/cases/bodyforge-gym.jpg",
+    src: "/cases/bodyforge-gym.webp",
     alt: "Гантель в драматичном свете тёмного зала — кейс Body Forge",
   },
 };

@@ -96,13 +96,41 @@ export function ContactForm() {
         required
       />
 
-      <div className="flex flex-wrap items-center gap-4 pt-2">
-        <Button as="button" type="submit" size="lg" disabled={sending}>
-          {sending ? t("sending") : t("submit")}
-        </Button>
+      <div className="space-y-4 pt-2">
         {error && (
-          <p role="alert" className="text-[14px] text-[#C4470A]">{error}</p>
+          <p
+            role="alert"
+            className="flex items-start gap-2 rounded-xl border border-[#C4470A]/25 bg-[#C4470A]/5 px-3.5 py-2.5 text-[14px] leading-[1.45] text-[#C4470A]"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" className="mt-0.5 shrink-0" aria-hidden="true">
+              <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.4" fill="none" />
+              <path d="M8 5v3.5M8 10.6v.01" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+            <span>{error}</span>
+          </p>
         )}
+        <Button as="button" type="submit" size="lg" disabled={sending} className="w-full">
+          {sending ? t("sending") : t("submit")}
+          {!sending && (
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+              <path
+                d="M3 8h9M9 4l4 4-4 4"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          )}
+        </Button>
+        <p className="flex items-center justify-center gap-1.5 text-[13px] text-[color:var(--color-text-3)]">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <rect x="3" y="7" width="10" height="6.5" rx="1.6" stroke="currentColor" strokeWidth="1.3" />
+            <path d="M5.5 7V5.2a2.5 2.5 0 0 1 5 0V7" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+          </svg>
+          {t("formNote")}
+        </p>
       </div>
     </form>
   );

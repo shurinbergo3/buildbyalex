@@ -20,7 +20,7 @@ const GOLD_HI = "#E6CB87";
 const INK = "#1a160c";
 
 // The hero backdrop — a real top-down aerial frame from the drone operator.
-const DRONE_IMG = "/cases/visionair-drone.jpg";
+const DRONE_IMG = "/cases/visionair-drone.webp";
 // Warsaw skyline — kept for the mobile portfolio grid.
 const WARSAW_IMG =
   "https://images.unsplash.com/photo-1519197924294-4ba991a11128?auto=format&fit=crop&w=1600&q=80";
