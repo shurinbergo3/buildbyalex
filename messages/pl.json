@@ -353,7 +353,16 @@
           "message": "Dzień dobry! W czym mogę pomóc — karta pobytu, wymiana prawa jazdy, obywatelstwo?",
           "placeholder": "Zadaj pytanie…"
         },
-        "viewSite": "Zobacz stronę"
+        "viewSite": "Zobacz stronę",
+        "services": [
+          "Karta pobytu / TRC",
+          "Pobyt stały",
+          "Obywatelstwo",
+          "Wymiana prawa jazdy",
+          "Kod 95",
+          "Legalizacja"
+        ],
+        "servicesLabel": "Usługi"
       }
     },
     "how": {

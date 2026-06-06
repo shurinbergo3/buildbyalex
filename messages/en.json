@@ -353,7 +353,16 @@
           "message": "Hi! How can I help — residence card, licence exchange, citizenship?",
           "placeholder": "Ask a question…"
         },
-        "viewSite": "View the live site"
+        "viewSite": "View the live site",
+        "services": [
+          "Karta pobytu / TRC",
+          "Permanent residence",
+          "Polish citizenship",
+          "Licence exchange",
+          "Kod 95",
+          "Legalisation"
+        ],
+        "servicesLabel": "Services"
       }
     },
     "how": {
