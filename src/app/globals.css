@@ -1045,6 +1045,15 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
   .nf-glitch::before, .nf-glitch::after { opacity: 0 !important; }
 }
 
+/* Service hero — chat "typing" dots in the AI glance */
+@keyframes aiTyping {
+  0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+  30%           { opacity: 1;   transform: translateY(-2px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  [style*="aiTyping"] { animation: none !important; }
+}
+
 /* Headline can include a soft-amber span */
 .hl-accent {
   background: linear-gradient(180deg, var(--c-accent) 0%, var(--c-accent-ink) 100%);

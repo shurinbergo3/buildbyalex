@@ -734,14 +734,41 @@
     },
     "websites": {
       "meta": {
-        "title": "Web Development in Warsaw — from €800, live in 1–3 wks",
-        "description": "Business websites in Warsaw on Next.js: multilingual EN/PL/UA/RU, SEO built in, live in 1–3 weeks. From €800, you own the code. Book a free call."
+        "title": "Website Development Agency in Warsaw | from €800",
+        "description": "Custom Next.js websites — multilingual, SEO-ready, built to convert. Warsaw-based, from €800, launched in 2–4 weeks. Get a free quote."
       },
-      "eyebrow": "Websites",
+      "eyebrow": "Websites · Warsaw",
       "headline": "Websites that\nactually rank.",
-      "lead": "Not a 2015-style brochure site. A modern production site on Next.js, ready for Google and AI-search from day one.",
+      "lead": "Custom website development in Warsaw: a modern Next.js production site — multilingual and SEO-ready from day one, not a 2015-era business-card page.",
       "from": "From €800",
       "primaryCta": "Discuss the project",
+      "hero": {
+        "badge": "Built for Google & AI search",
+        "metrics": [
+          {
+            "v": "100",
+            "l": "/100 PageSpeed"
+          },
+          {
+            "v": "<1s",
+            "l": "first paint"
+          },
+          {
+            "v": "+38%",
+            "l": "organic / 3 mo"
+          }
+        ],
+        "mock": {
+          "url": "yoursite.com",
+          "serp": "#1 result",
+          "score": "Lighthouse",
+          "features": [
+            "SEO",
+            "Schema",
+            "Speed"
+          ]
+        }
+      },
       "demo": {
         "eyebrow": "Live preview",
         "headline": "Sites that get found —\nand never make you wait",
@@ -988,14 +1015,37 @@
     },
     "ai": {
       "meta": {
-        "title": "AI Agents & Business Process Automation — Done For You",
-        "description": "AI agents and chatbots built on your data (RAG) plus process automation: wired into your CRM, Telegram and WhatsApp. Multilingual, no hallucinations. From €1,200. Let's scope it in 30 min."
+        "title": "AI Agent & Chatbot Development for Business",
+        "description": "We build production AI agents on your data: RAG, CRM, Telegram & WhatsApp integration. Automate sales and support. Warsaw-based. From €1200."
       },
-      "eyebrow": "AI Agents",
+      "eyebrow": "AI agents for business",
       "headline": "AI agents that\nactually close.",
-      "lead": "Not a toy. Production-grade agents connected to your data and tools, with metrics and an admin panel.",
+      "lead": "I build AI agents and chatbots for business on your own data: connected to your CRM, Telegram and WhatsApp, with metrics and an admin panel. Production-ready, not a toy.",
       "from": "From €1,200",
       "primaryCta": "Discuss the task",
+      "hero": {
+        "badge": "Running in production",
+        "metrics": [
+          {
+            "v": "24/7",
+            "l": "instant replies"
+          },
+          {
+            "v": "<5s",
+            "l": "avg response time"
+          },
+          {
+            "v": "×2",
+            "l": "lead conversion"
+          }
+        ],
+        "mock": {
+          "agent": "AI agent · sales",
+          "q": "Hi! How much is it and do you ship?",
+          "a": "Yes, 2-day delivery. Invoice created — pay via the link 👇",
+          "outcome": "Invoice sent · paid"
+        }
+      },
       "what": {
         "title": "What I build",
         "items": [
@@ -1081,14 +1131,41 @@
     },
     "automation": {
       "meta": {
-        "title": "Business Process Automation — Integrations Done For You",
-        "description": "I wire your tools into one automatic flow: leads, CRM, Telegram, sheets, reports. No manual copy-paste, no missed leads. From €600. Let's scope it in 30 min."
+        "title": "Business Process Automation Services | from €600",
+        "description": "Business process automation services in Warsaw. We connect your CRM, Telegram, WhatsApp & Google Sheets into one workflow with Make, n8n & Zapier. From €600."
       },
-      "eyebrow": "Automation",
+      "eyebrow": "Automation · Warsaw",
       "headline": "Automation that\nkills the busywork.",
-      "lead": "I connect your tools into one flow that runs itself: a lead comes in — data is enriched, lands in your CRM, the team gets pinged, the report builds itself. No copy-paste, no forgotten leads.",
+      "lead": "Business process automation in Warsaw: I connect your tools — CRM, Telegram, WhatsApp, spreadsheets — into one Make/n8n workflow that runs itself. No copy-paste, no lost leads.",
       "from": "From €600",
       "primaryCta": "Discuss your process",
+      "hero": {
+        "badge": "Runs 24/7",
+        "metrics": [
+          {
+            "v": "0",
+            "l": "manual entry"
+          },
+          {
+            "v": "−15h",
+            "l": "per week for the team"
+          },
+          {
+            "v": "100%",
+            "l": "leads into CRM"
+          }
+        ],
+        "mock": {
+          "flow": "Workflow",
+          "nodes": [
+            "Form on the site",
+            "Data enrichment",
+            "Saved to CRM",
+            "Telegram alert"
+          ],
+          "done": "Done · zero manual work"
+        }
+      },
       "what": {
         "title": "What I automate",
         "items": [
@@ -1211,14 +1288,39 @@
     },
     "mobile": {
       "meta": {
-        "title": "iOS & Android App Development — one codebase, from €3,000",
-        "description": "Cross-platform iOS + Android app from one codebase: MVP in 4–8 weeks, auth and payments, store submission included. Prices in EUR. Book a free call."
+        "title": "Mobile App Development Warsaw | iOS + Android from €3000",
+        "description": "Cross-platform iOS & Android apps from one React Native codebase. MVP in 4–8 weeks with auth, payments and store publishing included. From €3000."
       },
-      "eyebrow": "Mobile apps",
+      "eyebrow": "Mobile apps · Warsaw",
       "headline": "Mobile apps that\nactually ship to stores.",
-      "lead": "MVP in 4–8 weeks, both platforms from one codebase, store submission included.",
+      "lead": "Mobile app development in Warsaw: iOS and Android from one React Native codebase, a working MVP in 4–8 weeks, with store publishing included.",
       "from": "From €3,000",
       "primaryCta": "Discuss the idea",
+      "hero": {
+        "badge": "Store publishing included",
+        "metrics": [
+          {
+            "v": "4–8 wks",
+            "l": "to MVP"
+          },
+          {
+            "v": "2-in-1",
+            "l": "one codebase"
+          },
+          {
+            "v": "★4.9",
+            "l": "in the stores"
+          }
+        ],
+        "mock": {
+          "appName": "Your app",
+          "cardTitle": "Home screen",
+          "cardSub": "Native on iOS & Android",
+          "cta": "Get started",
+          "rating": "4.9 App Store",
+          "platforms": "iOS · Android"
+        }
+      },
       "demo": {
         "eyebrow": "Live preview",
         "headline": "An app that's ready\nfor the stores",
@@ -1336,14 +1438,50 @@
     },
     "ads": {
       "meta": {
-        "title": "Google Ads & Meta Ads Management | Warsaw",
-        "description": "PPC built for leads, not clicks: setup, management, ROAS reporting. From €300 setup or €500/month. Book a free call to plan your campaign."
+        "title": "Google Ads & Meta Management Agency — Warsaw",
+        "description": "Google Ads and Meta ads management in Warsaw. We run campaigns for leads, sales and ROAS with GA4 reporting. From €300 setup / €500/mo. Free audit."
       },
-      "eyebrow": "Advertising",
+      "eyebrow": "Google Ads · Meta · Warsaw",
       "headline": "Ads that bring\nleads, not clicks.",
-      "lead": "Google Ads and Meta Ads, set up and managed for real pipeline. Every euro tracked to a conversion — no vanity metrics, no black box.",
+      "lead": "Google Ads and Meta ads management in Warsaw — built around leads and sales, not clicks. Every euro tied to a conversion, ROAS and GA4 reporting.",
       "from": "From €300 setup or €500/month",
       "primaryCta": "Plan my campaign",
+      "hero": {
+        "badge": "Every euro tied to a conversion",
+        "metrics": [
+          {
+            "v": "×6",
+            "l": "avg ROAS"
+          },
+          {
+            "v": "−40%",
+            "l": "cost per lead"
+          },
+          {
+            "v": "GA4",
+            "l": "end-to-end analytics"
+          }
+        ],
+        "mock": {
+          "dash": "Campaigns · today",
+          "tabs": [
+            "Google Ads",
+            "Meta Ads"
+          ],
+          "roas": "×6.2",
+          "roasLabel": "ROAS",
+          "kpis": [
+            {
+              "v": "142",
+              "l": "leads"
+            },
+            {
+              "v": "€4.10",
+              "l": "cost / lead"
+            }
+          ]
+        }
+      },
       "demo": {
         "eyebrow": "Ad accounts",
         "headline": "See where every euro goes —\nand how many leads it brings",
@@ -1532,14 +1670,41 @@
     },
     "telegram": {
       "meta": {
-        "title": "Telegram Bots & Mini Apps, Done For You — from €300",
-        "description": "Sales, support and lead-capture bots + Telegram Mini Apps: storefront, booking and ★ Stars / TON payments without leaving the chat. CRM integration. Prices in EUR."
+        "title": "Telegram Bot & Mini App Development | from €300",
+        "description": "Telegram bot development for sales, support & lead intake, plus Mini Apps with Stars/TON payments and CRM integration. Based in Warsaw, from €300."
       },
-      "eyebrow": "Telegram Bots & Mini Apps",
+      "eyebrow": "Telegram bots · Mini Apps",
       "headline": "Telegram bots and mini-apps\nthat actually sell.",
-      "lead": "A bot captures leads and answers 24/7, while a Mini App opens your storefront, booking and checkout right inside Telegram — no install, no detour to a website.",
+      "lead": "Telegram bot and Mini App development end to end: the bot captures leads and replies 24/7, while a Mini App opens a storefront, booking and Stars/TON payments right inside Telegram — no install.",
       "from": "From €300",
       "primaryCta": "Discuss a bot",
+      "hero": {
+        "badge": "Bot + Mini App",
+        "metrics": [
+          {
+            "v": "24/7",
+            "l": "lead intake"
+          },
+          {
+            "v": "0",
+            "l": "installs"
+          },
+          {
+            "v": "Pay",
+            "l": "inside Telegram"
+          }
+        ],
+        "mock": {
+          "bot": "Your business bot",
+          "botMsg": "Hi! Pick a service — I'll book it and take payment right here 👇",
+          "buttons": [
+            "Catalog",
+            "Book"
+          ],
+          "appTitle": "Mini App · storefront",
+          "pay": "Pay in Telegram"
+        }
+      },
       "demo": {
         "eyebrow": "Live demo",
         "headline": "Storefront and checkout —\ninside Telegram",
@@ -2942,7 +3107,8 @@
       "error": "Something went wrong. Please try again or email me directly.",
       "phone": "Phone (optional)",
       "errorEmail": "Check your email — that address looks incomplete.",
-      "errorRequired": "Please fill in your name, email and a short description."
+      "errorRequired": "Please fill in your name, email and a short description.",
+      "formNote": "No spam. I reply personally, usually the same day."
     }
   },
   "notFound": {

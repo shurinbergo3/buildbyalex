@@ -734,14 +734,41 @@
     },
     "websites": {
       "meta": {
-        "title": "Tworzenie stron internetowych Warszawa — od €800",
-        "description": "Strony dla firm w Warszawie na Next.js: wielojęzyczne, SEO w standardzie, gotowe w 1–3 tygodnie. Od €800, kod i domena Twoje. Darmowa rozmowa."
+        "title": "Tworzenie stron internetowych Warszawa | od 800 €",
+        "description": "Tworzymy szybkie strony www w Next.js — wielojęzyczne i SEO-ready. Warszawa, wycena za darmo, realizacja w 2–4 tygodnie. Od 800 €."
       },
-      "eyebrow": "Strony",
+      "eyebrow": "Strony internetowe · Warszawa",
       "headline": "Strony, które\nrealnie rankują.",
-      "lead": "Nie wizytówka z 2015. Nowoczesna strona produkcyjna na Next.js, gotowa pod Google i AI-search od pierwszego dnia.",
+      "lead": "Tworzenie stron internetowych w Warszawie pod klucz: nowoczesny serwis na Next.js, wielojęzyczny i gotowy pod SEO od pierwszego dnia — nie „wizytówka” z 2015 roku.",
       "from": "Od 800 €",
       "primaryCta": "Porozmawiajmy o projekcie",
+      "hero": {
+        "badge": "Gotowy na Google i wyszukiwanie AI",
+        "metrics": [
+          {
+            "v": "100",
+            "l": "/100 PageSpeed"
+          },
+          {
+            "v": "<1s",
+            "l": "pierwsze wyświetlenie"
+          },
+          {
+            "v": "+38%",
+            "l": "ruchu / 3 mies."
+          }
+        ],
+        "mock": {
+          "url": "twoja-strona.pl",
+          "serp": "#1 w wynikach",
+          "score": "Lighthouse",
+          "features": [
+            "SEO",
+            "Schema",
+            "Szybkość"
+          ]
+        }
+      },
       "demo": {
         "eyebrow": "Podgląd na żywo",
         "headline": "Strony, które są znajdowane —\ni nie każą czekać",
@@ -988,14 +1015,37 @@
     },
     "ai": {
       "meta": {
-        "title": "Agenci AI i automatyzacja procesów biznesowych — pod klucz",
-        "description": "Agenci AI i chatboty na danych Twojej firmy (RAG) oraz automatyzacja procesów: integracja z CRM, Telegramem i WhatsApp. Wielojęzyczni, bez halucynacji. Od €1 200. Omówmy zakres w 30 minut."
+        "title": "Agenci AI i chatboty dla firm — wdrożenie | Warszawa",
+        "description": "Tworzymy agentów AI i chatboty dla firm na Twoich danych: integracja z CRM, Telegram, WhatsApp. Automatyzacja sprzedaży i obsługi. Od 1200 €."
       },
-      "eyebrow": "Agenci AI",
+      "eyebrow": "Agenci AI dla firm",
       "headline": "Agenci AI,\nktórzy zamykają.",
-      "lead": "Nie zabawka. Produkcyjne agenty podłączone do twoich danych i narzędzi, z metrykami i panelem admin.",
+      "lead": "Tworzę agentów AI i chatboty dla firm na Twoich danych: integruję z CRM, Telegramem i WhatsApp, z metrykami i panelem. Nie zabawka — gotowe na produkcję.",
       "from": "Od 1 200 €",
       "primaryCta": "Porozmawiajmy",
+      "hero": {
+        "badge": "Działa na produkcji",
+        "metrics": [
+          {
+            "v": "24/7",
+            "l": "natychmiastowe odpowiedzi"
+          },
+          {
+            "v": "<5s",
+            "l": "śr. czas odpowiedzi"
+          },
+          {
+            "v": "×2",
+            "l": "konwersja na lead"
+          }
+        ],
+        "mock": {
+          "agent": "Agent AI · sprzedaż",
+          "q": "Cześć! Ile to kosztuje i czy wysyłacie?",
+          "a": "Tak, dostawa w 2 dni. Faktura gotowa — zapłać przez link 👇",
+          "outcome": "Faktura wysłana · opłacona"
+        }
+      },
       "what": {
         "title": "Co robię",
         "items": [
@@ -1081,14 +1131,41 @@
     },
     "automation": {
       "meta": {
-        "title": "Automatyzacja procesów biznesowych — integracje pod klucz",
-        "description": "Łączę Twoje narzędzia w jeden automatyczny proces: leady, CRM, Telegram, arkusze, raporty. Koniec z ręcznym przepisywaniem i gubieniem leadów. Od €600. Omówmy w 30 minut."
+        "title": "Automatyzacja procesów biznesowych Make/n8n | od 600 €",
+        "description": "Automatyzacja procesów biznesowych w Warszawie — łączymy CRM, Telegram, WhatsApp i Google Sheets w jeden workflow. Make, n8n, Zapier. Wdrożenie od 600 €."
       },
-      "eyebrow": "Automatyzacja",
+      "eyebrow": "Automatyzacja · Warszawa",
       "headline": "Automatyzacja, która\nkończy z ręczną robotą.",
-      "lead": "Łączę Twoje narzędzia w jeden proces, który działa sam: przychodzi lead — dane się uzupełniają, trafiają do CRM, zespół dostaje powiadomienie, raport tworzy się sam. Bez kopiuj-wklej i zgubionych leadów.",
+      "lead": "Automatyzacja procesów biznesowych w Warszawie: łączę Twoje narzędzia — CRM, Telegram, WhatsApp, arkusze — w jeden workflow na Make i n8n, który działa sam. Bez kopiuj-wklej i zgubionych leadów.",
       "from": "Od €600",
       "primaryCta": "Omów swój proces",
+      "hero": {
+        "badge": "Działa 24/7",
+        "metrics": [
+          {
+            "v": "0",
+            "l": "ręcznego wpisywania"
+          },
+          {
+            "v": "−15h",
+            "l": "tygodniowo dla zespołu"
+          },
+          {
+            "v": "100%",
+            "l": "leadów w CRM"
+          }
+        ],
+        "mock": {
+          "flow": "Scenariusz",
+          "nodes": [
+            "Formularz na stronie",
+            "Wzbogacanie danych",
+            "Zapis do CRM",
+            "Powiadomienie w Telegramie"
+          ],
+          "done": "Gotowe · zero ręcznej pracy"
+        }
+      },
       "what": {
         "title": "Co automatyzuję",
         "items": [
@@ -1211,14 +1288,39 @@
     },
     "mobile": {
       "meta": {
-        "title": "Tworzenie aplikacji mobilnych iOS i Android — od €3 000",
-        "description": "Aplikacja iOS + Android z jednej bazy kodu: MVP w 4–8 tygodni, logowanie i płatności, publikacja w sklepach w cenie. Ceny w EUR. Bezpłatna rozmowa."
+        "title": "Tworzenie aplikacji mobilnych Warszawa | od €3000",
+        "description": "Aplikacje mobilne iOS i Android z jednej bazy kodu (React Native). MVP w 4–8 tygodni, logowanie, płatności, publikacja w sklepach. Wycena od €3000."
       },
-      "eyebrow": "Aplikacje mobilne",
+      "eyebrow": "Aplikacje mobilne · Warszawa",
       "headline": "Aplikacje mobilne,\nktóre trafiają na sklepy.",
-      "lead": "MVP w 4–8 tygodni, obie platformy z jednego kodu, publikacja w obu sklepach w cenie.",
+      "lead": "Tworzenie aplikacji mobilnych w Warszawie: iOS i Android z jednej bazy kodu w React Native, działające MVP w 4–8 tygodni, publikacja w obu sklepach w cenie.",
       "from": "Od 3 000 €",
       "primaryCta": "Porozmawiajmy o pomyśle",
+      "hero": {
+        "badge": "Publikacja w sklepach w cenie",
+        "metrics": [
+          {
+            "v": "4–8 tyg.",
+            "l": "do MVP"
+          },
+          {
+            "v": "2 w 1",
+            "l": "jedna baza kodu"
+          },
+          {
+            "v": "★4.9",
+            "l": "w sklepach"
+          }
+        ],
+        "mock": {
+          "appName": "Twoja aplikacja",
+          "cardTitle": "Ekran główny",
+          "cardSub": "Natywnie na iOS i Android",
+          "cta": "Zacznij",
+          "rating": "4.9 App Store",
+          "platforms": "iOS · Android"
+        }
+      },
       "demo": {
         "eyebrow": "Podgląd na żywo",
         "headline": "Aplikacja gotowa\ndo publikacji w sklepach",
@@ -1336,14 +1438,50 @@
     },
     "ads": {
       "meta": {
-        "title": "Google Ads i Meta Ads — prowadzenie | Warszawa",
-        "description": "Kampanie nastawione na leady, nie kliknięcia: konfiguracja, prowadzenie, raporty ROAS. Od €300 setup lub €500/mies. Umów bezpłatną rozmowę."
+        "title": "Prowadzenie kampanii Google Ads i Meta — Warszawa",
+        "description": "Prowadzenie kampanii Google Ads i Facebook Ads w Warszawie. Leady, sprzedaż, ROAS i raporty GA4. Od €300 setup / €500/mc. Bezpłatna konsultacja."
       },
-      "eyebrow": "Reklama",
+      "eyebrow": "Google Ads · Meta · Warszawa",
       "headline": "Reklamy, które dają\nleady, nie kliknięcia.",
-      "lead": "Google Ads i Meta Ads — konfiguracja i prowadzenie pod realną sprzedaż. Każda złotówka przypisana do konwersji: żadnych pustych wyświetleń i „czarnej skrzynki”.",
+      "lead": "Prowadzenie kampanii Google Ads i Meta Ads w Warszawie — pod leady i sprzedaż, nie kliknięcia. Każde euro powiązane z konwersją, ROAS i raportami GA4.",
       "from": "Od €300 za konfigurację lub €500/mies",
       "primaryCta": "Zaplanuj kampanię",
+      "hero": {
+        "badge": "Każde euro powiązane z konwersją",
+        "metrics": [
+          {
+            "v": "×6",
+            "l": "śr. ROAS"
+          },
+          {
+            "v": "−40%",
+            "l": "koszt leada"
+          },
+          {
+            "v": "GA4",
+            "l": "analityka end-to-end"
+          }
+        ],
+        "mock": {
+          "dash": "Kampanie · dziś",
+          "tabs": [
+            "Google Ads",
+            "Meta Ads"
+          ],
+          "roas": "×6.2",
+          "roasLabel": "ROAS",
+          "kpis": [
+            {
+              "v": "142",
+              "l": "leady"
+            },
+            {
+              "v": "€4.10",
+              "l": "koszt / lead"
+            }
+          ]
+        }
+      },
       "demo": {
         "eyebrow": "Konta reklamowe",
         "headline": "Widać, gdzie idzie każde euro —\ni ile leadów przynosi",
@@ -1532,14 +1670,41 @@
     },
     "telegram": {
       "meta": {
-        "title": "Boty Telegram i Mini Aplikacje pod klucz — od €300",
-        "description": "Boty do sprzedaży, obsługi i zbierania zgłoszeń + Telegram Mini Apps: sklep, rezerwacja i płatności ★ Stars / TON bez wychodzenia z czatu. Integracja z CRM. Ceny w EUR."
+        "title": "Tworzenie botów Telegram i Mini Aplikacji | od €300",
+        "description": "Stworzenie bota Telegram dla firmy: sprzedaż, obsługa, lead-intake, mini aplikacje z płatnościami i integracją CRM. Warszawa, od €300."
       },
-      "eyebrow": "Boty Telegram i Mini Apps",
+      "eyebrow": "Boty Telegram · Mini Apps",
       "headline": "Boty Telegram i mini-aplikacje,\nktóre sprzedają.",
-      "lead": "Bot zbiera zgłoszenia i odpowiada 24/7, a Mini App otwiera sklep, rezerwację i płatność bezpośrednio w Telegramie — bez instalacji i bez przechodzenia na stronę.",
+      "lead": "Tworzenie botów Telegram i Mini Aplikacji pod klucz: bot przyjmuje zgłoszenia i odpowiada 24/7, a Mini App otwiera sklep, rezerwację i płatność Stars/TON wewnątrz Telegrama — bez instalacji.",
       "from": "Od €300",
       "primaryCta": "Porozmawiajmy o bocie",
+      "hero": {
+        "badge": "Bot + Mini App",
+        "metrics": [
+          {
+            "v": "24/7",
+            "l": "przyjmowanie zgłoszeń"
+          },
+          {
+            "v": "0",
+            "l": "instalacji"
+          },
+          {
+            "v": "Płatność",
+            "l": "w Telegramie"
+          }
+        ],
+        "mock": {
+          "bot": "Bot Twojej firmy",
+          "botMsg": "Cześć! Wybierz usługę — zapiszę i przyjmę płatność tutaj 👇",
+          "buttons": [
+            "Katalog",
+            "Umów się"
+          ],
+          "appTitle": "Mini App · witryna",
+          "pay": "Zapłać w Telegramie"
+        }
+      },
       "demo": {
         "eyebrow": "Demo na żywo",
         "headline": "Sklep i płatność —\nw Telegramie",
@@ -2942,7 +3107,8 @@
       "error": "Coś poszło nie tak. Spróbuj jeszcze raz albo napisz na email.",
       "phone": "Telefon (opcjonalnie)",
       "errorEmail": "Sprawdź email — adres wygląda na niekompletny.",
-      "errorRequired": "Uzupełnij imię, email i krótki opis."
+      "errorRequired": "Uzupełnij imię, email i krótki opis.",
+      "formNote": "Bez spamu. Odpowiadam osobiście, zwykle tego samego dnia."
     }
   },
   "notFound": {

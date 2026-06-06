@@ -1,12 +1,12 @@
 import type { ComponentType } from "react";
 import { useTranslations, useMessages, useLocale } from "next-intl";
 import { SITE_URL, localizedHref } from "@/lib/site";
-import { cn } from "@/lib/utils";
 import type { Locale } from "@/i18n/routing";
 import { Container } from "./Container";
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
 import { Button } from "./Button";
+import { ServiceHero } from "./ServiceHero";
 import { FAQAccordion, type QA } from "./FAQAccordion";
 import { HowItWorks } from "./home/HowItWorks";
 import { AiSyncShowcase } from "./AiSyncShowcase";
@@ -84,7 +84,6 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
   const locale = useLocale() as Locale;
   const messages = useMessages() as unknown as Shape;
   const data: ServiceData = messages.services[branch];
-  const headlineLines = t("headline").split("\n");
   const priceKey = PRICE_KEY[branch];
   const Demo = DEMOS[branch];
 
@@ -125,80 +124,8 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      {/* ── Hero ── */}
-      <Section
-        pad="tight"
-        tone="default"
-        className={cn("!pt-16 md:!pt-24", branch === "ads" && "overflow-hidden")}
-      >
-        {branch === "ads" && (
-          <div aria-hidden className="pointer-events-none absolute inset-0">
-            {/* warm accent glow, top-right behind the platforms card */}
-            <div
-              className="absolute -right-[12%] -top-[28%] h-[620px] w-[620px] rounded-full opacity-70"
-              style={{
-                background:
-                  "radial-gradient(circle, color-mix(in srgb, var(--c-accent) 22%, transparent), transparent 68%)",
-              }}
-            />
-            {/* softer counter-glow, top-left */}
-            <div
-              className="absolute -left-[10%] -top-[20%] h-[460px] w-[460px] rounded-full opacity-60"
-              style={{
-                background:
-                  "radial-gradient(circle, color-mix(in srgb, var(--c-accent) 10%, transparent), transparent 70%)",
-              }}
-            />
-            {/* fade the whole thing into the page background toward the bottom */}
-            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent to-[color:var(--color-bg)]" />
-          </div>
-        )}
-        <Container size="default">
-          <Reveal>
-            <div className="grid gap-12 md:grid-cols-12 md:gap-16">
-              <div className="md:col-span-7">
-                <p className="t-eyebrow">{t("eyebrow")}</p>
-                <h1 className="mt-4 text-[clamp(40px,5.5vw+8px,72px)] font-semibold leading-[1.06] tracking-[-0.032em]">
-                  {headlineLines.map((line, i) => (
-                    <span key={i} className="block">{line}</span>
-                  ))}
-                </h1>
-                <p className="mt-6 text-[clamp(17px,1.2vw+13px,22px)] leading-[1.5] tracking-[-0.013em] text-[color:var(--color-text-2)] max-w-[560px]">
-                  {t("lead")}
-                </p>
-                <div className="mt-8 flex flex-wrap items-center gap-4">
-                  <Button href="/contact" size="lg">{t("primaryCta")}</Button>
-                  <span className="text-[15px] text-[color:var(--color-text-3)]">{t("from")}</span>
-                </div>
-
-                {/* Social proof */}
-                <div className="mt-8 flex items-center gap-3">
-                  <Stars />
-                  <span className="text-[13.5px] text-[color:var(--color-text-2)]">
-                    <span className="font-semibold text-[color:var(--color-text)]">{tr("rating")}</span> · {tr("count")}
-                  </span>
-                </div>
-              </div>
-
-              <div className="md:col-span-5">
-                <div className="rounded-[28px] bg-[color:var(--color-bg-alt)] p-7 md:p-9">
-                  <h3 className="t-eyebrow">{t("stack.title")}</h3>
-                  <ul className="mt-5 flex flex-wrap gap-2">
-                    {data.stack.items.map((tech) => (
-                      <li
-                        key={tech}
-                        className="rounded-full border border-[color:var(--c-hairline)] bg-[color:var(--color-bg-elev)] px-3 py-1.5 text-[12.5px] font-medium text-[color:var(--color-text-2)]"
-                      >
-                        {tech}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-        </Container>
-      </Section>
+      {/* ── Hero (cinematic key-art stage) ── */}
+      <ServiceHero branch={branch} />
 
       {/* ── Service demo (per-branch animated showcase; each owns its section) ── */}
       {Demo && <Demo />}
