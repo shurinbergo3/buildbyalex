@@ -2639,6 +2639,24 @@
           "eyebrow": "After the chat",
           "headline": "The deal moves through your AmoCRM funnel by itself",
           "subhead": "The CRM updates in real time as the bot qualifies — no manual data entry, no missed handoffs."
+        },
+        "hero": {
+          "system": "First-contact AI agent",
+          "ticker": "engine · function calling",
+          "chips": [
+            {
+              "k": "Model",
+              "v": "Gemini 2.0 Flash"
+            },
+            {
+              "k": "Action",
+              "v": "function_call → CRM"
+            },
+            {
+              "k": "Stage",
+              "v": "Qualified"
+            }
+          ]
         }
       },
       "donbrava": {
@@ -2801,6 +2819,24 @@
               }
             ]
           }
+        },
+        "hero": {
+          "account": "Real account · not a @bot",
+          "payoff": "Customers can't tell they're talking to AI",
+          "chips": [
+            {
+              "k": "Writing style",
+              "v": "mirrored"
+            },
+            {
+              "k": "Reply delay",
+              "v": "2–12 min"
+            },
+            {
+              "k": "Coverage",
+              "v": "24/7"
+            }
+          ]
         }
       },
       "bodyforge": {

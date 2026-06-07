@@ -7,6 +7,8 @@ import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/Button";
 import { CaseCover } from "@/components/CaseCover";
+import { DonbravaCaseHero } from "@/components/DonbravaCaseHero";
+import { CrmbotCaseHero } from "@/components/CrmbotCaseHero";
 import { VisionairHeroMock } from "@/components/VisionairHeroMock";
 import { BodyForgeHeroMock } from "@/components/BodyForgeHeroMock";
 import { LegalwinHeroMock } from "@/components/LegalwinHeroMock";
@@ -35,22 +37,51 @@ export async function generateMetadata({
   const key = caseSlugToKey[slug];
   if (!key) return {};
   const t = await getTranslations({ locale, namespace: `work.cases.${key}` });
+  const tMeta = await getTranslations({ locale, namespace: "meta" });
   const url = `${SITE_URL}/${locale}/work/${slug}`;
+  const image = caseImages[key];
+
+  const title = t("title");
+  const tagline = t("tagline");
+  const industry = t("industry");
+  const stack = t.raw("stack") as string[];
+  const results = t.raw("results") as string[];
+  const siteName = tMeta("siteName");
+
+  // Concise, keyword-rich title (~60 chars) and description (~155 chars).
+  const truncate = (s: string, max: number) => {
+    const clean = s.replace(/\s+/g, " ").trim();
+    if (clean.length <= max) return clean;
+    const cut = clean.slice(0, max);
+    return `${cut.slice(0, cut.lastIndexOf(" ")).trim()}…`;
+  };
+  const pageTitle = `${title} — ${industry} · ${siteName}`;
+  const description = truncate(
+    tagline.length > 110 ? tagline : `${tagline} ${results[0] ?? ""}`,
+    158,
+  );
+  const ogImage = `${SITE_URL}${image.src}`;
+
   return {
     metadataBase: new URL(SITE_URL),
-    title: `${t("title")} — ${t("tagline")}`,
-    description: t("problem"),
+    title: pageTitle,
+    description,
+    keywords: [title, industry, ...stack.slice(0, 6)],
     alternates: { canonical: url },
     openGraph: {
       type: "article",
-      title: `${t("title")} — ${t("tagline")}`,
-      description: t("problem"),
+      title: pageTitle,
+      description,
       url,
+      siteName,
+      locale,
+      images: [{ url: ogImage, alt: image.alt }],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${t("title")} — ${t("tagline")}`,
-      description: t("problem"),
+      title: pageTitle,
+      description,
+      images: [ogImage],
     },
   };
 }
@@ -380,6 +411,26 @@ function CaseContent({ slug, locale }: { slug: string; locale: string }) {
                 <LegalwinHeroMock />
               </Reveal>
             </div>
+          ) : key === "donbrava" ? (
+            <DonbravaCaseHero
+              industry={c.industry}
+              title={c.title}
+              tagline={c.tagline}
+              metrics={metrics}
+              stack={c.stack}
+              ndaLabel={c.url}
+              liveLabel={liveLabel}
+            />
+          ) : key === "crmbot" ? (
+            <CrmbotCaseHero
+              industry={c.industry}
+              title={c.title}
+              tagline={c.tagline}
+              metrics={metrics}
+              stack={c.stack}
+              ndaLabel={c.url}
+              liveLabel={liveLabel}
+            />
           ) : (
             <>
               <Reveal>

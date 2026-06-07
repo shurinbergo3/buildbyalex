@@ -43,7 +43,7 @@ export function Header() {
     >
       <div className="mx-auto flex h-full max-w-[1280px] items-center justify-between px-5 md:px-8">
         <Link href="/" aria-label="buildbyalex — home" className="-ml-1 p-1">
-          <Logo size={20} />
+          <Logo size={23} />
         </Link>
 
         <nav className="hidden md:block" aria-label="Primary">

@@ -185,12 +185,12 @@ export function LegalwinScrollStory() {
   return (
     <div ref={ref} className="relative mt-16 md:mt-20" style={{ height: "340vh" }}>
       <div className="sticky top-0 flex h-[100svh] items-center overflow-hidden">
-        <div className="relative flex min-h-[88svh] w-full flex-col justify-center overflow-hidden rounded-[24px] border border-white/10 bg-[#0b0d12] px-4 py-7 text-white shadow-[0_40px_120px_-40px_rgba(0,0,0,0.7)] sm:rounded-[28px] sm:px-8 sm:py-10 md:px-12 md:py-14">
-          {/* Ambient glow */}
+        <div className="relative flex min-h-[88svh] w-full flex-col justify-center overflow-hidden px-4 py-7 sm:px-8 sm:py-10 md:px-12 md:py-14">
+          {/* Ambient glow — a soft warm wash that reads on the light page too */}
           <div
             aria-hidden
-            className="pointer-events-none absolute -right-[8%] top-1/2 h-[560px] w-[560px] -translate-y-1/2 rounded-full opacity-60 blur-[120px]"
-            style={{ background: "radial-gradient(circle, rgba(255,122,45,0.16) 0%, transparent 70%)" }}
+            className="pointer-events-none absolute -right-[8%] top-1/2 h-[560px] w-[560px] -translate-y-1/2 rounded-full opacity-50 blur-[120px]"
+            style={{ background: "radial-gradient(circle, rgba(255,122,45,0.14) 0%, transparent 70%)" }}
           />
 
           <div className="relative grid items-center gap-5 lg:grid-cols-[minmax(0,360px)_minmax(0,1fr)] lg:gap-14">
@@ -210,13 +210,13 @@ export function LegalwinScrollStory() {
                     exit={reduce ? { opacity: 0 } : { opacity: 0, y: -12 }}
                     transition={{ duration: 0.45, ease: EASE }}
                   >
-                    <span className="font-mono text-[12px] tracking-[0.08em] text-white/55">
+                    <span className="font-mono text-[12px] tracking-[0.08em] text-[color:var(--color-text-3)]">
                       {chapter.kicker}
                     </span>
-                    <h3 className="mt-2 text-[clamp(26px,2.4vw+16px,40px)] font-semibold leading-[1.06] tracking-[-0.025em]">
+                    <h3 className="mt-2 text-[clamp(26px,2.4vw+16px,40px)] font-semibold leading-[1.06] tracking-[-0.025em] text-[color:var(--color-text)]">
                       {chapter.label}
                     </h3>
-                    <p className="mt-3.5 max-w-[400px] text-[15px] leading-[1.6] text-white/80 sm:text-[16px]">
+                    <p className="mt-3.5 max-w-[400px] text-[15px] leading-[1.6] text-[color:var(--color-text-2)] sm:text-[16px]">
                       {chapter.caption}
                     </p>
                   </motion.div>
@@ -229,7 +229,7 @@ export function LegalwinScrollStory() {
                   <span
                     key={i}
                     aria-hidden
-                    className="relative h-[3px] flex-1 overflow-hidden rounded-full bg-white/12"
+                    className="relative h-[3px] flex-1 overflow-hidden rounded-full bg-[color:var(--color-divider)]"
                   >
                     <motion.span
                       className="absolute inset-0 origin-left rounded-full"

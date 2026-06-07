@@ -2639,6 +2639,24 @@
           "eyebrow": "Po rozmowie",
           "headline": "Transakcja sama przesuwa się po lejku w AmoCRM",
           "subhead": "CRM aktualizuje się na bieżąco, gdy bot kwalifikuje — bez ręcznego wprowadzania danych i utraconych zgłoszeń."
+        },
+        "hero": {
+          "system": "Agent AI pierwszego kontaktu",
+          "ticker": "silnik · function calling",
+          "chips": [
+            {
+              "k": "Model",
+              "v": "Gemini 2.0 Flash"
+            },
+            {
+              "k": "Akcja",
+              "v": "function_call → CRM"
+            },
+            {
+              "k": "Etap",
+              "v": "Zakwalifikowany"
+            }
+          ]
         }
       },
       "donbrava": {
@@ -2801,6 +2819,24 @@
               }
             ]
           }
+        },
+        "hero": {
+          "account": "Prawdziwe konto · nie @bot",
+          "payoff": "Klient nie pozna, że pisze z AI",
+          "chips": [
+            {
+              "k": "Styl pisania",
+              "v": "kopiowany"
+            },
+            {
+              "k": "Czas odpowiedzi",
+              "v": "2–12 min"
+            },
+            {
+              "k": "Pokrycie",
+              "v": "24/7"
+            }
+          ]
         }
       },
       "bodyforge": {

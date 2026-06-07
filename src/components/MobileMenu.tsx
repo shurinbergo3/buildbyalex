@@ -74,7 +74,7 @@ export function MobileMenu() {
         >
           <div className="flex h-[var(--header-h)] items-center justify-between px-5">
             <Link href="/" onClick={close} aria-label="buildbyalex — home">
-              <Logo size={20} />
+              <Logo size={23} />
             </Link>
             <button
               type="button"

@@ -2,14 +2,7 @@
 
 import { memo, useCallback, useMemo, useRef, useState } from "react";
 import Image from "next/image";
-import {
-  AnimatePresence,
-  motion,
-  useMotionValue,
-  useReducedMotion,
-  useSpring,
-  useTransform,
-} from "motion/react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Link } from "@/i18n/navigation";
 import { Container } from "@/components/Container";
 import type { CaseCategory } from "@/lib/cases";
@@ -176,35 +169,16 @@ const CaseCard = memo(function CaseCard({
   reduce: boolean;
 }) {
   const ref = useRef<HTMLAnchorElement>(null);
-  const rx = useMotionValue(0);
-  const ry = useMotionValue(0);
-  const srx = useSpring(rx, { stiffness: 150, damping: 18, mass: 0.4 });
-  const sry = useSpring(ry, { stiffness: 150, damping: 18, mass: 0.4 });
-  const tilt = featured ? 2.5 : 4;
-  const rotateX = useTransform(srx, [-0.5, 0.5], [tilt, -tilt]);
-  const rotateY = useTransform(sry, [-0.5, 0.5], [-tilt, tilt]);
 
-  const onMove = useCallback(
-    (e: React.MouseEvent<HTMLAnchorElement>) => {
-      const el = ref.current;
-      if (!el) return;
-      const r = el.getBoundingClientRect();
-      const px = (e.clientX - r.left) / r.width;
-      const py = (e.clientY - r.top) / r.height;
-      el.style.setProperty("--mx", `${px * 100}%`);
-      el.style.setProperty("--my", `${py * 100}%`);
-      if (!reduce) {
-        rx.set(py - 0.5);
-        ry.set(px - 0.5);
-      }
-    },
-    [rx, ry, reduce],
-  );
-
-  const onLeave = useCallback(() => {
-    rx.set(0);
-    ry.set(0);
-  }, [rx, ry]);
+  // Track the cursor only for the spotlight glow / luminous ring — the tile
+  // itself stays perfectly still (no 3D tilt), so its shape never deforms.
+  const onMove = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
+    const el = ref.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    el.style.setProperty("--mx", `${((e.clientX - r.left) / r.width) * 100}%`);
+    el.style.setProperty("--my", `${((e.clientY - r.top) / r.height) * 100}%`);
+  }, []);
 
   return (
     <motion.article
@@ -225,13 +199,13 @@ const CaseCard = memo(function CaseCard({
         ref={ref}
         href={{ pathname: "/work/[slug]", params: { slug: data.slug } }}
         onMouseMove={onMove}
-        onMouseLeave={onLeave}
         className="work-card group relative block h-full"
         aria-label={`${data.title} — ${data.industry}`}
       >
         <motion.div
-          style={{ rotateX, rotateY, transformPerspective: 1100 }}
-          className={`relative flex h-full transform-gpu flex-col justify-end overflow-hidden rounded-[24px] border border-[color:var(--c-hairline)] bg-[#0b0b0c] shadow-[var(--shadow-card)] transition-[box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:shadow-[var(--shadow-card-hover)] md:rounded-[30px] ${
+          whileHover={reduce ? undefined : { y: -6 }}
+          transition={{ type: "spring", stiffness: 320, damping: 26, mass: 0.5 }}
+          className={`work-card__frame relative flex h-full transform-gpu flex-col justify-end overflow-hidden rounded-[24px] border border-[color:var(--c-hairline)] bg-[#0b0b0c] shadow-[var(--shadow-card)] transition-[box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:shadow-[var(--shadow-card-hover)] md:rounded-[30px] ${
             featured
               ? "aspect-[16/12] sm:aspect-[16/9] lg:aspect-[21/8]"
               : "aspect-[16/12] sm:aspect-[4/3]"

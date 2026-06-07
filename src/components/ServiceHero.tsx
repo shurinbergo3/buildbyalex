@@ -246,9 +246,56 @@ function AutomationMock({ m }: { m: Record<string, unknown> }) {
   );
 }
 
+/* Apple + Android glyphs — reused as big outline marks and small badge logos */
+const APPLE_PATH =
+  "M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z";
+const ANDROID_PATH =
+  "M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993s-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993s-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.2439 13.8533 7.8508 12 7.8508s-3.5902.3931-5.1367 1.0989L4.841 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3435-4.1021-2.6892-7.5743-6.1185-9.4396";
+const PLAY_PATH =
+  "M3.609 1.814L13.792 12 3.609 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.61-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626a1 1 0 010 1.732l-2.808 1.626L15.39 12l2.508-2.492zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z";
+
+function StoreBadge({ kind, sub, name }: { kind: "apple" | "play"; sub: string; name: string }) {
+  return (
+    <div className="inline-flex items-center gap-2 rounded-xl border border-white/12 bg-[#0b0b0e]/80 px-3 py-1.5 shadow-[0_14px_34px_-16px_rgba(0,0,0,0.85)] backdrop-blur-md">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden className="flex-none">
+        <path d={kind === "apple" ? APPLE_PATH : PLAY_PATH} />
+      </svg>
+      <span className="text-left leading-none">
+        <span className="block text-[7.5px] font-medium uppercase tracking-[0.08em] text-white/50">{sub}</span>
+        <span className="mt-0.5 block text-[12px] font-semibold tracking-[-0.01em] text-white">{name}</span>
+      </span>
+    </div>
+  );
+}
+
 function MobileMock({ m }: { m: Record<string, unknown> }) {
   return (
     <div className="relative px-4 py-5">
+      {/* big outline platform marks — decorative contours behind the device */}
+      <svg
+        aria-hidden
+        viewBox="0 0 24 24"
+        className="pointer-events-none absolute -left-3 -top-1 h-32 w-32 -rotate-[14deg] text-white/[0.09] sm:h-40 sm:w-40"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={0.45}
+        strokeLinejoin="round"
+      >
+        <path d={APPLE_PATH} />
+      </svg>
+      <svg
+        aria-hidden
+        viewBox="0 0 24 24"
+        className="pointer-events-none absolute -right-4 bottom-3 h-36 w-36 rotate-[14deg] text-white/[0.09] sm:h-44 sm:w-44"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={0.4}
+        strokeLinejoin="round"
+        strokeLinecap="round"
+      >
+        <path d={ANDROID_PATH} />
+      </svg>
+
       <div className="relative mx-auto w-full max-w-[228px]">
         {/* titanium frame */}
         <div
@@ -312,7 +359,12 @@ function MobileMock({ m }: { m: Record<string, unknown> }) {
         <span style={{ color: AMBER }}>★</span>
         <span className="font-semibold text-white">{m.rating as string}</span>
       </Chip>
-      <Chip className="absolute bottom-5 left-0">{m.platforms as string}</Chip>
+
+      {/* store badges */}
+      <div className="relative z-10 mt-5 flex flex-wrap items-center justify-center gap-2.5">
+        <StoreBadge kind="apple" sub="Download on the" name="App Store" />
+        <StoreBadge kind="play" sub="Get it on" name="Google Play" />
+      </div>
     </div>
   );
 }

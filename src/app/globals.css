@@ -710,6 +710,15 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
    ──────────────────────────────────────────────────────── */
 .work-card { --mx: 50%; --my: 50%; }
 
+/* Safari fix: a rounded element with overflow:hidden lets a scaled/animated
+   child poke past the radius, so the corners flash square on hover. Forcing a
+   compositing mask (both stops are fully opaque — colour is irrelevant) makes
+   WebKit honour the border-radius clip throughout the animation. */
+.work-card__frame {
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  mask-image: radial-gradient(white, black);
+}
+
 /* Soft amber wash that tracks the cursor across the card surface */
 .work-card__glow {
   position: absolute;
@@ -1439,4 +1448,14 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
 @media (prefers-reduced-motion: reduce) {
   .case-cover-aurora { animation: none !important; }
   .case-cover-live-dot::after { animation: none !important; }
+}
+
+/* AI case heroes (ИИ-менеджер / CRM Bot) — slow ambient drift on the
+   warm-orange aurora so the dark stage "breathes". */
+.ai-hero-aurora {
+  animation: caseCtaDrift 19s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ai-hero-aurora { animation: none !important; }
 }
