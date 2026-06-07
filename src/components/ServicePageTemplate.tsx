@@ -6,6 +6,7 @@ import { Container } from "./Container";
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
 import { Button } from "./Button";
+import { CtaGlassLayers } from "./CtaGlass";
 import { ServiceHero } from "./ServiceHero";
 import { FAQAccordion, type QA } from "./FAQAccordion";
 import { HowItWorks } from "./home/HowItWorks";
@@ -196,15 +197,8 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
       <Section pad="default" tone="default">
         <Container size="md">
           <Reveal>
-            <div className="relative overflow-hidden rounded-[36px] bg-[#0A0A0A] px-8 py-14 text-center text-white md:px-12 md:py-20">
-              <div
-                className="pointer-events-none absolute -top-1/3 left-1/2 h-[120%] w-[120%] -translate-x-1/2 opacity-60"
-                aria-hidden="true"
-                style={{
-                  background:
-                    "radial-gradient(ellipse 50% 40% at 50% 0%, rgba(255,107,26,0.30), transparent 70%)",
-                }}
-              />
+            <div className="cta-glass rounded-[36px] px-8 py-14 text-center text-white md:px-12 md:py-20">
+              <CtaGlassLayers />
               <div className="relative z-10">
                 <h2 className="text-[clamp(28px,3.6vw,42px)] font-semibold leading-[1.1] tracking-[-0.024em]">
                   {t("primaryCta")}

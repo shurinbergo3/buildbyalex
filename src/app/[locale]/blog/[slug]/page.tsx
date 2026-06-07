@@ -8,6 +8,7 @@ import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/Button";
+import { CtaGlassLayers } from "@/components/CtaGlass";
 import { routing, type Locale } from "@/i18n/routing";
 import { getAllPostSlugs, getPost, getClusterSlugs } from "@/lib/blog";
 import { SITE_URL, htmlLang } from "@/lib/site";
@@ -149,12 +150,8 @@ export default async function BlogPostPage({
       <Section pad="default" tone="default">
         <Container size="md">
           <Reveal>
-            <div className="relative overflow-hidden rounded-[28px] bg-[#0A0A0A] px-7 py-12 text-center text-white md:px-10 md:py-16">
-              <div
-                className="pointer-events-none absolute -top-1/3 left-1/2 h-[120%] w-[120%] -translate-x-1/2 opacity-60"
-                aria-hidden="true"
-                style={{ background: "radial-gradient(ellipse 50% 40% at 50% 0%, rgba(255,107,26,0.30), transparent 70%)" }}
-              />
+            <div className="cta-glass rounded-[28px] px-7 py-12 text-center text-white md:px-10 md:py-16">
+              <CtaGlassLayers />
               <div className="relative z-10">
                 <h2 className="text-[clamp(24px,3vw,36px)] font-semibold leading-[1.15] tracking-[-0.024em]">
                   {t("ctaTitle")}

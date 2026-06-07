@@ -36,7 +36,7 @@ type HeroCopy = {
 
 export function CrmbotCaseHero(props: HeroCopy) {
   return (
-    <AiCaseHero {...props}>
+    <AiCaseHero {...props} contours="crmbot">
       <CrmbotConsole />
     </AiCaseHero>
   );

@@ -36,7 +36,7 @@ type HeroCopy = {
 
 export function DonbravaCaseHero(props: HeroCopy) {
   return (
-    <AiCaseHero {...props}>
+    <AiCaseHero {...props} contours="donbrava">
       <DonbravaPhone />
     </AiCaseHero>
   );
@@ -95,11 +95,11 @@ function DonbravaPhone() {
   }, [cycle, messages, reduce]);
 
   return (
-    <div className="relative mx-auto w-full max-w-[330px] pb-2 sm:max-w-[360px]">
+    <div className="relative mx-auto w-full max-w-[320px] px-2 pt-6 sm:pt-2">
       {/* warm floor glow grounding the phone */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-[6%] bottom-[2%] -z-10 h-[26%] rounded-[50%]"
+        className="pointer-events-none absolute inset-x-[6%] bottom-[6%] -z-10 h-[24%] rounded-[50%]"
         style={{
           background:
             "radial-gradient(50% 50% at 50% 50%, rgba(255,122,45,0.30), transparent 72%)",
@@ -107,56 +107,61 @@ function DonbravaPhone() {
         }}
       />
 
+      {/* floating account badge — the differentiator, off the device */}
+      <div className="absolute left-1 top-1 z-20 hidden items-center gap-2 rounded-full border border-white/[0.1] bg-white/[0.07] px-3 py-1.5 shadow-[0_16px_36px_-16px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-md sm:flex">
+        <span className="relative grid h-2 w-2 place-items-center">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-70" style={{ background: HERO_ACCENT }} />
+          <span className="relative h-2 w-2 rounded-full" style={{ background: HERO_ACCENT, boxShadow: `0 0 8px ${HERO_ACCENT}` }} />
+        </span>
+        <span className="text-[11.5px] font-semibold text-white">{account}</span>
+      </div>
+
       {/* floating telemetry chips */}
       <TelemetryChip
         chip={chips[0]}
         pulse
-        className="-left-3 top-[16%] hidden sm:flex md:-left-8"
+        className="-right-2 top-[24%] hidden sm:flex md:-right-7"
       />
       <TelemetryChip
         chip={chips[1]}
-        className="-right-3 top-[40%] hidden sm:flex md:-right-9"
-      />
-      <TelemetryChip
-        chip={chips[2]}
-        className="-left-2 bottom-[20%] hidden sm:flex md:-left-7"
+        className="-left-2 top-[56%] hidden sm:flex md:-left-7"
       />
 
-      {/* phone */}
+      {/* iPhone */}
       <motion.div
         initial={false}
         animate={reduce ? undefined : { y: [0, -7, 0] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        className="relative rounded-[40px] p-[9px] shadow-[0_40px_90px_-26px_rgba(0,0,0,0.7),0_0_0_1px_rgba(255,255,255,0.05)]"
+        className="relative mx-auto w-[268px] rounded-[46px] p-[9px] shadow-[0_44px_100px_-28px_rgba(0,0,0,0.72),0_0_0_1px_rgba(255,255,255,0.06)]"
         style={{
-          background: "linear-gradient(160deg, #20242c 0%, #0c0e12 55%, #20242c 100%)",
+          background:
+            "linear-gradient(150deg, #3a3d44 0%, #16181d 26%, #0d0f13 60%, #2a2d33 100%)",
         }}
       >
         <div
-          className="relative overflow-hidden rounded-[32px]"
-          style={{ height: 470, background: "linear-gradient(180deg, #17212b 0%, #0e1621 100%)" }}
+          className="relative flex flex-col overflow-hidden rounded-[38px]"
+          style={{ height: 560, background: "linear-gradient(180deg, #17212b 0%, #0e1621 100%)" }}
         >
-          {/* notch */}
-          <div className="pointer-events-none absolute left-1/2 top-2 z-30 flex h-5 w-[96px] -translate-x-1/2 items-center justify-center rounded-b-2xl bg-black">
-            <div className="h-1.5 w-10 rounded-full bg-[#2a2d33]" />
+          {/* Dynamic Island */}
+          <div className="pointer-events-none absolute left-1/2 top-[11px] z-30 h-[26px] w-[84px] -translate-x-1/2 rounded-full bg-black" />
+
+          {/* status bar */}
+          <div className="relative z-20 flex shrink-0 items-center justify-between px-6 pb-1 pt-3.5 text-[11px] font-semibold text-white/95">
+            <span className="tabular-nums">9:41</span>
+            <span className="flex items-center gap-1.5">
+              <SignalIcon />
+              <WifiIcon />
+              <BatteryIcon />
+            </span>
           </div>
 
-          {/* account pill */}
-          <div className="absolute right-3 top-3 z-30 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/40 px-2 py-1 text-[9.5px] font-medium text-white/70 backdrop-blur-sm">
-            <span
-              className="h-1.5 w-1.5 rounded-full"
-              style={{ background: HERO_ACCENT, boxShadow: `0 0 8px ${HERO_ACCENT}` }}
-            />
-            {account}
-          </div>
-
-          {/* header */}
+          {/* Telegram header */}
           <div
-            className="relative z-10 flex items-center gap-2.5 border-b border-black/40 px-3 pb-2.5 pt-9"
+            className="relative z-10 flex shrink-0 items-center gap-2.5 border-b border-black/40 px-3 py-2.5"
             style={{ background: "#17212b" }}
           >
             <div
-              className="flex h-8 w-8 items-center justify-center rounded-full text-[12px] font-semibold text-white"
+              className="flex h-9 w-9 items-center justify-center rounded-full text-[13px] font-semibold text-white"
               style={{ background: "linear-gradient(135deg, #2ea6ea 0%, #1e88c8 100%)" }}
             >
               Б
@@ -177,7 +182,7 @@ function DonbravaPhone() {
 
           {/* chat */}
           <div
-            className="relative h-[336px] overflow-hidden px-3 py-3"
+            className="relative flex-1 overflow-hidden px-3 py-3"
             style={{
               background:
                 "radial-gradient(ellipse at top, rgba(46,87,121,0.18) 0%, transparent 55%), #0e1621",
@@ -203,7 +208,7 @@ function DonbravaPhone() {
 
           {/* input */}
           <div
-            className="relative z-10 flex items-center gap-2 border-t border-black/40 px-3 py-2.5"
+            className="relative z-10 flex shrink-0 items-center gap-2 border-t border-black/40 px-3 py-2.5"
             style={{ background: "#17212b" }}
           >
             <div className="flex-1 rounded-2xl bg-[#242f3d] px-3 py-1.5 text-[12.5px] text-[#7d8e9c]">
@@ -220,7 +225,9 @@ function DonbravaPhone() {
           </div>
 
           {/* home indicator */}
-          <div className="pointer-events-none absolute bottom-1.5 left-1/2 z-30 h-1 w-24 -translate-x-1/2 rounded-full bg-white/40" />
+          <div className="shrink-0 py-2">
+            <div className="mx-auto h-1 w-[104px] rounded-full bg-white/40" />
+          </div>
         </div>
       </motion.div>
 
@@ -229,6 +236,35 @@ function DonbravaPhone() {
         {payoff}
       </p>
     </div>
+  );
+}
+
+function SignalIcon() {
+  return (
+    <svg width="17" height="11" viewBox="0 0 18 10" fill="currentColor" aria-hidden="true">
+      <rect x="0" y="7" width="3" height="3" rx="0.5" />
+      <rect x="5" y="5" width="3" height="5" rx="0.5" />
+      <rect x="10" y="2" width="3" height="8" rx="0.5" />
+      <rect x="15" y="0" width="3" height="10" rx="0.5" />
+    </svg>
+  );
+}
+
+function WifiIcon() {
+  return (
+    <svg width="15" height="11" viewBox="0 0 16 11" fill="currentColor" aria-hidden="true">
+      <path d="M8 11a1.2 1.2 0 1 0 0-2.4A1.2 1.2 0 0 0 8 11zm-3.5-3.6l1.4 1.4a3 3 0 0 1 4.2 0l1.4-1.4a5 5 0 0 0-7 0zm-2.8-2.8L3.1 6a7 7 0 0 1 9.8 0l1.4-1.4a9 9 0 0 0-12.6 0z" />
+    </svg>
+  );
+}
+
+function BatteryIcon() {
+  return (
+    <svg width="25" height="12" viewBox="0 0 26 12" fill="none" aria-hidden="true">
+      <rect x="0.5" y="0.5" width="22" height="11" rx="2.5" stroke="currentColor" strokeOpacity="0.5" />
+      <rect x="2" y="2" width="18" height="8" rx="1.5" fill="currentColor" />
+      <rect x="23.5" y="3.5" width="2" height="5" rx="1" fill="currentColor" fillOpacity="0.5" />
+    </svg>
   );
 }
 

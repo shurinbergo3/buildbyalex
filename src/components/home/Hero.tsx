@@ -56,10 +56,12 @@ export function Hero() {
 
       const w = window.innerWidth;
       const isMobile = w < 768;
-      const maxTop = isMobile ? 56 : 80;
-      const maxX = isMobile ? 14 : Math.min(160, w * 0.08);
-      const maxBottom = isMobile ? 72 : 120;
-      const maxRadius = isMobile ? 20 : 28;
+      // Collapse to a smaller card so the window top bar (traffic lights +
+      // URL) clears the nav and stays clearly visible at the end of scroll.
+      const maxTop = isMobile ? 96 : 132;
+      const maxX = isMobile ? 22 : Math.min(220, w * 0.105);
+      const maxBottom = isMobile ? 104 : 150;
+      const maxRadius = isMobile ? 22 : 28;
 
       // Window-collapse runs on a compressed progress so the frame finishes
       // folding earlier in the scroll (RU a touch quicker) — independent of

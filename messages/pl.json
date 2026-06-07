@@ -1468,18 +1468,86 @@
             "Google Ads",
             "Meta Ads"
           ],
-          "roas": "×6.2",
-          "roasLabel": "ROAS",
-          "kpis": [
-            {
-              "v": "142",
-              "l": "leady"
-            },
-            {
-              "v": "€4.10",
-              "l": "koszt / lead"
-            }
-          ]
+          "google": {
+            "roas": "×6.2",
+            "roasLabel": "ROAS · 30 dni",
+            "delta": "+18%",
+            "campaigns": [
+              {
+                "n": "Search · Marka",
+                "v": "×8.1",
+                "on": true
+              },
+              {
+                "n": "Performance Max",
+                "v": "×6.4",
+                "on": true
+              },
+              {
+                "n": "Shopping",
+                "v": "×4.2",
+                "on": false
+              }
+            ],
+            "kpis": [
+              {
+                "v": "142",
+                "l": "leady"
+              },
+              {
+                "v": "€4.10",
+                "l": "koszt / lead"
+              },
+              {
+                "v": "7.8%",
+                "l": "CTR"
+              },
+              {
+                "v": "€0.62",
+                "l": "CPC"
+              }
+            ]
+          },
+          "meta": {
+            "roas": "×4.8",
+            "roasLabel": "ROAS · 30 dni",
+            "delta": "+12%",
+            "campaigns": [
+              {
+                "n": "Advantage+ Shopping",
+                "v": "×5.6",
+                "on": true
+              },
+              {
+                "n": "Remarketing · 7 dni",
+                "v": "×6.9",
+                "on": true
+              },
+              {
+                "n": "Lookalike 1%",
+                "v": "×3.4",
+                "on": false
+              }
+            ],
+            "kpis": [
+              {
+                "v": "98",
+                "l": "leady"
+              },
+              {
+                "v": "€5.30",
+                "l": "koszt / lead"
+              },
+              {
+                "v": "2.4%",
+                "l": "CTR"
+              },
+              {
+                "v": "€6.80",
+                "l": "CPM"
+              }
+            ]
+          }
         }
       },
       "demo": {
