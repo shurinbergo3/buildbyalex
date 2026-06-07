@@ -1924,6 +1924,7 @@
       "legalwin": {
         "industry": "Immigration legal services · Warsaw",
         "title": "LegalWin",
+        "imageAlt": "Passport by an airplane window at sunset — LegalWin immigration case study",
         "tagline": "AI consultant + multilingual site for an immigration lawyer.",
         "problem": "Marta — an immigration lawyer in Warsaw — was losing hours to repeat client questions ('what documents for karta pobytu?', 'how long does it take?'). Her brochure site brought no Google leads, and every first-touch message was handled manually.",
         "solution": "I built a multilingual Next.js 15 site (RU / PL / UA) with proper localized routing, deployed schema for LegalService, and SEO targeting commercial queries ('karta pobytu Warszawa', 'pobyt stały Polska'). Inside, I connected a RAG consultant on GPT-4o, trained on 200+ real cases and official urząd documents. The bot handles standard questions, gathers initial data, and routes qualified leads to the lawyer's Telegram.",
@@ -1953,6 +1954,7 @@
       "visionair": {
         "industry": "Aerial cinematography · Warsaw",
         "title": "VisionAir",
+        "imageAlt": "Aerial view of central Warsaw at sunset shot from a drone — VisionAir case study",
         "tagline": "Site for a drone operator with an instant lead pipeline to Telegram.",
         "problem": "Igor — a drone pilot in Warsaw — shoots weddings, real estate, and infrastructure inspections. He had leads, but they cooled — by the time he replied, the client had already messaged a competitor. His old site loaded in 4 seconds and ranked for none of his 7 service verticals.",
         "solution": "I built a fast Next.js site with 7 SEO-optimized service verticals (weddings, real estate, inspection, advertising, events, sports, documentation). Each page has its own schema, photos, starting prices, FAQ. The contact form writes directly to the operator's Telegram with Upstash Redis rate-limiting. IndexNow pings Bing and Yandex on every deploy.",
@@ -1983,6 +1985,7 @@
       "crmbot": {
         "industry": "B2B sales automation",
         "title": "CRM Bot",
+        "imageAlt": "Blue network of nodes and links on a dark background — CRM Bot case study",
         "tagline": "An AI agent that replaced the first-touch sales manager.",
         "problem": "A B2B company with 50–80 incoming leads per day. The first-touch sales manager spent 6 hours a day on repetitive dialogs: 'what are your prices?', 'can you send the deck?', 'do you work with our volume?'. Filtering quality was inconsistent, and leads slipped through.",
         "solution": "I built an AI agent on Gemini 2.0 Flash with function calling. Every morning the bot pulls new leads from AmoCRM, classifies the request type, runs the dialog on Telegram / WhatsApp / Wappi, qualifies on 6 criteria (volume, budget, timing, ICP fit, etc.), automatically moves leads through the pipeline and tags them. The admin dashboard shows all dialogs; a human can step in at any moment.",
@@ -2014,9 +2017,10 @@
       "donbrava": {
         "industry": "Immigration services · Bratislava",
         "title": "AI sales manager",
+        "imageAlt": "A person chatting in a messenger on a smartphone — AI sales manager case study",
         "tagline": "Replies to clients from the owner's real Telegram account — mirrors his writing style, his timing and the \"typing…\" indicator. Clients never realise they're chatting with an AI, not a real person.",
-        "problem": "Bohdan is an immigration consultant in Slovakia, handling temporary protection (€350/person) and business services for Ukrainians (€200 paid consultations, residency, s.r.o., živnosť). Inbound on Telegram was steady, but quality suffered: evening messages sat until morning, weekends ate leads, and recurring 'what documents?' / 'how long does it take?' questions soaked up more time than the actual paying clients.",
-        "solution": "I built a Telegram userbot on Telethon + GPT-4o that runs from Bohdan's real phone number — not a @bot, a live account. It imitates his messaging style and timing (2–12 minute unread windows on first contact, a typing indicator, an explicit read-receipt delay), distinguishes services (€350 temporary protection vs €200 consultation), pulls the live EUR→UAH rate from Monobank's public API, sends the right payment details (IBAN or Mono card with the converted hryvnia amount), flags payments with a [PAYMENT_SENT] marker and quietly hands the conversation over to Bohdan. Document uploads and escalations ping the owner instantly with a deep link into the chat.",
+        "problem": "Maksim is an immigration consultant in Slovakia, handling temporary protection (€350/person) and business services for Ukrainians (€200 paid consultations, residency, s.r.o., živnosť). Inbound on Telegram was steady, but quality suffered: evening messages sat until morning, weekends ate leads, and recurring 'what documents?' / 'how long does it take?' questions soaked up more time than the actual paying clients.",
+        "solution": "I built a Telegram userbot on Telethon + GPT-4o that runs from Maksim's real phone number — not a @bot, a live account. It imitates his messaging style and timing (2–12 minute unread windows on first contact, a typing indicator, an explicit read-receipt delay), distinguishes services (€350 temporary protection vs €200 consultation), pulls the live EUR→UAH rate from Monobank's public API, sends the right payment details (IBAN or Mono card with the converted hryvnia amount), flags payments with a [PAYMENT_SENT] marker and quietly hands the conversation over to Maksim. Document uploads and escalations ping the owner instantly with a deep link into the chat.",
         "results": [
           "≈ 210 hours of owner time returned per month — the equivalent of 1.3 full-time staff",
           "Full 24/7 coverage — no more lost evening or weekend leads",
@@ -2036,7 +2040,7 @@
         ],
         "url": "Under NDA",
         "quote": "The bot writes the way I do — clients have no idea it isn't me. I open Telegram in the morning and three payments are already in, plus three notifications in the owner chat.",
-        "quoteAuthor": "Bohdan D. · Donbrava",
+        "quoteAuthor": "Maksim D. · immigration service",
         "metric": {
           "value": "210h",
           "label": "saved per month"
@@ -2045,6 +2049,7 @@
       "bodyforge": {
         "industry": "Native iOS app · Fitness",
         "title": "Body Forge — AI Fitness Coach",
+        "imageAlt": "A dumbbell in dramatic light of a dark gym — Body Forge case study",
         "tagline": "A native iOS app for the gym: AI workout analysis, live set tracking, and programmes that respond to your real numbers.",
         "problem": "Lifters who track workouts in a notes app lose the only data that matters — set-by-set context. Notes don't remember last week's weight. Generic 'gym tracker' apps drown the screen in graphs and never tell you what to do next. The brief was a coach in your pocket: clean tracking during the set, real analysis after, and a programme that actually adapts as you progress.",
         "solution": "I built a native SwiftUI app for iOS. During a workout it shows the bare minimum: last week's sets, a rest timer, weight, reps — one tap to log a set. After the session, an AI coach on GPT-4o reads the whole workout — volume, intensity, progression vs the last three weeks — and writes a short, personal post-workout analysis with concrete pickups for next time ('stalled on incline press 3 weeks running — deload to 80% next week'). Programmes are first-class: an Upper/Lower split, full-body for beginners, custom blocks. The library has 200+ exercises with video form demos. Localised RU + EN.",
@@ -2731,10 +2736,10 @@
         "employee": {
           "eyebrow": "Virtual employee",
           "headline": "One digital hire instead of a whole shift",
-          "subhead": "AI-Bohdan works 24/7 from a real Telegram account, replies in the owner's voice, and closes payments before the prospect has time to message a competitor.",
+          "subhead": "AI-Maksim works 24/7 from a real Telegram account, replies in the owner's voice, and closes payments before the prospect has time to message a competitor.",
           "card": {
-            "badge": "AI Employee · Donbrava",
-            "name": "AI-Bohdan",
+            "badge": "AI Employee · immigration",
+            "name": "AI-Maksim",
             "role": "Sales assistant · Telegram userbot",
             "languagesLabel": "Client languages",
             "languages": [
@@ -2806,10 +2811,10 @@
         "chat": {
           "eyebrow": "Live dialog",
           "headline": "From first 'hello' to payment details delivered",
-          "subhead": "The bot writes like Bohdan does — with pauses, delays, and a real typing indicator. On the right, the engine events firing behind the scenes.",
+          "subhead": "The bot writes like Maksim does — with pauses, delays, and a real typing indicator. On the right, the engine events firing behind the scenes.",
           "mock": {
             "header": {
-              "name": "Bohdan · Donbrava",
+              "name": "Maksim · Immigration",
               "status": "online"
             },
             "typingStatus": "typing…",
@@ -2882,7 +2887,7 @@
               {
                 "time": "00:34",
                 "label": "Handoff to owner",
-                "detail": "handoff_active = 1 · Bohdan got a deep link",
+                "detail": "handoff_active = 1 · Maksim got a deep link",
                 "tone": "alert"
               }
             ]

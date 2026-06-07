@@ -151,7 +151,7 @@ export function DonbravaChatMock() {
                       "linear-gradient(135deg, #2ea6ea 0%, #1e88c8 100%)",
                   }}
                 >
-                  Б
+                  М
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-1.5">

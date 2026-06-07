@@ -164,7 +164,7 @@ function DonbravaPhone() {
               className="flex h-9 w-9 items-center justify-center rounded-full text-[13px] font-semibold text-white"
               style={{ background: "linear-gradient(135deg, #2ea6ea 0%, #1e88c8 100%)" }}
             >
-              Б
+              М
             </div>
             <div className="min-w-0 flex-1">
               <div className="truncate text-[13.5px] font-medium text-white">{header.name}</div>
