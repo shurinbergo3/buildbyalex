@@ -6,6 +6,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Container } from "./Container";
 import { Section } from "./Section";
 import { Button } from "./Button";
+import { HeroWindow } from "./HeroWindow";
 
 /* ─────────────────────────────────────────────────────────────────────────
    Service hero — cinematic "key-art" stage shared by all six service pages.
@@ -39,14 +40,8 @@ const META_BLUE = "#0A84FF";
 
 /* Brand glyph contours (single-path, 24×24) — reused as the big outlined
    marks behind the ads stage and as tiny tab/list badges. */
-const GOOGLE_PATH =
-  "M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z";
 const META_PATH =
   "M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.157-2.602zm-10.201.553c1.043 0 1.97.502 2.973 1.638.502.569 1.004 1.25 1.5 2.011-.521.797-1.045 1.66-1.564 2.51-1.4 2.287-1.85 2.973-2.722 3.835-.852.842-1.394 1.027-1.857 1.027-.589 0-1.176-.295-1.563-.84-.397-.563-.612-1.376-.612-2.46 0-1.95.59-4.124 1.493-5.633.628-1.044 1.397-1.738 2.354-1.738z";
-const FACEBOOK_PATH =
-  "M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z";
-const INSTAGRAM_PATH =
-  "M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z";
 
 function Stars() {
   return (
@@ -261,8 +256,6 @@ function AutomationMock({ m }: { m: Record<string, unknown> }) {
 /* Apple + Android glyphs — reused as big outline marks and small badge logos */
 const APPLE_PATH =
   "M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z";
-const ANDROID_PATH =
-  "M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993s-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993s-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.2439 13.8533 7.8508 12 7.8508s-3.5902.3931-5.1367 1.0989L4.841 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3435-4.1021-2.6892-7.5743-6.1185-9.4396";
 const PLAY_PATH =
   "M3.609 1.814L13.792 12 3.609 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.61-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626a1 1 0 010 1.732l-2.808 1.626L15.39 12l2.508-2.492zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z";
 
@@ -579,151 +572,6 @@ const MOCKS: Record<Branch, (p: { m: Record<string, unknown> }) => ReactNode> = 
   ads: AdsMock,
 };
 
-/* Big outlined platform logos scattered across the mobile-hero stage — purely
-   decorative iOS / Android / App Store / Google Play / Xcode contours. */
-function MobileBackdrop() {
-  const ink = "rgba(255,255,255,0.07)";
-  const amber = "rgba(255,122,45,0.15)";
-  return (
-    <div
-      aria-hidden
-      className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
-      style={{
-        WebkitMaskImage: "radial-gradient(125% 105% at 50% 38%, #000 52%, transparent 92%)",
-        maskImage: "radial-gradient(125% 105% at 50% 38%, #000 52%, transparent 92%)",
-      }}
-    >
-      {/* Apple — large, top-left, amber */}
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke={amber}
-        strokeWidth={0.45}
-        strokeLinejoin="round"
-        className="absolute -left-10 -top-12 h-60 w-60 -rotate-[10deg] md:h-80 md:w-80"
-      >
-        <path d={APPLE_PATH} />
-      </svg>
-      {/* Android — large, bottom, left-of-centre */}
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke={ink}
-        strokeWidth={0.4}
-        strokeLinejoin="round"
-        strokeLinecap="round"
-        className="absolute -bottom-14 left-[16%] h-52 w-52 rotate-[8deg] md:h-72 md:w-72"
-      >
-        <path d={ANDROID_PATH} />
-      </svg>
-      {/* App Store squircle + A — upper right */}
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke={ink}
-        strokeWidth={0.5}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="absolute right-[5%] top-[7%] hidden h-40 w-40 rotate-[6deg] sm:block md:h-48 md:w-48"
-      >
-        <rect x="2" y="2" width="20" height="20" rx="5.2" />
-        <path d="M7.2 16.4 12 7.4l4.8 9" />
-        <path d="M9.5 13.1h5" />
-      </svg>
-      {/* Google Play triangle — lower right, amber */}
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke={amber}
-        strokeWidth={0.5}
-        strokeLinejoin="round"
-        className="absolute bottom-[9%] right-[11%] h-44 w-44 md:h-56 md:w-56"
-      >
-        <path d={PLAY_PATH} />
-      </svg>
-      {/* Xcode hammer — small accent, mid-left */}
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke={ink}
-        strokeWidth={0.85}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="absolute left-[4%] top-[44%] hidden h-24 w-24 -rotate-[12deg] lg:block"
-      >
-        <path d="m15 12-8.5 8.5c-.83.83-2.17.83-3 0a2.12 2.12 0 0 1 0-3L12 9" />
-        <path d="M17.64 15 22 10.64" />
-        <path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h.86c.85 0 1.65.33 2.25.93l1.25 1.25" />
-      </svg>
-    </div>
-  );
-}
-
-/* Big outlined Google / Meta / Facebook / Instagram contours scattered across
-   the ads stage — masked toward the right so the left-hand copy stays crisp. */
-function AdsBackdrop() {
-  const ink = "rgba(255,255,255,0.08)";
-  const amber = "rgba(255,122,45,0.20)";
-  const blue = "rgba(56,135,255,0.17)";
-  return (
-    <div
-      aria-hidden
-      className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
-      style={{
-        WebkitMaskImage: "radial-gradient(140% 120% at 80% 48%, #000 28%, transparent 80%)",
-        maskImage: "radial-gradient(140% 120% at 80% 48%, #000 28%, transparent 80%)",
-      }}
-    >
-      {/* Google G — huge, top-right, amber */}
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke={amber}
-        strokeWidth={0.4}
-        strokeLinejoin="round"
-        className="absolute -right-14 -top-20 h-72 w-72 rotate-[8deg] md:h-[26rem] md:w-[26rem]"
-      >
-        <path d={GOOGLE_PATH} />
-      </svg>
-      {/* Meta infinity — large, bottom-right, blue */}
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke={blue}
-        strokeWidth={0.35}
-        strokeLinejoin="round"
-        strokeLinecap="round"
-        className="absolute -bottom-20 right-[6%] h-64 w-64 -rotate-[6deg] md:h-[22rem] md:w-[22rem]"
-      >
-        <path d={META_PATH} />
-      </svg>
-      {/* Facebook f — mid stage, ink */}
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke={ink}
-        strokeWidth={0.45}
-        strokeLinejoin="round"
-        className="absolute right-[42%] top-[10%] hidden h-44 w-44 -rotate-[10deg] md:h-56 md:w-56 lg:block"
-      >
-        <path d={FACEBOOK_PATH} />
-      </svg>
-      {/* Instagram — lower-mid, amber */}
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke={amber}
-        strokeWidth={0.5}
-        strokeLinejoin="round"
-        strokeLinecap="round"
-        className="absolute bottom-[7%] right-[46%] hidden h-40 w-40 rotate-[7deg] sm:block md:h-48 md:w-48"
-      >
-        <path d={INSTAGRAM_PATH} />
-      </svg>
-    </div>
-  );
-}
-
 function GoogleG() {
   return (
     <svg width="13" height="13" viewBox="0 0 48 48" aria-hidden>
@@ -747,32 +595,23 @@ export function ServiceHero({ branch }: { branch: Branch }) {
   const Mock = MOCKS[branch];
   const reduce = useReducedMotion();
 
+  // Window-chrome label — the most "live" string from each branch's glance.
+  const branchLabel =
+    ((
+      {
+        websites: mock.url,
+        ai: mock.agent,
+        automation: mock.flow,
+        mobile: mock.appName,
+        telegram: mock.bot,
+        ads: mock.dash,
+      } as Record<Branch, unknown>
+    )[branch] as string) || "buildbyalex.com";
+
   return (
     <Section pad="tight" tone="default" className="!pt-10 md:!pt-14">
       <Container size="default">
-        <div
-          className="relative isolate overflow-hidden rounded-[26px] px-6 py-9 sm:px-10 sm:py-12 md:rounded-[40px] md:px-14 md:py-16"
-          style={{
-            background: "#09090B",
-            border: "1px solid rgba(255,255,255,0.07)",
-            boxShadow: "0 50px 120px -55px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.06)",
-          }}
-        >
-          {/* key-art layers (reused from the case-cover system) */}
-          <div aria-hidden className="case-cover-aurora" />
-          <div aria-hidden className="case-cover-grid" />
-          <div aria-hidden className="case-cover-edge" />
-
-          {/* big outlined platform logos — per branch */}
-          {branch === "mobile" && <MobileBackdrop />}
-          {branch === "ads" && <AdsBackdrop />}
-
-          {/* live badge */}
-          <div className="case-cta-chip absolute right-5 top-5 z-20 hidden sm:inline-flex">
-            <span className="case-cta-chip-dot" />
-            {svc.hero.badge}
-          </div>
-
+        <HeroWindow theme={branch === "websites" ? "web" : branch} accent={AMBER} label={branchLabel} live={svc.hero.badge}>
           <div className="relative z-10 grid items-center gap-10 md:grid-cols-12 md:gap-10 lg:gap-14">
             {/* ── copy ── */}
             <div className="md:col-span-6">
@@ -858,7 +697,7 @@ export function ServiceHero({ branch }: { branch: Branch }) {
               </span>
             ))}
           </div>
-        </div>
+        </HeroWindow>
       </Container>
     </Section>
   );
