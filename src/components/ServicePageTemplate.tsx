@@ -6,7 +6,7 @@ import { Container } from "./Container";
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
 import { Button } from "./Button";
-import { CtaGlassLayers } from "./CtaGlass";
+import { FinalCta } from "./FinalCta";
 import { ServiceHero } from "./ServiceHero";
 import { FAQAccordion, type QA } from "./FAQAccordion";
 import { HowItWorks } from "./home/HowItWorks";
@@ -62,26 +62,13 @@ const DEMOS: Partial<Record<Branch, ComponentType>> = {
   ads: AdsShowcase,
 };
 
-function Stars({ className = "" }: { className?: string }) {
-  return (
-    <div className={`flex gap-0.5 ${className}`} aria-label="5 out of 5">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <svg key={i} width="15" height="15" viewBox="0 0 16 16" aria-hidden="true">
-          <path
-            d="M8 1.5l1.96 4.27 4.7.55-3.5 3.2.96 4.62L8 11.9l-4.12 2.24.96-4.62-3.5-3.2 4.7-.55L8 1.5z"
-            fill="var(--c-accent)"
-          />
-        </svg>
-      ))}
-    </div>
-  );
-}
-
 export function ServicePageTemplate({ branch }: { branch: Branch }) {
   const t = useTranslations(`services.${branch}`);
   const tr = useTranslations("home.testimonials");
   const tp = useTranslations("home.pricing");
   const tNav = useTranslations("nav");
+  const tf = useTranslations("home.finalCta");
+  const tl = useTranslations("work.caseLabels");
   const locale = useLocale() as Locale;
   const messages = useMessages() as unknown as Shape;
   const data: ServiceData = messages.services[branch];
@@ -193,38 +180,19 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
         </Container>
       </Section>
 
-      {/* ── Final CTA ── */}
-      <Section pad="default" tone="default">
-        <Container size="md">
-          <Reveal>
-            <div className="cta-glass rounded-[36px] px-8 py-14 text-center text-white md:px-12 md:py-20">
-              <CtaGlassLayers />
-              <div className="relative z-10">
-                <h2 className="text-[clamp(28px,3.6vw,42px)] font-semibold leading-[1.1] tracking-[-0.024em]">
-                  {t("primaryCta")}
-                </h2>
-                <div className="mt-5 flex items-center justify-center gap-2.5">
-                  <Stars />
-                  <span className="text-[13.5px] text-white/70">
-                    <span className="font-semibold text-white">{tr("rating")}</span> · {tr("count")}
-                  </span>
-                </div>
-                <div className="mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-3">
-                  <Button href="/contact" size="lg">
-                    {t("primaryCta")}
-                  </Button>
-                  <a
-                    href="mailto:alex@buildbyalex.com"
-                    className="text-[14px] text-white/70 underline underline-offset-4 hover:text-white"
-                  >
-                    alex@buildbyalex.com
-                  </a>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-        </Container>
-      </Section>
+      {/* ── Final CTA (shared glass-window bookend) ── */}
+      <FinalCta
+        theme={branch === "websites" ? "web" : branch}
+        eyebrow={tf("eyebrow")}
+        title={tf("headline")}
+        body={tf("subhead")}
+        steps={tl.raw("ctaSteps") as { k: string; v: string }[]}
+        available={tl("ctaAvailable")}
+        primary={{ label: t("primaryCta"), href: "/contact" }}
+        secondary={{ label: tf("email"), href: `mailto:${tf("email")}`, kind: "link" }}
+        rating={{ value: tr("rating"), count: tr("count") }}
+        note={tl("ctaNote")}
+      />
     </>
   );
 }

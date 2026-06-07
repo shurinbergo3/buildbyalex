@@ -38,3 +38,48 @@ export function languageAlternates(
   out["x-default"] = localizedHref(routing.defaultLocale as Locale, pathname);
   return out;
 }
+
+/**
+ * Build the localized URL for a dynamic route, substituting a resolved `slug`
+ * into the `[slug]` placeholder. e.g. ("pl", "/work/[slug]", "legalwin")
+ * → https://buildbyalex.com/pl/realizacje/legalwin
+ *
+ * Unlike `localizedHref` (which strips `[slug]`), this keeps the localized
+ * path prefix AND the slug, so canonical/hreflang/sitemap all agree.
+ */
+export function localizedDynamicHref(
+  locale: Locale,
+  pathname: keyof typeof routing.pathnames,
+  slug: string,
+): string {
+  const def = (routing.pathnames as Record<string, string | Partial<Record<Locale, string>>>)[pathname];
+  let p: string;
+  if (typeof def === "string") p = def;
+  else if (def && typeof def === "object")
+    p = def[locale] ?? def[routing.defaultLocale as Locale] ?? String(pathname);
+  else p = String(pathname);
+  p = p.replace("[slug]", slug);
+  return `${SITE_URL}/${locale}${p}`;
+}
+
+/**
+ * hreflang map for a dynamic route. `slugFor` resolves the slug per locale —
+ * pass a constant for routes whose slug is shared (cases), or a lookup for
+ * routes whose slug differs per language (blog clusters). Locales for which
+ * `slugFor` returns null/undefined are omitted.
+ */
+export function dynamicLanguageAlternates(
+  pathname: keyof typeof routing.pathnames,
+  slugFor: (locale: Locale) => string | undefined | null,
+): Record<string, string> {
+  const out: Record<string, string> = {};
+  for (const loc of LOCALES) {
+    const slug = slugFor(loc);
+    if (slug) out[htmlLang(loc)] = localizedDynamicHref(loc, pathname, slug);
+  }
+  const defaultSlug = slugFor(routing.defaultLocale as Locale);
+  if (defaultSlug) {
+    out["x-default"] = localizedDynamicHref(routing.defaultLocale as Locale, pathname, defaultSlug);
+  }
+  return out;
+}

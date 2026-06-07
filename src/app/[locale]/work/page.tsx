@@ -46,7 +46,7 @@ export default async function WorkIndex({
     metricValue: tCases(`${key}.metric.value`),
     metricLabel: tCases(`${key}.metric.label`),
     imageSrc: caseImages[key].src,
-    imageAlt: caseImages[key].alt,
+    imageAlt: tCases(`${key}.imageAlt`),
   }));
 
   return (

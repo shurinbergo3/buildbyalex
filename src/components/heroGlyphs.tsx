@@ -14,14 +14,18 @@ import type { CSSProperties } from "react";
    contrast on the headline stays clean. Purely decorative — hidden from a11y.
    ═══════════════════════════════════════════════════════════════════════════ */
 
-export type ContourTheme = "web" | "ai" | "automation" | "mobile" | "telegram" | "ads";
+export type ContourTheme = "web" | "ai" | "automation" | "mobile" | "telegram" | "ads" | "studio";
 
 type GP = { className?: string; style?: CSSProperties };
 
-/* Soft transparent hole over the left copy column + a fade at the far edges,
-   so the line-art never competes with the headline but still wraps the stage. */
-const MASK =
+/* Soft transparent hole over the protected copy area + a fade at the far edges,
+   so the line-art never competes with the copy but still wraps the stage.
+   "left" guards a left-aligned copy column (heroes); "center" guards centered
+   copy (the final CTA bookend). */
+const MASK_LEFT =
   "radial-gradient(62% 78% at 24% 48%, transparent 12%, rgba(0,0,0,0.45) 44%, #000 76%)";
+const MASK_CENTER =
+  "radial-gradient(82% 96% at 50% 50%, transparent 18%, rgba(0,0,0,0.5) 52%, #000 84%)";
 
 /* ───────────────────────── brand-logo outlines (24vb) ───────────────────────── */
 const APPLE =
@@ -360,15 +364,34 @@ const SCENES: Record<ContourTheme, Mark[]> = {
     { G: Target, cls: "absolute left-[5%] bottom-[12%] hidden h-[clamp(78px,9vw,120px)] w-[clamp(78px,9vw,120px)] sm:block", tint: "ink", o: 0.11 },
     { G: CursorClick, cls: "absolute left-[8%] top-[24%] hidden h-[clamp(58px,7vw,90px)] w-[clamp(58px,7vw,90px)] xl:block", tint: "ink", o: 0.1 },
   ],
+  // A cross-discipline sampler for the home page bookend — one mark per craft.
+  studio: [
+    { G: ReactAtom, cls: "absolute right-[6%] -top-[6%] h-[clamp(150px,20vw,260px)] w-[clamp(150px,20vw,260px)]", tint: "accent", o: 0.15, drift: "slow" },
+    { G: NeuralNet, cls: "absolute left-[4%] bottom-[4%] h-[clamp(140px,18vw,240px)] w-[clamp(140px,18vw,240px)]", tint: "ink", o: 0.12, drift: "fast" },
+    { G: TelegramPlane, cls: "absolute left-[6%] top-[10%] hidden h-[clamp(74px,8vw,116px)] w-[clamp(74px,8vw,116px)] sm:block", tint: "accent", o: 0.14 },
+    { G: Apple, cls: "absolute right-[8%] bottom-[8%] hidden h-[clamp(86px,10vw,140px)] w-[clamp(86px,10vw,140px)] sm:block", tint: "ink", o: 0.12 },
+    { G: Spark, cls: "absolute right-[26%] top-[20%] h-[clamp(34px,4vw,56px)] w-[clamp(34px,4vw,56px)]", tint: "accent", o: 0.16 },
+    { G: CodeBrackets, cls: "absolute left-[27%] top-[8%] hidden h-[clamp(56px,6vw,84px)] w-[clamp(56px,6vw,84px)] lg:block", tint: "ink", o: 0.1 },
+    { G: Gear, cls: "absolute right-[31%] bottom-[8%] hidden h-[clamp(54px,6vw,82px)] w-[clamp(54px,6vw,82px)] lg:block", tint: "ink", o: 0.1 },
+  ],
 };
 
-export function HeroContours({ theme, accent = "#FF7A2D" }: { theme: ContourTheme; accent?: string }) {
+export function HeroContours({
+  theme,
+  accent = "#FF7A2D",
+  focus = "left",
+}: {
+  theme: ContourTheme;
+  accent?: string;
+  focus?: "left" | "center";
+}) {
   const marks = SCENES[theme];
+  const mask = focus === "center" ? MASK_CENTER : MASK_LEFT;
   return (
     <div
       aria-hidden="true"
       className="hero-contour pointer-events-none absolute inset-0 overflow-hidden"
-      style={{ WebkitMaskImage: MASK, maskImage: MASK }}
+      style={{ WebkitMaskImage: mask, maskImage: mask }}
     >
       {marks.map(({ G, cls, tint, o, drift }, i) => {
         const driftCls = drift === "fast" ? "hero-contour-drift" : drift === "slow" ? "hero-contour-drift hero-contour-drift--slow" : "";

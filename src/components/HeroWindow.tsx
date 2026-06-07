@@ -48,6 +48,7 @@ export function HeroWindow({
   theme,
   accent = "#FF7A2D",
   icon = "globe",
+  centered = false,
   className = "",
   bodyClassName = "",
   children,
@@ -57,6 +58,8 @@ export function HeroWindow({
   theme: ContourTheme;
   accent?: string;
   icon?: "globe" | "lock";
+  /** Centered content (final-CTA bookend): guards the centre, not a left column. */
+  centered?: boolean;
   className?: string;
   bodyClassName?: string;
   children: ReactNode;
@@ -89,12 +92,17 @@ export function HeroWindow({
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       className={`hero-glass ${className}`}
-      style={{ "--hero-accent-rgb": hexToRgb(accent) } as React.CSSProperties}
+      style={
+        {
+          "--hero-accent-rgb": hexToRgb(accent),
+          ...(centered ? { "--gx": "50%", "--gy": "32%" } : {}),
+        } as React.CSSProperties
+      }
     >
       {/* ambient layers */}
       <div className="hero-glass-aurora" aria-hidden="true" />
       <div className="hero-glass-grid" aria-hidden="true" />
-      <HeroContours theme={theme} accent={accent} />
+      <HeroContours theme={theme} accent={accent} focus={centered ? "center" : "left"} />
       <div className="hero-glass-edge" aria-hidden="true" />
       <div className="hero-glass-glint" aria-hidden="true" />
       <div className="hero-glass-sheen" aria-hidden="true" />

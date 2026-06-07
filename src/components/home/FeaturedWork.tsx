@@ -13,6 +13,7 @@ type CaseShape = {
       {
         industry: string;
         title: string;
+        imageAlt: string;
         tagline: string;
         results: string[];
         metric: { value: string; label: string };
@@ -37,7 +38,7 @@ export function FeaturedWork() {
       results: c.results,
       metricValue: c.metric.value,
       metricLabel: c.metric.label,
-      image: caseImages[key],
+      image: { src: caseImages[key].src, alt: c.imageAlt },
     };
   });
 

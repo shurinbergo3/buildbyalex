@@ -5,8 +5,7 @@ import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
-import { Button } from "@/components/Button";
-import { CtaGlassLayers } from "@/components/CtaGlass";
+import { FinalCta } from "@/components/FinalCta";
 import { CaseCover } from "@/components/CaseCover";
 import { HeroWindow } from "@/components/HeroWindow";
 import { DonbravaCaseHero } from "@/components/DonbravaCaseHero";
@@ -19,9 +18,9 @@ import { VisionairShowcase } from "@/components/VisionairShowcase";
 import { DonbravaShowcase } from "@/components/DonbravaShowcase";
 import { BodyForgeShowcase } from "@/components/BodyForgeShowcase";
 import { CrmbotShowcase } from "@/components/CrmbotShowcase";
-import { routing } from "@/i18n/routing";
-import { caseSlugToKey, caseImages, type CaseKey } from "@/lib/cases";
-import { SITE_URL } from "@/lib/site";
+import { routing, type Locale } from "@/i18n/routing";
+import { caseSlugToKey, caseImages, caseCategory, type CaseKey } from "@/lib/cases";
+import { SITE_URL, localizedDynamicHref, dynamicLanguageAlternates } from "@/lib/site";
 
 export function generateStaticParams() {
   const slugs = Object.keys(caseSlugToKey);
@@ -40,7 +39,11 @@ export async function generateMetadata({
   if (!key) return {};
   const t = await getTranslations({ locale, namespace: `work.cases.${key}` });
   const tMeta = await getTranslations({ locale, namespace: "meta" });
-  const url = `${SITE_URL}/${locale}/work/${slug}`;
+  // The case slug is shared across locales; only the /work segment is localized
+  // (ru: /raboty, pl: /realizacje, ua: /roboty). Build canonical + hreflang from
+  // the localized path so they match the real public URLs and the sitemap.
+  const url = localizedDynamicHref(locale as Locale, "/work/[slug]", slug);
+  const languages = dynamicLanguageAlternates("/work/[slug]", () => slug);
   const image = caseImages[key];
 
   const title = t("title");
@@ -69,7 +72,7 @@ export async function generateMetadata({
     title: pageTitle,
     description,
     keywords: [title, industry, ...stack.slice(0, 6)],
-    alternates: { canonical: url },
+    alternates: { canonical: url, languages },
     openGraph: {
       type: "article",
       title: pageTitle,
@@ -77,7 +80,7 @@ export async function generateMetadata({
       url,
       siteName,
       locale,
-      images: [{ url: ogImage, alt: image.alt }],
+      images: [{ url: ogImage, alt: t("imageAlt") }],
     },
     twitter: {
       card: "summary_large_image",
@@ -138,13 +141,16 @@ function CaseContent({ slug, locale }: { slug: string; locale: string }) {
   // Window-chrome label: the site host for real links, the verbatim label
   // (e.g. "Под NDA") otherwise.
   const chromeHost = c.url.split("/")[0].replace(/^https?:\/\//, "");
+  // Final-CTA bookend: same theme/accent as this case's hero.
+  const ctaTheme = caseCategory[key];
+  const ctaAccent = key === "bodyforge" ? "#C8FF00" : "#FF7A2D";
 
   const chapters = [
     { label: labels.problem, body: c.problem },
     { label: labels.solution, body: c.solution },
   ];
 
-  const pageUrl = `${SITE_URL}/${locale}/work/${slug}`;
+  const pageUrl = localizedDynamicHref(locale as Locale, "/work/[slug]", slug);
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -504,54 +510,18 @@ function CaseContent({ slug, locale }: { slug: string; locale: string }) {
       {key === "donbrava" && <DonbravaShowcase />}
       {key === "bodyforge" && <BodyForgeShowcase />}
 
-      <Section pad="default">
-        <Container size="md">
-          <Reveal>
-            <div className="cta-glass rounded-[36px] px-6 py-16 text-center text-white sm:px-10 md:px-14 md:py-24">
-              <CtaGlassLayers />
-
-              <div className="relative z-10 mx-auto flex max-w-[660px] flex-col items-center">
-                <span className="case-cta-chip">
-                  <span className="case-cta-chip-dot" aria-hidden="true" />
-                  {labels.ctaAvailable}
-                </span>
-
-                <span className="case-cta-eyebrow">{labels.ctaEyebrow}</span>
-
-                <h2 className="mt-4 text-[clamp(30px,4vw,50px)] font-semibold leading-[1.05] tracking-[-0.03em]">
-                  {labels.ctaTitle}
-                </h2>
-                <p className="mx-auto mt-4 max-w-[480px] text-[16.5px] leading-[1.55] text-white/65">
-                  {labels.ctaBody}
-                </p>
-
-                <ol className="case-cta-rail">
-                  {labels.ctaSteps.map((s, i) => (
-                    <li className="case-cta-step" key={i}>
-                      <span className="case-cta-step-k">{s.k}</span>
-                      <span className="case-cta-step-v">{s.v}</span>
-                    </li>
-                  ))}
-                </ol>
-
-                <div className="mt-9 flex flex-wrap items-center justify-center gap-3.5">
-                  <Button href="/contact" size="lg" className="case-cta-primary">
-                    {labels.cta}
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <path d="M5 12h14M13 5l7 7-7 7" />
-                    </svg>
-                  </Button>
-                  <Button href="/work" variant="ghost" size="lg" className="!text-white !border-white/20 hover:!bg-white/10">
-                    {labels.more}
-                  </Button>
-                </div>
-
-                <p className="case-cta-note">{labels.ctaNote}</p>
-              </div>
-            </div>
-          </Reveal>
-        </Container>
-      </Section>
+      <FinalCta
+        theme={ctaTheme}
+        accent={ctaAccent}
+        eyebrow={labels.ctaEyebrow}
+        title={labels.ctaTitle}
+        body={labels.ctaBody}
+        steps={labels.ctaSteps}
+        available={labels.ctaAvailable}
+        primary={{ label: labels.cta, href: "/contact" }}
+        secondary={{ label: labels.more, href: "/work", kind: "ghost" }}
+        note={labels.ctaNote}
+      />
 
       <script
         type="application/ld+json"

@@ -29,25 +29,12 @@ export const caseKeyToSlug: Record<CaseKey, string> = {
   bodyforge: "body-forge",
 };
 
-export const caseImages: Record<CaseKey, { src: string; alt: string }> = {
-  legalwin: {
-    src: "/cases/legalwin-passport.webp",
-    alt: "Паспорт у иллюминатора самолёта на закате — иммиграционный кейс LegalWin",
-  },
-  visionair: {
-    src: "/cases/visionair-warsaw.webp",
-    alt: "Аэросъёмка центра Варшавы на закате с дрона — кейс VisionAir",
-  },
-  crmbot: {
-    src: "/cases/crm-ai.webp",
-    alt: "Синяя сеть из узлов и связей на тёмном фоне — кейс CRM Bot",
-  },
-  donbrava: {
-    src: "/cases/donbrava-chat.webp",
-    alt: "Человек переписывается в мессенджере на смартфоне — кейс ИИ-менеджер для продаж",
-  },
-  bodyforge: {
-    src: "/cases/bodyforge-gym.webp",
-    alt: "Гантель в драматичном свете тёмного зала — кейс Body Forge",
-  },
+// Image sources only. The localized alt text lives in messages under
+// `work.cases.<key>.imageAlt` so it translates per locale (used in <img>/OG alt).
+export const caseImages: Record<CaseKey, { src: string }> = {
+  legalwin: { src: "/cases/legalwin-passport.webp" },
+  visionair: { src: "/cases/visionair-warsaw.webp" },
+  crmbot: { src: "/cases/crm-ai.webp" },
+  donbrava: { src: "/cases/donbrava-chat.webp" },
+  bodyforge: { src: "/cases/bodyforge-gym.webp" },
 };

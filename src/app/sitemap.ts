@@ -1,8 +1,14 @@
 import type { MetadataRoute } from "next";
 import { routing, type Locale } from "@/i18n/routing";
-import { SITE_URL, localizedHref, htmlLang } from "@/lib/site";
-import { getAllPostSlugs, getPost } from "@/lib/blog";
-import { caseKeyToSlug, type CaseKey } from "@/lib/cases";
+import {
+  SITE_URL,
+  localizedHref,
+  localizedDynamicHref,
+  dynamicLanguageAlternates,
+  htmlLang,
+} from "@/lib/site";
+import { getAllPostSlugs, getPost, getClusterSlugs } from "@/lib/blog";
+import { caseKeyToSlug, caseSlugs, type CaseKey } from "@/lib/cases";
 
 const staticPaths: (keyof typeof routing.pathnames)[] = [
   "/",
@@ -18,7 +24,9 @@ const staticPaths: (keyof typeof routing.pathnames)[] = [
   "/contact",
 ];
 
-const caseKeys: CaseKey[] = ["legalwin", "visionair", "crmbot"];
+// All published case studies — derived from the single source of truth in
+// cases.ts so new cases appear in the sitemap automatically.
+const caseKeys: CaseKey[] = caseSlugs;
 
 function buildAlternates(pathname: keyof typeof routing.pathnames) {
   const languages: Record<string, string> = {};
@@ -45,39 +53,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  // Case studies
+  // Case studies — slug is shared across locales, only the /work prefix is
+  // localized. Each entry carries hreflang alternates for all four languages.
   for (const key of caseKeys) {
     const slug = caseKeyToSlug[key];
+    const languages = dynamicLanguageAlternates("/work/[slug]", () => slug);
     for (const loc of routing.locales) {
-      // Resolve the localized prefix of /work/[slug] dynamically
-      const def = (routing.pathnames as Record<string, unknown>)["/work/[slug]"];
-      let pathTemplate: string;
-      if (typeof def === "string") pathTemplate = def;
-      else if (def && typeof def === "object")
-        pathTemplate =
-          (def as Record<string, string>)[loc] ??
-          (def as Record<string, string>)[routing.defaultLocale] ??
-          "/work/[slug]";
-      else pathTemplate = "/work/[slug]";
-      const url = `${SITE_URL}/${loc}${pathTemplate.replace("[slug]", slug)}`;
       out.push({
-        url,
+        url: localizedDynamicHref(loc as Locale, "/work/[slug]", slug),
         lastModified: now,
         changeFrequency: "yearly",
         priority: 0.6,
+        alternates: { languages },
       });
     }
   }
 
-  // Blog posts (per locale, only where the post exists)
+  // Blog posts (per locale, only where the post exists). hreflang links every
+  // translated variant of the same cluster.
   for (const loc of routing.locales) {
     for (const slug of getAllPostSlugs(loc as Locale)) {
       const post = getPost(loc as Locale, slug);
+      const cluster = post ? getClusterSlugs(post.cluster) : {};
+      const languages: Record<string, string> = {};
+      for (const [clLoc, clSlug] of Object.entries(cluster)) {
+        languages[htmlLang(clLoc as Locale)] = `${SITE_URL}/${clLoc}/blog/${clSlug}`;
+      }
       out.push({
         url: `${SITE_URL}/${loc}/blog/${slug}`,
         lastModified: post ? new Date(post.date) : now,
         changeFrequency: "monthly",
         priority: 0.5,
+        ...(Object.keys(languages).length > 1 ? { alternates: { languages } } : {}),
       });
     }
   }
