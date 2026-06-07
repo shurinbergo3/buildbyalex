@@ -759,7 +759,7 @@
           }
         ],
         "mock": {
-          "url": "ваш-сайт.рф",
+          "url": "ваш-сайт.com",
           "serp": "#1 в выдаче",
           "score": "Lighthouse",
           "features": [
