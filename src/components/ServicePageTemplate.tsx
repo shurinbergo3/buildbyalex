@@ -5,10 +5,10 @@ import type { Locale } from "@/i18n/routing";
 import { Container } from "./Container";
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
-import { Button } from "./Button";
 import { FinalCta } from "./FinalCta";
 import { ServiceHero } from "./ServiceHero";
 import { FAQAccordion, type QA } from "./FAQAccordion";
+import { ServicePricing, type PricingTier } from "./ServicePricing";
 import { HowItWorks } from "./home/HowItWorks";
 import { AiSyncShowcase } from "./AiSyncShowcase";
 import { AdsShowcase } from "./AdsShowcase";
@@ -29,6 +29,13 @@ type ServiceData = {
   stack: { title: string; items: string[] };
   cases: string;
   faq: { title: string; items: QA[] };
+  pricing?: {
+    eyebrow?: string;
+    tiers: PricingTier[];
+    caption?: string;
+    featuredLabel?: string;
+    marketLabel?: string;
+  };
 };
 
 type Shape = { services: Record<Branch, ServiceData> };
@@ -75,6 +82,24 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
   const priceKey = PRICE_KEY[branch];
   const Demo = DEMOS[branch];
 
+  // A service can ship a multi-tier grid via `services.<branch>.pricing.tiers`.
+  // When absent, fall back to the single starting-price card built from
+  // `home.pricing.tiers.<priceKey>` so every other service keeps working.
+  const pricingTiers: PricingTier[] = data.pricing?.tiers?.length
+    ? data.pricing.tiers
+    : [
+        {
+          title: tp(`tiers.${priceKey}.title`),
+          from: tp(`tiers.${priceKey}.from`),
+          price: tp(`tiers.${priceKey}.price`),
+          body: tp(`tiers.${priceKey}.body`),
+          examples: tp(`tiers.${priceKey}.examples`),
+        },
+      ];
+  const schemaPrice = Math.min(
+    ...pricingTiers.map((tier) => Number(tier.price.replace(/[^\d]/g, "")) || Infinity),
+  );
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -86,7 +111,7 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
     url: localizedHref(locale, SERVICE_PATH[branch]),
     offers: {
       "@type": "Offer",
-      price: tp(`tiers.${priceKey}.price`).replace(/[^\d]/g, ""),
+      price: String(Number.isFinite(schemaPrice) ? schemaPrice : ""),
       priceCurrency: "EUR",
       url: localizedHref(locale, "/contact"),
     },
@@ -142,33 +167,15 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
       {/* ── Process (shared 4-step) ── */}
       <HowItWorks />
 
-      {/* ── Pricing for this service ── */}
-      <Section pad="default" tone="default">
-        <Container size="sm">
-          <Reveal>
-            <div className="relative flex flex-col rounded-[28px] bg-[color:var(--color-bg-alt)] p-8 md:p-10">
-              <p className="t-eyebrow">{t("startingPrice")}</p>
-              <div className="mt-4 flex items-baseline gap-2">
-                <span className="text-[13px] uppercase tracking-[0.04em] text-[color:var(--color-text-3)]">
-                  {tp(`tiers.${priceKey}.from`)}
-                </span>
-                <span className="text-[clamp(40px,5vw,60px)] font-semibold tracking-[-0.03em] text-[color:var(--color-text)]">
-                  {tp(`tiers.${priceKey}.price`)}
-                </span>
-              </div>
-              <p className="mt-4 text-[16px] leading-[1.55] text-[color:var(--color-text-2)]">
-                {tp(`tiers.${priceKey}.body`)}
-              </p>
-              <p className="mt-3 text-[13px] tracking-[0.02em] text-[color:var(--color-text-3)]">
-                {tp(`tiers.${priceKey}.examples`)}
-              </p>
-              <div className="mt-8">
-                <Button href="/contact" size="lg" className="w-full sm:w-auto">{t("bookCta")}</Button>
-              </div>
-            </div>
-          </Reveal>
-        </Container>
-      </Section>
+      {/* ── Pricing for this service (single card, or multi-tier grid) ── */}
+      <ServicePricing
+        eyebrow={data.pricing?.eyebrow ?? t("startingPrice")}
+        tiers={pricingTiers}
+        bookCta={t("bookCta")}
+        caption={data.pricing?.caption}
+        featuredLabel={data.pricing?.featuredLabel}
+        marketLabel={data.pricing?.marketLabel}
+      />
 
       {/* ── FAQ ── */}
       <Section pad="default" tone="alt">

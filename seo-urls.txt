@@ -1,0 +1,171 @@
+# buildbyalex.com — URL для отправки на индексацию
+# Отсортировано от самых важных (деньги/конверсия) к менее важным.
+# Язык по умолчанию — RU, но геотаргет — Польша (PL), поэтому RU и PL приоритетны.
+# Самый быстрый способ: отправить sitemap → https://buildbyalex.com/sitemap.xml
+# Для ручного "Запросить индексирование" в Search Console идите по этому списку сверху вниз.
+
+# ============================================================
+# ТИР 1 — ГЛАВНАЯ (наивысший приоритет)
+# ============================================================
+https://buildbyalex.com/ru
+https://buildbyalex.com/pl
+https://buildbyalex.com/ua
+https://buildbyalex.com/en
+
+# ============================================================
+# ТИР 2 — СТРАНИЦЫ УСЛУГ (money-pages, главный источник заявок)
+# ============================================================
+# Сайты
+https://buildbyalex.com/ru/uslugi/sayty
+https://buildbyalex.com/pl/uslugi/strony-internetowe
+https://buildbyalex.com/ua/poslugy/sayty
+https://buildbyalex.com/en/services/websites
+# AI-агенты
+https://buildbyalex.com/ru/uslugi/ai-agenty
+https://buildbyalex.com/pl/uslugi/agenci-ai
+https://buildbyalex.com/ua/poslugy/ai-agenty
+https://buildbyalex.com/en/services/ai-agents
+# Автоматизация бизнес-процессов
+https://buildbyalex.com/ru/uslugi/avtomatizaciya-biznes-processov
+https://buildbyalex.com/pl/uslugi/automatyzacja-procesow
+https://buildbyalex.com/ua/poslugy/avtomatyzaciya-biznes-procesiv
+https://buildbyalex.com/en/services/automation
+# Telegram-боты и мини-приложения
+https://buildbyalex.com/ru/uslugi/telegram-boty-i-mini-prilozheniya
+https://buildbyalex.com/pl/uslugi/boty-telegram-i-mini-aplikacje
+https://buildbyalex.com/ua/poslugy/telegram-boty-i-mini-dodatky
+https://buildbyalex.com/en/services/telegram-bots
+# Мобильные приложения
+https://buildbyalex.com/ru/uslugi/mobilnye-prilozheniya
+https://buildbyalex.com/pl/uslugi/aplikacje-mobilne
+https://buildbyalex.com/ua/poslugy/mobilni-dodatky
+https://buildbyalex.com/en/services/mobile-apps
+# Реклама / Google Ads
+https://buildbyalex.com/ru/uslugi/reklama
+https://buildbyalex.com/pl/uslugi/reklama-google-ads
+https://buildbyalex.com/ua/poslugy/reklama
+https://buildbyalex.com/en/services/advertising
+
+# ============================================================
+# ТИР 3 — ХАБ УСЛУГ
+# ============================================================
+https://buildbyalex.com/ru/uslugi
+https://buildbyalex.com/pl/uslugi
+https://buildbyalex.com/ua/poslugy
+https://buildbyalex.com/en/services
+
+# ============================================================
+# ТИР 4 — КЕЙСЫ / ПОРТФОЛИО (social proof, усиливают услуги)
+# ============================================================
+# Хаб работ
+https://buildbyalex.com/ru/raboty
+https://buildbyalex.com/pl/realizacje
+https://buildbyalex.com/ua/roboty
+https://buildbyalex.com/en/work
+# LegalWin (web)
+https://buildbyalex.com/ru/raboty/legalwin
+https://buildbyalex.com/pl/realizacje/legalwin
+https://buildbyalex.com/ua/roboty/legalwin
+https://buildbyalex.com/en/work/legalwin
+# VisionAir (web)
+https://buildbyalex.com/ru/raboty/visionair
+https://buildbyalex.com/pl/realizacje/visionair
+https://buildbyalex.com/ua/roboty/visionair
+https://buildbyalex.com/en/work/visionair
+# CRM-bot (ai)
+https://buildbyalex.com/ru/raboty/crm-bot
+https://buildbyalex.com/pl/realizacje/crm-bot
+https://buildbyalex.com/ua/roboty/crm-bot
+https://buildbyalex.com/en/work/crm-bot
+# Donbrava (ai)
+https://buildbyalex.com/ru/raboty/donbrava
+https://buildbyalex.com/pl/realizacje/donbrava
+https://buildbyalex.com/ua/roboty/donbrava
+https://buildbyalex.com/en/work/donbrava
+# Body Forge (mobile)
+https://buildbyalex.com/ru/raboty/body-forge
+https://buildbyalex.com/pl/realizacje/body-forge
+https://buildbyalex.com/ua/roboty/body-forge
+https://buildbyalex.com/en/work/body-forge
+
+# ============================================================
+# ТИР 5 — БЛОГ С КОММЕРЧЕСКИМ ИНТЕНТОМ ("сколько стоит", "X vs Y")
+# Самые ценные статьи — люди ищут перед покупкой
+# ============================================================
+# Сколько стоит сайт в Польше 2025
+https://buildbyalex.com/ru/blog/skolko-stoit-sayt-v-polshe-2025
+https://buildbyalex.com/pl/blog/ile-kosztuje-strona-internetowa-2025
+https://buildbyalex.com/ua/blog/skilky-koshtuye-sayt-v-polshchi-2025
+https://buildbyalex.com/en/blog/website-cost-poland-2025
+# Сколько стоит разработать приложение
+https://buildbyalex.com/ru/blog/skolko-stoit-razrabotat-prilozhenie
+https://buildbyalex.com/pl/blog/ile-kosztuje-aplikacja-mobilna
+https://buildbyalex.com/ua/blog/skilky-koshtuye-rozrobyty-dodatok
+https://buildbyalex.com/en/blog/how-much-does-it-cost-to-build-an-app
+# Сколько стоит AI-агент / чатбот
+https://buildbyalex.com/ru/blog/skolko-stoit-ai-agent-chatbot
+https://buildbyalex.com/pl/blog/ile-kosztuje-chatbot-ai
+https://buildbyalex.com/ua/blog/skilky-koshtuye-ai-agent-chatbot
+https://buildbyalex.com/en/blog/how-much-does-an-ai-chatbot-cost
+# Многоязычный сайт для бизнеса в Польше
+https://buildbyalex.com/ru/blog/mnogoyazychnyy-sayt-dlya-biznesa-v-polshe
+https://buildbyalex.com/pl/blog/wielojezyczna-strona-dla-firmy-w-polsce
+https://buildbyalex.com/ua/blog/bahatomovnyy-sayt-dlya-biznesu-v-polshchi
+https://buildbyalex.com/en/blog/multilingual-website-for-business-in-poland
+# Google Ads или Meta Ads
+https://buildbyalex.com/ru/blog/google-ads-ili-meta-ads
+https://buildbyalex.com/pl/blog/google-ads-czy-meta-ads
+https://buildbyalex.com/ua/blog/google-ads-chy-meta-ads
+https://buildbyalex.com/en/blog/google-ads-vs-meta-ads
+# Next.js или WordPress
+https://buildbyalex.com/ru/blog/nextjs-ili-wordpress
+https://buildbyalex.com/pl/blog/nextjs-czy-wordpress
+https://buildbyalex.com/ua/blog/nextjs-chy-wordpress
+https://buildbyalex.com/en/blog/nextjs-vs-wordpress
+# Make vs n8n vs Zapier
+https://buildbyalex.com/ru/blog/make-vs-n8n-vs-zapier
+https://buildbyalex.com/pl/blog/make-vs-n8n-vs-zapier
+https://buildbyalex.com/ua/blog/make-vs-n8n-vs-zapier
+https://buildbyalex.com/en/blog/make-vs-n8n-vs-zapier
+
+# ============================================================
+# ТИР 6 — БЛОГ ИНФОРМАЦИОННЫЙ (трафик/доверие, верх воронки)
+# ============================================================
+# Что такое AI-агент
+https://buildbyalex.com/ru/blog/chto-takoe-ai-agent
+https://buildbyalex.com/pl/blog/czym-jest-agent-ai
+https://buildbyalex.com/ua/blog/shcho-take-ai-agent
+https://buildbyalex.com/en/blog/what-is-an-ai-agent
+# Как внедрить ИИ в бизнес
+https://buildbyalex.com/ru/blog/kak-vnedrit-ii-v-biznes
+https://buildbyalex.com/pl/blog/jak-wdrozyc-ai-w-firmie
+https://buildbyalex.com/ua/blog/yak-vprovadyty-shi-v-biznes
+https://buildbyalex.com/en/blog/how-to-implement-ai-in-business
+# Автоматизация бизнес-процессов: с чего начать
+https://buildbyalex.com/ru/blog/avtomatizaciya-biznes-processov-s-chego-nachat
+https://buildbyalex.com/pl/blog/automatyzacja-procesow-od-czego-zaczac
+https://buildbyalex.com/ua/blog/avtomatyzaciya-biznes-procesiv-z-choho-pochaty
+https://buildbyalex.com/en/blog/business-process-automation-where-to-start
+# AI-агент для отдела продаж
+https://buildbyalex.com/ru/blog/ai-agent-dlya-otdela-prodazh
+https://buildbyalex.com/pl/blog/agent-ai-dla-dzialu-sprzedazy
+https://buildbyalex.com/ua/blog/ai-agent-dlya-viddilu-prodazhiv
+https://buildbyalex.com/en/blog/ai-agent-for-sales-team
+# Интеграция CRM с Telegram и WhatsApp
+https://buildbyalex.com/ru/blog/integraciya-crm-s-telegram-i-whatsapp
+https://buildbyalex.com/pl/blog/integracja-crm-z-telegramem-i-whatsapp
+https://buildbyalex.com/ua/blog/integraciya-crm-z-telegram-i-whatsapp
+https://buildbyalex.com/en/blog/crm-telegram-whatsapp-integration
+
+# ============================================================
+# ТИР 7 — КОНТАКТЫ (нужны в индексе, но без приоритета)
+# ============================================================
+https://buildbyalex.com/ru/kontakty
+https://buildbyalex.com/pl/kontakt
+https://buildbyalex.com/ua/kontakt
+https://buildbyalex.com/en/contact
+
+# ============================================================
+# НЕ ИНДЕКСИРОВАТЬ (служебные — в sitemap их нет, не отправляйте):
+#   /*/kontakty/spasibo, /*/kontakt/dziekuje и т.п. (страницы «спасибо»)
+# ============================================================

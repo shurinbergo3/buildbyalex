@@ -1004,14 +1004,67 @@
           },
           {
             "q": "Czyja jest strona, kod i domena po zakończeniu?",
-            "a": "Twoja w całości. Domenę i hosting (Vercel) rejestruję na Twoje dane, kod źródłowy trafia do Twojego repozytorium na GitHubie, a przeniesienie praw autorskich jest zapisane w umowie. Żadnego «kodu w wynajmie» ani uzależnienia ode mnie — inny programista przejmie czyste repo i kontynuuje bez problemu."
+            "a": "Twoja w całości. Domenę i hosting rejestruję na Twoje dane, kod źródłowy trafia do Twojego repozytorium na GitHubie, a przeniesienie praw autorskich jest zapisane w umowie. Żadnego «kodu w wynajmie» ani uzależnienia ode mnie — inny programista przejmie czyste repo i kontynuuje bez problemu."
           }
         ]
       },
       "demoEyebrow": "Na żywo",
       "startingPrice": "Cena startowa",
       "bookCta": "Bezpłatna rozmowa",
-      "includedTitle": "Co wchodzi w zakres"
+      "includedTitle": "Co wchodzi w zakres",
+      "pricing": {
+        "eyebrow": "Pakiety i ceny",
+        "marketLabel": "Studia z Warszawy",
+        "featuredLabel": "Najczęściej",
+        "caption": "Kurs ≈ 4,3 zł za €1. Domena i hosting rejestrowane na Twoje dane — żadnego «kodu w wynajmie». Poprawki po starcie €50/godz., minimum godzina, bez przymusowego abonamentu. Ostateczną kwotę ustalam po 30-minutowej rozmowie.",
+        "tiers": [
+          {
+            "title": "Landing",
+            "from": "od",
+            "price": "€700",
+            "market": "4 000–6 000 zł",
+            "body": "Jednostronicowa strona pod jeden cel — lead albo sprzedaż.",
+            "features": [
+              "1 długa strona, struktura sprzedażowa",
+              "Responsywność: mobile, tablet, desktop",
+              "Podstawowe SEO: meta, grafiki OG, sitemap, Schema.org",
+              "Szybkość: Core Web Vitals w zielonej strefie",
+              "SSL, analityka, formularz kontaktowy",
+              "Domena i hosting na Twoje dane"
+            ]
+          },
+          {
+            "title": "Wielostronicowa / sklep",
+            "from": "od",
+            "price": "€1 900",
+            "market": "10 000–18 000 zł",
+            "featured": true,
+            "body": "5–15 podstron albo katalog z koszykiem i płatnościami.",
+            "features": [
+              "Wszystko z Landinga, plus:",
+              "5–15 podstron albo katalog + koszyk + płatności",
+              "CMS do wyboru: Sanity lub MDX",
+              "Rozszerzone SEO + IndexNow przy deployu",
+              "Integracje: CRM, płatności, śledzenie konwersji",
+              "30 dni poprawek w cenie"
+            ]
+          },
+          {
+            "title": "Wielojęzyczny projekt",
+            "from": "od",
+            "price": "€3 500",
+            "market": "20 000–40 000 zł",
+            "body": "Wiele podstron + lokalizacje EN / PL / UA / RU.",
+            "features": [
+              "Wszystko z Wielostronicowej, plus:",
+              "Do 4 języków: poprawny hreflang, zlokalizowane URL-e",
+              "Złożona struktura: filtry, konto użytkownika",
+              "Śledzenie konwersji po stronie serwera",
+              "Priorytetowe wsparcie po starcie"
+            ]
+          }
+        ]
+      }
     },
     "ai": {
       "meta": {
@@ -1282,6 +1335,35 @@
           {
             "value": "<2 sek",
             "label": "do reakcji zespołu"
+          }
+        ]
+      },
+      "pricing": {
+        "eyebrow": "Pakiety",
+        "featuredLabel": "Najczęściej wybierane",
+        "caption": "Dokładna cena zależy od liczby integracji i scenariuszy — wycenimy ją na darmowej rozmowie.",
+        "tiers": [
+          {
+            "title": "Połączenie",
+            "from": "od",
+            "price": "€600",
+            "body": "Jeden scenariusz między 2–3 narzędziami — zgłoszenia, powiadomienia i przenoszenie danych bez rąk.",
+            "examples": "1 scenariusz · Make / n8n · 2–3 integracje · 3–5 dni"
+          },
+          {
+            "title": "Przepływ",
+            "from": "od",
+            "price": "€1 400",
+            "body": "Kilka połączonych scenariuszy z CRM i powiadomieniami, z obsługą błędów i logami.",
+            "examples": "Kilka scenariuszy · CRM · API · raporty · 1–2 tygodnie",
+            "featured": true
+          },
+          {
+            "title": "System",
+            "from": "od",
+            "price": "€3 000",
+            "body": "Kompleksowa automatyzacja działu pod klucz: dashboardy, monitoring i wsparcie.",
+            "examples": "Pełna budowa · dashboardy · monitoring · wsparcie · od 3 tygodni"
           }
         ]
       }

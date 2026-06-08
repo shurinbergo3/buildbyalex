@@ -46,12 +46,18 @@ export async function generateMetadata({
   }
   languages["x-default"] = localizedHref(routing.defaultLocale as Locale, "/");
 
-  // Search-engine ownership verification — set these in the environment
-  // (Vercel project → Settings → Environment Variables) after adding the
-  // property in Google Search Console / Yandex Webmaster.
+  // Search-engine ownership verification. Codes are public (served in HTML);
+  // env vars override the defaults so they can be rotated without a redeploy
+  // (Vercel project → Settings → Environment Variables).
+  const googleVerification =
+    process.env.GOOGLE_SITE_VERIFICATION ?? "dc8BkoAfPhBbulrUzksvL4TGZ3MOinl-0CAT5YwrlIs";
+  const bingVerification =
+    process.env.BING_SITE_VERIFICATION ?? "874888A481A37085C686C9CE85897BFD";
+
   const verification: NonNullable<Metadata["verification"]> = {};
-  if (process.env.GOOGLE_SITE_VERIFICATION) verification.google = process.env.GOOGLE_SITE_VERIFICATION;
+  if (googleVerification) verification.google = googleVerification;
   if (process.env.YANDEX_VERIFICATION) verification.yandex = process.env.YANDEX_VERIFICATION;
+  if (bingVerification) verification.other = { "msvalidate.01": bingVerification };
 
   return {
     metadataBase: new URL(SITE_URL),

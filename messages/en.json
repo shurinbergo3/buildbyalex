@@ -1004,14 +1004,67 @@
           },
           {
             "q": "Who owns the code, domain and hosting once it's done?",
-            "a": "You do, all of it. The domain and hosting (Vercel) are registered in your name, the source code lives in your GitHub, and the IP transfer is written into the contract. Nothing is rented or locked to me — bring in another developer later and they inherit a clean repo and carry on."
+            "a": "You do, all of it. The domain and hosting are registered in your name, the source code lives in your GitHub, and the IP transfer is written into the contract. Nothing is rented or locked to me — bring in another developer later and they inherit a clean repo and carry on."
           }
         ]
       },
       "demoEyebrow": "See it live",
       "startingPrice": "Starting price",
       "bookCta": "Book a free call",
-      "includedTitle": "What's included"
+      "includedTitle": "What's included",
+      "pricing": {
+        "eyebrow": "Pricing tiers",
+        "marketLabel": "Warsaw studios",
+        "featuredLabel": "Most asked",
+        "caption": "Rate ≈ 4.3 zł per €1. Domain and hosting go in your name — nothing is rented. Post-launch edits are €50/hr, 1 hour minimum, no mandatory retainer. The final number is fixed after a 30-minute call.",
+        "tiers": [
+          {
+            "title": "Landing",
+            "from": "from",
+            "price": "€700",
+            "market": "4,000–6,000 zł",
+            "body": "A one-pager built around a single goal — a lead or a sale.",
+            "features": [
+              "1 long page, conversion-first structure",
+              "Responsive on mobile, tablet and desktop",
+              "Core SEO: meta, OG images, sitemap, Schema.org",
+              "Speed: Core Web Vitals in the green",
+              "SSL, analytics, lead form",
+              "Domain and hosting in your name"
+            ]
+          },
+          {
+            "title": "Multi-page / shop",
+            "from": "from",
+            "price": "€1,900",
+            "market": "10,000–18,000 zł",
+            "featured": true,
+            "body": "5–15 pages, or a catalogue with cart and checkout.",
+            "features": [
+              "Everything in Landing, plus:",
+              "5–15 pages or catalogue + cart + payments",
+              "CMS of your choice: Sanity or MDX",
+              "Advanced SEO + IndexNow on deploy",
+              "Integrations: CRM, payments, conversion tracking",
+              "30 days of edits included"
+            ]
+          },
+          {
+            "title": "Multilingual build",
+            "from": "from",
+            "price": "€3,500",
+            "market": "20,000–40,000 zł",
+            "body": "Many pages + EN / PL / UA / RU localisations.",
+            "features": [
+              "Everything in Multi-page, plus:",
+              "Up to 4 languages: correct hreflang, localised URLs",
+              "Complex structure: filters, user accounts",
+              "Server-side conversion tracking",
+              "Priority support after launch"
+            ]
+          }
+        ]
+      }
     },
     "ai": {
       "meta": {
@@ -1282,6 +1335,35 @@
           {
             "value": "<2 sec",
             "label": "to team response"
+          }
+        ]
+      },
+      "pricing": {
+        "eyebrow": "Plans",
+        "featuredLabel": "Most asked",
+        "caption": "Exact price depends on the number of integrations and flows — we’ll scope it on a free call.",
+        "tiers": [
+          {
+            "title": "Connection",
+            "from": "from",
+            "price": "€600",
+            "body": "One flow across 2–3 tools — leads, notifications and data moved with no hands.",
+            "examples": "1 flow · Make / n8n · 2–3 integrations · 3–5 days"
+          },
+          {
+            "title": "Flow",
+            "from": "from",
+            "price": "€1 400",
+            "body": "Several linked flows with CRM and notifications, plus error handling and logs.",
+            "examples": "Multiple flows · CRM · API · reports · 1–2 weeks",
+            "featured": true
+          },
+          {
+            "title": "System",
+            "from": "from",
+            "price": "€3 000",
+            "body": "End-to-end department automation, turnkey: dashboards, monitoring and support.",
+            "examples": "Full build · dashboards · monitoring · support · 3+ weeks"
           }
         ]
       }

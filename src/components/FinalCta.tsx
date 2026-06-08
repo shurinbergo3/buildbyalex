@@ -66,7 +66,7 @@ export function FinalCta({
 }) {
   return (
     <Section pad="default" tone="default">
-      <Container size="md">
+      <Container size="default">
         <Reveal>
           <HeroWindow
             theme={theme}
@@ -74,9 +74,9 @@ export function FinalCta({
             label={chromeLabel}
             live={available}
             centered
-            bodyClassName="!py-14 text-center sm:!py-16 md:!py-20"
+            bodyClassName="!py-16 text-center sm:!py-20 md:!py-24"
           >
-            <div className="mx-auto flex max-w-[640px] flex-col items-center">
+            <div className="mx-auto flex max-w-[720px] flex-col items-center">
               {eyebrow && (
                 <span className="case-cta-eyebrow !mt-0" style={{ color: accent }}>
                   {eyebrow}
