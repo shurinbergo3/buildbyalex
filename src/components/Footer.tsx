@@ -10,10 +10,10 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative isolate overflow-hidden border-t border-[color:var(--c-hairline)] bg-[color:var(--color-bg)] pt-16 md:pt-20">
+    <footer className="relative isolate overflow-hidden border-t border-[color:var(--c-hairline)] bg-[color:var(--color-bg)] pt-16 pb-28 md:pt-20 md:pb-36">
       <Container className="relative z-10">
         <div className="grid grid-cols-2 gap-y-12 md:grid-cols-12 md:gap-y-0">
-          <div className="col-span-2 md:col-span-4">
+          <div className="col-span-2 md:col-span-3">
             <Link href="/" aria-label="buildbyalex — home" className="inline-block">
               <Logo size={30} />
             </Link>
@@ -23,7 +23,7 @@ export function Footer() {
             <p className="mt-6 text-[13px] text-[color:var(--color-text-3)]">{t("location")}</p>
           </div>
 
-          <div className="col-span-1 md:col-span-2 md:col-start-5">
+          <div className="col-span-1 md:col-span-2 md:col-start-4">
             <h4 className="t-eyebrow mb-4 text-[11px]">{t("sections.explore")}</h4>
             <ul className="space-y-2.5 text-[14px] text-[color:var(--color-text-2)]">
               <li><Link href="/work" className="hover:text-[color:var(--color-text)] transition-colors">{nav("work")}</Link></li>
@@ -44,7 +44,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="col-span-2 md:col-span-3">
+          <div className="col-span-2 md:col-span-2">
             <h4 className="t-eyebrow mb-4 text-[11px]">{t("sections.contact")}</h4>
             <ul className="space-y-2.5 text-[14px] text-[color:var(--color-text-2)]">
               <li><a href="mailto:alex@buildbyalex.com" className="hover:text-[color:var(--color-text)] transition-colors">alex@buildbyalex.com</a></li>
@@ -54,7 +54,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="relative mt-14 flex flex-col-reverse items-center gap-6 border-t border-[color:var(--c-hairline)] pt-6 pb-8 md:block md:pb-10">
+        <div className="relative mt-14 flex flex-col-reverse items-center gap-6 border-t border-[color:var(--c-hairline)] pt-6 md:block">
           <p className="text-center text-[12px] text-[color:var(--color-text-3)]">
             © {year} buildbyalex. {t("rights")} <span className="mx-1 opacity-50">·</span> {t("legal")}
           </p>
@@ -69,7 +69,7 @@ export function Footer() {
           A flow element so the mirror always has room; purely decorative. */}
       <div
         aria-hidden
-        className="pointer-events-none relative z-0 mt-2 flex select-none flex-col items-center overflow-hidden"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 flex translate-y-[34%] select-none flex-col items-center overflow-hidden"
       >
         {/* the wordmark — brighter than before, fading in from the top */}
         <Logo
