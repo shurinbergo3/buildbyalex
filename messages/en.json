@@ -1016,7 +1016,7 @@
         "eyebrow": "Pricing tiers",
         "marketLabel": "Warsaw studios",
         "featuredLabel": "Most asked",
-        "caption": "Rate ≈ 4.3 zł per €1. Domain and hosting go in your name — nothing is rented. Post-launch edits are €50/hr, 1 hour minimum, no mandatory retainer. The final number is fixed after a 30-minute call.",
+        "caption": "Rate ≈ 4.3 zł per €1. Post-launch edits are €50/hr, 1 hour minimum, no mandatory retainer. The final number is fixed after a 30-minute call.",
         "tiers": [
           {
             "title": "Landing",
@@ -1029,24 +1029,7 @@
               "Responsive on mobile, tablet and desktop",
               "Core SEO: meta, OG images, sitemap, Schema.org",
               "Speed: Core Web Vitals in the green",
-              "SSL, analytics, lead form",
-              "Domain and hosting in your name"
-            ]
-          },
-          {
-            "title": "Multi-page / shop",
-            "from": "from",
-            "price": "€1,200",
-            "market": "10,000–18,000 zł",
-            "featured": true,
-            "body": "5–15 pages, or a catalogue with cart and checkout.",
-            "features": [
-              "Everything in Landing, plus:",
-              "5–15 pages or catalogue + cart + payments",
-              "CMS of your choice: Sanity or MDX",
-              "Advanced SEO + IndexNow on deploy",
-              "Integrations: CRM, payments, conversion tracking",
-              "30 days of edits included"
+              "SSL, analytics, lead form"
             ]
           },
           {
@@ -1054,13 +1037,30 @@
             "from": "from",
             "price": "€2,500",
             "market": "20,000–40,000 zł",
+            "featured": true,
             "body": "Many pages + EN / PL / UA / RU localisations.",
             "features": [
               "Everything in Multi-page, plus:",
               "Up to 4 languages: correct hreflang, localised URLs",
-              "Complex structure: filters, user accounts",
+              "Deep SEO setup for Google rankings",
+              "Tuned for ChatGPT & AI search (GEO)",
               "Server-side conversion tracking",
               "Priority support after launch"
+            ]
+          },
+          {
+            "title": "Multi-page / shop",
+            "from": "from",
+            "price": "€1,200",
+            "market": "10,000–18,000 zł",
+            "body": "10–50 pages, or a catalogue with cart and checkout.",
+            "features": [
+              "Everything in Landing, plus:",
+              "10–50 pages or catalogue + cart + payments",
+              "CMS of your choice: Sanity or MDX",
+              "Advanced SEO + IndexNow on deploy",
+              "Integrations: CRM, payments, conversion tracking",
+              "30 days of edits included"
             ]
           }
         ]

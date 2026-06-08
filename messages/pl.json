@@ -1016,7 +1016,7 @@
         "eyebrow": "Pakiety i ceny",
         "marketLabel": "Studia z Warszawy",
         "featuredLabel": "Najczęściej",
-        "caption": "Kurs ≈ 4,3 zł za €1. Domena i hosting rejestrowane na Twoje dane — żadnego «kodu w wynajmie». Poprawki po starcie €50/godz., minimum godzina, bez przymusowego abonamentu. Ostateczną kwotę ustalam po 30-minutowej rozmowie.",
+        "caption": "Kurs ≈ 4,3 zł za €1. Poprawki po starcie €50/godz., minimum godzina, bez przymusowego abonamentu. Ostateczną kwotę ustalam po 30-minutowej rozmowie.",
         "tiers": [
           {
             "title": "Landing",
@@ -1029,24 +1029,7 @@
               "Responsywność: mobile, tablet, desktop",
               "Podstawowe SEO: meta, grafiki OG, sitemap, Schema.org",
               "Szybkość: Core Web Vitals w zielonej strefie",
-              "SSL, analityka, formularz kontaktowy",
-              "Domena i hosting na Twoje dane"
-            ]
-          },
-          {
-            "title": "Wielostronicowa / sklep",
-            "from": "od",
-            "price": "€1 200",
-            "market": "10 000–18 000 zł",
-            "featured": true,
-            "body": "5–15 podstron albo katalog z koszykiem i płatnościami.",
-            "features": [
-              "Wszystko z Landinga, plus:",
-              "5–15 podstron albo katalog + koszyk + płatności",
-              "CMS do wyboru: Sanity lub MDX",
-              "Rozszerzone SEO + IndexNow przy deployu",
-              "Integracje: CRM, płatności, śledzenie konwersji",
-              "30 dni poprawek w cenie"
+              "SSL, analityka, formularz kontaktowy"
             ]
           },
           {
@@ -1054,13 +1037,30 @@
             "from": "od",
             "price": "€2 500",
             "market": "20 000–40 000 zł",
+            "featured": true,
             "body": "Wiele podstron + lokalizacje EN / PL / UA / RU.",
             "features": [
               "Wszystko z Wielostronicowej, plus:",
               "Do 4 języków: poprawny hreflang, zlokalizowane URL-e",
-              "Złożona struktura: filtry, konto użytkownika",
+              "Głęboka konfiguracja SEO pod pozycjonowanie w Google",
+              "Optymalizacja pod ChatGPT i wyszukiwarki AI (GEO)",
               "Śledzenie konwersji po stronie serwera",
               "Priorytetowe wsparcie po starcie"
+            ]
+          },
+          {
+            "title": "Wielostronicowa / sklep",
+            "from": "od",
+            "price": "€1 200",
+            "market": "10 000–18 000 zł",
+            "body": "10–50 podstron albo katalog z koszykiem i płatnościami.",
+            "features": [
+              "Wszystko z Landinga, plus:",
+              "10–50 podstron albo katalog + koszyk + płatności",
+              "CMS do wyboru: Sanity lub MDX",
+              "Rozszerzone SEO + IndexNow przy deployu",
+              "Integracje: CRM, płatności, śledzenie konwersji",
+              "30 dni poprawek w cenie"
             ]
           }
         ]
