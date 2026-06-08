@@ -5,8 +5,8 @@ import { useTranslations } from "next-intl";
 type Stat = { value: string; label: string; sub?: string };
 type Skill = { label: string; level: number };
 
-export function DonbravaEmployeeCard() {
-  const t = useTranslations("work.caseShowcase.donbrava.employee.card");
+export function LeadBotEmployeeCard() {
+  const t = useTranslations("work.caseShowcase.leadbot.employee.card");
   const stats = t.raw("stats") as Stat[];
   const schedule = t.raw("schedule") as { label: string; value: string }[];
   const skills = t.raw("skills") as Skill[];

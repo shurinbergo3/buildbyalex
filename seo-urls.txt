@@ -77,11 +77,11 @@ https://buildbyalex.com/ru/raboty/crm-bot
 https://buildbyalex.com/pl/realizacje/crm-bot
 https://buildbyalex.com/ua/roboty/crm-bot
 https://buildbyalex.com/en/work/crm-bot
-# Donbrava (ai)
-https://buildbyalex.com/ru/raboty/donbrava
-https://buildbyalex.com/pl/realizacje/donbrava
-https://buildbyalex.com/ua/roboty/donbrava
-https://buildbyalex.com/en/work/donbrava
+# LeadBot — ИИ-менеджер продаж (ai)
+https://buildbyalex.com/ru/raboty/leadbot
+https://buildbyalex.com/pl/realizacje/leadbot
+https://buildbyalex.com/ua/roboty/leadbot
+https://buildbyalex.com/en/work/leadbot
 # Body Forge (mobile)
 https://buildbyalex.com/ru/raboty/body-forge
 https://buildbyalex.com/pl/realizacje/body-forge

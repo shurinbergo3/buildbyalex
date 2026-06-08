@@ -45,11 +45,11 @@ export function MobileAppShowcase() {
 
         <Reveal delay={120}>
           <div className="mt-12 md:mt-16">
-            <div className="relative overflow-hidden rounded-[32px] bg-[#0A0A0A] p-7 md:p-12 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.05)]">
+            <div className="relative overflow-hidden rounded-[32px] border border-[color:var(--color-divider)] bg-[color:var(--color-bg-alt)] p-7 md:p-12 shadow-[0_1px_2px_rgba(16,24,40,0.04),0_24px_56px_-20px_rgba(16,24,40,0.16)]">
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute -top-1/3 left-1/2 h-[120%] w-[120%] -translate-x-1/2"
-                style={{ background: "radial-gradient(ellipse 45% 38% at 50% 0%, rgba(255,107,26,0.20), transparent 70%)" }}
+                style={{ background: "radial-gradient(ellipse 45% 38% at 50% 0%, rgba(255,107,26,0.10), transparent 70%)" }}
               />
               <div className="relative grid items-center gap-10 md:grid-cols-2 md:gap-14">
                 {/* Narration + store proof */}
@@ -59,7 +59,7 @@ export function MobileAppShowcase() {
                       <span
                         key={i}
                         className="h-1 w-8 rounded-full transition-colors duration-500"
-                        style={{ background: i === active ? "var(--c-accent)" : "rgba(255,255,255,0.14)" }}
+                        style={{ background: i === active ? "var(--c-accent)" : "rgba(16,24,40,0.12)" }}
                       />
                     ))}
                   </div>
@@ -73,21 +73,21 @@ export function MobileAppShowcase() {
                       className="mt-6"
                     >
                       <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-[color:var(--c-accent)]">{scene.tag}</p>
-                      <h3 className="mt-3 text-[clamp(22px,2vw+14px,30px)] font-semibold leading-[1.12] tracking-[-0.02em] text-white">
+                      <h3 className="mt-3 text-[clamp(22px,2vw+14px,30px)] font-semibold leading-[1.12] tracking-[-0.02em] text-[color:var(--color-text)]">
                         {scene.title}
                       </h3>
-                      <p className="mt-3 max-w-[420px] text-[15px] leading-[1.55] text-white/65">{scene.desc}</p>
+                      <p className="mt-3 max-w-[420px] text-[15px] leading-[1.55] text-[color:var(--color-text-2)]">{scene.desc}</p>
                     </motion.div>
                   </AnimatePresence>
 
                   <div className="mt-8 flex flex-wrap items-center gap-2.5">
                     <StoreBadge platform="ios" label={t("stores.ios")} />
                     <StoreBadge platform="android" label={t("stores.android")} />
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-white/[0.06] px-3 py-2 text-[12.5px] text-white/75">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-[color:var(--color-divider)] bg-[color:var(--color-bg-elev)] px-3 py-2 text-[12.5px] text-[color:var(--color-text-2)]">
                       <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true">
                         <path d="M8 1.5l1.96 4.27 4.7.55-3.5 3.2.96 4.62L8 11.9l-4.12 2.24.96-4.62-3.5-3.2 4.7-.55L8 1.5z" fill="#FFB84D" />
                       </svg>
-                      <span className="font-semibold tabular-nums text-white">{t("storeRating")}</span>
+                      <span className="font-semibold tabular-nums text-[color:var(--color-text)]">{t("storeRating")}</span>
                     </span>
                   </div>
                 </div>
@@ -107,7 +107,7 @@ export function MobileAppShowcase() {
 
 function StoreBadge({ platform, label }: { platform: "ios" | "android"; label: string }) {
   return (
-    <span className="inline-flex items-center gap-2 rounded-full bg-white/[0.06] px-3 py-2 text-[12.5px] font-medium text-white/85">
+    <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--color-divider)] bg-[color:var(--color-bg-elev)] px-3 py-2 text-[12.5px] font-medium text-[color:var(--color-text-2)]">
       {platform === "ios" ? (
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M16.4 12.7c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.7.8-3.4.8-.7 0-1.8-.8-2.9-.8-1.5 0-2.9.9-3.6 2.2-1.6 2.7-.4 6.7 1.1 8.9.7 1.1 1.6 2.3 2.7 2.2 1.1 0 1.5-.7 2.8-.7s1.7.7 2.9.7c1.2 0 2-1.1 2.7-2.1.9-1.3 1.2-2.5 1.2-2.6 0 0-2.3-.9-2.9-3.7zM14.3 6c.6-.7 1-1.7.9-2.7-.9 0-1.9.6-2.5 1.3-.6.6-1 1.6-.9 2.6 1 .1 2-.5 2.5-1.2z" />

@@ -10,6 +10,9 @@ import { Reveal } from "@/components/Reveal";
 const SCENE_HOLD = 5200;
 const ACCENT = "#C8FF00";
 const ACCENT_DIM = "rgba(200, 255, 0, 0.18)";
+// Readable lime-on-light for text/borders in the (now light) stage panel.
+const ACCENT_INK = "#586d00";
+const ACCENT_INK_DIM = "rgba(88, 109, 0, 0.10)";
 
 type Scene = { tag: string; title: string; desc: string };
 
@@ -116,7 +119,7 @@ export function BodyForgeShowcase() {
         <Reveal delay={120}>
           <div className="relative mt-14 md:mt-20">
             {/* Stage backdrop */}
-            <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-[#070a08] via-[#0a0f0c] to-[#080a08] p-6 md:p-12 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.55),0_0_0_1px_rgba(255,255,255,0.04)]">
+            <div className="relative overflow-hidden rounded-[32px] border border-[color:var(--color-divider)] bg-[color:var(--color-bg-alt)] p-6 md:p-12 shadow-[0_1px_2px_rgba(16,24,40,0.04),0_24px_56px_-20px_rgba(16,24,40,0.16)]">
               <StageBackdrop active={active} />
 
               <div className="relative grid items-center gap-10 md:grid-cols-[1fr_auto] md:gap-16">
@@ -134,15 +137,15 @@ export function BodyForgeShowcase() {
                           style={{
                             borderColor:
                               i === active
-                                ? ACCENT
-                                : "rgba(255,255,255,0.08)",
+                                ? ACCENT_INK
+                                : "var(--color-divider)",
                             color:
                               i === active
-                                ? ACCENT
-                                : "rgba(255,255,255,0.5)",
+                                ? ACCENT_INK
+                                : "var(--color-text-3)",
                             background:
                               i === active
-                                ? ACCENT_DIM
+                                ? ACCENT_INK_DIM
                                 : "transparent",
                           }}
                         >
@@ -161,11 +164,11 @@ export function BodyForgeShowcase() {
                           transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                         >
                           <h3
-                            className="text-[clamp(22px,2vw+12px,30px)] font-semibold leading-[1.18] tracking-[-0.014em] text-white"
+                            className="text-[clamp(22px,2vw+12px,30px)] font-semibold leading-[1.18] tracking-[-0.014em] text-[color:var(--color-text)]"
                           >
                             {scenes[active].title}
                           </h3>
-                          <p className="mt-4 max-w-[44ch] text-[15.5px] leading-[1.6] text-white/65">
+                          <p className="mt-4 max-w-[44ch] text-[15.5px] leading-[1.6] text-[color:var(--color-text-2)]">
                             {scenes[active].desc}
                           </p>
                         </motion.div>
@@ -177,12 +180,12 @@ export function BodyForgeShowcase() {
                       {scenes.map((_, i) => (
                         <div
                           key={i}
-                          className="h-[3px] flex-1 overflow-hidden rounded-full bg-white/[0.08]"
+                          className="h-[3px] flex-1 overflow-hidden rounded-full bg-[color:var(--color-divider)]"
                         >
                           <motion.div
                             key={`${active}-${i}`}
                             className="h-full origin-left"
-                            style={{ background: ACCENT }}
+                            style={{ background: ACCENT_INK }}
                             initial={{ scaleX: i < active ? 1 : 0 }}
                             animate={{
                               scaleX:
@@ -339,10 +342,10 @@ function Phone({ children }: { children: React.ReactNode }) {
 
 function StageBackdrop({ active }: { active: number }) {
   const accents = [
-    "rgba(200,255,0,0.16)",
-    "rgba(120,255,180,0.14)",
-    "rgba(255,210,80,0.12)",
-    "rgba(170,255,80,0.16)",
+    "rgba(200,255,0,0.12)",
+    "rgba(120,255,180,0.10)",
+    "rgba(255,210,80,0.10)",
+    "rgba(170,255,80,0.12)",
   ];
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -352,7 +355,7 @@ function StageBackdrop({ active }: { active: number }) {
         transition={{ duration: 0.9, ease: "easeOut" }}
       />
       <div
-        className="absolute inset-0 opacity-[0.05] mix-blend-overlay"
+        className="absolute inset-0 opacity-[0.04] mix-blend-multiply"
         style={{
           backgroundImage:
             "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/></svg>\")",
@@ -360,7 +363,7 @@ function StageBackdrop({ active }: { active: number }) {
       />
       <div
         aria-hidden
-        className="absolute -bottom-10 right-[-4%] select-none whitespace-nowrap text-[150px] font-bold leading-none tracking-[-0.04em] text-white/[0.022] md:text-[220px]"
+        className="absolute -bottom-10 right-[-4%] select-none whitespace-nowrap text-[150px] font-bold leading-none tracking-[-0.04em] text-black/[0.03] md:text-[220px]"
         style={{ fontFamily: 'ui-sans-serif, system-ui, -apple-system, "SF Pro Display", "Inter", sans-serif' }}
       >
         Body Forge

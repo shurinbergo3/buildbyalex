@@ -34,7 +34,7 @@ export function AiCaseHero({
   stack: string[];
   ndaLabel: string;
   liveLabel: string;
-  contours?: "donbrava" | "crmbot";
+  contours?: "leadbot" | "crmbot";
   children: React.ReactNode;
 }) {
   return (

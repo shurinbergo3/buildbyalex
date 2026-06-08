@@ -6,7 +6,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { AiCaseHero, HERO_ACCENT, HERO_ACCENT_HI } from "@/components/AiCaseHero";
 
 /* ────────────────────────────────────────────────────────────────────────
-   Donbrava hero — "Клиент не понимает, что это ИИ". A flat-on Telegram phone
+   LeadBot hero — "Клиент не понимает, что это ИИ". A flat-on Telegram phone
    running a live qualify-to-payment loop from the owner's REAL account, ringed
    by glass telemetry chips that sell the human-mimicry (style mirrored, human
    pause, 24/7). The typing dots pulse amber — the product's signature beat.
@@ -34,17 +34,17 @@ type HeroCopy = {
   liveLabel: string;
 };
 
-export function DonbravaCaseHero(props: HeroCopy) {
+export function LeadBotCaseHero(props: HeroCopy) {
   return (
-    <AiCaseHero {...props} contours="donbrava">
-      <DonbravaPhone />
+    <AiCaseHero {...props} contours="leadbot">
+      <LeadBotPhone />
     </AiCaseHero>
   );
 }
 
-function DonbravaPhone() {
-  const t = useTranslations("work.caseShowcase.donbrava");
-  const tm = useTranslations("work.caseShowcase.donbrava.chat.mock");
+function LeadBotPhone() {
+  const t = useTranslations("work.caseShowcase.leadbot");
+  const tm = useTranslations("work.caseShowcase.leadbot.chat.mock");
   const reduce = useReducedMotion();
 
   const header = tm.raw("header") as { name: string; status: string };

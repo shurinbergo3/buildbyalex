@@ -32,8 +32,8 @@ function formatTime(offsetSeconds: number) {
   return base.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 }
 
-export function DonbravaChatMock() {
-  const t = useTranslations("work.caseShowcase.donbrava.chat.mock");
+export function LeadBotChatMock() {
+  const t = useTranslations("work.caseShowcase.leadbot.chat.mock");
 
   const header = t.raw("header") as { name: string; status: string };
   const inputPlaceholder = t("input");

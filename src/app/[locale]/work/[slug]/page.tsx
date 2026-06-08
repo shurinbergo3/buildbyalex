@@ -8,14 +8,14 @@ import { Reveal } from "@/components/Reveal";
 import { FinalCta } from "@/components/FinalCta";
 import { CaseCover } from "@/components/CaseCover";
 import { HeroWindow } from "@/components/HeroWindow";
-import { DonbravaCaseHero } from "@/components/DonbravaCaseHero";
+import { LeadBotCaseHero } from "@/components/LeadBotCaseHero";
 import { CrmbotCaseHero } from "@/components/CrmbotCaseHero";
 import { VisionairHeroMock } from "@/components/VisionairHeroMock";
 import { BodyForgeHeroMock } from "@/components/BodyForgeHeroMock";
 import { LegalwinHeroMock } from "@/components/LegalwinHeroMock";
 import { LegalwinShowcase } from "@/components/LegalwinShowcase";
 import { VisionairShowcase } from "@/components/VisionairShowcase";
-import { DonbravaShowcase } from "@/components/DonbravaShowcase";
+import { LeadBotShowcase } from "@/components/LeadBotShowcase";
 import { BodyForgeShowcase } from "@/components/BodyForgeShowcase";
 import { CrmbotShowcase } from "@/components/CrmbotShowcase";
 import { routing, type Locale } from "@/i18n/routing";
@@ -364,8 +364,8 @@ function CaseContent({ slug, locale }: { slug: string; locale: string }) {
               </Reveal>
               </div>
             </HeroWindow>
-          ) : key === "donbrava" ? (
-            <DonbravaCaseHero
+          ) : key === "leadbot" ? (
+            <LeadBotCaseHero
               industry={c.industry}
               title={c.title}
               tagline={c.tagline}
@@ -507,7 +507,7 @@ function CaseContent({ slug, locale }: { slug: string; locale: string }) {
       {key === "legalwin" && <LegalwinShowcase />}
       {key === "visionair" && <VisionairShowcase />}
       {key === "crmbot" && <CrmbotShowcase />}
-      {key === "donbrava" && <DonbravaShowcase />}
+      {key === "leadbot" && <LeadBotShowcase />}
       {key === "bodyforge" && <BodyForgeShowcase />}
 
       <FinalCta

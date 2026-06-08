@@ -2,11 +2,11 @@ import { useTranslations } from "next-intl";
 import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
-import { DonbravaEmployeeCard } from "@/components/DonbravaEmployeeCard";
-import { DonbravaChatMock } from "@/components/DonbravaChatMock";
+import { LeadBotEmployeeCard } from "@/components/LeadBotEmployeeCard";
+import { LeadBotChatMock } from "@/components/LeadBotChatMock";
 
-export function DonbravaShowcase() {
-  const t = useTranslations("work.caseShowcase.donbrava");
+export function LeadBotShowcase() {
+  const t = useTranslations("work.caseShowcase.leadbot");
 
   return (
     <>
@@ -25,7 +25,7 @@ export function DonbravaShowcase() {
           </Reveal>
           <Reveal delay={120}>
             <div className="mt-12 md:mt-16">
-              <DonbravaEmployeeCard />
+              <LeadBotEmployeeCard />
             </div>
           </Reveal>
         </Container>
@@ -46,7 +46,7 @@ export function DonbravaShowcase() {
           </Reveal>
           <Reveal delay={120}>
             <div className="mt-12 md:mt-16">
-              <DonbravaChatMock />
+              <LeadBotChatMock />
             </div>
           </Reveal>
         </Container>

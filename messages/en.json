@@ -1021,7 +1021,7 @@
           {
             "title": "Landing",
             "from": "from",
-            "price": "€700",
+            "price": "€500",
             "market": "4,000–6,000 zł",
             "body": "A one-pager built around a single goal — a lead or a sale.",
             "features": [
@@ -1036,7 +1036,7 @@
           {
             "title": "Multi-page / shop",
             "from": "from",
-            "price": "€1,900",
+            "price": "€1,200",
             "market": "10,000–18,000 zł",
             "featured": true,
             "body": "5–15 pages, or a catalogue with cart and checkout.",
@@ -1052,7 +1052,7 @@
           {
             "title": "Multilingual build",
             "from": "from",
-            "price": "€3,500",
+            "price": "€2,500",
             "market": "20,000–40,000 zł",
             "body": "Many pages + EN / PL / UA / RU localisations.",
             "features": [
@@ -1346,14 +1346,14 @@
           {
             "title": "Connection",
             "from": "from",
-            "price": "€600",
+            "price": "€400",
             "body": "One flow across 2–3 tools — leads, notifications and data moved with no hands.",
             "examples": "1 flow · Make / n8n · 2–3 integrations · 3–5 days"
           },
           {
             "title": "Flow",
             "from": "from",
-            "price": "€1 400",
+            "price": "€1 000",
             "body": "Several linked flows with CRM and notifications, plus error handling and logs.",
             "examples": "Multiple flows · CRM · API · reports · 1–2 weeks",
             "featured": true
@@ -1361,7 +1361,7 @@
           {
             "title": "System",
             "from": "from",
-            "price": "€3 000",
+            "price": "€2 500",
             "body": "End-to-end department automation, turnkey: dashboards, monitoring and support.",
             "examples": "Full build · dashboards · monitoring · support · 3+ weeks"
           }
@@ -2096,7 +2096,7 @@
           "label": "qualified leads"
         }
       },
-      "donbrava": {
+      "leadbot": {
         "industry": "Immigration services · Bratislava",
         "title": "AI sales manager",
         "imageAlt": "A person chatting in a messenger on a smartphone — AI sales manager case study",
@@ -2203,7 +2203,7 @@
           "label": "Manual first-touch steps"
         }
       ],
-      "donbrava": [
+      "leadbot": [
         {
           "value": "≈ 210 h",
           "label": "Owner hours saved per month"
@@ -2814,7 +2814,7 @@
           ]
         }
       },
-      "donbrava": {
+      "leadbot": {
         "employee": {
           "eyebrow": "Virtual employee",
           "headline": "One digital hire instead of a whole shift",

@@ -73,7 +73,7 @@ export function ServicePricing({ eyebrow, tiers, bookCta, caption, featuredLabel
                   {tier.market && (
                     <p className={`mt-2 text-[12.5px] ${featured ? "text-white/45" : "text-[color:var(--color-text-3)]"}`}>
                       {marketLabel ? `${marketLabel}: ` : ""}
-                      <span className="line-through decoration-[1.5px] decoration-[color:var(--c-accent)]/60">
+                      <span className="line-through decoration-[1.5px] decoration-[color:var(--c-accent)]">
                         {tier.market}
                       </span>
                     </p>

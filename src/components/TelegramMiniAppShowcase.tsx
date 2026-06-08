@@ -49,11 +49,11 @@ export function TelegramMiniAppShowcase() {
 
         <Reveal delay={120}>
           <div className="mt-12 md:mt-16">
-            <div className="relative overflow-hidden rounded-[32px] bg-[#0A0A0A] p-7 md:p-12 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.05)]">
+            <div className="relative overflow-hidden rounded-[32px] border border-[color:var(--color-divider)] bg-[color:var(--color-bg-alt)] p-7 md:p-12 shadow-[0_1px_2px_rgba(16,24,40,0.04),0_24px_56px_-20px_rgba(16,24,40,0.16)]">
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute -top-1/3 left-1/2 h-[120%] w-[120%] -translate-x-1/2"
-                style={{ background: "radial-gradient(ellipse 45% 38% at 50% 0%, rgba(42,166,234,0.20), transparent 70%)" }}
+                style={{ background: "radial-gradient(ellipse 45% 38% at 50% 0%, rgba(46,166,234,0.10), transparent 70%)" }}
               />
               <div className="relative grid items-center gap-10 md:grid-cols-2 md:gap-14">
                 {/* Narration + capability chips */}
@@ -63,7 +63,7 @@ export function TelegramMiniAppShowcase() {
                       <span
                         key={i}
                         className="h-1 w-8 rounded-full transition-colors duration-500"
-                        style={{ background: i === active ? "#2ea6ea" : "rgba(255,255,255,0.14)" }}
+                        style={{ background: i === active ? "#2ea6ea" : "rgba(16,24,40,0.12)" }}
                       />
                     ))}
                   </div>
@@ -76,11 +76,11 @@ export function TelegramMiniAppShowcase() {
                       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                       className="mt-6"
                     >
-                      <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-[#5fb8ef]">{scene.tag}</p>
-                      <h3 className="mt-3 text-[clamp(22px,2vw+14px,30px)] font-semibold leading-[1.12] tracking-[-0.02em] text-white">
+                      <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-[#1d7fc0]">{scene.tag}</p>
+                      <h3 className="mt-3 text-[clamp(22px,2vw+14px,30px)] font-semibold leading-[1.12] tracking-[-0.02em] text-[color:var(--color-text)]">
                         {scene.title}
                       </h3>
-                      <p className="mt-3 max-w-[420px] text-[15px] leading-[1.55] text-white/65">{scene.desc}</p>
+                      <p className="mt-3 max-w-[420px] text-[15px] leading-[1.55] text-[color:var(--color-text-2)]">{scene.desc}</p>
                     </motion.div>
                   </AnimatePresence>
 
@@ -88,7 +88,7 @@ export function TelegramMiniAppShowcase() {
                     {chips.map((c) => (
                       <span
                         key={c}
-                        className="inline-flex items-center gap-2 rounded-full bg-white/[0.06] px-3 py-2 text-[12.5px] font-medium text-white/85"
+                        className="inline-flex items-center gap-2 rounded-full border border-[color:var(--color-divider)] bg-[color:var(--color-bg-elev)] px-3 py-2 text-[12.5px] font-medium text-[color:var(--color-text-2)]"
                       >
                         <span className="h-1.5 w-1.5 rounded-full bg-[#2ea6ea]" aria-hidden="true" />
                         {c}
