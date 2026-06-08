@@ -42,6 +42,19 @@ function readPostFile(locale: Locale, slug: string): Post | null {
   };
 }
 
+const PUBLIC_ROOT = path.join(process.cwd(), "public");
+
+/**
+ * Returns the post's `ogImage` path only if the file actually exists in
+ * /public, otherwise null. Lets us wire the image into OG meta and an on-page
+ * hero without rendering broken images for posts whose asset isn't in the repo.
+ */
+export function getPostImage(ogImage?: string): string | null {
+  if (!ogImage) return null;
+  const rel = ogImage.startsWith("/") ? ogImage.slice(1) : ogImage;
+  return fs.existsSync(path.join(PUBLIC_ROOT, rel)) ? ogImage : null;
+}
+
 export function getAllPostSlugs(locale: Locale): string[] {
   const dir = path.join(CONTENT_ROOT, locale);
   if (!fs.existsSync(dir)) return [];
@@ -100,6 +113,31 @@ export const clusterToService: Record<string, { menuKey: ServiceMenuKey; path: S
   "website-cost-poland-2025": { menuKey: "websites", path: "/services/websites" },
   "online-store-cost-poland": { menuKey: "store", path: "/services/online-store" },
   "ecommerce-platform-choice": { menuKey: "store", path: "/services/online-store" },
+  // Geo-targeted service-intent articles (2026). Unique cluster per locale so each
+  // page is self-canonical and ranks independently for its local keyword (no
+  // cross-locale hreflang clustering) — but still funnels to its money page.
+  "mobile-app-developer-warsaw-en": { menuKey: "mobile", path: "/services/mobile-apps" },
+  "mobile-app-developer-warsaw-pl": { menuKey: "mobile", path: "/services/mobile-apps" },
+  "mvp-app-development-startup-en": { menuKey: "mobile", path: "/services/mobile-apps" },
+  "mvp-app-development-startup-pl": { menuKey: "mobile", path: "/services/mobile-apps" },
+  "mvp-app-development-startup-ru": { menuKey: "mobile", path: "/services/mobile-apps" },
+  "web-developer-warsaw-pl": { menuKey: "websites", path: "/services/websites" },
+  "web-developer-warsaw-en": { menuKey: "websites", path: "/services/websites" },
+  "website-for-clinic-pl": { menuKey: "websites", path: "/services/websites" },
+  "website-for-clinic-ru": { menuKey: "websites", path: "/services/websites" },
+  "online-store-development-warsaw-pl": { menuKey: "store", path: "/services/online-store" },
+  "online-store-development-warsaw-ru": { menuKey: "store", path: "/services/online-store" },
+  "online-store-development-warsaw-ua": { menuKey: "store", path: "/services/online-store" },
+  "shopify-developer-poland-en": { menuKey: "store", path: "/services/online-store" },
+  "shopify-developer-poland-pl": { menuKey: "store", path: "/services/online-store" },
+  "ai-agent-real-estate-en": { menuKey: "ai", path: "/services/ai-agents" },
+  "ai-agent-real-estate-pl": { menuKey: "ai", path: "/services/ai-agents" },
+  "ai-agent-real-estate-ru": { menuKey: "ai", path: "/services/ai-agents" },
+  "ai-chatbot-ecommerce-pl": { menuKey: "ai", path: "/services/ai-agents" },
+  "ai-chatbot-ecommerce-ru": { menuKey: "ai", path: "/services/ai-agents" },
+  "ai-agent-customer-support-en": { menuKey: "ai", path: "/services/ai-agents" },
+  "ai-agent-customer-support-pl": { menuKey: "ai", path: "/services/ai-agents" },
+  "ai-agent-customer-support-ru": { menuKey: "ai", path: "/services/ai-agents" },
 };
 
 /** The service a post links to, or null if its cluster isn't mapped. */
@@ -127,6 +165,48 @@ export function getRelatedPosts(locale: Locale, currentSlug: string, limit = 3):
  * For a given post's `cluster`, return the slug for each locale where a
  * translation exists. Used to render hreflang and a language picker on /blog/[slug].
  */
+/**
+ * Pull the `## FAQ` block out of a post body into question/answer pairs so the
+ * page can emit FAQPage JSON-LD (rich results) without duplicating the text in
+ * frontmatter. Convention: an `## FAQ` heading, then each Q&A as a `**bold
+ * question**` line followed by its answer paragraph(s), ending at the next `##`
+ * heading or `---` rule. Returns [] when the post has no FAQ.
+ */
+export function extractFaq(content: string): { question: string; answer: string }[] {
+  const lines = content.split("\n");
+  const start = lines.findIndex((l) => /^##\s+FAQ\b/i.test(l));
+  if (start === -1) return [];
+
+  const out: { question: string; answer: string }[] = [];
+  let question: string | null = null;
+  let answer: string[] = [];
+  const stripMd = (s: string) =>
+    s
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1") // links → text
+      .replace(/\*\*([^*]+)\*\*/g, "$1") // bold
+      .replace(/`([^`]+)`/g, "$1") // inline code
+      .trim();
+  const flush = () => {
+    if (question) out.push({ question: stripMd(question), answer: stripMd(answer.join(" ")) });
+    question = null;
+    answer = [];
+  };
+
+  for (let i = start + 1; i < lines.length; i++) {
+    const line = lines[i];
+    if (/^##\s/.test(line) || /^---\s*$/.test(line)) break;
+    const q = line.match(/^\*\*(.+?)\*\*\s*$/);
+    if (q) {
+      flush();
+      question = q[1];
+      continue;
+    }
+    if (question && line.trim()) answer.push(line.trim());
+  }
+  flush();
+  return out;
+}
+
 export function getClusterSlugs(cluster: string): Partial<Record<Locale, string>> {
   const out: Partial<Record<Locale, string>> = {};
   const locales: Locale[] = ["ru", "en", "pl", "ua"];

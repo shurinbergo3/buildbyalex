@@ -1,0 +1,133 @@
+---
+title: "MVP App Development for Startups: Scope, Cost, Timeline"
+description: "What an MVP app really costs and how long it takes to build. Scope, tech stack (React Native + Supabase), what to cut, and the mistakes founders make."
+date: "2026-04-28"
+cluster: "mvp-app-development-startup-en"
+keywords:
+  - "MVP app development for startups"
+  - "build an MVP app"
+  - "minimum viable product cost"
+ogImage: "/og/mvp-app-development-en.webp"
+---
+
+You want a real number for **MVP app development for startups**? With one developer on a focused scope: **€8,000–€25,000** and **6–10 weeks** to a launched app in both stores. Anything cheaper is a prototype. Anything slower is scope creep.
+
+The longer answer is below. No agency talk about "digital transformation", no $5/hour offshore quote that turns into a six-month rebuild.
+
+## What an MVP actually is
+
+An MVP — minimum viable product — is the smallest version of your app that lets a real user solve **one core problem** and pay (or sign up) for it. That's the whole definition. Not a landing page with a mockup. Not 30 features. One job, done well enough that people use it and give you feedback.
+
+The word that trips up founders is **minimum**, not **viable**. It has to actually work. A buggy app with three features kills your idea faster than no app at all, because now you "tested" it and got a false negative.
+
+So an MVP has two jobs:
+
+- **Prove demand** — do people use it and come back?
+- **Stay cheap to throw away** — because half of what you build, you'll rebuild after week one of real feedback.
+
+## What goes in (and what gets cut)
+
+Here's the part nobody enjoys: ruthless cutting. For a typical first version I keep this list short.
+
+**Usually in:**
+
+- Auth (email + Google/Apple sign-in)
+- The one core flow — the thing your whole pitch is about
+- A basic profile / settings screen
+- Push notifications (if they drive your loop)
+- Payments **only if** charging is the hypothesis you're testing
+
+**Usually out of v1:**
+
+- Admin dashboards with charts
+- In-app chat (use a third party or skip it)
+- Social features, gamification, referral systems
+- Multi-language, dark mode, fancy onboarding
+- Offline mode and edge-case handling
+
+If a feature doesn't help you answer "do people want this?", it waits. Every extra screen is a week you're not learning anything.
+
+## Realistic cost ranges
+
+Built by a senior freelancer, not a 15-person agency with an office to pay for:
+
+### Validation MVP — €8,000–€12,000
+
+One core flow, auth, a clean UI, shipped to TestFlight and Google Play. 4–6 weeks. This is for "I need to put it in front of 50 real users next month."
+
+### Standard MVP — €12,000–€18,000
+
+Auth, the core flow, payments or subscriptions, push, a basic backend with real data. 6–8 weeks. This is what most funded pre-seed startups actually need.
+
+### Complex MVP — €18,000–€25,000+
+
+Multiple user roles, an admin panel, third-party integrations (maps, payments, an external API), real-time features. 8–12 weeks.
+
+For reference: a US agency quotes the same standard MVP at **$40,000–$90,000**, mostly because of overhead and a team where half the hours go to coordination. One senior dev who owns the whole stack is faster and a fraction of the price — that's the actual trade.
+
+## The stack I'd build it on
+
+For 90% of startup MVPs, this combination wins on speed and cost:
+
+- **React Native + Expo** — one codebase for iOS and Android. You cut roughly **30–40%** versus building two native apps, and you ship to both stores at once. Expo handles builds, updates, and most native modules so you're not babysitting Xcode.
+- **Supabase** — Postgres database, auth, file storage and real-time out of the box. The free tier covers 50,000 monthly active users, so you're not paying for backend until you have traction.
+- **Stripe / RevenueCat** for payments and subscriptions.
+
+When *not* to use React Native: heavy 3D, AR/VR, high-frame-rate game animation, or deep platform hardware integration. For a normal app with screens, lists, forms and a paywall, it's the obvious choice — and it's exactly what I use for MVPs on my [mobile apps service](/en/services/mobile-apps).
+
+## Mistakes founders make (I see these constantly)
+
+1. **Building too much.** The #1 killer. You spend four months on features nobody asked for instead of shipping in six weeks and learning.
+2. **Cutting quality instead of scope.** "Minimum" means fewer features, not a broken app. Three features that work beautifully beat ten that crash.
+3. **No feedback loop.** Launching with no analytics and no way to talk to users. You learn nothing and you're flying blind.
+4. **Mistaking a landing page for an MVP.** A signup form measures curiosity, not usage. People are tired of "coming soon."
+5. **Over-engineering the backend.** You don't need Kubernetes for 50 users. Supabase and a single region will carry you to thousands.
+6. **No plan for v2.** The MVP is a question, not a destination. Budget for the rebuild that feedback will demand.
+
+## What I do and what I charge
+
+I build production MVPs solo: React Native + Expo on the front, Supabase on the back, payments wired in, shipped to the App Store and Google Play.
+
+- **Validation MVP from €8,000.** One core flow, auth, in both stores in 4–6 weeks.
+- **Standard MVP from €12,000.** Adds payments, push, a real backend.
+- **Complex MVP — quoted individually** after a 30-minute discovery call. Fixed price, fixed start date.
+
+You get the source code, the stores set up under your accounts, and an app you own outright. No black-box agency lock-in.
+
+## Pre-build checklist
+
+Before you brief any developer, lock these down:
+
+- [ ] **The one hypothesis** you're testing in a single sentence.
+- [ ] **The single core flow** a user must complete.
+- [ ] **Who your first 50 users are** and how you'll reach them.
+- [ ] **What "it worked" looks like** — a number, not a feeling.
+- [ ] **Who owns the code, accounts, and store listings** (it should be you).
+- [ ] **Your budget for v2**, because feedback will rewrite the plan.
+
+## FAQ
+
+**How much does it cost to build an MVP app?**
+With one senior freelancer, a focused MVP runs **€8,000–€25,000** depending on scope. A simple validation build is €8,000–€12,000; add payments and a real backend and you're at €12,000–€18,000. US agencies quote $40,000–$90,000 for the same thing, mostly overhead.
+
+**How long does it take to build an MVP?**
+A tightly-scoped MVP with auth, one core flow and a paywall is realistically **4–8 weeks** with a single developer. More roles, an admin panel and integrations push it to 8–12 weeks. If someone promises two weeks, you're getting a template.
+
+**How many features should an MVP have?**
+As few as possible — usually the core flow plus auth and maybe payments. There's no magic number, but the rule holds: don't build 30 features when 3 will answer your question. Every extra feature delays the feedback you actually need.
+
+**Should I use React Native or build native?**
+For a standard app, **React Native + Expo** — one codebase, both stores, 30–40% cheaper, faster to ship. Go native only for heavy 3D, AR/VR, high-performance games, or deep hardware integration. Most MVPs are screens, lists and forms, so React Native wins.
+
+**What's the difference between an MVP and a prototype?**
+A prototype is clickable but fake — it shows the idea. An MVP is real software a user can actually use and pay for. A prototype validates the design; an MVP validates demand. You usually want to skip straight to the MVP.
+
+**Can I build an MVP with no-code instead?**
+For the very first test, sometimes — tools like Bubble or FlutterFlow get you live fast. But they hit walls on performance, custom logic and store approval, and you often rebuild anyway. If you're confident in the idea, a React Native MVP is cheaper over the full timeline.
+
+**Do I own the code after the MVP is built?**
+With me, yes — full source code, stores under your accounts, no lock-in. Always confirm this in writing before you start. Some agencies keep you hostage on hosting and credentials so you can't leave.
+
+---
+
+Bottom line: a real, launchable MVP from a senior freelancer in Warsaw is **€8,000–€25,000** and ships in **6–10 weeks**. Want a fixed quote for your idea? [Book a 30-minute call](/en/contact) and you'll have a price and a start date within 24 hours.

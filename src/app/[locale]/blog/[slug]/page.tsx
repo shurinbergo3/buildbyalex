@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
@@ -16,6 +17,8 @@ import {
   getClusterSlugs,
   getRelatedPosts,
   getRelatedService,
+  getPostImage,
+  extractFaq,
 } from "@/lib/blog";
 import { SITE_URL, htmlLang } from "@/lib/site";
 
@@ -34,6 +37,10 @@ export async function generateMetadata({
   const post = getPost(locale as Locale, slug);
   if (!post) return {};
   const url = `${SITE_URL}/${locale}/blog/${slug}`;
+  const image = getPostImage(post.ogImage);
+  const ogImages = image
+    ? [{ url: `${SITE_URL}${image}`, width: 1200, height: 630, alt: post.title }]
+    : undefined;
 
   // hreflang: link every translated variant of this article (same `cluster`).
   // Without this the 4 language versions look unrelated to Google.
@@ -59,11 +66,13 @@ export async function generateMetadata({
       description: post.description,
       publishedTime: post.date,
       url,
+      images: ogImages,
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.description,
+      images: image ? [`${SITE_URL}${image}`] : undefined,
     },
   };
 }
@@ -107,12 +116,14 @@ export default async function BlogPostPage({
   // Tightens crawl paths for the blog tail and passes topical relevance.
   const related = getRelatedPosts(locale as Locale, slug, 3);
   const service = getRelatedService(post.cluster);
+  const heroImage = getPostImage(post.ogImage);
 
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: post.title,
     description: post.description,
+    image: heroImage ? `${SITE_URL}${heroImage}` : undefined,
     datePublished: post.date,
     dateModified: post.date,
     inLanguage: locale === "ua" ? "uk" : locale,
@@ -124,6 +135,22 @@ export default async function BlogPostPage({
     publisher: { "@type": "Organization", name: "buildbyalex" },
     keywords: post.keywords?.join(", "),
   };
+
+  // FAQPage rich-result schema, built from the post's `## FAQ` block (if any).
+  const faq = extractFaq(post.content);
+  const faqSchema =
+    faq.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          inLanguage: locale === "ua" ? "uk" : locale,
+          mainEntity: faq.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: { "@type": "Answer", text: item.answer },
+          })),
+        }
+      : null;
 
   return (
     <>
@@ -150,6 +177,26 @@ export default async function BlogPostPage({
           </Reveal>
         </Container>
       </Section>
+
+      {heroImage && (
+        <Section pad="tight" className="!pt-8">
+          <Container size="md">
+            <Reveal>
+              <div className="overflow-hidden rounded-[20px] border border-[color:var(--c-hairline)] bg-[color:var(--color-bg-alt)]">
+                <Image
+                  src={heroImage}
+                  alt={post.title}
+                  width={1200}
+                  height={630}
+                  priority
+                  sizes="(max-width: 768px) 100vw, 768px"
+                  className="h-auto w-full"
+                />
+              </div>
+            </Reveal>
+          </Container>
+        </Section>
+      )}
 
       <Section pad="default" className="!pt-4">
         <Container size="md">
@@ -226,6 +273,12 @@ export default async function BlogPostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
     </>
   );
 }

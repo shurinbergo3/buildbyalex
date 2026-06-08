@@ -1,0 +1,133 @@
+---
+title: "Tworzenie MVP aplikacji dla startupu: zakres, koszt, czas"
+description: "Ile realnie kosztuje MVP aplikacji i ile trwa jego budowa. Zakres, stack (React Native + Supabase), co wyciąć i jakie błędy popełniają founderzy."
+date: "2026-04-28"
+cluster: "mvp-app-development-startup-pl"
+keywords:
+  - "tworzenie MVP aplikacji"
+  - "MVP aplikacji dla startupu"
+  - "koszt MVP aplikacji"
+ogImage: "/og/mvp-app-development-pl.webp"
+---
+
+Chcesz konkretną liczbę za **tworzenie MVP aplikacji dla startupu**? Z jednym developerem i porządnie obciętym zakresem: **30 000–110 000 zł** (ok. **7 000–25 000 €**) i **6–10 tygodni** do aplikacji w obu sklepach. Taniej — to prototyp. Wolniej — to scope creep.
+
+Dłuższa odpowiedź niżej. Bez agencyjnego gadania o "transformacji cyfrowej" i bez oferty za 20 zł/h, która zamienia się w półroczny rebuild.
+
+## Czym naprawdę jest MVP
+
+MVP — minimum viable product — to najmniejsza wersja aplikacji, która pozwala realnemu użytkownikowi rozwiązać **jeden kluczowy problem** i za to zapłacić (albo się zarejestrować). Tyle. Nie landing z mockupem. Nie 30 funkcji. Jedno zadanie, zrobione na tyle dobrze, że ludzie tego używają i dają ci feedback.
+
+Słowo, które gubi founderów, to **minimum**, nie **viable**. Aplikacja musi działać. Buggowate MVP z trzema funkcjami zabija pomysł szybciej niż brak aplikacji — bo teraz "przetestowałeś" i dostałeś fałszywie negatywny wynik.
+
+MVP ma więc dwa zadania:
+
+- **Udowodnić popyt** — czy ludzie używają i wracają?
+- **Być tanie do wyrzucenia** — bo połowę tego, co zbudujesz, przepiszesz po pierwszym tygodniu prawdziwego feedbacku.
+
+## Co wchodzi (i co wycinamy)
+
+Tutaj zaczyna się część, której nikt nie lubi: bezwzględne cięcie. Dla pierwszej wersji trzymam tę listę krótką.
+
+**Zwykle w MVP:**
+
+- Logowanie (e-mail + Google / Apple)
+- Jeden kluczowy flow — to, o czym jest cały twój pitch
+- Podstawowy profil / ustawienia
+- Push-notyfikacje (jeśli napędzają twoją pętlę)
+- Płatności **tylko jeśli** to płacenie jest hipotezą, którą testujesz
+
+**Zwykle poza v1:**
+
+- Panele admina z wykresami
+- Czat w aplikacji (zewnętrzny albo wcale)
+- Funkcje społecznościowe, gamifikacja, system poleceń
+- Wielojęzyczność, dark mode, rozbudowany onboarding
+- Tryb offline i obsługa skrajnych przypadków
+
+Jeśli funkcja nie pomaga odpowiedzieć na pytanie "czy ludzie tego chcą?", czeka. Każdy dodatkowy ekran to tydzień, w którym niczego się nie uczysz.
+
+## Realne przedziały cenowe
+
+Robione przez seniora-freelancera, nie przez 15-osobową agencję z biurem do utrzymania:
+
+### MVP walidacyjne — 30 000–50 000 zł (ok. 7 000–12 000 €)
+
+Jeden kluczowy flow, logowanie, czysty UI, wrzucone na TestFlight i Google Play. 4–6 tygodni. To dla "muszę za miesiąc pokazać to 50 realnym użytkownikom".
+
+### MVP standardowe — 50 000–75 000 zł (ok. 12 000–18 000 €)
+
+Logowanie, kluczowy flow, płatności lub subskrypcje, push, backend z prawdziwymi danymi. 6–8 tygodni. Tego naprawdę potrzebuje większość startupów na pre-seed.
+
+### MVP złożone — od 75 000 zł (ok. 18 000–25 000 € i więcej)
+
+Kilka ról użytkowników, panel admina, integracje (mapy, płatności, zewnętrzne API), funkcje real-time. 8–12 tygodni.
+
+Dla porównania: polska agencja produktowa wyceni to samo standardowe MVP na **80 000–200 000 zł**, głównie przez koszt zespołu, w którym połowa godzin idzie na koordynację. Jeden senior, który ogarnia cały stack, jest szybszy i znacznie tańszy — to jest ten realny wybór.
+
+## Na czym to bym budował
+
+Dla 90% startupowych MVP ta kombinacja wygrywa szybkością i kosztem:
+
+- **React Native + Expo** — jedna baza kodu na iOS i Android. Tniesz mniej więcej **30–40%** względem dwóch natywnych aplikacji i wchodzisz do obu sklepów naraz. Expo ogarnia buildy, aktualizacje i większość natywnych modułów, więc nie niańczysz Xcode'a.
+- **Supabase** — baza Postgres, autoryzacja, storage i real-time od ręki. Darmowy tier obejmuje 50 000 aktywnych użytkowników miesięcznie, więc nie płacisz za backend, dopóki nie masz trakcji.
+- **Stripe / RevenueCat** do płatności i subskrypcji. W PL dochodzi BLIK i Przelewy24, jeśli sprzedajesz w kraju.
+
+Kiedy *nie* używać React Native: ciężkie 3D, AR/VR, animacje gier w wysokim klatkażu, głęboka integracja ze sprzętem. Dla normalnej aplikacji z ekranami, listami, formularzami i paywallem to oczywisty wybór — i dokładnie tego używam przy MVP w ramach mojej [usługi aplikacji mobilnych](/pl/uslugi/aplikacje-mobilne).
+
+## Błędy founderów (widzę je nieustannie)
+
+1. **Budowanie za dużo.** Zabójca numer jeden. Spędzasz cztery miesiące na funkcjach, o które nikt nie prosił, zamiast wypuścić w sześć tygodni i się uczyć.
+2. **Cięcie jakości zamiast zakresu.** "Minimum" to mniej funkcji, nie zepsuta aplikacja. Trzy funkcje działające idealnie biją dziesięć, które się wywalają.
+3. **Brak pętli feedbacku.** Start bez analityki i bez sposobu na rozmowę z użytkownikami. Nie uczysz się niczego i lecisz na ślepo.
+4. **Mylenie landinga z MVP.** Formularz zapisu mierzy ciekawość, nie używanie. Ludzie mają dość "wkrótce dostępne".
+5. **Przeinżynierowanie backendu.** Nie potrzebujesz Kubernetesa dla 50 użytkowników. Supabase i jeden region dowiozą cię do tysięcy.
+6. **Brak planu na v2.** MVP to pytanie, nie cel. Zaplanuj budżet na przepisanie, którego zażąda feedback.
+
+## Co robię i ile biorę
+
+Buduję produkcyjne MVP solo: React Native + Expo na froncie, Supabase na backendzie, podpięte płatności, wrzucone do App Store i Google Play.
+
+- **MVP walidacyjne od 30 000 zł.** Jeden kluczowy flow, logowanie, w obu sklepach w 4–6 tygodni.
+- **MVP standardowe od 50 000 zł.** Dochodzą płatności, push, prawdziwy backend.
+- **MVP złożone — wycena indywidualna** po 30-minutowej rozmowie discovery. Stała cena, stała data startu.
+
+Dostajesz kod źródłowy, sklepy skonfigurowane na twoich kontach i aplikację, którą posiadasz w pełni. Bez agencyjnego vendor lock-inu.
+
+## Checklist przed startem
+
+Zanim zbriefujesz jakiegokolwiek developera, dopnij to:
+
+- [ ] **Jedna hipoteza**, którą testujesz, w jednym zdaniu.
+- [ ] **Jeden kluczowy flow**, który użytkownik musi przejść.
+- [ ] **Kim jest twoich pierwszych 50 użytkowników** i jak do nich dotrzesz.
+- [ ] **Jak wygląda "zadziałało"** — liczba, nie przeczucie.
+- [ ] **Kto jest właścicielem kodu, kont i wpisów w sklepach** (powinieneś być ty).
+- [ ] **Budżet na v2**, bo feedback przepisze plan.
+
+## FAQ
+
+**Ile kosztuje tworzenie MVP aplikacji?**
+Z jednym seniorem-freelancerem porządnie obcięte MVP to **30 000–110 000 zł** (ok. 7 000–25 000 €) w zależności od zakresu. Proste walidacyjne — 30 000–50 000 zł; z płatnościami i prawdziwym backendem — 50 000–75 000 zł. Agencje wycenią to samo na 80 000–200 000 zł, głównie przez overhead.
+
+**Ile trwa zbudowanie MVP?**
+Mocno obcięte MVP z logowaniem, jednym flow i paywallem to realnie **4–8 tygodni** z jednym developerem. Więcej ról, panel admina i integracje wydłużają to do 8–12 tygodni. Jak ktoś obiecuje dwa tygodnie — dostaniesz szablon.
+
+**Ile funkcji powinno mieć MVP?**
+Jak najmniej — zwykle kluczowy flow plus logowanie i ewentualnie płatności. Nie ma magicznej liczby, ale zasada trzyma się mocno: nie buduj 30 funkcji, gdy 3 odpowiedzą na twoje pytanie. Każda dodatkowa funkcja opóźnia feedback, którego naprawdę potrzebujesz.
+
+**React Native czy aplikacja natywna?**
+Dla standardowej aplikacji — **React Native + Expo**: jedna baza kodu, oba sklepy, 30–40% taniej, szybszy start. Natywnie tylko przy ciężkim 3D, AR/VR, grach wymagających wydajności albo głębokiej integracji ze sprzętem. Większość MVP to ekrany, listy i formularze, więc React Native wygrywa.
+
+**Czym MVP różni się od prototypu?**
+Prototyp jest klikalny, ale udawany — pokazuje pomysł. MVP to prawdziwe oprogramowanie, którego użytkownik faktycznie używa i za które płaci. Prototyp waliduje design, MVP waliduje popyt. Zwykle warto przeskoczyć od razu do MVP.
+
+**Czy mogę zrobić MVP w no-code?**
+Do pierwszego testu czasem tak — Bubble czy FlutterFlow stawiają cię na nogi szybko. Ale uderzasz w ściany wydajności, własnej logiki i akceptacji w sklepie, i często i tak przepisujesz. Jeśli jesteś pewny pomysłu, MVP na React Native wychodzi taniej na całej osi czasu.
+
+**Czy po zbudowaniu MVP jestem właścicielem kodu?**
+U mnie tak — pełen kod źródłowy, sklepy na twoich kontach, bez lock-inu. Zawsze potwierdź to na piśmie przed startem. Niektóre agencje trzymają cię na hostingu i dostępach, żebyś nie mógł odejść.
+
+---
+
+Krótko: realne, gotowe do startu MVP od seniora-freelancera w Warszawie to **30 000–110 000 zł** i ląduje w sklepach w **6–10 tygodni**. Chcesz stałą wycenę pod swój pomysł? [Umów 30-minutową rozmowę](/pl/kontakt) — w 24 godziny masz cenę i datę startu.
