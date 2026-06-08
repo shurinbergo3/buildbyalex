@@ -3708,6 +3708,8 @@
     "headline": "Notes on code and product.",
     "subhead": "Essays on websites, AI agents, mobile apps and what sits in between. No filler, no SEO mush.",
     "readingMinutes": "{m} min read",
+    "filterAll": "All",
+    "filterLabel": "Filter by topic",
     "noPosts": "First post in this language is on the way. In the meantime — try the [English](/en/blog) or [Russian](/ru/blog) version.",
     "backToBlog": "All posts",
     "relatedTitle": "Related articles",

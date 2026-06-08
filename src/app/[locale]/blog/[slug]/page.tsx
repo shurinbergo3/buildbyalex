@@ -224,24 +224,41 @@ export default async function BlogPostPage({
                 )}
               </div>
               <ul className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {related.map((p) => (
+                {related.map((p) => {
+                  const img = getPostImage(p.ogImage);
+                  return (
                   <li key={p.slug}>
                     <Link
                       href={{ pathname: "/blog/[slug]", params: { slug: p.slug } }}
-                      className="group flex h-full flex-col rounded-2xl border border-[color:var(--c-hairline)] bg-[color:var(--color-bg)] p-5 transition-colors hover:border-[color:var(--c-accent)]"
+                      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[color:var(--c-hairline)] bg-[color:var(--color-bg)] transition-colors hover:border-[color:var(--c-accent)]"
                     >
-                      <h3 className="text-[16.5px] font-semibold leading-[1.3] tracking-[-0.014em] text-[color:var(--color-text)] transition-colors group-hover:text-[color:var(--c-accent)]">
-                        {p.title}
-                      </h3>
-                      <p className="mt-2 line-clamp-2 text-[13.5px] leading-[1.5] text-[color:var(--color-text-2)]">
-                        {p.description}
-                      </p>
-                      <span className="mt-4 text-[12px] tracking-[0.02em] text-[color:var(--color-text-3)]">
-                        {t("readingMinutes", { m: p.readingMinutes })}
-                      </span>
+                      {img && (
+                        <div className="overflow-hidden bg-[color:var(--color-bg-alt)]">
+                          <Image
+                            src={img}
+                            alt={p.title}
+                            width={1200}
+                            height={630}
+                            sizes="(max-width: 1024px) 100vw, 360px"
+                            className="aspect-[1200/630] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                          />
+                        </div>
+                      )}
+                      <div className="flex flex-1 flex-col p-5">
+                        <h3 className="text-[16.5px] font-semibold leading-[1.3] tracking-[-0.014em] text-[color:var(--color-text)] transition-colors group-hover:text-[color:var(--c-accent)]">
+                          {p.title}
+                        </h3>
+                        <p className="mt-2 line-clamp-2 text-[13.5px] leading-[1.5] text-[color:var(--color-text-2)]">
+                          {p.description}
+                        </p>
+                        <span className="mt-4 text-[12px] tracking-[0.02em] text-[color:var(--color-text-3)]">
+                          {t("readingMinutes", { m: p.readingMinutes })}
+                        </span>
+                      </div>
                     </Link>
                   </li>
-                ))}
+                  );
+                })}
               </ul>
             </Reveal>
           </Container>

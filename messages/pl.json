@@ -3708,6 +3708,8 @@
     "headline": "Notatki o kodzie i produkcie.",
     "subhead": "Eseje o stronach, agentach AI, aplikacjach mobilnych i o tym, co pomiędzy. Bez waty, bez SEO-masy.",
     "readingMinutes": "{m} min czytania",
+    "filterAll": "Wszystkie",
+    "filterLabel": "Filtruj wg tematu",
     "noPosts": "Pierwszy wpis w tym języku w drodze. Tymczasem — wersja [angielska](/en/blog) lub [rosyjska](/ru/blog).",
     "backToBlog": "Wszystkie wpisy",
     "relatedTitle": "Podobne artykuły",
