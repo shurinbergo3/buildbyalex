@@ -1107,7 +1107,28 @@
           "url": "ваш-магазин.com",
           "serp": "#1 у видачі",
           "score": "Lighthouse",
-          "features": ["Каталог", "Кошик", "Оплата"]
+          "brand": "РЕЧІ",
+          "products": [
+            { "n": "Куртка", "p": "€89" },
+            { "n": "Кросівки", "p": "€120" },
+            { "n": "Худі", "p": "€59" },
+            { "n": "Рюкзак", "p": "€75" }
+          ],
+          "add": "У кошик",
+          "hint": "Додайте речі в кошик",
+          "checkout": "Оформити",
+          "deliveryTitle": "Доставка",
+          "courier": "Кур'єр · Варшава",
+          "eta": "Завтра, 10:00–14:00",
+          "free": "Безкоштовно",
+          "addressLabel": "Адреса доставки",
+          "address": "вул. Маршалковська 1, Варшава",
+          "total": "Разом",
+          "pay": "Сплатити",
+          "done": "Замовлення оформлено",
+          "doneSub": "Кур'єр уже їде до вас",
+          "orderId": "#WAR-2048",
+          "reset": "Нове замовлення"
         }
       },
       "what": {
@@ -1656,16 +1677,12 @@
       "stack": {
         "title": "Стек",
         "items": [
-          "React Native",
-          "Expo SDK 52",
+          "Swift",
+          "Kotlin",
+          "Dart",
           "TypeScript",
-          "Firebase / Supabase",
-          "Stripe",
-          "RevenueCat",
-          "Sentry",
-          "EAS Build",
-          "Swift (нативні модулі)",
-          "Kotlin (нативні модулі)"
+          "Java",
+          "Objective-C"
         ]
       },
       "cases": "Схожі кейси",

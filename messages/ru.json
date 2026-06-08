@@ -1107,7 +1107,28 @@
           "url": "ваш-магазин.com",
           "serp": "#1 в выдаче",
           "score": "Lighthouse",
-          "features": ["Каталог", "Корзина", "Оплата"]
+          "brand": "ВЕЩИ",
+          "products": [
+            { "n": "Куртка", "p": "€89" },
+            { "n": "Кроссовки", "p": "€120" },
+            { "n": "Худи", "p": "€59" },
+            { "n": "Рюкзак", "p": "€75" }
+          ],
+          "add": "В корзину",
+          "hint": "Добавьте вещи в корзину",
+          "checkout": "Оформить заказ",
+          "deliveryTitle": "Доставка",
+          "courier": "Курьер · Варшава",
+          "eta": "Завтра, 10:00–14:00",
+          "free": "Бесплатно",
+          "addressLabel": "Адрес доставки",
+          "address": "ул. Маршалковская 1, Варшава",
+          "total": "Итого",
+          "pay": "Оплатить",
+          "done": "Заказ оформлен",
+          "doneSub": "Курьер уже едет к вам",
+          "orderId": "#WAR-2048",
+          "reset": "Новый заказ"
         }
       },
       "what": {
@@ -1656,16 +1677,12 @@
       "stack": {
         "title": "Технологии",
         "items": [
-          "React Native",
-          "Expo SDK 52",
+          "Swift",
+          "Kotlin",
+          "Dart",
           "TypeScript",
-          "Firebase / Supabase",
-          "Stripe",
-          "RevenueCat",
-          "Sentry",
-          "EAS Build",
-          "Swift (нативные модули)",
-          "Kotlin (нативные модули)"
+          "Java",
+          "Objective-C"
         ]
       },
       "cases": "Похожие кейсы",

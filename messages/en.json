@@ -1107,7 +1107,28 @@
           "url": "your-store.com",
           "serp": "#1 on Google",
           "score": "Lighthouse",
-          "features": ["Catalog", "Cart", "Payments"]
+          "brand": "THINGS",
+          "products": [
+            { "n": "Jacket", "p": "€89" },
+            { "n": "Sneakers", "p": "€120" },
+            { "n": "Hoodie", "p": "€59" },
+            { "n": "Backpack", "p": "€75" }
+          ],
+          "add": "Add to cart",
+          "hint": "Add items to your cart",
+          "checkout": "Checkout",
+          "deliveryTitle": "Delivery",
+          "courier": "Courier · Warsaw",
+          "eta": "Tomorrow, 10:00–14:00",
+          "free": "Free",
+          "addressLabel": "Delivery address",
+          "address": "1 Marszałkowska St, Warsaw",
+          "total": "Total",
+          "pay": "Pay",
+          "done": "Order placed",
+          "doneSub": "Your courier is on the way",
+          "orderId": "#WAR-2048",
+          "reset": "New order"
         }
       },
       "what": {
@@ -1656,16 +1677,12 @@
       "stack": {
         "title": "Tech stack",
         "items": [
-          "React Native",
-          "Expo SDK 52",
+          "Swift",
+          "Kotlin",
+          "Dart",
           "TypeScript",
-          "Firebase / Supabase",
-          "Stripe",
-          "RevenueCat",
-          "Sentry",
-          "EAS Build",
-          "Swift (native modules)",
-          "Kotlin (native modules)"
+          "Java",
+          "Objective-C"
         ]
       },
       "cases": "Related work",

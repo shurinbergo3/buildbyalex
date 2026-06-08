@@ -1107,7 +1107,28 @@
           "url": "twoj-sklep.com",
           "serp": "#1 w Google",
           "score": "Lighthouse",
-          "features": ["Katalog", "Koszyk", "Płatności"]
+          "brand": "RZECZY",
+          "products": [
+            { "n": "Kurtka", "p": "€89" },
+            { "n": "Sneakersy", "p": "€120" },
+            { "n": "Bluza", "p": "€59" },
+            { "n": "Plecak", "p": "€75" }
+          ],
+          "add": "Do koszyka",
+          "hint": "Dodaj rzeczy do koszyka",
+          "checkout": "Zamawiam",
+          "deliveryTitle": "Dostawa",
+          "courier": "Kurier · Warszawa",
+          "eta": "Jutro, 10:00–14:00",
+          "free": "Gratis",
+          "addressLabel": "Adres dostawy",
+          "address": "ul. Marszałkowska 1, Warszawa",
+          "total": "Razem",
+          "pay": "Zapłać",
+          "done": "Zamówienie złożone",
+          "doneSub": "Kurier już do Ciebie jedzie",
+          "orderId": "#WAR-2048",
+          "reset": "Nowe zamówienie"
         }
       },
       "what": {
@@ -1656,16 +1677,12 @@
       "stack": {
         "title": "Stack",
         "items": [
-          "React Native",
-          "Expo SDK 52",
+          "Swift",
+          "Kotlin",
+          "Dart",
           "TypeScript",
-          "Firebase / Supabase",
-          "Stripe",
-          "RevenueCat",
-          "Sentry",
-          "EAS Build",
-          "Swift (moduły natywne)",
-          "Kotlin (moduły natywne)"
+          "Java",
+          "Objective-C"
         ]
       },
       "cases": "Podobne realizacje",

@@ -179,6 +179,236 @@ function WebsitesMock({ m }: { m: Record<string, unknown> }) {
   );
 }
 
+/* Interactive store glance — a tiny clothing shop you can actually use: tap to
+   fill a basket, watch the cart total tick up, check out and pick courier
+   delivery, land on an order-placed screen. Three stages flip in place so the
+   surface never grows; fully usable on a phone (single column, large taps). */
+type StoreProduct = { n: string; p: string };
+
+const STORE_THUMBS = [
+  "radial-gradient(120% 100% at 30% 0%, #3a2a18, #1a130c 70%)",
+  "radial-gradient(120% 100% at 30% 0%, #1f2a38, #101620 70%)",
+  "radial-gradient(120% 100% at 30% 0%, #322029, #181014 70%)",
+  "radial-gradient(120% 100% at 30% 0%, #20302a, #111815 70%)",
+];
+
+function CartGlyph() {
+  return (
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <circle cx="9" cy="20" r="1.3" />
+      <circle cx="18" cy="20" r="1.3" />
+      <path d="M2.5 3.5h2.3L7 15.4a1.4 1.4 0 0 0 1.4 1.1h8.5a1.4 1.4 0 0 0 1.4-1.1L20.8 7H5.4" />
+    </svg>
+  );
+}
+
+function StoreMock({ m }: { m: Record<string, unknown> }) {
+  const reduce = useReducedMotion();
+  const products = (m.products as StoreProduct[]) ?? [];
+  const priceOf = (s: string) => Number(String(s).replace(/[^\d]/g, "")) || 0;
+  const [qty, setQty] = useState<number[]>(() => products.map(() => 0));
+  const [stage, setStage] = useState<"shop" | "delivery" | "done">("shop");
+
+  const count = qty.reduce((a, b) => a + b, 0);
+  const total = qty.reduce((sum, q, i) => sum + q * priceOf(products[i]?.p ?? ""), 0);
+  const addItem = (i: number) => setQty((q) => q.map((v, j) => (j === i ? v + 1 : v)));
+  const reset = () => {
+    setQty(products.map(() => 0));
+    setStage("shop");
+  };
+
+  const anim = reduce
+    ? {}
+    : {
+        initial: { opacity: 0, y: 8 },
+        animate: { opacity: 1, y: 0 },
+        exit: { opacity: 0, y: -8 },
+        transition: { duration: 0.25, ease: "easeOut" as const },
+      };
+
+  return (
+    <div className="relative pb-6 pl-6 pt-7">
+      <Glass label={m.url as string} live>
+        <div className="min-h-[314px]">
+          <AnimatePresence mode="wait">
+            {stage === "shop" && (
+              <motion.div key="shop" {...anim}>
+                {/* shop header */}
+                <div className="flex items-center justify-between">
+                  <span className="flex items-center gap-2">
+                    <span className="grid h-6 w-6 place-items-center rounded-lg text-[11px] font-bold text-[#0a0a0a]" style={{ background: AMBER }}>
+                      {(m.brand as string).slice(0, 1)}
+                    </span>
+                    <span className="text-[12.5px] font-semibold tracking-[-0.01em] text-white">{m.brand as string}</span>
+                  </span>
+                  <span className="relative inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[11px] font-medium text-white/70">
+                    <CartGlyph />
+                    <span className="tabular-nums">{count}</span>
+                    {count > 0 && <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full" style={{ background: AMBER }} />}
+                  </span>
+                </div>
+
+                {/* product grid */}
+                <div className="mt-3 grid grid-cols-2 gap-2">
+                  {products.map((pr, i) => (
+                    <div key={i} className="overflow-hidden rounded-xl border border-white/[0.07] bg-white/[0.02]">
+                      <div className="relative aspect-[5/4]" style={{ background: STORE_THUMBS[i % STORE_THUMBS.length] }}>
+                        <span className="absolute inset-0" style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)" }} />
+                        {qty[i] > 0 && (
+                          <span className="absolute left-1.5 top-1.5 grid h-4 min-w-[16px] place-items-center rounded-full px-1 text-[9px] font-bold text-[#0a0a0a]" style={{ background: AMBER }}>
+                            {qty[i]}
+                          </span>
+                        )}
+                      </div>
+                      <div className="flex items-center justify-between gap-1.5 px-2 py-2">
+                        <span className="min-w-0">
+                          <span className="block truncate text-[10.5px] font-medium text-white/85">{pr.n}</span>
+                          <span className="block text-[10.5px] font-semibold text-white">{pr.p}</span>
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => addItem(i)}
+                          aria-label={`${m.add as string} — ${pr.n}`}
+                          className="grid h-6 w-6 flex-none cursor-pointer place-items-center rounded-full text-[#0a0a0a] transition-transform duration-150 active:scale-90"
+                          style={{ background: AMBER }}
+                        >
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" aria-hidden>
+                            <path d="M12 5v14M5 12h14" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* cart bar */}
+                <div className="mt-3">
+                  {count === 0 ? (
+                    <p className="rounded-xl border border-dashed border-white/10 px-3 py-2.5 text-center text-[11px] text-white/45">
+                      {m.hint as string}
+                    </p>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => setStage("delivery")}
+                      className="flex w-full cursor-pointer items-center justify-between rounded-xl px-3.5 py-2.5 text-left transition-transform duration-150 active:scale-[0.99]"
+                      style={{ background: "linear-gradient(160deg,#FF7A2D,#E8590C)" }}
+                    >
+                      <span className="text-[12px] font-semibold text-white">{m.checkout as string}</span>
+                      <span className="text-[12px] font-semibold text-white tabular-nums">€{total}</span>
+                    </button>
+                  )}
+                </div>
+              </motion.div>
+            )}
+
+            {stage === "delivery" && (
+              <motion.div key="delivery" {...anim}>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setStage("shop")}
+                    aria-label="←"
+                    className="grid h-6 w-6 flex-none cursor-pointer place-items-center rounded-full border border-white/10 text-white/60 transition-colors hover:text-white"
+                  >
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                      <path d="M14 6l-6 6 6 6" />
+                    </svg>
+                  </button>
+                  <span className="text-[12.5px] font-semibold text-white">{m.deliveryTitle as string}</span>
+                </div>
+
+                {/* courier option */}
+                <div className="mt-3 flex items-center gap-2.5 rounded-xl border border-[#FF7A2D]/35 bg-[#FF7A2D]/[0.08] p-2.5">
+                  <span className="grid h-8 w-8 flex-none place-items-center rounded-lg text-[#ffb487]" style={{ background: "rgba(255,122,45,0.16)" }}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                      <path d="M2.5 6.5h11v9h-11z" />
+                      <path d="M13.5 9.5H17l3.5 3.5v2.5h-7z" />
+                      <circle cx="6.5" cy="18" r="1.6" />
+                      <circle cx="17" cy="18" r="1.6" />
+                    </svg>
+                  </span>
+                  <span className="min-w-0 flex-1 leading-tight">
+                    <span className="block truncate text-[11.5px] font-medium text-white">{m.courier as string}</span>
+                    <span className="block text-[10.5px] text-white/55">{m.eta as string}</span>
+                  </span>
+                  <span className="flex-none text-[11px] font-semibold text-[#7fe3a6]">{m.free as string}</span>
+                </div>
+
+                {/* address */}
+                <div className="mt-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-3 py-2.5">
+                  <span className="block text-[9px] font-medium uppercase tracking-[0.1em] text-white/40">{m.addressLabel as string}</span>
+                  <span className="mt-1 block text-[11.5px] text-white/80">{m.address as string}</span>
+                </div>
+
+                {/* total + pay */}
+                <div className="mt-3 flex items-center justify-between border-t border-white/[0.07] pt-3">
+                  <span className="text-[11.5px] text-white/55">{m.total as string}</span>
+                  <span className="text-[16px] font-semibold tracking-[-0.02em] text-white tabular-nums">€{total}</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setStage("done")}
+                  className="mt-3 grid w-full cursor-pointer place-items-center rounded-xl py-2.5 text-[12px] font-semibold text-white transition-transform duration-150 active:scale-[0.99]"
+                  style={{ background: "linear-gradient(160deg,#FF7A2D,#E8590C)" }}
+                >
+                  {m.pay as string} · €{total}
+                </button>
+              </motion.div>
+            )}
+
+            {stage === "done" && (
+              <motion.div key="done" {...anim} className="grid place-items-center py-7 text-center">
+                <span className="grid h-14 w-14 place-items-center rounded-full" style={{ background: "rgba(52,210,123,0.14)", border: "1px solid rgba(52,210,123,0.4)" }}>
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden>
+                    <motion.path
+                      d="M5 12.5l4 4 10-10"
+                      stroke="#34d27b"
+                      strokeWidth="2.6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      initial={reduce ? false : { pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      transition={{ duration: 0.5, ease: "easeOut" }}
+                    />
+                  </svg>
+                </span>
+                <p className="mt-4 text-[14px] font-semibold text-white">{m.done as string}</p>
+                <p className="mt-1 text-[11.5px] text-white/55">{m.doneSub as string}</p>
+                <span className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[11px] text-white/70 tabular-nums">
+                  {m.orderId as string} · €{total}
+                </span>
+                <button
+                  type="button"
+                  onClick={reset}
+                  className="mt-4 cursor-pointer text-[11.5px] font-medium text-[#ffb487] underline-offset-2 transition-colors hover:underline"
+                >
+                  {m.reset as string}
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </Glass>
+
+      {/* floating proof chips */}
+      <Chip className="absolute left-0 top-1" style={{ borderColor: "rgba(255,122,45,0.3)" }}>
+        <GoogleG />
+        <span className="font-semibold text-white">{m.serp as string}</span>
+      </Chip>
+      <Chip className="absolute -bottom-1 right-2 !px-3.5 !py-2">
+        <span
+          className="grid h-8 w-8 place-items-center rounded-full text-[13px] font-bold text-[#0a0a0a]"
+          style={{ background: "conic-gradient(#34d27b 0 100%, #1d1d20 0)", boxShadow: "inset 0 0 0 3px #0c0c0f" }}
+        >
+          <span className="grid h-[26px] w-[26px] place-items-center rounded-full bg-[#0c0c0f] text-white">100</span>
+        </span>
+        <span className="text-[11px] leading-tight text-white/70">{m.score as string}</span>
+      </Chip>
+    </div>
+  );
+}
+
 function AiMock({ m }: { m: Record<string, unknown> }) {
   return (
     <Glass label={m.agent as string} live>
@@ -565,7 +795,7 @@ function AdsMock({ m }: { m: Record<string, unknown> }) {
 
 const MOCKS: Record<Branch, (p: { m: Record<string, unknown> }) => ReactNode> = {
   websites: WebsitesMock,
-  store: WebsitesMock,
+  store: StoreMock,
   ai: AiMock,
   automation: AutomationMock,
   mobile: MobileMock,

@@ -6,7 +6,7 @@ import type { CSSProperties } from "react";
      web        → React · Next.js · HTML5 · Java · WordPress · SEO · </> · {}
      ai         → neural net · robot · GPT spark · CRM cloud/sprocket/board
      automation → flow nodes · gears · webhook loop · database · zap
-     mobile     → Apple · Android · App Store · Google Play · Swift · Xcode
+     mobile     → Swift · Kotlin · Dart · Java · Apple · Android
      telegram   → paper-plane · bot · chat · mini-app · @
      ads        → Google · Meta · Facebook · Instagram · chart · target
    Strokes render as constant hairlines (see .hero-contour in globals.css) so
@@ -32,8 +32,6 @@ const APPLE =
   "M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z";
 const ANDROID =
   "M17.523 15.341c-.551 0-.999-.448-.999-.999s.448-.999.999-.999.999.448.999.999-.448.999-.999.999m-11.046 0c-.551 0-.999-.448-.999-.999s.448-.999.999-.999.999.448.999.999-.448.999-.999.999m11.405-6.02 1.997-3.459a.416.416 0 0 0-.72-.415l-2.022 3.503C15.59 8.244 13.853 7.851 12 7.851s-3.59.393-5.137 1.099L4.841 5.447a.416.416 0 0 0-.72.415L6.118 9.32C2.689 11.187.343 14.659 0 18.761h24c-.343-4.102-2.689-7.574-6.118-9.44";
-const PLAY =
-  "M3.609 1.814 13.792 12 3.609 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zm10.89 10.893 2.302 2.302-10.937 6.333zm3.199-3.199 2.807 1.626a1 1 0 0 1 0 1.732l-2.808 1.626L15.39 12zM5.864 2.658 16.802 8.99l-2.303 2.303z";
 const GOOGLE =
   "M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z";
 const META =
@@ -44,8 +42,6 @@ const INSTAGRAM =
   "M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24s3.668-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z";
 const SWIFT =
   "M9.5 3C5.36 3 3 5.3 3 9.4v5.2C3 18.7 5.36 21 9.5 21h5C18.64 21 21 18.7 21 14.6V9.4C21 5.3 18.64 3 14.5 3h-5zm4.04.41c4.11 2.47 6.55 7.16 5.55 11.13 1.5 1.85 1.06 4.78.86 4.27-.9-1.75-2.55-1.2-3.4-.78-2.1 1.12-4.96 1.2-7.81-.02a12.6 12.6 0 0 1-5.64-4.84c.65.48 1.35.9 2.1 1.25 3.02 1.41 6.05 1.31 8.2 0C9.65 12.73 7.1 9.67 5.15 7.19c-.4-.53-.73-1.04-1.01-1.38 2.34 2.14 6.04 4.83 7.37 5.58C8.69 8.41 6.2 4.74 6.32 4.86c4.44 4.47 8.53 7 8.53 7l.36.21c.08-.21.16-.44.22-.67.71-2.59-.09-5.55-1.89-7.99z";
-const XCODE =
-  "m15 12-8.5 8.5c-.83.83-2.17.83-3 0a2.12 2.12 0 0 1 0-3L12 9M17.64 15 22 10.64m-1.09 1.06-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h.86c.85 0 1.65.33 2.25.93l1.25 1.25";
 
 function Brand({ d, sw = 0.5, vb = "0 0 24 24", className, style }: GP & { d: string; sw?: number | string; vb?: string }) {
   return (
@@ -61,8 +57,6 @@ const Meta = (p: GP) => <Brand d={META} {...p} />;
 const Facebook = (p: GP) => <Brand d={FACEBOOK} {...p} />;
 const Instagram = (p: GP) => <Brand d={INSTAGRAM} {...p} />;
 const Swift = (p: GP) => <Brand d={SWIFT} {...p} />;
-const Xcode = (p: GP) => <Brand d={XCODE} sw={1.4} {...p} />;
-const PlayStore = (p: GP) => <Brand d={PLAY} {...p} />;
 
 /* ───────────────────────── line-art glyphs ───────────────────────── */
 
@@ -74,10 +68,19 @@ function S({ className, style, children, vb = "0 0 24 24", sw = 1.5 }: GP & { ch
   );
 }
 
-const AppStore = (p: GP) => (
-  <S {...p}>
-    <rect x="2" y="2" width="20" height="20" rx="5.2" />
-    <path d="M7.2 16.4 12 7.4l4.8 9M9.5 13.1h5" />
+/* Programming-language marks for the mobile stage — the languages apps are
+   actually written in. Kotlin: rounded square with its signature left-pointing
+   chevron. Dart: the angular bird silhouette. */
+const Kotlin = (p: GP) => (
+  <S {...p} sw="1.35">
+    <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="2.6" />
+    <path d="M20.4 3.6 4 12l16.4 8.4" />
+  </S>
+);
+const Dart = (p: GP) => (
+  <S {...p} sw="1.4">
+    <path d="M4.2 13.4 13.4 4.2l6.4 2.8-1.4 10.4-10.2 1.6z" />
+    <path d="M13.4 4.2 11 15.4l7.4 1.2" />
   </S>
 );
 
@@ -340,12 +343,12 @@ const SCENES: Record<ContourTheme, Mark[]> = {
     { G: Gear, cls: "absolute right-[30%] top-[6%] hidden h-[clamp(56px,6vw,84px)] w-[clamp(56px,6vw,84px)] xl:block", tint: "ink", o: 0.09 },
   ],
   mobile: [
-    { G: Apple, cls: "absolute left-[2%] -top-[6%] h-[clamp(180px,24vw,320px)] w-[clamp(180px,24vw,320px)] -rotate-[8deg]", tint: "accent", o: 0.15, drift: "slow" },
-    { G: Android, cls: "absolute right-[8%] bottom-[2%] h-[clamp(150px,20vw,280px)] w-[clamp(150px,20vw,280px)] rotate-[6deg]", tint: "ink", o: 0.12, drift: "fast" },
-    { G: AppStore, cls: "absolute right-[6%] top-[7%] hidden h-[clamp(110px,13vw,180px)] w-[clamp(110px,13vw,180px)] sm:block", tint: "ink", o: 0.11 },
-    { G: PlayStore, cls: "absolute right-[40%] bottom-[6%] hidden h-[clamp(96px,11vw,150px)] w-[clamp(96px,11vw,150px)] md:block", tint: "accent", o: 0.14 },
-    { G: Swift, cls: "absolute right-[34%] top-[4%] hidden h-[clamp(80px,9vw,124px)] w-[clamp(80px,9vw,124px)] lg:block", tint: "accent", o: 0.13 },
-    { G: Xcode, cls: "absolute left-[6%] top-[34%] hidden h-[clamp(70px,8vw,108px)] w-[clamp(70px,8vw,108px)] lg:block", tint: "ink", o: 0.1 },
+    { G: Swift, cls: "absolute left-[2%] -top-[6%] h-[clamp(180px,24vw,320px)] w-[clamp(180px,24vw,320px)] -rotate-[8deg]", tint: "accent", o: 0.16, drift: "slow" },
+    { G: Kotlin, cls: "absolute right-[8%] bottom-[2%] h-[clamp(146px,19vw,270px)] w-[clamp(146px,19vw,270px)] rotate-[6deg]", tint: "ink", o: 0.12, drift: "fast" },
+    { G: Dart, cls: "absolute right-[6%] top-[7%] hidden h-[clamp(108px,13vw,176px)] w-[clamp(108px,13vw,176px)] sm:block", tint: "accent", o: 0.14 },
+    { G: JavaCup, cls: "absolute right-[39%] bottom-[6%] hidden h-[clamp(94px,11vw,148px)] w-[clamp(94px,11vw,148px)] md:block", tint: "ink", o: 0.11 },
+    { G: Apple, cls: "absolute right-[33%] top-[4%] hidden h-[clamp(78px,9vw,120px)] w-[clamp(78px,9vw,120px)] lg:block", tint: "ink", o: 0.1 },
+    { G: Android, cls: "absolute left-[6%] top-[34%] hidden h-[clamp(72px,8vw,110px)] w-[clamp(72px,8vw,110px)] lg:block", tint: "ink", o: 0.1 },
   ],
   telegram: [
     { G: TelegramPlane, cls: "absolute right-[8%] -top-[4%] h-[clamp(180px,26vw,320px)] w-[clamp(180px,26vw,320px)]", tint: "accent", o: 0.16, drift: "slow" },
