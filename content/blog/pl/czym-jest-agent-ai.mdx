@@ -114,17 +114,23 @@ Jeśli na poważnie myślisz:
 
 ## FAQ
 
-**Czy będzie halucynował?**
-W dobrze zbudowanym RAG — prawie nigdy. Ustawiam tryb ścisłego cytowania: jeśli odpowiedzi nie ma w bazie, agent mówi "nie wiem" i przekazuje do człowieka.
+**Co to jest agent AI i jak działa?**
+Agent AI to model językowy (GPT, Claude, Gemini) podłączony do narzędzi i danych, który sam decyduje, jakie kroki wykonać, by zrealizować zadanie. Mechanizm nazywa się function calling: agent rozumie cel, wybiera odpowiednie funkcje, wywołuje je z właściwymi parametrami i działa, dopóki zadanie nie jest zrobione.
 
-**Który model — GPT, Claude czy Gemini?**
-Zależy od zadania. GPT-4o — najbardziej zbalansowany. Claude 3.5 Sonnet — najlepszy do długich kontekstów i złożonych instrukcji. Gemini Flash — najtańszy, świetny do masowych prostych zadań. Często łączę.
+**Czym agent AI różni się od chatbota i od asystenta AI?**
+Chatbot tylko rozmawia — pyta, odpowiada, koniec. Asystent AI (typu ChatGPT) podpowiada i generuje treści, ale czeka na twoje polecenie. Agent AI ma autonomię i dostęp do narzędzi: nie tylko odpowiada, ale realnie wykonuje akcję — rezerwuje termin, aktualizuje CRM, wysyła SMS.
 
-**A jak jutro wyjdzie 2x lepszy model?**
-Podłączymy. Architektura ma być provider-agnostic przez warstwę abstrakcji. Wymiana modelu — dzień roboty, nie tydzień.
+**Jakie są przykłady zastosowań agenta AI w firmie?**
+Trzy najczęstsze: agent sprzedażowy, który kwalifikuje leady z WhatsAppa/formularza i przekazuje człowiekowi tylko gotowych; konsultant RAG na stronie, odpowiadający z twojej bazy wiedzy; automatyzacja rutyny — sortowanie maili, wzbogacanie leadów, pierwsze drafy treści. Sprawdza się w usługach prawnych, klinikach, e-commerce i SaaS.
 
-**Da się podłączyć do mojego CRM?**
-Jeśli CRM ma API — tak. AmoCRM, HubSpot, Pipedrive, Salesforce, Bitrix24, Notion-jako-CRM — wszystko się integruje.
+**Czy agent AI jest bezpieczny i co z danymi (RODO)?**
+Tak, jeśli zbudowany rozsądnie. Dane trzymasz u siebie albo u dostawcy zgodnego z RODO, do modelu idzie minimum potrzebne do odpowiedzi, a dane wrażliwe można anonimizować. Operatorzy jak OpenAI i Anthropic w trybie API nie uczą się na twoich danych. Dochodzi człowiek w pętli przy każdej operacji na pieniądzach.
+
+**Ile kosztuje wdrożenie agenta AI dla firmy?**
+Wdrożenie jednorazowo: prosty asystent RAG 1 200–2 500 €, agent sprzedażowy 2 500–5 000 €, złożona automatyzacja 5 000–15 000 €. Utrzymanie to wywołania API plus hosting — typowo 30–120 €/mies. Przy pensji managera pierwszego kontaktu zwraca się zwykle w pierwszym miesiącu.
+
+**Który model — GPT, Claude czy Gemini — i co, jak jutro wyjdzie lepszy?**
+Zależy od zadania: GPT-4o jest najbardziej zbalansowany, Claude najlepszy do długich kontekstów i złożonych instrukcji, Gemini Flash najtańszy do masowych prostych zadań. Architektura ma być provider-agnostic — wymiana modelu na nowszy to dzień roboty, nie tydzień. Tak samo podłączamy CRM: jeśli ma API (HubSpot, Pipedrive, Salesforce, Bitrix24), integruje się.
 
 ---
 

@@ -110,17 +110,23 @@ Nie wybieraj narzędzia „na zawsze". Regularnie przenoszę klientów z Zapiera
 
 ## FAQ
 
-**Czy n8n jest naprawdę darmowy?**
-Community Edition tak — licencja pozwala na darmowe użycie, również w biznesie. Płacisz tylko za serwer (VPS €5–10/mies.). Jest też płatny n8n Cloud, jeśli nie chcesz bawić się w serwer.
+**Make, n8n czy Zapier — które wybrać?**
+Zapier, gdy nie programujesz i potrzebujesz prostej automatyzacji na już. Make, gdy logika jest nietrywialna, a chcesz płacić mniej — domyślny wybór dla małych firm. n8n, gdy wolumen jest duży, dane mają zostać u Ciebie albo potrzebujesz prawdziwego kodu.
 
-**Czy Make naprawdę kosztuje jedną trzecią tego co Zapier?**
-Przy porównywalnym obciążeniu zwykle tak, bo operacje są tańsze niż taski. Ale po przejściu Make na kredyty (sierpień 2025) policz własny scenariusz — zwłaszcza jeśli używasz modułów AI.
+**Czym Make, n8n i Zapier różnią się od siebie?**
+Modelem rozliczeń i sufitem złożoności. Zapier liczy taski (akcje), Make operacje (kroki), n8n executions (całe uruchomienia) — i dlatego przy skali bywa wielokrotnie tańszy. Zapier jest najprostszy, n8n najpotężniejszy i jako jedyny pozwala na self-hosting.
 
-**Czy mogę zacząć na Zapierze i przejść później?**
-Tak i to normalna ścieżka. Logikę przenosi się ręcznie — migracji „jednym kliknięciem" nie ma — ale przy jasnych scenariuszach to dzień lub dwa pracy.
+**Które jest najtańsze przy dużym wolumenie?**
+n8n self-hosted, bez konkurencji. Liczy całe uruchomienia, nie pojedyncze kroki, więc 12 000 kroków = ~1 500 executions zamiast 12 000 tasków. VPS za €7/mies. zastępuje rachunek $70–100 w Zapierze. Make jest gdzieś pomiędzy.
 
-**Co wybrać do agentów AI?**
-n8n — ma najlepsze wsparcie node'ów LLM, narzędzi i wzorców agentowych od ręki. Make potrafi moduły AI, ale kosztują więcej w kredytach. Zapier jest tu najsłabszy z trójki.
+**Które jest najlepsze dla początkujących?**
+Zapier — liniowy kreator „jeśli to → wtedy to", ruszysz bez czytania dokumentacji. Make jest następnym krokiem, gdy potrzebujesz rozgałęzień i pętli; opanujesz go w kilka wieczorów. n8n zostaw na później — wymaga odrobiny myślenia programistycznego i własnego serwera.
+
+**Czy self-hosting n8n jest bezpieczny i zgodny z RODO?**
+Tak — to wręcz najmocniejszy argument za n8n. Dane nie opuszczają Twojego serwera, więc masz pełną kontrolę i łatwiej spełnić RODO niż przy chmurze przetwarzającej je za granicą. Cena: sam odpowiadasz za aktualizacje, backupy i łatki bezpieczeństwa.
+
+**Co jest najlepsze do AI i integracji?**
+Do agentów AI — n8n: ma najlepsze wsparcie node'ów LLM, narzędzi i wzorców agentowych od ręki (Make potrafi moduły AI, ale drożej w kredytach, Zapier jest tu najsłabszy). Do liczby gotowych integracji — Zapier, z 7 000+ aplikacji.
 
 ---
 

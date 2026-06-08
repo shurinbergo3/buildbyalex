@@ -117,14 +117,20 @@ Po takim połączeniu liczby są stabilne: leady docierają do zespołu w sekund
 
 ## FAQ
 
-**Można podłączyć i Telegram, i WhatsApp do jednego CRM?**
-Tak. Każdy kanał ma swój webhook, ale zapisują do jednego CRM z polem „Źródło”. Na karcie widać, skąd przyszedł klient i gdzie toczy się rozmowa.
+**Po co w ogóle integrować CRM z Telegramem i WhatsAppem?**
+Żeby żaden lead z komunikatora nie zginął na prywatnym numerze ani w nieprzeczytanych. Każda wiadomość w kilka sekund staje się szansą w CRM, zespół dostaje ping, a szef po raz pierwszy widzi realną liczbę zapytań. Bez tego „utracony lead” to nie błąd, lecz norma.
 
-**AmoCRM, HubSpot czy Pipedrive — co wybrać?**
-Po API integrują się wszystkie trzy. AmoCRM jest wygodniejszy pod rynek CIS i komunikatory „od ręki”, HubSpot pod złożone lejki i marketing, Pipedrive najprostszy dla małego zespołu sprzedaży. Bierz ten, w którym zespół naprawdę będzie pracował.
+**Jak technicznie połączyć komunikator z CRM?**
+Przez webhooki i API. Komunikator wysyła `POST` na twój endpoint przy każdej wiadomości (Telegram — Bot API, WhatsApp — Business API lub konektor typu Wappi), twój handler parsuje update i przez API CRM tworzy lub uzupełnia szansę. Webhook to wyzwalacz, API CRM to akcja.
 
-**Bot czy prywatny numer?**
-Bot — taniej, stabilniej, oficjalnie. Prywatny numer — gdy klient ma rozmawiać z człowiekiem, a nie z „@bot”. Często stawiam jedno i drugie: bot kwalifikuje, człowiek domyka.
+**Które CRM są wspierane?**
+Praktycznie każdy z otwartym API. Najczęściej AmoCRM (API v4), HubSpot i Pipedrive — wszystkie integrują się po REST/OAuth. AmoCRM jest wygodniejszy pod rynek CIS i komunikatory „od ręki”, HubSpot pod złożone lejki i marketing, Pipedrive najprostszy dla małego zespołu. Bierz ten, w którym zespół naprawdę pracuje.
+
+**Czym WhatsApp Business API różni się od zwykłego WhatsAppa?**
+Zwykły WhatsApp (i Business App) działa na telefonie i nie ma legalnego API do CRM. WhatsApp Business API to oficjalny kanał przez Meta/BSP: wymaga weryfikacji firmy i szablonów wiadomości, ale jest niezawodny i skalowalny. Konektory typu Wappi utrzymują sesję na numerze szybciej i taniej, lecz to kanał nieoficjalny.
+
+**Czy dane klientów są bezpieczne i zgodne z RODO?**
+Tak, jeśli integrację zrobi się poprawnie. Dane lecą szyfrowanym kanałem (HTTPS), trafiają do twojego CRM, a nie do cudzej chmury, dostęp ograniczasz rolami, a w polityce prywatności wskazujesz cele przetwarzania. Z oficjalnym WhatsApp Business API i CRM z serwerami w UE spełniasz wymogi RODO.
 
 **Ile to kosztuje i jak długo trwa?**
 Podstawowe połączenie jednego kanału z CRM, z powiadomieniami i auto-szansą — od €600 i zwykle 1–2 tygodnie. Dwukierunkowa synchronizacja, deduplikacja i routing kosztują więcej, zależnie od logiki.

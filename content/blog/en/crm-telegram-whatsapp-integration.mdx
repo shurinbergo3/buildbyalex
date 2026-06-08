@@ -117,14 +117,20 @@ After this kind of wiring, the numbers hold steady: leads reach the team in seco
 
 ## FAQ
 
-**Can I connect both Telegram and WhatsApp to one CRM?**
-Yes. Each channel has its own webhook, but they write into one CRM with a "Source" field. The card shows where the client came from and where the conversation continues.
+**Why integrate a CRM with Telegram and WhatsApp at all?**
+So no messenger lead dies on a personal number or in the unread pile. Every message becomes a deal in the CRM within seconds, the team gets pinged, and the manager finally sees a real inbound count. Without it, a "lost lead" isn't a bug — it's the norm.
 
-**AmoCRM, HubSpot, or Pipedrive — which one?**
-All three integrate via API. AmoCRM is handier for CIS markets and messengers out of the box, HubSpot for complex funnels and marketing, Pipedrive is the simplest for a small sales team. Pick the one your team will actually use.
+**How do you technically connect a messenger to a CRM?**
+Through webhooks and APIs. The messenger `POST`s to your endpoint on every message (Telegram via Bot API, WhatsApp via Business API or a connector like Wappi); your handler parses the update and creates or updates a deal through the CRM API. The webhook is the trigger, the CRM API is the action.
 
-**Bot or personal number?**
-A bot is cheaper, more stable, official. A personal number is for when the client must talk to a human, not "@bot." I often set up both: the bot qualifies, the human closes.
+**Which CRMs are supported?**
+Practically any with an open API. Most often AmoCRM (API v4), HubSpot, and Pipedrive — all integrate via REST/OAuth. AmoCRM is handier for CIS markets and messengers out of the box, HubSpot for complex funnels and marketing, Pipedrive is the simplest for a small team. Pick the one your team actually uses.
+
+**How is the WhatsApp Business API different from regular WhatsApp?**
+Regular WhatsApp (and the Business App) runs on a phone and has no legal API for a CRM. The WhatsApp Business API is the official channel via Meta/a BSP: it needs business verification and message templates, but it's reliable and scalable. Connectors like Wappi hold a session on a number faster and cheaper, but that channel is unofficial.
+
+**Is client data safe and GDPR-compliant?**
+Yes, if the integration is done right. Data travels over an encrypted channel (HTTPS) into your own CRM rather than a third party's cloud, you limit access by roles, and you state the processing purposes in your privacy policy. With the official WhatsApp Business API and a CRM hosted in the EU, you meet GDPR requirements.
 
 **What does it cost and how long does it take?**
 A basic single-channel link with notifications and auto-deals starts at €600 and usually takes 1–2 weeks. Two-way sync, dedup, and routing cost more, depending on the logic.

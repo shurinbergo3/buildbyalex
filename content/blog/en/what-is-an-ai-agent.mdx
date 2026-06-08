@@ -114,17 +114,23 @@ If you're seriously considering it:
 
 ## FAQ
 
-**Will it hallucinate?**
-In a well-built RAG — almost never. I enforce strict citation mode: if the answer isn't in the corpus, the agent says "I don't know" and routes to a human.
+**What is an AI agent and how does it work?**
+An AI agent is a language model (GPT, Claude, Gemini) wired to tools and data that decides for itself which steps to take to get a task done. The mechanism is function calling: the agent understands the goal, picks the right functions, calls them with the right parameters, and keeps going until the task is complete.
 
-**Which model — GPT, Claude or Gemini?**
-Depends on the task. GPT-4o — most balanced. Claude 3.5 Sonnet — best for long contexts and complex instructions. Gemini Flash — cheapest, great for high-volume simple tasks. I often combine them.
+**How is an AI agent different from a chatbot and from an AI assistant?**
+A chatbot only talks — asks, answers, done. An AI assistant (think ChatGPT) suggests and generates content, but waits for your prompt. An AI agent has autonomy and tool access: it doesn't just answer, it actually performs the action — books the slot, updates the CRM, sends the SMS.
 
-**What if a 2x better model ships tomorrow?**
-We plug it in. The architecture must be provider-agnostic through an abstraction layer. Swapping models is a day's work, not a week.
+**What are some examples of AI agents in a business?**
+Three common ones: a sales agent that qualifies leads from WhatsApp/forms and hands a human only the ready ones; a RAG consultant on your site answering from your knowledge base; routine automation — sorting email, enriching leads, first-draft content. It works well in legal services, clinics, e-commerce, and SaaS.
 
-**Can you connect it to my CRM?**
-If the CRM has an API — yes. AmoCRM, HubSpot, Pipedrive, Salesforce, Bitrix24, Notion-as-CRM — all integrate.
+**Is an AI agent safe, and what about data (GDPR)?**
+Yes, if it's built sensibly. You keep data on your side or with a GDPR-compliant provider, only the minimum needed for the answer goes to the model, and sensitive fields can be anonymized. Operators like OpenAI and Anthropic don't train on your data in API mode. Add a human in the loop on every money operation.
+
+**How much does it cost to implement an AI agent for a business?**
+Build, one-off: a simple RAG assistant €1,200–2,500, a sales agent €2,500–5,000, complex automation €5,000–15,000. Running cost is API calls plus hosting — typically €30–120/month. Against a first-touch manager's salary, it usually pays for itself in the first month.
+
+**Which model — GPT, Claude or Gemini — and what if a better one ships tomorrow?**
+Depends on the task: GPT-4o is the most balanced, Claude is best for long contexts and complex instructions, Gemini Flash is cheapest for high-volume simple tasks. The architecture should be provider-agnostic — swapping in a newer model is a day's work, not a week. Same for your CRM: if it has an API (HubSpot, Pipedrive, Salesforce, Bitrix24), it integrates.
 
 ---
 

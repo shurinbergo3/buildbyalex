@@ -110,17 +110,23 @@ Don't pick a tool "forever." I regularly move clients from Zapier to Make as vol
 
 ## FAQ
 
-**Is n8n really free?**
-The Community Edition is — the license allows free use, including in business. You only pay for the server (a €5–10/mo VPS). There's also a paid n8n Cloud if you'd rather not deal with a server.
+**Make, n8n or Zapier — which should I choose?**
+Zapier if you don't code and need a simple automation now. Make if the logic is non-trivial and you want to pay less — the default for small businesses. n8n if volume is high, the data must stay with you, or you need real code.
 
-**Is Make really a third of Zapier's cost?**
-On comparable load, usually yes, because operations are cheaper than tasks. But after Make's move to credits (August 2025), price your actual scenario — especially if you use AI modules.
+**How are Make, n8n and Zapier different?**
+By billing model and complexity ceiling. Zapier counts tasks (actions), Make counts operations (steps), n8n counts executions (whole runs) — which is why it can be multiples cheaper at scale. Zapier is the simplest, n8n the most powerful and the only one that allows self-hosting.
 
-**Can I start on Zapier and migrate later?**
-Yes, and it's a normal path. Logic is moved by hand — there's no "one-click" migration — but for clear scenarios it's a day or two of work.
+**Which is cheapest at high volume?**
+Self-hosted n8n, no contest. It counts whole runs, not individual steps, so 12,000 steps = ~1,500 executions instead of 12,000 tasks. A €7/mo VPS replaces a $70–100 Zapier bill. Make sits somewhere in between.
 
-**Which is best for AI agents?**
-n8n — it has the best support for LLM nodes, tools and agentic patterns out of the box. Make can do AI modules but they cost more in credits. Zapier is the weakest of the three for agents.
+**Which is best for beginners?**
+Zapier — a linear "if this → then that" builder you can run without reading the docs. Make is the next step when you need branching and loops; you'll learn it in a couple of evenings. Leave n8n for later — it wants a bit of a developer's mindset and your own server.
+
+**Is self-hosting n8n safe and GDPR-compliant?**
+Yes — it's arguably the strongest argument for n8n. Data never leaves your server, so you keep full control and GDPR is easier to satisfy than with a cloud processing it abroad. The trade-off: you're responsible for updates, backups and security patches yourself.
+
+**What's best for AI and integrations?**
+For AI agents — n8n: the best support for LLM nodes, tools and agentic patterns out of the box (Make can do AI modules but pricier in credits, Zapier is weakest here). For sheer number of ready integrations — Zapier, with 7,000+ apps.
 
 ---
 

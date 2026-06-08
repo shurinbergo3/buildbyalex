@@ -85,17 +85,23 @@ Jeśli potrzebujesz właśnie takiej strony — produkcyjny Next.js z SEO w rdze
 
 ## FAQ
 
-**Czy WordPress umiera?**
-Nie. 43% sieci nie zniknie. Ale dla nowej strony firmowej, gdzie liczy się szybkość i SEO, wybór coraz częściej pada na Next.js lub Astro.
+**Next.js czy WordPress — co wybrać?**
+Wybierz WordPress, jeśli nietechniczny zespół publikuje treść codziennie albo potrzebujesz gotowej wtyczki (sklep, rezerwacje, LMS). Wybierz Next.js, jeśli priorytetem jest szybkość, techniczne SEO, własna logika lub poważna wielojęzyczność.
 
-**Da się połączyć — WordPress jako CMS, Next.js jako frontend?**
-Tak, to „headless WordPress”: treść edytowana w znanym panelu, serwowana przez szybki front Next.js. Wygodne, gdy zespół lubi WordPressa, ale potrzebujesz szybkości. Minus — dwie warstwy zamiast jednej, drożej w utrzymaniu.
+**Co jest szybsze i lepsze pod SEO?**
+Pod technicznym SEO wygrywa Next.js: LCP 0,5–1 s vs 2–5 s na WordPressie, a Core Web Vitals to czynnik rankingowy. WordPress odgryza się w treściowym SEO (Yoast / Rank Math dla nietechnicznej osoby). Szybkość pomaga tylko, gdy treść już jest — pusta strona się nie pozycjonuje.
 
-**Co indeksuje się szybciej w Google?**
-Przy reszcie równej — Next.js, dzięki szybkości i czystemu HTML. Ale o tym decyduje nie platforma, tylko schema, hreflang i sensowna treść.
+**Co jest tańsze?**
+We wdrożeniu i przy małym projekcie z minimum wtyczek — WordPress (od 2200 PLN). W 3 lata Next.js dogania i wyprzedza tam, gdzie liczy się szybkość, a wtyczki premium i utrzymanie się mnożą: realnie 6500–22 000 PLN vs 13 000–40 000 PLN na WordPressie.
 
-**Czy naprawdę da się przyspieszyć WordPressa do poziomu Next.js?**
-Do „blisko” — tak, z dobrym hostingiem i cache. Do „jeden do jednego” — prawie nigdy, bo render PHP i wtyczki zawsze ciągną w dół.
+**Co jest bezpieczniejsze?**
+Next.js. Statyczne pliki na CDN-ie bez wtyczek i bez panelu admina na publicznym URL praktycznie nie mają powierzchni ataku. W 2025 w ekosystemie WordPress wykryto 11 000+ podatności, ponad 90% we wtyczkach — i wymaga to łatania co tydzień.
+
+**Kiedy WordPress wciąż ma sens?**
+Blog lub media z codzienną publikacją przez nietechniczny zespół, mały budżet na wizytówkę, gotowy ekosystem (rezerwacje, członkostwa, fora, LMS) albo WooCommerce do sklepu na 50–200 produktów ze standardową logiką.
+
+**Czy można zmigrować z WordPressa na Next.js?**
+Tak, i to częsty scenariusz. Treść przenosi się przez eksport lub headless (WordPress jako CMS, Next.js jako front), a stare URL-e trzeba zmapować przekierowaniami 301, żeby nie stracić pozycji. Widziałem wzrosty ruchu o 20–40% w kwartał — z samej szybkości.
 
 ---
 

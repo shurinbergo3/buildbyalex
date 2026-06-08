@@ -112,17 +112,26 @@ Przy strumieniu od 50–100 leadów miesięcznie agent zwykle zwraca się w pier
 
 ## FAQ
 
-**Ile trwa wdrożenie?**
-Bazowy agent sprzedażowy z jednym kanałem i jednym CRM — od dwóch do czterech tygodni. Potem tydzień-dwa na dokręcanie skryptu na żywych rozmowach.
+**Co to jest agent AI dla sprzedaży i jak kwalifikuje leady?**
+To program, który przejmuje pierwszy kontakt: łapie przychodzące zapytanie na Telegramie, WhatsAppie lub z formularza, prowadzi naturalną rozmowę według skryptu (6–8 pytań o budżet, zadanie, termin, decydenta), klasyfikuje leada jako dopasowanego lub nie i przesuwa go w CRM. Handlowiec dostaje gotową kartę zamiast surowego zgłoszenia.
+
+**Czy agent AI zastąpi handlowców?**
+Nie. Zdejmuje rutynę pierwszego kontaktu i kwalifikacji, ale złożone transakcje, negocjacje i zamykanie zostają przy człowieku. Handlowiec przestaje tonąć w śmieciowych zgłoszeniach i pracuje tylko na gorących leadach.
+
+**Ile kosztuje agent AI dla sprzedaży?**
+Dwa składniki. Jednorazowa budowa (integracja z CRM, kwalifikacja, dashboard) — wyceniana per projekt. Eksploatacja (wywołania API modelu + hosting) przy do ~1 000 rozmów miesięcznie to **150–500 zł/mies**. Dla porównania handlowiec pierwszego kontaktu to 4 000–9 000 zł/mies.
+
+**Jak agent integruje się z CRM?**
+Przez function calling i API twojego CRM. Sam tworzy szansę, wypełnia pola, ustawia etap lejka, dodaje tagi i przypisuje właściciela. Działa z każdym CRM, który ma API: AmoCRM, HubSpot, Pipedrive, Bitrix24, Salesforce.
+
+**Po jakim czasie agent się zwraca?**
+Przy strumieniu od 50–100 leadów miesięcznie zwykle w pierwszym-drugim miesiącu — dzięki oszczędności czasu (40 → 8 minut na leada) i wyższej konwersji. Poniżej 50 leadów miesięcznie zwykle się nie zwraca i powiem to wprost.
+
+**Czy dane klientów są bezpieczne (RODO)?**
+Tak. Dane przechodzą przez twój CRM i wybrane API modelu, bez przekazywania osobom trzecim poza tym łańcuchem. Można pracować na modelach z opcją nieuczenia się na danych i hostować w UE, żeby zachować zgodność z RODO.
 
 **Czy agent będzie zmyślać odpowiedzi klientom?**
-Nie, jeśli zbudowany poprawnie. Skrypt i fakty pochodzą z twojej bazy wiedzy, a na pytania poza kompetencją agent uczciwie mówi "dopytam kolegi" i przekazuje.
-
-**Z jakim CRM można go połączyć?**
-Z każdym, który ma API: AmoCRM, HubSpot, Pipedrive, Bitrix24, Salesforce. Jeśli CRM ma API, integracja jest możliwa.
-
-**Co jeśli mam mały strumień leadów?**
-Poniżej 50 miesięcznie zwykle się nie zwraca, i powiem to wprost. Najpierw ułóż proces ręcznie, potem automatyzuj.
+Nie, jeśli zbudowany poprawnie. Skrypt i fakty pochodzą z twojej bazy wiedzy, a na pytania poza kompetencją agent uczciwie mówi "dopytam kolegi" i przekazuje rozmowę człowiekowi.
 
 ---
 

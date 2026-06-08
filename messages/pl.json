@@ -775,7 +775,7 @@
         "subhead": "Tak wygląda efekt: dopracowana strona na każdym ekranie, pozycja #1 w Google i wynik 100/100 w Lighthouse.",
         "site": {
           "brand": "AlexBuild",
-          "url": "alexbuild.com",
+          "url": "visionair.biz.pl",
           "nav": [
             "Produkt",
             "Realizacje",
@@ -800,8 +800,8 @@
               "count": "Około 1 240 000 wyników",
               "results": [
                 {
-                  "site": "alexbuild.com",
-                  "breadcrumb": "alexbuild.com › usługi › strony",
+                  "site": "visionair.biz.pl",
+                  "breadcrumb": "visionair.biz.pl › usługi › strony",
                   "title": "Tworzenie stron w Warszawie — start w 1–3 tygodnie",
                   "snippet": "Strony marketingowe, landingi i firmowe na Next.js. Wielojęzyczność, SEO i analityka pod klucz. Bezpłatna rozmowa.",
                   "rating": "4,9 · 47 opinii"
@@ -825,8 +825,8 @@
               "count": "Około 938 000 wyników",
               "results": [
                 {
-                  "site": "alexbuild.com",
-                  "breadcrumb": "alexbuild.com › landingi",
+                  "site": "visionair.biz.pl",
+                  "breadcrumb": "visionair.biz.pl › landingi",
                   "title": "Landing page pod klucz — projekt, treść, analityka",
                   "snippet": "Strony docelowe, które zamieniają ruch w leady. Testy A/B i integracja z CRM w cenie.",
                   "rating": "4,9 · 47 opinii"
@@ -850,8 +850,8 @@
               "count": "Około 612 000 wyników",
               "results": [
                 {
-                  "site": "alexbuild.com",
-                  "breadcrumb": "alexbuild.com › technologie",
+                  "site": "visionair.biz.pl",
+                  "breadcrumb": "visionair.biz.pl › technologie",
                   "title": "Strony na Next.js 15 — szybkość i SEO od razu",
                   "snippet": "Renderowanie po stronie serwera, idealny Lighthouse i wielojęzyczność. Gotowe do indeksacji od pierwszego dnia.",
                   "rating": "4,9 · 47 opinii"
@@ -896,7 +896,7 @@
           "captionTemplate": "{url} · pomiar na wolnym 4G",
           "pages": [
             {
-              "url": "alexbuild.com",
+              "url": "visionair.biz.pl",
               "label": "Strona główna",
               "metrics": {
                 "fcp": "0,8 s",
@@ -907,7 +907,7 @@
               }
             },
             {
-              "url": "alexbuild.com/uslugi",
+              "url": "visionair.biz.pl/uslugi",
               "label": "Usługi",
               "metrics": {
                 "fcp": "0,7 s",
@@ -918,7 +918,7 @@
               }
             },
             {
-              "url": "alexbuild.com/kontakt",
+              "url": "visionair.biz.pl/kontakt",
               "label": "Kontakt",
               "metrics": {
                 "fcp": "0,6 s",

@@ -101,17 +101,23 @@ For budget orientation: automating a single process starts at €600 one-time wi
 
 ## FAQ
 
+**Where do I start with business process automation?**
+Not with a tool — with numbers. List 5–7 repeatable processes, run the "minutes × runs ÷ 60 × rate" formula to see how many hours a month each eats, and take the most expensive one. One process, not everything at once.
+
+**Which processes should I automate first?**
+The ones that repeat dozens of times a week with few exceptions. Three pay back fastest: lead handling (form → CRM → notification → auto-reply), invoicing, and moving data between systems.
+
 **How much does it cost to automate one process?**
 From €600 for one process on no-code/low-code. Plus subscriptions or hosting — usually €0–25/month if we run n8n on your own server. Complex multi-step scenarios with code cost more; I quote per task.
 
-**How fast does it pay back?**
+**Is it worth it, and how fast does it pay back?**
 By the "hours × rate" formula. A typical case saving 15–20 hours a month pays back in 2–3 months. If the math says payback takes over a year, it's too early to automate that process.
 
 **Make, n8n, or Zapier — which one?**
 Zapier is the simplest but gets pricey at volume. Make is more flexible for the same money. n8n runs on your own server, cheap at volume, and your data stays with you. For Poland-based businesses with data requirements I usually reach for n8n.
 
-**What if the process changes later?**
-A well-built automation is modular: you change one block, not the whole chain. That's exactly why I don't wire everything into one monolith — later edits stay cheap.
+**Is my data safe and GDPR-compliant?**
+Yes, if you plan for it from the start. With n8n on your own server the data never leaves your infrastructure at all. With Make or Zapier I check where the data physically lands, and sensitive operations (money, deletion, anything sent to clients) always stay behind a human confirmation with a log you can audit.
 
 ---
 

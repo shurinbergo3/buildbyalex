@@ -4,11 +4,12 @@ import { useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { motion, useReducedMotion } from "motion/react";
 
-/* Websites service demo. The real homepage shown live inside a desktop browser
-   chrome, with an overlapping phone running the same page in its mobile layout.
-   The desktop frame is interactive; the phone is a decorative preview. Both are
-   same-origin iframes of `/[locale]`, scaled down to fit. Chrome copy (url,
-   langs) comes from services.websites.demo.site. */
+/* Websites service demo. A real client site (visionair.biz.pl) shown live
+   inside a desktop browser chrome, with an overlapping phone running the same
+   page in its mobile layout. The desktop frame is interactive; the phone is a
+   decorative preview. Both are iframes of the language version matching the
+   current locale. Chrome copy (url, langs) comes from
+   services.websites.demo.site. */
 
 // Logical viewport each iframe renders at, before it's scaled to fit.
 const DESKTOP_W = 1440;
@@ -17,6 +18,10 @@ const PHONE_W = 390;
 const PHONE_H = 844;
 const PHONE_RENDER_W = 132; // on-screen width of the phone
 
+// Live site shown in the mock, per locale (ua → the site's Ukrainian version).
+const SITE_BASE = "https://visionair.biz.pl";
+const SITE_PATH: Record<string, string> = { ru: "", pl: "/pl/", en: "/en/", ua: "/uk/" };
+
 export function ResponsiveSiteMock() {
   const t = useTranslations("services.websites.demo.site");
   const locale = useLocale();
@@ -24,7 +29,7 @@ export function ResponsiveSiteMock() {
 
   const url = t("url");
   const langs = t("langs");
-  const href = `/${locale}`;
+  const href = SITE_BASE + (SITE_PATH[locale] ?? "");
 
   // Scale the desktop iframe to whatever width the browser chrome ends up at.
   const frameRef = useRef<HTMLDivElement>(null);

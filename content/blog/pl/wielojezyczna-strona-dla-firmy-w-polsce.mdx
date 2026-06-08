@@ -126,17 +126,23 @@ Sygnały lokalne są wspólne dla wszystkich wersji językowych — Google rozum
 
 ## FAQ
 
-**Czy Google ukarze za ten sam tekst w różnych językach?**
-Nie. Tłumaczenie to nie duplikat. Duplikatem jest identyczna treść w jednym języku pod różnymi adresami URL, rozwiązywana przez self-canonical. Tłumaczenia to to, do czego stworzono hreflang.
+**Jak zrobić wielojęzyczną stronę dla firmy w Polsce?**
+Każdy język pod własnym adresem URL (podkatalogi `/pl/`, `/ru/`), zlokalizowane slugi, poprawny hreflang z wzajemnością i self-canonical na każdej wersji. Treść tłumaczy człowiek, nie wtyczka. To architektura od pierwszego dnia, a nie przełącznik doklejony do gotowej strony.
+
+**Ile kosztuje wielojęzyczna strona?**
+Nie ma jednej kwoty — cena zależy od liczby języków, liczby stron i tego, czy treść trzeba napisać od zera, czy tylko przetłumaczyć. Sama wielojęzyczność technicznie (hreflang, slugi, struktura) to niewielki dodatek; główny koszt to teksty i ich redakcja. U mnie dostajesz wycenę z ceną stałą po krótkiej rozmowie.
+
+**Ile języków warto dodać?**
+Tyle, ilu naprawdę używają twoi klienci — nie więcej. W Polsce typowo PL + EN + RU + UA. Każdy kolejny język to osobne teksty do utrzymania i aktualizacji, więc nie dodawaj wersji, której nie obsłużysz redakcyjnie.
 
 **Podkatalogi, subdomeny czy osobne domeny?**
-Dla firmy w Polsce — podkatalogi (`/ru/`, `/pl/`) na jednej domenie `.pl`. Cała moc SEO kumuluje się w jednym miejscu, a utrzymanie jest prostsze.
+Dla firmy w Polsce — podkatalogi (`/ru/`, `/pl/`) na jednej domenie `.pl`. Cała moc SEO kumuluje się w jednym miejscu, a utrzymanie jest prostsze. Subdomeny i osobne domeny rozpraszają autorytet i mają sens tylko przy naprawdę różnych rynkach i budżetach.
 
 **Czy potrzebuję hreflang przy tylko dwóch językach?**
-Tak. Nawet przy PL + EN. Bez niego Google może pokazać wersję angielską polskiemu użytkownikowi i odwrotnie, a obie wersje konkurują ze sobą w wynikach.
+Tak. Nawet przy PL + EN. Bez niego Google może pokazać wersję angielską polskiemu użytkownikowi i odwrotnie, a obie wersje konkurują ze sobą w wynikach. hreflang musi być wzajemny — każda wersja wskazuje na pozostałe i z powrotem.
 
-**Czy mogę użyć tłumaczenia maszynowego?**
-Jako wersji roboczej — tak. Ale publikowanie surowego tłumaczenia maszynowego to błąd: Google obniża pozycję, a klient czuje sztuczność. Minimum to redakcja native speakera pod rynek.
+**Tłumaczyć automatycznie czy ręcznie?**
+Ręcznie — przynajmniej z redakcją native speakera. Tłumaczenie maszynowe jest okej jako wersja robocza, ale publikowanie surowego automatu to błąd: Google obniża pozycję za niską jakość, a klient czuje sztuczność.
 
 ---
 
