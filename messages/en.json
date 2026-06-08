@@ -979,8 +979,11 @@
           "React 19",
           "TypeScript",
           "Tailwind CSS",
-          "next-intl",
+          "HTML5",
+          "CSS3",
+          "WordPress",
           "Sanity / MDX",
+          "next-intl",
           "Vercel",
           "Schema.org",
           "IndexNow"
@@ -1129,6 +1132,49 @@
           "doneSub": "Your courier is on the way",
           "orderId": "#WAR-2048",
           "reset": "New order"
+        }
+      },
+      "demo": {
+        "eyebrow": "Demonstration",
+        "headline": "Stores that sell —\nand load instantly",
+        "subhead": "A catalogue, cart and checkout that never lose the buyer: fill the basket and place a delivery order right here. #1 on Google and 100/100 in Lighthouse.",
+        "serp": "#1 on Google",
+        "score": "Lighthouse 100",
+        "site": { "url": "your-store.com", "langs": "RU · PL · EN · UA" },
+        "shop": {
+          "brand": "THINGS",
+          "nav": ["Catalogue", "New in", "Delivery"],
+          "heroEyebrow": "New collection",
+          "heroTitle": "Winter 2026",
+          "heroCta": "Shop now",
+          "search": "Search the catalogue",
+          "products": [
+            { "n": "Alpine Puffer", "p": "€189", "c": "Outerwear" },
+            { "n": "Runner Sneakers", "p": "€120", "c": "Footwear" },
+            { "n": "Oversize Hoodie", "p": "€69", "c": "Tops" },
+            { "n": "Slim Jeans", "p": "€79", "c": "Bottoms" },
+            { "n": "City Backpack", "p": "€75", "c": "Accessories" },
+            { "n": "Logo Cap", "p": "€29", "c": "Accessories" }
+          ],
+          "add": "Add to cart",
+          "cartTitle": "Cart",
+          "empty": "Your cart is empty",
+          "emptyHint": "Add items from the catalogue",
+          "subtotal": "Subtotal",
+          "checkout": "Checkout delivery",
+          "deliveryTitle": "Delivery",
+          "back": "Back",
+          "courier": "Courier · Warsaw",
+          "eta": "Tomorrow, 10:00–14:00",
+          "free": "Free",
+          "addressLabel": "Delivery address",
+          "address": "1 Marszałkowska St, Warsaw",
+          "total": "Total",
+          "pay": "Pay",
+          "done": "Order placed",
+          "doneSub": "Your courier is on the way",
+          "orderId": "#WAR-2048",
+          "continue": "Continue shopping"
         }
       },
       "what": {

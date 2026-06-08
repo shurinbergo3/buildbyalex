@@ -3,7 +3,7 @@ import type { CSSProperties } from "react";
 /* ═══════════════════════════════════════════════════════════════════════════
    Hero background contours — themed line-art glyphs scattered behind every
    glass hero stage. Each theme tells the story of what the page builds:
-     web        → React · Next.js · HTML5 · Java · WordPress · SEO · </> · {}
+     web        → React · Next.js · HTML5 · CSS3 · CMS · WordPress · Java · GraphQL · SEO · Tailwind · </> · {}
      ai         → neural net · robot · GPT spark · CRM cloud/sprocket/board
      automation → flow nodes · gears · webhook loop · database · zap
      mobile     → Swift · Kotlin · Dart · Java · Apple · Android
@@ -148,6 +148,32 @@ const TailwindWaves = (p: GP) => (
   <S {...p} vb="0 0 24 18" sw="1.4">
     <path d="M6 4.5c1.6-3.2 3.6-4.8 6-4.8 3.6 0 4.05 2.4 5.85 3 1.2.4 2.25.15 3.15-.75-1.6 3.2-3.6 4.8-6 4.8-3.6 0-4.05-2.4-5.85-3-1.2-.4-2.25-.15-3.15.75z" />
     <path d="M0 10.5c1.6-3.2 3.6-4.8 6-4.8 3.6 0 4.05 2.4 5.85 3 1.2.4 2.25.15 3.15-.75-1.6 3.2-3.6 4.8-6 4.8-3.6 0-4.05-2.4-5.85-3-1.2-.4-2.25-.15-3.15.75z" />
+  </S>
+);
+const Css3 = (p: GP) => (
+  <S {...p} sw="1.4">
+    <path d="M4 2.6 5.5 20 12 22l6.5-2L20 2.6H4z" />
+    <path d="M8 7.2h8.2l-.5 5.4H10l.25 2.6 1.75.55 1.8-.55.18-1.7" />
+  </S>
+);
+const Cms = (p: GP) => (
+  <S {...p} sw="1.35">
+    <rect x="3.4" y="4.4" width="14" height="13" rx="2" />
+    <path d="M3.4 8.2h14" />
+    <path d="M6.4 11.4h5M6.4 14.2h7.6" />
+    <path d="M7 20.6h12.1a1.5 1.5 0 0 0 1.5-1.5V8.6" />
+  </S>
+);
+const GraphQL = (p: GP) => (
+  <S {...p} sw="1.3">
+    <path d="M12 3.4 4.8 7.6v8.8L12 20.6l7.2-4.2V7.6z" />
+    <path d="M12 3.8 4.9 16.2h14.2z" />
+    <circle cx="12" cy="3.5" r="1.05" fill="currentColor" stroke="none" />
+    <circle cx="4.8" cy="7.7" r="1.05" fill="currentColor" stroke="none" />
+    <circle cx="4.8" cy="16.3" r="1.05" fill="currentColor" stroke="none" />
+    <circle cx="12" cy="20.5" r="1.05" fill="currentColor" stroke="none" />
+    <circle cx="19.2" cy="16.3" r="1.05" fill="currentColor" stroke="none" />
+    <circle cx="19.2" cy="7.7" r="1.05" fill="currentColor" stroke="none" />
   </S>
 );
 const Spark = (p: GP) => (
@@ -322,6 +348,9 @@ const SCENES: Record<ContourTheme, Mark[]> = {
     { G: CodeBrackets, cls: "absolute left-[30%] top-[8%] hidden h-[clamp(64px,7vw,96px)] w-[clamp(64px,7vw,96px)] lg:block", tint: "ink", o: 0.1 },
     { G: TailwindWaves, cls: "absolute right-[18%] bottom-[20%] hidden h-[clamp(70px,8vw,112px)] w-[clamp(96px,11vw,150px)] md:block", tint: "ink", o: 0.09 },
     { G: CurlyBraces, cls: "absolute left-[34%] bottom-[6%] hidden h-[clamp(60px,7vw,88px)] w-[clamp(60px,7vw,88px)] xl:block", tint: "accent", o: 0.1 },
+    { G: Css3, cls: "absolute left-[3%] bottom-[30%] hidden h-[clamp(70px,8vw,112px)] w-[clamp(70px,8vw,112px)] xl:block", tint: "accent", o: 0.12 },
+    { G: Cms, cls: "absolute right-[23%] top-[5%] hidden h-[clamp(64px,7vw,100px)] w-[clamp(64px,7vw,100px)] xl:block", tint: "ink", o: 0.1 },
+    { G: GraphQL, cls: "absolute right-[15%] bottom-[9%] hidden h-[clamp(66px,7vw,104px)] w-[clamp(66px,7vw,104px)] lg:block", tint: "accent", o: 0.12 },
   ],
   ai: [
     { G: NeuralNet, cls: "absolute right-[12%] top-[4%] h-[clamp(200px,30vw,350px)] w-[clamp(200px,30vw,350px)]", tint: "accent", o: 0.17, drift: "slow" },

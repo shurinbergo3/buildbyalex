@@ -13,6 +13,7 @@ import { HowItWorks } from "./home/HowItWorks";
 import { AiSyncShowcase } from "./AiSyncShowcase";
 import { AdsShowcase } from "./AdsShowcase";
 import { WebsiteShowcase } from "./WebsiteShowcase";
+import { StoreShowcase } from "./StoreShowcase";
 import { MobileAppShowcase } from "./MobileAppShowcase";
 import { AutomationShowcase } from "./AutomationShowcase";
 import { TelegramMiniAppShowcase } from "./TelegramMiniAppShowcase";
@@ -65,7 +66,7 @@ const SERVICE_PATH: Record<Branch, string> = {
 // so the template just drops it in as a single node.
 const DEMOS: Partial<Record<Branch, ComponentType>> = {
   websites: WebsiteShowcase,
-  store: WebsiteShowcase,
+  store: StoreShowcase,
   ai: AiSyncShowcase,
   automation: AutomationShowcase,
   mobile: MobileAppShowcase,

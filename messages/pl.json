@@ -979,8 +979,11 @@
           "React 19",
           "TypeScript",
           "Tailwind CSS",
-          "next-intl",
+          "HTML5",
+          "CSS3",
+          "WordPress",
           "Sanity / MDX",
+          "next-intl",
           "Vercel",
           "Schema.org",
           "IndexNow"
@@ -1129,6 +1132,49 @@
           "doneSub": "Kurier już do Ciebie jedzie",
           "orderId": "#WAR-2048",
           "reset": "Nowe zamówienie"
+        }
+      },
+      "demo": {
+        "eyebrow": "Demonstracja",
+        "headline": "Sklepy, które sprzedają —\ni ładują się błyskawicznie",
+        "subhead": "Katalog, koszyk i zamówienie, które nie tracą klienta: skompletuj koszyk i zamów dostawę tutaj. #1 w Google i 100/100 w Lighthouse.",
+        "serp": "#1 w Google",
+        "score": "Lighthouse 100",
+        "site": { "url": "twoj-sklep.com", "langs": "RU · PL · EN · UA" },
+        "shop": {
+          "brand": "RZECZY",
+          "nav": ["Katalog", "Nowości", "Dostawa"],
+          "heroEyebrow": "Nowa kolekcja",
+          "heroTitle": "Zima 2026",
+          "heroCta": "Zobacz",
+          "search": "Szukaj w katalogu",
+          "products": [
+            { "n": "Puchowa Alpine", "p": "€189", "c": "Odzież wierzchnia" },
+            { "n": "Sneakersy Runner", "p": "€120", "c": "Obuwie" },
+            { "n": "Bluza Oversize", "p": "€69", "c": "Góra" },
+            { "n": "Jeansy Slim", "p": "€79", "c": "Dół" },
+            { "n": "Plecak City", "p": "€75", "c": "Akcesoria" },
+            { "n": "Czapka Logo", "p": "€29", "c": "Akcesoria" }
+          ],
+          "add": "Do koszyka",
+          "cartTitle": "Koszyk",
+          "empty": "Koszyk jest pusty",
+          "emptyHint": "Dodaj rzeczy z katalogu",
+          "subtotal": "Suma częściowa",
+          "checkout": "Zamów dostawę",
+          "deliveryTitle": "Dostawa",
+          "back": "Wstecz",
+          "courier": "Kurier · Warszawa",
+          "eta": "Jutro, 10:00–14:00",
+          "free": "Gratis",
+          "addressLabel": "Adres dostawy",
+          "address": "ul. Marszałkowska 1, Warszawa",
+          "total": "Razem",
+          "pay": "Zapłać",
+          "done": "Zamówienie złożone",
+          "doneSub": "Kurier już do Ciebie jedzie",
+          "orderId": "#WAR-2048",
+          "continue": "Kontynuuj zakupy"
         }
       },
       "what": {

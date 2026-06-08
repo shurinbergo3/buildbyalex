@@ -822,7 +822,8 @@ export function ServiceHero({ branch }: { branch: Branch }) {
   const metrics = svc.hero.metrics ?? [];
   const mock = svc.hero.mock ?? {};
   const headlineLines = t("headline").split("\n");
-  const stack = svc.stack.items.slice(0, 6);
+  // Websites lean into a fuller logo wall (HTML/CSS/CMS/…); the rest stay compact.
+  const stack = svc.stack.items.slice(0, branch === "websites" ? 12 : 6);
   const Mock = MOCKS[branch];
   const reduce = useReducedMotion();
 
