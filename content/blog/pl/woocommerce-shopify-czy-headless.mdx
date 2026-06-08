@@ -1,0 +1,83 @@
+---
+title: "WooCommerce, Shopify czy headless: na czym zbudować sklep"
+description: "Uczciwe porównanie Shopify, WooCommerce i sklepu headless na Next.js: szybkość, koszt utrzymania, elastyczność, SEO. Co wybrać pod swój obrót i katalog."
+date: "2026-06-05"
+cluster: "ecommerce-platform-choice"
+keywords:
+  - "woocommerce czy shopify"
+  - "na czym zbudować sklep internetowy"
+  - "headless commerce"
+  - "shopify vs woocommerce"
+---
+
+Krótka odpowiedź: Shopify — gdy chcesz wystartować w tydzień i godzisz się na abonament; WooCommerce — gdy już jesteś na WordPressie i katalog jest niewielki; headless na Next.js — gdy liczy się szybkość, własna logika i obrót, przy którym konwersja zależy od każdej dziesiątej sekundy ładowania. Uniwersalnego „najlepszego” nie ma — jest pasujący do twojego etapu.
+
+Robię sklepy headless i przenoszę klientów z dwóch pierwszych, więc rozłożę to bez fanatyzmu: każda platforma ma uczciwe plusy i uczciwą cenę.
+
+## Porównanie w jednej tabeli
+
+| Kryterium | Shopify | WooCommerce | Headless (Next.js) |
+|---|---|---|---|
+| Szybkość startu | dni | 2–4 tygodnie | 5–10 tygodni |
+| LCP (mobile) | 1,5–3 s | 2–5 s | 0,4–1,2 s |
+| Abonament | $29–299/mies. | brak | brak |
+| Prowizja od sprzedaży | do 2% (bez Shopify Payments) | brak | brak |
+| Elastyczność logiki | ograniczona | średnia (wtyczki) | pełna (kod) |
+| Kto wypełnia treść | każdy | każdy | potrzebny CMS |
+| Utrzymanie | minimum | co tydzień | raz na kwartał |
+| Dla kogo | szybki start | mały/średni katalog | obrót, własna logika |
+
+## Shopify: szybko, ale w wynajmie
+
+Shopify to wynajem gotowego sklepu. Płacisz $29–299 miesięcznie, dostajesz hosting, płatności, motywy i aplikacje — i startujesz w kilka dni. Do testu niszy albo pierwszego sklepu to rozsądne.
+
+Minusy zaczynają się przy obrocie. Abonament leci zawsze. Jeśli nie używasz Shopify Payments — platforma bierze **do 2% od każdej sprzedaży** na wierzchu. Potrzebna funkcja często mieszka w płatnej aplikacji za $10–50/mies., a takich aplikacji uzbiera się 5–10. Każda niestandardowa logika (ceny B2B, złożony koszyk, własna wyszukiwarka) rozbija się o ograniczenia Liquid — robisz „jak się da na Shopify”, a nie „jak potrzebuje biznes”.
+
+**Wybierz Shopify, jeśli:** testujesz niszę, potrzebujesz startu w tydzień, masz standardowy detal, nie chcesz myśleć o technice i godzisz się płacić za to co miesiąc.
+
+## WooCommerce: darmowy jako platforma, płatny jako zestaw
+
+WooCommerce to wtyczka do WordPressa. Sama platforma jest darmowa, a jeśli masz już stronę na WordPressie, sklep logicznie dodać tutaj. Treść wypełnia dowolna nietechniczna osoba, ekosystem wtyczek jest ogromny.
+
+Ale „darmowy” jest zwodniczy. Realny sklep dozbiera się z płatnych wtyczek (dostawa, płatności, filtry, przyspieszanie) — €150–800 rocznie. WooCommerce dziedziczy słabości WordPressa: szybkość spada z rozrostem katalogu, a bezpieczeństwo zależy od aktualizacji wtyczek **co tydzień**. Przy 50–300 produktach ze standardową logiką działa dobrze. Przy 2 000+ SKU lub złożonych scenariuszach zaczyna zwalniać i wymagać drogiego hostingu.
+
+**Wybierz WooCommerce, jeśli:** jesteś już na WordPressie, katalog jest mały/średni, chcesz pełnej kontroli nad treścią bez programisty i godzisz się na cotygodniową obsługę.
+
+## Headless na Next.js: drogo na starcie, tanio w utrzymaniu
+
+Headless to rozdzielenie: witryna (front) na Next.js, a produkty, koszyk i płatności — przez silnik commerce (MedusaJS, Shopify jako backend, Saleor) i Stripe. Front serwuje statykę z CDN, więc katalog ładuje się w 0,4–1,2 sekundy zamiast 2–5 jak w typowym WooCommerce.
+
+Daje to trzy rzeczy, których nie mają dwie pierwsze: **szybkość** (a więc konwersję i SEO), **dowolną logikę** (B2B, subskrypcje, niestandardowy koszyk — to kod, a nie limity platformy) oraz **niski koszt utrzymania** (bez abonamentu, bez wtyczek, bez prowizji od sprzedaży). Minus uczciwy: drożej i dłużej na starcie, a do wypełniania treści potrzebny jest CMS (Sanity, MDX), a nie panel z pudełka.
+
+**Wybierz headless, jeśli:** obrót już zależy od szybkości i konwersji, potrzebujesz własnej logiki, poważnej wielojęzyczności (PL/EN/UA/RU z poprawnym hreflang) albo nie chcesz obsługiwać sklepu co tydzień.
+
+## Jak wybrać w 30 sekund
+
+- **Tylko testujesz pomysł, budżet minimalny** → Shopify lub gotowy szablon.
+- **Już na WordPressie, katalog do ~300 produktów** → WooCommerce.
+- **Obrót rośnie, szybkość i SEO wpływają na pieniądze** → headless na Next.js.
+- **Potrzebna niestandardowa logika lub B2B** → headless, reszta rozbije się o limity.
+- **Sklep w kilku językach pod Polskę i zagranicę** → headless z poprawnym hreflang.
+
+I najważniejsze: z każdej platformy da się migrować. Przejście na headless z zachowaniem produktów, zamówień i adresów SEO (przez przekierowania 301) to standardowy scenariusz, pozycje w Google nie znikają.
+
+## FAQ
+
+**WooCommerce czy Shopify — co lepsze?**
+Shopify — szybszy start i mniej technicznych zmartwień, ale abonament i czasem prowizja od sprzedaży. WooCommerce — darmowa platforma i pełna kontrola nad treścią, ale dozbiera się z wtyczek i wymaga obsługi. Dla małego katalogu na WordPressie — WooCommerce, do szybkiego testu niszy — Shopify.
+
+**Czym jest sklep headless?**
+To sklep, w którym witryna (front na Next.js) jest oddzielona od silnika commerce i płatności. Front serwuje statykę z CDN — stąd szybkość 0,4–1,2 s i mocne techniczne SEO. Pasuje do obrotu i niestandardowej logiki.
+
+**Co jest szybsze i lepsze dla SEO?**
+Headless: LCP 0,4–1,2 s zamiast 2–5 s w WooCommerce, plus kontrola nad schema, hreflang i feedem Google Shopping w kodzie. Core Web Vitals to czynnik rankingowy, a szybkość wprost wpływa na konwersję.
+
+**Co jest tańsze w 3 lata?**
+Zależy od obrotu. Shopify i WooCommerce są tańsze na starcie, ale kumulują abonament, wtyczki i prowizję. Headless droższy na początku, ale bez rosnącego ogona kosztów i szybszy, co zwraca się wzrostem sprzedaży.
+
+**Czy można przejść z Shopify lub WooCommerce na headless?**
+Tak. Produkty, zamówienia i adresy SEO da się przenieść, stare URL zamyka się przekierowaniami 301 — pozycje w Google zostają. To częsty scenariusz przy wzroście.
+
+---
+
+Nie masz pewności, co pasuje do twojego katalogu i obrotu? Zobacz, jak robię [sklepy internetowe na Next.js](/pl/uslugi/sklep-internetowy), albo [napisz do mnie](/pl/kontakt) — w 30 minut podpowiem platformę pod twoje zadanie i dam wycenę.

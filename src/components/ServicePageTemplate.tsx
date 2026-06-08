@@ -18,7 +18,7 @@ import { AutomationShowcase } from "./AutomationShowcase";
 import { TelegramMiniAppShowcase } from "./TelegramMiniAppShowcase";
 import { ServiceRelatedCases } from "./ServiceRelatedCases";
 
-type Branch = "websites" | "ai" | "automation" | "mobile" | "telegram" | "ads";
+type Branch = "websites" | "store" | "ai" | "automation" | "mobile" | "telegram" | "ads";
 
 type ServiceData = {
   eyebrow: string;
@@ -43,6 +43,7 @@ type Shape = { services: Record<Branch, ServiceData> };
 
 const PRICE_KEY: Record<Branch, "site" | "ai" | "automation" | "mobile" | "telegram" | "ads"> = {
   websites: "site",
+  store: "site",
   ai: "ai",
   automation: "automation",
   mobile: "mobile",
@@ -52,6 +53,7 @@ const PRICE_KEY: Record<Branch, "site" | "ai" | "automation" | "mobile" | "teleg
 
 const SERVICE_PATH: Record<Branch, string> = {
   websites: "/services/websites",
+  store: "/services/online-store",
   ai: "/services/ai-agents",
   automation: "/services/automation",
   mobile: "/services/mobile-apps",
@@ -63,6 +65,7 @@ const SERVICE_PATH: Record<Branch, string> = {
 // so the template just drops it in as a single node.
 const DEMOS: Partial<Record<Branch, ComponentType>> = {
   websites: WebsiteShowcase,
+  store: WebsiteShowcase,
   ai: AiSyncShowcase,
   automation: AutomationShowcase,
   mobile: MobileAppShowcase,
@@ -193,7 +196,7 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
 
       {/* ── Final CTA (shared glass-window bookend) ── */}
       <FinalCta
-        theme={branch === "websites" ? "web" : branch}
+        theme={branch === "websites" || branch === "store" ? "web" : branch}
         eyebrow={tf("eyebrow")}
         title={tf("headline")}
         body={tf("subhead")}

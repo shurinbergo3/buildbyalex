@@ -67,11 +67,12 @@ export function getPost(locale: Locale, slug: string): Post | null {
 }
 
 /** servicesMenu keys in messages (`nav.servicesMenu.<key>.title`). */
-export type ServiceMenuKey = "websites" | "ai" | "automation" | "mobile" | "ads" | "telegram";
+export type ServiceMenuKey = "websites" | "store" | "ai" | "automation" | "mobile" | "ads" | "telegram";
 
 /** Canonical (non-localized) service pathnames — keys of `routing.pathnames`. */
 export type ServicePath =
   | "/services/websites"
+  | "/services/online-store"
   | "/services/ai-agents"
   | "/services/automation"
   | "/services/mobile-apps"
@@ -97,6 +98,8 @@ export const clusterToService: Record<string, { menuKey: ServiceMenuKey; path: S
   "multilingual-site-poland": { menuKey: "websites", path: "/services/websites" },
   "nextjs-vs-wordpress": { menuKey: "websites", path: "/services/websites" },
   "website-cost-poland-2025": { menuKey: "websites", path: "/services/websites" },
+  "online-store-cost-poland": { menuKey: "store", path: "/services/online-store" },
+  "ecommerce-platform-choice": { menuKey: "store", path: "/services/online-store" },
 };
 
 /** The service a post links to, or null if its cluster isn't mapped. */

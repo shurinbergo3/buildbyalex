@@ -4,20 +4,22 @@ import type { ReactNode } from "react";
    Shared by the home ServicesOverview, the desktop nav mega-dropdown and the
    mobile menu accordion so the iconography never drifts between surfaces. */
 
-export type ServiceKey = "websites" | "ai" | "automation" | "mobile" | "telegram" | "ads";
+export type ServiceKey = "websites" | "store" | "ai" | "automation" | "mobile" | "telegram" | "ads";
 
 export type ServiceHref =
   | "/services/websites"
+  | "/services/online-store"
   | "/services/ai-agents"
   | "/services/automation"
   | "/services/mobile-apps"
   | "/services/telegram-bots"
   | "/services/advertising";
 
-export const SERVICE_KEYS: ServiceKey[] = ["websites", "ai", "automation", "mobile", "telegram", "ads"];
+export const SERVICE_KEYS: ServiceKey[] = ["websites", "store", "ai", "automation", "mobile", "telegram", "ads"];
 
 export const serviceHref: Record<ServiceKey, ServiceHref> = {
   websites: "/services/websites",
+  store: "/services/online-store",
   ai: "/services/ai-agents",
   automation: "/services/automation",
   mobile: "/services/mobile-apps",
@@ -33,6 +35,13 @@ export const serviceGlyph: Record<ServiceKey, ReactNode> = {
       <circle cx="11" cy="12.5" r="1" fill="currentColor" />
       <circle cx="15" cy="12.5" r="1" fill="currentColor" />
       <path d="M13 23h16M13 28h12" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+    </svg>
+  ),
+  store: (
+    <svg viewBox="0 0 48 48" fill="none" className="h-full w-full" aria-hidden="true">
+      <path d="M9 13h31l-3 18a3 3 0 0 1-3 2.5H15a3 3 0 0 1-3-2.5L8 9H4" stroke="currentColor" strokeWidth="2.2" strokeLinejoin="round" strokeLinecap="round" />
+      <circle cx="17" cy="40" r="2.2" fill="currentColor" />
+      <circle cx="33" cy="40" r="2.2" fill="currentColor" />
     </svg>
   ),
   ai: (

@@ -149,14 +149,20 @@ export function ServicesOverview() {
             </Link>
           </Reveal>
 
-          {/* ── Row 2: priced tiles ── */}
+        </div>
+
+        {/* ── Row 2: priced tiles (four across) ── */}
+        <div className="mt-4 grid gap-4 sm:grid-cols-2 md:mt-5 md:gap-5 lg:grid-cols-4">
           <Reveal delay={220}>
-            <SmallTile glyph={<GlyphChip k="automation" />} category={<Cat>{t("automation.category")}</Cat>} title={t("automation.title")} body={t("automation.body")} price={t("automation.price")} href="/services/automation" motif="flow" />
+            <SmallTile glyph={<GlyphChip k="store" />} category={<Cat>{t("store.category")}</Cat>} title={t("store.title")} body={t("store.body")} price={t("store.price")} href="/services/online-store" motif="cart" />
           </Reveal>
           <Reveal delay={280}>
-            <SmallTile glyph={<GlyphChip k="telegram" />} category={<Cat>{t("telegram.category")}</Cat>} title={t("telegram.title")} body={t("telegram.body")} price={t("telegram.price")} href="/services/telegram-bots" motif="chat" />
+            <SmallTile glyph={<GlyphChip k="automation" />} category={<Cat>{t("automation.category")}</Cat>} title={t("automation.title")} body={t("automation.body")} price={t("automation.price")} href="/services/automation" motif="flow" />
           </Reveal>
           <Reveal delay={340}>
+            <SmallTile glyph={<GlyphChip k="telegram" />} category={<Cat>{t("telegram.category")}</Cat>} title={t("telegram.title")} body={t("telegram.body")} price={t("telegram.price")} href="/services/telegram-bots" motif="chat" />
+          </Reveal>
+          <Reveal delay={400}>
             <SmallTile glyph={<GlyphChip k="ads" />} category={<Cat>{t("ads.category")}</Cat>} title={t("ads.title")} body={t("ads.body")} price={t("ads.price")} href="/services/advertising" motif="bars" />
           </Reveal>
         </div>
@@ -299,7 +305,7 @@ function SmallTile({
   body: string;
   price: string;
   href: React.ComponentProps<typeof Link>["href"];
-  motif: "flow" | "chat" | "bars";
+  motif: "flow" | "chat" | "bars" | "cart";
 }) {
   return (
     <Link href={href} className={`${tileBase} ${tileLight}`}>
@@ -323,10 +329,17 @@ function SmallTile({
 }
 
 /** Tiny accent motif in the corner of a priced tile. */
-function Motif({ kind }: { kind: "flow" | "chat" | "bars" }) {
+function Motif({ kind }: { kind: "flow" | "chat" | "bars" | "cart" }) {
   const stroke = "var(--c-accent)";
   return (
     <span aria-hidden className="opacity-70">
+      {kind === "cart" && (
+        <svg width="34" height="22" viewBox="0 0 34 22" fill="none">
+          <path d="M3 3h4l3 12h14l3-9H10" stroke={stroke} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="13" cy="19" r="1.8" fill={stroke} />
+          <circle cx="25" cy="19" r="1.8" fill={stroke} />
+        </svg>
+      )}
       {kind === "flow" && (
         <svg width="44" height="20" viewBox="0 0 44 20" fill="none">
           <circle cx="6" cy="10" r="3" fill={stroke} />

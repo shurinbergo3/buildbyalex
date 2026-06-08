@@ -18,6 +18,12 @@ export const routing = defineRouting({
       pl: "/uslugi/strony-internetowe",
       ua: "/poslugy/sayty",
     },
+    "/services/online-store": {
+      ru: "/uslugi/internet-magazin",
+      en: "/services/online-store",
+      pl: "/uslugi/sklep-internetowy",
+      ua: "/poslugy/internet-magazyn",
+    },
     "/services/ai-agents": {
       ru: "/uslugi/ai-agenty",
       en: "/services/ai-agents",

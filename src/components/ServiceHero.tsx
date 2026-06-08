@@ -17,7 +17,7 @@ import { HeroWindow } from "./HeroWindow";
    animated showcase that follows lower on the page.
    ───────────────────────────────────────────────────────────────────────── */
 
-type Branch = "websites" | "ai" | "automation" | "mobile" | "telegram" | "ads";
+type Branch = "websites" | "store" | "ai" | "automation" | "mobile" | "telegram" | "ads";
 type Metric = { v: string; l: string };
 
 type HeroShape = {
@@ -565,6 +565,7 @@ function AdsMock({ m }: { m: Record<string, unknown> }) {
 
 const MOCKS: Record<Branch, (p: { m: Record<string, unknown> }) => ReactNode> = {
   websites: WebsitesMock,
+  store: WebsitesMock,
   ai: AiMock,
   automation: AutomationMock,
   mobile: MobileMock,
@@ -600,6 +601,7 @@ export function ServiceHero({ branch }: { branch: Branch }) {
     ((
       {
         websites: mock.url,
+        store: mock.url,
         ai: mock.agent,
         automation: mock.flow,
         mobile: mock.appName,
@@ -611,7 +613,7 @@ export function ServiceHero({ branch }: { branch: Branch }) {
   return (
     <Section pad="tight" tone="default" className="!pt-10 md:!pt-14">
       <Container size="default">
-        <HeroWindow theme={branch === "websites" ? "web" : branch} accent={AMBER} label={branchLabel} live={svc.hero.badge}>
+        <HeroWindow theme={branch === "websites" || branch === "store" ? "web" : branch} accent={AMBER} label={branchLabel} live={svc.hero.badge}>
           <div className="relative z-10 grid items-center gap-10 md:grid-cols-12 md:gap-10 lg:gap-14">
             {/* ── copy ── */}
             <div className="md:col-span-6">

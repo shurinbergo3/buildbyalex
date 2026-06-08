@@ -9,7 +9,7 @@ import { SITE_URL, localizedHref, htmlLang } from "@/lib/site";
  *   • WebSite          — name, multilingual, links every node together
  *   • ProfessionalService — the business: Warsaw, area served, price range,
  *                        sameAs profiles, aggregate rating, the four offerings
- *   • Person           — Alex, the founder, with the same sameAs profiles
+ *   • Person           — Alex, the founder (first name only), with the same sameAs profiles
  *
  * This is what makes the brand eligible for a knowledge panel / local results
  * and is the structured signal LLM-based search (ChatGPT, Gemini, Perplexity)
@@ -17,7 +17,7 @@ import { SITE_URL, localizedHref, htmlLang } from "@/lib/site";
  * in /llms.txt — nothing is asserted here that the site does not also show.
  */
 
-const PERSON_NAME = "Oleksandr Shuvalov";
+const PERSON_NAME = "Alex";
 const SAME_AS = [
   "https://github.com/buildbyalex",
   "https://t.me/sumotry",
@@ -111,7 +111,6 @@ export async function HomeJsonLd({ locale }: { locale: Locale }) {
         "@type": "Person",
         "@id": personId,
         name: PERSON_NAME,
-        alternateName: "Alex",
         url: SITE_URL,
         email: EMAIL,
         jobTitle: "Independent senior fullstack developer",

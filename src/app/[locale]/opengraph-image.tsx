@@ -7,36 +7,21 @@ export const alt = "buildbyalex";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const INK = "#0A0A0A";
 const ACCENT = "#FF7A2D";
+const WINDOW = "#0A0A0B";
 
-// Faint code lines behind the headline — echoes the live hero's code surface.
-const CODE_LINES = [
-  'import { Container } from "@/components/Container";',
-  "",
-  "// one person — from the first call to release",
-  "export function Hero() {",
-  '  const t = useTranslations("home.hero");',
-  "",
-  "  return (",
-  '    <section className="hero-scroll">',
-  '      <h1 className="t-hero">',
-  "        Websites, AI agents & mobile apps.",
-  '        <span className="hl-accent">In 1–3 weeks.</span>',
-  "      </h1>",
-  "    </section>",
-  "  );",
-  "}",
-];
-
+/**
+ * Social card = a snapshot of the live hero (screenshot 2): a dark browser
+ * window — traffic lights, the buildbyalex.com URL and a Live · Warsaw badge —
+ * framing the wordmark, with the core services spelled out underneath. No name,
+ * just the brand and what it builds.
+ */
 export default async function OG({ params }: { params: { locale: string } }) {
   const locale = (routing.locales as readonly string[]).includes(params.locale)
     ? params.locale
     : routing.defaultLocale;
-  const t = await getTranslations({ locale, namespace: "home.hero" });
-  const eyebrow = t("eyebrow");
-  const headlineLines = t("headline").split("\n");
-  const last = headlineLines.length - 1;
+  const t = await getTranslations({ locale, namespace: "meta" });
+  const services = t("ogServices");
 
   return new ImageResponse(
     (
@@ -45,110 +30,161 @@ export default async function OG({ params }: { params: { locale: string } }) {
           width: "100%",
           height: "100%",
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          background: INK,
-          padding: "72px 80px",
+          alignItems: "center",
+          justifyContent: "center",
+          background: "#F2F0EB",
           fontFamily: "system-ui, -apple-system, Segoe UI, sans-serif",
           position: "relative",
           overflow: "hidden",
         }}
       >
-        {/* warm radial glow, top-left — matches the hero */}
+        {/* warm page glow behind the window */}
         <div
           style={{
             position: "absolute",
             inset: 0,
             background:
-              "radial-gradient(ellipse 70% 60% at 12% 4%, rgba(255, 122, 45, 0.30), transparent 60%), radial-gradient(ellipse 50% 50% at 92% 96%, rgba(255, 122, 45, 0.12), transparent 60%)",
+              "radial-gradient(ellipse 60% 55% at 50% 6%, rgba(255,122,45,0.16), transparent 60%), radial-gradient(ellipse 70% 60% at 50% 110%, rgba(255,122,45,0.10), transparent 60%)",
             display: "flex",
           }}
         />
 
-        {/* faint code surface */}
+        {/* the browser window */}
         <div
           style={{
-            position: "absolute",
-            top: 150,
-            left: 70,
-            right: 0,
+            position: "relative",
             display: "flex",
             flexDirection: "column",
-            fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
-            fontSize: 22,
-            lineHeight: 1.7,
-            letterSpacing: "-0.01em",
-            color: "rgba(255,255,255,0.05)",
+            width: 1040,
+            height: 470,
+            borderRadius: 26,
+            background: WINDOW,
+            boxShadow: "0 50px 110px rgba(24,22,28,0.30)",
+            overflow: "hidden",
           }}
         >
-          {CODE_LINES.map((line, i) => (
-            <div key={i} style={{ display: "flex" }}>
-              {line || " "}
-            </div>
-          ))}
-        </div>
-
-        {/* big brand logo, top-left */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "flex-end",
-            fontWeight: 600,
-            fontSize: 56,
-            letterSpacing: "-0.022em",
-            color: "#FFFFFF",
-            zIndex: 1,
-          }}
-        >
-          <span>build</span>
-          <span style={{ color: "rgba(255,255,255,0.42)" }}>by</span>
-          <span style={{ color: ACCENT }}>alex</span>
+          {/* chrome bar */}
           <div
             style={{
-              width: 13,
-              height: 13,
-              borderRadius: 999,
-              background: ACCENT,
-              marginLeft: 8,
-              marginBottom: 11,
-            }}
-          />
-        </div>
-
-        {/* headline + eyebrow */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 22, zIndex: 1 }}>
-          <div
-            style={{
-              fontSize: 20,
-              fontWeight: 600,
-              textTransform: "uppercase",
-              letterSpacing: "0.14em",
-              color: ACCENT,
               display: "flex",
+              alignItems: "center",
+              height: 58,
+              paddingLeft: 24,
+              paddingRight: 22,
+              flexShrink: 0,
             }}
           >
-            {eyebrow}
+            <div style={{ display: "flex", gap: 9 }}>
+              <div style={{ width: 13, height: 13, borderRadius: 999, background: "#FF5F57", display: "flex" }} />
+              <div style={{ width: 13, height: 13, borderRadius: 999, background: "#FEBC2E", display: "flex" }} />
+              <div style={{ width: 13, height: 13, borderRadius: 999, background: "#28C840", display: "flex" }} />
+            </div>
+            <div
+              style={{
+                display: "flex",
+                marginLeft: 22,
+                fontSize: 20,
+                color: "rgba(255,255,255,0.45)",
+                letterSpacing: "-0.01em",
+              }}
+            >
+              buildbyalex.com
+            </div>
+
+            {/* Live · Warsaw badge */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 9,
+                marginLeft: "auto",
+                paddingTop: 9,
+                paddingBottom: 9,
+                paddingLeft: 15,
+                paddingRight: 17,
+                borderRadius: 999,
+                background: "rgba(255,255,255,0.06)",
+                border: "1px solid rgba(255,255,255,0.12)",
+              }}
+            >
+              <div style={{ width: 9, height: 9, borderRadius: 999, background: "#3FCF6E", display: "flex" }} />
+              <div style={{ display: "flex", fontSize: 18, color: "rgba(255,255,255,0.78)", fontWeight: 500 }}>
+                Live · Warsaw
+              </div>
+            </div>
           </div>
+
+          {/* window body: wordmark + services */}
           <div
             style={{
-              fontSize: 68,
-              fontWeight: 600,
-              letterSpacing: "-0.035em",
-              lineHeight: 1.04,
-              color: "#FFFFFF",
-              maxWidth: "1000px",
+              flex: 1,
               display: "flex",
               flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              position: "relative",
             }}
           >
-            {headlineLines.map((line, i) => (
-              <span
-                key={i}
-                style={{ display: "flex", color: i === last ? ACCENT : "#FFFFFF" }}
-              >
-                {line}
-              </span>
-            ))}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "flex-end",
+                fontWeight: 600,
+                fontSize: 130,
+                letterSpacing: "-0.04em",
+              }}
+            >
+              <span style={{ color: "#F4F4F4" }}>build</span>
+              <span style={{ color: "rgba(255,255,255,0.40)" }}>by</span>
+              <span style={{ color: "#F4F4F4" }}>alex</span>
+              <div
+                style={{
+                  width: 22,
+                  height: 22,
+                  borderRadius: 999,
+                  background: ACCENT,
+                  marginLeft: 14,
+                  marginBottom: 18,
+                }}
+              />
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                marginTop: 30,
+                fontSize: 25,
+                fontWeight: 500,
+                letterSpacing: "0.005em",
+                color: "rgba(255,255,255,0.56)",
+              }}
+            >
+              {services}
+            </div>
+
+            {/* a. app tile, bottom-right */}
+            <div
+              style={{
+                position: "absolute",
+                right: 26,
+                bottom: 24,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: 56,
+                height: 56,
+                borderRadius: 15,
+                background: "rgba(255,255,255,0.07)",
+                border: "1px solid rgba(255,255,255,0.10)",
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "flex-end", fontWeight: 600, fontSize: 30, color: "#F4F4F4" }}>
+                a
+                <div
+                  style={{ width: 7, height: 7, borderRadius: 999, background: ACCENT, marginLeft: 2, marginBottom: 6 }}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>

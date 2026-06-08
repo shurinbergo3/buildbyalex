@@ -1,0 +1,83 @@
+---
+title: "WooCommerce, Shopify or Headless: What to Build Your Store On"
+description: "An honest comparison of Shopify, WooCommerce and a headless store on Next.js: speed, cost of ownership, flexibility, SEO. What to pick for your volume and catalog."
+date: "2026-06-05"
+cluster: "ecommerce-platform-choice"
+keywords:
+  - "woocommerce vs shopify"
+  - "what to build an online store on"
+  - "headless commerce"
+  - "shopify vs woocommerce"
+---
+
+Short answer: Shopify — if you want to launch in a week and accept a subscription; WooCommerce — if you're already on WordPress and the catalog is small; headless on Next.js — if speed, custom logic and the kind of volume where conversion hinges on every tenth of a second of load time matter. There's no universal "best" — there's the right fit for your stage.
+
+I build headless stores and migrate clients off the first two, so I'll lay this out without zealotry: each platform has honest upsides and an honest price.
+
+## Comparison in one table
+
+| Criterion | Shopify | WooCommerce | Headless (Next.js) |
+|---|---|---|---|
+| Time to launch | days | 2–4 weeks | 5–10 weeks |
+| LCP (mobile) | 1.5–3 s | 2–5 s | 0.4–1.2 s |
+| Subscription | $29–299/mo | none | none |
+| Cut of sales | up to 2% (without Shopify Payments) | none | none |
+| Logic flexibility | limited | medium (plugins) | full (code) |
+| Who fills content | anyone | anyone | needs a CMS layer |
+| Maintenance | minimal | weekly | quarterly |
+| Best for | fast start | small/mid catalog | volume, custom logic |
+
+## Shopify: fast, but rented
+
+Shopify is a rented store. You pay $29–299 a month, get hosting, payments, themes and apps — and launch in days. For testing a niche or a first store, that's sensible.
+
+The downsides start at volume. The subscription is always running. If you don't use Shopify Payments, the platform takes **up to 2% of every sale** on top. A feature you need often lives in a paid app at $10–50/mo, and those apps add up to 5–10. Any non-standard logic (B2B pricing, complex cart, custom search) hits the limits of Liquid — you build "what Shopify allows," not "what the business needs."
+
+**Pick Shopify if:** you're testing a niche, need a launch in a week, run standard retail, don't want to think about tech, and accept paying for it monthly.
+
+## WooCommerce: free as a platform, paid as a kit
+
+WooCommerce is a WordPress plugin. The platform itself is free, and if you already have a WordPress site, adding a store here is logical. Any non-technical person can fill content, and the plugin ecosystem is huge.
+
+But "free" is deceptive. A real store gets assembled from paid plugins (shipping, payments, filters, speed) — €150–800 a year. WooCommerce inherits WordPress's weak spots: speed drops as the catalog grows, and security depends on timely plugin updates **every week**. At 50–300 products with standard logic it works fine. At 2,000+ SKUs or complex scenarios it starts to lag and demand expensive hosting.
+
+**Pick WooCommerce if:** you're already on WordPress, the catalog is small/mid, you want full control over content without a developer, and you accept weekly upkeep.
+
+## Headless on Next.js: pricey to launch, cheap to own
+
+Headless means separation: the storefront (front end) on Next.js, while products, cart and payments go through a commerce engine (MedusaJS, Shopify as a backend, Saleor) and Stripe. The front end serves static files from a CDN, so the catalog loads in 0.4–1.2 seconds versus 2–5 on a typical WooCommerce.
+
+This gives three things the first two don't: **speed** (and therefore conversion and SEO), **any logic** (B2B, subscriptions, custom cart — that's code, not platform limits), and **low cost of ownership** (no subscription, no plugins, no cut of sales). The honest downside: more expensive and slower to launch, and filling content needs a CMS layer (Sanity, MDX) rather than an admin panel out of the box.
+
+**Pick headless if:** volume already depends on speed and conversion, you need custom logic, serious multilingual support (PL/EN/UA/RU with correct hreflang), or you don't want to maintain the store every week.
+
+## How to choose in 30 seconds
+
+- **Just testing an idea, minimal budget** → Shopify or a ready template.
+- **Already on WordPress, catalog up to ~300 products** → WooCommerce.
+- **Volume growing, speed and SEO affect revenue** → headless on Next.js.
+- **Need non-standard logic or B2B** → headless; anything else hits limits.
+- **A store in several languages for Poland and abroad** → headless with correct hreflang.
+
+And the key point: you can migrate from any platform. Moving to headless while keeping products, orders and SEO URLs (via 301 redirects) is a standard scenario — Google rankings aren't lost.
+
+## FAQ
+
+**WooCommerce or Shopify — which is better?**
+Shopify — faster start and fewer technical worries, but a subscription and sometimes a cut of sales. WooCommerce — a free platform and full control over content, but it gets assembled from plugins and needs upkeep. For a small catalog on WordPress — WooCommerce; for a quick niche test — Shopify.
+
+**What is a headless store?**
+A store where the storefront (front end on Next.js) is separated from the commerce engine and payments. The front end serves static files from a CDN — hence 0.4–1.2 s speed and strong technical SEO. It fits volume and custom logic.
+
+**What's faster and better for SEO?**
+Headless: LCP 0.4–1.2 s versus 2–5 s on WooCommerce, plus control over schema, hreflang and the Google Shopping feed in code. Core Web Vitals is a ranking factor, and speed directly affects conversion.
+
+**What's cheaper over 3 years?**
+It depends on volume. Shopify and WooCommerce are cheaper to launch but accumulate subscription, plugins and a cut. Headless costs more up front but has no growing tail of costs and is faster, which pays back in sales growth.
+
+**Can you move from Shopify or WooCommerce to headless?**
+Yes. Products, orders and SEO URLs carry over, and old URLs are closed with 301 redirects — Google rankings are preserved. It's a common scenario as you grow.
+
+---
+
+Not sure what fits your catalog and volume? See how I build [online stores on Next.js](/en/services/online-store), or [write to me](/en/contact) — in 30 minutes I'll suggest the right platform for your case and give a fixed quote.

@@ -3,7 +3,8 @@
     "siteName": "buildbyalex",
     "defaultTitle": "buildbyalex — Websites, AI Agents & Mobile Apps",
     "defaultDescription": "Turnkey development in Warsaw: websites, AI agents and mobile apps in 1–3 weeks — from the first call to release. RU · EN · PL · UA.",
-    "ogAlt": "buildbyalex — independent developer · Warsaw"
+    "ogAlt": "buildbyalex — independent developer · Warsaw",
+    "ogServices": "Websites · AI agents · Mobile apps · Automation"
   },
   "nav": {
     "work": "Work",
@@ -22,6 +23,10 @@
       "websites": {
         "title": "Websites",
         "tagline": "Multilingual sites that rank"
+      },
+      "store": {
+        "title": "Online stores",
+        "tagline": "Catalog, cart and payments for Poland"
       },
       "ai": {
         "title": "AI agents",
@@ -54,6 +59,7 @@
     },
     "links": {
       "websites": "Websites",
+      "onlineStore": "Online Stores",
       "aiAgents": "AI Agents",
       "mobileApps": "Mobile Apps",
       "email": "Email",
@@ -149,6 +155,12 @@
         "title": "Digital Advertising",
         "body": "Google Ads, Meta Ads — setup and management.",
         "price": "From €300 setup or €500/month management"
+      },
+      "store": {
+        "category": "Stores",
+        "title": "Online stores",
+        "body": "Catalog, cart and BLIK/Przelewy24 payments — a fast store on Next.js, ready for Google.",
+        "price": "From €1,500"
       },
       "badge": "Most asked",
       "automation": {
@@ -1009,6 +1021,10 @@
           {
             "q": "Who owns the site, code and domain once it's done?",
             "a": "You do, all of it. The domain and hosting are registered in your name, the source code lands in your GitHub repo, and the IP transfer is written into the contract. Nothing is rented or locked to me — another developer can take over a clean repo and carry on without a hitch."
+          },
+          {
+            "q": "Can I order an online store instead of a regular website?",
+            "a": "Yes. Online store development in Warsaw is a separate service: catalog, cart, payments (Stripe, Przelewy24, BLIK), warehouse and shipping integration. Details and pricing are on the «Online stores» page."
           }
         ]
       },
@@ -1064,6 +1080,159 @@
               "CMS of your choice: Sanity or MDX",
               "Advanced SEO + IndexNow on deploy",
               "Integrations: CRM, payments, conversion tracking",
+              "30 days of edits included"
+            ]
+          }
+        ]
+      }
+    },
+    "store": {
+      "meta": {
+        "title": "Online Store Development in Warsaw — from €1500",
+        "description": "Order an online store in Warsaw, turnkey: catalog, cart, BLIK/Przelewy24/Stripe payments, warehouse and shipping integration. From €1500."
+      },
+      "eyebrow": "Online stores · Warsaw",
+      "headline": "Stores that\nactually sell.",
+      "lead": "Online store development in Warsaw, turnkey: catalog, cart and checkout that don't lose the buyer on the way to the order. Built on Next.js — fast, multilingual and Google-ready from day one.",
+      "from": "From €1,500",
+      "primaryCta": "Discuss your store",
+      "hero": {
+        "badge": "Ready for sales and Google",
+        "metrics": [
+          { "v": "<1s", "l": "catalog load" },
+          { "v": "+30%", "l": "checkout conversion" },
+          { "v": "100", "l": "/100 PageSpeed" }
+        ],
+        "mock": {
+          "url": "your-store.com",
+          "serp": "#1 on Google",
+          "score": "Lighthouse",
+          "features": ["Catalog", "Cart", "Payments"]
+        }
+      },
+      "what": {
+        "title": "What you get",
+        "items": [
+          {
+            "title": "Catalog and product pages",
+            "body": "A clean catalog with filters, search and product pages that sell: gallery, specs, reviews and real-time stock."
+          },
+          {
+            "title": "Payments built for Poland",
+            "body": "BLIK, Przelewy24, cards, Apple Pay and Google Pay, Stripe. The buyer pays in one tap — no redirects that drop the cart."
+          },
+          {
+            "title": "A cart without abandoned orders",
+            "body": "Fast checkout, guest orders, shipping calculation and promo codes. Fewer steps to the order — fewer abandoned carts."
+          },
+          {
+            "title": "Warehouse and shipping integrations",
+            "body": "Stock sync, order export to your CRM, integration with InPost, DPD, Poczta Polska and fiscalization."
+          },
+          {
+            "title": "Multilingual and SEO out of the box",
+            "body": "PL / EN / UA / RU, correct hreflang, Product/Offer schema, sitemap and feed — products get indexed and reach Google Shopping."
+          },
+          {
+            "title": "Speed and analytics",
+            "body": "LCP under 1 second, server-side conversion tracking, GA4 and purchase events — you see what actually makes money."
+          }
+        ]
+      },
+      "stack": {
+        "title": "Tech stack",
+        "items": [
+          "Next.js 15",
+          "React 19",
+          "TypeScript",
+          "Stripe",
+          "Przelewy24 / BLIK",
+          "MedusaJS / Sanity",
+          "Vercel",
+          "Schema.org Product"
+        ]
+      },
+      "cases": "Related work",
+      "faq": {
+        "title": "Online store FAQ",
+        "items": [
+          {
+            "q": "How much does online store development in Warsaw cost?",
+            "a": "It depends on the number of products, integrations and design. A simple store on a ready catalog starts at €1,500; a store with warehouse, CRM and custom logic starts at €4,000. The exact quote is fixed before we start — no hourly surprises."
+          },
+          {
+            "q": "How fast can you launch the store?",
+            "a": "A typical store takes 3–5 weeks from kickoff. With warehouse, shipping and fiscalization integrations — 6–8 weeks. The date is fixed in writing before we start."
+          },
+          {
+            "q": "Which payment methods can you connect?",
+            "a": "All the popular ones in Poland: BLIK, Przelewy24, cards, Apple Pay and Google Pay, plus Stripe and PayPal for international buyers."
+          },
+          {
+            "q": "Can you migrate a store from another platform?",
+            "a": "Yes. I migrate from WooCommerce, Shopify, PrestaShop and OpenCart while keeping products, orders and SEO URLs — without losing Google rankings."
+          },
+          {
+            "q": "What do you build stores on — WordPress/WooCommerce?",
+            "a": "By default on Next.js (headless commerce: MedusaJS, Stripe, Sanity). It's faster and more secure than a typical WooCommerce. If you already run WooCommerce or Shopify, I can extend or migrate it."
+          },
+          {
+            "q": "Will the store be in Google and rank?",
+            "a": "Yes. Technical e-commerce SEO is built in: Product/Offer schema, clean product and category URLs, sitemap and a Google Shopping feed. Product pages index from the first days."
+          }
+        ]
+      },
+      "demoEyebrow": "Live",
+      "startingPrice": "Starting price",
+      "bookCta": "Free call",
+      "includedTitle": "What's included",
+      "pricing": {
+        "eyebrow": "Pricing",
+        "marketLabel": "Warsaw studios",
+        "featuredLabel": "Most popular",
+        "caption": "Rate ≈ 4.3 zł per €1. The final price is fixed after a 30-minute call. Post-launch edits — €50/hr, no mandatory retainer.",
+        "tiers": [
+          {
+            "title": "Starter store",
+            "from": "from",
+            "price": "€1,500",
+            "market": "10,000–18,000 zł",
+            "body": "A ready catalog with cart and payments — for a fast sales start.",
+            "features": [
+              "Up to 100 products, filters and search",
+              "Payments: BLIK, Przelewy24, cards",
+              "Responsive, SSL, basic product SEO",
+              "Cart and one-step checkout",
+              "GA4 and purchase events"
+            ]
+          },
+          {
+            "title": "Business store",
+            "from": "from",
+            "price": "€4,000",
+            "market": "25,000–60,000 zł",
+            "featured": true,
+            "body": "Warehouse, CRM and shipping integrations for your real processes.",
+            "features": [
+              "Everything in Starter store, plus:",
+              "Stock sync and order export",
+              "CRM, InPost, DPD integration, fiscalization",
+              "Multilingual PL/EN/UA/RU + hreflang",
+              "Google Shopping feed, advanced SEO",
+              "Server-side conversion tracking"
+            ]
+          },
+          {
+            "title": "Migration / redesign",
+            "from": "from",
+            "price": "€2,000",
+            "market": "15,000–30,000 zł",
+            "body": "Migration from WooCommerce, Shopify or PrestaShop without losing rankings.",
+            "features": [
+              "Migrate products, orders and SEO URLs",
+              "Keep Google rankings (301 redirects)",
+              "New fast front-end on Next.js",
+              "Payment and shipping setup",
               "30 days of edits included"
             ]
           }

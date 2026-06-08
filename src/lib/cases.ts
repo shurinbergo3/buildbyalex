@@ -14,7 +14,7 @@ export const caseCategory: Record<CaseKey, CaseCategory> = {
 };
 
 /** Service branches (mirrors the `Branch` union in ServicePageTemplate). */
-export type ServiceBranch = "websites" | "ai" | "automation" | "mobile" | "telegram" | "ads";
+export type ServiceBranch = "websites" | "store" | "ai" | "automation" | "mobile" | "telegram" | "ads";
 
 /**
  * Which cases to surface in the "Related work" block on each service page.
@@ -23,6 +23,7 @@ export type ServiceBranch = "websites" | "ai" | "automation" | "mobile" | "teleg
  */
 export const serviceToCases: Record<ServiceBranch, CaseKey[]> = {
   websites: ["legalwin", "visionair"],
+  store: ["visionair", "legalwin"],
   ai: ["crmbot", "leadbot"],
   automation: ["crmbot", "leadbot"],
   mobile: ["bodyforge"],

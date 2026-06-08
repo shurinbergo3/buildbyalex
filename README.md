@@ -1,6 +1,6 @@
 # buildbyalex.com
 
-Personal site of Alex Shuvalov — independent senior fullstack developer based in Warsaw. Built with Next.js 15, fully multilingual (RU / EN / PL / UA), with technical SEO and GEO baked in.
+Personal site of Alex — independent senior fullstack developer based in Warsaw. Built with Next.js 15, fully multilingual (RU / EN / PL / UA), with technical SEO and GEO baked in.
 
 ---
 
@@ -230,4 +230,4 @@ Key choices:
 
 ## License
 
-All code in this repo is the property of Oleksandr Shuvalov. Content (blog posts, case studies, copy) — same. Don't redistribute without permission.
+All code in this repo is the property of buildbyalex. Content (blog posts, case studies, copy) — same. Don't redistribute without permission.

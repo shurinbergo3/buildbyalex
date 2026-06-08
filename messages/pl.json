@@ -3,7 +3,8 @@
     "siteName": "buildbyalex",
     "defaultTitle": "buildbyalex — strony, agenci AI i aplikacje mobilne",
     "defaultDescription": "Realizacje pod klucz w Warszawie: strony, agenci AI i aplikacje mobilne w 1–3 tygodnie — od pomysłu do startu. PL · EN · UA.",
-    "ogAlt": "buildbyalex — niezależny developer · Warszawa"
+    "ogAlt": "buildbyalex — niezależny developer · Warszawa",
+    "ogServices": "Strony · Agenci AI · Aplikacje mobilne · Automatyzacja"
   },
   "nav": {
     "work": "Realizacje",
@@ -22,6 +23,10 @@
       "websites": {
         "title": "Strony",
         "tagline": "Wielojęzyczne strony, które rankują"
+      },
+      "store": {
+        "title": "Sklepy internetowe",
+        "tagline": "Katalog, koszyk i płatności pod Polskę"
       },
       "ai": {
         "title": "Agenci AI",
@@ -54,6 +59,7 @@
     },
     "links": {
       "websites": "Strony",
+      "onlineStore": "Sklepy internetowe",
       "aiAgents": "Agenci AI",
       "mobileApps": "Aplikacje mobilne",
       "email": "Email",
@@ -149,6 +155,12 @@
         "title": "Reklama cyfrowa",
         "body": "Google Ads, Meta Ads — konfiguracja i prowadzenie.",
         "price": "Od 300 € za setup lub 500 €/mies. prowadzenia"
+      },
+      "store": {
+        "category": "Sklepy",
+        "title": "Sklepy internetowe",
+        "body": "Katalog, koszyk i płatności BLIK/Przelewy24 — szybki sklep na Next.js, gotowy pod Google.",
+        "price": "Od €1 500"
       },
       "badge": "Najczęściej wybierane",
       "automation": {
@@ -1009,6 +1021,10 @@
           {
             "q": "Czyja jest strona, kod i domena po zakończeniu?",
             "a": "Twoja w całości. Domenę i hosting rejestruję na Twoje dane, kod źródłowy trafia do Twojego repozytorium na GitHubie, a przeniesienie praw autorskich jest zapisane w umowie. Żadnego «kodu w wynajmie» ani uzależnienia ode mnie — inny programista przejmie czyste repo i kontynuuje bez problemu."
+          },
+          {
+            "q": "Czy zamiast zwykłej strony można zamówić sklep internetowy?",
+            "a": "Tak. Tworzenie sklepu internetowego w Warszawie to osobna usługa: katalog, koszyk, płatności (Stripe, Przelewy24, BLIK), integracja z magazynem i wysyłką. Szczegóły i ceny — na stronie «Sklepy internetowe»."
           }
         ]
       },
@@ -1064,6 +1080,159 @@
               "CMS do wyboru: Sanity lub MDX",
               "Rozszerzone SEO + IndexNow przy deployu",
               "Integracje: CRM, płatności, śledzenie konwersji",
+              "30 dni poprawek w cenie"
+            ]
+          }
+        ]
+      }
+    },
+    "store": {
+      "meta": {
+        "title": "Sklep internetowy Warszawa — tworzenie sklepów | od €1500",
+        "description": "Tworzenie sklepu internetowego pod klucz w Warszawie: katalog, koszyk, płatności BLIK/Przelewy24/Stripe, integracja z magazynem i wysyłką. Cena od €1500."
+      },
+      "eyebrow": "Sklepy internetowe · Warszawa",
+      "headline": "Sklepy,\nktóre sprzedają.",
+      "lead": "Tworzenie sklepu internetowego w Warszawie pod klucz: katalog, koszyk i płatności, które nie gubią klienta w drodze do zamówienia. Na Next.js — szybki, wielojęzyczny i gotowy pod Google od pierwszego dnia.",
+      "from": "Od €1 500",
+      "primaryCta": "Omówmy sklep",
+      "hero": {
+        "badge": "Gotowy na sprzedaż i Google",
+        "metrics": [
+          { "v": "<1s", "l": "ładowanie katalogu" },
+          { "v": "+30%", "l": "konwersja do zamówienia" },
+          { "v": "100", "l": "/100 PageSpeed" }
+        ],
+        "mock": {
+          "url": "twoj-sklep.com",
+          "serp": "#1 w Google",
+          "score": "Lighthouse",
+          "features": ["Katalog", "Koszyk", "Płatności"]
+        }
+      },
+      "what": {
+        "title": "Co otrzymujesz",
+        "items": [
+          {
+            "title": "Katalog i karty produktów",
+            "body": "Wygodny katalog z filtrami, wyszukiwarką i kartami, które sprzedają: galeria, parametry, opinie i dostępność w czasie rzeczywistym."
+          },
+          {
+            "title": "Płatności pod Polskę",
+            "body": "BLIK, Przelewy24, karty, Apple Pay i Google Pay, Stripe. Klient płaci jednym kliknięciem — bez przekierowań, na których gubi się koszyk."
+          },
+          {
+            "title": "Koszyk bez porzuconych zamówień",
+            "body": "Szybkie zamówienie, zakup bez rejestracji, kalkulacja wysyłki i kody rabatowe. Mniej kroków do zamówienia — mniej porzuconych koszyków."
+          },
+          {
+            "title": "Integracje magazynu i wysyłki",
+            "body": "Synchronizacja stanów, eksport zamówień do CRM, integracja z InPost, DPD, Pocztą Polską i fiskalizacją."
+          },
+          {
+            "title": "Wielojęzyczność i SEO od ręki",
+            "body": "PL / EN / UA / RU, poprawne hreflang, schema Product/Offer, sitemap i feed — produkty indeksują się i trafiają do Google Shopping."
+          },
+          {
+            "title": "Szybkość i analityka",
+            "body": "LCP poniżej 1 sekundy, serwerowy tracking konwersji, GA4 i zdarzenia zakupu — widać, co realnie przynosi pieniądze."
+          }
+        ]
+      },
+      "stack": {
+        "title": "Technologie",
+        "items": [
+          "Next.js 15",
+          "React 19",
+          "TypeScript",
+          "Stripe",
+          "Przelewy24 / BLIK",
+          "MedusaJS / Sanity",
+          "Vercel",
+          "Schema.org Product"
+        ]
+      },
+      "cases": "Podobne realizacje",
+      "faq": {
+        "title": "Pytania o sklepy internetowe",
+        "items": [
+          {
+            "q": "Ile kosztuje stworzenie sklepu internetowego w Warszawie?",
+            "a": "Zależy od liczby produktów, integracji i projektu. Prosty sklep na gotowym katalogu — od €1500, sklep z integracją magazynu, CRM i niestandardową logiką — od €4000. Dokładną wycenę ustalam przed startem, bez dopłat godzinowych."
+          },
+          {
+            "q": "W jakim czasie uruchomicie sklep?",
+            "a": "Typowy sklep — 3–5 tygodni od startu. Z integracją magazynu, wysyłki i fiskalizacji — 6–8 tygodni. Termin ustalam pisemnie przed startem."
+          },
+          {
+            "q": "Jakie metody płatności można podłączyć?",
+            "a": "Wszystkie popularne w Polsce: BLIK, Przelewy24, karty, Apple Pay i Google Pay, a także Stripe i PayPal dla klientów zagranicznych."
+          },
+          {
+            "q": "Czy można przenieść sklep z innej platformy?",
+            "a": "Tak. Przenoszę z WooCommerce, Shopify, PrestaShop i OpenCart z zachowaniem produktów, zamówień i adresów SEO — bez utraty pozycji w Google."
+          },
+          {
+            "q": "Na czym budujecie sklepy — WordPress/WooCommerce?",
+            "a": "Domyślnie na Next.js (headless commerce: MedusaJS, Stripe, Sanity). Jest szybszy i bezpieczniejszy niż typowy WooCommerce. Masz już WooCommerce lub Shopify — mogę rozbudować lub przenieść."
+          },
+          {
+            "q": "Czy sklep będzie w Google i da się go pozycjonować?",
+            "a": "Tak. Wbudowane techniczne SEO pod e-commerce: schema Product/Offer, czyste adresy produktów i kategorii, sitemap i feed do Google Shopping. Karty produktów indeksują się od pierwszych dni."
+          }
+        ]
+      },
+      "demoEyebrow": "Na żywo",
+      "startingPrice": "Cena startowa",
+      "bookCta": "Bezpłatna rozmowa",
+      "includedTitle": "Co wchodzi",
+      "pricing": {
+        "eyebrow": "Cennik",
+        "marketLabel": "Studia z Warszawy",
+        "featuredLabel": "Najczęściej",
+        "caption": "Kurs ≈ 4,3 zł za €1. Ostateczną cenę ustalam po 30-minutowej rozmowie. Poprawki po starcie — €50/h, bez obowiązkowego abonamentu.",
+        "tiers": [
+          {
+            "title": "Sklep Start",
+            "from": "od",
+            "price": "€1 500",
+            "market": "10 000–18 000 zł",
+            "body": "Gotowy katalog z koszykiem i płatnościami — szybki start sprzedaży.",
+            "features": [
+              "Do 100 produktów, filtry i wyszukiwarka",
+              "Płatności: BLIK, Przelewy24, karty",
+              "RWD, SSL, podstawowe SEO produktów",
+              "Koszyk i zamówienie w jednym kroku",
+              "GA4 i zdarzenia zakupu"
+            ]
+          },
+          {
+            "title": "Sklep dla biznesu",
+            "from": "od",
+            "price": "€4 000",
+            "market": "25 000–60 000 zł",
+            "featured": true,
+            "body": "Integracje magazynu, CRM i wysyłki pod realne procesy.",
+            "features": [
+              "Wszystko ze «Sklep Start», plus:",
+              "Synchronizacja stanów i eksport zamówień",
+              "Integracja CRM, InPost, DPD, fiskalizacja",
+              "Wielojęzyczność PL/EN/UA/RU + hreflang",
+              "Feed do Google Shopping, rozszerzone SEO",
+              "Serwerowy tracking konwersji"
+            ]
+          },
+          {
+            "title": "Przeniesienie / redesign",
+            "from": "od",
+            "price": "€2 000",
+            "market": "15 000–30 000 zł",
+            "body": "Migracja z WooCommerce, Shopify lub PrestaShop bez utraty pozycji.",
+            "features": [
+              "Przeniesienie produktów, zamówień i adresów SEO",
+              "Zachowanie pozycji w Google (przekierowania 301)",
+              "Nowy szybki front na Next.js",
+              "Podłączenie płatności i wysyłki",
               "30 dni poprawek w cenie"
             ]
           }
