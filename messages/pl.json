@@ -979,28 +979,32 @@
         "title": "Pytania o strony",
         "items": [
           {
+            "q": "Od czego zależy cena strony?",
+            "a": "Od liczby podstron, funkcji i tego, czy masz gotowe treści. Landing to inna półka niż sklep z integracjami. Dostajesz jedną, stałą wycenę przed startem — bez godzinowych dopłat i ukrytych kosztów po drodze."
+          },
+          {
             "q": "Ile czasu zajmie?",
             "a": "Strona marketingowa — 2–3 tygodnie od kickoffu. Większy projekt z integracjami i wieloma językami — 4–6 tygodni. Datę fiksujemy na piśmie przed startem."
+          },
+          {
+            "q": "Czego potrzebujesz ode mnie, żeby zacząć?",
+            "a": "Najlepiej teksty, zdjęcia i logo. Nie masz? Pomogę je przygotować — wystarczy, że opowiesz o firmie, resztę poprowadzę za rękę. Nie czekam miesiącami na materiały."
+          },
+          {
+            "q": "Czy strona będzie zoptymalizowana pod Google (SEO)?",
+            "a": "Tak. Każda strona ma wbudowane techniczne SEO: czysta struktura, schema, szybkość, meta-dane i wersja mobilna. Google dobrze ją indeksuje od startu. Stałe pozycjonowanie (treści, linki) to osobna, opcjonalna usługa."
+          },
+          {
+            "q": "Czy strona będzie działać na telefonie?",
+            "a": "Tak, w pełni responsywna i dopracowana na telefon, tablet i desktop. Większość Twojego ruchu i tak przyjdzie z komórki, więc mobile robię jako pierwszy, nie „po godzinach”."
           },
           {
             "q": "Naprawdę będzie szybsza niż moja obecna?",
             "a": "Prawie zawsze tak. Typowy WordPress na shared-hostingu ma LCP 3–5 sekund. Moje strony stabilnie poniżej 1 sekundy. To nie 'optymalizacja' — to inna architektura (statyka + edge)."
           },
           {
-            "q": "Kto będzie aktualizował treść?",
-            "a": "Zależy od CMS-u, który wybierzemy. Sanity — dla zespołów chcących edycji w stylu Notion. MDX — dla tych, co aktualizują raz w miesiącu. Decydujemy na discovery."
-          },
-          {
-            "q": "Podłączysz moją analitykę?",
-            "a": "Tak. GA4, Meta Pixel, Yandex Metrika, Plausible, PostHog — wszystko, co potrzebne, plus server-side trackowanie konwersji, jeśli to istotne."
-          },
-          {
-            "q": "A jeśli mam już design w Figmie?",
-            "a": "Świetnie. Implementuję i zwykle od razu widzę, co warto dopracować pod produkcję (dostępność, stany, mobile) — proponuję zmiany przed startem."
-          },
-          {
-            "q": "Płacę jednorazowo czy w abonamencie?",
-            "a": "Jednorazowo — płacisz za zbudowaną stronę i jest Twoja. Bez przymusowego abonamentu 99–300 zł/mies. za «utrzymanie», na którym żyje pół rynku. Hosting na Vercel kosztuje grosze albo nic, a poprawki po starcie rozliczam €50/godz., minimum godzina — płacisz tylko wtedy, gdy faktycznie czegoś potrzebujesz."
+            "q": "Domena i hosting są w cenie? Ile kosztuje utrzymanie rocznie?",
+            "a": "Domena to ok. 70–160 zł/rok, hosting na Vercel kosztuje grosze albo nic. To jedyne stałe koszty — bez przymusowego abonamentu „za utrzymanie”. Rejestruję jedno i drugie na Twoje dane, więc wszystko jest Twoje."
           },
           {
             "q": "Czyja jest strona, kod i domena po zakończeniu?",
@@ -1148,28 +1152,36 @@
         "title": "Pytania o AI",
         "items": [
           {
+            "q": "Ile kosztuje wdrożenie i od czego zależy cena?",
+            "a": "Zależy od liczby integracji i złożoności procesów. Prosty agent FAQ to inna półka niż agent łączący CRM, kalendarz i płatności. Nie podaję ceny z sufitu — robimy krótką wycenę na bazie Twoich procesów i dostajesz stałą kwotę przed startem."
+          },
+          {
             "q": "To 'opakowanie GPT' czy coś poważniejszego?",
             "a": "Poważniejszego. Function calling, narzędzia, RAG, klasyfikacja dialogów, logika backendowa, integracje — to odróżnia realnego agenta od opakowania."
           },
           {
-            "q": "Ile potem kosztuje utrzymanie?",
-            "a": "Zależy od wolumenu. Typowy sales-agent na GPT-4o-mini / Gemini Flash — 30–80 €/miesiąc w API przy 1000+ dialogach. Pełna kalkulacja na discovery."
+            "q": "Czy to zgodne z RODO? Gdzie są przechowywane dane mojej firmy?",
+            "a": "Tak. Działam zgodnie z RODO, podpisuję umowę powierzenia danych, a bazę wiedzy i rozmowy mogę postawić na serwerach w UE. Twoje dane nie trafiają na trening publicznych modeli i zostają u Ciebie."
           },
           {
             "q": "Będzie halucynował?",
             "a": "W dobrze zbudowanym RAG — prawie nigdy. Ustawiam tryb ścisłego cytowania: jeśli w bazie nie ma odpowiedzi, agent mówi 'nie wiem' i przekazuje do człowieka. To kontrolowalne."
           },
           {
+            "q": "Czy agent AI zastąpi moich pracowników?",
+            "a": "Nie. Agent przejmuje powtarzalne, czasochłonne zadania — FAQ, kwalifikację leadów, status zamówień — a trudniejsze sprawy eskaluje do człowieka z gotowym podsumowaniem. Zespół zyskuje czas na to, co naprawdę wymaga ludzi."
+          },
+          {
+            "q": "Kiedy inwestycja się zwróci (ROI)?",
+            "a": "Zwykle 2–6 miesięcy, zależnie od wolumenu zapytań. Punkt zwrotu liczymy przed startem — z liczby rozmów, które agent przejmie, i godzin zespołu, które uwolni. Jeśli liczby się nie spinają, mówię wprost."
+          },
+          {
             "q": "Jak podłączysz do mojego CRM?",
             "a": "Przez natywne API. AmoCRM v4, HubSpot, Pipedrive — wszystkie wspierają webhooki i REST. Bot taguje, rusza po lejku, dodaje notatki. Wszystko, co manager robi ręcznie — automatycznie."
           },
           {
-            "q": "A jeśli jutro wyjdzie 2x lepszy model?",
-            "a": "Podłączymy. Architektura jest provider-agnostic przez warstwę abstrakcji. Zmiana GPT na Claude lub Gemini to dzień pracy, nie tydzień."
-          },
-          {
-            "q": "Ile trwa wdrożenie agenta AI?",
-            "a": "Skupiony bot — asystent FAQ albo kwalifikacja leadów — uruchamiam w 1–2 tygodnie od startu. Agent z RAG na Twojej bazie wiedzy i integracją z CRM to 3–4 tygodnie. Zakres i datę ustalam na piśmie przed startem, a postępy pokazuję na bieżąco."
+            "q": "Ile trwa wdrożenie i ile potem kosztuje utrzymanie?",
+            "a": "Skupiony bot — asystent FAQ albo kwalifikacja leadów — uruchamiam w 1–2 tygodnie, agent z RAG i integracją z CRM to 3–4 tygodnie. Utrzymanie to głównie API: typowy agent na GPT-4o-mini / Gemini Flash to 30–80 €/mies. przy 1000+ dialogach. Datę i koszt masz na piśmie przed startem."
           },
           {
             "q": "Czy jeden bot odpowie w kilku językach na danych mojej firmy?",
@@ -1268,24 +1280,32 @@
         "title": "Pytania o automatyzację",
         "items": [
           {
+            "q": "Jakie procesy w mojej firmie warto zautomatyzować najpierw?",
+            "a": "Te, które robisz wielokrotnie w tygodniu, są oparte na regułach i na danych cyfrowych — przepisywanie danych między aplikacjami, fakturowanie, przypomnienia, kwalifikacja leadów. Zaczynamy od krótkiego audytu i wybieram 2–3 procesy z największą oszczędnością czasu."
+          },
+          {
             "q": "Czym to się różni od agenta AI?",
             "a": "Agent AI to rozmowa — bot rozmawia z klientem. Automatyzacja to połączenia między systemami: lead → CRM → powiadomienie → raport, bez człowieka w środku. Często działają razem: agent rozmawia, automatyzacja przenosi dane w tle."
           },
           {
-            "q": "Budujesz na Make, Zapier czy w kodzie?",
-            "a": "Zależnie od zadania. Proste przepływy na Make lub n8n — szybko i tanio w utrzymaniu. Złożoną logikę, obciążenie i niestandardowe API piszę w Node.js. Często łączę: no-code na szkielet, kod na krytyczne kroki."
+            "q": "Ile kosztuje wdrożenie i ile trwa?",
+            "a": "Pojedyncza automatyzacja (lead → CRM → powiadomienie) to zwykle kilka tysięcy złotych i 3–7 dni. Łańcuch kilku procesów z raportami — 2–3 tygodnie, wyceniany po analizie. Utrzymanie na n8n na Twoim serwerze to prawie zero, na Make/Zapier zwykle €20–100/mies. Stała wycena przed startem."
           },
           {
-            "q": "Ile kosztuje utrzymanie miesięcznie?",
-            "a": "Na n8n na Twoim serwerze — prawie zero, tylko hosting. Na Make/Zapier — ich abonament zależny od liczby operacji, zwykle €20–100/mies. Dokładne liczby liczę pod Twój ruch na rozmowie."
+            "q": "Czy to się opłaca? Po jakim czasie zwrot?",
+            "a": "Pierwsze efekty — mniej ręcznej pracy, porządek w danych — widać w 2–6 tygodni, pełny zwrot najczęściej w 2–6 miesięcy. Przy wycenie szacuję, ile godzin pracy automatyzacja Ci odda, żebyś z góry wiedział, kiedy się spłaci."
           },
           {
-            "q": "Co, jeśli któraś usługa zmieni API?",
-            "a": "Wbudowuję obsługę błędów i alerty o awariach — jeśli krok padnie, dowiesz się od razu, a nie tydzień później po zniknięciu leadów. Naprawy w ramach wsparcia."
+            "q": "Make, Zapier czy n8n — co wybrać?",
+            "a": "Zależnie od skali: Zapier jest najprostszy do podstaw, Make tańszy i mocniejszy przy rozbudowanej logice, a n8n daje pełną kontrolę nad danymi (self-hosting na Twoim serwerze). Złożone i krytyczne kroki piszę w Node.js. Narzędzie dobieram pod Twój proces, nie odwrotnie."
           },
           {
-            "q": "Ile trwa wdrożenie?",
-            "a": "Pojedynczy przepływ (lead → CRM → powiadomienie) to 3–7 dni. Łańcuch kilku procesów z uzupełnianiem i raportami to 2–3 tygodnie. Zakres i datę ustalam na piśmie przed startem."
+            "q": "Czy moje dane są bezpieczne i zgodne z RODO?",
+            "a": "Tak. Pracuję zgodnie z RODO i zasadą minimalizacji danych, a w razie potrzeby stawiam rozwiązanie (np. n8n) na Twojej infrastrukturze, żeby dane klientów jej nie opuszczały. Ustalamy, kto ma dostęp i jak długo dane są przechowywane."
+          },
+          {
+            "q": "Co, jeśli automatyzacja przestanie działać albo usługa zmieni API?",
+            "a": "Każdą automatyzację monitoruję i wpinam alerty o awariach — jeśli krok padnie albo usługa zmieni API, dowiesz się od razu, a nie tydzień później po zniknięciu leadów. Naprawy idą w ramach wsparcia."
           },
           {
             "q": "Połączysz się z moim systemem?",
@@ -1484,24 +1504,32 @@
         "title": "Pytania o mobile",
         "items": [
           {
-            "q": "Czy natywnie nie lepiej?",
-            "a": "Dla 90% zadań produktowych — nie. Expo / React Native daje natywny perf i pełny dostęp do sprzętu. Kod natywny ma sens przy AR, ciężkiej grafice lub specjalistycznym sprzęcie. Powiem otwarcie."
+            "q": "Ile kosztuje stworzenie aplikacji? Od czego zależy cena?",
+            "a": "Od liczby ekranów, integracji, backendu i designu. Prosty projekt / MVP startuje zwykle od kilkunastu tysięcy złotych, rozbudowana aplikacja kosztuje więcej. Wyceniam w modelu fixed price — uzgadniamy zakres i koszt z góry, bez niespodzianek na fakturze."
           },
           {
-            "q": "Kto publikuje do sklepów?",
-            "a": "Ja. Z odpowiedziami na review włącznie. Apple Developer Account i Google Play Console — na twoje firmowe konto, ja pracuję pod twoimi danymi."
+            "q": "Jak wygląda proces i od czego zacząć?",
+            "a": "Wystarczy krótki opis: do czego aplikacja ma służyć, jakie funkcje są kluczowe i kto będzie z niej korzystał. Dalej idziemy etapami: analiza i wycena → makiety → development w sprintach → testy → publikacja → utrzymanie. Postępy widzisz na bieżąco."
           },
           {
             "q": "Ile trwa MVP?",
             "a": "Zwykle 4–6 tygodni od kickoffu do TestFlight / Internal Testing. Kolejne 1–2 tygodnie do publicznych sklepów (zależy od review Apple)."
           },
           {
-            "q": "A jeśli Apple odrzuci?",
-            "a": "Standardowa historia, nie ma się czego bać. Mam doświadczenie w przechodzeniu review — zwykle wiem, czego się czepią. Jak odrzucą — poprawiamy i ponawiamy, bez dopłat."
+            "q": "Aplikacja na iOS i Android czy wystarczy jedna platforma?",
+            "a": "Robię jedną aplikację cross-platform (Expo / React Native), która działa na iOS i Androidzie z jednego kodu — nie płacisz dwa razy. Tym samym kodem da się później dorzucić wersję web. Przy napiętym budżecie można wystartować od jednej platformy i dołożyć drugą."
           },
           {
-            "q": "Można potem dorzucić web?",
-            "a": "Tak. Expo Router pozwala jednym kodem celować w iOS + Android + Web. Jeśli produkt pójdzie w tę stronę, droga jest krótka."
+            "q": "Czy natywnie nie lepiej?",
+            "a": "Dla 90% zadań produktowych — nie. Expo / React Native daje natywny perf i pełny dostęp do sprzętu. Kod natywny ma sens przy AR, ciężkiej grafice lub specjalistycznym sprzęcie. Powiem otwarcie."
+          },
+          {
+            "q": "Nie taniej zrobić to samemu w no-code?",
+            "a": "No-code sprawdza się przy bardzo prostym pomyśle, ale szybko trafia na ścianę: wydajność, integracje, własność i miesięczny abonament kreatora. Aplikacja na zamówienie nie ma tych barier, należy w całości do Ciebie i skaluje się razem z biznesem."
+          },
+          {
+            "q": "Kto publikuje do sklepów? A jeśli Apple odrzuci?",
+            "a": "Ja — z odpowiedziami na review włącznie. Konta Apple Developer i Google Play zakładam na Twoją firmę, pracuję pod Twoimi danymi. Odrzucenie przez Apple to standard, nie powód do paniki — wiem, czego zwykle się czepiają; poprawiamy i ponawiamy bez dopłat."
           },
           {
             "q": "Do kogo należy kod i aplikacja po jej wykonaniu?",
@@ -1843,6 +1871,18 @@
             "a": "Dla pozyskiwania leadów w Polsce realny start to €500–1500/mies budżetu reklamowego, osobno od mojego wynagrodzenia za prowadzenie. Budżet pod Twój cel ustalamy na pierwszej rozmowie i skalujemy dopiero, gdy liczby się zgadzają."
           },
           {
+            "q": "Robić reklamy samemu czy zlecić specjaliście?",
+            "a": "Samodzielnie ma sens przy małym budżecie testowym i czasie na naukę. Powyżej ok. €500–700/mies. błędy w konfiguracji kosztują więcej niż moje wynagrodzenie — przepalony budżet na złe frazy potrafi zjeść cały miesiąc. Wtedy zlecenie po prostu się opłaca."
+          },
+          {
+            "q": "Google Ads czy SEO — co na start?",
+            "a": "Ads dają ruch i leady od pierwszego dnia, ale tylko gdy płacisz. SEO buduje widoczność przez 3–6 miesięcy, za to taniej w długim okresie. Dla większości firm najlepszy jest start z Ads po szybkie wyniki i równoległe budowanie SEO w tle — robię i jedno, i drugie."
+          },
+          {
+            "q": "Czy reklama opłaca się dla małej lub lokalnej firmy?",
+            "a": "Tak. Lokalne kampanie ruszają już od kilkuset złotych miesięcznie, kierowane tylko na Twój obszar i frazy z realnym zamiarem zakupu. Klucz to mierzenie konwersji — telefonów i formularzy — żeby było widać, że reklama się zwraca, a nie tylko „kręci”."
+          },
+          {
             "q": "Czym różni się konfiguracja od prowadzenia?",
             "a": "Konfiguracja (od €300) to jednorazowy montaż: struktura konta, śledzenie, konwersje i pierwsze kampanie. Prowadzenie (€500/mies) to praca ciągła: optymalizacja, testy A/B, raporty i skalowanie. Wielu klientów zaczyna od konfiguracji i dodaje prowadzenie, gdy pojawiają się leady."
           },
@@ -1851,20 +1891,16 @@
             "a": "Kampanie w wyszukiwarce potrafią dać leady już w pierwszym tygodniu. Meta i Performance Max wychodzą z fazy uczenia w 2–4 tygodnie. Prawdziwa optymalizacja opiera się na danych, więc pierwszy miesiąc to ich zbieranie."
           },
           {
-            "q": "Prowadzisz i Google Ads, i Meta?",
-            "a": "Tak — i prowadzę je razem. Wspólne cele konwersji, jeden dashboard, budżet przepływa do kanału, w którym lead jest w danym miesiącu tańszy."
+            "q": "Google Ads czy Meta — co wybrać dla mojej firmy? Prowadzisz oba?",
+            "a": "Prowadzę oba i często razem — wspólne cele konwersji, jeden dashboard, budżet płynie do tańszego w danym miesiącu kanału. Jeśli klienci już szukają Twojej usługi w Google, start od sieci wyszukiwania łapie najgorętsze leady i zwykle daje lepszy koszt w B2B i usługach lokalnych. Meta sprawdza się, gdy popyt trzeba rozgrzać — nowe grupy odbiorców, remarketing, produkt wizualny."
           },
           {
             "q": "Do kogo należą konta?",
             "a": "Do Ciebie. Pracuję na Twoich kontach Google Ads i Meta Business albo zakładam je na Twoje dane. Gdy się rozstajemy — wszystko zostaje u Ciebie: dane, piksele i historia."
           },
           {
-            "q": "Google Ads czy Meta — co wybrać dla mojej firmy?",
-            "a": "To zależy od popytu. Jeśli klienci już szukają Twojej usługi w Google, start od kampanii w sieci wyszukiwania łapie najgorętsze leady i zwykle daje lepszy koszt pozyskania w B2B i usługach lokalnych. Meta sprawdza się, gdy popyt trzeba rozgrzać — nowe grupy odbiorców, remarketing, produkt wizualny. Na rozmowie patrzę na Twoją branżę i często radzę zacząć od jednego kanału, a drugi dołączyć, gdy pierwszy się zwraca."
-          },
-          {
             "q": "Jak się rozliczasz — procent od budżetu reklamowego?",
-            "a": "Nie. Stałe €500/mies. za prowadzenie, bez prowizji od wydatków na reklamę — nie mam żadnego interesu w pompowaniu budżetu, czy wydasz €500, czy €5 000. Budżet reklamowy płacisz bezpośrednio Google i Meta ze swojej karty. W raporcie Looker Studio widzisz koszt leada i ROAS, więc dokładnie wiesz, gdzie pieniądze pracują."
+            "a": "Nie. Stałe €500/mies. za prowadzenie, bez prowizji od wydatków na reklamę — nie mam interesu w pompowaniu budżetu, czy wydasz €500, czy €5 000. Budżet reklamowy płacisz bezpośrednio Google i Meta ze swojej karty. W raporcie Looker Studio widzisz koszt leada i ROAS, więc dokładnie wiesz, gdzie pieniądze pracują."
           }
         ]
       },
@@ -2066,19 +2102,31 @@
         "items": [
           {
             "q": "Czym Mini App jest lepsza od strony lub aplikacji?",
-            "a": "Mini App działa w Telegramie: klient niczego nie instaluje i jest już zalogowany. Otwiera się z bota w sekundę, działa z natywną szybkością i od razu wie, kto jest użytkownikiem. Dla rezerwacji, sklepu i płatności to mniej tarcia niż strona — i ułamek kosztu natywnej aplikacji."
+            "a": "Mini App działa w Telegramie: klient niczego nie instaluje, nie potrzebuje App Store ani Google Play i jest już zalogowany. Otwiera się z bota w sekundę, działa z natywną szybkością i od razu wie, kto jest użytkownikiem. Dla rezerwacji, sklepu i płatności to mniej tarcia niż strona — i ułamek kosztu natywnej aplikacji."
           },
           {
-            "q": "Jak popularny jest Telegram w Polsce?",
-            "a": "Telegram to drugi komunikator w Polsce po WhatsAppie — około 4 mln użytkowników i rośnie. Dla osób ukraińsko- i rosyjskojęzycznych to główny kanał. Jeśli Twoi klienci są na Telegramie, bot i Mini App docierają tam, gdzie już są."
+            "q": "Czy bot odpowie sam, przez AI, na pytania klientów?",
+            "a": "Tak. Podłączam AI, które samo obsłuży nawet ~80% typowych pytań — FAQ, status zamówienia, rezerwacje — całą dobę, a trudniejsze sprawy przekaże człowiekowi. To różnica między rozwiązaniem szytym na miarę a prostym botem z komendami."
+          },
+          {
+            "q": "Po co wykonawca, skoro bota zrobię za darmo w BotFather?",
+            "a": "Darmowy bot z BotFather obsłuży proste komendy. Nie zrobi Mini App z płatnościami, integracji z CRM, panelu ani nie zapewni hostingu produkcyjnego, który nie pada. Dostajesz gotowe, utrzymywane rozwiązanie biznesowe, a nie szkielet do samodzielnego dłubania."
+          },
+          {
+            "q": "Czy Telegram jest bezpieczny dla danych moich klientów (RODO)?",
+            "a": "Tak. Dane klientów trzymam po Twojej stronie (Twój serwer / CRM), komunikacja idzie po szyfrowanym API Telegrama, a dane z Telegrama weryfikuję (initData). W samym czacie nie przechowuję wrażliwych informacji — działamy zgodnie z RODO."
+          },
+          {
+            "q": "Ile kosztuje i ile trwa?",
+            "a": "Prosty bot do zgłoszeń — od €300, 1–2 tygodnie. Bot z odpowiedziami AI i integracją CRM — od €700. Mini App ze sklepem i płatnością — od €1 500. Hosting to €5–30/mies., API Telegrama jest darmowe, poprawki €50/godz. bez abonamentu. Dokładną wycenę i termin podaję po krótkiej rozmowie."
           },
           {
             "q": "Jak klienci płacą w Telegramie?",
             "a": "Przez Telegram Stars (wbudowana waluta) lub krypto przez TON — płatność bez wychodzenia z czatu. Dla kart i złotówek podłączam Stripe lub Przelewy24 wewnątrz Mini App. Dobieramy pod Twoją grupę odbiorców."
           },
           {
-            "q": "Ile kosztuje i ile trwa?",
-            "a": "Prosty bot do zgłoszeń — od €300, 1–2 tygodnie. Bot z odpowiedziami AI i integracją CRM — od €700. Mini App ze sklepem i płatnością — od €1 500. Dokładną wycenę i termin podaję po krótkiej rozmowie, gdy znamy zakres."
+            "q": "Jak popularny jest Telegram w Polsce?",
+            "a": "Telegram to drugi komunikator w Polsce po WhatsAppie — około 4 mln użytkowników i rośnie. Dla osób ukraińsko- i rosyjskojęzycznych to główny kanał. Jeśli Twoi klienci są na Telegramie, bot i Mini App docierają tam, gdzie już są."
           },
           {
             "q": "Czy można połączyć bota z moim CRM i stroną?",
@@ -2087,10 +2135,6 @@
           {
             "q": "Do kogo należy bot po oddaniu?",
             "a": "Do Ciebie — w całości. Kod źródłowy, token bota, konta płatności i baza są zarejestrowane na Twoją firmę i przekazywane umową. Nie wiążę Cię ze sobą: rozwijaj sam lub z dowolnym programistą."
-          },
-          {
-            "q": "Ile kosztuje utrzymanie po starcie?",
-            "a": "Hosting to zwykle €5–30/mies. zależnie od obciążenia. API Telegrama jest darmowe. Poprawki — €50/godz. bez obowiązkowego abonamentu: płacisz tylko, gdy realnie coś zmieniamy."
           }
         ]
       },
@@ -3434,6 +3478,8 @@
     "readingMinutes": "{m} min czytania",
     "noPosts": "Pierwszy wpis w tym języku w drodze. Tymczasem — wersja [angielska](/en/blog) lub [rosyjska](/ru/blog).",
     "backToBlog": "Wszystkie wpisy",
+    "relatedTitle": "Podobne artykuły",
+    "relatedServiceLabel": "Powiązana usługa",
     "ctaTitle": "Spodobało się? Pogadajmy o twoim projekcie.",
     "ctaBody": "30 minut na rozmowę discovery. Bez sprzedażowego pitcha.",
     "cta": "Umów rozmowę"

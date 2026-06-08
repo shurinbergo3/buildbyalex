@@ -10,7 +10,13 @@ import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/Button";
 import { CtaGlassLayers } from "@/components/CtaGlass";
 import { routing, type Locale } from "@/i18n/routing";
-import { getAllPostSlugs, getPost, getClusterSlugs } from "@/lib/blog";
+import {
+  getAllPostSlugs,
+  getPost,
+  getClusterSlugs,
+  getRelatedPosts,
+  getRelatedService,
+} from "@/lib/blog";
 import { SITE_URL, htmlLang } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -95,6 +101,12 @@ export default async function BlogPostPage({
   if (!post) notFound();
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "blog" });
+  const tServices = await getTranslations({ locale, namespace: "nav.servicesMenu" });
+
+  // Internal linking: same-topic articles + the money page this post feeds.
+  // Tightens crawl paths for the blog tail and passes topical relevance.
+  const related = getRelatedPosts(locale as Locale, slug, 3);
+  const service = getRelatedService(post.cluster);
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -146,6 +158,48 @@ export default async function BlogPostPage({
           </article>
         </Container>
       </Section>
+
+      {related.length > 0 && (
+        <Section pad="default" tone="alt">
+          <Container size="md">
+            <Reveal>
+              <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+                <h2 className="text-[clamp(22px,2vw+10px,30px)] font-semibold tracking-[-0.022em] text-[color:var(--color-text)]">
+                  {t("relatedTitle")}
+                </h2>
+                {service && (
+                  <Link
+                    href={service.path}
+                    className="shrink-0 text-[13.5px] font-medium text-[color:var(--c-accent-ink)] underline-offset-4 hover:underline dark:text-[color:var(--c-accent)]"
+                  >
+                    {t("relatedServiceLabel")}: {tServices(`${service.menuKey}.title`)} →
+                  </Link>
+                )}
+              </div>
+              <ul className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {related.map((p) => (
+                  <li key={p.slug}>
+                    <Link
+                      href={{ pathname: "/blog/[slug]", params: { slug: p.slug } }}
+                      className="group flex h-full flex-col rounded-2xl border border-[color:var(--c-hairline)] bg-[color:var(--color-bg)] p-5 transition-colors hover:border-[color:var(--c-accent)]"
+                    >
+                      <h3 className="text-[16.5px] font-semibold leading-[1.3] tracking-[-0.014em] text-[color:var(--color-text)] transition-colors group-hover:text-[color:var(--c-accent)]">
+                        {p.title}
+                      </h3>
+                      <p className="mt-2 line-clamp-2 text-[13.5px] leading-[1.5] text-[color:var(--color-text-2)]">
+                        {p.description}
+                      </p>
+                      <span className="mt-4 text-[12px] tracking-[0.02em] text-[color:var(--color-text-3)]">
+                        {t("readingMinutes", { m: p.readingMinutes })}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          </Container>
+        </Section>
+      )}
 
       <Section pad="default" tone="default">
         <Container size="md">

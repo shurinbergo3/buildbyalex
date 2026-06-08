@@ -979,32 +979,36 @@
         "title": "Questions about websites",
         "items": [
           {
-            "q": "How fast can you ship?",
-            "a": "A marketing site lands in 2–3 weeks from kickoff. A larger project with integrations and multilingual content takes 4–6 weeks. The date is in writing before the project starts."
+            "q": "What drives the price of a website?",
+            "a": "The number of pages, the features, and whether you already have the content. A landing page is a different league than a shop with integrations. You get one fixed quote before we start — no hourly add-ons, no hidden costs along the way."
           },
           {
-            "q": "Will it actually be faster than my current site?",
+            "q": "How long will it take?",
+            "a": "A marketing site — 2–3 weeks from kickoff. A larger project with integrations and multiple languages — 4–6 weeks. The date is fixed in writing before we start."
+          },
+          {
+            "q": "What do you need from me to get going?",
+            "a": "Ideally your copy, photos and logo. Don't have them? I'll help put them together — just tell me about the business and I'll lead you through the rest. I won't sit waiting months for materials."
+          },
+          {
+            "q": "Will the site be optimized for Google (SEO)?",
+            "a": "Yes. Every site ships with technical SEO built in: clean structure, schema, speed, meta data and a mobile version. Google indexes it well from day one. Ongoing positioning (content, links) is a separate, optional service."
+          },
+          {
+            "q": "Will the site work on a phone?",
+            "a": "Yes — fully responsive and polished on phone, tablet and desktop. Most of your traffic comes from mobile anyway, so I build mobile first, not as an afterthought."
+          },
+          {
+            "q": "Will it really be faster than my current site?",
             "a": "Almost always, yes. A typical WordPress on shared hosting yields LCP of 3–5 seconds. My sites consistently sit under 1 second. It's not 'optimization' — it's a different architecture (static + edge)."
           },
           {
-            "q": "Who maintains the content?",
-            "a": "Depends on the CMS we pick. Sanity for teams who want Notion-style editing. MDX for teams that update once a month. We decide on the discovery call."
+            "q": "Are domain and hosting included? What does it cost to run per year?",
+            "a": "A domain runs about 70–160 PLN/year, and hosting on Vercel costs pennies or nothing. Those are the only fixed costs — no forced 'maintenance' subscription. I register both in your name, so everything is yours."
           },
           {
-            "q": "Can you connect my analytics and pixels?",
-            "a": "Yes. GA4, Meta Pixel, Yandex Metrika, Plausible, PostHog — plus server-side conversion tracking if it matters."
-          },
-          {
-            "q": "What if I already have a Figma design?",
-            "a": "Great. I'll build from it — and I'll usually flag anything that needs tightening for production (accessibility, states, mobile breakpoints) before we start."
-          },
-          {
-            "q": "Does a multilingual site cost extra?",
-            "a": "Less than you'd expect, because i18n is part of my stack, not a bolt-on plugin. The first language sets the structure; each extra locale mainly adds content and translation review, not a second build. A four-language site (EN/PL/UA/RU) usually lands a few hundred euros above a single-language one — exact figure after the discovery call."
-          },
-          {
-            "q": "Who owns the code, domain and hosting once it's done?",
-            "a": "You do, all of it. The domain and hosting are registered in your name, the source code lives in your GitHub, and the IP transfer is written into the contract. Nothing is rented or locked to me — bring in another developer later and they inherit a clean repo and carry on."
+            "q": "Who owns the site, code and domain once it's done?",
+            "a": "You do, all of it. The domain and hosting are registered in your name, the source code lands in your GitHub repo, and the IP transfer is written into the contract. Nothing is rented or locked to me — another developer can take over a clean repo and carry on without a hitch."
           }
         ]
       },
@@ -1148,28 +1152,36 @@
         "title": "Questions about AI",
         "items": [
           {
-            "q": "Is this a GPT wrapper or something real?",
-            "a": "Real. Function calling, tools, RAG, dialog classification, backend logic, integrations — what separates a working agent from a chat wrapper."
+            "q": "What does it cost to build, and what drives the price?",
+            "a": "It depends on the number of integrations and how complex the processes are. A simple FAQ agent is a different league than one wiring together CRM, calendar and payments. I don't pull a number out of thin air — we run a short scoping based on your processes and you get a fixed figure before we start."
           },
           {
-            "q": "What does it cost to run?",
-            "a": "Depends on volume. A typical sales agent on GPT-4o-mini / Gemini Flash sits around €30–80/month in API at 1000+ dialogs. Full estimate on the discovery call."
+            "q": "Is this a GPT wrapper or something real?",
+            "a": "Real. Function calling, tools, RAG, dialog classification, backend logic, integrations — that's what separates a working agent from a wrapper."
+          },
+          {
+            "q": "Is it GDPR-compliant? Where is my company's data stored?",
+            "a": "Yes. I work in line with GDPR, sign a data processing agreement, and can host the knowledge base and conversations on EU servers. Your data is never used to train public models and stays with you."
           },
           {
             "q": "Will it hallucinate?",
-            "a": "Almost never in a well-built RAG. I enforce a strict-citation mode: if the answer isn't in the corpus, the agent says 'I don't know' and routes to a human. Controllable."
+            "a": "In a well-built RAG — almost never. I enforce a strict-citation mode: if the answer isn't in the corpus, the agent says 'I don't know' and routes to a human. It's controllable."
           },
           {
-            "q": "How does it connect to my CRM?",
-            "a": "Through the native API. AmoCRM v4, HubSpot, Pipedrive — webhooks and REST. The bot tags, moves through the pipeline, leaves notes. Everything a manager does manually — automatic."
+            "q": "Will an AI agent replace my staff?",
+            "a": "No. The agent takes over the repetitive, time-eating tasks — FAQ, lead qualification, order status — and escalates the harder cases to a human with a ready summary. Your team gets time back for the work that actually needs people."
           },
           {
-            "q": "What if a 2x better model comes out tomorrow?",
-            "a": "Plug it in. The architecture is provider-agnostic through an abstraction layer. Swapping GPT for Claude or Gemini is a day's work, not a week."
+            "q": "When does it pay off (ROI)?",
+            "a": "Usually 2–6 months, depending on query volume. We calculate the break-even point before we start — from the number of conversations the agent will take over and the team hours it frees up. If the numbers don't add up, I'll say so straight."
           },
           {
-            "q": "How long does it take to launch an AI agent?",
-            "a": "A focused bot — a FAQ assistant or a lead qualifier — ships in 1–2 weeks from kickoff. An agent with RAG over your knowledge base and a CRM integration takes 3–4 weeks. I fix the scope and date in writing before we start, then show progress as we build."
+            "q": "How do you connect it to my CRM?",
+            "a": "Through the native API. AmoCRM v4, HubSpot, Pipedrive — they all support webhooks and REST. The bot tags, moves through the pipeline, leaves notes. Everything a manager does manually — automatic."
+          },
+          {
+            "q": "How long does it take to launch, and what does it cost to run afterwards?",
+            "a": "A focused bot — a FAQ assistant or lead qualifier — ships in 1–2 weeks; an agent with RAG and a CRM integration takes 3–4 weeks. Running costs are mostly API: a typical agent on GPT-4o-mini / Gemini Flash sits around €30–80/month at 1000+ dialogs. The date and cost are in writing before we start."
           },
           {
             "q": "Can one bot answer in several languages on my own data?",
@@ -1268,24 +1280,32 @@
         "title": "Automation questions",
         "items": [
           {
+            "q": "Which processes should I automate first?",
+            "a": "The ones you do over and over each week, that follow rules and run on digital data — copying data between apps, invoicing, reminders, lead qualification. We start with a short audit and I pick the 2–3 processes with the biggest time savings."
+          },
+          {
             "q": "How is this different from an AI agent?",
             "a": "An AI agent is a conversation — a bot talks to your customer. Automation is the plumbing between systems: lead → CRM → notification → report, no human in between. They often run together: the agent talks, the automation moves data behind the scenes."
           },
           {
-            "q": "Do you build on Make, Zapier or code?",
-            "a": "Depends on the job. Simple flows go on Make or n8n — fast and cheap to maintain. Complex logic, load and non-standard APIs I build in Node.js. I often mix: no-code for the skeleton, code for the critical steps."
+            "q": "What does it cost to build, and how long does it take?",
+            "a": "A single automation (lead → CRM → notification) is usually a few thousand zloty and 3–7 days. A chain of several processes with reports — 2–3 weeks, quoted after analysis. Running it on n8n on your own server is near zero; on Make/Zapier usually €20–100/mo. Fixed quote before we start."
           },
           {
-            "q": "What does it cost to run per month?",
-            "a": "On n8n on your own server — near zero, just hosting. On Make/Zapier — their usage-based subscription, usually €20–100/mo. I size it to your volume on the discovery call."
+            "q": "Is it worth it? How long until it pays back?",
+            "a": "First effects — less manual work, cleaner data — show in 2–6 weeks; full payback most often in 2–6 months. When I quote, I estimate how many work hours the automation hands back, so you know up front when it'll pay for itself."
           },
           {
-            "q": "What if one of the services changes its API?",
-            "a": "I build in error handling and failure alerts — if a step breaks, you know immediately, not a week later through vanished leads. Fixes are covered by support."
+            "q": "Make, Zapier or n8n — which to pick?",
+            "a": "Depends on scale: Zapier is simplest for the basics, Make is cheaper and more powerful for richer logic, and n8n gives full control over your data (self-hosted on your own server). Complex, critical steps I write in Node.js. I pick the tool to fit your process, not the other way around."
           },
           {
-            "q": "How long does it take to set up?",
-            "a": "A single flow (lead → CRM → notification) takes 3–7 days. A chain of several processes with enrichment and reports is 2–3 weeks. Scope and date fixed in writing before we start."
+            "q": "Is my data safe and GDPR-compliant?",
+            "a": "Yes. I work in line with GDPR and data minimization, and when needed I run the solution (e.g. n8n) on your own infrastructure so customer data never leaves it. We agree who has access and how long data is kept."
+          },
+          {
+            "q": "What if an automation breaks or a service changes its API?",
+            "a": "I monitor every automation and wire in failure alerts — if a step breaks or a service changes its API, you know immediately, not a week later after the leads have vanished. Fixes are covered by support."
           },
           {
             "q": "Can you connect to my system?",
@@ -1484,32 +1504,40 @@
         "title": "Questions about mobile",
         "items": [
           {
-            "q": "Isn't native better?",
-            "a": "For 90% of product tasks — no. Expo / React Native gives native perf and full hardware access. Native code makes sense only for AR, heavy graphics or specialized hardware. I'll tell you honestly."
+            "q": "What does it cost to build an app? What drives the price?",
+            "a": "The number of screens, integrations, backend and design. A simple project / MVP usually starts in the low tens of thousands of zloty; a larger app costs more. I quote fixed price — we agree the scope and cost up front, no surprises on the invoice."
           },
           {
-            "q": "Who submits to the stores?",
-            "a": "I do. Including review responses. Apple Developer Account and Google Play Console under your legal entity — I work under your accounts."
+            "q": "What does the process look like and where do I start?",
+            "a": "A short brief is enough: what the app is for, which features are key, and who'll use it. From there we go in stages: analysis and quote → mockups → development in sprints → testing → release → maintenance. You see progress as we go."
           },
           {
             "q": "How long is an MVP?",
             "a": "Typically 4–6 weeks from kickoff to TestFlight / Internal Testing. Another 1–2 weeks to the public stores (depends on Apple review)."
           },
           {
-            "q": "What if Apple rejects it?",
-            "a": "Standard, not scary. I've been through review enough times to usually predict what they'll ask. If they reject — we fix and resubmit, no extra charge."
+            "q": "iOS and Android, or is one platform enough?",
+            "a": "I build one cross-platform app (Expo / React Native) that runs on iOS and Android from a single codebase — you don't pay twice. The same code can later add a web version too. On a tight budget you can launch one platform first and add the second later."
           },
           {
-            "q": "Can we add web later?",
-            "a": "Yes. Expo Router lets one codebase target iOS + Android + Web. If your product goes that way, the path is short."
+            "q": "Isn't native better?",
+            "a": "For 90% of product tasks — no. Expo / React Native gives native perf and full hardware access. Native code makes sense for AR, heavy graphics or specialized hardware. I'll tell you straight."
           },
           {
-            "q": "Who owns the code and the app once it's delivered?",
-            "a": "You do — fully. The source code, your App Store Connect and Google Play accounts, the backend and all keys are set up under your legal entity and transferred to you by contract. I don't hold the project hostage or lock you in: you can keep building it yourself or hand it to any other developer."
+            "q": "Isn't it cheaper to build it myself in no-code?",
+            "a": "No-code works for a very simple idea, but it hits a wall fast: performance, integrations, ownership and the builder's monthly subscription. A custom app has none of those limits, belongs entirely to you, and scales with the business."
+          },
+          {
+            "q": "Who submits to the stores? And if Apple rejects it?",
+            "a": "I do — review responses included. Apple Developer and Google Play accounts are set up under your company, and I work under your details. An Apple rejection is standard, not cause for panic — I know what they usually nitpick; we fix and resubmit at no extra charge."
+          },
+          {
+            "q": "Who owns the code and the app once it's built?",
+            "a": "You do — fully. The source code, App Store Connect and Google Play accounts, backend and all keys are set up under your company and transferred to you by contract. I don't hold the project hostage or lock you in: you can keep building it yourself or hand it to any other developer."
           },
           {
             "q": "What does it cost to run the app after launch?",
-            "a": "Less than agencies make you fear. Backend hosting and services are typically €10–50/month depending on load; the store accounts are $99/year for Apple and a one-time $25 for Google. Updates and fixes for new iOS/Android versions are €50/hour with no forced retainer — you only pay when something actually needs doing."
+            "a": "Less than the software houses make you fear. Backend hosting and services are typically €10–50/month depending on traffic; the store accounts are $99/year for Apple and a one-time $25 for Google. Fixes and updates for new iOS/Android versions are €50/hour with no mandatory retainer — you only pay when something actually needs doing."
           }
         ]
       },
@@ -1839,8 +1867,20 @@
         "title": "Questions about advertising",
         "items": [
           {
-            "q": "How much should I budget for ads?",
-            "a": "For local lead-gen in Poland, €500–1,500/month of ad spend is a realistic start — separate from my management fee. We set the budget to your goal on the first call and scale only once the numbers work."
+            "q": "What budget should I set for ads?",
+            "a": "For lead-gen in Poland, a realistic start is €500–1,500/month of ad spend — separate from my management fee. We set the budget to your goal on the first call and scale only once the numbers add up."
+          },
+          {
+            "q": "Run ads myself or hand them to a specialist?",
+            "a": "Doing it yourself makes sense on a small test budget with time to learn. Above roughly €500–700/month, setup mistakes cost more than my fee — budget burned on the wrong keywords can eat a whole month. That's when hiring out simply pays."
+          },
+          {
+            "q": "Google Ads or SEO — which first?",
+            "a": "Ads bring traffic and leads from day one, but only while you pay. SEO builds visibility over 3–6 months and is cheaper long term. For most businesses the best move is starting with Ads for quick results while building SEO in the background — I do both."
+          },
+          {
+            "q": "Do ads pay off for a small or local business?",
+            "a": "Yes. Local campaigns start from a few hundred zloty a month, targeted only at your area and keywords with real buying intent. The key is measuring conversions — calls and forms — so you can see the ads pay back, not just 'run'."
           },
           {
             "q": "What's the difference between setup and management?",
@@ -1851,16 +1891,12 @@
             "a": "Search campaigns can bring leads in the first week. Meta and Performance Max need 2–4 weeks to exit the learning phase. Real optimization comes from data, so the first month is about gathering it."
           },
           {
-            "q": "Do you work with both Google Ads and Meta?",
-            "a": "Yes — and I run them together. The same conversion goals, one dashboard, budget shifted to whichever channel is cheaper per lead this month."
+            "q": "Google Ads or Meta — which is right for my business? Do you run both?",
+            "a": "I run both, often together — shared conversion goals, one dashboard, budget flowing to whichever channel is cheaper that month. If clients already search for your service on Google, starting with Search captures the hottest leads and usually a better cost in B2B and local services. Meta works when demand needs warming up — new audiences, retargeting, a visual product."
           },
           {
             "q": "Who owns the accounts?",
-            "a": "You do. I work inside your Google Ads and Meta Business accounts, or set them up in your name. If we part ways, everything stays with you — data, pixels and history."
-          },
-          {
-            "q": "Google Ads or Meta — which is right for my business?",
-            "a": "It depends on demand. If people already search for your service on Google, starting with Search captures the hottest leads and usually a better cost-per-acquisition for B2B and local services. Meta is stronger when demand needs warming up — new audiences, retargeting, a visual product. On the call I look at your niche and often suggest starting with one channel, then adding the second once it pays back."
+            "a": "You do. I work inside your Google Ads and Meta Business accounts, or set them up in your name. When we part ways, everything stays with you — data, pixels and history."
           },
           {
             "q": "How do you charge — a percentage of ad spend?",
@@ -2066,31 +2102,39 @@
         "items": [
           {
             "q": "Why is a Mini App better than a website or app?",
-            "a": "A Mini App lives inside Telegram: the client installs nothing and is already logged in. It opens from the bot in a second, runs at native speed and instantly knows who the user is. For booking, storefronts and payments that's less friction than a website — and a fraction of the cost of a native app."
+            "a": "A Mini App lives inside Telegram: the client installs nothing, needs no App Store or Google Play, and is already logged in. It opens from the bot in a second, runs at native speed and instantly knows who the user is. For booking, storefronts and payments that's less friction than a website — and a fraction of the cost of a native app."
+          },
+          {
+            "q": "Will the bot answer customer questions on its own, through AI?",
+            "a": "Yes. I plug in AI that handles up to ~80% of typical questions on its own — FAQ, order status, bookings — around the clock, and passes the harder cases to a human. That's the difference between a tailor-made solution and a basic command bot."
+          },
+          {
+            "q": "Why hire someone when I can build a bot for free in BotFather?",
+            "a": "A free BotFather bot handles simple commands. It won't build a Mini App with payments, CRM integrations, an admin panel, or production hosting that doesn't fall over. You get a finished, maintained business solution — not a skeleton to tinker with yourself."
+          },
+          {
+            "q": "Is Telegram safe for my customers' data (GDPR)?",
+            "a": "Yes. Customer data stays on your side (your server / CRM), communication goes over Telegram's encrypted API, and data from Telegram is verified (initData). I don't store sensitive information in the chat itself — we work in line with GDPR."
+          },
+          {
+            "q": "How much and how long?",
+            "a": "A simple lead bot — from €300, 1–2 weeks. A bot with AI replies and CRM integration — from €700. A Mini App with a storefront and checkout — from €1,500. Hosting is €5–30/mo, the Telegram API is free, and changes are €50/hr with no retainer. Exact quote and timeline after a short call."
+          },
+          {
+            "q": "How do clients pay inside Telegram?",
+            "a": "Via Telegram Stars (the built-in currency) or crypto through TON — payment without leaving the chat. For cards and PLN I plug in Stripe or Przelewy24 inside the Mini App. We pick what fits your audience."
           },
           {
             "q": "How popular is Telegram in Poland?",
             "a": "Telegram is the #2 messenger in Poland after WhatsApp — around 4 million users, and growing. For Ukrainian- and Russian-speaking audiences it's the primary channel. If your clients are on Telegram, the bot and Mini App meet them where they already are."
           },
           {
-            "q": "How do clients pay inside Telegram?",
-            "a": "Via Telegram Stars (the built-in currency) or crypto through TON — payment happens without leaving the chat. For cards and PLN / EUR I plug in Stripe, Przelewy24 or a local gateway inside the Mini App. We pick what fits your audience."
-          },
-          {
-            "q": "How much and how long?",
-            "a": "A simple lead bot — from €300, 1–2 weeks. A bot with AI replies and CRM integration — from €700. A Mini App with a storefront and checkout — from €1,500. Exact quote and timeline after a short call, once the scope is clear."
-          },
-          {
-            "q": "Can it connect to my CRM and site?",
+            "q": "Can the bot connect to my CRM and site?",
             "a": "Yes. Leads and payments write to amoCRM, Bitrix24, HubSpot or a sheet, the bot calls your site / API, and notifications hit your Telegram. This is exactly the 'connect your tools' work — no manual data transfer."
           },
           {
             "q": "Who owns the bot after delivery?",
-            "a": "You do — fully. Source code, bot token, payment accounts and the database are registered to your entity and handed over by contract. I don't lock you in: grow it yourself or with any developer."
-          },
-          {
-            "q": "What does it cost to run?",
-            "a": "Hosting is usually €5–30/mo depending on load. The Telegram API is free. Changes are €50/hr with no mandatory retainer — you pay only when something actually changes."
+            "a": "You do — fully. Source code, bot token, payment accounts and the database are registered to your company and handed over by contract. I don't lock you in: grow it yourself or with any developer."
           }
         ]
       },
@@ -3434,6 +3478,8 @@
     "readingMinutes": "{m} min read",
     "noPosts": "First post in this language is on the way. In the meantime — try the [English](/en/blog) or [Russian](/ru/blog) version.",
     "backToBlog": "All posts",
+    "relatedTitle": "Related articles",
+    "relatedServiceLabel": "Related service",
     "ctaTitle": "Liked it? Let's talk about your project.",
     "ctaBody": "30 minutes on a discovery call. No sales pitch.",
     "cta": "Book a call"

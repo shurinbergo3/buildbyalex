@@ -66,6 +66,60 @@ export function getPost(locale: Locale, slug: string): Post | null {
   return readPostFile(locale, slug);
 }
 
+/** servicesMenu keys in messages (`nav.servicesMenu.<key>.title`). */
+export type ServiceMenuKey = "websites" | "ai" | "automation" | "mobile" | "ads" | "telegram";
+
+/** Canonical (non-localized) service pathnames — keys of `routing.pathnames`. */
+export type ServicePath =
+  | "/services/websites"
+  | "/services/ai-agents"
+  | "/services/automation"
+  | "/services/mobile-apps"
+  | "/services/advertising"
+  | "/services/telegram-bots";
+
+/**
+ * Maps a post's content `cluster` → the service it should funnel readers to.
+ * Powers the contextual "related service" link on each article: passes topical
+ * relevance to the money page and tightens internal linking so Google crawls
+ * and indexes the blog tail (and surfaces the service from informational queries).
+ */
+export const clusterToService: Record<string, { menuKey: ServiceMenuKey; path: ServicePath }> = {
+  "ai-agent-for-sales": { menuKey: "ai", path: "/services/ai-agents" },
+  "ai-chatbot-cost": { menuKey: "ai", path: "/services/ai-agents" },
+  "how-to-implement-ai": { menuKey: "ai", path: "/services/ai-agents" },
+  "what-is-ai-agent": { menuKey: "ai", path: "/services/ai-agents" },
+  "automation-where-to-start": { menuKey: "automation", path: "/services/automation" },
+  "crm-telegram-whatsapp-integration": { menuKey: "automation", path: "/services/automation" },
+  "make-vs-n8n-vs-zapier": { menuKey: "automation", path: "/services/automation" },
+  "google-ads-vs-meta-ads": { menuKey: "ads", path: "/services/advertising" },
+  "mobile-app-cost": { menuKey: "mobile", path: "/services/mobile-apps" },
+  "multilingual-site-poland": { menuKey: "websites", path: "/services/websites" },
+  "nextjs-vs-wordpress": { menuKey: "websites", path: "/services/websites" },
+  "website-cost-poland-2025": { menuKey: "websites", path: "/services/websites" },
+};
+
+/** The service a post links to, or null if its cluster isn't mapped. */
+export function getRelatedService(cluster: string) {
+  return clusterToService[cluster] ?? null;
+}
+
+/**
+ * Related posts for an article: same service group first (a topical cluster
+ * Google rewards), then the most-recent remaining posts, excluding the current
+ * one. All same-locale so every link resolves.
+ */
+export function getRelatedPosts(locale: Locale, currentSlug: string, limit = 3): PostMeta[] {
+  const current = readPostFile(locale, currentSlug);
+  const others = getAllPosts(locale).filter((p) => p.slug !== currentSlug);
+  const menuKey = current ? clusterToService[current.cluster]?.menuKey : undefined;
+  const sameGroup = menuKey
+    ? others.filter((p) => clusterToService[p.cluster]?.menuKey === menuKey)
+    : [];
+  const rest = others.filter((p) => !sameGroup.includes(p));
+  return [...sameGroup, ...rest].slice(0, limit);
+}
+
 /**
  * For a given post's `cluster`, return the slug for each locale where a
  * translation exists. Used to render hreflang and a language picker on /blog/[slug].

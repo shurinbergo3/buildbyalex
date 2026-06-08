@@ -28,6 +28,12 @@ const staticPaths: (keyof typeof routing.pathnames)[] = [
 // cases.ts so new cases appear in the sitemap automatically.
 const caseKeys: CaseKey[] = caseSlugs;
 
+// Stable "last meaningful update" for static pages. Using `new Date()` here
+// would stamp every page as "changed" on every deploy — Google learns such
+// lastmod is noise and stops trusting it. Bump this date only when the static
+// pages' content actually changes. (Blog posts carry their own real date.)
+const STATIC_LAST_MODIFIED = new Date("2026-06-08");
+
 function buildAlternates(pathname: keyof typeof routing.pathnames) {
   const languages: Record<string, string> = {};
   for (const loc of routing.locales) {
@@ -37,7 +43,6 @@ function buildAlternates(pathname: keyof typeof routing.pathnames) {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
   const out: MetadataRoute.Sitemap = [];
 
   // Static pages
@@ -45,7 +50,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const loc of routing.locales) {
       out.push({
         url: localizedHref(loc as Locale, path),
-        lastModified: now,
+        lastModified: STATIC_LAST_MODIFIED,
         changeFrequency: "monthly",
         priority: path === "/" ? 1 : 0.7,
         alternates: { languages: buildAlternates(path) },
@@ -61,7 +66,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const loc of routing.locales) {
       out.push({
         url: localizedDynamicHref(loc as Locale, "/work/[slug]", slug),
-        lastModified: now,
+        lastModified: STATIC_LAST_MODIFIED,
         changeFrequency: "yearly",
         priority: 0.6,
         alternates: { languages },
@@ -81,7 +86,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }
       out.push({
         url: `${SITE_URL}/${loc}/blog/${slug}`,
-        lastModified: post ? new Date(post.date) : now,
+        lastModified: post ? new Date(post.date) : STATIC_LAST_MODIFIED,
         changeFrequency: "monthly",
         priority: 0.5,
         ...(Object.keys(languages).length > 1 ? { alternates: { languages } } : {}),
