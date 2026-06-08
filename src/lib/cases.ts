@@ -13,6 +13,23 @@ export const caseCategory: Record<CaseKey, CaseCategory> = {
   bodyforge: "mobile",
 };
 
+/** Service branches (mirrors the `Branch` union in ServicePageTemplate). */
+export type ServiceBranch = "websites" | "ai" | "automation" | "mobile" | "telegram" | "ads";
+
+/**
+ * Which cases to surface in the "Related work" block on each service page.
+ * Order = display order (first one is the headline case). A branch with an
+ * empty list renders no block at all. Keep these aligned with `caseCategory`.
+ */
+export const serviceToCases: Record<ServiceBranch, CaseKey[]> = {
+  websites: ["legalwin", "visionair"],
+  ai: ["crmbot", "leadbot"],
+  automation: ["crmbot", "leadbot"],
+  mobile: ["bodyforge"],
+  telegram: ["leadbot"],
+  ads: [],
+};
+
 export const caseSlugToKey: Record<string, CaseKey> = {
   legalwin: "legalwin",
   visionair: "visionair",

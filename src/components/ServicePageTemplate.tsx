@@ -16,6 +16,7 @@ import { WebsiteShowcase } from "./WebsiteShowcase";
 import { MobileAppShowcase } from "./MobileAppShowcase";
 import { AutomationShowcase } from "./AutomationShowcase";
 import { TelegramMiniAppShowcase } from "./TelegramMiniAppShowcase";
+import { ServiceRelatedCases } from "./ServiceRelatedCases";
 
 type Branch = "websites" | "ai" | "automation" | "mobile" | "telegram" | "ads";
 
@@ -163,6 +164,9 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
           </div>
         </Container>
       </Section>
+
+      {/* ── Related work (recent case for this service; omitted when none) ── */}
+      <ServiceRelatedCases branch={branch} tone={Demo ? "alt" : "default"} />
 
       {/* ── Process (shared 4-step) ── */}
       <HowItWorks />
