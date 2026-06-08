@@ -774,8 +774,8 @@
         "headline": "Sites that get found —\nand never make you wait",
         "subhead": "Here's what the result looks like: a sharp site on every screen, a #1 spot in Google and a 100/100 Lighthouse score.",
         "site": {
-          "brand": "Northpeak",
-          "url": "northpeak.studio",
+          "brand": "AlexBuild",
+          "url": "alexbuild.com",
           "nav": [
             "Product",
             "Work",
@@ -800,8 +800,8 @@
               "count": "About 1,240,000 results",
               "results": [
                 {
-                  "site": "northpeak.studio",
-                  "breadcrumb": "northpeak.studio › services › websites",
+                  "site": "alexbuild.com",
+                  "breadcrumb": "alexbuild.com › services › websites",
                   "title": "Web development in Warsaw — live in 1–3 weeks",
                   "snippet": "Marketing sites, landing pages and corporate sites on Next.js. Multilingual, SEO and analytics done. Free intro call.",
                   "rating": "4.9 · 47 reviews"
@@ -825,8 +825,8 @@
               "count": "About 938,000 results",
               "results": [
                 {
-                  "site": "northpeak.studio",
-                  "breadcrumb": "northpeak.studio › landing-pages",
+                  "site": "alexbuild.com",
+                  "breadcrumb": "alexbuild.com › landing-pages",
                   "title": "Landing page, done end to end — design, copy, analytics",
                   "snippet": "Landing pages that turn traffic into leads. A/B tests and CRM integration included.",
                   "rating": "4.9 · 47 reviews"
@@ -850,8 +850,8 @@
               "count": "About 612,000 results",
               "results": [
                 {
-                  "site": "northpeak.studio",
-                  "breadcrumb": "northpeak.studio › tech",
+                  "site": "alexbuild.com",
+                  "breadcrumb": "alexbuild.com › tech",
                   "title": "Next.js 15 websites — speed and SEO out of the box",
                   "snippet": "Server rendering, a perfect Lighthouse score and multilingual support. Indexable from day one.",
                   "rating": "4.9 · 47 reviews"
@@ -896,7 +896,7 @@
           "captionTemplate": "{url} · measured on slow 4G",
           "pages": [
             {
-              "url": "northpeak.studio",
+              "url": "alexbuild.com",
               "label": "Home",
               "metrics": {
                 "fcp": "0.8 s",
@@ -907,7 +907,7 @@
               }
             },
             {
-              "url": "northpeak.studio/services",
+              "url": "alexbuild.com/services",
               "label": "Services",
               "metrics": {
                 "fcp": "0.7 s",
@@ -918,7 +918,7 @@
               }
             },
             {
-              "url": "northpeak.studio/contact",
+              "url": "alexbuild.com/contact",
               "label": "Contact",
               "metrics": {
                 "fcp": "0.6 s",
@@ -1516,7 +1516,60 @@
       "demoEyebrow": "See it live",
       "startingPrice": "Starting price",
       "bookCta": "Book a free call",
-      "includedTitle": "What's included"
+      "includedTitle": "What's included",
+      "pricing": {
+        "eyebrow": "Plans",
+        "featuredLabel": "Most asked",
+        "marketLabel": "market",
+        "caption": "Exact price depends on the number of screens and integrations — we’ll scope it on a free call. Every tier is below the Polish market average.",
+        "tiers": [
+          {
+            "title": "MVP",
+            "from": "from",
+            "price": "€3 000",
+            "market": "€3 500",
+            "body": "Validate your idea with real users — one core app flow, published in both stores.",
+            "features": [
+              "Cross-platform: iOS + Android from one codebase",
+              "Auth and the core user flow",
+              "Published to App Store and Google Play",
+              "Basic analytics"
+            ],
+            "examples": "React Native / Flutter · 3–5 weeks"
+          },
+          {
+            "title": "App",
+            "from": "from",
+            "price": "€7 000",
+            "market": "€9 000",
+            "featured": true,
+            "body": "A full app with backend, payments and push — ready for your first paying users.",
+            "features": [
+              "Everything in MVP",
+              "Backend and API for your data",
+              "Payments and subscriptions",
+              "Push notifications",
+              "Multiple screens and roles"
+            ],
+            "examples": "Backend · payments · push · 6–10 weeks"
+          },
+          {
+            "title": "Product",
+            "from": "from",
+            "price": "€15 000",
+            "market": "€18 000",
+            "body": "A scalable product: integrations, an admin panel and post-launch support.",
+            "features": [
+              "Everything in App",
+              "Third-party integrations",
+              "Admin panel to manage it",
+              "Complex logic and roles",
+              "Support and growth after release"
+            ],
+            "examples": "Integrations · admin · support · 10+ weeks"
+          }
+        ]
+      }
     },
     "ads": {
       "meta": {
@@ -1816,7 +1869,60 @@
         ]
       },
       "startingPrice": "Starting price",
-      "bookCta": "Book a free call"
+      "bookCta": "Book a free call",
+      "pricing": {
+        "eyebrow": "Pricing tiers",
+        "marketLabel": "Polish agencies",
+        "featuredLabel": "Most asked",
+        "caption": "Rate ≈ 4.3 zł per €1. Flat management fee — no percentage of spend: I treat your budget like my own. You pay the ad budget to Google and Meta directly. The final number is fixed after a call.",
+        "tiers": [
+          {
+            "title": "Start",
+            "from": "from",
+            "price": "€290/mo",
+            "market": "1,500–2,500 zł/mo",
+            "body": "Google Ads or Meta — one channel built around conversions.",
+            "features": [
+              "From-scratch setup — €190 one-off",
+              "1 channel: Google Ads or Meta",
+              "Conversion goals and audiences",
+              "GA4 tracking + pixel",
+              "Looker Studio report every 2 weeks"
+            ]
+          },
+          {
+            "title": "Growth",
+            "from": "from",
+            "price": "€500/mo",
+            "market": "3,000–5,000 zł/mo",
+            "featured": true,
+            "body": "Google Ads and Meta together — set up and run for conversions.",
+            "features": [
+              "From-scratch setup — €290 one-off",
+              "2 channels: Google + Meta",
+              "Retargeting and look-alike audiences",
+              "Server-side tracking: GA4 + Meta CAPI",
+              "A/B tests on creatives and offers",
+              "Report and call every week"
+            ]
+          },
+          {
+            "title": "Scale",
+            "from": "from",
+            "price": "€850/mo",
+            "market": "6,000–10,000 zł/mo",
+            "body": "Multi-channel performance for budgets from €3,000/mo.",
+            "features": [
+              "Everything in Growth, plus:",
+              "Extra channels: YouTube, Performance Max, TikTok",
+              "Product feed and shopping campaigns",
+              "End-to-end analytics and a KPI dashboard",
+              "Flat fee, never a percentage of spend",
+              "Priority support"
+            ]
+          }
+        ]
+      }
     },
     "telegram": {
       "meta": {

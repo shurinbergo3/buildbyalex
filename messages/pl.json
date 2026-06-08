@@ -774,8 +774,8 @@
         "headline": "Strony, które są znajdowane —\ni nie każą czekać",
         "subhead": "Tak wygląda efekt: dopracowana strona na każdym ekranie, pozycja #1 w Google i wynik 100/100 w Lighthouse.",
         "site": {
-          "brand": "Northpeak",
-          "url": "northpeak.studio",
+          "brand": "AlexBuild",
+          "url": "alexbuild.com",
           "nav": [
             "Produkt",
             "Realizacje",
@@ -800,8 +800,8 @@
               "count": "Około 1 240 000 wyników",
               "results": [
                 {
-                  "site": "northpeak.studio",
-                  "breadcrumb": "northpeak.studio › usługi › strony",
+                  "site": "alexbuild.com",
+                  "breadcrumb": "alexbuild.com › usługi › strony",
                   "title": "Tworzenie stron w Warszawie — start w 1–3 tygodnie",
                   "snippet": "Strony marketingowe, landingi i firmowe na Next.js. Wielojęzyczność, SEO i analityka pod klucz. Bezpłatna rozmowa.",
                   "rating": "4,9 · 47 opinii"
@@ -825,8 +825,8 @@
               "count": "Około 938 000 wyników",
               "results": [
                 {
-                  "site": "northpeak.studio",
-                  "breadcrumb": "northpeak.studio › landingi",
+                  "site": "alexbuild.com",
+                  "breadcrumb": "alexbuild.com › landingi",
                   "title": "Landing page pod klucz — projekt, treść, analityka",
                   "snippet": "Strony docelowe, które zamieniają ruch w leady. Testy A/B i integracja z CRM w cenie.",
                   "rating": "4,9 · 47 opinii"
@@ -850,8 +850,8 @@
               "count": "Około 612 000 wyników",
               "results": [
                 {
-                  "site": "northpeak.studio",
-                  "breadcrumb": "northpeak.studio › technologie",
+                  "site": "alexbuild.com",
+                  "breadcrumb": "alexbuild.com › technologie",
                   "title": "Strony na Next.js 15 — szybkość i SEO od razu",
                   "snippet": "Renderowanie po stronie serwera, idealny Lighthouse i wielojęzyczność. Gotowe do indeksacji od pierwszego dnia.",
                   "rating": "4,9 · 47 opinii"
@@ -896,7 +896,7 @@
           "captionTemplate": "{url} · pomiar na wolnym 4G",
           "pages": [
             {
-              "url": "northpeak.studio",
+              "url": "alexbuild.com",
               "label": "Strona główna",
               "metrics": {
                 "fcp": "0,8 s",
@@ -907,7 +907,7 @@
               }
             },
             {
-              "url": "northpeak.studio/uslugi",
+              "url": "alexbuild.com/uslugi",
               "label": "Usługi",
               "metrics": {
                 "fcp": "0,7 s",
@@ -918,7 +918,7 @@
               }
             },
             {
-              "url": "northpeak.studio/kontakt",
+              "url": "alexbuild.com/kontakt",
               "label": "Kontakt",
               "metrics": {
                 "fcp": "0,6 s",
@@ -1516,7 +1516,60 @@
       "demoEyebrow": "Na żywo",
       "startingPrice": "Cena startowa",
       "bookCta": "Bezpłatna rozmowa",
-      "includedTitle": "Co wchodzi w zakres"
+      "includedTitle": "Co wchodzi w zakres",
+      "pricing": {
+        "eyebrow": "Pakiety",
+        "featuredLabel": "Najczęściej wybierane",
+        "marketLabel": "rynek",
+        "caption": "Dokładna cena zależy od liczby ekranów i integracji — wycenimy ją na darmowej rozmowie. Każdy pakiet poniżej średniej rynkowej w Polsce.",
+        "tiers": [
+          {
+            "title": "MVP",
+            "from": "od",
+            "price": "€3 000",
+            "market": "€3 500",
+            "body": "Zweryfikuj pomysł z prawdziwymi użytkownikami — jeden główny przepływ aplikacji, opublikowany w obu sklepach.",
+            "features": [
+              "Cross-platform: iOS + Android z jednej bazy kodu",
+              "Logowanie i główny scenariusz użytkownika",
+              "Publikacja w App Store i Google Play",
+              "Podstawowa analityka"
+            ],
+            "examples": "React Native / Flutter · 3–5 tygodni"
+          },
+          {
+            "title": "Aplikacja",
+            "from": "od",
+            "price": "€7 000",
+            "market": "€9 000",
+            "featured": true,
+            "body": "Pełna aplikacja z backendem, płatnościami i push — gotowa na pierwszych płacących użytkowników.",
+            "features": [
+              "Wszystko z MVP",
+              "Backend i API pod Twoje dane",
+              "Płatności i subskrypcje",
+              "Powiadomienia push",
+              "Wiele ekranów i ról"
+            ],
+            "examples": "Backend · płatności · push · 6–10 tygodni"
+          },
+          {
+            "title": "Produkt",
+            "from": "od",
+            "price": "€15 000",
+            "market": "€18 000",
+            "body": "Skalowalny produkt: integracje, panel administracyjny i wsparcie po starcie.",
+            "features": [
+              "Wszystko z Aplikacji",
+              "Integracje z usługami zewnętrznymi",
+              "Panel administracyjny do zarządzania",
+              "Złożona logika i role",
+              "Wsparcie i rozwój po wydaniu"
+            ],
+            "examples": "Integracje · panel · wsparcie · od 10 tygodni"
+          }
+        ]
+      }
     },
     "ads": {
       "meta": {
@@ -1816,7 +1869,60 @@
         ]
       },
       "startingPrice": "Cena startowa",
-      "bookCta": "Umów bezpłatną rozmowę"
+      "bookCta": "Umów bezpłatną rozmowę",
+      "pricing": {
+        "eyebrow": "Pakiety i ceny",
+        "marketLabel": "Agencje w Polsce",
+        "featuredLabel": "Najczęściej",
+        "caption": "Kurs ≈ 4,3 zł za €1. Stała opłata za prowadzenie — bez procentu od wydatków: traktuję Twój budżet jak własny. Budżet reklamowy płacisz bezpośrednio Google i Meta. Ostateczną kwotę ustalam po rozmowie.",
+        "tiers": [
+          {
+            "title": "Start",
+            "from": "od",
+            "price": "€290/mies.",
+            "market": "1 500–2 500 zł/mies.",
+            "body": "Google Ads albo Meta — jeden kanał pod konwersję.",
+            "features": [
+              "Konfiguracja od zera — €190 jednorazowo",
+              "1 kanał: Google Ads albo Meta",
+              "Cele konwersji i grupy odbiorców",
+              "Śledzenie GA4 + piksel",
+              "Raport w Looker Studio co 2 tygodnie"
+            ]
+          },
+          {
+            "title": "Wzrost",
+            "from": "od",
+            "price": "€500/mies.",
+            "market": "3 000–5 000 zł/mies.",
+            "featured": true,
+            "body": "Google Ads i Meta razem — konfiguracja i prowadzenie pod konwersję.",
+            "features": [
+              "Konfiguracja od zera — €290 jednorazowo",
+              "2 kanały: Google + Meta",
+              "Retargeting i grupy look-alike",
+              "Śledzenie serwerowe: GA4 + Meta CAPI",
+              "Testy A/B kreacji i ofert",
+              "Raport i rozmowa co tydzień"
+            ]
+          },
+          {
+            "title": "Skala",
+            "from": "od",
+            "price": "€850/mies.",
+            "market": "6 000–10 000 zł/mies.",
+            "body": "Wielokanałowy performance dla budżetów od €3 000/mies.",
+            "features": [
+              "Wszystko ze Wzrostu, plus:",
+              "Dodatkowe kanały: YouTube, Performance Max, TikTok",
+              "Feed produktowy i kampanie produktowe",
+              "Analityka end-to-end i dashboard pod KPI",
+              "Stała opłata, nigdy procent od wydatków",
+              "Priorytetowe wsparcie"
+            ]
+          }
+        ]
+      }
     },
     "telegram": {
       "meta": {
