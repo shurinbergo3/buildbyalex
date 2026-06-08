@@ -24,6 +24,22 @@ const Check = ({ className = "" }: { className?: string }) => (
   </svg>
 );
 
+/* Card CTA — a clearly tappable pill on mobile (full-width, labelled, with a
+   visible border so the card reads as clickable), collapsing to the subtle
+   inline "link →" treatment on md+ where hover affordances exist. */
+const CardCta = ({ label, dark = false }: { label: string; dark?: boolean }) => (
+  <span
+    className={`relative mt-auto inline-flex w-full items-center justify-between gap-2 rounded-full px-4 py-2.5 text-[14px] font-medium ring-1 md:w-fit md:gap-1.5 md:rounded-none md:bg-transparent md:px-0 md:py-0 md:pt-5 md:ring-0 ${
+      dark
+        ? "bg-white/[0.06] text-[color:var(--c-accent)] ring-white/15"
+        : "bg-[color:var(--color-bg-alt)] text-[color:var(--c-accent-ink)] ring-[color:var(--color-divider)] dark:text-[color:var(--c-accent)] md:dark:bg-transparent"
+    }`}
+  >
+    {label}
+    <Arrow className="transition-transform duration-200 group-hover:translate-x-1" />
+  </span>
+);
+
 const Aura = ({ className = "" }: { className?: string }) => (
   <span
     aria-hidden
@@ -33,7 +49,7 @@ const Aura = ({ className = "" }: { className?: string }) => (
 );
 
 const tileBase =
-  "group relative flex h-full flex-col overflow-hidden rounded-[28px] p-6 transition-[transform,box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--c-accent)] focus-visible:ring-offset-2 md:p-7";
+  "group relative flex h-full flex-col overflow-hidden rounded-[28px] p-5 transition-[transform,box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--c-accent)] focus-visible:ring-offset-2 md:p-7";
 const tileLight =
   "bg-[color:var(--color-bg-elev)] ring-1 ring-[color:var(--color-divider)] hover:-translate-y-1 hover:shadow-[var(--shadow-card-hover)]";
 
@@ -66,9 +82,11 @@ export function ServicesOverview() {
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div className="max-w-[620px]">
               <p className="t-eyebrow">{t("eyebrow")}</p>
-              <h2 className="mt-3 t-h2">{t("headline")}</h2>
+              <h2 className="mt-3 text-balance font-[number:var(--fw-semi)] leading-[1.1] tracking-[-0.024em] text-[clamp(26px,2.2vw+15px,42px)]">
+                {t("headline")}
+              </h2>
             </div>
-            <p className="t-body-lg max-w-[400px] md:text-right">{t("subhead")}</p>
+            <p className="t-body-lg max-w-[400px] md:text-left">{t("subhead")}</p>
           </div>
         </Reveal>
 
@@ -88,10 +106,7 @@ export function ServicesOverview() {
                 {t("items.websites.desc")}
               </p>
               <BrowserArt />
-              <span className="relative mt-auto inline-flex items-center gap-1.5 pt-5 text-[14px] font-medium text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
-                {t("items.websites.link")}
-                <Arrow className="transition-transform duration-200 group-hover:translate-x-1" />
-              </span>
+              <CardCta label={t("items.websites.link")} />
             </Link>
           </Reveal>
 
@@ -120,10 +135,7 @@ export function ServicesOverview() {
                 {t("items.ai.desc")}
               </p>
               <AiChatArt />
-              <span className="relative mt-auto inline-flex items-center gap-1.5 pt-5 text-[14px] font-medium text-[color:var(--c-accent)]">
-                {t("items.ai.link")}
-                <Arrow className="transition-transform duration-200 group-hover:translate-x-1" />
-              </span>
+              <CardCta label={t("items.ai.link")} dark />
             </Link>
           </Reveal>
 
@@ -142,10 +154,7 @@ export function ServicesOverview() {
                 {t("items.mobile.desc")}
               </p>
               <PhoneArt />
-              <span className="relative mt-auto inline-flex items-center gap-1.5 pt-5 text-[14px] font-medium text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
-                {t("items.mobile.link")}
-                <Arrow className="transition-transform duration-200 group-hover:translate-x-1" />
-              </span>
+              <CardCta label={t("items.mobile.link")} />
             </Link>
           </Reveal>
 
@@ -320,7 +329,7 @@ function SmallTile({
       <h3 className="relative mt-4 t-h4 font-[number:var(--fw-semi)] text-[color:var(--color-text)]">{title}</h3>
       <p className="relative mt-2 text-[14px] leading-[1.5] text-[color:var(--color-text-2)]">{body}</p>
 
-      <div className="relative mt-auto flex items-center justify-between gap-3 pt-6">
+      <div className="relative mt-auto flex items-center justify-between gap-3 pt-4 md:pt-6">
         <span className="text-[14.5px] font-medium tracking-[-0.01em] text-[color:var(--color-text)]">{price}</span>
         <Arrow className="text-[color:var(--c-accent)] transition-transform duration-200 group-hover:translate-x-1" />
       </div>

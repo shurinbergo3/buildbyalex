@@ -124,7 +124,7 @@ export function WorkShowcase({
       </header>
 
       {/* ───────── Gallery ───────── */}
-      <section className="pb-20 md:pb-28">
+      <section className="pb-12 md:pb-16">
         <Container>
           <div className="grid grid-cols-1 gap-4 sm:gap-5 lg:grid-cols-12 lg:gap-6">
             <AnimatePresence mode="popLayout" initial={false}>

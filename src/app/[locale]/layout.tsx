@@ -12,6 +12,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider, type Theme } from "@/components/ThemeProvider";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { MobileStickyCTA } from "@/components/MobileStickyCTA";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { YandexMetrika } from "@/components/YandexMetrika";
 
@@ -116,6 +117,7 @@ export default async function LocaleLayout({
               {children}
             </main>
             <Footer />
+            <MobileStickyCTA />
             <Analytics />
             <SpeedInsights />
             <YandexMetrika />

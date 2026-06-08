@@ -64,9 +64,8 @@ export function Hero() {
       const maxRadius = isMobile ? 22 : 28;
 
       // Window-collapse runs on a compressed progress so the frame finishes
-      // folding earlier in the scroll (RU a touch quicker) — independent of
-      // the video scrub below, which stays on the raw progress.
-      const morphEnd = locale === "ru" ? 0.74 : 0.84;
+      // folding early in the scroll — independent of the video scrub below.
+      const morphEnd = 0.62;
       const mp = clamp01(p / morphEnd);
 
       frame.style.top = `${mp * maxTop}px`;
@@ -82,10 +81,10 @@ export function Hero() {
         // Eases in from the very first scroll (smoothstep, so no pop) and
         // scrubs across almost the whole section — by the time it's visible
         // it's already in motion, never a hard cut to a mid frame.
-        const fade = smooth(clamp01(p / 0.2));
+        const fade = smooth(clamp01(p / 0.16));
         video.style.opacity = String(fade);
         const dur = video.duration || 8.067;
-        const scrub = smooth(clamp01(p / 0.85)); // 0→1, logo settled by p≈0.85
+        const scrub = smooth(clamp01(p / 0.62)); // 0→1, logo settled by p≈0.62 (snappier)
         const time = scrub * (dur - 0.001);
         if (Math.abs(video.currentTime - time) > 0.012) {
           try {
@@ -155,13 +154,13 @@ export function Hero() {
       apply(currentP);
     };
 
-    // Pick the source by locale (the Russian clip opens on the RU hero, the
-    // intl clip warps straight into the wordmark) and by viewport (a lighter
-    // encode on phones), then prime it so the first scroll-seek is instant.
+    // Use the international clip for every locale — it warps straight into the
+    // wordmark, so the path to real content stays short. Pick a lighter encode
+    // on phones, then prime it so the first scroll-seek is instant.
     const video = videoRef.current;
     if (video && !reduced) {
       const isMobileV = window.matchMedia("(max-width: 767px)").matches;
-      const base = locale === "ru" ? "/hero-reveal" : "/hero-reveal-intl";
+      const base = "/hero-reveal-intl";
       video.src = isMobileV ? `${base}-mobile.mp4` : `${base}.mp4`;
       video.load();
       const prime = () => {

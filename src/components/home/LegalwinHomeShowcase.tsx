@@ -40,7 +40,7 @@ export function LegalwinHomeShowcase() {
   ];
 
   return (
-    <Section tone="default" pad="loose" id="legalwin-showcase">
+    <Section tone="default" pad="default" id="legalwin-showcase">
       <Container>
         {/* ── Editorial header ────────────────────────────── */}
         <Reveal>

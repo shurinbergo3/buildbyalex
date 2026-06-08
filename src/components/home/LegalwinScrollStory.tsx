@@ -153,10 +153,26 @@ export function LegalwinScrollStory() {
   const DESIGN_W = 680;
   const screenRef = useRef<HTMLDivElement>(null);
   const [screenScale, setScreenScale] = useState(1);
+  const [designW, setDesignW] = useState(DESIGN_W);
   useEffect(() => {
     const el = screenRef.current;
     if (!el || typeof ResizeObserver === "undefined") return;
-    const update = () => setScreenScale(el.clientWidth / DESIGN_W);
+    // On phones the 680px desktop screen scales down to ~0.49, rendering the
+    // Google SERP text at ~7px — unreadable. Below 600px we instead render each
+    // screen at its NATIVE width (no down-scale), so the screens' own mobile
+    // (base, non-sm) styles apply and the type stays legible. The 16:10 box then
+    // crops to the top of the screen — exactly the part that matters (the #1
+    // result, the first answer line, the hero).
+    const update = () => {
+      const w = el.clientWidth;
+      if (w < 600) {
+        setDesignW(w);
+        setScreenScale(1);
+      } else {
+        setDesignW(DESIGN_W);
+        setScreenScale(w / DESIGN_W);
+      }
+    };
     update();
     const ro = new ResizeObserver(update);
     ro.observe(el);
@@ -285,7 +301,7 @@ export function LegalwinScrollStory() {
                     <div ref={screenRef} className="relative aspect-[16/10] overflow-hidden rounded-[11px] bg-white">
                     <div
                       className="absolute left-0 top-0 origin-top-left"
-                      style={{ width: DESIGN_W, height: (DESIGN_W * 10) / 16, transform: `scale(${screenScale})` }}
+                      style={{ width: designW, height: (designW * 10) / 16, transform: `scale(${screenScale})` }}
                     >
                       {screens}
                     </div>

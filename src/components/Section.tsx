@@ -10,9 +10,9 @@ const toneClass: Record<Tone, string> = {
 };
 
 const padClass: Record<Pad, string> = {
-  tight: "py-16 md:py-20",
-  default: "py-20 md:py-28",
-  loose: "py-24 md:py-36",
+  tight: "py-12 md:py-16",
+  default: "py-16 md:py-20",
+  loose: "py-16 md:py-24",
 };
 
 export function Section({

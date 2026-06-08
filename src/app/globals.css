@@ -190,7 +190,7 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
    ──────────────────────────────────────────────────────────────────── */
 .hero-scroll {
   position: relative;
-  height: 240vh;
+  height: 190vh;
 }
 .hero-sticky {
   position: sticky;
@@ -409,6 +409,41 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
   .hero-frame:not([data-spot="on"]) { animation: none; }
 }
 
+/* Phones have no cursor, so the spotlight idles in the upper-left — right over
+   the centered headline, lighting up the code wall through the text and killing
+   readability. Pin the light to the very bottom of the card (away from the
+   copy) and shrink it so the heading sits on a clean dark backdrop. */
+@keyframes heroIdleFloatMobile {
+  0%   { --mx: 50%; --my: 94%; }
+  50%  { --mx: 50%; --my: 99%; }
+  100% { --mx: 50%; --my: 94%; }
+}
+@media (max-width: 767px) {
+  .hero-frame:not([data-spot="on"]) {
+    animation: heroIdleFloatMobile 9s ease-in-out infinite;
+  }
+  .hero-flashlight,
+  .hero-frame[data-spot="off"] .hero-flashlight {
+    background: radial-gradient(
+      circle 200px at var(--mx) var(--my),
+      transparent 0%,
+      transparent 12%,
+      rgba(4, 4, 8, 0.46) 38%,
+      rgba(4, 4, 8, 0.8) 70%,
+      rgba(2, 2, 6, 0.92) 100%
+    );
+  }
+  .hero-glow,
+  .hero-frame[data-spot="off"] .hero-glow {
+    background: radial-gradient(
+      circle 150px at var(--mx) var(--my),
+      rgba(255, 130, 60, 0.2) 0%,
+      rgba(255, 130, 60, 0.07) 34%,
+      transparent 66%
+    );
+  }
+}
+
 /* Hairline ring that strengthens as the card stands apart */
 .hero-frame-ring {
   position: absolute;
@@ -499,7 +534,7 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
 }
 
 @media (max-width: 640px) {
-  .hero-scroll { height: 280vh; }
+  .hero-scroll { height: 185vh; }
   .hero-content { padding: 40px 0; }
 }
 
