@@ -179,8 +179,10 @@ const BASE = SOURCE.split("\n");
 // Repeat the source enough to fill several full-height columns on any width,
 // with continuous line numbers so it reads as one long file. overflow:hidden
 // + column-fill:auto clip whatever doesn't fit, so coverage is guaranteed.
+// Two passes already overflow every viewport — a third only added DOM nodes
+// (thousands of token spans) that get clipped, inflating paint/layout cost.
 const LINES: string[] = [];
-for (let r = 0; r < 3; r++) LINES.push(...BASE);
+for (let r = 0; r < 2; r++) LINES.push(...BASE);
 
 export function HeroCodeSurface() {
   return (

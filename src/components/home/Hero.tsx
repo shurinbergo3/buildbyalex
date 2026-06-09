@@ -167,12 +167,19 @@ export function Hero() {
       requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
       cancelIdleCallback?: (id: number) => void;
     };
+    const isMobileV = window.matchMedia("(max-width: 767px)").matches;
+    // Skip the idle pre-warm on phones / metered or slow links: there the
+    // 1.8 MB clip dominates the payload, so we only pull it once the user
+    // actually starts scrolling into the reveal. On desktop with a fast line
+    // we pre-warm during idle so the first scroll-seek is instant.
+    const conn = (navigator as unknown as { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
+    const slowNet = !!conn && (conn.saveData === true || /(^|-)2g|3g/.test(conn.effectiveType ?? ""));
+    const prewarmOk = !isMobileV && !slowNet;
     let idleId = 0;
     let videoLoaded = false;
     const loadVideo = () => {
       if (videoLoaded || !video || reduced) return;
       videoLoaded = true;
-      const isMobileV = window.matchMedia("(max-width: 767px)").matches;
       const base = "/hero-reveal-intl";
       video.src = isMobileV ? `${base}-mobile.mp4` : `${base}.mp4`;
       video.load();
@@ -182,12 +189,16 @@ export function Hero() {
       if (video.readyState >= 1) prime();
       else video.addEventListener("loadedmetadata", prime, { once: true });
     };
+    const interactionEvents = ["scroll", "pointerdown", "touchstart", "wheel", "keydown"];
     if (video && !reduced) {
-      idleId = idle.requestIdleCallback
-        ? idle.requestIdleCallback(loadVideo, { timeout: 2500 })
-        : window.setTimeout(loadVideo, 1500);
-      window.addEventListener("scroll", loadVideo, { once: true, passive: true });
-      window.addEventListener("pointermove", loadVideo, { once: true, passive: true });
+      if (prewarmOk) {
+        idleId = idle.requestIdleCallback
+          ? idle.requestIdleCallback(loadVideo, { timeout: 2500 })
+          : window.setTimeout(loadVideo, 1500);
+      }
+      interactionEvents.forEach((ev) =>
+        window.addEventListener(ev, loadVideo, { once: true, passive: true }),
+      );
     }
 
     // Initial paint — snap to current scroll position, no easing
@@ -202,8 +213,7 @@ export function Hero() {
       cancelAnimationFrame(raf);
       if (idleId && idle.cancelIdleCallback) idle.cancelIdleCallback(idleId);
       else if (idleId) window.clearTimeout(idleId);
-      window.removeEventListener("scroll", loadVideo);
-      window.removeEventListener("pointermove", loadVideo);
+      interactionEvents.forEach((ev) => window.removeEventListener(ev, loadVideo));
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
     };

@@ -12,7 +12,7 @@ ogImage: "/og/mobile-app-krakow.webp"
 
 Szukasz, kto zrobi **aplikacje mobilne** w Krakowie i chcesz liczbę zamiast "to zależy"? Konkret na start: sensowne MVP cross-platform na iOS i Androida to **8 000–18 000 €**, pełniejszy produkt z płatnościami i panelem **18 000–40 000 €**, a samo MVP powstaje w **4–8 tygodni**. Resztę — kiedy React Native wystarcza, za co krakowskie firmy przepłacają i jak wygląda publikacja w App Store i Google Play — rozpisuję niżej.
 
-Piszę to jako ktoś, kto te aplikacje potem utrzymuje, a nie znika po fakturze. Kraków ma jedną cechę widoczną w każdej wycenie, jakiej tu dostaniesz: to drugie najgłębsze zagłębie deweloperskie w Polsce po Warszawie, ale stawki idą za tym mocno w górę. Comarch, Motorola, Akamai, Google, dziesiątki centrów SSC/BPO w Kapelance i przy Bonarce — wszyscy polują na tych samych seniorów z AGH i UJ. Dla ciebie oznacza to jedno: lokalny talent jest dobry, ale drogi, i łatwo przepłacić za nazwę, nie za produkt.
+Piszę to jako ktoś, kto te aplikacje potem utrzymuje, a nie znika po fakturze. Kraków ma jedną cechę widoczną w każdej wycenie, jaką tu dostaniesz: to drugie po Warszawie zagłębie deweloperskie w Polsce, ale stawki idą za tym mocno w górę. Comarch, Motorola, Akamai, Google, dziesiątki centrów SSC/BPO w Kapelance i przy Bonarce — wszyscy polują na tych samych seniorów z AGH i UJ. Dla ciebie wniosek jest jeden: lokalny talent jest dobry, ale drogi, i łatwo przepłacić za nazwę zamiast za produkt.
 
 ## Najpierw decyzja, która przesuwa budżet o dziesiątki tysięcy: cross-platform czy natywnie
 
@@ -20,9 +20,9 @@ Ta jedna rzecz waży więcej niż liczba ekranów. Trzy realne ścieżki:
 
 - **React Native** — jeden kod, iOS + Android naraz. TypeScript, ogromny ekosystem, w Krakowie pula programistów jest spora. Mój domyślny wybór do większości aplikacji biznesowych, MVP i appek konsumenckich.
 - **Flutter** — też jeden kod, lepsza kontrola nad ciężkimi, customowymi animacjami. Sensowny przy mocno wizualnym UI, choć specjalistów w Krakowie trochę mniej niż od RN.
-- **Natywnie (Swift + Kotlin)** — dwa osobne kody, dwa zestawy kompetencji, mniej więcej dwa razy droższa budowa i utrzymanie. Opłaca się przy grach (a Kraków to silny hub gamedev — Bloober, People Can Fly w okolicy), AR, ciężkiej pracy z sensorami albo gdy walczysz o każdą klatkę.
+- **Natywnie (Swift + Kotlin)** — dwa osobne kody, dwa zestawy kompetencji, mniej więcej dwa razy droższa budowa i utrzymanie. Opłaca się przy grach (a Kraków to silny ośrodek gamedev — Bloober, People Can Fly w okolicy), AR, ciężkiej pracy z sensorami albo gdy walczysz o każdą klatkę.
 
-Prosta zasada: **cross-platform pokrywa 80–90% aplikacji biznesowych przy koszcie o 30–60% niższym niż dwie aplikacje natywne.** Jeśli wykonawca pcha natywkę "bo lepsza", nie pytając najpierw, co twoja aplikacja w ogóle robi — optymalizuje swój komfort, nie twój budżet. Krakowski startup SaaS, który chce wypuścić mobilny dodatek do webowego produktu, prawie nigdy nie potrzebuje natywki. Aplikacja turystyczna z mapą tras po Kazimierzu i Wzgórzu Wawelskim — też nie. Studio robiące grę 3D — tak.
+Prosta zasada: **cross-platform pokrywa 80–90% aplikacji biznesowych przy koszcie o 30–60% niższym niż dwie aplikacje natywne.** Jeśli wykonawca pcha natywkę "bo lepsza", nie pytając najpierw, co twoja aplikacja w ogóle ma robić — optymalizuje swój komfort, nie twój budżet. Krakowski startup SaaS, który chce wypuścić mobilny dodatek do produktu webowego, prawie nigdy nie potrzebuje natywki. Aplikacja turystyczna z mapą tras po Kazimierzu i wokół Wawelu — też nie. Studio robiące grę 3D — tak.
 
 ## Ile to realnie kosztuje w Krakowie
 
@@ -40,19 +40,19 @@ Płatności (Stripe, BLIK przez Przelewy24/PayU), konta, dane na żywo, kilka in
 
 Logika marketplace, czat, geolokalizacja, synchronizacja offline, rozbudowany backend, wiele ról. Przy tej skali chcesz zespół albo freelancera, który taki zespół realnie dowozi.
 
-Krakowski software house z biurem przy Rondzie Mogilskim policzy za ten sam zakres często 2–3 razy więcej — bo płacisz za PM-a, account managera, salę konferencyjną i marżę na sprzedaż. Druga skrajność, student AGH za 4 000 zł, kończy się tak, że po dwóch miesiącach nie odbiera telefonu, a kodu nikt nie umie przejąć. Środek — senior, który sam pisze i sam odpowiada — jest zdrowy. Sam doprowadzam aplikacje do działania end-to-end, dlatego [zobacz usługę aplikacji mobilnych](/pl/uslugi/aplikacje-mobilne) i potraktuj projekt jako pełny proces, nie sam wygląd.
+Krakowski software house z biurem przy Rondzie Mogilskim policzy za ten sam zakres często 2–3 razy więcej — bo płacisz za PM-a, account managera, salę konferencyjną i marżę handlowca. Druga skrajność, student AGH za 4 000 zł, kończy się zwykle tak, że po dwóch miesiącach przestaje odbierać telefon, a kodu nikt nie umie przejąć. Środek — senior, który sam pisze i sam odpowiada — jest najzdrowszy. Sam doprowadzam aplikacje do działania end-to-end, dlatego [zobacz usługę aplikacji mobilnych](/pl/uslugi/aplikacje-mobilne) i potraktuj projekt jako pełny proces, a nie sam wygląd.
 
 ## Za co krakowskie firmy najczęściej przepłacają
 
-Najczęstszy przepał: **natywka tam, gdzie wystarczy jeden kod.** Krakowski rynek jest przesiąknięty inżynierami z korporacji, gdzie natywne iOS/Android to standard, bo budżet jest nieograniczony. Przenoszą ten nawyk na twój projekt i nagle płacisz podwójnie za to, czego użytkownik nie odróżni. Sieć gastronomiczna z sześcioma lokalami w centrum nie potrzebuje natywnego Swifta do appki z menu i programem punktowym.
+Najczęstszy przepał: **natywka tam, gdzie wystarczy jeden kod.** Krakowski rynek jest pełen inżynierów z korporacji, gdzie natywne iOS/Android to standard, bo budżet jest nieograniczony. Przenoszą ten nawyk na twój projekt i nagle płacisz podwójnie za coś, czego użytkownik i tak nie odróżni. Sieć gastronomiczna z sześcioma lokalami w centrum nie potrzebuje natywnego Swifta do appki z menu i programem punktowym.
 
-Drugi przepał: **funkcje "na zapas".** Kraków ma ogromną społeczność studencką, międzynarodową i ukraińską, więc wersja angielska albo ukraińska bywa sensowna — ale dopiero gdy widzisz w analityce, że ten ruch realnie korzysta. Dodanie języka później to dzień roboty, nie tydzień zaplanowany na starcie. To samo z powiadomieniami, gamifikacją, integracją z dziesięcioma systemami naraz. Wypuść rdzeń, zmierz, dobuduj.
+Drugi przepał: **funkcje "na zapas".** Kraków ma dużą społeczność studencką, międzynarodową i ukraińską, więc wersja angielska albo ukraińska bywa sensowna — ale dopiero gdy widzisz w analityce, że taki ruch faktycznie się pojawia. Dodanie języka później to dzień roboty, nie tydzień zaplanowany na starcie. Podobnie z powiadomieniami, gamifikacją czy integracją z dziesięcioma systemami naraz. Wypuść rdzeń, zmierz, dobuduj.
 
-Trzeci: **backend pod ruch, którego jeszcze nie ma.** Krakowski startup turystyczny zapłacił za architekturę "skalowalną na milion użytkowników", miał czterystu, a rachunek za infrastrukturę zjadał mu runway szybciej niż marketing. Najpierw produkt, który ktoś chce, potem skala.
+Trzeci: **backend pod ruch, którego jeszcze nie ma.** Krakowski startup turystyczny zapłacił za architekturę "skalowalną na milion użytkowników", miał ich czterystu, a rachunek za infrastrukturę zjadał mu runway szybciej niż marketing. Najpierw produkt, którego ktoś chce, potem skala.
 
 ## Publikacja w App Store i Google Play — co tu naprawdę zajmuje czas
 
-To pomijają najczęściej. Do każdego terminu doliczasz weryfikację w sklepach, a one działają inaczej.
+To pomija się najczęściej. Do każdego terminu doliczasz weryfikację w sklepach, a każdy z nich działa inaczej.
 
 Google Play zwykle przepuszcza aplikację w dzień–dwa. Apple potrafi sprawdzać od kilku godzin do tygodnia, a pierwsze zgłoszenie regularnie wraca z odrzuceniem za drobiazgi: brak polityki prywatności pod wymogi, niejasny opis płatności w aplikacji, screeny niezgodne z zawartością. Programista, który już coś wypuścił, ma te poprawki wkalkulowane. Ten, który nie — zdziwi się na twój koszt i twój termin.
 
@@ -67,13 +67,13 @@ Jeśli ktoś chce publikować ze swojego konta deweloperskiego "dla wygody" — 
 
 MVP cross-platform z logowaniem, podstawowymi funkcjami i publikacją: **4–8 tygodni**. Produkt średniej złożoności z płatnościami i panelem: **3–4 miesiące**. Złożony marketplace albo aplikacja z synchronizacją offline: **5–8 miesięcy, zwykle etapami.**
 
-Kto obiecuje prawdziwą aplikację "w dwa tygodnie", dowozi no-code'owy wrapper albo szablon z twoim logo. Do szybkiego przetestowania pomysłu czasem wystarczy — tylko wiedz, co kupujesz.
+Kto obiecuje prawdziwą aplikację "w dwa tygodnie", dowozi no-code'owy wrapper albo szablon z twoim logo. Do szybkiego sprawdzenia pomysłu czasem wystarczy — tylko wiedz, co kupujesz.
 
-I jeszcze jedno, bo to powód numer jeden, dla którego terminy się ślimaczą: brak treści i decyzji po twojej stronie. Nie kod. Jeśli przez trzy tygodnie nie wiesz, jak ma wyglądać onboarding albo nie masz tekstów do ekranów, najlepszy programista poczeka. Discovery na starcie i jasny zakres skracają to bardziej niż jakakolwiek technologia.
+I jeszcze jedno, bo to powód numer jeden, dla którego terminy się ślimaczą: brak treści i decyzji po twojej stronie, a nie kod. Jeśli przez trzy tygodnie nie wiesz, jak ma wyglądać onboarding, albo nie masz tekstów do ekranów, najlepszy programista i tak czeka. Discovery na starcie i jasny zakres skracają projekt bardziej niż jakakolwiek technologia.
 
 ## Czego oczekiwać od wyceny
 
-Dobra oferta na aplikację w Krakowie ma stały zakres, stałą cenę i umowę. Pada w niej, kto jest właścicielem kodu i kont w sklepach (ty), co dzieje się po starcie (okno na poprawki, wsparcie przy aktualizacjach iOS/Androida i zmianach polityk sklepów) i dlaczego akurat ta technologia pod twoją aplikację. Wycena podana, zanim ktokolwiek zrozumie, co aplikacja robi, to zgadywanie — a różnicę pokryjesz ty.
+Dobra oferta na aplikację w Krakowie ma stały zakres, stałą cenę i umowę. Pada w niej, kto jest właścicielem kodu i kont w sklepach (ty), co dzieje się po starcie (okno na poprawki, wsparcie przy aktualizacjach iOS/Androida i zmianach polityk sklepów) oraz dlaczego akurat ta technologia pasuje do twojej aplikacji. Wycena podana, zanim ktokolwiek zrozumie, co aplikacja ma robić, to zgadywanie — a różnicę pokryjesz ty.
 
 ## FAQ
 
@@ -83,7 +83,7 @@ MVP cross-platform na iOS i Androida to realnie 8 000–18 000 €, produkt śre
 
 **React Native czy natywnie dla krakowskiej aplikacji?**
 
-Do większości aplikacji biznesowych, MVP i appek konsumenckich lepszy jest React Native albo Flutter: jeden kod na obie platformy, o 30–60% taniej niż dwie aplikacje natywne i szybciej na rynek. Natywnie (Swift + Kotlin) wybieraj przy grach, AR albo aplikacjach mocno korzystających ze sprzętu urządzenia. W Krakowie wielu wykonawców z korporacyjnym nawykiem proponuje natywkę domyślnie — pytaj, czy to wynika z twoich funkcji, czy z ich przyzwyczajenia.
+Do większości aplikacji biznesowych, MVP i appek konsumenckich lepszy jest React Native albo Flutter: jeden kod na obie platformy, o 30–60% taniej niż dwie aplikacje natywne i szybciej na rynek. Natywnie (Swift + Kotlin) wybieraj przy grach, AR albo aplikacjach mocno korzystających ze sprzętu telefonu. W Krakowie wielu wykonawców z korporacyjnym nawykiem proponuje natywkę domyślnie — pytaj, czy to wynika z twoich funkcji, czy z ich przyzwyczajenia.
 
 **Ile trwa zbudowanie MVP aplikacji?**
 

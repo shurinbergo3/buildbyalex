@@ -253,7 +253,13 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: var(--font-mono), ui-monospace, "SF Mono", monospace;
+  /* System monospace on purpose — this decorative code wall is the largest
+     element on the hero, so the browser picks it as the LCP candidate. Using
+     the Geist Mono webfont here meant LCP got pushed to the late font-swap on
+     slow links (~5s). System mono paints at first paint with no swap, so LCP
+     resolves immediately; the wall is aria-hidden decoration, so the exact
+     monospace face doesn't matter. */
+  font-family: ui-monospace, "SF Mono", "Menlo", "Consolas", monospace;
   font-size: clamp(11.5px, 0.5vw + 8.5px, 15px);
   line-height: 1.62;
   letter-spacing: -0.005em;
