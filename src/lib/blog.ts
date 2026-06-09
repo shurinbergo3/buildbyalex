@@ -138,6 +138,32 @@ export const clusterToService: Record<string, { menuKey: ServiceMenuKey; path: S
   "ai-agent-customer-support-en": { menuKey: "ai", path: "/services/ai-agents" },
   "ai-agent-customer-support-pl": { menuKey: "ai", path: "/services/ai-agents" },
   "ai-agent-customer-support-ru": { menuKey: "ai", path: "/services/ai-agents" },
+  // Geo cluster — Wrocław / Kraków / Gdańsk (2026). Unique cluster per locale so
+  // each ranks independently for its local keyword; still funnels to its money page.
+  "web-developer-wroclaw-pl": { menuKey: "websites", path: "/services/websites" },
+  "web-developer-wroclaw-en": { menuKey: "websites", path: "/services/websites" },
+  "web-developer-wroclaw-ru": { menuKey: "websites", path: "/services/websites" },
+  "web-developer-wroclaw-ua": { menuKey: "websites", path: "/services/websites" },
+  "online-store-development-wroclaw-pl": { menuKey: "store", path: "/services/online-store" },
+  "online-store-development-wroclaw-en": { menuKey: "store", path: "/services/online-store" },
+  "online-store-development-wroclaw-ru": { menuKey: "store", path: "/services/online-store" },
+  "online-store-development-wroclaw-ua": { menuKey: "store", path: "/services/online-store" },
+  "web-developer-krakow-pl": { menuKey: "websites", path: "/services/websites" },
+  "web-developer-krakow-en": { menuKey: "websites", path: "/services/websites" },
+  "web-developer-krakow-ru": { menuKey: "websites", path: "/services/websites" },
+  "web-developer-krakow-ua": { menuKey: "websites", path: "/services/websites" },
+  "mobile-app-developer-krakow-pl": { menuKey: "mobile", path: "/services/mobile-apps" },
+  "mobile-app-developer-krakow-en": { menuKey: "mobile", path: "/services/mobile-apps" },
+  "mobile-app-developer-krakow-ru": { menuKey: "mobile", path: "/services/mobile-apps" },
+  "mobile-app-developer-krakow-ua": { menuKey: "mobile", path: "/services/mobile-apps" },
+  "web-developer-gdansk-pl": { menuKey: "websites", path: "/services/websites" },
+  "web-developer-gdansk-en": { menuKey: "websites", path: "/services/websites" },
+  "web-developer-gdansk-ru": { menuKey: "websites", path: "/services/websites" },
+  "web-developer-gdansk-ua": { menuKey: "websites", path: "/services/websites" },
+  "ai-agent-gdansk-pl": { menuKey: "ai", path: "/services/ai-agents" },
+  "ai-agent-gdansk-en": { menuKey: "ai", path: "/services/ai-agents" },
+  "ai-agent-gdansk-ru": { menuKey: "ai", path: "/services/ai-agents" },
+  "ai-agent-gdansk-ua": { menuKey: "ai", path: "/services/ai-agents" },
 };
 
 /** The service a post links to, or null if its cluster isn't mapped. */
