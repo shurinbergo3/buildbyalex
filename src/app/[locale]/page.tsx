@@ -24,7 +24,7 @@ export default async function HomePage({
   setRequestLocale(locale);
 
   return (
-    <>
+    <div className="home-sections">
       <HomeJsonLd locale={locale as Locale} />
       <Hero />
       <PainPoints />
@@ -37,6 +37,6 @@ export default async function HomePage({
       <Testimonials />
       <FAQ />
       <FinalCTA />
-    </>
+    </div>
   );
 }

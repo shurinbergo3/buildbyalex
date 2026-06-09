@@ -157,8 +157,21 @@ export function Hero() {
     // Use the international clip for every locale — it warps straight into the
     // wordmark, so the path to real content stays short. Pick a lighter encode
     // on phones, then prime it so the first scroll-seek is instant.
+    //
+    // The clip (~1.8 MB) is only ever used once the user scrolls, so we keep it
+    // off the critical load path: fetch it during idle time, or the moment the
+    // user first scrolls/moves the pointer — whichever comes first. apply()
+    // already tolerates seeks before the file is ready, so this is invisible.
     const video = videoRef.current;
-    if (video && !reduced) {
+    const idle = window as unknown as {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    let idleId = 0;
+    let videoLoaded = false;
+    const loadVideo = () => {
+      if (videoLoaded || !video || reduced) return;
+      videoLoaded = true;
       const isMobileV = window.matchMedia("(max-width: 767px)").matches;
       const base = "/hero-reveal-intl";
       video.src = isMobileV ? `${base}-mobile.mp4` : `${base}.mp4`;
@@ -168,6 +181,13 @@ export function Hero() {
       };
       if (video.readyState >= 1) prime();
       else video.addEventListener("loadedmetadata", prime, { once: true });
+    };
+    if (video && !reduced) {
+      idleId = idle.requestIdleCallback
+        ? idle.requestIdleCallback(loadVideo, { timeout: 2500 })
+        : window.setTimeout(loadVideo, 1500);
+      window.addEventListener("scroll", loadVideo, { once: true, passive: true });
+      window.addEventListener("pointermove", loadVideo, { once: true, passive: true });
     }
 
     // Initial paint — snap to current scroll position, no easing
@@ -180,6 +200,10 @@ export function Hero() {
 
     return () => {
       cancelAnimationFrame(raf);
+      if (idleId && idle.cancelIdleCallback) idle.cancelIdleCallback(idleId);
+      else if (idleId) window.clearTimeout(idleId);
+      window.removeEventListener("scroll", loadVideo);
+      window.removeEventListener("pointermove", loadVideo);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
     };
@@ -219,7 +243,7 @@ export function Hero() {
               poster="/hero-reveal-poster.webp"
               muted
               playsInline
-              preload="auto"
+              preload="none"
               aria-hidden="true"
             />
             <div className="hero-frame-tint" aria-hidden="true" />

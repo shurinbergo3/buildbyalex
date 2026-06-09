@@ -1814,3 +1814,22 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
 @media (prefers-reduced-motion: reduce) {
   .hero-contour-drift, .hero-contour-drift--slow { animation: none !important; }
 }
+
+/* ────────────────────────────────────────────────────────────────────────
+   Off-screen rendering skip. The homepage stacks many heavy, perpetually
+   animated sections (glass drifts, badge pings, gradient sweeps). Without
+   this the browser keeps recalculating style + painting every one of them
+   on every frame even while they sit far below the fold — the single biggest
+   source of main-thread "Style & Layout" time on this page.
+
+   content-visibility:auto lets the browser skip layout/paint for any section
+   not near the viewport; it renders (and its animations start) only as it
+   scrolls into view. contain-intrinsic-size:auto reserves a placeholder size
+   and then remembers each section's real height after first render, so the
+   scrollbar never jumps. Excludes the hero (above the fold) and ScrollStory
+   (its sticky/scroll-driven scene needs to stay measurable at all times).
+   ──────────────────────────────────────────────────────────────────────── */
+.home-sections > section:not(.hero-scroll):not([data-cv-off]) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}

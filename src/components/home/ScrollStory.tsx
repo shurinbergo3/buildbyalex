@@ -81,6 +81,7 @@ export function ScrollStory() {
   return (
     <section
       ref={ref}
+      data-cv-off=""
       className="relative bg-[#08090c] text-white"
       style={{ height: `${chapters.length * 100 + 20}vh` }}
       aria-label={tStory("eyebrow")}

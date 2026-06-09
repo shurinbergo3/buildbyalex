@@ -82,6 +82,67 @@ const PlusIcon = ({ s = 13 }: { s?: number }) => (
   </svg>
 );
 
+/* per-product line-art silhouettes (index-aligned with shop.products across every
+   locale: puffer · sneaker · hoodie · jeans · backpack · cap). Drawn inline so the
+   storefront stays request-free and keeps its 100/100 Lighthouse score. */
+const GLYPHS: ReactNode[] = [
+  /* puffer jacket */
+  <>
+    <path d="M24 13 15 19 12 32 19 34 19 52 45 52 45 34 52 32 49 19 40 13 35 18 29 18Z" />
+    <path d="M32 18V52M19 40h26M19 46h26" />
+  </>,
+  /* runner sneaker */
+  <>
+    <path d="M10 45q-1 4 3 4h39q3 0 3-5l-1-1" />
+    <path d="M12 45c0-6 4-9 10-10l9-1c3-5 9-7 14-4 6 3 10 8 10 13" />
+    <path d="M33 34l3 4M38 33l3 4M43 33l2 4M23 35c-3 4-2 8 0 10" />
+  </>,
+  /* oversize hoodie */
+  <>
+    <path d="M25 16 15 21 12 34 18 37 18 52 46 52 46 37 52 34 49 21 39 16" />
+    <path d="M25 16c0-7 14-7 14 0" />
+    <path d="M27 17c2 6 8 6 10 0" />
+    <path d="M23 41h18M23 41v7M41 41v7M30 20v11M34 20v11" />
+  </>,
+  /* slim jeans */
+  <>
+    <path d="M20 14h24l1 38H35L32 27 29 52H19Z" />
+    <path d="M20 19h24M32 19v8M22 20c2 4 6 4 7 0M35 20c1 4 5 4 7 0" />
+  </>,
+  /* city backpack */
+  <>
+    <path d="M21 26c0-8 4-12 11-12s11 4 11 12v24c0 2-1 3-3 3H24c-2 0-3-1-3-3Z" />
+    <path d="M27 16c0-6 10-6 10 0" />
+    <path d="M24 40c0-7 16-7 16 0v10c0 1-1 1-2 1H26c-1 0-2 0-2-1Z" />
+    <path d="M26 30c0-3 12-3 12 0" />
+  </>,
+  /* logo cap */
+  <>
+    <path d="M15 39c0-15 15-20 26-14 5 3 7 8 7 14" />
+    <path d="M15 39h33" />
+    <path d="M48 39c9-1 13 2 13 5 0 1-2 1-8 0l-5-3" />
+    <path d="M30 21c-3 7-5 13-6 18M37 23c0 7 0 12 0 16" />
+  </>,
+];
+
+function ProductGlyph({ i, className = "" }: { i: number; className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 64 64"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2.1}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+      className={className}
+      style={{ color: "rgba(244,214,182,0.6)" }}
+    >
+      {GLYPHS[i % GLYPHS.length]}
+    </svg>
+  );
+}
+
 function Chip({ children, className = "", style }: { children: ReactNode; className?: string; style?: React.CSSProperties }) {
   return (
     <div
@@ -142,7 +203,9 @@ function PhoneStore({ shop, count, total }: { shop: Shop; count: number; total: 
       <div className="mt-5 flex-1 space-y-4 px-6">
         {featured.map((pr, i) => (
           <div key={i} className="flex items-center gap-4 rounded-3xl border border-white/[0.08] bg-white/[0.03] p-3.5">
-            <span className="h-[78px] w-[78px] flex-none rounded-2xl" style={{ background: THUMBS[i % THUMBS.length] }} />
+            <span className="grid h-[78px] w-[78px] flex-none place-items-center rounded-2xl" style={{ background: THUMBS[i % THUMBS.length] }}>
+              <ProductGlyph i={i} className="h-[58%] w-[58%]" />
+            </span>
             <span className="min-w-0 flex-1">
               <span className="block text-[13px] uppercase tracking-[0.08em] text-white/45">{pr.c}</span>
               <span className="mt-1 block truncate text-[19px] font-semibold tracking-[-0.01em]">{pr.n}</span>
@@ -275,8 +338,9 @@ export function StoreSiteMock() {
           <div className="grid grid-cols-2 gap-3 px-4 pb-5 sm:grid-cols-3 sm:px-6 sm:pb-7">
             {products.map((pr, i) => (
               <div key={i} className="group overflow-hidden rounded-xl border border-white/[0.07] bg-white/[0.02] transition-colors hover:border-white/[0.14]">
-                <div className="relative aspect-[4/3]" style={{ background: THUMBS[i % THUMBS.length] }}>
+                <div className="relative grid aspect-[4/3] place-items-center" style={{ background: THUMBS[i % THUMBS.length] }}>
                   <span aria-hidden className="absolute inset-0" style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)" }} />
+                  <ProductGlyph i={i} className="h-[46%] w-[46%] transition-transform duration-300 group-hover:scale-[1.06]" />
                   {qty[i] > 0 && (
                     <span className="absolute left-2 top-2 grid h-5 min-w-[20px] place-items-center rounded-full px-1 text-[10.5px] font-bold text-[#0a0a0a]" style={{ background: AMBER }}>
                       {qty[i]}
@@ -355,7 +419,9 @@ export function StoreSiteMock() {
                               {products.map((pr, i) =>
                                 qty[i] > 0 ? (
                                   <div key={i} className="flex items-center gap-3 rounded-xl border border-white/[0.07] bg-white/[0.02] p-2.5">
-                                    <span className="h-12 w-12 flex-none rounded-lg" style={{ background: THUMBS[i % THUMBS.length] }} />
+                                    <span className="grid h-12 w-12 flex-none place-items-center rounded-lg" style={{ background: THUMBS[i % THUMBS.length] }}>
+                                      <ProductGlyph i={i} className="h-[56%] w-[56%]" />
+                                    </span>
                                     <span className="min-w-0 flex-1">
                                       <span className="block truncate text-[12px] font-medium text-white/90">{pr.n}</span>
                                       <span className="block text-[11.5px] font-semibold" style={{ color: "#ffb487" }}>{pr.p}</span>
