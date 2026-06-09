@@ -1,7 +1,7 @@
 {
   "meta": {
     "siteName": "buildbyalex",
-    "defaultTitle": "buildbyalex — strony, agenci AI i aplikacje mobilne",
+    "defaultTitle": "Tworzenie stron, agentów AI i aplikacji w Warszawie — buildbyalex",
     "defaultDescription": "Realizacje pod klucz w Warszawie: strony, agenci AI i aplikacje mobilne w 1–3 tygodnie — od pomysłu do startu. PL · EN · UA.",
     "ogAlt": "buildbyalex — niezależny developer · Warszawa",
     "ogServices": "Strony · Agenci AI · Aplikacje mobilne · Automatyzacja"
@@ -76,7 +76,7 @@
   "home": {
     "hero": {
       "eyebrow": "Realizacje pod klucz · Warszawa",
-      "headline": "Strony, agenci AI\ni aplikacje mobilne.\nPod klucz w 1–3 tygodnie.",
+      "headline": "Tworzenie stron, agentów AI\ni aplikacji w Warszawie.\nPod klucz w 1–3 tygodnie.",
       "subhead": "Projekt, kod, integracje z CRM i komunikatorami, wdrożenie i wsparcie — kompleksowo, pod klucz. Od pierwszej rozmowy do startu, bez utraconych terminów.",
       "primaryCta": "Bezpłatna konsultacja",
       "secondaryCta": "Zobacz realizacje",
@@ -126,7 +126,7 @@
           "stack": "Gemini · GPT · Claude · Function calling · AmoCRM · Telegram",
           "link": "Dowiedz się więcej",
           "category": "AI i automatyzacja",
-          "price": "1 200 €",
+          "price": "500 €",
           "bullets": [
             "Boty RAG, sprzedażowe i kwalifikacja",
             "Podłączone do CRM i narzędzi",
@@ -456,9 +456,9 @@
         "ai": {
           "title": "Agent AI",
           "from": "od",
-          "price": "1 200 €",
-          "body": "Agent czatowy lub automatyzacja podłączona do Twoich danych i narzędzi.",
-          "examples": "RAG · integracja z CRM · wiele języków"
+          "price": "500 €",
+          "body": "Bot pod jedno zadanie: FAQ, statusy zamówień albo kwalifikacja — na Twoich danych.",
+          "examples": "Bot FAQ · RAG · 1 kanał"
         },
         "automation": {
           "title": "Automatyzacja",
@@ -645,7 +645,7 @@
         },
         {
           "q": "Ile kosztuje chatbot albo agent AI?",
-          "a": "Agenci AI od 1 200 € dla skupionego case'u (asystent FAQ, kwalifikator leadów, automatyzacja na jedno narzędzie). Wieloagentowe rozwiązania z integracjami CRM i baz danych zwykle 2 000–5 000 €. Cena ostateczna po 30-minutowej rozmowie."
+          "a": "Agenci AI od 500 € dla skupionego case'u (asystent FAQ, kwalifikator leadów, automatyzacja na jedno narzędzie). Agent sprzedażowy z CRM — od 1 500 €, agent wielonarzędziowy z integracjami — 3 000–8 000 €. Cena ostateczna po 30-minutowej rozmowie."
         },
         {
           "q": "Robisz Androida czy tylko iOS?",
@@ -750,7 +750,7 @@
         "description": "Tworzymy szybkie strony www w Next.js — wielojęzyczne i SEO-ready. Warszawa, wycena za darmo, realizacja w 2–4 tygodnie. Od 800 €."
       },
       "eyebrow": "Strony internetowe · Warszawa",
-      "headline": "Strony, które\nrealnie rankują.",
+      "headline": "Strony internetowe w Warszawie,\nktóre realnie rankują.",
       "lead": "Tworzenie stron internetowych w Warszawie pod klucz: nowoczesny serwis na Next.js, wielojęzyczny i gotowy pod SEO od pierwszego dnia — nie „wizytówka” z 2015 roku.",
       "from": "Od 800 €",
       "primaryCta": "Porozmawiajmy o projekcie",
@@ -1095,7 +1095,7 @@
         "description": "Tworzenie sklepu internetowego pod klucz w Warszawie: katalog, koszyk, płatności BLIK/Przelewy24/Stripe, integracja z magazynem i wysyłką. Cena od €1500."
       },
       "eyebrow": "Sklepy internetowe · Warszawa",
-      "headline": "Sklepy,\nktóre sprzedają.",
+      "headline": "Sklepy internetowe w Warszawie,\nktóre sprzedają.",
       "lead": "Tworzenie sklepu internetowego w Warszawie pod klucz: katalog, koszyk i płatności, które nie gubią klienta w drodze do zamówienia. Na Next.js — szybki, wielojęzyczny i gotowy pod Google od pierwszego dnia.",
       "from": "Od €1 500",
       "primaryCta": "Omówmy sklep",
@@ -1309,12 +1309,12 @@
     "ai": {
       "meta": {
         "title": "Agenci AI i chatboty dla firm — wdrożenie | Warszawa",
-        "description": "Tworzymy agentów AI i chatboty dla firm na Twoich danych: integracja z CRM, Telegram, WhatsApp. Automatyzacja sprzedaży i obsługi. Od 1200 €."
+        "description": "Tworzymy agentów AI i chatboty dla firm na Twoich danych: integracja z CRM, Telegram, WhatsApp. Automatyzacja sprzedaży i obsługi. Od 500 €."
       },
-      "eyebrow": "Agenci AI dla firm",
-      "headline": "Agenci AI,\nktórzy zamykają.",
+      "eyebrow": "Agenci AI · Warszawa",
+      "headline": "Agenci AI dla firm w Warszawie,\nktórzy zamykają.",
       "lead": "Tworzę agentów AI i chatboty dla firm na Twoich danych: integruję z CRM, Telegramem i WhatsApp, z metrykami i panelem. Nie zabawka — gotowe na produkcję.",
-      "from": "Od 1 200 €",
+      "from": "Od 500 €",
       "primaryCta": "Porozmawiajmy",
       "hero": {
         "badge": "Działa na produkcji",
@@ -1428,15 +1428,68 @@
       "demoEyebrow": "Na żywo",
       "startingPrice": "Cena startowa",
       "bookCta": "Bezpłatna rozmowa",
-      "includedTitle": "Co wchodzi w zakres"
+      "includedTitle": "Co wchodzi w zakres",
+      "pricing": {
+        "eyebrow": "Pakiety i ceny",
+        "marketLabel": "Agencje z UE",
+        "featuredLabel": "Najczęściej",
+        "caption": "Ceny agencji z UE podane dla porównania — ta sama praca po €100–200/godz. Dodatkowo tylko API: €30–80/mies. przy 1000+ dialogach. Ostateczną kwotę ustalam po 30-minutowej rozmowie. Bez przymusowego abonamentu.",
+        "tiers": [
+          {
+            "title": "Chatbot / agent FAQ",
+            "from": "od",
+            "price": "€500",
+            "market": "€2 000–8 000",
+            "body": "Wąski bot pod jedno zadanie: FAQ, statusy zamówień albo kwalifikacja — jeden kanał.",
+            "features": [
+              "RAG na Twojej bazie wiedzy — bez halucynacji",
+              "Jeden kanał: strona, Telegram lub WhatsApp",
+              "Odpowiedzi ze źródłami, fallback do człowieka",
+              "Start w 1–2 tygodnie",
+              "30 dni poprawek w cenie"
+            ]
+          },
+          {
+            "title": "Agent sprzedażowy z CRM",
+            "from": "od",
+            "price": "€1 500",
+            "market": "€8 000–20 000",
+            "featured": true,
+            "body": "RAG na Twoich danych + integracja z CRM i kwalifikacja leadów. Najczęstszy wybór.",
+            "features": [
+              "Wszystko z Chatbota, plus:",
+              "Function calling: kwalifikacja i ruch po lejku",
+              "Integracja z AmoCRM / HubSpot / Pipedrive",
+              "Do 2–3 kanałów: Telegram, WhatsApp, strona",
+              "Panel z dialogami, tagami i metrykami",
+              "Wielojęzyczność na Twoich dokumentach"
+            ]
+          },
+          {
+            "title": "Agent wielonarzędziowy",
+            "from": "od",
+            "price": "€3 000",
+            "market": "€20 000–60 000",
+            "body": "Agent, który działa, a nie tylko odpowiada: wiele narzędzi, integracji i automatyzacji.",
+            "features": [
+              "Wszystko z Agenta sprzedażowego, plus:",
+              "Wiele integracji i narzędzi",
+              "Kalendarz, płatności, wewnętrzne API",
+              "Złożona logika backendu i orkiestracja",
+              "Automatyzacja procesów: daily-pull, raporty",
+              "Priorytetowe wsparcie po starcie"
+            ]
+          }
+        ]
+      }
     },
     "automation": {
       "meta": {
-        "title": "Automatyzacja procesów biznesowych Make/n8n | od 600 €",
+        "title": "Automatyzacja procesów biznesowych Warszawa | od €600",
         "description": "Automatyzacja procesów biznesowych w Warszawie — łączymy CRM, Telegram, WhatsApp i Google Sheets w jeden workflow. Make, n8n, Zapier. Wdrożenie od 600 €."
       },
       "eyebrow": "Automatyzacja · Warszawa",
-      "headline": "Automatyzacja, która\nkończy z ręczną robotą.",
+      "headline": "Automatyzacja procesów w Warszawie,\nkoniec z ręczną robotą.",
       "lead": "Automatyzacja procesów biznesowych w Warszawie: łączę Twoje narzędzia — CRM, Telegram, WhatsApp, arkusze — w jeden workflow na Make i n8n, który działa sam. Bez kopiuj-wklej i zgubionych leadów.",
       "from": "Od €600",
       "primaryCta": "Omów swój proces",
@@ -1630,7 +1683,7 @@
         "description": "Aplikacje mobilne iOS i Android z jednej bazy kodu (React Native). MVP w 4–8 tygodni, logowanie, płatności, publikacja w sklepach. Wycena od €3000."
       },
       "eyebrow": "Aplikacje mobilne · Warszawa",
-      "headline": "Aplikacje mobilne,\nktóre trafiają na sklepy.",
+      "headline": "Aplikacje mobilne w Warszawie,\nktóre trafiają na sklepy.",
       "lead": "Tworzenie aplikacji mobilnych w Warszawie: iOS i Android z jednej bazy kodu w React Native, działające MVP w 4–8 tygodni, publikacja w obu sklepach w cenie.",
       "from": "Od 3 000 €",
       "primaryCta": "Porozmawiajmy o pomyśle",
@@ -1837,7 +1890,7 @@
         "description": "Prowadzenie kampanii Google Ads i Facebook Ads w Warszawie. Leady, sprzedaż, ROAS i raporty GA4. Od €300 setup / €500/mc. Bezpłatna konsultacja."
       },
       "eyebrow": "Google Ads · Meta · Warszawa",
-      "headline": "Reklamy, które dają\nleady, nie kliknięcia.",
+      "headline": "Google Ads i Meta w Warszawie,\nktóre dają leady, nie kliknięcia.",
       "lead": "Prowadzenie kampanii Google Ads i Meta Ads w Warszawie — pod leady i sprzedaż, nie kliknięcia. Każde euro powiązane z konwersją, ROAS i raportami GA4.",
       "from": "Od €300 za konfigurację lub €500/mies",
       "primaryCta": "Zaplanuj kampanię",
@@ -2194,11 +2247,11 @@
     },
     "telegram": {
       "meta": {
-        "title": "Tworzenie botów Telegram i Mini Aplikacji | od €300",
+        "title": "Tworzenie botów Telegram i Mini Apps w Warszawie — od €300",
         "description": "Stworzenie bota Telegram dla firmy: sprzedaż, obsługa, lead-intake, mini aplikacje z płatnościami i integracją CRM. Warszawa, od €300."
       },
-      "eyebrow": "Boty Telegram · Mini Apps",
-      "headline": "Boty Telegram i mini-aplikacje,\nktóre sprzedają.",
+      "eyebrow": "Boty Telegram · Mini Apps · Warszawa",
+      "headline": "Boty Telegram i Mini Apps w Warszawie,\nktóre sprzedają.",
       "lead": "Tworzenie botów Telegram i Mini Aplikacji pod klucz: bot przyjmuje zgłoszenia i odpowiada 24/7, a Mini App otwiera sklep, rezerwację i płatność Stars/TON wewnątrz Telegrama — bez instalacji.",
       "from": "Od €300",
       "primaryCta": "Porozmawiajmy o bocie",

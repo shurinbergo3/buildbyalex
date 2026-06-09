@@ -100,7 +100,7 @@ export async function HomeJsonLd({ locale }: { locale: Locale }) {
           name: ts("eyebrow"),
           itemListElement: [
             offer("/services/websites", "items.websites.category", 800),
-            offer("/services/ai-agents", "items.ai.category", 1200),
+            offer("/services/ai-agents", "items.ai.category", 500),
             offer("/services/automation", "automation.title", 600),
             offer("/services/mobile-apps", "items.mobile.category", 3000),
             offer("/services/advertising", "ads.title", 300),
