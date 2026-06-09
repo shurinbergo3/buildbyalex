@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
-import { Reveal } from "@/components/Reveal";
 import { PageHeader } from "@/components/PageHeader";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { BlogList, type BlogListItem } from "@/components/blog/BlogList";
@@ -75,20 +74,16 @@ export default async function BlogIndex({
       <Section pad="default" tone="default">
         <Container size="md">
           {posts.length === 0 ? (
-            <Reveal>
-              <p className="text-center text-[17px] text-[color:var(--color-text-2)]">
-                {t("noPosts")}
-              </p>
-            </Reveal>
+            <p className="text-center text-[17px] text-[color:var(--color-text-2)]">
+              {t("noPosts")}
+            </p>
           ) : (
-            <Reveal>
-              <BlogList
-                posts={items}
-                categories={categories}
-                allLabel={t("filterAll")}
-                filterLabel={t("filterLabel")}
-              />
-            </Reveal>
+            <BlogList
+              posts={items}
+              categories={categories}
+              allLabel={t("filterAll")}
+              filterLabel={t("filterLabel")}
+            />
           )}
         </Container>
       </Section>
