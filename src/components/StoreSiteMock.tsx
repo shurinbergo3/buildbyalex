@@ -469,7 +469,7 @@ export function StoreSiteMock() {
       {/* Overlapping phone — same shop, mobile layout (decorative, state-synced) */}
       <motion.div
         aria-hidden="true"
-        className="absolute -bottom-10 right-4 z-30 hidden sm:block md:right-12"
+        className="absolute -bottom-10 left-4 z-30 hidden sm:block md:left-12"
         style={{ width: PHONE_RENDER_W }}
         initial={false}
         animate={reduce ? undefined : { y: [0, -9, 0] }}
