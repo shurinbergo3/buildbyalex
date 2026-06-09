@@ -666,6 +666,10 @@
         {
           "q": "A jeśli będę chciał coś zmienić po starcie?",
           "a": "Edycje 50 €/h, minimum godzina. Bez wymuszonego abonamentu. Możesz wrócić po pół roku z małą zmianą i zrobię ją — te same warunki, ta sama stawka."
+        },
+        {
+          "q": "Pracujecie tylko w Warszawie, czy w całej Polsce?",
+          "a": "Pracujemy w całej Polsce i zdalnie — Warszawa, Kraków, Wrocław, Gdańsk, Poznań czy mniejsze miasto, bez różnicy. Rozmowy, demo i odbiór odbywają się online, umowa i płatność zdalnie. Spotkanie na żywo w Warszawie — w razie potrzeby."
         }
       ]
     },
@@ -1028,6 +1032,10 @@
           {
             "q": "Czy zamiast zwykłej strony można zamówić sklep internetowy?",
             "a": "Tak. Tworzenie sklepu internetowego w Warszawie to osobna usługa: katalog, koszyk, płatności (Stripe, Przelewy24, BLIK), integracja z magazynem i wysyłką. Szczegóły i ceny — na stronie «Sklepy internetowe»."
+          },
+          {
+            "q": "Pracujecie tylko w Warszawie, czy w całej Polsce?",
+            "a": "Pracujemy w całej Polsce i zdalnie — Warszawa, Kraków, Wrocław, Gdańsk, Poznań czy mniejsze miasto, bez różnicy. Rozmowy, demo i odbiór odbywają się online, umowa i płatność zdalnie. Spotkanie na żywo w Warszawie — w razie potrzeby."
           }
         ]
       },
@@ -1246,6 +1254,10 @@
           {
             "q": "Czy sklep będzie w Google i da się go pozycjonować?",
             "a": "Tak. Wbudowane techniczne SEO pod e-commerce: schema Product/Offer, czyste adresy produktów i kategorii, sitemap i feed do Google Shopping. Karty produktów indeksują się od pierwszych dni."
+          },
+          {
+            "q": "Pracujecie tylko w Warszawie, czy w całej Polsce?",
+            "a": "Pracujemy w całej Polsce i zdalnie — Warszawa, Kraków, Wrocław, Gdańsk, Poznań czy mniejsze miasto, bez różnicy. Rozmowy, demo i odbiór odbywają się online, umowa i płatność zdalnie. Spotkanie na żywo w Warszawie — w razie potrzeby."
           }
         ]
       },
@@ -1422,6 +1434,10 @@
           {
             "q": "Czy jeden bot odpowie w kilku językach na danych mojej firmy?",
             "a": "Tak. Jeden agent prowadzi rozmowę po polsku, rosyjsku, ukraińsku i angielsku — odpowiada w języku, w którym napisał klient. Warstwa RAG działa na Twoich dokumentach i bazie wiedzy, więc odpowiedzi pochodzą z Twoich źródeł, a nie z ogólnej wiedzy modelu. Twoje dane zostają u Ciebie i nie trafiają na trening cudzych modeli."
+          },
+          {
+            "q": "Pracujecie tylko w Warszawie, czy w całej Polsce?",
+            "a": "Pracujemy w całej Polsce i zdalnie — Warszawa, Kraków, Wrocław, Gdańsk, Poznań czy mniejsze miasto, bez różnicy. Rozmowy, demo i odbiór odbywają się online, umowa i płatność zdalnie. Spotkanie na żywo w Warszawie — w razie potrzeby."
           }
         ]
       },
@@ -1599,6 +1615,10 @@
           {
             "q": "Połączysz się z moim systemem?",
             "a": "Jeśli ma API lub webhooki — niemal na pewno tak. AmoCRM, HubSpot, Pipedrive, Telegram, WhatsApp, Google Workspace, Notion, setki aplikacji przez Make/Zapier. Jeśli API jest zamknięte — powiem wprost na rozmowie."
+          },
+          {
+            "q": "Pracujecie tylko w Warszawie, czy w całej Polsce?",
+            "a": "Pracujemy w całej Polsce i zdalnie — Warszawa, Kraków, Wrocław, Gdańsk, Poznań czy mniejsze miasto, bez różnicy. Rozmowy, demo i odbiór odbywają się online, umowa i płatność zdalnie. Spotkanie na żywo w Warszawie — w razie potrzeby."
           }
         ]
       },
@@ -1823,6 +1843,10 @@
           {
             "q": "Ile kosztuje utrzymanie aplikacji po wdrożeniu?",
             "a": "Mniej, niż straszą software house'y. Hosting backendu i usługi to zwykle €10–50/mies. zależnie od ruchu, a konta w sklepach to $99/rok u Apple i jednorazowe $25 w Google. Poprawki i aktualizacje pod nowe wersje iOS/Androida rozliczam €50/h, bez obowiązkowego abonamentu — płacisz tylko wtedy, gdy faktycznie coś trzeba zrobić."
+          },
+          {
+            "q": "Pracujecie tylko w Warszawie, czy w całej Polsce?",
+            "a": "Pracujemy w całej Polsce i zdalnie — Warszawa, Kraków, Wrocław, Gdańsk, Poznań czy mniejsze miasto, bez różnicy. Rozmowy, demo i odbiór odbywają się online, umowa i płatność zdalnie. Spotkanie na żywo w Warszawie — w razie potrzeby."
           }
         ]
       },
@@ -2186,6 +2210,10 @@
           {
             "q": "Jak się rozliczasz — procent od budżetu reklamowego?",
             "a": "Nie. Stałe €500/mies. za prowadzenie, bez prowizji od wydatków na reklamę — nie mam interesu w pompowaniu budżetu, czy wydasz €500, czy €5 000. Budżet reklamowy płacisz bezpośrednio Google i Meta ze swojej karty. W raporcie Looker Studio widzisz koszt leada i ROAS, więc dokładnie wiesz, gdzie pieniądze pracują."
+          },
+          {
+            "q": "Pracujecie tylko w Warszawie, czy w całej Polsce?",
+            "a": "Pracujemy w całej Polsce i zdalnie — Warszawa, Kraków, Wrocław, Gdańsk, Poznań czy mniejsze miasto, bez różnicy. Rozmowy, demo i odbiór odbywają się online, umowa i płatność zdalnie. Spotkanie na żywo w Warszawie — w razie potrzeby."
           }
         ]
       },
@@ -2420,6 +2448,10 @@
           {
             "q": "Do kogo należy bot po oddaniu?",
             "a": "Do Ciebie — w całości. Kod źródłowy, token bota, konta płatności i baza są zarejestrowane na Twoją firmę i przekazywane umową. Nie wiążę Cię ze sobą: rozwijaj sam lub z dowolnym programistą."
+          },
+          {
+            "q": "Pracujecie tylko w Warszawie, czy w całej Polsce?",
+            "a": "Pracujemy w całej Polsce i zdalnie — Warszawa, Kraków, Wrocław, Gdańsk, Poznań czy mniejsze miasto, bez różnicy. Rozmowy, demo i odbiór odbywają się online, umowa i płatność zdalnie. Spotkanie na żywo w Warszawie — w razie potrzeby."
           }
         ]
       },

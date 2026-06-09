@@ -666,6 +666,10 @@
         {
           "q": "What if I need changes after launch?",
           "a": "Edits are billed at €50 per hour, with a one-hour minimum. No forced monthly retainer. You can come back six months later for a small change and I'll handle it — same terms, same rate."
+        },
+        {
+          "q": "Do you work only in Warsaw, or across Poland?",
+          "a": "We work across all of Poland and remotely — Warsaw, Kraków, Wrocław, Gdańsk, Poznań or a smaller town, it makes no difference. Calls, demos and handover happen online; the contract and payment are remote. An in-person meeting in Warsaw is available on request."
         }
       ]
     },
@@ -1028,6 +1032,10 @@
           {
             "q": "Can I order an online store instead of a regular website?",
             "a": "Yes. Online store development in Warsaw is a separate service: catalog, cart, payments (Stripe, Przelewy24, BLIK), warehouse and shipping integration. Details and pricing are on the «Online stores» page."
+          },
+          {
+            "q": "Do you work only in Warsaw, or across Poland?",
+            "a": "We work across all of Poland and remotely — Warsaw, Kraków, Wrocław, Gdańsk, Poznań or a smaller town, it makes no difference. Calls, demos and handover happen online; the contract and payment are remote. An in-person meeting in Warsaw is available on request."
           }
         ]
       },
@@ -1246,6 +1254,10 @@
           {
             "q": "Will the store be in Google and rank?",
             "a": "Yes. Technical e-commerce SEO is built in: Product/Offer schema, clean product and category URLs, sitemap and a Google Shopping feed. Product pages index from the first days."
+          },
+          {
+            "q": "Do you work only in Warsaw, or across Poland?",
+            "a": "We work across all of Poland and remotely — Warsaw, Kraków, Wrocław, Gdańsk, Poznań or a smaller town, it makes no difference. Calls, demos and handover happen online; the contract and payment are remote. An in-person meeting in Warsaw is available on request."
           }
         ]
       },
@@ -1422,6 +1434,10 @@
           {
             "q": "Can one bot answer in several languages on my own data?",
             "a": "Yes. A single agent handles Polish, Russian, Ukrainian and English, replying in whatever language the customer writes in. The RAG layer is built on your documents and knowledge base, so answers come from your sources — not the model's general knowledge. Your data stays yours and is never used to train anyone else's model."
+          },
+          {
+            "q": "Do you work only in Warsaw, or across Poland?",
+            "a": "We work across all of Poland and remotely — Warsaw, Kraków, Wrocław, Gdańsk, Poznań or a smaller town, it makes no difference. Calls, demos and handover happen online; the contract and payment are remote. An in-person meeting in Warsaw is available on request."
           }
         ]
       },
@@ -1599,6 +1615,10 @@
           {
             "q": "Can you connect to my system?",
             "a": "If it has an API or webhooks — almost certainly yes. AmoCRM, HubSpot, Pipedrive, Telegram, WhatsApp, Google Workspace, Notion, hundreds of apps via Make/Zapier. If the API is closed, I'll tell you straight on the call."
+          },
+          {
+            "q": "Do you work only in Warsaw, or across Poland?",
+            "a": "We work across all of Poland and remotely — Warsaw, Kraków, Wrocław, Gdańsk, Poznań or a smaller town, it makes no difference. Calls, demos and handover happen online; the contract and payment are remote. An in-person meeting in Warsaw is available on request."
           }
         ]
       },
@@ -1823,6 +1843,10 @@
           {
             "q": "What does it cost to run the app after launch?",
             "a": "Less than the software houses make you fear. Backend hosting and services are typically €10–50/month depending on traffic; the store accounts are $99/year for Apple and a one-time $25 for Google. Fixes and updates for new iOS/Android versions are €50/hour with no mandatory retainer — you only pay when something actually needs doing."
+          },
+          {
+            "q": "Do you work only in Warsaw, or across Poland?",
+            "a": "We work across all of Poland and remotely — Warsaw, Kraków, Wrocław, Gdańsk, Poznań or a smaller town, it makes no difference. Calls, demos and handover happen online; the contract and payment are remote. An in-person meeting in Warsaw is available on request."
           }
         ]
       },
@@ -2186,6 +2210,10 @@
           {
             "q": "How do you charge — a percentage of ad spend?",
             "a": "No. A flat €500/month to manage, with no cut of your ad spend — so I have zero incentive to inflate the budget whether you spend €500 or €5,000. You pay the ad budget straight to Google and Meta from your own card. Your Looker Studio report shows cost per lead and ROAS, so you see exactly where the money works."
+          },
+          {
+            "q": "Do you work only in Warsaw, or across Poland?",
+            "a": "We work across all of Poland and remotely — Warsaw, Kraków, Wrocław, Gdańsk, Poznań or a smaller town, it makes no difference. Calls, demos and handover happen online; the contract and payment are remote. An in-person meeting in Warsaw is available on request."
           }
         ]
       },
@@ -2420,6 +2448,10 @@
           {
             "q": "Who owns the bot after delivery?",
             "a": "You do — fully. Source code, bot token, payment accounts and the database are registered to your company and handed over by contract. I don't lock you in: grow it yourself or with any developer."
+          },
+          {
+            "q": "Do you work only in Warsaw, or across Poland?",
+            "a": "We work across all of Poland and remotely — Warsaw, Kraków, Wrocław, Gdańsk, Poznań or a smaller town, it makes no difference. Calls, demos and handover happen online; the contract and payment are remote. An in-person meeting in Warsaw is available on request."
           }
         ]
       },
