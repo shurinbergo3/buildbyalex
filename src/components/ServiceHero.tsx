@@ -7,6 +7,7 @@ import { Container } from "./Container";
 import { Section } from "./Section";
 import { Button } from "./Button";
 import { HeroWindow } from "./HeroWindow";
+import { ProductGlyph } from "./storeGlyphs";
 
 /* ─────────────────────────────────────────────────────────────────────────
    Service hero — cinematic "key-art" stage shared by all six service pages.
@@ -191,6 +192,8 @@ const STORE_THUMBS = [
   "radial-gradient(120% 100% at 30% 0%, #322029, #181014 70%)",
   "radial-gradient(120% 100% at 30% 0%, #20302a, #111815 70%)",
 ];
+/* hero catalogue → silhouette index: jacket · sneaker · hoodie · backpack */
+const STORE_GLYPH = [0, 1, 2, 4];
 
 function CartGlyph() {
   return (
@@ -252,8 +255,9 @@ function StoreMock({ m }: { m: Record<string, unknown> }) {
                 <div className="mt-3 grid grid-cols-2 gap-2">
                   {products.map((pr, i) => (
                     <div key={i} className="overflow-hidden rounded-xl border border-white/[0.07] bg-white/[0.02]">
-                      <div className="relative aspect-[5/4]" style={{ background: STORE_THUMBS[i % STORE_THUMBS.length] }}>
+                      <div className="relative grid aspect-[5/4] place-items-center" style={{ background: STORE_THUMBS[i % STORE_THUMBS.length] }}>
                         <span className="absolute inset-0" style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)" }} />
+                        <ProductGlyph i={STORE_GLYPH[i % STORE_GLYPH.length]} className="h-[42%] w-[42%]" />
                         {qty[i] > 0 && (
                           <span className="absolute left-1.5 top-1.5 grid h-4 min-w-[16px] place-items-center rounded-full px-1 text-[9px] font-bold text-[#0a0a0a]" style={{ background: AMBER }}>
                             {qty[i]}
