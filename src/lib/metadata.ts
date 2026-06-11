@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { routing, type Locale } from "@/i18n/routing";
-import { SITE_URL, localizedHref, htmlLang } from "./site";
+import { SITE_URL, localizedHref, htmlLang, ogLocale } from "./site";
 
 type PathKey = keyof typeof routing.pathnames;
 
@@ -45,7 +45,7 @@ export function buildLocalizedMetadata({
       url,
       title,
       description,
-      locale,
+      locale: ogLocale(locale),
       ...(ogImage ? { images: [{ url: ogImage }] } : {}),
       ...(type === "article" && publishedTime ? { publishedTime } : {}),
     },

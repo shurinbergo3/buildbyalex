@@ -6,7 +6,7 @@ import { getMessages, getTranslations, setRequestLocale } from "next-intl/server
 import { notFound } from "next/navigation";
 import { cookies } from "next/headers";
 import { routing, type Locale } from "@/i18n/routing";
-import { SITE_URL, localizedHref, htmlLang } from "@/lib/site";
+import { SITE_URL, localizedHref, htmlLang, ogLocale } from "@/lib/site";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider, type Theme } from "@/components/ThemeProvider";
@@ -74,7 +74,7 @@ export async function generateMetadata({
       title: t("defaultTitle"),
       description: t("defaultDescription"),
       siteName: t("siteName"),
-      locale,
+      locale: ogLocale(locale as Locale),
       url: localizedHref(locale as Locale, "/"),
     },
     twitter: {

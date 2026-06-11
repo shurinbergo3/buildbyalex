@@ -20,7 +20,7 @@ import { BodyForgeShowcase } from "@/components/BodyForgeShowcase";
 import { CrmbotShowcase } from "@/components/CrmbotShowcase";
 import { routing, type Locale } from "@/i18n/routing";
 import { caseSlugToKey, caseImages, caseCategory, type CaseKey } from "@/lib/cases";
-import { SITE_URL, localizedDynamicHref, dynamicLanguageAlternates } from "@/lib/site";
+import { SITE_URL, localizedDynamicHref, dynamicLanguageAlternates, htmlLang } from "@/lib/site";
 
 export function generateStaticParams() {
   const slugs = Object.keys(caseSlugToKey);
@@ -156,8 +156,8 @@ function CaseContent({ slug, locale }: { slug: string; locale: string }) {
     "@type": "Article",
     headline: `${c.title} — ${c.tagline}`,
     description: c.tagline,
-    image: image.src,
-    inLanguage: locale,
+    image: `${SITE_URL}${image.src}`,
+    inLanguage: htmlLang(locale as Locale),
     keywords: [c.industry, ...c.stack].join(", "),
     mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
     author: {

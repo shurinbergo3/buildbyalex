@@ -26,15 +26,39 @@ export type Post = PostMeta & {
   content: string;
 };
 
+// Content is immutable at runtime in production, and the sitemap + per-post
+// metadata re-read every file many times during a build — cache aggressively.
+// Disabled in dev so new/edited posts show up without a server restart.
+const CACHE_ENABLED = process.env.NODE_ENV === "production";
+const postCache = new Map<string, Post | null>();
+const slugsCache = new Map<Locale, string[]>();
+
 function readPostFile(locale: Locale, slug: string): Post | null {
+  const cacheKey = `${locale}/${slug}`;
+  if (CACHE_ENABLED && postCache.has(cacheKey)) return postCache.get(cacheKey)!;
+  const post = parsePostFile(locale, slug);
+  if (CACHE_ENABLED) postCache.set(cacheKey, post);
+  return post;
+}
+
+function parsePostFile(locale: Locale, slug: string): Post | null {
   const file = path.join(CONTENT_ROOT, locale, `${slug}.mdx`);
   if (!fs.existsSync(file)) return null;
   const source = fs.readFileSync(file, "utf8");
   const { data, content } = matter(source);
-  const fm = data as PostFrontmatter;
+  const fm = data as Omit<PostFrontmatter, "date"> & { date?: string | Date };
+  // One malformed post must not poison metadata/sitemap output (undefined
+  // titles in meta tags, Invalid Date in <lastmod>) — skip it loudly instead.
+  if (!fm.title || !fm.description || !fm.date || !fm.cluster) {
+    console.warn(`[blog] ${locale}/${slug}.mdx: missing required frontmatter — post skipped`);
+    return null;
+  }
+  // An unquoted YAML date parses as a Date object — normalize to "YYYY-MM-DD".
+  const date = fm.date instanceof Date ? fm.date.toISOString().slice(0, 10) : String(fm.date);
   const rt = readingTime(content);
   return {
     ...fm,
+    date,
     slug,
     locale,
     readingMinutes: Math.max(1, Math.round(rt.minutes)),
@@ -56,12 +80,19 @@ export function getPostImage(ogImage?: string): string | null {
 }
 
 export function getAllPostSlugs(locale: Locale): string[] {
+  if (CACHE_ENABLED) {
+    const cached = slugsCache.get(locale);
+    if (cached) return cached;
+  }
   const dir = path.join(CONTENT_ROOT, locale);
-  if (!fs.existsSync(dir)) return [];
-  return fs
-    .readdirSync(dir)
-    .filter((f) => f.endsWith(".mdx"))
-    .map((f) => f.replace(/\.mdx$/, ""));
+  const slugs = !fs.existsSync(dir)
+    ? []
+    : fs
+        .readdirSync(dir)
+        .filter((f) => f.endsWith(".mdx"))
+        .map((f) => f.replace(/\.mdx$/, ""));
+  if (CACHE_ENABLED) slugsCache.set(locale, slugs);
+  return slugs;
 }
 
 export function getAllPosts(locale: Locale): PostMeta[] {

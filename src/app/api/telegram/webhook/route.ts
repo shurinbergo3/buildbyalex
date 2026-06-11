@@ -14,12 +14,16 @@ export const dynamic = "force-dynamic";
  * Always returns 200 quickly so Telegram doesn't retry — errors are logged.
  */
 export async function POST(req: Request) {
+  // Fail closed: without a configured secret anyone could forge updates and
+  // make the bot send lead data to an arbitrary chat.
   const secret = process.env.TELEGRAM_WEBHOOK_SECRET?.trim();
-  if (secret) {
-    const got = req.headers.get("x-telegram-bot-api-secret-token");
-    if (got !== secret) {
-      return new Response("forbidden", { status: 403 });
-    }
+  if (!secret) {
+    console.error("[telegram webhook] TELEGRAM_WEBHOOK_SECRET is not set — rejecting update");
+    return new Response("forbidden", { status: 403 });
+  }
+  const got = req.headers.get("x-telegram-bot-api-secret-token");
+  if (got !== secret) {
+    return new Response("forbidden", { status: 403 });
   }
 
   let update: unknown;

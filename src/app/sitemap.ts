@@ -76,7 +76,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   // Blog posts (per locale, only where the post exists). hreflang links every
-  // translated variant of the same cluster.
+  // translated variant of the same cluster — mirroring the on-page metadata
+  // exactly (self-reference + x-default included), since mismatched sets
+  // weaken the hreflang cluster signal.
   for (const loc of routing.locales) {
     for (const slug of getAllPostSlugs(loc as Locale)) {
       const post = getPost(loc as Locale, slug);
@@ -85,12 +87,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       for (const [clLoc, clSlug] of Object.entries(cluster)) {
         languages[htmlLang(clLoc as Locale)] = `${SITE_URL}/${clLoc}/blog/${clSlug}`;
       }
+      const defaultSlug = cluster[routing.defaultLocale as Locale];
+      if (defaultSlug) {
+        languages["x-default"] = `${SITE_URL}/${routing.defaultLocale}/blog/${defaultSlug}`;
+      }
       out.push({
         url: `${SITE_URL}/${loc}/blog/${slug}`,
         lastModified: post ? new Date(post.date) : STATIC_LAST_MODIFIED,
         changeFrequency: "monthly",
         priority: 0.5,
-        ...(Object.keys(languages).length > 1 ? { alternates: { languages } } : {}),
+        ...(Object.keys(languages).length > 0 ? { alternates: { languages } } : {}),
       });
     }
   }

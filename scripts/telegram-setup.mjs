@@ -24,6 +24,13 @@ if (!token) {
   process.exit(1);
 }
 
+if (!secret && process.argv[2] !== "delete") {
+  console.error(
+    "✗ TELEGRAM_WEBHOOK_SECRET is required — the webhook endpoint rejects updates without it"
+  );
+  process.exit(1);
+}
+
 const api = (method) => `https://api.telegram.org/bot${token}/${method}`;
 
 async function call(method, body) {
@@ -59,12 +66,11 @@ async function main() {
   const url = `${siteUrl}/api/telegram/webhook`;
   await call("setWebhook", {
     url,
-    ...(secret ? { secret_token: secret } : {}),
+    secret_token: secret,
     allowed_updates: ["message", "callback_query"],
     drop_pending_updates: true,
   });
   console.log(`✓ Webhook установлен → ${url}`);
-  if (!secret) console.warn("⚠ TELEGRAM_WEBHOOK_SECRET не задан — endpoint открыт без проверки секрета");
 
   await setCommands();
 

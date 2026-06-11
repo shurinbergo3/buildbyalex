@@ -24,7 +24,6 @@ const FIELD_SEQUENCE: { key: keyof Pick<Lead, "name" | "phone" | "service" | "da
 
 const CHAR_DELAY_MS = 35;
 const FIELD_PAUSE_MS = 350;
-const SUBMIT_HOLD_MS = 900;
 const DELIVERED_HOLD_MS = 3200;
 const REST_MS = 800;
 
@@ -59,12 +58,21 @@ export function InstantLeadMock() {
   // Mirror the visitor's real device time on the mock phone. Seeded with the
   // translated placeholder so SSR/first render match, then set to live time.
   const [clock, setClock] = useState(phone.lockTime);
+  // Same deal for the lock-screen date line: locale/timezone-dependent, so it
+  // must not be computed during render (SSR and client would disagree).
+  const [weekday, setWeekday] = useState("");
 
   useEffect(() => {
     const fmt = () =>
       new Date().toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
+    const fmtWeekday = () =>
+      new Date().toLocaleDateString(undefined, { weekday: "long", day: "numeric", month: "long" });
     setClock(fmt());
-    const id = setInterval(() => setClock(fmt()), 30_000);
+    setWeekday(fmtWeekday());
+    const id = setInterval(() => {
+      setClock(fmt());
+      setWeekday(fmtWeekday());
+    }, 30_000);
     return () => clearInterval(id);
   }, []);
 
@@ -223,6 +231,7 @@ export function InstantLeadMock() {
             phase={phase}
             lead={lead}
             lockTime={clock}
+            weekday={weekday}
             app={phone.app}
             tag={phone.tag}
           />
@@ -330,12 +339,14 @@ function Phone({
   phase,
   lead,
   lockTime,
+  weekday,
   app,
   tag,
 }: {
   phase: Phase;
   lead: Lead;
   lockTime: string;
+  weekday: string;
   app: string;
   tag: string;
 }) {
@@ -380,8 +391,8 @@ function Phone({
 
         {/* Lock screen time */}
         <div className="relative z-10 flex flex-col items-center pt-12 text-white">
-          <div className="text-[14px] font-medium tracking-wider opacity-80">
-            {weekdayLabel(lockTime)}
+          <div className="min-h-[21px] text-[14px] font-medium tracking-wider opacity-80">
+            {weekday}
           </div>
           <div className="mt-1 text-[72px] font-extralight leading-none tabular-nums">
             {lockTime}
@@ -491,8 +502,4 @@ function StopwatchIcon({ spinning }: { spinning: boolean }) {
 function formatElapsed(ms: number): string {
   const s = ms / 1000;
   return s.toFixed(1).replace(".", ",");
-}
-
-function weekdayLabel(_lockTime: string): string {
-  return new Date().toLocaleDateString(undefined, { weekday: "long", day: "numeric", month: "long" });
 }

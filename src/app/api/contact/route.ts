@@ -1,3 +1,4 @@
+import { isDuplicate, rateLimit } from "@/lib/rateLimit";
 import { addLead } from "@/lib/store";
 import { notifyLead } from "@/lib/telegram";
 
@@ -19,23 +20,6 @@ function isValidEmail(s: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
 }
 
-async function rateLimit(ip: string, email: string): Promise<boolean> {
-  const url = process.env.UPSTASH_REDIS_REST_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
-  if (!url || !token) return true; // graceful: no rate-limit if not configured
-  try {
-    const key = `contact:${ip}:${email.toLowerCase()}`;
-    const res = await fetch(`${url}/set/${encodeURIComponent(key)}/1?nx=true&ex=600`, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    if (!res.ok) return true;
-    const data = (await res.json()) as { result: string | null };
-    return data.result === "OK";
-  } catch {
-    return true;
-  }
-}
-
 export async function POST(req: Request) {
   let data: Partial<Payload>;
   try {
@@ -45,13 +29,13 @@ export async function POST(req: Request) {
   }
 
   const name = (data.name ?? "").trim();
-  const email = (data.email ?? "").trim();
+  const email = (data.email ?? "").trim().slice(0, 254);
   const phone = (data.phone ?? "").trim().slice(0, 40);
-  const company = (data.company ?? "").trim();
-  const type = (data.type ?? "").trim();
-  const budget = (data.budget ?? "").trim();
+  const company = (data.company ?? "").trim().slice(0, 200);
+  const type = (data.type ?? "").trim().slice(0, 40);
+  const budget = (data.budget ?? "").trim().slice(0, 40);
   const description = (data.description ?? "").trim();
-  const locale = (data.locale ?? "ru").trim();
+  const locale = (data.locale ?? "ru").trim().slice(0, 10);
 
   if (!name || name.length > 120) {
     return Response.json({ ok: false, error: "Name required" }, { status: 400 });
@@ -68,9 +52,14 @@ export async function POST(req: Request) {
     req.headers.get("x-real-ip") ??
     "unknown";
 
-  const allowed = await rateLimit(ip, email);
+  const allowed = await rateLimit("contact", ip, 5);
   if (!allowed) {
-    // Silent success — dedupe within 10 min
+    return Response.json({ ok: false, error: "Too many requests" }, { status: 429 });
+  }
+
+  // Identical resubmit within 10 min (double click, impatient refresh) — the
+  // lead is already stored, so just acknowledge. Changed content passes through.
+  if (await isDuplicate("contact", email.toLowerCase(), description)) {
     return Response.json({ ok: true, deduped: true });
   }
 

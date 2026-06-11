@@ -28,10 +28,20 @@ const PACING: Pick<Message, "typingMs" | "pauseMs">[] = [
 
 const LOOP_PAUSE_MS = 8000;
 
-function formatTime(offsetSeconds: number) {
-  const base = new Date();
-  base.setSeconds(base.getSeconds() + offsetSeconds);
-  return base.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+// Static seed so SSR and the client's first render agree; swapped for the
+// visitor's real device time in an effect (locale/timezone differ between
+// server and browser, so this must never be computed during render).
+const CLOCK_SEED = "9:41";
+
+function useDeviceClock(): string {
+  const [clock, setClock] = useState(CLOCK_SEED);
+  useEffect(() => {
+    const fmt = () => new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    setClock(fmt());
+    const id = setInterval(() => setClock(fmt()), 30_000);
+    return () => clearInterval(id);
+  }, []);
+  return clock;
 }
 
 export function TelegramChatMock() {
@@ -53,6 +63,7 @@ export function TelegramChatMock() {
   const [visibleCount, setVisibleCount] = useState(0);
   const [typingFor, setTypingFor] = useState<Sender | null>(null);
   const [cycle, setCycle] = useState(0);
+  const clock = useDeviceClock();
 
   useEffect(() => {
     let cancelled = false;
@@ -112,7 +123,7 @@ export function TelegramChatMock() {
 
           {/* Status bar */}
           <div className="relative z-20 flex items-center justify-between px-6 pt-3 pb-1 text-[11px] font-medium text-white/90">
-            <span>{formatTime(0)}</span>
+            <span>{clock}</span>
             <div className="flex items-center gap-1.5">
               <SignalIcon />
               <WifiIcon />
@@ -199,7 +210,7 @@ export function TelegramChatMock() {
             <div className="relative flex h-full flex-col justify-end gap-1.5">
               <AnimatePresence initial={false}>
                 {script.slice(0, visibleCount).map((msg, i) => (
-                  <Bubble key={`${cycle}-${i}`} sender={msg.sender} text={msg.text} />
+                  <Bubble key={`${cycle}-${i}`} sender={msg.sender} text={msg.text} time={clock} />
                 ))}
                 {typingFor && (
                   <TypingBubble key={`${cycle}-typing`} sender={typingFor} />
@@ -236,7 +247,7 @@ export function TelegramChatMock() {
   );
 }
 
-function Bubble({ sender, text }: { sender: Sender; text: string }) {
+function Bubble({ sender, text, time }: { sender: Sender; text: string; time: string }) {
   const isBot = sender === "bot";
   return (
     <motion.div
@@ -257,7 +268,7 @@ function Bubble({ sender, text }: { sender: Sender; text: string }) {
       >
         <span>{text}</span>
         <span className="ml-2 inline-flex translate-y-[2px] items-center gap-0.5 text-[10px] text-white/55">
-          {formatTime(0)}
+          {time}
           {!isBot && (
             <svg
               width="14"

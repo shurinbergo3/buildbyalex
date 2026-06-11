@@ -9,6 +9,11 @@ export function htmlLang(locale: Locale): string {
   return locale === "ua" ? "uk" : locale;
 }
 
+/** Map next-intl locale → Open Graph og:locale (language_TERRITORY). */
+export function ogLocale(locale: Locale): string {
+  return { ru: "ru_RU", en: "en_US", pl: "pl_PL", ua: "uk_UA" }[locale] ?? "en_US";
+}
+
 /**
  * Build the localized URL for a logical pathname.
  * Reads localized slugs from `routing.pathnames`.

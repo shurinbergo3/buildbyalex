@@ -33,9 +33,12 @@ export function ContactForm() {
 
     // Client-side validation with specific, friendly messages so users
     // aren't left guessing why a submit was rejected.
-    if (!payload.name || !payload.description) {
+    if (!payload.name || !payload.description || !payload.budget) {
       setState("error");
       setError(t("errorRequired"));
+      if (!payload.budget && payload.name && payload.description) {
+        (e.currentTarget.elements.namedItem("budget") as HTMLSelectElement | null)?.focus();
+      }
       return;
     }
     if (!isValidEmail(payload.email)) {

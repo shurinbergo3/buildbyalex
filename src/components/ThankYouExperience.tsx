@@ -49,9 +49,16 @@ export function ThankYouExperience({
     return () => clearInterval(id);
   }, []);
 
-  const reduceMotion = useMemo(() => {
-    if (typeof window === "undefined") return false;
-    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Read in an effect, not during render: SSR has no matchMedia, so a
+  // render-time read makes the server and a reduced-motion client disagree
+  // and React flags a hydration mismatch.
+  const [reduceMotion, setReduceMotion] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduceMotion(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setReduceMotion(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
   }, []);
 
   useEffect(() => {

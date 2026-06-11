@@ -58,11 +58,16 @@ async function call(method: string, params: Json): Promise<Response | null> {
     return null;
   }
   try {
-    return await fetch(API(token, method), {
+    const res = await fetch(API(token, method), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(params),
     });
+    if (!res.ok) {
+      const body = await res.text().catch(() => "");
+      console.error(`[telegram] ${method} → ${res.status} ${body.slice(0, 300)}`);
+    }
+    return res;
   } catch (err) {
     console.error(`[telegram] ${method} failed`, err);
     return null;
@@ -170,9 +175,21 @@ function fmtBudget(b?: string): string {
   return BUDGET_LABEL[b] ?? b;
 }
 
+// Telegram caps message text at 4096 chars; HTML-escaping can expand the raw
+// text well past that. Leave headroom so a long message degrades to a
+// truncated card instead of a 400 that makes the lead unviewable in the bot.
+const TG_TEXT_LIMIT = 4096;
+
+/** Trim an HTML-escaped string without cutting an `&...;` entity in half. */
+function clampEscaped(s: string, max: number): string {
+  if (s.length <= max) return s;
+  const cut = s.slice(0, Math.max(0, max - 1)).replace(/&[a-z]{0,4}$/i, "");
+  return `${cut}…`;
+}
+
 export function formatLead(lead: Lead): string {
-  return [
-    `🟢 <b>Заявка #${lead.id}</b> · ${STATUS_LABEL[lead.status]}`,
+  const head = [
+    `🟢 <b>Заявка #${lead.id}</b> · ${STATUS_LABEL[lead.status] ?? lead.status}`,
     `<i>${fmtDate(lead.createdAt)}</i>`,
     ``,
     `<b>Имя:</b> ${escape(lead.name)}`,
@@ -184,16 +201,16 @@ export function formatLead(lead: Lead): string {
     `<b>Язык:</b> ${escape(lead.locale)}`,
     ``,
     `<b>Сообщение:</b>`,
-    escape(lead.description),
   ]
     .filter((x) => x !== null)
     .join("\n");
+  return `${head}\n${clampEscaped(escape(lead.description), TG_TEXT_LIMIT - head.length - 64)}`;
 }
 
 export function formatReview(r: Review): string {
   const stars = "★".repeat(Math.round(r.rating)) + "☆".repeat(5 - Math.round(r.rating));
-  return [
-    `⭐ <b>Отзыв #${r.id}</b> · ${REVIEW_STATUS_LABEL[r.status]}`,
+  const head = [
+    `⭐ <b>Отзыв #${r.id}</b> · ${REVIEW_STATUS_LABEL[r.status] ?? r.status}`,
     `<i>${fmtDate(r.createdAt)}</i>`,
     ``,
     `<b>Оценка:</b> ${stars} (${r.rating}/5)`,
@@ -202,10 +219,10 @@ export function formatReview(r: Review): string {
     `<b>Язык:</b> ${escape(r.locale)}`,
     ``,
     `<b>Текст:</b>`,
-    escape(r.quote),
   ]
     .filter((x) => x !== null)
     .join("\n");
+  return `${head}\n${clampEscaped(escape(r.quote), TG_TEXT_LIMIT - head.length - 64)}`;
 }
 
 // ---- keyboards -------------------------------------------------------------
@@ -296,7 +313,7 @@ export async function viewLeads(
 
   const rows: InlineKeyboard = res.items.map((l) => [
     {
-      text: `${STATUS_LABEL[l.status].slice(0, 2)} #${l.id} · ${l.name} · ${fmtType(l.type)}`.slice(
+      text: `${(STATUS_LABEL[l.status] ?? "⚪").slice(0, 2)} #${l.id} · ${l.name} · ${fmtType(l.type)}`.slice(
         0,
         60,
       ),
@@ -462,6 +479,12 @@ type TgUpdate = {
   };
 };
 
+const VALID_STATUSES: readonly Status[] = ["new", "in_progress", "done"];
+
+function parseStatus(s: string | undefined): Status | null {
+  return VALID_STATUSES.includes(s as Status) ? (s as Status) : null;
+}
+
 const WELCOME = [
   `👋 <b>buildbyalex bot</b>`,
   ``,
@@ -492,7 +515,12 @@ async function handleCallback(cq: NonNullable<TgUpdate["callback_query"]>): Prom
     } else if (parts[0] === "L" && parts[1] === "v") {
       await viewLead(chatId, Number(parts[2]), messageId);
     } else if (parts[0] === "L" && parts[1] === "s") {
-      await setLeadStatus(Number(parts[2]), parts[3] as Status);
+      const status = parseStatus(parts[3]);
+      if (!status) {
+        await answerCallback(cq.id, "Неизвестный статус");
+        return;
+      }
+      await setLeadStatus(Number(parts[2]), status);
       await viewLead(chatId, Number(parts[2]), messageId);
       await answerCallback(cq.id, "Статус обновлён");
       return;
@@ -501,7 +529,12 @@ async function handleCallback(cq: NonNullable<TgUpdate["callback_query"]>): Prom
     } else if (parts[0] === "R" && parts[1] === "v") {
       await viewReview(chatId, Number(parts[2]), messageId);
     } else if (parts[0] === "R" && parts[1] === "s") {
-      await setReviewStatus(Number(parts[2]), parts[3] as Status);
+      const status = parseStatus(parts[3]);
+      if (!status) {
+        await answerCallback(cq.id, "Неизвестный статус");
+        return;
+      }
+      await setReviewStatus(Number(parts[2]), status);
       await viewReview(chatId, Number(parts[2]), messageId);
       await answerCallback(cq.id, "Статус обновлён");
       return;

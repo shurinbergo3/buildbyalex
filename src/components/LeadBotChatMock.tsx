@@ -26,10 +26,20 @@ const PAUSE_MS = 850;
 const FIRST_PAUSE_MS = 1600;
 const LOOP_PAUSE_MS = 7000;
 
-function formatTime(offsetSeconds: number) {
-  const base = new Date();
-  base.setSeconds(base.getSeconds() + offsetSeconds);
-  return base.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+// Static seed so SSR and the client's first render agree; swapped for the
+// visitor's real device time in an effect (locale/timezone differ between
+// server and browser, so this must never be computed during render).
+const CLOCK_SEED = "9:41";
+
+function useDeviceClock(): string {
+  const [clock, setClock] = useState(CLOCK_SEED);
+  useEffect(() => {
+    const fmt = () => new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    setClock(fmt());
+    const id = setInterval(() => setClock(fmt()), 30_000);
+    return () => clearInterval(id);
+  }, []);
+  return clock;
 }
 
 export function LeadBotChatMock() {
@@ -53,6 +63,7 @@ export function LeadBotChatMock() {
   const [typingFor, setTypingFor] = useState<Sender | null>(null);
   const [visibleEvents, setVisibleEvents] = useState(0);
   const [cycle, setCycle] = useState(0);
+  const clock = useDeviceClock();
 
   useEffect(() => {
     let cancelled = false;
@@ -120,7 +131,7 @@ export function LeadBotChatMock() {
 
               {/* Status bar */}
               <div className="relative z-20 flex items-center justify-between px-6 pt-3 pb-1 text-[11px] font-medium text-white/90">
-                <span>{formatTime(0)}</span>
+                <span>{clock}</span>
                 <div className="flex items-center gap-1.5">
                   <SignalIcon />
                   <WifiIcon />
@@ -194,6 +205,7 @@ export function LeadBotChatMock() {
                         key={`${cycle}-${i}`}
                         sender={msg.sender}
                         text={msg.text}
+                        time={clock}
                       />
                     ))}
                     {typingFor && (
@@ -333,7 +345,7 @@ export function LeadBotChatMock() {
   );
 }
 
-function Bubble({ sender, text }: { sender: Sender; text: string }) {
+function Bubble({ sender, text, time }: { sender: Sender; text: string; time: string }) {
   const isBot = sender === "bot";
   return (
     <motion.div
@@ -354,7 +366,7 @@ function Bubble({ sender, text }: { sender: Sender; text: string }) {
       >
         <span>{text}</span>
         <span className="ml-2 inline-flex translate-y-[2px] items-center gap-0.5 text-[10px] text-white/55">
-          {formatTime(0)}
+          {time}
           {!isBot && (
             <svg width="14" height="10" viewBox="0 0 16 11" fill="none" className="text-[#6ab3f3]">
               <path d="M1 5.5L4 8.5L9.5 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
