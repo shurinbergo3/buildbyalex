@@ -283,7 +283,7 @@ export function Hero() {
                 </p>
 
                 <h1
-                  className="mt-5 t-hero hero-headline animate-[fadeUp_900ms_cubic-bezier(0.16,1,0.3,1)_both]"
+                  className="mt-4 sm:mt-5 t-hero hero-headline animate-[fadeUp_900ms_cubic-bezier(0.16,1,0.3,1)_both]"
                   style={{ animationDelay: "160ms" }}
                 >
                   {headlineLines.map((line, i) => (
@@ -294,7 +294,7 @@ export function Hero() {
                 </h1>
 
                 <p
-                  className="mx-auto mt-6 max-w-[640px] text-[clamp(17px,1.4vw+13px,22px)] leading-[1.45] tracking-[-0.013em] hero-sub animate-[fadeUp_900ms_cubic-bezier(0.16,1,0.3,1)_both]"
+                  className="mx-auto mt-4 sm:mt-6 max-w-[640px] text-[clamp(15.5px,1.4vw+13px,22px)] leading-[1.45] tracking-[-0.013em] hero-sub animate-[fadeUp_900ms_cubic-bezier(0.16,1,0.3,1)_both]"
                   style={{ animationDelay: "260ms" }}
                 >
                   {t("subhead")}
@@ -302,7 +302,7 @@ export function Hero() {
 
                 <div
                   ref={ctaRef}
-                  className="hero-cta mt-10 flex flex-wrap items-center justify-center gap-3 animate-[fadeUp_900ms_cubic-bezier(0.16,1,0.3,1)_both]"
+                  className="hero-cta mt-7 sm:mt-10 flex flex-wrap items-center justify-center gap-3 animate-[fadeUp_900ms_cubic-bezier(0.16,1,0.3,1)_both]"
                   style={{ animationDelay: "380ms" }}
                 >
                   <Button href="/contact" size="lg">
@@ -314,7 +314,7 @@ export function Hero() {
                 </div>
 
                 <div
-                  className="mt-9 flex items-center justify-center gap-3 animate-[fadeUp_900ms_cubic-bezier(0.16,1,0.3,1)_both]"
+                  className="mt-6 sm:mt-9 flex items-center justify-center gap-3 animate-[fadeUp_900ms_cubic-bezier(0.16,1,0.3,1)_both]"
                   style={{ animationDelay: "440ms" }}
                 >
                   <div className="flex -space-x-2.5" aria-hidden="true">
@@ -349,7 +349,7 @@ export function Hero() {
                 </div>
 
                 <p
-                  className="mt-8 text-[13px] tracking-[0.04em] hero-trust animate-[fadeUp_900ms_cubic-bezier(0.16,1,0.3,1)_both]"
+                  className="mt-6 sm:mt-8 text-[13px] tracking-[0.04em] hero-trust animate-[fadeUp_900ms_cubic-bezier(0.16,1,0.3,1)_both]"
                   style={{ animationDelay: "560ms" }}
                 >
                   {t("trustLine")}

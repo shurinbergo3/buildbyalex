@@ -540,8 +540,25 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
 }
 
 @media (max-width: 640px) {
-  .hero-scroll { height: 185vh; }
-  .hero-content { padding: 40px 0; }
+  /* The hero is a full-bleed sticky stage meant to sit *under* the transparent
+     header. `main` adds pt-[--header-h], which on phones pushes the 100vh stage
+     below the fold (centering the content low and clipping the rating/trust row
+     under the bottom edge). Pull the stage back up under the header and add the
+     header height back as top padding so the centered content clears it. */
+  .hero-scroll {
+    height: 185vh;
+    margin-top: calc(-1 * var(--header-h));
+  }
+  .hero-content { padding: calc(18px + var(--header-h)) 0 18px; }
+  /* The full-size hero type (clamp min 48px) wraps the long RU/UA headline to
+     ~7 lines and, with the social-proof + trust rows, overflows the stage.
+     Scale it down on phones so the whole hero fits a short (~640px) viewport.
+     h1.hero-headline beats .t-hero on specificity. */
+  h1.hero-headline {
+    font-size: clamp(28px, 5.2vw + 11px, 36px);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+  }
 }
 
 /* ─── Live badge — payoff element that pops in at the end of the morph ─── */
