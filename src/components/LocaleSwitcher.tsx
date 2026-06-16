@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
+import { htmlLang } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const labels: Record<Locale, string> = {
@@ -48,7 +49,34 @@ export function LocaleSwitcher({
 
   function pick(next: Locale) {
     setOpen(false);
-    // pathname may include dynamic segments; pair with current params
+
+    // Prefer the page's own hreflang alternate as the source of truth. The
+    // server computes these correctly even when the slug differs per locale
+    // (blog clusters: chto-takoe-ai-agent ↔ what-is-an-ai-agent; localized
+    // service paths: /uslugi/internet-magazin ↔ /services/online-store).
+    // next-intl's router would otherwise keep the current slug and produce a
+    // wrong-locale URL that 404s (blog) or 307-redirects (services) — both of
+    // which Google flagged as indexing errors.
+    if (typeof document !== "undefined") {
+      const hl = htmlLang(next); // ua → uk, matching the hreflang codes
+      const link = document.querySelector<HTMLLinkElement>(
+        `link[rel="alternate"][hreflang="${hl}"]`,
+      );
+      const href = link?.getAttribute("href");
+      if (href) {
+        try {
+          // Resolve onto the current origin so dev (localhost) doesn't jump to
+          // the production host baked into SITE_URL.
+          const url = new URL(href, window.location.origin);
+          window.location.assign(url.pathname + url.search + url.hash);
+          return;
+        } catch {
+          /* fall through to next-intl routing */
+        }
+      }
+    }
+
+    // Fallback: pathname may include dynamic segments; pair with current params.
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     router.replace({ pathname, params } as any, { locale: next });
   }
