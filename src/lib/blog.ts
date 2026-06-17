@@ -195,6 +195,32 @@ export const clusterToService: Record<string, { menuKey: ServiceMenuKey; path: S
   "ai-agent-gdansk-en": { menuKey: "ai", path: "/services/ai-agents" },
   "ai-agent-gdansk-ru": { menuKey: "ai", path: "/services/ai-agents" },
   "ai-agent-gdansk-ua": { menuKey: "ai", path: "/services/ai-agents" },
+  // 2026 content batch. Informational topics use a single shared cluster across
+  // locales (en/pl/ru/ua are translations → hreflang-linked). Geo-intent topics
+  // keep a unique cluster per locale (independent ranking, no cross-locale
+  // hreflang) — matching the geo convention above.
+  "order-website": { menuKey: "websites", path: "/services/websites" },
+  "website-maintenance": { menuKey: "websites", path: "/services/websites" },
+  "landing-page-cost": { menuKey: "websites", path: "/services/websites" },
+  "corporate-website": { menuKey: "websites", path: "/services/websites" },
+  "ios-app-development": { menuKey: "mobile", path: "/services/mobile-apps" },
+  "native-vs-crossplatform": { menuKey: "mobile", path: "/services/mobile-apps" },
+  "publish-app-store": { menuKey: "mobile", path: "/services/mobile-apps" },
+  "how-to-open-store-poland": { menuKey: "store", path: "/services/online-store" },
+  "shopify-store": { menuKey: "store", path: "/services/online-store" },
+  "ai-agent-crm-integration": { menuKey: "ai", path: "/services/ai-agents" },
+  "ai-agent-booking": { menuKey: "ai", path: "/services/ai-agents" },
+  "voice-ai-agent": { menuKey: "ai", path: "/services/ai-agents" },
+  "ai-chatbot-knowledge-base": { menuKey: "ai", path: "/services/ai-agents" },
+  // Geo-intent (per-locale clusters). Warsaw web/mobile already have en/pl above.
+  "web-developer-warsaw-ru": { menuKey: "websites", path: "/services/websites" },
+  "web-developer-warsaw-ua": { menuKey: "websites", path: "/services/websites" },
+  "mobile-app-developer-warsaw-ru": { menuKey: "mobile", path: "/services/mobile-apps" },
+  "mobile-app-developer-warsaw-ua": { menuKey: "mobile", path: "/services/mobile-apps" },
+  "online-store-development-krakow-pl": { menuKey: "store", path: "/services/online-store" },
+  "online-store-development-krakow-en": { menuKey: "store", path: "/services/online-store" },
+  "online-store-development-krakow-ru": { menuKey: "store", path: "/services/online-store" },
+  "online-store-development-krakow-ua": { menuKey: "store", path: "/services/online-store" },
 };
 
 /** The service a post links to, or null if its cluster isn't mapped. */

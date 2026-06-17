@@ -1,0 +1,89 @@
+---
+title: "Native or cross-platform app: what to choose and why"
+description: "How native development in Swift and Kotlin differs from Flutter and React Native, what costs less, what runs faster, and which option fits your app."
+date: "2026-02-04"
+cluster: "native-vs-crossplatform"
+keywords:
+  - "native or cross-platform app"
+  - "Flutter or native development"
+  - "React Native or Swift"
+  - "cross-platform app development"
+ogImage: "/og/native-vs-crossplatform.webp"
+---
+
+This is the first technical question that gets decided before development even starts, and the answer drives your budget, your timeline, and how easy the product will be to grow later. Yet it is almost always framed as an ideology: "native is better" or "cross-platform is the future." In practice it is not a matter of belief, it is a matter of your task. I do both, and I will tell you honestly, without the dogma, when each approach pays off.
+
+## What the difference actually is
+
+Native development is when the app is written separately for each platform in its own language: Swift for iOS, Kotlin for Android. Two apps, two sets of competencies, the full range of what each system can do.
+
+Cross-platform development is one codebase that becomes both iOS and Android. The most popular tools are Flutter (from Google) and React Native (from Meta). You write once and get both platforms.
+
+The main fork follows from this: with native you pay for two apps, with cross-platform you pay for almost one. But price is not the only factor, otherwise there would be no question at all.
+
+## When cross-platform pays off
+
+For most business apps I look toward cross-platform by default, and here is why.
+
+- **You need both platforms and the budget is limited.** One codebase instead of two is a noticeable saving on both development and ongoing support. For launching on iOS and Android at once it is almost always the smarter move.
+- **Ordinary business logic.** Bookings, catalogs, user accounts, delivery, orders, loyalty - cross-platform handles all of it without trouble. Here you simply will not feel the native advantages.
+- **Time to market matters.** A single codebase gets you to launch faster, especially for an MVP where you need to test the idea on both platforms at once.
+- **A small team or a single developer.** Maintaining one codebase is simpler and cheaper than two separate apps.
+
+Today's Flutter and React Native stopped being the "slow wrappers" they were at the start a long time ago. For the vast majority of apps a user will not tell them apart from native, and the business saves a real chunk of its budget.
+
+## When you need native development
+
+Native is justified when the app pushes against the limits of the platform or of performance.
+
+- **Complex graphics and animation.** Games, heavy visual effects, real-time video processing - this is where native squeezes the most out of the hardware.
+- **Deep work with the device.** Complex scenarios with the camera, sensors, Bluetooth, background processes, where access to the freshest system capabilities right after release matters.
+- **Only one platform.** If the app is definitely needed for iOS only, cross-platform makes less sense: you are not using its main advantage, and native Swift will give a better response.
+- **Maximum performance requirements.** When every millisecond and every bit of smoothness is critical to the product.
+
+It is worth being honest here: there are fewer such tasks than it seems. Many people choose native "just to be sure it is better," overpay for two apps, and get no difference at all, because their product is an ordinary business service.
+
+## What it costs in money
+
+The price gap is the main practical argument, so let us take it in order.
+
+Native development for two platforms is effectively two projects. Roughly, that is one and a half to two times more expensive than a single cross-platform app of the same scope, and it stays pricier in support: every update is done twice.
+
+Cross-platform saves through a single codebase. For an app that would cost, say, 25,000-40,000 EUR natively across both platforms, the cross-platform version often fits within 12,000-25,000 EUR for the same functionality. The numbers depend on complexity, but the order of saving is like that.
+
+So the "native or cross" question is largely a question of "does your product have a real reason to pay twice." If it does not, the money is better invested in growing functionality and marketing. I help make this decision for your specific case - more in the [mobile app development service](/en/services/mobile-apps).
+
+## Common misconceptions
+
+A lot of myths have piled up around this choice, and they lead to wasted spending.
+
+"Cross-platform is laggy" - an outdated view. That was true about ten years ago. Today's Flutter and React Native feel indistinguishable from native for ordinary apps.
+
+"Native is always higher quality" - no. An app's quality is determined by how it was designed and built, not by the choice of technology. A bad native app is worse than a good cross-platform one.
+
+"We will write it cross-platform once, then easily rewrite it native" - rewriting costs almost as much as building from scratch. That is why the approach is chosen at the start and deliberately, not on a "we will sort it out later" basis.
+
+"Cross-platform is always cheap and cheerful" - also a myth. Cross-platform saves on duplication, but a quality product on it costs real money, just less than two native builds.
+
+## How I choose for the task
+
+My order is this. First I look at whether both platforms are needed and what the budget is. Then - whether the product has anything that genuinely pushes against the platform's limits: heavy graphics, deep work with the hardware, extreme performance. If there is nothing like that and both platforms are needed - cross-platform, more often Flutter. If the app is iOS only and demanding, or it is a game with heavy graphics - native.
+
+This decision is made before the first line of code, because switching the approach later means rewriting almost everything. That is why at the start I go through your task in detail rather than handing out a templated answer.
+
+## FAQ
+
+**What is cheaper - a native or a cross-platform app?**
+A cross-platform app is noticeably cheaper if you need both platforms: one codebase instead of two saves on both development and support. An app that would cost 25,000-40,000 EUR natively for iOS and Android often fits within 12,000-25,000 EUR cross-platform for the same functionality. Native is justified when there is a real reason to pay for two separate apps.
+
+**Flutter or React Native - which is better?**
+Both are mature and suit most business apps. Flutter gives a more predictable and smooth interface out of the box, while React Native is closer for those with a JavaScript team and a need for tight ties to the web side. For a specific project the choice depends on the team and the task, but in terms of the end result for the user the difference is small.
+
+**Is it true that cross-platform is laggy?**
+That is an outdated view from a decade ago. Today's Flutter and React Native feel indistinguishable from native for ordinary apps - bookings, catalogs, accounts, delivery. The difference only shows in demanding scenarios: heavy graphics, games, real-time video processing. For those, native really is better.
+
+**When do you definitely need native development?**
+When the app pushes against the platform's limits: complex graphics and animation, games, deep work with the camera and sensors, extreme performance requirements, or when the product is needed for one platform only. There are fewer such tasks than people tend to think, which is why many overpay for native without any real benefit.
+
+**Can I build it cross-platform and rewrite it native later?**
+Technically yes, but rewriting costs almost as much as building from scratch, so it is a poor plan. The approach is chosen deliberately at the start, based on the task, the budget, and the platforms. That is why I go through the product in detail before we begin: changing the technology later means redoing almost everything.
