@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
+import { Link } from "@/i18n/navigation";
 import { HeroCodeSurface } from "@/components/home/HeroCodeSurface";
 
 export function Hero() {
@@ -313,8 +314,10 @@ export function Hero() {
                   </Button>
                 </div>
 
-                <div
-                  className="mt-6 sm:mt-9 flex items-center justify-center gap-3 animate-[fadeUp_900ms_cubic-bezier(0.16,1,0.3,1)_both]"
+                <Link
+                  href={{ pathname: "/", hash: "reviews" }}
+                  aria-label={t("reviews")}
+                  className="group mt-6 sm:mt-9 inline-flex items-center justify-center gap-3 rounded-full transition-opacity hover:opacity-90 animate-[fadeUp_900ms_cubic-bezier(0.16,1,0.3,1)_both]"
                   style={{ animationDelay: "440ms" }}
                 >
                   <div className="flex -space-x-2.5" aria-hidden="true">
@@ -344,9 +347,11 @@ export function Hero() {
                         </svg>
                       ))}
                     </div>
-                    <span className="mt-1 text-[12.5px] font-medium text-white/80">{t("reviews")}</span>
+                    <span className="mt-1 text-[12.5px] font-medium text-white/80 underline decoration-white/20 decoration-from-font underline-offset-[3px] transition-colors group-hover:text-white group-hover:decoration-white/50">
+                      {t("reviews")}
+                    </span>
                   </div>
-                </div>
+                </Link>
 
                 <p
                   className="mt-6 sm:mt-8 text-[13px] tracking-[0.04em] hero-trust animate-[fadeUp_900ms_cubic-bezier(0.16,1,0.3,1)_both]"

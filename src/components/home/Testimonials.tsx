@@ -121,7 +121,7 @@ export function Testimonials() {
   const hidden = list.slice(COLLAPSED_COUNT);
 
   return (
-    <Section tone="alt" pad="default">
+    <Section id="reviews" tone="alt" pad="default" className="scroll-mt-20">
       <Container>
         <Reveal>
           <div className="max-w-[620px]">

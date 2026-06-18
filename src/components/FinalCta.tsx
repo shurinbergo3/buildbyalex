@@ -133,12 +133,16 @@ export function FinalCta({
               </div>
 
               {rating && (
-                <div className="mt-7 flex items-center justify-center gap-2.5">
+                <Link
+                  href={{ pathname: "/", hash: "reviews" }}
+                  aria-label={`${rating.value} · ${rating.count}`}
+                  className="group mt-7 inline-flex items-center justify-center gap-2.5 transition-opacity hover:opacity-90"
+                >
                   <Stars accent={accent} />
-                  <span className="text-[13.5px] text-white/60">
+                  <span className="text-[13.5px] text-white/60 underline decoration-white/20 decoration-from-font underline-offset-[3px] transition-colors group-hover:text-white/85 group-hover:decoration-white/45">
                     <span className="font-semibold text-white">{rating.value}</span> · {rating.count}
                   </span>
-                </div>
+                </Link>
               )}
 
               {note && <p className="case-cta-note">{note}</p>}

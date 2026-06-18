@@ -7,6 +7,7 @@ import { Container } from "./Container";
 import { Section } from "./Section";
 import { Button } from "./Button";
 import { HeroWindow } from "./HeroWindow";
+import { Link } from "@/i18n/navigation";
 import { ProductGlyph } from "./storeGlyphs";
 
 /* ─────────────────────────────────────────────────────────────────────────
@@ -872,12 +873,16 @@ export function ServiceHero({ branch }: { branch: Branch }) {
                 <span className="text-[14.5px] text-white/55">{t("from")}</span>
               </div>
 
-              <div className="mt-6 flex items-center gap-2.5">
+              <Link
+                href={{ pathname: "/", hash: "reviews" }}
+                aria-label={`${tr("rating")} · ${tr("count")}`}
+                className="group mt-6 inline-flex items-center gap-2.5 transition-opacity hover:opacity-90"
+              >
                 <Stars />
-                <span className="text-[13px] text-white/55">
+                <span className="text-[13px] text-white/55 underline decoration-white/20 decoration-from-font underline-offset-[3px] transition-colors group-hover:text-white/80 group-hover:decoration-white/40">
                   <span className="font-semibold text-white">{tr("rating")}</span> · {tr("count")}
                 </span>
-              </div>
+              </Link>
 
               {/* metrics */}
               <div className="mt-8 grid max-w-[480px] grid-cols-3 gap-3 border-t border-white/[0.08] pt-6">
