@@ -50,15 +50,7 @@ export default async function ContactPage({
           {/* ── Left: pitch, trust, process, channels ── */}
           <div className="md:col-span-5">
             <Reveal>
-              <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--c-hairline)] bg-[color:var(--color-bg-alt)] px-3 py-1.5 text-[12.5px] font-medium text-[color:var(--color-text-2)]">
-                <span className="relative flex h-2 w-2" aria-hidden="true">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#2ECC71] opacity-70" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[#2ECC71]" />
-                </span>
-                {t("availability")}
-              </span>
-
-              <h1 className="mt-5 text-[clamp(40px,5.5vw+8px,68px)] font-semibold leading-[1.06] tracking-[-0.032em]">
+              <h1 className="text-[clamp(40px,5.5vw+8px,68px)] font-semibold leading-[1.06] tracking-[-0.032em]">
                 {t("headline")}
               </h1>
               <p className="mt-5 text-[clamp(17px,1.2vw+13px,21px)] leading-[1.5] tracking-[-0.013em] text-[color:var(--color-text-2)] max-w-[440px]">
