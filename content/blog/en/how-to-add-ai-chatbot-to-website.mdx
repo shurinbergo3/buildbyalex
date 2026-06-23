@@ -1,0 +1,113 @@
+---
+title: "AI Chatbot for Your Website: How to Set It Up Step by Step (GPT)"
+description: "AI chatbot for your website - setup step by step: knowledge base, GPT model, widget, CRM integrations. How to stop it from making things up, what it costs and how long it takes."
+date: "2026-05-30"
+cluster: "chatbot-website-implementation"
+ogImage: "/og/chatbot-website-implementation.webp"
+keywords:
+  - "AI chatbot website setup"
+  - "how to add a chatbot to a website"
+  - "GPT chatbot on a website"
+  - "chatbot website integration"
+---
+
+To get a GPT chatbot running on your site you need four things: a tidy knowledge base (your content and documents), a model with RAG (so it answers from the base instead of making things up), a widget on the page, and integrations - handoff to a human, CRM, forms. A ready-made widget goes live in a day; a proper API-based bot is usually €1000-3000 and 1-3 weeks.
+
+I build these bots for companies in Poland, and I'll walk you through the whole process - step by step, with the spots where things most often go wrong.
+
+## Step 1. Collect and clean your knowledge base
+
+A bot is only as good as the material it answers from. Start by gathering everything the bot should know: content from your site (offer, pricing, terms), documents (policies, manuals, regulations), a list of the most common questions with ready answers, and real support conversations if you have them.
+
+Then put it in order. Drop outdated prices, contradicting statements, duplicates. One fact - one source of truth.
+
+**Where it goes wrong:** people dump everything into the base as-is - the old price list next to the new one, two versions of the terms. The bot then hits conflicting data and answers one way today, another way tomorrow. Half a day spent tidying the base saves you weeks of fixing answers later.
+
+## Step 2. Pick a model and an approach
+
+There are two roads here. A ready platform (Tidio, Chatbase, Crisp) - you paste in your content, embed the widget, and you have a bot in an hour. Or a custom build on the OpenAI API - more work, but full control over logic, tone and integrations.
+
+Either road, one mechanism is key: RAG. The bot first looks for the answer in your base, and only then phrases it - strictly from what it found. That's the difference between a bot that makes things up and a bot you can trust. I described how it works under the hood in the piece on the [chatbot with a knowledge base](/en/blog/ai-chatbot-with-knowledge-base).
+
+**Where it goes wrong:** a company takes a bare GPT integration with no RAG, "because hey, it's GPT." The bot starts confidently promising customers discounts and terms that don't exist. A bare model with no grounding in your data is a risk for the business, not a feature.
+
+## Step 3. Embed the widget on the site
+
+The technical part is simple. Ready platforms give you an HTML/JavaScript snippet - you paste it before the closing `</body>` tag or add it through Google Tag Manager, and the chat window appears in the corner. On WordPress there's often a plugin that does it for you.
+
+With a custom build you embed your own widget and wire it to a backend with the logic. It's worth setting which pages the bot shows up on - it makes sense to start with the offer, pricing, contact and FAQ pages, the spots where people actually ask questions.
+
+**Where it goes wrong:** the widget covers the "buy" button or pops up aggressively after one second on every page. Two things to check right away: whether it blocks anything important, and whether it works on a phone, since most traffic is mobile.
+
+## Step 4. Connect the integrations
+
+A bot that only talks is half a bot. To make it pay for itself, you connect it to the rest of the process:
+
+- **Handoff to a human** - on a hard question the bot doesn't improvise, it passes the conversation to a live employee and hands over the context.
+- **CRM** - when a customer is ready, the bot takes their contact and drops the lead into the CRM instead of leaving it in the chat.
+- **Forms and actions** - booking an appointment, checking order status, sending an offer.
+
+I usually wire this up together with the [AI agent setup service](/en/services/ai-agents), so the bot lives inside your processes rather than next to them.
+
+**Where it goes wrong:** no path "to a human." A customer with an unusual case gets stuck in a loop with the bot, gets annoyed, and leaves. Handoff to a human isn't an add-on - it's the safety switch of the whole setup.
+
+## Step 5. Testing and protection against hallucinations
+
+Before launch, run the bot through real questions - the ones customers actually ask. Check three things: that it answers from the base, that it says "I don't know" when there's no answer, and that it hands the case off to a human correctly.
+
+The anti-hallucination mechanics are: answers only from the knowledge base, a clear instruction "don't make things up, if you don't know - pass it to a human," and a fallback to a live employee. Throw in trap questions the bot shouldn't have an answer for - and check whether it actually admits it instead of inventing something.
+
+**Where it goes wrong:** a dry run on easy questions only. The bot answers nicely to "what's your pricing" but falls apart on "will you give me a custom discount" - and that's exactly where it starts promising nonsense. Test on the awkward questions, not just the textbook ones.
+
+## Step 6. Launch and analytics
+
+After launch, don't leave the bot to its own devices. Read the conversation transcripts through the first few weeks - they show where the bot gets stuck and what content the base is missing. Watch simple metrics: how many conversations the bot closed itself, how many went to a human, how many generated a lead.
+
+**Where it goes wrong:** "set it and forget it." The bot answers from a base that's six months old, prices have changed, and nobody updated the document. The knowledge base is living material - the offer changes, you change the document, the bot answers the new way right away.
+
+## Ready platform or custom build
+
+A ready platform makes sense when you want fast, cheap, and you have a simple FAQ. You launch in a day, you pay a subscription, but you run into a wall: someone else's logic, limited integrations, a tone "just like everyone else's."
+
+A custom build on the API is what you take when the bot needs to be part of the process - plug into the CRM, run its own scenarios, speak in your voice and watch closely that it doesn't make things up. Here control is what counts, plus the fact that the bot is yours, not rented. The full cost comparison of both roads is in the piece on the [price of an AI chatbot](/en/blog/how-much-does-an-ai-chatbot-cost).
+
+## How to stop the bot from making things up
+
+This is the number one question, and it has a concrete answer. Three pillars:
+
+1. **RAG** - the bot answers only from your knowledge base, not from the model's general knowledge.
+2. **Clear boundaries** - an instruction that when there's no answer in the base, the bot says "I don't know" and doesn't improvise.
+3. **Fallback to a human** - a hard or unusual case goes to a live employee.
+
+A bot without these three things will sooner or later tell a customer something it shouldn't - in your company's name. With them, you can put it live with peace of mind. If you want a deeper sense of how a bot like this differs from an ordinary auto-responder, see [what an AI agent is](/en/blog/what-is-an-ai-agent).
+
+## What it costs and how long it takes
+
+A ready widget with a simple FAQ is often €0-70/month and an hour of work. A proper GPT bot with a knowledge base and a widget is usually €1000-3000 one-off and 1-3 weeks. With CRM integration, lead capture and custom scenarios - €3000-7000. On top of that, a moderate API cost tied to the number of conversations, usually €50-200/month.
+
+The full breakdown with ranges for different scenarios is in a separate piece on the [price of an AI chatbot](/en/blog/how-much-does-an-ai-chatbot-cost).
+
+## FAQ
+
+**How do you add a chatbot to a website?**
+The simplest way: take a ready platform (Tidio, Chatbase, Crisp), paste in your content, and embed an HTML/JavaScript snippet on the page or add it through Google Tag Manager - the widget appears right away. If you want the bot to answer from your documents and not make things up, you need an API build with RAG. The first road is an hour of work, the second is 1-3 weeks.
+
+**Will a GPT chatbot on the site make up answers?**
+A bare GPT integration - yes, it can confidently invent a price or a term you don't have. That's why a business bot is built with RAG: it first looks for the answer in your base, then phrases it strictly from what it found. When there's nothing in the base, it says "I don't know" and hands the case to a human instead of making things up.
+
+**Ready platform or custom build - which to choose?**
+A ready platform when you have a simple FAQ and want fast and cheap. A custom build on the API when the bot needs to plug into the CRM, run its own scenarios, speak in your voice and watch closely that it doesn't make things up. In short: a platform is convenience, a custom build is control and integrations tailored to your process.
+
+**How much does it cost to set up an AI chatbot on a website?**
+A ready widget with a simple FAQ is €0-70/month. A GPT bot with a knowledge base and a widget - €1000-3000 one-off. With CRM integration, lead capture and scenarios - €3000-7000. On top of that, API €50-200/month depending on the number of conversations. Details in the piece on the price of an AI chatbot.
+
+**How long does setup take?**
+A ready widget you launch in a single day. An API bot with a knowledge base and a widget is usually 1-3 weeks - most of the time goes into collecting and cleaning the base and testing. A complex build with many integrations takes 4-8 weeks.
+
+**Will the chatbot work on WordPress?**
+Yes. With ready platforms there's usually a plugin that embeds the widget without touching the code. With a custom build you paste a script snippet into the template or add it through Google Tag Manager. WordPress, Next.js or a custom CMS - the bot can be wired into any of them.
+
+**Can the bot be connected to other channels too?**
+Yes. The same knowledge base plugs into a bot on the site, in Telegram and on WhatsApp - the bot answers just as accurately everywhere, and you collect leads in one place, for example in the CRM. One knowledge base, several entry points.
+
+Want specifics for your own site and processes, not the scope from an article? [Get in touch](/en/contact) - in 30 minutes we'll go over what to set up and how, and I'll give you a fixed-price quote.

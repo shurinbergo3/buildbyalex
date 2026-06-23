@@ -1,0 +1,119 @@
+---
+title: "Ile trwa stworzenie aplikacji mobilnej - etapy i realne terminy"
+description: "Ile trwa stworzenie aplikacji mobilnej: MVP 1,5-3 miesiące, średnia 3-6, złożona 6+. Etap po etapie, co wydłuża czas i jak go skrócić."
+date: "2026-06-06"
+cluster: "how-long-to-build-app"
+ogImage: "/og/how-long-to-build-app.webp"
+keywords:
+  - "ile trwa stworzenie aplikacji mobilnej"
+  - "ile czasu zajmuje aplikacja mobilna"
+  - "etapy tworzenia aplikacji"
+---
+
+Krótka odpowiedź: **MVP gotowy do publikacji robię w 1,5-3 miesiące**. Średnia aplikacja biznesowa z płatnościami i kontem użytkownika to **3-6 miesięcy**. Złożony produkt z czatem, mapami i integracjami z CRM - **6 miesięcy i więcej**. Liczę czas kalendarzowy od pierwszej rozmowy do aplikacji w App Store i Google Play, a nie sam czas pisania kodu.
+
+Poniżej rozkładam to na etapy z realnymi terminami. Bez „od dwóch tygodni", którym agencje wabią, a potem przeciągają na pół roku.
+
+## Discovery i specyfikacja - 3 dni do 2 tygodni
+
+Zanim cokolwiek powstanie, trzeba ustalić, co aplikacja ma robić. Lista ekranów, role użytkowników, skąd biorą się dane, czym się płaci. Przy prostym pomyśle wystarczy jedna 30-minutowa rozmowa i dzień na spisanie zakresu. Przy aplikacji z kilkoma rolami i integracjami robi się z tego tydzień, czasem dwa.
+
+Czas tego etapu zależy głównie od Ciebie. Jeśli wiesz, co chcesz zbudować i dla kogo, idzie szybko. Jeśli pomysł jest na poziomie „coś jak Uber, ale dla...", trzeba go najpierw doprecyzować - i to też trwa.
+
+## Projekt i UX - 1 do 4 tygodni
+
+Tu powstaje wygląd: rozkład ekranów, przejścia między nimi, kolory, typografia. Dla MVP na komponentach systemowych wystarczy tydzień. Własny design pod markę, z dopracowanymi animacjami, to 3-4 tygodnie.
+
+Najwięcej czasu schodzi nie na rysowanie, tylko na rundy poprawek. Dwie rundy to norma. Jeśli przy każdym ekranie zmieniasz zdanie, etap się rozjeżdża - i to jest najczęstszy powód opóźnień na samym starcie.
+
+## Programowanie - od 3 tygodni do kilku miesięcy
+
+Główna część. Tu pisze się aplikację, ekran po ekranie, z podpięciem do danych.
+
+Buduję na **React Native + Expo** - jeden kod kompiluje się do prawdziwych natywnych aplikacji na iOS i Android. Około 90% kodu jest wspólne dla obu platform, więc nie płacisz czasem za pisanie tego samego dwa razy. Gdybym robił natywnie, osobno w Swift i Kotlin, ten etap trwałby niemal podwójnie.
+
+Ile dokładnie? MVP z 5-8 ekranami to 3-5 tygodni samego kodu. Średnia aplikacja - 6-12 tygodni. Każda poważna funkcja (płatności, czat, tryb offline, mapy) to dodatkowe tygodnie, bo to osobne kawałki, które trzeba zbudować i przetestować.
+
+## Backend i integracje - równolegle, 2-6 tygodni
+
+Aplikacja sama w sobie to tylko interfejs. Dane gdzieś muszą być przechowywane, użytkownik musi się logować, płatność musi przejść przez Stripe albo RevenueCat. Część backendu da się postawić szybko na gotowych rozwiązaniach (Supabase, Railway), część - integracje z Twoim CRM czy systemem magazynowym - zależy od tego, jak dobrze udokumentowane jest API po drugiej stronie.
+
+Ten etap idzie równolegle z programowaniem, więc rzadko wydłuża kalendarz osobno. Wyjątek: integracja z systemem, który nie ma normalnego API i trzeba się do niego dobierać okrężną drogą. To potrafi dodać 2-3 tygodnie, których nikt nie przewidział.
+
+## Testy - 1 do 3 tygodni
+
+Sprawdzenie, czy wszystko działa na różnych telefonach, przy słabym internecie, przy dziwnych danych wprowadzonych przez użytkownika. Dla MVP to tydzień. Dla aplikacji z płatnościami i danymi wrażliwymi - dwa, trzy, bo każdy błąd przy pieniądzach kosztuje zaufanie.
+
+Testy też idą po części równolegle z kodem, ale finalna runda przed publikacją zawsze jest osobno. Nie publikuje się aplikacji, której się nie przeklikało do końca.
+
+## Publikacja w sklepach - kilka dni do 2 tygodni
+
+Tu wchodzi czynnik, na który nikt nie ma wpływu: review sklepów.
+
+- **App Store** sprawdza aplikację zwykle 24-72 godziny. Aplikacje z płatnościami, lokalizacją albo danymi zdrowotnymi, a także nowe konta deweloperskie, trafiają na ręczną weryfikację - wtedy 3-7 dni.
+- **Google Play** zwykle akceptuje w kilka godzin do 3 dni, ale review związane z polityką potrafi się ciągnąć do 7 dni roboczych.
+
+Do tego pierwsza publikacja bywa odrzucona przez drobiazg - brak polityki prywatności, niejasny opis uprawnień. Załóż 1-2 iteracje. Dlatego między wysłaniem aplikacji a ogłoszeniem startu zostawiam zawsze kilka dni zapasu.
+
+Osobno opisałem to w tekście [jak opublikować aplikację w App Store](/pl/blog/jak-opublikowac-aplikacje-w-app-store).
+
+## Co najczęściej wydłuża termin
+
+Będę szczery - większość opóźnień nie wynika z kodu. Wynika z tych rzeczy:
+
+- **Niedogadana specyfikacja.** Jeśli na starcie nie wiadomo dokładnie, co aplikacja robi, połowa pracy idzie na ustalanie tego w trakcie. To najdroższy sposób na projektowanie.
+- **Feature creep.** „A dodajmy jeszcze...". Każda nowa funkcja w trakcie budowy przesuwa termin. Nie zawsze o tydzień, na który wygląda - bo trzeba ją wpiąć w to, co już jest.
+- **Review sklepów.** Niezależne od nas, czasem szybkie, czasem nie. Planuje się z zapasem.
+- **Treści i dostępy od klienta.** Teksty do aplikacji, zdjęcia, dostęp do Twojego CRM, dane logowania do bramki płatności. Jeśli to przychodzi z tygodniowym opóźnieniem, projekt stoi - kod jest gotowy, ale nie ma czym go nakarmić.
+
+Ten ostatni punkt to chyba najczęstszy ukryty hamulec. Aplikacja może być skończona, a czeka tydzień, bo brakuje opisu do sklepu albo dostępu do konta.
+
+## Tabela - typ aplikacji a termin
+
+| Typ | Termin | Co wchodzi |
+|---|---|---|
+| **MVP** | 1,5-3 miesiące | 1 aplikacja iOS+Android, 5-8 ekranów, logowanie, prosty backend, publikacja w obu sklepach |
+| **Średnia** | 3-6 miesięcy | Płatności (Stripe / RevenueCat), powiadomienia push, profile, panel admina, analityka |
+| **Złożona** | 6 miesięcy+ | Czat na żywo, mapy i geolokalizacja, tryb offline, role i uprawnienia, integracje z CRM/ERP |
+
+To terminy realne, dla jednego senior developera, który prowadzi projekt od początku do końca. Zespół agencyjny przy tych samych funkcjach często potrzebuje więcej kalendarza, bo dochodzi koordynacja między ludźmi.
+
+## Jak skrócić czas
+
+Jeśli zależy Ci na szybkim wejściu na rynek, da się to zrobić mądrze:
+
+- **Zacznij od MVP.** Zamiast budować wszystko naraz, wypuść wersję z jedną kluczową funkcją, sprawdź ją na realnych użytkownikach, dopiero potem rozbudowuj. Więcej o tym podejściu w [tworzeniu MVP aplikacji dla startupu](/pl/blog/tworzenie-mvp-aplikacji-dla-startupu).
+- **Wybierz cross-platform.** Jeden kod na iOS i Android zamiast dwóch osobnych aplikacji skraca etap programowania niemal o połowę. Kiedy to ma sens, a kiedy nie, rozłożyłem w tekście [aplikacja natywna czy hybrydowa](/pl/blog/aplikacja-natywna-czy-hybrydowa).
+- **Postaw backend na gotowych rozwiązaniach.** Supabase, Railway, RevenueCat - zamiast pisać autoryzację i billing od zera, używasz sprawdzonych klocków. Tygodnie pracy mniej.
+- **Przygotuj treści wcześniej.** Teksty, zdjęcia, dostępy do systemów zbierz na samym początku, nie na końcu. To etap, który najłatwiej zacząć od razu, a najczęściej zostaje na ostatnią chwilę.
+
+Na koszty tych decyzji patrzę w osobnym tekście - [ile kosztuje aplikacja mobilna](/pl/blog/ile-kosztuje-aplikacja-mobilna).
+
+## FAQ
+
+**Ile trwa stworzenie aplikacji mobilnej od zera?**
+Od 1,5 miesiąca dla prostego MVP do ponad pół roku dla złożonego produktu. Średnia aplikacja biznesowa z płatnościami i kontem użytkownika to 3-6 miesięcy czasu kalendarzowego, licząc od pierwszej rozmowy do publikacji w obu sklepach. Sam kod to tylko część tego czasu - reszta to discovery, projekt, testy i review sklepów.
+
+**Ile czasu zajmuje zbudowanie MVP?**
+1,5-3 miesiące. To jedna działająca aplikacja na iOS i Android: 5-8 ekranów, logowanie, prosty backend i publikacja w obu sklepach. Pierwsza wersja, którą oddajesz realnym użytkownikom, żeby sprawdzić pomysł, zanim włożysz w niego pół roku pracy. Najszybszy sensowny sposób, żeby mieć coś działającego w rękach.
+
+**Czy aplikacja na iOS i Android trwa dłużej niż na jedną platformę?**
+Przy cross-platform praktycznie nie. Z React Native + Expo jeden kod kompiluje się na obie platformy, więc czas jest niemal taki sam jak dla jednej. Dwie osobne aplikacje natywne (Swift + Kotlin) to inna historia - tam etap programowania trwa niemal podwójnie, bo to samo piszesz dwa razy.
+
+**Dlaczego programowanie to tylko część terminu?**
+Bo pisanie kodu zajmuje zwykle 40-50% całości. Reszta to ustalenie, co aplikacja ma robić, projekt ekranów, testy na różnych telefonach i czekanie na akceptację sklepów. Aplikacja może być „skończona" w kodzie, a i tak czekać tydzień na review App Store albo na brakujące treści od klienta.
+
+**Ile trwa publikacja w App Store i Google Play?**
+App Store sprawdza aplikację zwykle 24-72 godziny, przy płatnościach lub nowym koncie deweloperskim do 7 dni. Google Play zwykle akceptuje w kilka godzin do 3 dni, czasem do tygodnia przy review polityki. Pierwsza publikacja bywa odrzucona przez drobiazg, więc warto założyć 1-2 iteracje i kilka dni zapasu przed ogłoszeniem startu.
+
+**Co najczęściej opóźnia projekt?**
+Rzadko sam kod. Najczęściej: niedogadana specyfikacja, dorzucanie funkcji w trakcie (feature creep), review sklepów i brak treści lub dostępów od klienta. Ten ostatni punkt potrafi zatrzymać gotową aplikację na tydzień, bo czeka na opis do sklepu albo dostęp do bramki płatności.
+
+**Da się zrobić aplikację szybciej niż w 3 miesiące?**
+Tak, jeśli zaczniesz od wąskiego MVP z jedną kluczową funkcją, wybierzesz cross-platform i postawisz backend na gotowych rozwiązaniach. Wtedy realny termin to nawet 4-6 tygodni. Skraca się przez ograniczenie zakresu, a nie przez pisanie kodu na szybko - to drugie zawsze wraca jako poprawki.
+
+---
+
+Krótko: realny termin to **1,5-3 miesiące na MVP, 3-6 na średnią aplikację, 6+ na złożoną**. Najwięcej czasu oszczędza dobre ustalenie zakresu na starcie, a nie pośpiech w trakcie.
+
+Chcesz konkretny termin pod swój pomysł? [Napisz do mnie](/pl/kontakt) - po 30-minutowej rozmowie dostajesz stałą wycenę z datą wydania. Więcej o usłudze: [tworzenie aplikacji mobilnych](/pl/uslugi/aplikacje-mobilne).

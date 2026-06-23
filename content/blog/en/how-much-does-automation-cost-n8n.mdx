@@ -1,0 +1,113 @@
+---
+title: "How Much Does n8n / Make Automation Cost? 2026 Pricing Guide"
+description: "How much n8n automation costs - from €300 for a single scenario to €5,000+ for connecting several systems. Here are the real ranges, monthly costs and hidden expenses."
+date: "2026-06-18"
+cluster: "automation-cost-n8n"
+ogImage: "/og/automation-cost-n8n.webp"
+keywords:
+  - "how much does n8n automation cost"
+  - "process automation pricing"
+  - "n8n make implementation cost"
+  - "n8n vs make price"
+  - "automation cost"
+---
+
+Short answer: one working scenario on n8n or Make starts at **€300**, connecting a few systems with logic and error handling usually runs **€1,200-3,000**, and a complex automation with branching and AI can climb to **€5,000+**. On top of that come fixed monthly fees for tools, hosting and APIs - and those catch people off guard more often than the implementation invoice itself.
+
+I'm Alex. I build automations for small and mid-sized companies in Poland as a one-person operation, so I see the whole math up close - both the client's side and mine. Below I break it down into pieces, without "from $9" and without "contact us for a quote".
+
+## What the price is made of
+
+The cost of an automation isn't one number, it's three separate wallets:
+
+1. **One-time build** - my work: analyzing the process, building the scenario, connecting APIs, testing, documentation. You pay once.
+2. **Tool subscriptions** - every month, for as long as the automation runs. This is where the world splits into n8n self-hosted and Make/Zapier.
+3. **Maintenance** - fixes when one of the systems changes its API, small extensions, sometimes training the team.
+
+Most of the confusion comes from mixing point one with point two. Someone hears "n8n is free" and thinks the whole automation will be free. Only the open-source engine is free - not my work and not the server it runs on.
+
+### n8n self-hosted vs Make / Zapier
+
+This is the key decision, because it shows up on your bills for years to come.
+
+**n8n self-hosted** - you're billed for running the whole scenario, not for each step. A workflow with two steps and one with two hundred both count as a single "execution". We put it on your own VPS, so the subscription is low and predictable. Downside: someone has to configure it, update it and keep it from going down. More expensive at the start, cheaper at scale.
+
+**Make and Zapier** - you pay for "operations", meaning each module that processes data. A three-step scenario run 1,000 times is 3,000 operations. At small scale it's laughably cheap, at large scale the bill grows fast. Upside: you host nothing, it works right away, the interface is simpler.
+
+For a company pushing tens of thousands of operations a month, n8n on your own server can be several times cheaper. For someone running a single scenario 200 times a month, Make wins on convenience and barely dents the wallet. I lay this out in more detail in the [Make vs n8n vs Zapier comparison](/en/blog/make-vs-n8n-vs-zapier).
+
+## Real implementation ranges
+
+Concrete numbers from the Polish market, in euros, for the build alone (no subscriptions):
+
+- **One simple scenario** - e.g. form → CRM → Slack notification, or new order → invoice. One integration, simple logic: **€300-600**.
+- **Connecting several systems** - store + accounting + mailing + spreadsheet, with conditions and handling of "something went wrong": **€1,200-3,000**.
+- **Complex automation with AI** - branching, several data sources, a language model for classification or generating responses, queues, retries: **€3,000-6,000+**.
+
+These ranges line up with what agencies charge, just without their middleman margin and project manager, which simply don't exist when it's one person.
+
+## Monthly costs
+
+This is what gets left out of quotes most often, and the client pays it every month for the rest of time.
+
+- **Make / Zapier** - from ~€10 at low traffic to €50-150 for more serious processes. At millions of operations it can run into several hundred euros.
+- **n8n self-hosted** - a simple VPS at Hetzner or DigitalOcean is €4-6 a month. A production setup with a proper machine and backups realistically runs €50-150 a month.
+- **n8n Cloud** - if you don't want to host yourself: from €20 a month for 2,500 executions.
+- **AI API** - if the scenario uses a language model, you pay per token. From a few euros at low volume to a few dozen with heavy processing.
+
+That's why when I quote, I always give two numbers separately: what the build costs and what maintenance will cost you per month. Without that second figure, a quote is incomplete.
+
+## Hidden expenses
+
+This is where budgets that looked reasonable on paper quietly die.
+
+**API changes.** The systems you connect to change their APIs, and sometimes something stops working without warning. The fix is an hour or two - but someone has to handle it.
+
+**Extensions.** After a month of use there's always a "can we also make it so that...". That's normal and good, but it's extra work.
+
+**Error handling.** You'll build the "happy path" scenario fast. But production means empty fields, failing APIs, duplicates and timeouts. Solid exception handling can take as long as the rest - and it's what decides whether the automation runs overnight without you.
+
+**Team training.** Someone has to know where to look when something doesn't fire. Half an hour of handing over knowledge saves a lot of phone calls later.
+
+## What I charge
+
+No dancing around it: I start at **€300** for a single scenario. I give a specific price only after a short discovery call, because that's when I know how many systems we're connecting and how strange your data looks.
+
+After that call you get a **fixed price** - one number for the build and a separate estimate of monthly costs. No counting by the hour and no surprise on the invoice. If it turns out along the way that it can be done simpler and cheaper, I say so straight, instead of padding the scope. The full service description is on the [process automation](/en/services/automation) page.
+
+## When it pays off
+
+A simple calculation I run on every project:
+
+> **minutes per operation × operations per month ÷ 60 × hourly rate**
+
+Example. Someone manually retypes orders into accounting: 8 minutes per order, 120 orders a month. That's 16 hours every month. At a rate of 60 PLN/h that's ~960 PLN a month, so over 11,000 PLN a year thrown at a task nobody enjoys.
+
+Automating that for €600 pays for itself in **2-3 months**, and after that it just earns. And the other way around: a process that takes 30 minutes a month will never pay off - no point touching it, even if it's technically trivial. More on where to start in the article [business process automation - where to start](/en/blog/business-process-automation-where-to-start).
+
+If you want the broader context on prices for other services, I have a [2026 website and app pricing guide](/en/blog/how-much-does-development-cost-2026).
+
+## FAQ
+
+**Is n8n free?**
+The engine itself in the Community edition is free with no time limit - you can put it on your own server and run any number of scenarios. What isn't free is the upkeep: a VPS is €4-6 a month for simple uses, while a serious production setup realistically runs €50-150 a month plus someone's time on admin. And building the scenarios themselves is separate work.
+
+**How much does implementing one automation cost?**
+A simple scenario with one integration starts at €300-600. A moderately complex one, with a few steps and conditional logic, is roughly €1,200-3,000. An exact price can only be given after checking how many systems we're connecting and what state they're in.
+
+**Which is cheaper - n8n or Make?**
+It depends on scale. Make bills per operation, so at a low number of runs it's very cheap and you host nothing. n8n on your own server has a low, fixed subscription independent of the number of steps, so at high volume it can be several times cheaper - at the cost of configuring and maintaining the server.
+
+**What's the monthly maintenance cost?**
+For a small setup it's often €10-50 a month (the tool plus possible hosting). For larger processes it's closer to €50-150, and if the scenario uses AI, there's the API cost charged per token. It's a fixed expense for as long as the automation runs.
+
+**Can a Make automation suddenly get more expensive?**
+Yes, if the number of operations grows. Every module that processes data uses a credit, so a three-step scenario run a thousand times is three thousand operations. With a sharp jump in traffic the bill can leap from a few dozen euros to a few hundred. That's usually the point to consider moving to n8n.
+
+**How long until an automation pays off?**
+I calculate it as hours saved times the rate. If a process eats 16 hours a month and the build cost €600, the payback comes in 2-3 months. Processes that take under an hour a month usually never pay off and aren't worth automating.
+
+**Why is a freelancer cheaper than an agency for the same result?**
+Because you pay for the work, not for the structure. At an agency the price includes a project manager, a salesperson and a middleman margin. With one person those layers don't exist - you talk directly to whoever builds it, so decisions happen faster and the quote is lower at the same quality of work.
+
+Got a specific process in mind? [Write to me](/en/contact) - after a short conversation I'll tell you whether it's worth it and exactly what it costs.

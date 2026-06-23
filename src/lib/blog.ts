@@ -221,6 +221,27 @@ export const clusterToService: Record<string, { menuKey: ServiceMenuKey; path: S
   "online-store-development-krakow-en": { menuKey: "store", path: "/services/online-store" },
   "online-store-development-krakow-ru": { menuKey: "store", path: "/services/online-store" },
   "online-store-development-krakow-ua": { menuKey: "store", path: "/services/online-store" },
+  // 2026 SEO/GEO content batch (PL+RU). Informational topics share one cluster
+  // across locales (hreflang-linked translations). Pricing hub + spokes, Telegram
+  // cluster, contractor-choice cluster, plus AI/automation/mobile spokes.
+  "it-project-cost-2026": { menuKey: "websites", path: "/services/websites" },
+  "telegram-bot-cost": { menuKey: "telegram", path: "/services/telegram-bots" },
+  "automation-cost-n8n": { menuKey: "automation", path: "/services/automation" },
+  "freelancer-vs-agency": { menuKey: "websites", path: "/services/websites" },
+  "telegram-bot-use-cases": { menuKey: "telegram", path: "/services/telegram-bots" },
+  "telegram-bot-orders-payments": { menuKey: "telegram", path: "/services/telegram-bots" },
+  "telegram-crm-notifications": { menuKey: "telegram", path: "/services/telegram-bots" },
+  "telegram-bot-vs-website-chat": { menuKey: "telegram", path: "/services/telegram-bots" },
+  "how-to-choose-web-developer": { menuKey: "websites", path: "/services/websites" },
+  "website-brief-checklist": { menuKey: "websites", path: "/services/websites" },
+  "red-flags-ordering-website": { menuKey: "websites", path: "/services/websites" },
+  "website-timeline-stages": { menuKey: "websites", path: "/services/websites" },
+  "ai-funding-poland": { menuKey: "ai", path: "/services/ai-agents" },
+  "ai-chatbot-roi": { menuKey: "ai", path: "/services/ai-agents" },
+  "chatbot-website-implementation": { menuKey: "ai", path: "/services/ai-agents" },
+  "what-to-automate-first": { menuKey: "automation", path: "/services/automation" },
+  "mobile-app-vs-pwa": { menuKey: "mobile", path: "/services/mobile-apps" },
+  "how-long-to-build-app": { menuKey: "mobile", path: "/services/mobile-apps" },
 };
 
 /** The service a post links to, or null if its cluster isn't mapped. */

@@ -1,0 +1,86 @@
+---
+title: "Telegram Bot for Orders and Payments - How It Works"
+description: "A Telegram bot for orders and payments: the customer orders and pays right in the chat, and the request lands in your CRM. How to build it, which payment methods work, and who it makes sense for."
+date: "2026-06-11"
+cluster: "telegram-bot-orders-payments"
+ogImage: "/og/telegram-bot-orders-payments.webp"
+keywords:
+  - "telegram bot orders payments"
+  - "telegram bot for orders"
+  - "payments in telegram bot"
+  - "telegram payments for business"
+---
+
+Yes, a Telegram bot can take a whole order and a payment without anyone leaving the chat. The customer taps through a menu, picks what they want, enters their details, and pays by card or BLIK in the same window. It works best where the order is simple and repeatable: food delivery, appointment-based services, access to content, a small shop with a few dozen products.
+
+If you sell something that fits into a handful of questions, a bot often does the job instead of a website with a cart. The customer installs nothing, sets up no account, hunts for no payment link. It all happens inside an app they already have open.
+
+## What an order looks like step by step
+
+The whole flow is linear, and the bot walks people through it:
+
+1. **The customer opens the bot** - from a link, a QR code on a flyer, or your profile. They get a menu with buttons, not a wall of text.
+2. **They pick what they want.** Buttons instead of typing: category, product, quantity, options (size, extras, time slot). The bot shows what's in the cart as you go.
+3. **They enter details for fulfillment** - delivery address or appointment time, phone number. The bot validates on the spot, so you don't get a request with an eight-digit phone number.
+4. **They pay in the chat.** The bot sends an invoice (`invoice`), the customer taps "Pay", enters a card or BLIK code, and confirms. The bot gets a signal that the money came through.
+5. **The order goes where you work** - a notification to you on Telegram, a row in Google Sheets, a card in your CRM, or all at once. At that same moment the customer gets a confirmation and an order number.
+
+The last step matters most. A bot that only collects orders and sends them nowhere is useless - you need them where you already look. How to connect Telegram with the rest of your tools is covered in the piece on [Telegram bot use cases for business](/en/blog/telegram-bot-for-business-use-cases).
+
+## Which payment methods you can actually connect
+
+Telegram doesn't hold money. The payment runs through an outside provider that you connect to the bot via BotFather - it issues a token, and the bot uses it when sending an invoice. Here's what you can choose:
+
+**Stripe.** The most convenient route for a business in Poland. Stripe is natively supported by Telegram Payments, and through Stripe you can run BLIK and Przelewy24 for customers in Poland. So the customer pays with their favorite method and you get one integration instead of three. Visa/Mastercard, Google Pay, and Apple Pay come along with it. (On most markets the default is plain card payment plus Apple Pay and Google Pay; for Poland it's BLIK and Przelewy24 routed through Stripe.)
+
+**Telegram Payments natively.** This is the in-chat invoice mechanism - on its own it isn't a payment gateway, it just links the bot to a provider (namely Stripe and a few others). The card form opens inside Telegram, so the customer never leaves.
+
+**Telegram Stars.** Telegram's internal currency for digital content - courses, channel access, files. If you sell a physical product or a service, this isn't the route. For digital products it can be the simplest option, since it skips the gateways.
+
+Przelewy24 doesn't issue a separate token for Telegram, so in practice it reaches the bot through Stripe. It works well and the customer sees the familiar P24 screen with BLIK, but it's worth knowing that underneath, Stripe settles the transaction.
+
+## Who it makes sense for, and who it doesn't
+
+A bot with orders and payment works when the buying decision is short:
+
+- **Food delivery and small food spots** - a fixed menu, the customer orders in a minute, pays, gets a number. No app at 200 zł a month.
+- **Appointment-based services** - barber, beauty, tutoring, car wash. The bot shows open slots, takes a deposit, drops the appointment into the calendar.
+- **Info products** - a course, an ebook, access to a private channel. Payment and access right away, with no work from you.
+- **A small shop** - a few dozen items, a simple range, repeat customers.
+
+When a bot is a bad idea: when you have a **big catalog** (hundreds of products with filters, variants, search), heavy promotions, returns, inventory and courier integrations. Browsing hundreds of items in a chat is tiring - a normal shop wins there. In that case you can keep the bot as an extra channel for bestsellers or notifications.
+
+## Order bot or online store
+
+The line is fairly clear. The bot wins on speed of launch and on the fact that the customer already has it in their pocket - zero install, zero account setup. The store wins when someone has to *browse* and compare, when you need SEO, a cart with dozens of items, VAT invoices, a product panel for yourself.
+
+If your typical order can be put together from 4-5 questions, a bot is enough and will be cheaper. If the customer is meant to "look around", you need a store. Sometimes both make sense: the store as the base, the bot as a fast channel for regulars. To compare budgets, take a look at the [cost of an online store](/en/blog/online-store-cost-poland) alongside the [price of a bot](/en/blog/how-much-does-a-telegram-bot-cost).
+
+## What it costs and how long it takes
+
+A bot that takes orders and payments with a simple write to a sheet or CRM usually runs **€1500-3500** and 3-5 weeks of work. Most of that goes to handling payments, order statuses, validation, and integrations. A simpler bot that only collects requests without payment starts at **€600**. The full range, with what pushes the price up, is laid out in a separate piece on the [price of a Telegram bot](/en/blog/how-much-does-a-telegram-bot-cost).
+
+I build these bots for a specific business - from the menu and the logic, through payments, to wiring it into what you already work in. Service details are on the [Telegram bots](/en/services/telegram-bots) page, and if you want a quote for your case, [get in touch](/en/contact) and describe what the bot should sell.
+
+## FAQ
+
+**Can a Telegram bot really take a payment, or just a link to pay?**
+It can take the payment in full inside the chat. The bot sends an invoice, the customer taps "Pay", enters a card or BLIK code in a window that opens inside Telegram, and confirms. The bot gets a signal from the provider about the successful transaction and only then fulfills the order. An external link is a backup option, not the default.
+
+**How do you connect BLIK and Przelewy24 to a bot?**
+Through Stripe. Stripe is natively supported by Telegram Payments and handles BLIK and Przelewy24 for customers in Poland. You do one Stripe integration, and the customer still sees the familiar P24 screen with BLIK. There's no separate Przelewy24 token for Telegram, so this is the standard route on the Polish market.
+
+**Do I need a registered business to take payments in a bot?**
+Yes. The payment provider (Stripe) requires a registered company or sole proprietorship and identity verification, the same as for an online store. This isn't a way to take money "quietly" - transactions are settled normally, with invoices and tax.
+
+**Where do orders from the bot go?**
+Wherever you set them to: a notification to you on Telegram, a row in Google Sheets, a card in your CRM, an email. I usually do several at once - you get a ping on your phone, and the data lands in a sheet or CRM for stats. Without this step the bot is useless.
+
+**Can the bot handle a lot of orders at once?**
+Yes, that's its strength. The bot serves many customers in parallel, 24/7, with no queue. Payments run through Stripe, which is built for traffic. The bottleneck is more likely you at fulfillment than the bot at intake.
+
+**Does the customer need a card to pay in the bot?**
+No. BLIK works without entering a card - the customer generates a code in their banking app and types it into the bot. Cards, Google Pay, and Apple Pay are available too. In Poland most people pick BLIK anyway, so it's good to put it first.
+
+**How is this different from a ready-made bot builder with a subscription?**
+A builder (Manybot, Botmother, and the like) is faster and cheaper to set up at the start, but you pay monthly, you're limited by its templates and integrations, and your data sits with the provider. A bot written for you costs more upfront, but does exactly what you need, connects to your tools, and has no subscription for the logic itself.

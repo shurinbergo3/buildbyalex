@@ -1,0 +1,119 @@
+---
+title: "How long does it take to build a mobile app - stages and real timelines"
+description: "How long it takes to build a mobile app: MVP 1.5-3 months, average 3-6, complex 6+. Stage by stage, what drags out the timeline and how to cut it."
+date: "2026-06-06"
+cluster: "how-long-to-build-app"
+ogImage: "/og/how-long-to-build-app.webp"
+keywords:
+  - "how long does it take to build a mobile app"
+  - "how long to develop an app"
+  - "app development stages"
+---
+
+Short answer: **I get a publish-ready MVP done in 1.5-3 months**. An average business app with payments and user accounts takes **3-6 months**. A complex product with chat, maps and CRM integrations - **6 months and up**. I count calendar time from the first conversation to the app being live in the App Store and Google Play, not just the time spent writing code.
+
+Below I break it down into stages with real timelines. None of that "from two weeks" agencies use as bait, then stretch into half a year.
+
+## Discovery and spec - 3 days to 2 weeks
+
+Before anything gets built, you have to settle what the app is supposed to do. List of screens, user roles, where the data comes from, how people pay. For a simple idea, one 30-minute call and a day to write down the scope is enough. For an app with several roles and integrations, this turns into a week, sometimes two.
+
+The length of this stage depends mostly on you. If you know what you want to build and who it's for, it moves fast. If the idea is at the "something like Uber, but for..." level, you have to nail it down first - and that takes time too.
+
+## Design and UX - 1 to 4 weeks
+
+This is where the look comes together: screen layouts, transitions between them, colors, typography. For an MVP on system components, a week is enough. A custom design tied to your brand, with polished animations, runs 3-4 weeks.
+
+Most of the time here goes not into drawing but into rounds of revisions. Two rounds is normal. If you change your mind on every screen, the stage falls apart - and that's the most common reason for delays right at the start.
+
+## Development - from 3 weeks to a few months
+
+The main part. This is where the app gets written, screen by screen, wired to data.
+
+I build on **React Native + Expo** - one codebase compiles into real native apps for iOS and Android. Around 90% of the code is shared between both platforms, so you don't pay in time for writing the same thing twice. If I did it natively, separately in Swift and Kotlin, this stage would take almost double.
+
+How long exactly? An MVP with 5-8 screens is 3-5 weeks of code alone. An average app - 6-12 weeks. Each serious feature (payments, chat, offline mode, maps) adds weeks, because each is a separate piece that has to be built and tested.
+
+## Backend and integrations - in parallel, 2-6 weeks
+
+The app on its own is just an interface. Data has to be stored somewhere, the user has to log in, a payment has to clear through Stripe or RevenueCat. Part of the backend can go up fast on ready-made tools (Supabase, Railway), part of it - integrations with your CRM or inventory system - depends on how well the API on the other side is documented.
+
+This stage runs in parallel with development, so it rarely adds to the calendar on its own. The exception: integrating with a system that has no proper API, where you have to reach it the long way around. That can add 2-3 weeks nobody planned for.
+
+## Testing - 1 to 3 weeks
+
+Checking that everything works on different phones, on a weak connection, with odd data entered by the user. For an MVP that's a week. For an app with payments and sensitive data - two or three, because every bug around money costs trust.
+
+Testing also runs partly in parallel with the code, but the final round before publishing is always separate. You don't ship an app you haven't clicked through to the end.
+
+## Store publishing - a few days to 2 weeks
+
+Here comes the factor nobody controls: store review.
+
+- **App Store** usually reviews an app in 24-72 hours. Apps with payments, location or health data, plus new developer accounts, go to manual review - that's 3-7 days then.
+- **Google Play** usually approves within a few hours to 3 days, but a policy-related review can drag out to 7 business days.
+
+On top of that, a first submission often gets rejected over something small - a missing privacy policy, an unclear permission description. Plan for 1-2 iterations. That's why I always leave a few days of buffer between sending the app off and announcing the launch.
+
+I covered this separately in the piece on [how to publish an app on the App Store](/en/blog/how-to-publish-app-on-app-store).
+
+## What drags out the timeline most
+
+I'll be honest - most delays don't come from code. They come from these things:
+
+- **A half-baked spec.** If it isn't clear at the start exactly what the app does, half the work goes into figuring it out as you go. That's the most expensive way to design.
+- **Feature creep.** "Let's also add...". Every new feature mid-build pushes the date. Not always by the week it looks like - because it has to be wired into what's already there.
+- **Store review.** Out of our hands, sometimes fast, sometimes not. You plan with a buffer.
+- **Content and access from the client.** App copy, photos, access to your CRM, login details for the payment gateway. If that comes in a week late, the project stalls - the code is ready, but there's nothing to feed it.
+
+That last point is probably the most common hidden brake. The app can be finished and still sit there for a week because a store description or account access is missing.
+
+## Table - app type vs timeline
+
+| Type | Timeline | What's included |
+|---|---|---|
+| **MVP** | 1.5-3 months | 1 iOS+Android app, 5-8 screens, login, simple backend, publishing to both stores |
+| **Average** | 3-6 months | Payments (Stripe / RevenueCat), push notifications, profiles, admin panel, analytics |
+| **Complex** | 6 months+ | Live chat, maps and geolocation, offline mode, roles and permissions, CRM/ERP integrations |
+
+These are real timelines for a single senior developer running the project start to finish. An agency team with the same features often needs more calendar time, because coordination between people gets added on top.
+
+## How to cut the time
+
+If a fast market entry matters to you, there's a smart way to do it:
+
+- **Start with an MVP.** Instead of building everything at once, ship a version with one key feature, test it on real users, then expand. More on this approach in [MVP app development for startups](/en/blog/mvp-app-development-for-startups).
+- **Pick cross-platform.** One codebase for iOS and Android instead of two separate apps cuts the development stage almost in half. When it makes sense and when it doesn't, I laid out in [native vs cross-platform app](/en/blog/native-vs-cross-platform-app).
+- **Build the backend on ready-made tools.** Supabase, Railway, RevenueCat - instead of writing auth and billing from scratch, you use proven building blocks. Weeks of work saved.
+- **Prepare content early.** Copy, photos, system access - gather it at the very start, not at the end. It's the stage you can kick off right away, yet it's the one most often left to the last minute.
+
+I look at the cost of these decisions in a separate piece - [how much does it cost to build an app](/en/blog/how-much-does-it-cost-to-build-an-app).
+
+## FAQ
+
+**How long does it take to build a mobile app from scratch?**
+From 1.5 months for a simple MVP to over half a year for a complex product. An average business app with payments and user accounts is 3-6 months of calendar time, counting from the first conversation to publishing in both stores. The code itself is only part of that time - the rest is discovery, design, testing and store review.
+
+**How long does it take to build an MVP?**
+1.5-3 months. That's one working app on iOS and Android: 5-8 screens, login, a simple backend and publishing to both stores. The first version you hand to real users to test the idea before you sink half a year of work into it. The fastest sensible way to get something working in your hands.
+
+**Does an app for both iOS and Android take longer than for one platform?**
+With cross-platform, barely. With React Native + Expo, one codebase compiles for both platforms, so the time is almost the same as for one. Two separate native apps (Swift + Kotlin) are a different story - there the development stage takes almost double, because you write the same thing twice.
+
+**Why is development only part of the timeline?**
+Because writing code usually takes 40-50% of the total. The rest is settling what the app should do, designing the screens, testing on different phones and waiting for store approval. An app can be "finished" in code and still sit a week waiting on App Store review or on missing content from the client.
+
+**How long does publishing to the App Store and Google Play take?**
+The App Store usually reviews an app in 24-72 hours, up to 7 days with payments or a new developer account. Google Play usually approves within a few hours to 3 days, sometimes up to a week on a policy review. A first submission often gets rejected over something small, so it's worth planning for 1-2 iterations and a few days of buffer before announcing the launch.
+
+**What delays a project most often?**
+Rarely the code itself. Most often: a half-baked spec, adding features mid-build (feature creep), store review, and missing content or access from the client. That last point can stall a finished app for a week, because it's waiting on a store description or access to the payment gateway.
+
+**Can you build an app faster than 3 months?**
+Yes, if you start with a narrow MVP built around one key feature, pick cross-platform and put the backend on ready-made tools. Then the real timeline can be as little as 4-6 weeks. You cut it by narrowing the scope, not by writing code in a rush - the second one always comes back as fixes.
+
+---
+
+In short: the real timeline is **1.5-3 months for an MVP, 3-6 for an average app, 6+ for a complex one**. The biggest time saver is nailing down the scope at the start, not rushing through the build.
+
+Want a concrete timeline for your idea? [Get in touch](/en/contact) - after a 30-minute call you get a fixed quote with a release date. More about the service: [mobile app development](/en/services/mobile-apps).

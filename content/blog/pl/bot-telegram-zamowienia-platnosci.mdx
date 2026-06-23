@@ -1,0 +1,86 @@
+---
+title: "Bot Telegram do zamówień i płatności - jak to działa"
+description: "Bot telegram do zamówień i płatności: klient zamawia i płaci w czacie, a zgłoszenie ląduje w CRM. Jak to zbudować, jakie płatności w Polsce i dla kogo to ma sens."
+date: "2026-06-11"
+cluster: "telegram-bot-orders-payments"
+ogImage: "/og/telegram-bot-orders-payments.webp"
+keywords:
+  - "bot telegram zamówienia płatności"
+  - "bot telegram do zamówień"
+  - "płatności w bocie telegram"
+  - "telegram payments dla firmy"
+---
+
+Tak, bot na Telegramie potrafi przyjąć całe zamówienie i płatność bez wychodzenia z czatu. Klient klika w menu, wybiera co chce, podaje dane i płaci kartą albo BLIKiem w tym samym oknie. Najlepiej działa tam, gdzie zamówienie jest proste i powtarzalne: jedzenie na dowóz, usługi na termin, dostęp do treści, mały sklep z kilkudziesięcioma produktami.
+
+Jeśli sprzedajesz coś, co da się ułożyć w kilka pytań, bot często wystarcza zamiast strony z koszykiem. Klient nie musi nic instalować, nie zakłada konta, nie szuka linku do płatności. Wszystko dzieje się w aplikacji, którą i tak ma otwartą.
+
+## Jak wygląda zamówienie krok po kroku
+
+Cały przepływ jest liniowy i bot prowadzi przez niego sam:
+
+1. **Klient otwiera bota** - z linku, kodu QR na ulotce albo z Twojego profilu. Wita go menu z przyciskami, nie ściana tekstu.
+2. **Wybiera, co chce.** Przyciski zamiast wpisywania: kategoria, produkt, ilość, opcje (rozmiar, dodatki, termin). Bot na bieżąco pokazuje, co jest w koszyku.
+3. **Podaje dane do realizacji** - adres dostawy albo godzinę wizyty, telefon. Bot waliduje na miejscu, więc nie dostajesz zgłoszenia z numerem, który ma osiem cyfr.
+4. **Płaci w czacie.** Bot wystawia fakturę (`invoice`), klient klika "Zapłać", wpisuje kartę lub BLIK i potwierdza. Bot dostaje sygnał, że pieniądze wpłynęły.
+5. **Zamówienie trafia tam, gdzie pracujesz** - powiadomienie do Ciebie na Telegram, wiersz w Google Sheets, karta w CRM albo wszystko naraz. Klient w tej samej chwili dostaje potwierdzenie i numer.
+
+Najważniejszy jest ostatni krok. Bot, który tylko zbiera zamówienia i nigdzie ich nie wysyła, jest do niczego - musisz mieć je tam, gdzie i tak zaglądasz. Jak spiąć Telegram z resztą narzędzi, opisuję w tekście o [zastosowaniach botów dla firm](/pl/blog/bot-na-telegramie-dla-firmy-zastosowania).
+
+## Jakie płatności realnie podłączysz w Polsce
+
+Telegram nie przechowuje pieniędzy. Płatność idzie przez zewnętrznego dostawcę, którego podpinasz do bota przez BotFathera - on wystawia token, a bot używa go przy wysyłaniu faktury. Co masz do wyboru:
+
+**Stripe.** Najwygodniejsza droga dla polskiej firmy. Stripe jest natywnie wspierany przez Telegram Payments, a przez Stripe puszczasz BLIK i Przelewy24 dla klientów z Polski. Czyli klient płaci ulubioną metodą, a Ty masz jedną integrację zamiast trzech. Karty Visa/Mastercard, Google Pay i Apple Pay wchodzą przy okazji.
+
+**Telegram Payments natywnie.** To mechanizm faktury w czacie - sam w sobie nie jest bramką, tylko spina bota z dostawcą (właśnie ze Stripe i kilkoma innymi). Forma karty otwiera się wewnątrz Telegrama, klient nie wychodzi na zewnątrz.
+
+**Telegram Stars.** Wewnętrzna waluta Telegrama do treści cyfrowych - kursy, dostęp do kanału, pliki. Jeśli sprzedajesz fizyczny towar albo usługę, to nie ta droga. Do produktów cyfrowych bywa najprostsza, bo omija bramki.
+
+Przelewy24 nie wystawia osobnego tokenu pod Telegram, więc w praktyce wchodzi do bota przez Stripe. Działa to dobrze i klient widzi znajomy ekran P24 z BLIKiem, ale dobrze wiedzieć, że pod spodem to Stripe rozlicza transakcję.
+
+## Dla kogo to ma sens, a dla kogo nie
+
+Bot z zamówieniami i płatnością sprawdza się, gdy decyzja zakupowa jest krótka:
+
+- **Dowóz jedzenia i mała gastronomia** - stałe menu, klient zamawia w minutę, płaci, dostaje numer. Bez aplikacji za 200 zł miesięcznie.
+- **Usługi na termin** - barber, kosmetyka, korepetycje, mycie aut. Bot pokazuje wolne sloty, bierze zaliczkę, wpisuje wizytę do kalendarza.
+- **Infoprodukty** - kurs, ebook, dostęp do zamkniętego kanału. Płatność i dostęp od razu, bez Twojego udziału.
+- **Mały sklep** - kilkadziesiąt pozycji, prosty asortyment, powtarzalni klienci.
+
+Kiedy bot to zły pomysł: gdy masz **duży katalog** (setki produktów z filtrami, wariantami, wyszukiwarką), rozbudowane promocje, zwroty, integracje z magazynem i kurierami. Przeglądanie setek pozycji w czacie jest męczące - tu wygrywa normalny sklep. Bot możesz wtedy zostawić jako dodatkowy kanał na bestsellery albo powiadomienia.
+
+## Bot do zamówień czy sklep internetowy
+
+Granica jest dość prosta. Bot wygrywa szybkością startu i tym, że klient już go ma w kieszeni - zero instalacji, zero zakładania konta. Sklep wygrywa, gdy ktoś musi *przeglądać* i porównywać, gdy potrzebujesz SEO, koszyka z dziesiątkami pozycji, faktur VAT, panelu produktów dla siebie.
+
+Jeśli Twoje typowe zamówienie da się złożyć z 4-5 pytań - bot wystarczy i będzie tańszy. Jeśli klient ma się "rozglądać", potrzebujesz sklepu. Czasem sensowne jest jedno i drugie: sklep jako baza, bot jako szybki kanał na stałych klientów. Dla porównania budżetów zerknij na [koszt sklepu internetowego](/pl/blog/ile-kosztuje-sklep-internetowy) obok [ceny bota](/pl/blog/ile-kosztuje-bot-na-telegramie).
+
+## Ile to kosztuje i jak długo trwa
+
+Bot przyjmujący zamówienia i płatności z prostym zapisem do arkusza albo CRM to zwykle **€1500-3500** i 3-5 tygodni roboty. Schodzi to głównie na obsługę płatności, statusy zamówień, walidację i integracje. Prostszy bot, który tylko zbiera zgłoszenia bez płatności, zaczyna się od **€600**. Pełne widełki z tym, co podbija cenę, rozpisałem w osobnym tekście o [cenie bota na Telegramie](/pl/blog/ile-kosztuje-bot-na-telegramie).
+
+Buduję takie boty pod konkretny biznes - od menu i logiki, przez płatności, po wpięcie do tego, w czym już pracujesz. Szczegóły usługi są na stronie [botów Telegram](/pl/uslugi/boty-telegram-i-mini-aplikacje), a jeśli chcesz wycenę pod swój przypadek, [napisz do mnie](/pl/kontakt) i opisz, co bot ma sprzedawać.
+
+## FAQ
+
+**Czy bot na Telegramie może naprawdę przyjąć płatność, czy tylko link do zapłaty?**
+Może przyjąć płatność w całości w czacie. Bot wystawia fakturę, klient klika "Zapłać", wpisuje kartę albo BLIK w oknie, które otwiera się wewnątrz Telegrama, i potwierdza. Bot dostaje od dostawcy sygnał o udanej transakcji i dopiero wtedy realizuje zamówienie. Link na zewnątrz to opcja zapasowa, nie domyślna.
+
+**Jak podłączyć BLIK i Przelewy24 do bota?**
+Przez Stripe. Stripe jest wspierany natywnie przez Telegram Payments i obsługuje BLIK oraz Przelewy24 dla klientów z Polski. Robisz jedną integrację Stripe, a klient i tak widzi znajomy ekran P24 z BLIKiem. Osobnego tokenu Przelewy24 pod Telegram nie ma, więc to standardowa droga na polskim rynku.
+
+**Czy potrzebuję działalności, żeby przyjmować płatności w bocie?**
+Tak. Dostawca płatności (Stripe) wymaga zarejestrowanej firmy albo działalności i weryfikacji danych, tak samo jak przy sklepie online. To nie jest sposób na przyjmowanie pieniędzy "po cichu" - transakcje są rozliczane normalnie, z fakturami i podatkiem.
+
+**Gdzie trafiają zamówienia z bota?**
+Tam, gdzie sobie ustawisz: powiadomienie do Ciebie na Telegram, wiersz w Google Sheets, karta w CRM, mail. Najczęściej robię kilka naraz - Ty dostajesz pingu na telefon, a dane lądują w arkuszu albo CRM do statystyk. Bez tego kroku bot jest bezużyteczny.
+
+**Czy bot poradzi sobie z większą liczbą zamówień naraz?**
+Tak, to jego przewaga. Bot obsługuje wielu klientów równolegle, 24/7, bez kolejki. Płatności idą przez Stripe, który jest zbudowany pod ruch. Wąskim gardłem jesteś raczej Ty przy realizacji, nie bot przy przyjmowaniu.
+
+**Czy klient musi mieć kartę, żeby zapłacić w bocie?**
+Nie musi. BLIK działa bez podawania karty - klient generuje kod w aplikacji bankowej i wpisuje go w bocie. Dostępne są też karty, Google Pay i Apple Pay. W Polsce większość ludzi i tak wybiera BLIK, więc dobrze, żeby był na pierwszym miejscu.
+
+**Czym to się różni od gotowego konstruktora botów z subskrypcją?**
+Konstruktor (Manybot, Botmother i podobne) postawisz szybko i taniej na start, ale płacisz miesięcznie, jesteś ograniczony jego szablonami i integracjami, a dane siedzą u dostawcy. Bot pisany pod Ciebie kosztuje więcej na wejściu, za to robi dokładnie to, co potrzebujesz, łączy się z Twoimi narzędziami i nie ma abonamentu za samą logikę.

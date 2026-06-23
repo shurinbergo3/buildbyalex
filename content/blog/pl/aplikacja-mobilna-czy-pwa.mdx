@@ -1,0 +1,102 @@
+---
+title: "Aplikacja mobilna czy PWA: co naprawdę jest Ci potrzebne"
+description: "Aplikacja mobilna czy PWA - kiedy wystarczy aplikacja webowa, a kiedy musisz iść w stronę natywną. Porównanie kosztów, push, offline i dostępu do sprzętu."
+date: "2026-06-04"
+cluster: "mobile-app-vs-pwa"
+ogImage: "/og/mobile-app-vs-pwa.webp"
+keywords:
+  - "aplikacja mobilna czy PWA"
+  - "PWA czy aplikacja natywna"
+  - "czy potrzebuję aplikacji mobilnej"
+  - "PWA czy aplikacja mobilna co wybrać"
+---
+
+Jeśli sprzedajesz treści, masz panel klienta albo prosty system zamówień - prawie na pewno wystarczy Ci PWA, czyli aplikacja webowa, która zachowuje się jak natywna. Aplikacji w App Store i Google Play potrzebujesz wtedy, gdy liczy się ciężki sprzęt (Bluetooth, NFC, AR), praca w tle, gry albo gdy sam sklep z aplikacjami ma być dla Ciebie kanałem pozyskiwania klientów. Poniżej rozkładam to na konkrety, bo różnica w budżecie bywa pięciokrotna.
+
+## Czym jest PWA i co potrafi w 2026
+
+PWA (Progressive Web App) to zwykła strona zrobiona tak, że telefon traktuje ją jak aplikację. Użytkownik wchodzi przez przeglądarkę, klika "dodaj do ekranu głównego" i dostaje ikonę, pełny ekran bez paska adresu i działanie offline. Nie instaluje niczego ze sklepu, nie czeka na pobieranie, nie aktualizuje ręcznie.
+
+Co PWA umie dobrze: ładuje się błyskawicznie, działa na Androidzie i iOS z jednego kodu, da się ją wgrać do Google Play (Android na to pozwala), aktualizuje się sama przy każdym wejściu i ma cache, więc katalog albo artykuły przeglądasz nawet bez sieci.
+
+Czego PWA nie umie - i tu zaczynają się schody, głównie przez iOS:
+
+- **Push na iPhonie działa z ograniczeniami.** Od iOS 16.4 powiadomienia push w PWA są możliwe, ale tylko gdy użytkownik najpierw doda stronę do ekranu głównego przez Safari. Otwarta karta w przeglądarce ich nie dostanie. W praktyce część subskrypcji potrafi też "znikać" bez wyraźnego powodu, więc na push jako główny kanał na iOS bym nie stawiał.
+- **Brak dostępu do trudniejszego sprzętu.** Bluetooth Low Energy, NFC, zaawansowane czujniki, ARKit, pełny dostęp do plików - tego na iOS nie ma. Apple celowo tego nie udostępnia przeglądarce.
+- **Cache bywa kasowany.** Na iOS dane Service Workera są ograniczone (rzędu kilkudziesięciu MB) i mogą zostać wyczyszczone po około dwóch tygodniach bez używania aplikacji.
+- **Brak obecności w App Store.** Na iPhone PWA nie wejdzie do sklepu Apple. Jeśli chcesz, żeby klient znalazł Cię przez "szukaj w App Store", to wykluczone.
+
+Na Androidzie tych ograniczeń jest znacznie mniej - tam PWA jest mocniejsza i bliższa natywnej.
+
+## PWA vs aplikacja natywna: porównanie
+
+| Kryterium | PWA | Aplikacja natywna |
+|---|---|---|
+| Koszt | od ok. 3 000 € (jeden kod, web) | od ok. 8 000-15 000 € (iOS + Android) |
+| Czas realizacji | 4-8 tygodni | 2-5 miesięcy |
+| Powiadomienia push | Android pełne, iOS z ograniczeniami | Pełne na obu systemach |
+| Offline | Tak, w granicach cache | Tak, bez ograniczeń |
+| Dostęp do kamery/czujników | Kamera tak, BLE/NFC/AR nie (zwłaszcza iOS) | Pełny dostęp do całego sprzętu |
+| Publikacja w sklepach | Google Play tak, App Store nie | App Store i Google Play |
+| Aktualizacje | Automatyczne, natychmiast | Przez sklep, czasem z akceptacją Apple |
+| Zasięg | Każdy z linkiem, bez instalacji | Tylko po pobraniu ze sklepu |
+
+## Kiedy wystarczy PWA
+
+PWA jest właściwym wyborem znacznie częściej, niż się klientom wydaje. Pasuje, gdy:
+
+- **Masz serwis treściowy lub medialny** - blog, portal, baza wiedzy, kursy. Tu liczy się szybkość i dostępność z linku, a nie dostęp do sprzętu.
+- **Robisz panel klienta albo aplikację wewnętrzną** - logowanie, zamówienia, statusy, faktury. Pracownik czy klient wchodzi z linku i ma to od razu, bez proszenia go o instalację ze sklepu.
+- **Prowadzisz prosty system zamówień lub rezerwacji** - menu restauracji, zapisy na wizytę, sklep z niewielkim katalogiem. PWA radzi sobie z koszykiem, płatnością i przeglądaniem offline.
+- **Zależy Ci na czasie i budżecie** - chcesz być na telefonach za kilka tygodni i za ułamek ceny natywnej aplikacji, a potem to rozwijać.
+
+Najczęściej namawiam właśnie na PWA, jeśli głównym argumentem za "appką" było "konkurencja ma aplikację". To rzadko jest powód wart kilkunastu tysięcy euro.
+
+## Kiedy naprawdę potrzebujesz aplikacji natywnej
+
+Są sytuacje, gdzie PWA po prostu nie wystarczy i odradzam kombinowanie na siłę:
+
+- **Twój produkt korzysta z trudnego sprzętu** - łączysz się z urządzeniami przez Bluetooth, czytasz NFC, robisz rozszerzoną rzeczywistość albo używasz czujników w trybie wysokiej częstotliwości.
+- **Aplikacja musi działać w tle** - śledzenie lokalizacji podczas treningu, ciągła synchronizacja, nawigacja, zdrowie i fitness.
+- **Robisz grę albo coś bardzo wymagającego graficznie** - tu liczy się każda klatka i pełny dostęp do GPU.
+- **Sam sklep z aplikacjami ma być kanałem sprzedaży** - chcesz, żeby ludzie znajdowali Cię w App Store, ufali "appce z gwiazdkami" i instalowali ją jako produkt. Dla części branż (np. konsumenckich) to realna wartość.
+
+Jeśli wahasz się jeszcze między natywnym a jednym kodem na oba systemy, opisałem to osobno: [aplikacja natywna czy hybrydowa](/pl/blog/aplikacja-natywna-czy-hybrydowa).
+
+## Ile to kosztuje
+
+PWA zaczyna się zwykle od około 3 000 € i powstaje w 4-8 tygodni, bo to jeden kod działający w przeglądarce na obu systemach. Aplikacja natywna lub hybrydowa to inna liga - realnie od 8 000 € w górę, a poważniejsze projekty z backendem i integracjami szybko przekraczają 15 000 €. Szczegóły rozpisałem w tekstach o [cenie aplikacji mobilnej](/pl/blog/ile-kosztuje-aplikacja-mobilna) i o [czasie realizacji aplikacji](/pl/blog/ile-trwa-stworzenie-aplikacji-mobilnej).
+
+Mój praktyczny schemat: jeśli nie jesteś pewny, czy potrzebujesz natywnej aplikacji, startuję od PWA. Sprawdzasz, czy ludzie tego w ogóle używają, a dopiero gdy upewnisz się, że to działa i brakuje Ci konkretnej funkcji systemowej, dokładamy natywną wersję. To tańsze i mniej ryzykowne niż wykładanie kilkunastu tysięcy euro na ślepo.
+
+Robię oba warianty - zobacz [usługę tworzenia aplikacji mobilnych](/pl/uslugi/aplikacje-mobilne), a jeśli chcesz, żebym podpowiedział, co pasuje do Twojego przypadku, [napisz do mnie](/pl/kontakt). Wystarczy opis pomysłu, resztę rozłożymy razem.
+
+## FAQ
+
+**Czy PWA wystarczy zamiast aplikacji mobilnej?**
+
+W większości przypadków biznesowych - tak. Jeśli masz serwis treściowy, panel klienta, system rezerwacji albo prosty sklep, PWA daje to samo doświadczenie na telefonie taniej i szybciej. Aplikacja natywna ma sens, gdy potrzebujesz pełnego push na iOS, ciężkiego sprzętu, pracy w tle albo obecności w App Store.
+
+**Czym różni się PWA od zwykłej strony internetowej?**
+
+PWA to strona z dodatkowymi możliwościami: da się ją dodać do ekranu głównego jak aplikację, działa offline dzięki cache, otwiera się na pełny ekran bez paska przeglądarki i może wysyłać powiadomienia (z ograniczeniami na iOS). Zwykła strona tego nie robi - po zamknięciu karty znika.
+
+**Czy PWA wejdzie do App Store i Google Play?**
+
+Do Google Play - tak, Android pozwala opakować PWA i wrzucić ją do sklepu. Do App Store - nie w czystej formie. Apple nie przyjmuje PWA jako aplikacji, więc na iPhone użytkownik instaluje ją przez Safari ("dodaj do ekranu głównego"), a nie przez sklep.
+
+**Czy powiadomienia push działają w PWA na iPhone?**
+
+Działają od iOS 16.4, ale warunkowo. Użytkownik musi najpierw dodać stronę do ekranu głównego, a samo działanie bywa kapryśne - subskrypcje potrafią wygasać. Na Androidzie push w PWA jest pełnoprawny. Jeśli powiadomienia to Twój główny kanał kontaktu z klientami iOS, bezpieczniej iść w natywną aplikację.
+
+**Czy PWA działa offline?**
+
+Tak, dzięki Service Workerowi i cache. Możesz przeglądać katalog, treści czy ostatnie dane bez sieci. Limit jest realny zwłaszcza na iOS - cache jest ograniczony rozmiarowo i może zostać wyczyszczony po dłuższej przerwie w korzystaniu, więc do ciężkiej pracy offline lepsza jest aplikacja natywna.
+
+**Co jest tańsze: PWA czy aplikacja natywna?**
+
+PWA, i to wyraźnie. Jeden kod działa na obu systemach, więc koszt zaczyna się od około 3 000 €, podczas gdy natywna aplikacja na iOS i Android to minimum 8 000 €. Różnica bierze się stąd, że natywnie często robi się dwie osobne aplikacje plus utrzymanie w dwóch sklepach.
+
+**Czy mogę zacząć od PWA, a później zrobić aplikację natywną?**
+
+Tak i często to polecam. Backend i logika zostają, a natywną wersję dokładasz, gdy realnie tego potrzebujesz - np. po sprawdzeniu, że klienci używają produktu i brakuje konkretnej funkcji systemowej. To rozsądniejsze niż płacenie za pełną aplikację na starcie, zanim wiesz, czy pomysł chwyci.

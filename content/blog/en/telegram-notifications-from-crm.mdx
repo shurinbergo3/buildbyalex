@@ -1,0 +1,104 @@
+---
+title: "CRM Notifications in Telegram: Never Miss a Lead Again"
+description: "How to set up CRM Telegram bot notifications: new lead, status change, payment, new row in Google Sheets. The flow through n8n/Make and prices in euros."
+date: "2026-06-13"
+cluster: "telegram-crm-notifications"
+ogImage: "/og/telegram-crm-notifications.webp"
+keywords:
+  - "CRM telegram bot notifications"
+  - "crm notifications to telegram"
+  - "telegram alert from spreadsheet"
+  - "telegram bot with google sheets"
+  - "n8n telegram notifications"
+---
+
+The bot sends a Telegram notification the same second something happens in your CRM or spreadsheet: a new lead came in from a form, a deal changed status, a payment went through, a row was added in Google Sheets. The salesperson or the whole team gets a short message with a link to the card - and nobody finds out about a lead three hours later by opening their email. Below I'll show which notifications actually make sense, how it's put together, and where it usually breaks.
+
+## Which notifications you really need
+
+"Send me everything" is the worst setting there is. After a week the bot becomes background noise, and the important stuff drowns in the flood. I usually start with these scenarios and cut the rest:
+
+- **New lead from a form on the site.** Someone filled out the form on a landing page - the chat gets the name, phone, message, and a "where from" tag. This is scenario number one, the one people ask for most often.
+- **New deal or status change in the CRM.** A deal moved to "Invoice sent" or "Paid" - a ping to the person in charge. The salesperson doesn't sit in the CRM around the clock, but they're in Telegram anyway.
+- **New row in Google Sheets.** Half of small business in Poland lives in spreadsheets, not a CRM. Leads, orders, sign-ups land in Sheets - the bot catches the new row and gives a heads-up.
+- **Payment.** A payment came in (Stripe, Przelewy24, an invoice paid) - a notification to the accounting chat or the owner. The money arrived - you know right away, not at the end of the month.
+- **Reminder about a task or a stuck deal.** A deal has been sitting in one status for three days with no movement - the bot nudges the person responsible. This one isn't about incoming leads anymore, it's about making sure nothing stalls.
+
+A good rule: a notification should call for an action or a decision. If there's no way to respond to the message and nothing needs to be done with it, it's useless.
+
+## How it's put together
+
+The flow is nearly the same for everything, only the source changes:
+
+```
+Source (CRM / Google Sheets / form / payment gateway)
+   → trigger
+   → n8n or Make
+   → Telegram Bot API
+   → the right chat, group, or thread
+```
+
+Step by step.
+
+**Source.** This is where the data appears. Pipedrive, HubSpot, amoCRM send webhooks on events ("deal created", "status changed"). Google Sheets can fire a trigger on a new row. A form on the site (Tilly, Webflow, custom) sends the data on submit. A payment gateway (Stripe, Przelewy24) sends a webhook on a successful payment.
+
+**n8n or Make** is the connecting layer. It catches the event from the source, pulls the fields it needs, builds a human-readable message out of them, and sends it to Telegram. This is also where you filter (send only leads above X, only a specific salesperson's), split into different chats, attach a link to the card. Make is simpler to start with and runs on a subscription. n8n you can host on your own server - then there's no cap on operations or fee per volume; at higher traffic it comes out noticeably cheaper. More on choosing between them - in the [piece on automation from scratch](/en/blog/business-process-automation-where-to-start).
+
+**The Telegram bot.** You create it in a minute through @BotFather and get a token. From there the bot writes to a private chat, a group, or a specific group thread. Nothing needs installing - the messages come into plain old Telegram.
+
+The most common question - "do I even need a CRM?". If you've got Google Sheets and a form - no, the flow is the same, only the source is different. The bot pulls from a spreadsheet just as well as from Pipedrive.
+
+## Private notifications or a team group
+
+There are three working options, and the choice depends on team size.
+
+**Private message to the person in charge.** Good when a lead has a specific owner and there's no need for everyone to see it. The bot writes to the salesperson assigned to the deal. The downside - if the person is on vacation, the lead quietly disappears, so I almost always add a copy to a shared chat.
+
+**Shared team group.** All leads to one chat, everyone sees them, whoever grabs it first runs with it. Simple and clear, but at high traffic the group turns into a feed where nothing can be told apart anymore.
+
+**Group with threads.** This is the sweet spot for a team of three or more. You turn on topics (threads) in a Telegram group, and the bot sorts notifications onto shelves: form leads - to one thread, payments - to another, overdue items - to a third. Each thread can be muted separately. Accounting sees only payments, sales - only leads.
+
+In practice I most often do a hybrid: a shared group with threads plus a private ping to the person in charge on the hot scenarios like a new lead.
+
+## What it costs and how long it takes
+
+A simple notification from one source (form or Google Sheets → Telegram) runs from 150-250 € and a few days of work. Connecting a CRM with several event types, filters, and sorting into threads - from 400 € and roughly a week. The exact figures depend on the source and the number of scenarios - I put the price breakdown together in the [piece on how much a Telegram bot costs](/en/blog/how-much-does-a-telegram-bot-cost). If you also need two-way communication alongside it (reply to the client straight from the CRM) - see the separate material on [CRM integration with Telegram and WhatsApp](/en/blog/crm-telegram-whatsapp-integration).
+
+## Common pitfalls
+
+After a lot of these builds the set of problems has become predictable.
+
+**Duplicate notifications.** The most common headache. A webhook can arrive twice, and a scenario in Make/n8n can fire again on the same event. The fix is deduplication: the bot remembers the event ID and won't send a second time. Without it, after a week the team gets worn down by repeats and mutes the bot - and then the real leads get lost.
+
+**Telegram API limits.** A bot won't send more than ~30 messages per second total, or more than 20 per minute to a single group. For lead notifications that's a huge margin - there just aren't that many leads. But if you decide to push a bulk broadcast through the same bot, you'll hit the limit and some messages will drop. Better to keep broadcasts and notifications separate.
+
+**Bad formatting.** Raw JSON from a CRM is unreadable in a chat. The message has to be assembled by hand: the gist in bold, a link to jump to the card, the junk thrown out. A good notification reads in a second and you instantly know what to do.
+
+**Silence on failure.** If the CRM or gateway doesn't send a webhook, you won't find out - the message just doesn't come, and that's invisible. So on critical scenarios I set up a control "all alive" ping or logging, so that silence doesn't mean "everything's down".
+
+## FAQ
+
+**Do you need a CRM for Telegram notifications?**
+No. The source can be Google Sheets, a form on the site, or a payment gateway - the flow is the same. The bot catches a new row in the spreadsheet or a form submit and sends a message to the chat. A CRM helps when there are a lot of events and each deal has its own status and owner, but a spreadsheet is enough to start.
+
+**How do you set up a notification for a new row in Google Sheets?**
+You create a bot through @BotFather, in n8n or Make you set a "new row in the spreadsheet" trigger, pull the cells you need, build a message from them, and send it through the Telegram node to the right chat. You add the bot to the group beforehand. One scenario like this takes a few hours.
+
+**Can you send notifications to a group instead of a private chat?**
+Yes, and that's the more common way to do it. The bot writes to a shared team group, and if you turn on threads in the group - it sorts notifications by topic: leads separately, payments separately, overdue items separately. Each thread can be muted so a person sees only their own.
+
+**Why do duplicate notifications come in and how do you get rid of them?**
+Because the webhook fires twice or the scenario runs again on the same event. The fix is deduplication: the bot remembers the event ID and won't send a repeat. You have to build it in from the start, otherwise the team will mute the bot out of fatigue and miss the real leads.
+
+**Which CRMs can you connect?**
+Pretty much any one with webhooks or an open API - Pipedrive, HubSpot, amoCRM, Bitrix24. They can all send "deal created", "status changed", "payment closed" events. n8n or Make catch the event and turn it into a message. If the CRM has no webhooks, we work through periodic API polling.
+
+**How many notifications can the bot handle?**
+Telegram limits a bot to roughly 30 messages per second total and 20 per minute to a single group. For lead and deal notifications that's a huge margin - there just isn't that volume of incoming. The limit only becomes a problem when you run a bulk broadcast through the same bot, which is better not to mix in.
+
+**How is this different from a chatbot that talks to clients?**
+A notification bot works inward - it tells the team about events. A client chatbot works outward - it answers questions, takes in leads. These are different jobs, though they often live side by side. What else business bots can do - I gathered in the [overview of use cases](/en/blog/telegram-bot-for-business-use-cases).
+
+---
+
+If leads and payments keep slipping between your CRM, spreadsheets, and email - [drop me a line](/en/contact), in half an hour we'll walk through your flow and I'll tell you which notifications are worth setting up first. What exactly I do with bots - on the [Telegram bots service page](/en/services/telegram-bots).

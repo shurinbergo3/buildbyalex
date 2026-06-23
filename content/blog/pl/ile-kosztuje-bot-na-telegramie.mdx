@@ -1,0 +1,105 @@
+---
+title: "Ile kosztuje bot na Telegramie dla firmy w 2026"
+description: "Ile kosztuje bot na Telegramie? Od €300 za prostego autorespondera do €5000 za bota z płatnościami, CRM i AI. Plus koszty miesięczne i konkretne widełki."
+date: "2026-06-16"
+cluster: "telegram-bot-cost"
+ogImage: "/og/telegram-bot-cost.webp"
+keywords:
+  - "ile kosztuje bot na telegramie"
+  - "cennik bota telegram"
+  - "koszt bota na telegramie dla firmy"
+  - "bot telegram dla firmy cena"
+---
+
+Krótko: bot na Telegramie kosztuje **od €300 za prostego autorespondera do €5000 za bota z płatnościami, CRM i AI**. Większość firm mieści się w przedziale **€600–2000**. Cena zależy od tego, co bot ma robić: odpowiadać na pytania, zbierać zgłoszenia, czy przyjmować płatności i pisać do Twojego CRM.
+
+Założenie samego bota w Telegramie jest darmowe - dostajesz go od BotFathera w pięć minut. Płacisz za logikę, którą ktoś musi w nim zaprogramować, i za to, że potem ten bot gdzieś działa 24/7.
+
+Niżej rozkładam to na konkretne widełki, pokazuję czego zwykle nie ma w wycenie i ile schodzi co miesiąc.
+
+## Od czego zależy cena
+
+Dwie rzeczy podbijają budżet najmocniej:
+
+**Integracje.** Bot, który tylko odpisuje gotowymi wiadomościami, jest tani. Bot, który musi gadać z Twoim CRM, kalendarzem, bramką płatności albo systemem rezerwacji - drożeje z każdym podłączonym narzędziem. Każda integracja to osobna robota: API, autoryzacja, obsługa błędów, testy.
+
+**Logika i stan.** Prosty bot odpowiada na komendę i zapomina. Bot przyjmujący zamówienie musi pamiętać, na jakim etapie jest klient, walidować dane, prowadzić rozmowę krok po kroku i zapisać wynik do bazy. To już aplikacja, nie skrypt - i tak też się wycenia.
+
+Trzeci czynnik, który ludzie nie doceniają: czy bot ma AI. Podłączenie modelu językowego (żeby bot rozumiał luźne pytania, a nie tylko sztywne komendy) dokłada do budowy i generuje stały koszt tokenów API. O tym za moment.
+
+## Realne widełki według typu bota
+
+Ceny z polskiego rynku, dla budowy pod siebie (nie subskrypcja gotowej platformy):
+
+**Prosty bot-autoresponder - €300–600.** Odpowiada na komendy, wysyła menu, FAQ, linki, godziny otwarcia. Brak integracji, brak bazy. Robota na kilka dni. Dobre na start, gdy chcesz po prostu odciążyć skrzynkę z powtarzalnych pytań.
+
+**Bot przyjmujący zgłoszenia - €600–1500.** Prowadzi klienta przez formularz (imię, telefon, czego potrzebuje), waliduje dane, zapisuje zgłoszenie i wysyła powiadomienie Tobie na Telegram albo mailem. Czasem rozsyłki do bazy. To najczęstszy scenariusz dla małej firmy - bot zamiast formularza na stronie, tyle że klient nie wychodzi z czatu.
+
+**Bot z płatnościami i CRM - €1500–3500.** Klient zamawia, płaci w czacie (Telegram Payments, Przelewy24, Stripe), a zamówienie ląduje w Twoim CRM albo arkuszu. Tu siedzi obsługa płatności, statusy, integracje. Budowa to zwykle 3–5 tygodni.
+
+**Bot z AI - €2500–5000+.** Rozumie pytania pisane normalnym językiem, odpowiada z Twojej bazy wiedzy, kwalifikuje leada, potrafi przekierować do człowieka. Do ceny budowy dochodzi miesięczny koszt tokenów. Jeśli interesuje Cię sama strona AI, rozpisałem to osobno w tekście o [cenach chatbotów i agentów AI](/pl/blog/ile-kosztuje-chatbot-ai).
+
+Pełny przegląd cen wszystkich usług - od stron po automatyzacje - jest w [cenniku stron, sklepów i aplikacji na 2026](/pl/blog/ile-kosztuje-strona-aplikacja-cennik-2026).
+
+## Czego zwykle nie ma w wycenie
+
+Tu ludzie się przejeżdżają, więc mówię wprost. W cenie budowy zwykle **nie** siedzą:
+
+- **Hosting i serwer** - bot musi gdzieś chodzić non stop, to osobny koszt miesięczny.
+- **Bramka płatności** - prowizje Stripe/Przelewy24 płacisz od każdej transakcji, to nie ja, to operator.
+- **Koszty API** - jeśli bot ma AI, tokeny modelu lecą co miesiąc według ruchu.
+- **Późniejsze doróbki** - nowa komenda, kolejna integracja, zmiana logiki to nowa wycena, nie gwarancja.
+- **Konta na płatnych narzędziach** - jeśli bot wpina się do Twojego CRM na płatnym planie, to Twoja subskrypcja.
+
+Sama poprawka błędu po starcie powinna być w cenie (i u mnie jest). Ale "dodajmy jeszcze płatności i panel admina" to już nowy zakres.
+
+## Ile schodzi co miesiąc
+
+Telegram nic nie bierze za samego bota. Stałe koszty to:
+
+**Hosting - €5–20/mies.** Bot jest lekki, spokojnie chodzi na małym VPS-ie albo w chmurze. Prosty bot zmieści się w najtańszej opcji.
+
+**Koszty AI (jeśli jest) - €30–80/mies.** Przy 1000+ rozmów miesięcznie na tańszych modelach. Przy większym ruchu albo droższym modelu - więcej.
+
+**Płatne integracje - zależnie od narzędzia.** Jeśli bot pisze do CRM na płatnym planie albo używa zewnętrznego API z limitem, to dochodzi.
+
+Dla prostego bota realnie wychodzi kilka euro miesięcznie. Dla bota z AI i płatnościami - kilkadziesiąt. To wciąż taniej niż jeden etat na odpisywanie na te same pytania.
+
+## Ile biorę ja
+
+Gram w otwarte karty. Prostego bota-autorespondera robię **od €300**. Bota na zgłoszenia z zapisem do bazy i powiadomieniami - **od €700**. Bota z płatnościami albo AI - wyceniam indywidualnie, zwykle **od €1800**.
+
+Zanim cokolwiek zacznę, dostajesz **stałą cenę i zakres na piśmie**. Bez "wyszło więcej godzin". Jak po drodze chcesz dołożyć funkcję - mówię ile i decydujesz. Termin też podaję w tygodniach, nie "kiedyś".
+
+Jeśli bot ma dogadywać się z Twoim CRM albo WhatsAppem, zerknij na tekst o [integracji CRM z Telegramem i WhatsAppem](/pl/blog/integracja-crm-z-telegramem-i-whatsapp) - tam jest jak to spinam. Szczegóły usługi opisałem na stronie [botów na Telegram](/pl/uslugi/boty-telegram-i-mini-aplikacje).
+
+## Kiedy się opłaca, a komu odpuścić
+
+Bot na Telegramie zwraca się szybko, gdy masz powtarzalny ruch: ciągle te same pytania, zapisy, zamówienia, statusy. Wtedy autoresponder za €400 odbija się w miesiąc albo dwa, bo przestajesz tracić wieczory na odpisywanie. Bot z płatnościami zwraca się, gdy faktycznie sprzedajesz w czacie - liczy się prowizja od transakcji minus to, co wcześniej ginęło bez odpowiedzi.
+
+Komu odpuścić? Jeśli masz dwa zapytania w tygodniu i ogarniasz je telefonem - bot to przerost formy. Jeśli Twoi klienci nie siedzą na Telegramie (a w Polsce część biznesu działa głównie na WhatsAppie), lepiej zacząć tam. Bot ma sens, gdy jest ruch do zautomatyzowania, nie odwrotnie.
+
+Masz konkretny przypadek? [Napisz, wycenię na sztywno](/pl/kontakt) - powiesz co bot ma robić, dostaniesz cenę i termin.
+
+## FAQ
+
+**Ile kosztuje bot na Telegramie dla firmy?**
+Od €300 za prostego autorespondera do €5000 za bota z płatnościami, CRM i AI. Większość firm mieści się w €600–2000. Cena zależy głównie od integracji i tego, czy bot ma pamiętać stan rozmowy oraz przyjmować płatności.
+
+**Czy bot na Telegramie jest darmowy?**
+Założenie bota u BotFathera jest darmowe i zajmuje kilka minut. Ale to tylko pusta skorupa - płacisz za logikę, którą ktoś musi zaprogramować, oraz za hosting, dzięki któremu bot działa 24/7. Telegram nie bierze prowizji za samego bota.
+
+**Ile czasu zajmuje stworzenie bota na Telegramie?**
+Prosty autoresponder to kilka dni. Bot na zgłoszenia - 1–2 tygodnie. Bot z płatnościami - 3–5 tygodni. Bot z AI - 2–4 tygodnie zależnie od bazy wiedzy. Termin podaję w tygodniach przed startem, razem z ceną.
+
+**Czym różni się bot na kreatorze od bota pisanego w kodzie?**
+Kreator (ManyChat, Chatfuel) to subskrypcja od €15/mies., szybki start, ale ograniczasz się do tego, co umie platforma, i nie posiadasz logiki. Bot w kodzie to jednorazowa budowa - Twój kod, dowolna integracja, dowolna płatność, brak wiecznego abonamentu poza hostingiem.
+
+**Ile kosztuje utrzymanie bota miesięcznie?**
+Sam hosting to €5–20/mies., bo bot jest lekki. Jeśli ma AI, doliczysz €30–80/mies. za tokeny przy 1000+ rozmów. Płatne integracje (np. CRM na płatnym planie) to osobny koszt po Twojej stronie.
+
+**Czy bot na Telegramie może przyjmować płatności?**
+Tak. Przez Telegram Payments albo zewnętrzną bramkę (Stripe, Przelewy24) klient płaci bez wychodzenia z czatu. To podbija cenę budowy do przedziału €1500–3500, bo dochodzi obsługa transakcji, statusów i integracja z systemem zamówień.
+
+**Po jakim czasie bot się zwraca?**
+Prosty bot odpowiadający na powtarzalne pytania zwykle zwraca się w 1–3 miesiące, bo odzyskujesz czas tracony na ręczne odpisywanie. Bot z płatnościami zwraca się szybciej, jeśli faktycznie generuje sprzedaż w czacie. Bez realnego ruchu do automatyzacji bot się nie opłaca.

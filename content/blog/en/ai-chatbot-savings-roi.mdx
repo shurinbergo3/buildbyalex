@@ -1,0 +1,117 @@
+---
+title: "How Much Does an AI Chatbot Actually Save in Support: ROI Math"
+description: "How much an AI support chatbot saves and how long it takes to pay back. The ROI formula, a worked example in euros, and an honest look at when a bot doesn't pay off."
+date: "2026-05-28"
+cluster: "ai-chatbot-roi"
+ogImage: "/og/ai-chatbot-roi.webp"
+keywords:
+  - "AI chatbot savings ROI"
+  - "how much does a chatbot save"
+  - "is a chatbot worth it"
+---
+
+Short version: **an AI support chatbot starts making money once you have more than ~500-700 tickets a month and a good share of them are repeat questions**. At that volume the typical payback is **2-5 months**, and after that the bot just saves you money every month. If you get few tickets or every one is different, the bot easily goes into the red. Below I do the math step by step so you can plug in your own numbers.
+
+## The ROI formula in plain words
+
+No magic here. The savings from a bot is the consultant time it takes off your team, converted into money, minus what the bot costs you each month.
+
+> Monthly savings = (hours the bot took off the team x consultant rate) - (setup cost spread over months + running costs)
+
+Payback is even simpler:
+
+> Payback in months = setup cost / monthly savings
+
+The two numbers that decide everything are **how many tickets the bot really closes on its own** and **what an hour of a consultant costs you**. The rest is secondary.
+
+## A worked example with real numbers
+
+Take a small online store in Poland. Inputs:
+
+- 1000 tickets a month (FAQ, "where is my order", delivery, returns, payment status)
+- the bot closes 40% on its own, no consultant - that's 400 tickets
+- one ticket takes a consultant 6 minutes on average
+- consultant rate with overhead - €12 an hour
+- bot setup - €2500, we count a 12-month lifespan
+- running costs (hosting + LLM tokens + maintaining the knowledge base) - €120 a month
+
+Step by step.
+
+**Step 1. Hours the bot takes off.** 400 tickets x 6 minutes = 2400 minutes = 40 hours a month.
+
+**Step 2. That in money.** 40 hours x €12 = €480 saved on wages each month.
+
+**Step 3. What the bot costs per month.** Setup €2500 / 12 = ~€208 + €120 running = €328 a month.
+
+**Step 4. Net savings.** €480 - €328 = €152 a month clear.
+
+**Step 5. Payback.** €2500 / (€480 - €120 running) = €2500 / €360 = ~7 months to break even on the setup cost. And from the month the setup pays for itself, net savings rise to €360 a month.
+
+Now the interesting part. Push the share of closed tickets from 40% to 60% (a good bot on a solid knowledge base will handle that) - and the bot now takes off 60 hours, saves €720 on wages, and payback on setup drops to ~4 months. Every percent of closed tickets cuts the payback period directly.
+
+## What the bot saves beyond consultant hours
+
+Consultant wages are the most visible line, but not the only one.
+
+- **24/7 answers.** At night, on the weekend, at 7 in the morning, the customer gets an answer right away. Some of those conversations turn into orders that would otherwise have gone to a competitor while you slept.
+- **Fewer lost leads.** Someone who waits more than a couple of minutes for an answer often just leaves. The bot catches those tickets on the spot.
+- **Relief at peak times.** A sale, a launch, a spike after a campaign - the bot holds the first line, and the team doesn't drown and doesn't burn out. You don't have to hire seasonal staff for the peak.
+- **Steady speed.** The bot answers in seconds on the first ticket and on the hundredth of the day. The queue doesn't grow.
+
+These things are harder to count than hours, but in retail and services they often weigh more than the savings on salaries.
+
+## When a bot does NOT pay off
+
+Honestly: a bot isn't always a good idea. It goes into the red when:
+
+- **Few tickets.** If you get 80-150 tickets a month, the savings on hours won't cover the running and setup costs. Here a live person or a solid FAQ page works out cheaper.
+- **Every ticket is different.** Complex B2B, custom quotes, legal nuance - there the bot closes 10-15%, not 40-60%. The savings are too small.
+- **No knowledge base.** If you have nowhere written down how you handle returns and delivery, the bot has nothing to lean on. First you sort out the documentation, then you set up the bot.
+- **Set up and forgotten.** About a third of bot projects don't pay off, precisely because after launch nobody watches where the bot trips up and nobody adds to the base. A bot isn't "bought and it works" - it's a tool you have to tune over the first few months.
+
+If you recognize your case in the first two points - don't spend the money. I'll talk you out of it faster than I'll sell you a bot that won't pay back.
+
+## How to calculate it for your business
+
+You only need four numbers. You can gather them in one evening:
+
+1. **How many tickets a month** reach support (widget, WhatsApp, Telegram, email - all of it together).
+2. **What share is repetitive** - the "where's my order", "how do I return", "how much does it cost". Estimate the percent honestly, don't round up by gut.
+3. **Average time per ticket** in minutes. Ask the team or check the CRM.
+4. **Consultant hourly rate** with overhead and indirect costs, not the bare salary.
+
+Then you plug it into the formula above. If monthly savings minus running costs comes out clearly above zero - the bot will pay back, the only question is when. If it's around zero or in the red - it's still too early.
+
+I break the price of the bot itself into parts in the article [how much an AI chatbot costs](/en/blog/how-much-does-an-ai-chatbot-cost), and if you don't yet know what an AI agent even is and how it differs from a scripted bot - read [what is an AI agent](/en/blog/what-is-an-ai-agent). When you get to rollout, I have a separate breakdown, [how to implement AI in business](/en/blog/how-to-implement-ai-in-business), with no rosy promises.
+
+## FAQ
+
+**Is a support chatbot worth it?**
+
+Yes, if ticket volume is above roughly 500-700 a month and a meaningful share of them is repetitive. In that setup the bot usually breaks even on setup in 2-5 months, then saves money every month. At low volume or with nothing but unusual questions it doesn't pay back.
+
+**After how many months does an AI chatbot pay for itself?**
+
+In my projects, most often 2-5 months. The timeline depends directly on what share of tickets the bot closes on its own: raising it from 40% to 60% cuts payback almost in half. Complex cases with low volume drag on 6-8 months or never pay back.
+
+**What percent of tickets does the bot really close?**
+
+A properly built bot on your knowledge base closes 40-60% of first-line tickets without a consultant. In retail and e-commerce with a high share of typical questions it can be even more. In complex B2B - 10-20%, and then it usually doesn't make sense.
+
+**How much cheaper is a ticket through the bot than through a consultant?**
+
+The gap is big. An hour of consultant work costs €10-15, while one ticket through the bot is pennies on hosting and model tokens. The main savings, though, comes not from the price per query but from the hours taken off the team: the bot takes the routine, people handle the hard stuff.
+
+**Why do some bot projects fail to pay off?**
+
+About a third of projects don't break even. The reasons are nearly always the same: ticket volume too low, no knowledge base for the bot to lean on, and a "set up and forgotten" approach where after launch nobody looks at the errors and nobody adds answers.
+
+**Will a bot replace the whole support team?**
+
+No, and it isn't worth aiming for. The bot takes the first line and the routine, while people handle complex and sensitive matters where empathy and non-standard solutions matter. Usually the team doesn't shrink to zero - it just stops growing and stops burning out at peak.
+
+**What do you need to calculate the payback yourself?**
+
+Four numbers: tickets per month, the share of typical ones among them, average time per ticket, and the consultant hourly rate. You plug them into the formula "saved hours x rate minus bot costs" - and you see right away whether it pays back. If you need help with the math for your case, [write to me](/en/contact), I'll calculate it for free.
+
+Want numbers built exactly around your ticket flow? Check out the [AI agents service](/en/services/ai-agents) or [get in touch](/en/contact) - I'll look at your volume and tell you honestly whether the bot will pay back.

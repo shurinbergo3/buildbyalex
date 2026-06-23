@@ -1,0 +1,102 @@
+---
+title: "Mobile App or PWA: What You Actually Need"
+description: "Mobile app or PWA - when a web app is enough and when you really need to go native. A comparison of cost, push, offline, and hardware access."
+date: "2026-06-04"
+cluster: "mobile-app-vs-pwa"
+ogImage: "/og/mobile-app-vs-pwa.webp"
+keywords:
+  - "mobile app or PWA"
+  - "PWA vs native app"
+  - "do I need a mobile app"
+  - "PWA or mobile app which to choose"
+---
+
+If you sell content, run a client portal, or have a simple ordering system, a PWA is almost certainly enough - a web app that behaves like a native one. You need an app in the App Store and Google Play when heavy hardware matters (Bluetooth, NFC, AR), background work, games, or when the app store itself is meant to be a channel for finding customers. Below I break it down into specifics, because the budget gap can be five to one.
+
+## What a PWA is and what it can do in 2026
+
+A PWA (Progressive Web App) is just a website built so the phone treats it like an app. The user opens it in the browser, taps "add to home screen," and gets an icon, a full screen with no address bar, and offline support. They install nothing from a store, wait for no download, and update nothing by hand.
+
+What a PWA does well: it loads instantly, runs on Android and iOS from a single codebase, can be wrapped into Google Play (Android allows that), updates itself on every visit, and caches data, so you can browse a catalog or articles even without a connection.
+
+What a PWA can't do - and this is where it gets tricky, mostly because of iOS:
+
+- **Push on iPhone works with limits.** Since iOS 16.4, push notifications in a PWA are possible, but only after the user adds the site to the home screen through Safari. An open tab in the browser won't receive them. In practice, some subscriptions also tend to "disappear" for no clear reason, so I wouldn't bet on push as the main channel on iOS.
+- **No access to harder hardware.** Bluetooth Low Energy, NFC, advanced sensors, ARKit, full file access - none of that exists on iOS. Apple deliberately keeps it out of the browser.
+- **Cache gets wiped.** On iOS, Service Worker data is capped (a few dozen MB) and can be cleared after about two weeks without using the app.
+- **No App Store presence.** On the iPhone, a PWA won't make it into Apple's store. If you want a customer to find you by searching the App Store, that's off the table.
+
+On Android these limits are far fewer - there a PWA is stronger and closer to native.
+
+## PWA vs native app: a comparison
+
+| Criterion | PWA | Native app |
+|---|---|---|
+| Cost | from about €3,000 (one codebase, web) | from about €8,000-15,000 (iOS + Android) |
+| Time to build | 4-8 weeks | 2-5 months |
+| Push notifications | Full on Android, limited on iOS | Full on both systems |
+| Offline | Yes, within cache limits | Yes, no limits |
+| Camera/sensor access | Camera yes, BLE/NFC/AR no (especially iOS) | Full access to all hardware |
+| Store publishing | Google Play yes, App Store no | App Store and Google Play |
+| Updates | Automatic, instant | Through the store, sometimes with Apple approval |
+| Reach | Anyone with a link, no install | Only after downloading from the store |
+
+## When a PWA is enough
+
+A PWA is the right call far more often than clients expect. It fits when:
+
+- **You run a content or media service** - a blog, portal, knowledge base, courses. Here speed and link access matter, not hardware.
+- **You're building a client portal or an internal app** - login, orders, statuses, invoices. An employee or client opens a link and has it right away, without being asked to install from a store.
+- **You run a simple ordering or booking system** - a restaurant menu, appointment sign-ups, a shop with a small catalog. A PWA handles the cart, payment, and offline browsing.
+- **Time and budget matter** - you want to be on phones in a few weeks at a fraction of the price of a native app, then grow it from there.
+
+I most often push for a PWA when the main argument for "an app" was "the competition has one." That's rarely a reason worth a five-figure sum.
+
+## When you really need a native app
+
+There are cases where a PWA simply isn't enough, and I advise against forcing it:
+
+- **Your product uses tricky hardware** - you connect to devices over Bluetooth, read NFC, do augmented reality, or use sensors at high frequency.
+- **The app has to run in the background** - location tracking during a workout, constant syncing, navigation, health and fitness.
+- **You're making a game or something very graphics-heavy** - here every frame counts and you need full GPU access.
+- **The app store itself is meant to be a sales channel** - you want people to find you in the App Store, trust an "app with stars," and install it as a product. For some sectors (consumer ones, say) that's real value.
+
+If you're still torn between native and a single codebase for both systems, I covered that separately: [native vs cross-platform app](/en/blog/native-vs-cross-platform-app).
+
+## What it costs
+
+A PWA usually starts at around €3,000 and takes 4-8 weeks, because it's one codebase running in the browser on both systems. A native or hybrid app is a different league - realistically from €8,000 up, and bigger projects with a backend and integrations quickly pass €15,000. I laid out the details in the pieces on [the cost of a mobile app](/en/blog/how-much-does-it-cost-to-build-an-app) and on [how long an app takes to build](/en/blog/how-long-does-it-take-to-build-an-app).
+
+My practical rule: if you're not sure you need a native app, I start with a PWA. You check whether people use it at all, and only once you've confirmed it works and you're missing a specific system feature do we add a native version. That's cheaper and less risky than dropping a five-figure sum blind.
+
+I build both - see the [mobile app development service](/en/services/mobile-apps), and if you'd like me to suggest what fits your case, [get in touch](/en/contact). A description of your idea is enough, we'll work out the rest together.
+
+## FAQ
+
+**Is a PWA enough instead of a mobile app?**
+
+For most business cases, yes. If you have a content service, a client portal, a booking system, or a simple shop, a PWA gives you the same experience on the phone, cheaper and faster. A native app makes sense when you need full push on iOS, heavy hardware, background work, or an App Store presence.
+
+**How does a PWA differ from an ordinary website?**
+
+A PWA is a site with extra abilities: you can add it to the home screen like an app, it works offline thanks to caching, it opens in full screen with no browser bar, and it can send notifications (with limits on iOS). An ordinary website doesn't do that - once you close the tab, it's gone.
+
+**Will a PWA get into the App Store and Google Play?**
+
+Into Google Play, yes - Android lets you wrap a PWA and put it in the store. Into the App Store, not in pure form. Apple won't accept a PWA as an app, so on the iPhone a user installs it through Safari ("add to home screen"), not through the store.
+
+**Do push notifications work in a PWA on iPhone?**
+
+They've worked since iOS 16.4, but conditionally. The user has to add the site to the home screen first, and the behavior itself is finicky - subscriptions can expire. On Android, push in a PWA is fully fledged. If notifications are your main channel for reaching iOS customers, going native is safer.
+
+**Does a PWA work offline?**
+
+Yes, thanks to the Service Worker and caching. You can browse a catalog, content, or recent data without a connection. The limit is real, especially on iOS - the cache is capped in size and can be cleared after a longer break in use, so for heavy offline work a native app is better.
+
+**Which is cheaper: a PWA or a native app?**
+
+A PWA, and clearly so. One codebase runs on both systems, so the cost starts at around €3,000, while a native app on iOS and Android is a minimum of €8,000. The gap comes from native often meaning two separate apps plus upkeep in two stores.
+
+**Can I start with a PWA and build a native app later?**
+
+Yes, and I often recommend it. The backend and logic stay, and you add the native version when you actually need it - for example, after confirming customers use the product and you're missing a specific system feature. That's more sensible than paying for a full app up front, before you know whether the idea catches on.

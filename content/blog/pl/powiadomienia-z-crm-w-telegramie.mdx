@@ -1,0 +1,104 @@
+---
+title: "Powiadomienia z CRM w Telegramie: nie przegap żadnego zgłoszenia"
+description: "Jak ustawić powiadomienia CRM Telegram bot: nowy lead, zmiana statusu, płatność, nowy wiersz w Google Sheets. Schemat przez n8n/Make i ceny w euro."
+date: "2026-06-13"
+cluster: "telegram-crm-notifications"
+ogImage: "/og/telegram-crm-notifications.webp"
+keywords:
+  - "powiadomienia CRM telegram bot"
+  - "powiadomienia z crm na telegram"
+  - "alert telegram z arkusza"
+  - "telegram bot z google sheets"
+  - "n8n powiadomienia telegram"
+---
+
+Bot wysyła powiadomienie na Telegram w tej samej sekundzie, w której coś dzieje się w CRM albo w arkuszu: wpłynął nowy lead z formularza, deal zmienił status, przeszła płatność, doszedł wiersz w Google Sheets. Do handlowca albo do całego zespołu trafia krótka wiadomość z linkiem do karty - i nikt nie dowiaduje się o zgłoszeniu trzy godziny później, otwierając maila. Niżej pokażę, jakie powiadomienia mają sens, jak się to składa i gdzie zwykle pęka.
+
+## Jakie powiadomienia naprawdę są potrzebne
+
+«Wysyłaj mi wszystko» to najgorsze ustawienie. Po tygodniu bot staje się tłem, a to ważne tonie w zalewie. Zwykle zaczynam od tych scenariuszy, a resztę odcinam:
+
+- **Nowy lead z formularza na stronie.** Ktoś wypełnił formularz na landingu - do czatu leci imię, telefon, treść i znacznik «skąd». To scenariusz numer jeden, po niego najczęściej przychodzą.
+- **Nowy deal albo zmiana statusu w CRM.** Deal przeszedł do «Faktura wystawiona» albo «Opłacone» - ping do osoby odpowiedzialnej. Handlowiec nie siedzi w CRM całą dobę, a w Telegramie i tak jest.
+- **Nowy wiersz w Google Sheets.** Połowa małego biznesu w Polsce żyje w arkuszach, nie w CRM. Zgłoszenia, zamówienia, zapisy spadają do Sheets - bot łapie nowy wiersz i daje znać.
+- **Płatność.** Wpłynęła płatność (Stripe, Przelewy24, faktura opłacona) - powiadomienie do czatu księgowości albo do właściciela. Pieniądze przyszły - wiesz od razu, nie pod koniec miesiąca.
+- **Przypomnienie o zadaniu albo zaległym dealu.** Deal wisi w jednym statusie trzy dni bez ruchu - bot szturcha odpowiedzialnego. To już nie o przychodzących, tylko o tym, żeby nic nie zawisło.
+
+Dobra zasada: powiadomienie powinno wymagać działania albo decyzji. Jeśli na wiadomość nie ma jak odpowiedzieć i nic nie trzeba z nią zrobić - jest zbędna.
+
+## Jak się to składa
+
+Schemat jest niemal taki sam dla wszystkiego, zmienia się tylko źródło:
+
+```
+Źródło (CRM / Google Sheets / formularz / bramka płatności)
+   → trigger
+   → n8n albo Make
+   → Telegram Bot API
+   → właściwy czat, grupa albo wątek
+```
+
+Po kolei.
+
+**Źródło.** To miejsce, gdzie pojawiają się dane. Pipedrive, HubSpot, amoCRM wysyłają webhooki na zdarzenia («utworzono deal», «zmienił się status»). Google Sheets potrafi odpalić trigger na nowy wiersz. Formularz na stronie (Tilly, Webflow, własny) wysyła dane przy wysłaniu. Bramka płatności (Stripe, Przelewy24) wysyła webhook przy udanej płatności.
+
+**n8n albo Make** to warstwa-łącznik. Łapie zdarzenie ze źródła, wyciąga potrzebne pola, składa z nich ludzką wiadomość i wysyła ją na Telegram. Tu też można filtrować (wysyłać tylko leady powyżej X, tylko danego handlowca), rozdzielić na różne czaty, podciągnąć link do karty. Make jest prostszy na start i działa w abonamencie. n8n można postawić na własnym serwerze - wtedy nie ma limitów na operacje ani opłaty za wolumen; na większym ruchu wychodzi wyraźnie taniej. Więcej o wyborze - w [tekście o automatyzacji od zera](/pl/blog/automatyzacja-procesow-od-czego-zaczac).
+
+**Bot na Telegramie.** Tworzy się go w minutę przez @BotFather, dostajesz token. Dalej bot pisze na priv, do grupy albo do konkretnego wątku grupy. Niczego nie trzeba instalować - wiadomości przychodzą w zwykłym Telegramie.
+
+Najczęstsze pytanie - «czy w ogóle potrzebny jest CRM?». Jeśli masz Google Sheets i formularz - nie, schemat jest ten sam, tylko źródło inne. Bot tak samo dobrze ciągnie z arkusza, jak z Pipedrive.
+
+## Powiadomienia prywatne czy grupa zespołu
+
+Są trzy działające warianty, wybór zależy od wielkości zespołu.
+
+**Priv do osoby odpowiedzialnej.** Dobre, gdy zgłoszenie ma konkretnego właściciela i nie trzeba, żeby widzieli wszyscy. Bot pisze do handlowca przypisanego do deala. Minus - jak człowiek jest na urlopie, zgłoszenie po cichu znika, więc prawie zawsze dorzucam dubla na wspólny czat.
+
+**Wspólna grupa zespołu.** Wszystkie zgłoszenia na jeden czat, widzą wszyscy, kto pierwszy wziął - ten prowadzi. Proste i przejrzyste, ale przy dużym ruchu grupa zamienia się w feed, w którym nic już nie da się rozróżnić.
+
+**Grupa z wątkami.** To złoty środek dla zespołu od trzech osób. W grupie na Telegramie włącza się tematy (wątki), a bot rozkłada powiadomienia na półki: leady z formularza - do jednego wątku, płatności - do drugiego, zaległości - do trzeciego. Każdy wątek można osobno wyciszyć. Księgowość widzi tylko płatności, sprzedaż - tylko leady.
+
+W praktyce najczęściej robię hybrydę: wspólna grupa z wątkami plus prywatny ping do odpowiedzialnego przy gorących scenariuszach typu nowy lead.
+
+## Ile kosztuje i ile trwa
+
+Proste powiadomienie z jednego źródła (formularz albo Google Sheets → Telegram) to od 150-250 € i kilka dni pracy. Połączenie CRM z kilkoma typami zdarzeń, filtrami i rozkładem na wątki - od 400 € i mniej więcej tydzień. Dokładne kwoty zależą od źródła i liczby scenariuszy - rozbicie cen zebrałem w [tekście o koszcie bota na Telegramie](/pl/blog/ile-kosztuje-bot-na-telegramie). Jeśli obok potrzebna jest jeszcze komunikacja dwukierunkowa (odpowiadać klientowi prosto z CRM) - zobacz osobny materiał o [integracji CRM z Telegramem i WhatsAppem](/pl/blog/integracja-crm-z-telegramem-i-whatsapp).
+
+## Częste pułapki
+
+Po wielu takich wdrożeniach zestaw problemów stał się przewidywalny.
+
+**Zdublowane powiadomienia.** Najczęstsza bolączka. Webhook potrafi przyjść dwa razy, a scenariusz w Make/n8n - odpalić się ponownie na to samo zdarzenie. Leczy to deduplikacja: bot zapamiętuje ID zdarzenia i nie wysyła drugi raz. Bez tego po tygodniu zespół męczy się powtórkami i wycisza bota - a wtedy giną już prawdziwe zgłoszenia.
+
+**Limity Telegram API.** Bot nie wyśle więcej niż ~30 wiadomości na sekundę łącznie ani więcej niż 20 na minutę do jednej grupy. Dla powiadomień o leadach to z dużym zapasem - tylu zgłoszeń po prostu nie ma. Ale jeśli postanowisz przez tego samego bota puszczać masową wysyłkę, wbijesz się w limit i część wiadomości odpadnie. Wysyłkę i powiadomienia lepiej rozdzielić.
+
+**Krzywe formatowanie.** Surowy JSON z CRM jest na czacie nie do czytania. Wiadomość trzeba poskładać ręcznie: pogrubieniem - sedno, linkiem - przejście do karty, zbędne - wyrzucić. Dobre powiadomienie czyta się w sekundę i od razu wiadomo, co zrobić.
+
+**Cisza przy awarii.** Jeśli CRM albo bramka nie wyśle webhooka, nie dowiesz się o tym - po prostu nie przyjdzie wiadomość, a tego nie widać. Dlatego przy krytycznych scenariuszach stawiam kontrolny ping «wszystko żyje» albo logowanie, żeby cisza nie oznaczała «wszystko padło».
+
+## FAQ
+
+**Czy do powiadomień na Telegramie potrzebny jest CRM?**
+Nie. Źródłem może być Google Sheets, formularz na stronie albo bramka płatności - schemat jest ten sam. Bot łapie nowy wiersz w arkuszu albo wysłanie formularza i wysyła wiadomość na czat. CRM przydaje się, gdy zdarzeń jest dużo i każdy deal ma swój status oraz właściciela, ale na start wystarczy arkusz.
+
+**Jak ustawić powiadomienie o nowym wierszu w Google Sheets?**
+Tworzysz bota przez @BotFather, w n8n albo Make ustawiasz trigger «nowy wiersz w arkuszu», wyciągasz potrzebne komórki, składasz z nich wiadomość i wysyłasz przez node Telegrama do właściwego czatu. Bota dodajesz do grupy wcześniej. Na jeden taki scenariusz idzie kilka godzin.
+
+**Czy można wysyłać powiadomienia do grupy, a nie na priv?**
+Tak, i częściej tak się robi. Bot pisze na wspólną grupę zespołu, a jeśli włączyć w grupie wątki - rozkłada powiadomienia po tematach: leady osobno, płatności osobno, zaległości osobno. Każdy wątek można wyciszyć, żeby człowiek widział tylko swoje.
+
+**Dlaczego przychodzą zdublowane powiadomienia i jak to usunąć?**
+Bo webhook leci dwa razy albo scenariusz odpala się ponownie na to samo zdarzenie. Leczy to deduplikacja: bot zapamiętuje ID zdarzenia i nie wysyła powtórki. Trzeba to założyć od razu, inaczej zespół wyciszy bota ze zmęczenia i przegapi prawdziwe zgłoszenia.
+
+**Jakie CRM-y można podpiąć?**
+Praktycznie każdy z webhookami albo otwartym API - Pipedrive, HubSpot, amoCRM, Bitrix24. Wszystkie potrafią wysyłać zdarzenia «utworzono deal», «zmienił się status», «zamknięto płatność». n8n albo Make łapią to zdarzenie i zamieniają je w wiadomość. Jeśli CRM nie ma webhooków, działamy przez okresowe odpytywanie API.
+
+**Ile powiadomień wytrzyma bot?**
+Telegram ogranicza bota do mniej więcej 30 wiadomości na sekundę łącznie i 20 na minutę do jednej grupy. Dla powiadomień o leadach i dealach to z dużym zapasem - takich wolumenów przychodzących po prostu nie ma. Limit staje się problemem dopiero, gdy przez tego samego bota gnasz masową wysyłkę, czego lepiej nie mieszać.
+
+**Czym to różni się od chatbota, który rozmawia z klientami?**
+Bot powiadomień działa do środka - informuje zespół o zdarzeniach. Chatbot dla klientów działa na zewnątrz - odpowiada na pytania, przyjmuje zgłoszenia. To różne zadania, choć często żyją obok siebie. Co jeszcze potrafią boty dla biznesu - zebrałem w [przeglądzie zastosowań](/pl/blog/bot-na-telegramie-dla-firmy-zastosowania).
+
+---
+
+Jeśli zgłoszenia i płatności gubią ci się między CRM, arkuszami i mailem - [napisz do mnie](/pl/kontakt), w pół godziny przejdziemy twój przepływ i powiem, które powiadomienia warto ustawić w pierwszej kolejności. Co konkretnie robię z botami - na stronie [usługi boty na Telegramie](/pl/uslugi/boty-telegram-i-mini-aplikacje).

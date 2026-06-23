@@ -1,0 +1,113 @@
+---
+title: "Ile kosztuje automatyzacja n8n / Make? Cennik wdrożenia 2026"
+description: "Ile kosztuje automatyzacja n8n - od 300 € za jeden scenariusz do 5 000 €+ za połączenie kilku systemów. Pokazuję realne widełki, koszty miesięczne i ukryte wydatki."
+date: "2026-06-18"
+cluster: "automation-cost-n8n"
+ogImage: "/og/automation-cost-n8n.webp"
+keywords:
+  - "ile kosztuje automatyzacja n8n"
+  - "cennik automatyzacji procesów"
+  - "koszt wdrożenia n8n make"
+  - "n8n vs make cena"
+  - "automatyzacja procesów cena"
+---
+
+Krótka odpowiedź: jeden działający scenariusz na n8n albo Make kosztuje od **300 €**, połączenie kilku systemów z logiką i obsługą błędów to zwykle **1 200-3 000 €**, a złożona automatyzacja z rozgałęzieniami i AI potrafi wejść w **5 000 €+**. Do tego dochodzą stałe opłaty miesięczne za narzędzia, hosting i API - i to one zaskakują ludzi częściej niż sama faktura za wdrożenie.
+
+Jestem Alex. Robię automatyzacje dla małych i średnich firm w Polsce jako jedna osoba, więc widzę całą kalkulację z bliska - i tę po stronie klienta, i moją. Poniżej rozkładam to na czynniki, bez „od 99 zł” i bez „skontaktuj się po wycenę”.
+
+## Z czego składa się cena
+
+Cena automatyzacji to nie jedna liczba, tylko trzy różne portfele:
+
+1. **Jednorazowe wdrożenie** - moja praca: analiza procesu, zbudowanie scenariusza, połączenie API, testy, dokumentacja. Płacisz raz.
+2. **Abonamenty za narzędzia** - co miesiąc, dopóki automatyzacja działa. Tu właśnie dzieli się świat na n8n self-hosted i Make/Zapier.
+3. **Utrzymanie** - poprawki, gdy zmieni się API jednego z systemów, drobne rozbudowy, czasem szkolenie zespołu.
+
+Najwięcej nieporozumień bierze się z mieszania pierwszego punktu z drugim. Ktoś słyszy „n8n jest darmowy” i myśli, że cała automatyzacja będzie darmowa. Darmowy jest tylko silnik open source - nie moja robota i nie serwer, na którym to chodzi.
+
+### n8n self-hosted vs Make / Zapier
+
+To kluczowa decyzja, bo przekłada się na rachunki przez kolejne lata.
+
+**n8n self-hosted** - rozliczasz się za wykonanie całego scenariusza, nie za każdy krok. Workflow z dwoma krokami i ten z dwustoma to jedno „execution”. Stawiamy go na własnym VPS, więc abonament jest niski i przewidywalny. Minus: ktoś musi go skonfigurować, zaktualizować i pilnować, żeby nie padł. Drożej na starcie, taniej w skali.
+
+**Make i Zapier** - płacisz za „operacje”, czyli za każdy moduł, który przetworzy dane. Trzykrokowy scenariusz uruchomiony 1 000 razy to 3 000 operacji. Przy małej skali śmiesznie tanio, przy dużej rachunek rośnie szybko. Plus: nic nie hostujesz, działa od ręki, interfejs prostszy.
+
+Dla firmy, która puszcza dziesiątki tysięcy operacji miesięcznie, n8n na własnym serwerze potrafi być kilka razy tańszy. Dla kogoś, kto ma jeden scenariusz odpalany 200 razy w miesiącu, Make wygrywa wygodą i wcale nie boli w portfelu. Rozkładam to dokładniej w [porównaniu Make vs n8n vs Zapier](/pl/blog/make-vs-n8n-vs-zapier).
+
+## Realne widełki wdrożenia
+
+Konkretne liczby z polskiego rynku, w euro, za samo zbudowanie (bez abonamentów):
+
+- **Jeden prosty scenariusz** - np. formularz → CRM → powiadomienie na Slacku, albo nowe zamówienie → faktura. Jedna integracja, prosta logika: **300-600 €**.
+- **Połączenie kilku systemów** - sklep + księgowość + mailing + arkusz, z warunkami i obsługą sytuacji „coś poszło nie tak”: **1 200-3 000 €**.
+- **Złożona automatyzacja z AI** - rozgałęzienia, kilka źródeł danych, model językowy do klasyfikacji albo generowania odpowiedzi, kolejki, retry: **3 000-6 000 €+**.
+
+Te widełki pokrywają się z tym, co robią agencje, tylko bez ich marży za pośredników i project managera, których przy jednej osobie po prostu nie ma.
+
+## Koszty miesięczne
+
+To pomijają w wycenach najczęściej, a klient płaci je co miesiąc do końca świata.
+
+- **Make / Zapier** - od ~10 € przy małym ruchu do 50-150 € przy poważniejszych procesach. Przy milionach operacji potrafi być kilkaset euro.
+- **n8n self-hosted** - prosty VPS u Hetznera czy DigitalOcean to 4-6 € miesięcznie. Produkcyjne wdrożenie z porządną maszyną i backupami realnie 50-150 € miesięcznie.
+- **n8n Cloud** - jeśli nie chcesz hostować sam: od 20 € miesięcznie za 2 500 wykonań.
+- **API AI** - jeśli scenariusz używa modelu językowego, płacisz za tokeny. Od kilku euro przy małym wolumenie do kilkudziesięciu przy intensywnym przetwarzaniu.
+
+Dlatego przy wycenie zawsze podaję dwie liczby osobno: ile kosztuje zbudowanie i ile będzie cię kosztować utrzymanie miesięcznie. Bez tej drugiej cyfry wycena jest niepełna.
+
+## Ukryte wydatki
+
+Tu giną budżety, które na papierze wyglądały rozsądnie.
+
+**Zmiany w API.** Systemy, z którymi się łączysz, zmieniają swoje API i czasem coś przestaje działać bez ostrzeżenia. Naprawa to godzina, dwie - ale ktoś musi to ogarnąć.
+
+**Rozbudowy.** Po miesiącu używania zawsze pojawia się „a możemy jeszcze, żeby...”. To normalne i dobre, ale to dodatkowa praca.
+
+**Obsługa błędów.** Scenariusz „happy path” zbudujesz szybko. Ale produkcja to puste pola, padające API, duplikaty i timeouty. Solidna obsługa wyjątków potrafi zająć tyle samo czasu co reszta - i to ona decyduje, czy automatyzacja działa w nocy bez twojego udziału.
+
+**Szkolenie zespołu.** Ktoś musi wiedzieć, gdzie zajrzeć, gdy coś nie zaskoczy. Pół godziny przekazania wiedzy oszczędza później sporo telefonów.
+
+## Ile biorę ja
+
+Bez owijania: zaczynam od **300 €** za pojedynczy scenariusz. Konkretną cenę podaję dopiero po krótkim discovery, bo dopiero wtedy wiem, ile systemów łączymy i jak dziwnie wyglądają twoje dane.
+
+Po tej rozmowie dostajesz **cenę fix** - jedną liczbę za wdrożenie i osobno szacunek kosztów miesięcznych. Żadnego liczenia po godzinach i żadnej niespodzianki na fakturze. Jeśli w trakcie okaże się, że da się to zrobić prościej i taniej, mówię to wprost, zamiast naciągać zakres. Pełen opis usługi jest na stronie [automatyzacja procesów](/pl/uslugi/automatyzacja-procesow).
+
+## Kiedy to się zwraca
+
+Prosty rachunek, który robię przy każdym projekcie:
+
+> **minuty na jedną operację × liczba operacji w miesiącu ÷ 60 × stawka godzinowa**
+
+Przykład. Ktoś ręcznie przepisuje zamówienia do księgowości: 8 minut na zamówienie, 120 zamówień miesięcznie. To 16 godzin co miesiąc. Przy stawce 60 zł/h - ~960 zł miesięcznie, czyli ponad 11 000 zł rocznie wyrzucone na czynność, której nikt nie lubi.
+
+Automatyzacja tego za 600 € zwraca się w **2-3 miesiące**, a potem po prostu zarabia. I odwrotnie: proces zajmujący 30 minut w miesiącu nie zwróci się nigdy - takiego nie ma sensu ruszać, choćby technicznie był banalny. Więcej o tym, od czego zacząć, jest w tekście [automatyzacja procesów - od czego zacząć](/pl/blog/automatyzacja-procesow-od-czego-zaczac).
+
+Jeśli chcesz poznać szerszy kontekst cen w innych usługach, mam [cennik strony i aplikacji 2026](/pl/blog/ile-kosztuje-strona-aplikacja-cennik-2026).
+
+## FAQ
+
+**Czy n8n jest darmowy?**
+Sam silnik w wersji Community jest darmowy i bez limitu czasowego - możesz go postawić na własnym serwerze i odpalać dowolną liczbę scenariuszy. Darmowe nie jest jednak utrzymanie: VPS to 4-6 € miesięcznie przy prostych zastosowaniach, a poważne wdrożenie produkcyjne to realnie 50-150 € miesięcznie plus czyjś czas na administrację. No i samo zbudowanie scenariuszy to osobna praca.
+
+**Ile kosztuje wdrożenie jednej automatyzacji?**
+Prosty scenariusz z jedną integracją zaczyna się od 300-600 €. Średnio złożony, z kilkoma krokami i logiką warunkową, to mniej więcej 1 200-3 000 €. Dokładną cenę da się podać dopiero po sprawdzeniu, ile systemów łączymy i w jakim są stanie.
+
+**Co jest tańsze - n8n czy Make?**
+Zależy od skali. Make rozlicza się za operacje, więc przy małej liczbie uruchomień jest bardzo tani i nic nie hostujesz. n8n na własnym serwerze ma niski, stały abonament niezależny od liczby kroków, więc przy dużym wolumenie potrafi być kilka razy tańszy - kosztem konfiguracji i utrzymania serwera.
+
+**Ile wynosi miesięczny koszt utrzymania?**
+Dla małego wdrożenia często 10-50 € miesięcznie (narzędzie plus ewentualny hosting). Przy większych procesach bliżej 50-150 €, a jeśli scenariusz korzysta z AI, dochodzi koszt API liczony za tokeny. To wydatek stały, dopóki automatyzacja działa.
+
+**Czy automatyzacja na Make może nagle podrożeć?**
+Tak, jeśli rośnie liczba operacji. Każdy moduł przetwarzający dane zużywa kredyt, więc trzykrokowy scenariusz odpalony tysiąc razy to trzy tysiące operacji. Przy skokowym wzroście ruchu rachunek potrafi przeskoczyć z kilkudziesięciu euro na kilkaset. Wtedy zwykle warto rozważyć przeniesienie na n8n.
+
+**Po jakim czasie automatyzacja się zwraca?**
+Liczę to przez oszczędzone godziny razy stawka. Jeśli proces zjada 16 godzin miesięcznie, a wdrożenie kosztowało 600 €, zwrot wychodzi w 2-3 miesiące. Procesy zajmujące poniżej godziny miesięcznie zwykle nie zwracają się nigdy i nie warto ich automatyzować.
+
+**Dlaczego freelancer jest tańszy od agencji przy tym samym efekcie?**
+Bo płacisz za pracę, a nie za strukturę. W agencji w cenie jest project manager, handlowiec i marża pośrednika. Przy jednej osobie tych warstw nie ma - rozmawiasz bezpośrednio z tym, kto buduje, więc decyzje zapadają szybciej, a wycena jest niższa przy tej samej jakości wykonania.
+
+Masz konkretny proces na oku? [Napisz do mnie](/pl/kontakt) - po krótkiej rozmowie powiem, czy to się opłaca i ile dokładnie kosztuje.
