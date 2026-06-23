@@ -32,14 +32,20 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - uses: docker/build-push-action@v6
+      # build-push-action не умеет ретраить сам, а ghcr.io иногда отдаёт 503 при пуше слоёв.
+      # Оборачиваем сборку в retry, чтобы транзиентные сбои реестра не валили деплой.
+      - name: Build & push (with retry on registry 503)
+        uses: nick-fields/retry@v3
         with:
-          context: .
-          push: true
-          tags: |
-            ${{ env.IMAGE }}:latest
-            ${{ env.IMAGE }}:${{ github.sha }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          timeout_minutes: 25
+          max_attempts: 3
+          retry_wait_seconds: 30
+          command: |
+            docker buildx build --push \
+              --cache-from type=gha \
+              --cache-to type=gha,mode=max \
+              -t ${{ env.IMAGE }}:latest \
+              -t ${{ env.IMAGE }}:${{ github.sha }} \
+              .
       - name: Trigger Dokploy redeploy
         run: curl -fsS -X GET "${{ secrets.DOKPLOY_WEBHOOK }}"
