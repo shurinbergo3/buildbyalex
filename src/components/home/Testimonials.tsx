@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { AnimatePresence, motion } from "motion/react";
 import { Container } from "@/components/Container";
@@ -8,10 +8,10 @@ import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 import { ReviewForm } from "./ReviewForm";
 
-type Review = { name: string; role: string; date: string; quote: string; rating?: number };
+type Review = { name: string; role: string; date: string; quote: string; rating?: number; publishAt?: string };
 
 /* Aggregate breakdown, 5★→1★. Sum must equal `count`. */
-const DISTRIBUTION = [40, 5, 1, 1, 0];
+const DISTRIBUTION = [48, 12, 0, 0, 0];
 const COLLAPSED_COUNT = 6;
 
 /* Muted, identity-style avatar tints — not UI accents. */
@@ -110,10 +110,18 @@ function ReviewCard({ r, i }: { r: Review; i: number }) {
 
 export function Testimonials() {
   const t = useTranslations("home.testimonials");
-  const list = t.raw("list") as Review[];
+  const all = t.raw("list") as Review[];
   const rating = t("rating");
   const count = t("count");
   const [expanded, setExpanded] = useState(false);
+
+  // Reveal scheduled reviews gradually: only those whose publishAt has arrived.
+  // Gate on mount so SSR and first client render match (no hydration drift).
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const list = mounted
+    ? all.filter((r) => !r.publishAt || new Date(r.publishAt).getTime() <= Date.now())
+    : all.filter((r) => !r.publishAt);
 
   const total = DISTRIBUTION.reduce((a, b) => a + b, 0);
   const hasMore = list.length > COLLAPSED_COUNT;

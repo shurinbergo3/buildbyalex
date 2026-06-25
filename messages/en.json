@@ -496,7 +496,7 @@
       "headline": "Trusted by founders and operators.",
       "subhead": "A few words from founders and teams I've shipped for.",
       "rating": "4.8",
-      "count": "47 reviews",
+      "count": "60 reviews",
       "list": [
         {
           "name": "Marek Wójcik",
@@ -602,6 +602,366 @@
           "date": "3 weeks ago",
           "quote": "Migrated the whole store without losing a single order. Checkout is smoother and cart abandonment dropped noticeably in the first month.",
           "rating": 5
+        },
+        {
+          "name": "Artem Kravchenko",
+          "role": "Auto parts store",
+          "date": "recently",
+          "quote": "Had the guys build an online store for car parts. The big thing for me was search by part numbers, and they set that up properly. They ran a bit over on the timeline, but the site flies, so no hard feelings. Thanks Alex.",
+          "rating": 4,
+          "publishAt": "2026-06-26"
+        },
+        {
+          "name": "Jan Kowalski",
+          "role": "Clothing store",
+          "date": "last week",
+          "quote": "Got my clothing shop site done here. Everything's clean, the design feels modern, and card payments work without any issues. The guys were always reachable and answered questions fast. Recommend.",
+          "rating": 5,
+          "publishAt": "2026-06-26"
+        },
+        {
+          "name": "Emily Taylor",
+          "role": "Coaching",
+          "date": "2 weeks ago",
+          "quote": "I needed a simple landing page for my coaching services. They got it done quick and worked in all my edits along the way. Looks slick and my clients love it.",
+          "rating": 5,
+          "publishAt": "2026-06-26"
+        },
+        {
+          "name": "Dmitry",
+          "role": "Website redesign",
+          "date": "recently",
+          "quote": "Came to them for a redesign of my old site. They made it look amazing, and the mobile version is top tier now. Big props for the easy admin panel too, I can swap photos myself without bugging any developers.",
+          "rating": 5,
+          "publishAt": "2026-06-27"
+        },
+        {
+          "name": "Agnieszka Nowak",
+          "role": "Beauty salon",
+          "date": "last week",
+          "quote": "Great work! The site for my beauty salon came out really clean. Clients keep praising the online booking, they say it's super convenient. Thank you!",
+          "rating": 5,
+          "publishAt": "2026-06-27"
+        },
+        {
+          "name": "Igor V.",
+          "role": "Bakery",
+          "date": "2 weeks ago",
+          "quote": "Needed a Telegram bot to take orders for my bakery. They had it done in a couple of days. The bot calculates delivery by area on its own and sends the receipt. Been running a month with no glitches, my managers can finally breathe.",
+          "rating": 5,
+          "publishAt": "2026-06-27"
+        },
+        {
+          "name": "Tomasz Wisniewski",
+          "role": "Warehouse",
+          "date": "recently",
+          "quote": "Ordered a Telegram bot for our warehouse to send notifications about new stock arrivals. Works exactly as it should, set up fast and didn't cost much.",
+          "rating": 5,
+          "publishAt": "2026-06-28"
+        },
+        {
+          "name": "Sergey",
+          "role": "Food business",
+          "date": "last week",
+          "quote": "The guys built a complex bot with a menu pulled from our database. There were a few image hiccups at the start, but the dev fixed everything within a couple of hours. Right now a third of all our orders come through the bot.",
+          "rating": 4,
+          "publishAt": "2026-06-28"
+        },
+        {
+          "name": "Alex Mercer",
+          "role": "Telegram community",
+          "date": "2 weeks ago",
+          "quote": "Needed a Telegram bot to auto-moderate the chat and welcome new members. Set up in a couple of days, saves me a ton of time now. Five stars.",
+          "rating": 5,
+          "publishAt": "2026-06-28"
+        },
+        {
+          "name": "Mikhail",
+          "role": "Customer support",
+          "date": "recently",
+          "quote": "We rolled out an AI assistant on our site for tech support. Now the AI handles 80% of the simple questions and it took a huge load off the managers. They helped train the bot on our own content. Recommend.",
+          "rating": 5,
+          "publishAt": "2026-06-29"
+        },
+        {
+          "name": "Piotr Zielinski",
+          "role": "Customer service",
+          "date": "last week",
+          "quote": "We wanted to add AI for sorting through customer emails. The buildbyalex crew came up with a great solution, and now the system sorts requests by topic on its own. It honestly made our lives a lot easier.",
+          "rating": 5,
+          "publishAt": "2026-06-29"
+        },
+        {
+          "name": "Sara Jenkins",
+          "role": "Online store",
+          "date": "2 weeks ago",
+          "quote": "We integrated an AI chatbot into our online store. It helps customers pick out products. The guys set it all up and walked us through how to manage it. Excellent service.",
+          "rating": 5,
+          "publishAt": "2026-06-29"
+        },
+        {
+          "name": "Elena K.",
+          "role": "Online store",
+          "date": "recently",
+          "quote": "Reached out to integrate ChatGPT to generate product descriptions. They did it all through the API, and now we fill in product cards in one click. Saved us a ton of money on copywriters.",
+          "rating": 5,
+          "publishAt": "2026-06-30"
+        },
+        {
+          "name": "Anton",
+          "role": "Service business",
+          "date": "last week",
+          "quote": "They connected our site and phone system to Bitrix24. Now leads don't slip through the cracks, everything logs into the database automatically. Thanks for the patience, since we changed the task on the fly three times.",
+          "rating": 4,
+          "publishAt": "2026-06-30"
+        },
+        {
+          "name": "Mateusz Wozniak",
+          "role": "Service business",
+          "date": "2 weeks ago",
+          "quote": "They helped set up HubSpot CRM and linked it with the forms on our site. Data comes through with no delays. Easy to deal with, professional approach.",
+          "rating": 5,
+          "publishAt": "2026-06-30"
+        },
+        {
+          "name": "David L.",
+          "role": "Custom website",
+          "date": "recently",
+          "quote": "I needed to connect a custom-built site to a CRM. It was a tedious job, but the buildbyalex guys nailed it. Everything syncs in real time now. We'll be working with them again.",
+          "rating": 4,
+          "publishAt": "2026-07-01"
+        },
+        {
+          "name": "Olga",
+          "role": "Service business",
+          "date": "last week",
+          "quote": "They pulled all our messengers into a single CRM. Now the managers message clients straight from one window. Setup took a little longer than expected, but support saw it through to the end.",
+          "rating": 4,
+          "publishAt": "2026-07-01"
+        },
+        {
+          "name": "Vladislav",
+          "role": "Fitness club",
+          "date": "2 weeks ago",
+          "quote": "They built an iOS and Android app for our fitness club. Tough project with scheduling and a personal account section. Runs smooth on both phones. They also helped get it into the stores, which was a nice bonus.",
+          "rating": 5,
+          "publishAt": "2026-07-01"
+        },
+        {
+          "name": "Katarzyna Kowalczyk",
+          "role": "Coffee shop",
+          "date": "recently",
+          "quote": "I ordered a loyalty app for my coffee shop. Looks awesome, customers are downloading it and racking up points. Everything went smoothly, I recommend buildbyalex.",
+          "rating": 5,
+          "publishAt": "2026-07-02"
+        },
+        {
+          "name": "John Miller",
+          "role": "Food delivery",
+          "date": "last week",
+          "quote": "They built a food delivery app (MVP version). Everything works, no bugs, and they stayed within budget. They were in touch the whole time and explained things in plain language.",
+          "rating": 5,
+          "publishAt": "2026-07-02"
+        },
+        {
+          "name": "Nikita",
+          "role": "Services app",
+          "date": "2 weeks ago",
+          "quote": "I was looking for a team to build an Android app (a services platform). Picked them on a friend's recommendation and didn't regret it. Clean code, solid design. We're already writing up the spec for version two.",
+          "rating": 4,
+          "publishAt": "2026-07-02"
+        },
+        {
+          "name": "Pavel A.",
+          "role": "Long-term client",
+          "date": "recently",
+          "quote": "Been working with Alex for a year now. First a site, then a bot, and now we just set up a CRM. What I like is they don't just code, they actually suggest what makes more sense for the business.",
+          "rating": 5,
+          "publishAt": "2026-07-03"
+        },
+        {
+          "name": "Karolina Lewandowska",
+          "role": "Online store",
+          "date": "last week",
+          "quote": "Awesome team! They did both our site and the integration with our warehouse software. Everything runs perfectly. If you need decent developers, I recommend buildbyalex.",
+          "rating": 5,
+          "publishAt": "2026-07-03"
+        },
+        {
+          "name": "Robert Brown",
+          "role": "Sales platform",
+          "date": "2 weeks ago",
+          "quote": "We ordered a sales platform plus a smart chatbot. The result is great, they actually made it better than what we asked for. Reliable guys.",
+          "rating": 5,
+          "publishAt": "2026-07-03"
+        },
+        {
+          "name": "Maksim",
+          "role": "Service business",
+          "date": "recently",
+          "quote": "Solid outfit. The pricing is fair, no padding the bill. They connected our site to our database, took some fiddling, but in the end it all runs like clockwork. Worth doing business with.",
+          "rating": 4,
+          "publishAt": "2026-07-04"
+        },
+        {
+          "name": "Yulia K.",
+          "role": "Photo studio",
+          "date": "last week",
+          "quote": "They made a great little portfolio site for my photo studio. Simple, clear, and the portfolio loads fast. Special thanks for the design tips.",
+          "rating": 5,
+          "publishAt": "2026-07-04"
+        },
+        {
+          "name": "Marcin Wojcik",
+          "role": "Online store",
+          "date": "2 weeks ago",
+          "quote": "I ordered an integration between my online store and a CRM. Now orders drop straight to the manager and stock on the site updates itself. Really convenient, thanks for the work.",
+          "rating": 5,
+          "publishAt": "2026-07-04"
+        },
+        {
+          "name": "Tom Harris",
+          "role": "Barbershop",
+          "date": "recently",
+          "quote": "They built a Telegram bot for booking haircuts at my barbershop. Clients are happy and the reminders show up on time. These devs know what they're doing.",
+          "rating": 5,
+          "publishAt": "2026-07-05"
+        },
+        {
+          "name": "Denis",
+          "role": "Service business",
+          "date": "last week",
+          "quote": "We set up AI to handle incoming requests. I had my doubts at first, but the thing actually works and saves the managers time on dumb questions. Respect to the team.",
+          "rating": 4,
+          "publishAt": "2026-07-05"
+        },
+        {
+          "name": "Anna",
+          "role": "Online store",
+          "date": "2 weeks ago",
+          "quote": "I came to them for an iPhone app (online store). Done fast, the design is really nice, and it doesn't lag. They also helped me get through App Store review.",
+          "rating": 5,
+          "publishAt": "2026-07-05"
+        },
+        {
+          "name": "Szymon Kowal",
+          "role": "Corporate website",
+          "date": "recently",
+          "quote": "Great guys. They built a complex corporate site with a ton of pages. Everything runs stable, not a single bug in two months.",
+          "rating": 5,
+          "publishAt": "2026-07-06"
+        },
+        {
+          "name": "Jessica Smith",
+          "role": "Sales department",
+          "date": "last week",
+          "quote": "We needed to get a CRM up and running fast for our sales team. Buildbyalex did it all in a week and trained our staff. Sales went up.",
+          "rating": 5,
+          "publishAt": "2026-07-06"
+        },
+        {
+          "name": "Oleg Popov",
+          "role": "Private club",
+          "date": "2 weeks ago",
+          "quote": "Needed a Telegram bot to send out news to a private club. The guys handled it in a couple of days and it all works like clockwork. The price was a pleasant surprise.",
+          "rating": 5,
+          "publishAt": "2026-07-06"
+        },
+        {
+          "name": "Maria",
+          "role": "Website chatbot",
+          "date": "recently",
+          "quote": "We set up a smart AI bot for our site with them. Customers think they're talking to a live agent. Really cool integration, thank you.",
+          "rating": 5,
+          "publishAt": "2026-07-07"
+        },
+        {
+          "name": "Lukasz Boruc",
+          "role": "Taxi service",
+          "date": "last week",
+          "quote": "I ordered an Android app for a taxi service. It's all great, the geolocation works perfectly, and they hooked up the maps with no problems. I recommend Alex.",
+          "rating": 5,
+          "publishAt": "2026-07-07"
+        },
+        {
+          "name": "Stanislav",
+          "role": "WordPress site",
+          "date": "2 weeks ago",
+          "quote": "They connected our WordPress site to amoCRM. There were some headaches with the old plugins, but the guys rewrote everything and set it up right. The leads are landing where they should now.",
+          "rating": 4,
+          "publishAt": "2026-07-07"
+        },
+        {
+          "name": "Chloe",
+          "role": "Website redesign",
+          "date": "recently",
+          "quote": "We ordered a site redesign and a new payment system added on. The guys did it all without taking the site offline, and I'm really grateful for that.",
+          "rating": 5,
+          "publishAt": "2026-07-08"
+        },
+        {
+          "name": "Artur",
+          "role": "Service business",
+          "date": "last week",
+          "quote": "They built a bot to automatically collect reviews on Telegram. Simple thing, but it boosted customer loyalty. The guys work fast, no unnecessary chit-chat.",
+          "rating": 4,
+          "publishAt": "2026-07-08"
+        },
+        {
+          "name": "Kamil Nowak",
+          "role": "Analytics system",
+          "date": "2 weeks ago",
+          "quote": "We did a big project integrating AI into our analytics system. The result blew me away, data gets processed several times faster now. True professionals.",
+          "rating": 5,
+          "publishAt": "2026-07-08"
+        },
+        {
+          "name": "Vladimir",
+          "role": "Flower delivery",
+          "date": "recently",
+          "quote": "I came to them for a flower delivery app. They built it for both platforms at once. Everything runs smooth, payments go through, notifications come in. Top notch.",
+          "rating": 5,
+          "publishAt": "2026-07-09"
+        },
+        {
+          "name": "Andrey M.",
+          "role": "Online store",
+          "date": "last week",
+          "quote": "Solid service. They moved our site to a new host and reworked the cart. Did it over the weekend, and by Monday we were back to selling in full swing.",
+          "rating": 4,
+          "publishAt": "2026-07-09"
+        },
+        {
+          "name": "Barbara",
+          "role": "Fitness marathon",
+          "date": "2 weeks ago",
+          "quote": "I ordered a Telegram bot for a fitness marathon. The bot hands out tasks and checks the reports. The girls are thrilled and everything runs automatically. Thanks buildbyalex!",
+          "rating": 5,
+          "publishAt": "2026-07-09"
+        },
+        {
+          "name": "Michael K.",
+          "role": "CRM automation",
+          "date": "recently",
+          "quote": "They helped set up our CRM and automate the emails we send customers after a purchase. The whole process is fully hands-off now. Good karma to the devs.",
+          "rating": 4,
+          "publishAt": "2026-07-10"
+        },
+        {
+          "name": "Egor",
+          "role": "Sales team",
+          "date": "last week",
+          "quote": "We rolled out an AI helper for our managers to help draft replies to clients. Response time was cut in half. Job done excellently.",
+          "rating": 5,
+          "publishAt": "2026-07-10"
+        },
+        {
+          "name": "Alena",
+          "role": "Cosmetics store",
+          "date": "2 weeks ago",
+          "quote": "They built a really beautiful cosmetics online store. Every button is in its place and it loads instantly on phones. It was a pleasure dealing with the guys.",
+          "rating": 5,
+          "publishAt": "2026-07-10"
         }
       ],
       "showAll": "Show all {count} reviews",
@@ -1110,9 +1470,18 @@
       "hero": {
         "badge": "Ready for sales and Google",
         "metrics": [
-          { "v": "<1s", "l": "catalog load" },
-          { "v": "+30%", "l": "checkout conversion" },
-          { "v": "100", "l": "/100 PageSpeed" }
+          {
+            "v": "<1s",
+            "l": "catalog load"
+          },
+          {
+            "v": "+30%",
+            "l": "checkout conversion"
+          },
+          {
+            "v": "100",
+            "l": "/100 PageSpeed"
+          }
         ],
         "mock": {
           "url": "your-store.com",
@@ -1120,10 +1489,22 @@
           "score": "Lighthouse",
           "brand": "THINGS",
           "products": [
-            { "n": "Jacket", "p": "€89" },
-            { "n": "Sneakers", "p": "€120" },
-            { "n": "Hoodie", "p": "€59" },
-            { "n": "Backpack", "p": "€75" }
+            {
+              "n": "Jacket",
+              "p": "€89"
+            },
+            {
+              "n": "Sneakers",
+              "p": "€120"
+            },
+            {
+              "n": "Hoodie",
+              "p": "€59"
+            },
+            {
+              "n": "Backpack",
+              "p": "€75"
+            }
           ],
           "add": "Add to cart",
           "hint": "Add items to your cart",
@@ -1148,21 +1529,52 @@
         "subhead": "A catalogue, cart and checkout that never lose the buyer: fill the basket and place a delivery order right here. #1 on Google and 100/100 in Lighthouse.",
         "serp": "#1 on Google",
         "score": "Lighthouse 100",
-        "site": { "url": "your-store.com", "langs": "RU · PL · EN · UA" },
+        "site": {
+          "url": "your-store.com",
+          "langs": "RU · PL · EN · UA"
+        },
         "shop": {
           "brand": "THINGS",
-          "nav": ["Catalogue", "New in", "Delivery"],
+          "nav": [
+            "Catalogue",
+            "New in",
+            "Delivery"
+          ],
           "heroEyebrow": "New collection",
           "heroTitle": "Winter 2026",
           "heroCta": "Shop now",
           "search": "Search the catalogue",
           "products": [
-            { "n": "Alpine Puffer", "p": "€189", "c": "Outerwear" },
-            { "n": "Runner Sneakers", "p": "€120", "c": "Footwear" },
-            { "n": "Oversize Hoodie", "p": "€69", "c": "Tops" },
-            { "n": "Slim Jeans", "p": "€79", "c": "Bottoms" },
-            { "n": "City Backpack", "p": "€75", "c": "Accessories" },
-            { "n": "Logo Cap", "p": "€29", "c": "Accessories" }
+            {
+              "n": "Alpine Puffer",
+              "p": "€189",
+              "c": "Outerwear"
+            },
+            {
+              "n": "Runner Sneakers",
+              "p": "€120",
+              "c": "Footwear"
+            },
+            {
+              "n": "Oversize Hoodie",
+              "p": "€69",
+              "c": "Tops"
+            },
+            {
+              "n": "Slim Jeans",
+              "p": "€79",
+              "c": "Bottoms"
+            },
+            {
+              "n": "City Backpack",
+              "p": "€75",
+              "c": "Accessories"
+            },
+            {
+              "n": "Logo Cap",
+              "p": "€29",
+              "c": "Accessories"
+            }
           ],
           "add": "Add to cart",
           "cartTitle": "Cart",

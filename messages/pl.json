@@ -496,7 +496,7 @@
       "headline": "Zaufali mi founderzy i operatorzy.",
       "subhead": "Kilka słów od founderów i zespołów, dla których realizowałem projekty.",
       "rating": "4,8",
-      "count": "47 opinii",
+      "count": "60 opinii",
       "list": [
         {
           "name": "Marek Wójcik",
@@ -602,6 +602,366 @@
           "date": "3 tygodnie temu",
           "quote": "Przeniósł cały sklep bez utraty ani jednego zamówienia. Zakupy są płynniejsze, a porzuconych koszyków w pierwszym miesiącu wyraźnie ubyło.",
           "rating": 5
+        },
+        {
+          "name": "Artem Krawczenko",
+          "role": "Sklep z częściami",
+          "date": "niedawno",
+          "quote": "Zamawiałem u chłopaków sklep internetowy z częściami. Najważniejsze, że wyszukiwanie po numerach katalogowych ogarnęli porządnie, bardzo mi na tym zależało. Z terminem trochę się przeciągnęło, ale strona śmiga, więc bez urazy. Dzięki Alex.",
+          "rating": 4,
+          "publishAt": "2026-06-26"
+        },
+        {
+          "name": "Jan Kowalski",
+          "role": "Sklep odzieżowy",
+          "date": "w zeszłym tygodniu",
+          "quote": "Robiłem tu stronę pod swój sklep z ubraniami. Wszystko na luzie, design nowoczesny, płatności kartą działają bez problemu. Chłopaki zawsze pod telefonem, na pytania odpowiadali szybko. Polecam.",
+          "rating": 5,
+          "publishAt": "2026-06-26"
+        },
+        {
+          "name": "Emily Taylor",
+          "role": "Coaching",
+          "date": "2 tygodnie temu",
+          "quote": "Potrzebowałam prostego landinga pod usługi coachingowe. Zrobili szybko, uwzględnili wszystkie poprawki na bieżąco. Wygląda stylowo, klientom się podoba.",
+          "rating": 5,
+          "publishAt": "2026-06-26"
+        },
+        {
+          "name": "Dmitrij",
+          "role": "Redesign strony",
+          "date": "niedawno",
+          "quote": "Zgłosiłem się po przerobienie starej strony. Zrobili cukierka, wersja mobilna teraz to już w ogóle topka. Osobny szacun za zrozumiały panel admina, sam mogę podmieniać zdjęcia bez programistów.",
+          "rating": 5,
+          "publishAt": "2026-06-27"
+        },
+        {
+          "name": "Agnieszka Nowak",
+          "role": "Salon piękności",
+          "date": "w zeszłym tygodniu",
+          "quote": "Świetna robota! Strona dla salonu piękności wyszła naprawdę zadbana. Klientki chwalą rezerwację online, mówią że wszystko jest wygodne. Dziękuję!",
+          "rating": 5,
+          "publishAt": "2026-06-27"
+        },
+        {
+          "name": "Igor W.",
+          "role": "Cukiernia",
+          "date": "2 tygodnie temu",
+          "quote": "Potrzebowałem bota na Telegramie, żeby przyjmował zamówienia do cukierni. Zrobili w parę dni. Bot sam liczy dostawę po dzielnicach i wysyła paragon. Działa miesiąc bez wpadek, menadżerowie odetchnęli.",
+          "rating": 5,
+          "publishAt": "2026-06-27"
+        },
+        {
+          "name": "Tomasz Wiśniewski",
+          "role": "Magazyn",
+          "date": "niedawno",
+          "quote": "Zamówiłem bota na Telegrama pod magazyn, żeby wysyłał powiadomienia o nowych dostawach towaru. Wszystko działa jak trzeba, ustawili szybko i niedrogo.",
+          "rating": 5,
+          "publishAt": "2026-06-28"
+        },
+        {
+          "name": "Siergiej",
+          "role": "Dostawa jedzenia",
+          "date": "w zeszłym tygodniu",
+          "quote": "Chłopaki klepali skomplikowanego bota z menu z naszej bazy. Na starcie były wpadki ze zdjęciami, ale programista wszystko poprawił w parę godzin. Teraz przez bota idzie jedna trzecia wszystkich zamówień.",
+          "rating": 4,
+          "publishAt": "2026-06-28"
+        },
+        {
+          "name": "Alex Mercer",
+          "role": "Moderacja czatu",
+          "date": "2 tygodnie temu",
+          "quote": "Potrzebowałem bota na TG do automatycznej moderacji czatu i witania nowych. Ustawili w parę dni, teraz oszczędzam masę czasu. Pięć gwiazdek.",
+          "rating": 5,
+          "publishAt": "2026-06-28"
+        },
+        {
+          "name": "Michaił",
+          "role": "Wsparcie techniczne",
+          "date": "niedawno",
+          "quote": "Wdrażaliśmy asystenta AI na stronę do wsparcia technicznego. Teraz sieć neuronowa odpowiada na 80% prostych pytań, odciążyliśmy menadżerów nierealnie. Pomogli wytrenować bota na naszych tekstach. Polecam.",
+          "rating": 5,
+          "publishAt": "2026-06-29"
+        },
+        {
+          "name": "Piotr Zieliński",
+          "role": "Automatyzacja AI",
+          "date": "w zeszłym tygodniu",
+          "quote": "Chcieliśmy dodać AI do analizy maili od klientów. Ekipa buildbyalex zaproponowała mega rozwiązanie, teraz system sam sortuje zgłoszenia po tematach. Naprawdę ułatwili nam życie.",
+          "rating": 5,
+          "publishAt": "2026-06-29"
+        },
+        {
+          "name": "Sara Jenkins",
+          "role": "Sklep internetowy",
+          "date": "2 tygodnie temu",
+          "quote": "Zintegrowaliśmy chatbota z AI w naszym sklepie internetowym. Pomaga klientom dobierać produkty. Chłopaki wszystko ustawili i wytłumaczyli jak tym zarządzać. Świetny serwis.",
+          "rating": 5,
+          "publishAt": "2026-06-29"
+        },
+        {
+          "name": "Jelena K.",
+          "role": "Sklep internetowy",
+          "date": "niedawno",
+          "quote": "Zgłosiłam się po integrację ChatGPT, żeby generować opisy produktów. Zrobili wszystko przez API, teraz wypełniamy karty jednym kliknięciem. Zaoszczędziliśmy kupę kasy na copywriterach.",
+          "rating": 5,
+          "publishAt": "2026-06-30"
+        },
+        {
+          "name": "Anton",
+          "role": "Integracja CRM",
+          "date": "w zeszłym tygodniu",
+          "quote": "Łączyliśmy stronę i telefonię z Bitrix24. Teraz leady się nie gubią, wszystko samo zapisuje się do bazy. Dzięki za cierpliwość, bo trzy razy zmienialiśmy zadanie na bieżąco.",
+          "rating": 4,
+          "publishAt": "2026-06-30"
+        },
+        {
+          "name": "Mateusz Woźniak",
+          "role": "Integracja CRM",
+          "date": "2 tygodnie temu",
+          "quote": "Pomogli z ustawieniem CRM HubSpot i połączyli go z naszymi formularzami na stronie. Dane lecą bez opóźnień. Dobry kontakt, profesjonalne podejście.",
+          "rating": 5,
+          "publishAt": "2026-06-30"
+        },
+        {
+          "name": "David L.",
+          "role": "Integracja CRM",
+          "date": "niedawno",
+          "quote": "Trzeba było spiąć autorską stronę z CRM. Zadanie było upierdliwe, ale chłopaki z buildbyalex poradzili sobie na medal. Wszystko synchronizuje się w czasie rzeczywistym. Będziemy współpracować dalej.",
+          "rating": 4,
+          "publishAt": "2026-07-01"
+        },
+        {
+          "name": "Olga",
+          "role": "Integracja CRM",
+          "date": "w zeszłym tygodniu",
+          "quote": "Zebraliśmy wszystkie komunikatory w jeden CRM dzięki chłopakom. Teraz menadżerowie piszą do klientów prosto z jednego okna. Konfiguracja zajęła trochę więcej czasu, ale wsparcie dociągnęło sprawę do końca.",
+          "rating": 4,
+          "publishAt": "2026-07-01"
+        },
+        {
+          "name": "Władysław",
+          "role": "Klub fitness",
+          "date": "2 tygodnie temu",
+          "quote": "Robili apkę na iOS i Androida dla klubu fitness. Projekt trudny, z grafikiem i panelem użytkownika. Działa płynnie na obu telefonach. Pomogli wrzucić to do sklepów, za to osobny plus.",
+          "rating": 5,
+          "publishAt": "2026-07-01"
+        },
+        {
+          "name": "Katarzyna Kowalczyk",
+          "role": "Kawiarnia",
+          "date": "niedawno",
+          "quote": "Zamawiałam aplikację lojalnościową dla kawiarni. Wygląda super, klienci ją ściągają, zbierają punkty. Wszystko poszło bez problemów, polecam buildbyalex.",
+          "rating": 5,
+          "publishAt": "2026-07-02"
+        },
+        {
+          "name": "John Miller",
+          "role": "Dostawa jedzenia",
+          "date": "w zeszłym tygodniu",
+          "quote": "Zrobili aplikację do dostawy jedzenia (wersja MVP). Wszystko działa, bez bugów, zmieścili się w budżecie. Byli ciągle pod telefonem, tłumaczyli zrozumiałym językiem.",
+          "rating": 5,
+          "publishAt": "2026-07-02"
+        },
+        {
+          "name": "Nikita",
+          "role": "Aplikacja Android",
+          "date": "2 tygodnie temu",
+          "quote": "Szukałem ekipy do zrobienia apki na Androida (serwis usług). Wybrałem ich z polecenia znajomego i nie pożałowałem. Kod czysty, design spoko. Teraz piszemy specyfikację na drugą wersję.",
+          "rating": 4,
+          "publishAt": "2026-07-02"
+        },
+        {
+          "name": "Paweł A.",
+          "role": "Stały klient",
+          "date": "niedawno",
+          "quote": "Pracujemy z Alexem już rok. Najpierw robiliśmy stronę, potem bota, teraz ustawiliśmy CRM. Podoba mi się, że oni nie tylko kodzą, ale podpowiadają jak będzie wygodniej dla biznesu.",
+          "rating": 5,
+          "publishAt": "2026-07-03"
+        },
+        {
+          "name": "Karolina Lewandowska",
+          "role": "Sklep internetowy",
+          "date": "w zeszłym tygodniu",
+          "quote": "Super ekipa! Robili nam i stronę, i integrację z programem magazynowym. Wszystko działa jak należy. Jak potrzebujecie ogarniętych programistów, polecam buildbyalex.",
+          "rating": 5,
+          "publishAt": "2026-07-03"
+        },
+        {
+          "name": "Robert Brown",
+          "role": "Platforma sprzedaży",
+          "date": "2 tygodnie temu",
+          "quote": "Zamawialiśmy tu platformę do sprzedaży plus inteligentnego chatbota. Efekt świetny, zrobili nawet lepiej niż prosiliśmy. Odpowiedzialni ludzie.",
+          "rating": 5,
+          "publishAt": "2026-07-03"
+        },
+        {
+          "name": "Maksim",
+          "role": "Integracja bazy danych",
+          "date": "niedawno",
+          "quote": "Normalna firma. Cena adekwatna, nic nie doliczają na lewo. Łączyli stronę z naszą bazą danych, trzeba było się trochę pomęczyć, ale w efekcie wszystko działa jak w zegarku. Można robić interesy.",
+          "rating": 4,
+          "publishAt": "2026-07-04"
+        },
+        {
+          "name": "Julia K.",
+          "role": "Studio fotograficzne",
+          "date": "w zeszłym tygodniu",
+          "quote": "Zrobili świetną stronę-wizytówkę dla studia fotograficznego. Prosta, czytelna, portfolio otwiera się szybko. Osobne dzięki za podpowiedzi co do designu.",
+          "rating": 5,
+          "publishAt": "2026-07-04"
+        },
+        {
+          "name": "Marcin Wójcik",
+          "role": "Integracja CRM",
+          "date": "2 tygodnie temu",
+          "quote": "Zamawiałem integrację sklepu internetowego z CRM. Teraz zamówienia od razu lecą do menadżera, a stany na stronie aktualizują się same. Bardzo wygodnie, dzięki za robotę.",
+          "rating": 5,
+          "publishAt": "2026-07-04"
+        },
+        {
+          "name": "Tom Harris",
+          "role": "Barber shop",
+          "date": "niedawno",
+          "quote": "Zrobili bota na TG do zapisów na strzyżenie w barber shopie. Klienci zadowoleni, przypomnienia przychodzą na czas. Programiści znają się na rzeczy.",
+          "rating": 5,
+          "publishAt": "2026-07-05"
+        },
+        {
+          "name": "Denis",
+          "role": "Automatyzacja AI",
+          "date": "w zeszłym tygodniu",
+          "quote": "Wstawiali AI do obsługi przychodzących zgłoszeń. Na początku miałem wątpliwości, ale ta rzecz naprawdę działa, oszczędza menadżerom czas na głupich pytaniach. Szacun dla ekipy.",
+          "rating": 4,
+          "publishAt": "2026-07-05"
+        },
+        {
+          "name": "Anna",
+          "role": "Sklep internetowy",
+          "date": "2 tygodnie temu",
+          "quote": "Zgłosiłam się po aplikację na iPhone'y (sklep internetowy). Zrobili szybko, design bardzo przyjemny, nie laguje. Pomogli przejść moderację w App Store.",
+          "rating": 5,
+          "publishAt": "2026-07-05"
+        },
+        {
+          "name": "Szymon Kowal",
+          "role": "Strona firmowa",
+          "date": "niedawno",
+          "quote": "Świetni ludzie. Zrobili skomplikowaną stronę firmową z masą podstron. Wszystko działa stabilnie, przez dwa miesiące żaden bug nie wyskoczył.",
+          "rating": 5,
+          "publishAt": "2026-07-06"
+        },
+        {
+          "name": "Jessica Smith",
+          "role": "Integracja CRM",
+          "date": "w zeszłym tygodniu",
+          "quote": "Musieliśmy szybko ustawić CRM dla działu sprzedaży. Buildbyalex zrobili wszystko w tydzień, przeszkolili naszych pracowników. Sprzedaż poszła w górę.",
+          "rating": 5,
+          "publishAt": "2026-07-06"
+        },
+        {
+          "name": "Oleg Popow",
+          "role": "Klub zamknięty",
+          "date": "2 tygodnie temu",
+          "quote": "Potrzebowałem bota na Telegramie do wysyłki newsów po zamkniętym klubie. Chłopaki ogarnęli w parę dni, wszystko działa jak w zegarku. Cena ucieszyła.",
+          "rating": 5,
+          "publishAt": "2026-07-06"
+        },
+        {
+          "name": "Maria",
+          "role": "Chatbot AI",
+          "date": "niedawno",
+          "quote": "Ustawialiśmy z nimi inteligentnego bota z AI na stronę. Klienci myślą, że gadają z żywym operatorem. Mega fajna integracja, dziękuję.",
+          "rating": 5,
+          "publishAt": "2026-07-07"
+        },
+        {
+          "name": "Łukasz Boruc",
+          "role": "Taxi",
+          "date": "w zeszłym tygodniu",
+          "quote": "Zamawiałem aplikację na Androida dla firmy taxi. Wszystko super, geolokalizacja działa bez zarzutu, mapy podpięli bez problemu. Polecam Alexa.",
+          "rating": 5,
+          "publishAt": "2026-07-07"
+        },
+        {
+          "name": "Stanisław",
+          "role": "Integracja CRM",
+          "date": "2 tygodnie temu",
+          "quote": "Łączyliśmy stronę na WordPressie z amoCRM. Były trudności ze starymi wtyczkami, ale chłopaki wszystko przepisali i ustawili jak trzeba. Leady teraz na miejscu.",
+          "rating": 4,
+          "publishAt": "2026-07-07"
+        },
+        {
+          "name": "Chloe",
+          "role": "Redesign strony",
+          "date": "niedawno",
+          "quote": "Zamawialiśmy redesign strony i podpięcie nowej bramki płatności. Chłopaki zrobili wszystko bez zatrzymywania działania strony, za co osobne dzięki.",
+          "rating": 5,
+          "publishAt": "2026-07-08"
+        },
+        {
+          "name": "Artur",
+          "role": "Zbieranie opinii",
+          "date": "w zeszłym tygodniu",
+          "quote": "Zrobili bota do automatycznego zbierania opinii na Telegramie. Prosta rzecz, a lojalność klientów podniosła. Chłopaki pracują szybko, bez zbędnego gadania.",
+          "rating": 4,
+          "publishAt": "2026-07-08"
+        },
+        {
+          "name": "Kamil Nowak",
+          "role": "Analityka AI",
+          "date": "2 tygodnie temu",
+          "quote": "Robili duży projekt z integracją AI w naszym systemie analityki. Efekt zrobił wrażenie, dane przetwarzają się kilka razy szybciej. Profesjonaliści.",
+          "rating": 5,
+          "publishAt": "2026-07-08"
+        },
+        {
+          "name": "Władimir",
+          "role": "Dostawa kwiatów",
+          "date": "niedawno",
+          "quote": "Zgłosiłem się po aplikację do dostawy kwiatów. Zrobili od razu pod obie platformy. Wszystko działa gładko, płatność przechodzi, powiadomienia przychodzą. Topka.",
+          "rating": 5,
+          "publishAt": "2026-07-09"
+        },
+        {
+          "name": "Andriej M.",
+          "role": "Sklep internetowy",
+          "date": "w zeszłym tygodniu",
+          "quote": "Normalny serwis. Przenosili stronę na inny hosting i dorabiali koszyk. Zrobili przez weekend, w poniedziałek już sprzedawaliśmy na całego.",
+          "rating": 4,
+          "publishAt": "2026-07-09"
+        },
+        {
+          "name": "Barbara",
+          "role": "Maraton fitness",
+          "date": "2 tygodnie temu",
+          "quote": "Zamawiałam bota na TG do maratonu fitness. Bot wydaje zadania i sprawdza raporty. Dziewczyny zachwycone, wszystko działa automatycznie. Dzięki buildbyalex!",
+          "rating": 5,
+          "publishAt": "2026-07-09"
+        },
+        {
+          "name": "Michael K.",
+          "role": "Automatyzacja CRM",
+          "date": "niedawno",
+          "quote": "Pomogli ustawić CRM i zautomatyzować wysyłkę maili do klientów po zakupie. Proces jest teraz w pełni samodzielny, programistom plus do karmy.",
+          "rating": 4,
+          "publishAt": "2026-07-10"
+        },
+        {
+          "name": "Jegor",
+          "role": "Asystent AI",
+          "date": "w zeszłym tygodniu",
+          "quote": "Wdrażaliśmy asystenta AI dla menadżerów, żeby pomagał pisać odpowiedzi do klientów. Czas odpowiedzi skrócił się o połowę. Robota odwalona na medal.",
+          "rating": 5,
+          "publishAt": "2026-07-10"
+        },
+        {
+          "name": "Alena",
+          "role": "Sklep z kosmetykami",
+          "date": "2 tygodnie temu",
+          "quote": "Zrobili bardzo ładny sklep internetowy z kosmetykami. Wszystkie przyciski na miejscu, na telefonach otwiera się błyskawicznie. Miło było mieć z chłopakami do czynienia.",
+          "rating": 5,
+          "publishAt": "2026-07-10"
         }
       ],
       "showAll": "Pokaż wszystkie {count} {count, plural, one {opinię} few {opinie} many {opinii} other {opinii}}",
@@ -1110,9 +1470,18 @@
       "hero": {
         "badge": "Gotowy na sprzedaż i Google",
         "metrics": [
-          { "v": "<1s", "l": "ładowanie katalogu" },
-          { "v": "+30%", "l": "konwersja do zamówienia" },
-          { "v": "100", "l": "/100 PageSpeed" }
+          {
+            "v": "<1s",
+            "l": "ładowanie katalogu"
+          },
+          {
+            "v": "+30%",
+            "l": "konwersja do zamówienia"
+          },
+          {
+            "v": "100",
+            "l": "/100 PageSpeed"
+          }
         ],
         "mock": {
           "url": "twoj-sklep.com",
@@ -1120,10 +1489,22 @@
           "score": "Lighthouse",
           "brand": "RZECZY",
           "products": [
-            { "n": "Kurtka", "p": "€89" },
-            { "n": "Sneakersy", "p": "€120" },
-            { "n": "Bluza", "p": "€59" },
-            { "n": "Plecak", "p": "€75" }
+            {
+              "n": "Kurtka",
+              "p": "€89"
+            },
+            {
+              "n": "Sneakersy",
+              "p": "€120"
+            },
+            {
+              "n": "Bluza",
+              "p": "€59"
+            },
+            {
+              "n": "Plecak",
+              "p": "€75"
+            }
           ],
           "add": "Do koszyka",
           "hint": "Dodaj rzeczy do koszyka",
@@ -1148,21 +1529,52 @@
         "subhead": "Katalog, koszyk i zamówienie, które nie tracą klienta: skompletuj koszyk i zamów dostawę tutaj. #1 w Google i 100/100 w Lighthouse.",
         "serp": "#1 w Google",
         "score": "Lighthouse 100",
-        "site": { "url": "twoj-sklep.com", "langs": "RU · PL · EN · UA" },
+        "site": {
+          "url": "twoj-sklep.com",
+          "langs": "RU · PL · EN · UA"
+        },
         "shop": {
           "brand": "RZECZY",
-          "nav": ["Katalog", "Nowości", "Dostawa"],
+          "nav": [
+            "Katalog",
+            "Nowości",
+            "Dostawa"
+          ],
           "heroEyebrow": "Nowa kolekcja",
           "heroTitle": "Zima 2026",
           "heroCta": "Zobacz",
           "search": "Szukaj w katalogu",
           "products": [
-            { "n": "Puchowa Alpine", "p": "€189", "c": "Odzież wierzchnia" },
-            { "n": "Sneakersy Runner", "p": "€120", "c": "Obuwie" },
-            { "n": "Bluza Oversize", "p": "€69", "c": "Góra" },
-            { "n": "Jeansy Slim", "p": "€79", "c": "Dół" },
-            { "n": "Plecak City", "p": "€75", "c": "Akcesoria" },
-            { "n": "Czapka Logo", "p": "€29", "c": "Akcesoria" }
+            {
+              "n": "Puchowa Alpine",
+              "p": "€189",
+              "c": "Odzież wierzchnia"
+            },
+            {
+              "n": "Sneakersy Runner",
+              "p": "€120",
+              "c": "Obuwie"
+            },
+            {
+              "n": "Bluza Oversize",
+              "p": "€69",
+              "c": "Góra"
+            },
+            {
+              "n": "Jeansy Slim",
+              "p": "€79",
+              "c": "Dół"
+            },
+            {
+              "n": "Plecak City",
+              "p": "€75",
+              "c": "Akcesoria"
+            },
+            {
+              "n": "Czapka Logo",
+              "p": "€29",
+              "c": "Akcesoria"
+            }
           ],
           "add": "Do koszyka",
           "cartTitle": "Koszyk",
