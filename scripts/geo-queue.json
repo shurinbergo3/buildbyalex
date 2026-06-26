@@ -1,0 +1,452 @@
+[
+  {
+    "id": 1,
+    "city": "Poznan",
+    "product": "web",
+    "topic": "website development",
+    "ogImage": "/og/web-poznan.webp",
+    "date": "2026-06-27",
+    "locales": {
+      "pl": {
+        "slug": "tworzenie-stron-internetowych-poznan",
+        "cluster": "web-poznan-pl",
+        "service": "/pl/uslugi/strony-internetowe"
+      },
+      "en": {
+        "slug": "web-development-poznan",
+        "cluster": "web-poznan-en",
+        "service": "/en/services/websites"
+      },
+      "ru": {
+        "slug": "razrabotka-sayta-poznan",
+        "cluster": "web-poznan-ru",
+        "service": "/ru/uslugi/sayty"
+      },
+      "ua": {
+        "slug": "rozrobka-saytu-poznan",
+        "cluster": "web-poznan-ua",
+        "service": "/ua/poslugy/sayty"
+      }
+    }
+  },
+  {
+    "id": 2,
+    "city": "Lodz",
+    "product": "store",
+    "topic": "online store development",
+    "ogImage": "/og/store-lodz.webp",
+    "date": "2026-06-28",
+    "locales": {
+      "pl": {
+        "slug": "tworzenie-sklepu-internetowego-lodz",
+        "cluster": "store-lodz-pl",
+        "service": "/pl/uslugi/sklep-internetowy"
+      },
+      "en": {
+        "slug": "online-store-development-lodz",
+        "cluster": "store-lodz-en",
+        "service": "/en/services/online-store"
+      },
+      "ru": {
+        "slug": "sozdanie-internet-magazina-lodz",
+        "cluster": "store-lodz-ru",
+        "service": "/ru/uslugi/internet-magazin"
+      },
+      "ua": {
+        "slug": "stvorennya-internet-magazynu-lodz",
+        "cluster": "store-lodz-ua",
+        "service": "/ua/poslugy/internet-magazyn"
+      }
+    }
+  },
+  {
+    "id": 3,
+    "city": "Szczecin",
+    "product": "mobile",
+    "topic": "mobile app development",
+    "ogImage": "/og/mobile-szczecin.webp",
+    "date": "2026-06-29",
+    "locales": {
+      "pl": {
+        "slug": "tworzenie-aplikacji-mobilnych-szczecin",
+        "cluster": "mobile-szczecin-pl",
+        "service": "/pl/uslugi/aplikacje-mobilne"
+      },
+      "en": {
+        "slug": "mobile-app-development-szczecin",
+        "cluster": "mobile-szczecin-en",
+        "service": "/en/services/mobile-apps"
+      },
+      "ru": {
+        "slug": "razrabotka-prilozheniya-szczecin",
+        "cluster": "mobile-szczecin-ru",
+        "service": "/ru/uslugi/mobilnye-prilozheniya"
+      },
+      "ua": {
+        "slug": "rozrobka-dodatku-szczecin",
+        "cluster": "mobile-szczecin-ua",
+        "service": "/ua/poslugy/mobilni-dodatky"
+      }
+    }
+  },
+  {
+    "id": 4,
+    "city": "Lublin",
+    "product": "ai",
+    "topic": "AI agent / chatbot for business",
+    "ogImage": "/og/ai-lublin.webp",
+    "date": "2026-06-30",
+    "locales": {
+      "pl": {
+        "slug": "agent-ai-dla-firm-lublin",
+        "cluster": "ai-lublin-pl",
+        "service": "/pl/uslugi/agenci-ai"
+      },
+      "en": {
+        "slug": "ai-agent-for-business-lublin",
+        "cluster": "ai-lublin-en",
+        "service": "/en/services/ai-agents"
+      },
+      "ru": {
+        "slug": "ai-agent-dlya-biznesa-lublin",
+        "cluster": "ai-lublin-ru",
+        "service": "/ru/uslugi/ai-agenty"
+      },
+      "ua": {
+        "slug": "ai-agent-dlya-biznesu-lublin",
+        "cluster": "ai-lublin-ua",
+        "service": "/ua/poslugy/ai-agenty"
+      }
+    }
+  },
+  {
+    "id": 5,
+    "city": "Katowice",
+    "product": "web",
+    "topic": "website development",
+    "ogImage": "/og/web-katowice.webp",
+    "date": "2026-07-01",
+    "locales": {
+      "pl": {
+        "slug": "tworzenie-stron-internetowych-katowice",
+        "cluster": "web-katowice-pl",
+        "service": "/pl/uslugi/strony-internetowe"
+      },
+      "en": {
+        "slug": "web-development-katowice",
+        "cluster": "web-katowice-en",
+        "service": "/en/services/websites"
+      },
+      "ru": {
+        "slug": "razrabotka-sayta-katowice",
+        "cluster": "web-katowice-ru",
+        "service": "/ru/uslugi/sayty"
+      },
+      "ua": {
+        "slug": "rozrobka-saytu-katowice",
+        "cluster": "web-katowice-ua",
+        "service": "/ua/poslugy/sayty"
+      }
+    }
+  },
+  {
+    "id": 6,
+    "city": "Gdynia",
+    "product": "store",
+    "topic": "online store development",
+    "ogImage": "/og/store-gdynia.webp",
+    "date": "2026-07-02",
+    "locales": {
+      "pl": {
+        "slug": "tworzenie-sklepu-internetowego-gdynia",
+        "cluster": "store-gdynia-pl",
+        "service": "/pl/uslugi/sklep-internetowy"
+      },
+      "en": {
+        "slug": "online-store-development-gdynia",
+        "cluster": "store-gdynia-en",
+        "service": "/en/services/online-store"
+      },
+      "ru": {
+        "slug": "sozdanie-internet-magazina-gdynia",
+        "cluster": "store-gdynia-ru",
+        "service": "/ru/uslugi/internet-magazin"
+      },
+      "ua": {
+        "slug": "stvorennya-internet-magazynu-gdynia",
+        "cluster": "store-gdynia-ua",
+        "service": "/ua/poslugy/internet-magazyn"
+      }
+    }
+  },
+  {
+    "id": 7,
+    "city": "Rzeszow",
+    "product": "auto",
+    "topic": "business process automation",
+    "ogImage": "/og/auto-rzeszow.webp",
+    "date": "2026-07-03",
+    "locales": {
+      "pl": {
+        "slug": "automatyzacja-procesow-rzeszow",
+        "cluster": "auto-rzeszow-pl",
+        "service": "/pl/uslugi/automatyzacja-procesow"
+      },
+      "en": {
+        "slug": "business-automation-rzeszow",
+        "cluster": "auto-rzeszow-en",
+        "service": "/en/services/automation"
+      },
+      "ru": {
+        "slug": "avtomatizaciya-biznes-processov-rzeszow",
+        "cluster": "auto-rzeszow-ru",
+        "service": "/ru/uslugi/avtomatizaciya-biznes-processov"
+      },
+      "ua": {
+        "slug": "avtomatyzaciya-biznes-procesiv-rzeszow",
+        "cluster": "auto-rzeszow-ua",
+        "service": "/ua/poslugy/avtomatyzaciya-biznes-procesiv"
+      }
+    }
+  },
+  {
+    "id": 8,
+    "city": "Bialystok",
+    "product": "mobile",
+    "topic": "mobile app development",
+    "ogImage": "/og/mobile-bialystok.webp",
+    "date": "2026-07-04",
+    "locales": {
+      "pl": {
+        "slug": "tworzenie-aplikacji-mobilnych-bialystok",
+        "cluster": "mobile-bialystok-pl",
+        "service": "/pl/uslugi/aplikacje-mobilne"
+      },
+      "en": {
+        "slug": "mobile-app-development-bialystok",
+        "cluster": "mobile-bialystok-en",
+        "service": "/en/services/mobile-apps"
+      },
+      "ru": {
+        "slug": "razrabotka-prilozheniya-bialystok",
+        "cluster": "mobile-bialystok-ru",
+        "service": "/ru/uslugi/mobilnye-prilozheniya"
+      },
+      "ua": {
+        "slug": "rozrobka-dodatku-bialystok",
+        "cluster": "mobile-bialystok-ua",
+        "service": "/ua/poslugy/mobilni-dodatky"
+      }
+    }
+  },
+  {
+    "id": 9,
+    "city": "Bydgoszcz",
+    "product": "web",
+    "topic": "website development",
+    "ogImage": "/og/web-bydgoszcz.webp",
+    "date": "2026-07-05",
+    "locales": {
+      "pl": {
+        "slug": "tworzenie-stron-internetowych-bydgoszcz",
+        "cluster": "web-bydgoszcz-pl",
+        "service": "/pl/uslugi/strony-internetowe"
+      },
+      "en": {
+        "slug": "web-development-bydgoszcz",
+        "cluster": "web-bydgoszcz-en",
+        "service": "/en/services/websites"
+      },
+      "ru": {
+        "slug": "razrabotka-sayta-bydgoszcz",
+        "cluster": "web-bydgoszcz-ru",
+        "service": "/ru/uslugi/sayty"
+      },
+      "ua": {
+        "slug": "rozrobka-saytu-bydgoszcz",
+        "cluster": "web-bydgoszcz-ua",
+        "service": "/ua/poslugy/sayty"
+      }
+    }
+  },
+  {
+    "id": 10,
+    "city": "Torun",
+    "product": "tg",
+    "topic": "Telegram bot for business",
+    "ogImage": "/og/tg-torun.webp",
+    "date": "2026-07-06",
+    "locales": {
+      "pl": {
+        "slug": "bot-na-telegramie-torun",
+        "cluster": "tg-torun-pl",
+        "service": "/pl/uslugi/boty-telegram-i-mini-aplikacje"
+      },
+      "en": {
+        "slug": "telegram-bot-development-torun",
+        "cluster": "tg-torun-en",
+        "service": "/en/services/telegram-bots"
+      },
+      "ru": {
+        "slug": "telegram-bot-torun",
+        "cluster": "tg-torun-ru",
+        "service": "/ru/uslugi/telegram-boty-i-mini-prilozheniya"
+      },
+      "ua": {
+        "slug": "telegram-bot-torun",
+        "cluster": "tg-torun-ua",
+        "service": "/ua/poslugy/telegram-boty-i-mini-dodatky"
+      }
+    }
+  },
+  {
+    "id": 11,
+    "city": "Poznan",
+    "product": "ai",
+    "topic": "AI agent / chatbot for business",
+    "ogImage": "/og/ai-poznan.webp",
+    "date": "2026-07-07",
+    "locales": {
+      "pl": {
+        "slug": "agent-ai-dla-firm-poznan",
+        "cluster": "ai-poznan-pl",
+        "service": "/pl/uslugi/agenci-ai"
+      },
+      "en": {
+        "slug": "ai-agent-for-business-poznan",
+        "cluster": "ai-poznan-en",
+        "service": "/en/services/ai-agents"
+      },
+      "ru": {
+        "slug": "ai-agent-dlya-biznesa-poznan",
+        "cluster": "ai-poznan-ru",
+        "service": "/ru/uslugi/ai-agenty"
+      },
+      "ua": {
+        "slug": "ai-agent-dlya-biznesu-poznan",
+        "cluster": "ai-poznan-ua",
+        "service": "/ua/poslugy/ai-agenty"
+      }
+    }
+  },
+  {
+    "id": 12,
+    "city": "Szczecin",
+    "product": "store",
+    "topic": "online store development",
+    "ogImage": "/og/store-szczecin.webp",
+    "date": "2026-07-08",
+    "locales": {
+      "pl": {
+        "slug": "tworzenie-sklepu-internetowego-szczecin",
+        "cluster": "store-szczecin-pl",
+        "service": "/pl/uslugi/sklep-internetowy"
+      },
+      "en": {
+        "slug": "online-store-development-szczecin",
+        "cluster": "store-szczecin-en",
+        "service": "/en/services/online-store"
+      },
+      "ru": {
+        "slug": "sozdanie-internet-magazina-szczecin",
+        "cluster": "store-szczecin-ru",
+        "service": "/ru/uslugi/internet-magazin"
+      },
+      "ua": {
+        "slug": "stvorennya-internet-magazynu-szczecin",
+        "cluster": "store-szczecin-ua",
+        "service": "/ua/poslugy/internet-magazyn"
+      }
+    }
+  },
+  {
+    "id": 13,
+    "city": "Czestochowa",
+    "product": "web",
+    "topic": "website development",
+    "ogImage": "/og/web-czestochowa.webp",
+    "date": "2026-07-09",
+    "locales": {
+      "pl": {
+        "slug": "tworzenie-stron-internetowych-czestochowa",
+        "cluster": "web-czestochowa-pl",
+        "service": "/pl/uslugi/strony-internetowe"
+      },
+      "en": {
+        "slug": "web-development-czestochowa",
+        "cluster": "web-czestochowa-en",
+        "service": "/en/services/websites"
+      },
+      "ru": {
+        "slug": "razrabotka-sayta-czestochowa",
+        "cluster": "web-czestochowa-ru",
+        "service": "/ru/uslugi/sayty"
+      },
+      "ua": {
+        "slug": "rozrobka-saytu-czestochowa",
+        "cluster": "web-czestochowa-ua",
+        "service": "/ua/poslugy/sayty"
+      }
+    }
+  },
+  {
+    "id": 14,
+    "city": "Lodz",
+    "product": "auto",
+    "topic": "business process automation",
+    "ogImage": "/og/auto-lodz.webp",
+    "date": "2026-07-10",
+    "locales": {
+      "pl": {
+        "slug": "automatyzacja-procesow-lodz",
+        "cluster": "auto-lodz-pl",
+        "service": "/pl/uslugi/automatyzacja-procesow"
+      },
+      "en": {
+        "slug": "business-automation-lodz",
+        "cluster": "auto-lodz-en",
+        "service": "/en/services/automation"
+      },
+      "ru": {
+        "slug": "avtomatizaciya-biznes-processov-lodz",
+        "cluster": "auto-lodz-ru",
+        "service": "/ru/uslugi/avtomatizaciya-biznes-processov"
+      },
+      "ua": {
+        "slug": "avtomatyzaciya-biznes-procesiv-lodz",
+        "cluster": "auto-lodz-ua",
+        "service": "/ua/poslugy/avtomatyzaciya-biznes-procesiv"
+      }
+    }
+  },
+  {
+    "id": 15,
+    "city": "Lublin",
+    "product": "mobile",
+    "topic": "mobile app development",
+    "ogImage": "/og/mobile-lublin.webp",
+    "date": "2026-07-11",
+    "locales": {
+      "pl": {
+        "slug": "tworzenie-aplikacji-mobilnych-lublin",
+        "cluster": "mobile-lublin-pl",
+        "service": "/pl/uslugi/aplikacje-mobilne"
+      },
+      "en": {
+        "slug": "mobile-app-development-lublin",
+        "cluster": "mobile-lublin-en",
+        "service": "/en/services/mobile-apps"
+      },
+      "ru": {
+        "slug": "razrabotka-prilozheniya-lublin",
+        "cluster": "mobile-lublin-ru",
+        "service": "/ru/uslugi/mobilnye-prilozheniya"
+      },
+      "ua": {
+        "slug": "rozrobka-dodatku-lublin",
+        "cluster": "mobile-lublin-ua",
+        "service": "/ua/poslugy/mobilni-dodatky"
+      }
+    }
+  }
+]

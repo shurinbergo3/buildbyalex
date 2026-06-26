@@ -17,6 +17,8 @@ jobs:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       # Авторизация в Docker Hub поднимает лимит на анонимный pull образа buildkit,
       # из-за которого падал setup-buildx (rate limit на общих IP GitHub Actions).
       # Шаг выполняется только если заданы секреты, иначе тихо пропускается.
@@ -49,3 +51,12 @@ jobs:
               .
       - name: Trigger Dokploy redeploy
         run: curl -fsS -X GET "${{ secrets.DOKPLOY_WEBHOOK }}"
+      # After deploy, ping IndexNow (Bing/Yandex) for blog posts changed in this push.
+      # Runs on the GitHub runner (full network egress), so no sandbox 403.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Submit changed blog URLs to IndexNow
+        if: ${{ github.event.before != '0000000000000000000000000000000000000000' }}
+        continue-on-error: true
+        run: node scripts/indexnow.mjs --since ${{ github.event.before }}
