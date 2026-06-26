@@ -11,7 +11,6 @@ export function Hero() {
   const t = useTranslations("home.hero");
   const locale = useLocale();
   const headlineLines = t("headline").split("\n");
-  const last = headlineLines.length - 1;
 
   const sectionRef = useRef<HTMLElement | null>(null);
   const frameRef = useRef<HTMLDivElement | null>(null);
@@ -289,9 +288,10 @@ export function Hero() {
                 >
                   {headlineLines.map((line, i) => (
                     <span key={i} className="block">
-                      {i === last ? <span className="hl-accent">{line}</span> : line}
+                      {line}
                     </span>
                   ))}
+                  <span className="hero-kicker hl-accent">{t("kicker")}</span>
                 </h1>
 
                 <p

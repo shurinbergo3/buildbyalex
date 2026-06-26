@@ -521,6 +521,17 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
 }
 .hero-headline {
   color: #ffffff;
+  font-size: clamp(40px, 4.4vw + 18px, 72px);
+  text-wrap: balance;
+}
+/* Value-prop kicker — smaller accent line under the keyword headline */
+.hero-kicker {
+  display: block;
+  margin-top: 0.22em;
+  font-size: clamp(22px, 2vw + 13px, 42px);
+  font-weight: var(--fw-semi);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
 }
 .hero-sub {
   color: rgba(255, 255, 255, 0.84);
@@ -558,6 +569,10 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
     font-size: clamp(28px, 5.2vw + 11px, 36px);
     line-height: 1.08;
     letter-spacing: -0.03em;
+  }
+  .hero-kicker {
+    font-size: clamp(19px, 3.4vw + 9px, 26px);
+    margin-top: 0.3em;
   }
 }
 
