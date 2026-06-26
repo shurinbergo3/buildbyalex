@@ -113,7 +113,18 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
     serviceType: t("eyebrow"),
     description: t("lead"),
     areaServed: { "@type": "Country", name: "Poland" },
-    provider: { "@type": "Organization", name: "buildbyalex", url: SITE_URL },
+    provider: {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#business`,
+      name: "buildbyalex",
+      url: SITE_URL,
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.8",
+        reviewCount: "47",
+        bestRating: "5",
+      },
+    },
     url: localizedHref(locale, SERVICE_PATH[branch]),
     offers: {
       "@type": "Offer",

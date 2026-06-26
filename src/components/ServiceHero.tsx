@@ -879,6 +879,7 @@ export function ServiceHero({ branch }: { branch: Branch }) {
                 className="group mt-6 inline-flex items-center gap-2.5 transition-opacity hover:opacity-90"
               >
                 <Stars />
+                <GoogleG />
                 <span className="text-[13px] text-white/55 underline decoration-white/20 decoration-from-font underline-offset-[3px] transition-colors group-hover:text-white/80 group-hover:decoration-white/40">
                   <span className="font-semibold text-white">{tr("rating")}</span> · {tr("count")}
                 </span>
