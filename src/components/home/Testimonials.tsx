@@ -10,8 +10,6 @@ import { ReviewForm } from "./ReviewForm";
 
 type Review = { name: string; role: string; date: string; quote: string; rating?: number; publishAt?: string };
 
-/* Aggregate breakdown, 5★→1★. Sum must equal `count` (47 Google reviews). */
-const DISTRIBUTION = [40, 5, 1, 1, 0];
 const COLLAPSED_COUNT = 6;
 
 /* Muted, identity-style avatar tints — not UI accents. */
@@ -123,7 +121,6 @@ export function Testimonials() {
   const t = useTranslations("home.testimonials");
   const all = t.raw("list") as Review[];
   const rating = t("rating");
-  const count = t("count");
   const [expanded, setExpanded] = useState(false);
 
   // Reveal scheduled reviews gradually: only those whose publishAt has arrived.
@@ -134,7 +131,11 @@ export function Testimonials() {
     ? all.filter((r) => !r.publishAt || new Date(r.publishAt).getTime() <= Date.now())
     : all.filter((r) => !r.publishAt);
 
-  const total = DISTRIBUTION.reduce((a, b) => a + b, 0);
+  // Count + histogram derive from the currently-visible reviews, so the "N Google
+  // reviews" label and the 5★→1★ breakdown grow automatically as scheduled ones land.
+  const count = t("count");
+  const distribution = [5, 4, 3, 2, 1].map((s) => list.filter((r) => (r.rating ?? 5) === s).length);
+  const total = list.length;
   const hasMore = list.length > COLLAPSED_COUNT;
   const visible = list.slice(0, COLLAPSED_COUNT);
   const hidden = list.slice(COLLAPSED_COUNT);
@@ -160,12 +161,12 @@ export function Testimonials() {
               <StarRow value={Number(rating.replace(",", "."))} size={17} />
               <span className="mt-0.5 flex items-center gap-1.5 text-[12.5px] text-[color:var(--color-text-3)]">
                 <GoogleG />
-                {count}
+                {total} {count}
               </span>
             </div>
 
             <div className="flex flex-col gap-1.5">
-              {DISTRIBUTION.map((n, idx) => {
+              {distribution.map((n, idx) => {
                 const star = 5 - idx;
                 const pct = total ? (n / total) * 100 : 0;
                 return (

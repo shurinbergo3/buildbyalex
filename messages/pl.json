@@ -75,9 +75,10 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "Realizacje pod klucz · Warszawa",
-      "headline": "Tworzenie stron, agentów AI\ni aplikacji w Warszawie.\nPod klucz w 1–3 tygodnie.",
-      "subhead": "Projekt, kod, integracje z CRM i komunikatorami, wdrożenie i wsparcie — kompleksowo, pod klucz. Od pierwszej rozmowy do startu, bez utraconych terminów.",
+      "eyebrow": "Tworzenie stron i agenci AI · Warszawa",
+      "headline": "Tworzenie stron\ni aplikacji w Warszawie",
+      "kicker": "Pod klucz w 1-3 tygodnie",
+      "subhead": "Projekt, kod, integracje z CRM, komunikatorami i AI, wdrożenie i wsparcie pod klucz. Od pierwszej rozmowy do startu, bez utraconych terminów.",
       "primaryCta": "Bezpłatna konsultacja",
       "secondaryCta": "Zobacz realizacje",
       "trustLine": "Warszawa · Cały świat · RU / EN / PL / UA",
@@ -496,7 +497,7 @@
       "headline": "Zaufali mi founderzy i operatorzy.",
       "subhead": "Kilka słów od founderów i zespołów, dla których realizowałem projekty.",
       "rating": "4,8",
-      "count": "47 opinii Google",
+      "count": "opinii Google",
       "list": [
         {
           "name": "Marek Wójcik",
