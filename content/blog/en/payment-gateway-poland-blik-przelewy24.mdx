@@ -1,0 +1,79 @@
+---
+title: "Payment Gateway for a Polish Store: BLIK, Przelewy24, PayU"
+description: "Przelewy24 vs PayU vs Autopay vs Stripe for a Polish online store: fees, BLIK One-Click, and how a clean checkout lifts conversion by double digits."
+date: "2026-07-12"
+cluster: "payment-gateway-poland-blik-przelewy24-en"
+keywords:
+  - "payment gateway Poland online store"
+  - "Przelewy24 vs PayU integration"
+  - "BLIK One-Click ecommerce"
+  - "WooCommerce payment integration Poland"
+  - "best payment gateway Polish store"
+ogImage: "/og/payment-gateway-poland-blik-przelewy24.webp"
+---
+
+A shopper adds an item, reaches the payment step, and vanishes. In Poland the reason is usually dull: they couldn't find BLIK, or the checkout looked like a redirect to some random site. Choosing a payment gateway for a Polish store - Przelewy24, PayU, Autopay/Blue Media, Stripe - is the decision that quietly decides how many of your carts actually close. Here is the breakdown with real numbers: fees, payouts, BLIK One-Click, and how the checkout itself can cost or add a double-digit slice of conversion.
+
+I build and wire payments into stores on WooCommerce, Shopify and custom Next.js, so this comes from shipping it, not from reading a pricing page.
+
+## Why BLIK is mandatory in Poland, not a nice-to-have
+
+BLIK is now well over half of all online payments in Polish stores. Skip it and a chunk of carts simply evaporates - nobody wants to retype 16 card digits when every other shop lets them tap six digits from their banking app. This is not taste, it is a habit baked into the whole market.
+
+The second piece is **BLIK One-Click**. After the first payment the customer's device is remembered, and every future purchase is confirmed with a single tap in the app, no code retyping. For stores with returning buyers - supplements, coffee, cosmetics - that means a shorter path and higher repeat rate. Running a Polish store in 2026 without BLIK is like offering delivery without InPost lockers: technically possible, but you bleed customers for no reason.
+
+## Comparing the gateways - fees, activation, payout
+
+Pricing is negotiable and depends on turnover, but the real market ranges look like this:
+
+| Gateway | BLIK / transfer fee | Cards | Activation | Payout | BLIK One-Click |
+|---|---|---|---|---|---|
+| Przelewy24 | ~0.9-1.4% | ~1.5-2.2% | 1-3 days, online | D+1 / D+2 | yes |
+| PayU | ~1.0-1.5% | ~1.7-2.3% | 1-5 days, more paperwork | D+1 / weekly | yes (PayU Express) |
+| Autopay (ex Blue Media) | ~0.9-1.3% | ~1.6-2.2% | 1-3 days | D+1 | yes |
+| Stripe | no full native BLIK; cards ~1.5% + small fixed fee | strong cards / Apple/Google Pay | fast, online | weekly (D+7) | no (BLIK limited) |
+
+How I read this in practice:
+
+- **Przelewy24** - my default for small and mid-size stores. The most methods in one place (BLIK, fast bank transfers from every bank, cards, installments), simple activation, sane fees, fast payout.
+- **PayU** - strong at higher turnover and when you want installments / buy-now-pay-later. A bit more paperwork, but for a store doing hundreds of orders a day the terms can be better.
+- **Autopay (Blue Media)** - a solid alternative, often picked for subscriptions and by businesses that want a Polish partner with good support.
+- **Stripe** - brilliant for cross-border sales, cards, Apple/Google Pay and SaaS subscriptions. But as the only gateway in a Polish B2C store, the missing full BLIK will cost you conversion. I usually pair it with Przelewy24: Stripe for international, P24 for BLIK and the local market.
+
+## How the checkout itself moves conversion
+
+You can have the cheapest fee and still lose money if the payment flow is clumsy. A few things that genuinely move the numbers:
+
+- **A white-label checkout with no ugly jump.** When a buyer is suddenly thrown onto a foreign-looking page with a different logo, some of them spook. A well-implemented gateway keeps payment inside your own consistent skin - that alone can shave a few percent off abandonment.
+- **BLIK first.** The method most people use should sit at the top, big and tappable, not buried under "other".
+- **Fewer steps.** One payment screen, no forced account creation. Every extra field leaks customers.
+- **Remembered One-Click** for returning buyers.
+
+After tidying a client's checkout and putting BLIK front and center, I have seen conversion climb roughly 10-20%. No magic - just removing friction exactly where people were dropping off.
+
+## How I integrate the gateway into your store
+
+- **WooCommerce** - official Przelewy24 / PayU / Autopay plugins, webhook setup, sandbox testing, BLIK and One-Click, plus a reworked checkout template so it doesn't look like stock WooCommerce. Usually 1-3 days.
+- **Shopify** - via supported integrations and, where needed, extra BLIK/P24 apps, plus a slimmed-down single-screen checkout.
+- **Custom / headless store (Next.js)** - integration over the gateway API, my own lightweight checkout, full control of the UX, BLIK One-Click and webhook handling (statuses, refunds, installments).
+
+The payment integration alone is usually a few hundred euros, while a full Shopify/Woo store I build from €1,500-2,500, and a headless Next.js build from €4,000. You get a fixed quote in 24h, free, with a concrete scope - no "it depends".
+
+If you have a store that pulls traffic but closes payments poorly, I will sort the gateway and checkout first. See the details on [online store development](/en/services/online-store) and reach me via [contact](/en/contact) - I'll tell you which gateway fits your turnover and how much conversion is realistically recoverable.
+
+## FAQ
+
+**Przelewy24 or PayU - which gateway for a store with BLIK?**
+For a small to mid-size store, usually Przelewy24 - simpler activation, BLIK and One-Click as standard, fast payout. PayU makes sense at high turnover and when you want installments or buy-now-pay-later.
+
+**How much does payment gateway integration cost?**
+The integration itself is usually a few hundred euros depending on platform and scope (BLIK, One-Click, installments, webhooks). A full store runs from €1,500-2,500 on Shopify/Woo. Quote in 24h, free.
+
+**Is BLIK necessary in a Polish store?**
+Effectively yes. BLIK is over half of online payments in Poland, and BLIK One-Click shortens the path for returning buyers. Without it you lose carts for no good reason.
+
+**Is Stripe enough for a Polish store?**
+For cross-border sales, cards and subscriptions it is excellent. As the only gateway in Polish B2C it will cost conversion because it lacks full BLIK. I usually pair Stripe with Przelewy24.
+
+**How fast can payments be wired up?**
+On WooCommerce usually 1-3 working days with sandbox testing. A custom store takes longer because of the bespoke checkout, but still counted in days, not weeks.

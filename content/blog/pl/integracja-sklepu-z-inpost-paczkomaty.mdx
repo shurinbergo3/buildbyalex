@@ -1,0 +1,77 @@
+---
+title: "Integracja sklepu z InPost Paczkomaty: jak to zrobić"
+description: "Geowidget z mapą w koszyku, automatyczne etykiety przez ShipX API, webhooki ze statusami. Jak poprawnie wpiąć Paczkomaty w sklep i przestać klikać ręcznie."
+date: "2026-07-13"
+cluster: "inpost-paczkomaty-integration-pl"
+keywords:
+  - "integracja sklepu z InPost Paczkomaty jak zrobić"
+  - "InPost Geowidget w koszyku"
+  - "InPost ShipX API"
+  - "automatyczne etykiety InPost"
+  - "Paczkomaty WooCommerce Shopify"
+ogImage: "/og/inpost-paczkomaty-integration.webp"
+---
+
+Jeśli w twoim sklepie przy kasie nie ma wyboru Paczkomatu, tracisz zamówienia, których nawet nie zobaczysz w statystykach. W Polsce Paczkomat to nie jedna z opcji dostawy, tylko opcja domyślna - i pytanie "integracja sklepu z InPost Paczkomaty jak to zrobić" zadaje sobie prędzej czy później każdy, kto sprzedaje online. Pokażę, z czego składa się porządne wpięcie: mapa Geowidget w koszyku, automatyczne tworzenie przesyłek i etykiet przez ShipX API oraz webhooki, które same wysyłają klientowi maila ze statusem.
+
+Robię sklepy na Next.js, WooCommerce i Shopify razem z dostawą, więc piszę z perspektywy kogoś, kto wpinał Paczkomaty i przy 30 zamówieniach dziennie, i przy 300.
+
+## Dlaczego Paczkomaty to w Polsce obowiązek, a nie dodatek
+
+Ponad 23 tysiące Paczkomatów w kraju, większość czynna całą dobę, odbiór bez kolejki i bez czekania na kuriera w czterogodzinnym okienku. Dla polskiego klienta to po prostu domyślny sposób odbioru paczki - tańszy i wygodniejszy niż dostawa pod drzwi.
+
+Co to znaczy dla sklepu w liczbach: jeśli w koszyku nie ma Paczkomatu z mapą, część klientów po prostu zamyka kartę. Spotykam sklepy, gdzie dodanie wyboru paczkomatu na mapie podniosło ukończenie koszyka o **kilkanaście procent**. Przy obrocie 50 tys. zł miesięcznie to realne kilka tysięcy odzyskanych co miesiąc - tylko dlatego, że klient nie musi przepisywać adresu paczkomatu z głowy.
+
+## Z czego składa się porządna integracja
+
+Wybór "Paczkomaty InPost" na liście metod dostawy to dopiero połowa roboty. Działająca integracja ma trzy elementy:
+
+- **Geowidget w koszyku** - mapa InPost wbudowana w kasę. Klient wpisuje miasto albo zgadza się na lokalizację, klika punkt na mapie, a kod paczkomatu (np. KRA01APP) sam trafia do zamówienia. Bez przepisywania, bez literówek, bez paczek, które wracają, bo ktoś pomylił kod.
+- **Automatyczne przesyłki i etykiety przez ShipX API** - po opłaceniu zamówienia system sam tworzy przesyłkę w InPost, pobiera numer i generuje etykietę PDF do druku. Ty tylko naklejasz i wrzucasz paczkę do paczkomatu nadawczego.
+- **Webhooki i maile ze statusem** - InPost wysyła do sklepu powiadomienie przy każdej zmianie ("nadana", "w paczkomacie", "odebrana"), a sklep automatycznie wysyła klientowi maila albo SMS. Klient wie, co się dzieje, i nie pisze do ciebie "gdzie moja paczka".
+
+Bez tej trójki masz "Paczkomaty" tylko z nazwy - resztę i tak robisz ręcznie.
+
+## Ile ręcznej pracy to wycina
+
+Policzmy uczciwie. Bez automatyzacji jedno zamówienie to: przepisz adres paczkomatu, zaloguj się do Managera InPost, utwórz przesyłkę ręcznie, wydrukuj etykietę, wklej numer śledzenia z powrotem do sklepu, napisz klientowi maila. Realnie **3-5 minut na paczkę**.
+
+Przy 40 zamówieniach dziennie to ponad 2 godziny dziennie samego klikania, plus błędy w przepisywanych kodach. Po integracji ten sam proces to: druk etykiety i naklejenie. Reszta dzieje się sama. Przy większym wolumenie to różnica między "potrzebuję osoby do wysyłek" a "robię to przy porannej kawie".
+
+## WooCommerce, Shopify czy sklep custom
+
+**WooCommerce** - jest oficjalna wtyczka InPost plus dojrzałe rozwiązania (Furgonetka, BaseLinker). Geowidget i etykiety działają w kilka godzin konfiguracji. Najszybsza droga, jeśli już jesteś na WordPressie. Trzeba pilnować aktualizacji wtyczek.
+
+**Shopify** - są aplikacje obsługujące Paczkomaty (m.in. przez BaseLinker albo dedykowane), ale Geowidget wpięty natywnie w checkout bywa kapryśny i czasem wymaga Shopify Plus albo obejścia w koszyku. Działa, tylko mniej "z pudełka" niż na Woo.
+
+**Sklep custom / headless na Next.js** - tu wpinam ShipX API bezpośrednio: Geowidget jako komponent w kasie, tworzenie przesyłek serwerowo, webhooki na własnym endpointzie. Najwięcej kontroli, najczystsze działanie, zero zależności od cudzej wtyczki. To robię, gdy sklep ma własną logikę albo duży wolumen. Więcej o tym, jak [buduję sklepy internetowe](/pl/uslugi/sklep-internetowy), opisałem na stronie usługi.
+
+## Typowe problemy, na które trafisz
+
+- **Tryb sandbox vs produkcja** - ShipX ma osobne środowisko testowe (sandbox) i produkcyjne, z osobnymi tokenami. Klasyk: ktoś testuje na produkcji i robi prawdziwe przesyłki, albo odwrotnie - wypycha sklep z tokenem sandbox i nic się nie tworzy.
+- **Geowidget v5 i token** - nowy widget wymaga osobnego tokenu i poprawnej konfiguracji CSP, inaczej mapa nie ładuje się w koszyku. Częsty błąd przy własnej kasie.
+- **Pobranie (COD)** - jeśli przyjmujesz płatność przy odbiorze w paczkomacie, trzeba to ustawić osobno i pilnować limitów kwoty.
+- **Webhook bez retry** - jeśli twój endpoint padnie na chwilę, status się zgubi. Dlatego robię kolejkę z ponowieniami, a nie "łapię i mam nadzieję".
+
+## Ile to kosztuje i jak długo trwa
+
+Dla WooCommerce albo Shopify konfiguracja Paczkomatów z Geowidgetem, etykietami i mailami ze statusem to zwykle **2000-3500 zł** i kilka dni roboczych. Dla sklepu custom/headless integracja ShipX od podstaw to **od 3000-5000 zł**, zależnie od tego, czy potrzebujesz też pobrania, etykiet zwrotnych i panelu do druku zbiorczego. Sam InPost rozlicza się za przesyłki wg twojej umowy - integracja to koszt jednorazowy, który zwraca się odzyskanymi koszykami i godzinami, których nie marnujesz na klikanie.
+
+Masz sklep bez Paczkomatów albo z wyborem "na pałę" zamiast mapy w koszyku? Napiszę ci [wpięcie InPost pod sklep internetowy](/pl/uslugi/sklep-internetowy) z Geowidgetem, automatycznymi etykietami i webhookami. [Napisz do mnie](/pl/kontakt) - w 24 h wycenię integrację pod twoją platformę i wolumen.
+
+## FAQ
+
+**Ile kosztuje integracja sklepu z InPost Paczkomaty?**
+Na WooCommerce lub Shopify zwykle 2000-3500 zł i kilka dni. Dla sklepu custom/headless integracja ShipX API od podstaw od 3000-5000 zł. Wycena za darmo w 24 h.
+
+**Czym jest Geowidget InPost?**
+To gotowa mapa InPost wbudowana w koszyk. Klient klika paczkomat na mapie, a jego kod sam trafia do zamówienia - bez przepisywania adresu i bez literówek, które powodują zwroty paczek.
+
+**Czy etykiety InPost mogą tworzyć się automatycznie?**
+Tak. Przez ShipX API po opłaceniu zamówienia sklep sam tworzy przesyłkę, pobiera numer śledzenia i generuje etykietę PDF do druku. Ty tylko drukujesz i nadajesz.
+
+**Jak klient dostaje status przesyłki?**
+InPost wysyła webhook przy każdej zmianie statusu, a sklep automatycznie wysyła klientowi maila lub SMS ("nadana", "w paczkomacie", "odebrana"). Mniej pytań "gdzie moja paczka" do ciebie.
+
+**Paczkomaty na Shopify czy WooCommerce - gdzie łatwiej?**
+Na WooCommerce jest oficjalna wtyczka i Geowidget działa szybciej. Na Shopify trzeba aplikacji (np. BaseLinker), a natywny Geowidget w checkout bywa kapryśny. Custom na Next.js daje najwięcej kontroli.

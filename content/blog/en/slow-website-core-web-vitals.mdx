@@ -1,0 +1,83 @@
+---
+title: "Slow website? Why Core Web Vitals are red and how to fix it"
+description: "Your site loads slowly, PageSpeed is red, bounce is up and rankings slip. Here is why a slow website costs you clients, plus quick wins and the real fix."
+date: "2026-07-08"
+cluster: "slow-website-core-web-vitals-en"
+keywords:
+  - "slow website"
+  - "why is my website slow"
+  - "core web vitals failing"
+  - "how to speed up a website"
+  - "pagespeed insights red"
+ogImage: "/og/slow-website-core-web-vitals.webp"
+---
+
+You open PageSpeed Insights, type in your own URL, and the mobile score comes back red - somewhere in the 20s or 30s. Core Web Vitals say "failed". And you can feel it too: the site takes its time to show anything, people bounce before the first screen even paints, and your Google positions have been quietly sliding for months. The fear is real and it is correct: a slow site loses clients and loses rankings at the same time. Here is exactly why it happens, what you can fix this week, and what actually solves it for good.
+
+## What Core Web Vitals really measure
+
+Google grades every page on three things, and despite the scary names they are simple ideas.
+
+**LCP (Largest Contentful Paint)** - how long until the biggest thing on the first screen shows up. Usually that is your hero image or headline. Google wants this under 2.5 seconds. On a heavy site it is often 4-6 seconds, which means the visitor stares at a blank or half-built page.
+
+**INP (Interactivity)** - how fast the page responds when someone taps a button or opens a menu. Target is under 200 milliseconds. When the page is busy loading scripts, your tap does nothing for a second, and that "is this thing frozen?" feeling makes people leave.
+
+**CLS (Layout Shift)** - whether things jump around as the page loads. You go to tap a button, an ad or image loads above it, the button moves, you mis-tap. Target is under 0.1. Annoying, and Google counts it.
+
+Three green checkmarks mean the page is fast and stable for real humans. Red means it is not, and both Google and your visitors notice.
+
+## Why slow equals lost clients and lost rankings
+
+This is not a vanity metric. The money line is direct.
+
+Roughly half of mobile visitors abandon a page that takes longer than 3 seconds. Google's own research puts it bluntly: going from a 1-second to a 3-second load raises the chance of bounce by about 32%, and 1 to 5 seconds nearly doubles it. So if your LCP is 5 seconds, you are losing a big slice of people who already clicked through - they were interested, they just never saw the page.
+
+Then there is ranking. Core Web Vitals is an official Google ranking signal. It will not push a weak page to number one on speed alone, but when two sites are close, the faster one wins the spot. And it compounds: slow site, higher bounce, Google reads that as "people did not find what they wanted", positions drift down, less traffic, fewer clients. A shop doing 1,000 visits a month at 2% conversion is 20 orders. Knock conversion down to 1% because the site crawls and you just halved your revenue without losing a single visitor on paper.
+
+## The usual culprits
+
+In almost every slow site I audit, it is the same three suspects.
+
+**WordPress plus a pile of plugins.** WordPress builds the page from scratch on every request, and each plugin you add drags in its own CSS and JavaScript. Twenty or thirty plugins later, the browser is downloading and running half a megabyte of script before anything is usable. Page builders like Elementor or WPBakery are the worst offenders - they trade clean code for drag-and-drop convenience, and the visitor pays in seconds.
+
+**Unoptimized images.** This one is everywhere. Someone uploads a 4000px photo straight from the phone, 5 MB, and it gets shrunk in the browser with CSS instead of being properly resized and compressed. One page can carry 8-15 MB of images that should weigh 300 KB. On mobile data, that is your LCP gone.
+
+**Cheap shared hosting.** The 15 zł/month plan puts your site on a server with hundreds of others. When a neighbor gets a traffic spike, your response time tanks. The server itself takes 1-2 seconds just to start sending the page (TTFB) before a single image even loads.
+
+## Quick wins vs the real fix
+
+You can claw back some speed without rebuilding. These are worth doing:
+
+- **Compress and resize images.** Convert to WebP, resize to the size actually shown. This alone often moves the score 15-20 points.
+- **Add a caching plugin.** WP Rocket or similar serves pre-built pages instead of assembling them each time.
+- **Cut dead plugins.** Every one you remove is less script. Deactivate anything you do not truly need.
+- **Move to better hosting.** A decent VPS or managed WordPress host beats cheap shared every time.
+
+These help. But understand what you are doing: fighting the platform, not fixing it. You can polish a heavy WordPress site from a 25 to maybe a 60 on mobile. Then one plugin update reflows the layout, or you add a new feature, and you are back in the red. You are renting speed, not owning it.
+
+The real fix is architecture. I rebuild slow sites on **Next.js**, where the page is mostly static HTML served from a CDN, images are optimized automatically, and JavaScript is split so the browser only loads what it needs. The result is that LCP and INP are green by default - not after three caching plugins, but as the starting point. On real projects I keep LCP around 0.5-1 second and the mobile PageSpeed score in the 90s. And I show you the Lighthouse report during the build, not as a promise afterward - so you watch the score go green before you pay the rest. That is [the website work I do](/en/services/websites), built fast from the first line.
+
+A concrete one: I rebuilt [VisionAir](/en/work/visionair) on Next.js, the mobile score sits in the 90s, LCP under a second, and the site converts about 4.2% of visitors - speed and conversion are the same conversation.
+
+## What a rebuild costs and how long
+
+A company site rebuilt on Next.js with CMS and clean technical SEO runs €1200-2000 and takes 3-4 weeks. A simpler business-card site is €500-800 in about 2 weeks. If you need integrations - booking, CRM, payments - it starts from €2500. Old URLs get mapped with 301 redirects so you keep the rankings you already have, and hosting drops to roughly €60-90 a year because there are no premium plugins to renew. You get a fixed quote in 24 hours, and I work remote-first across Poland.
+
+If your PageSpeed is red and you can feel the traffic slipping, send me the URL and [get in touch](/en/contact) - I will run it, tell you whether quick wins are enough or it needs a rebuild, and quote it honestly.
+
+## FAQ
+
+**Why is my website so slow?**
+Almost always one of three: a heavy WordPress build with too many plugins and a page builder, large unoptimized images loading at full size, or cheap shared hosting with a slow server response. Run your URL through PageSpeed Insights on mobile - the report points straight at the worst offender.
+
+**What does it mean when Core Web Vitals are failing?**
+It means real visitors experience the page as slow or unstable: LCP over 2.5s (the main content takes too long to appear), INP over 200ms (taps feel laggy), or CLS over 0.1 (things jump around). Google uses these as a ranking signal, so red here costs both conversions and positions.
+
+**Can I speed up my site without rebuilding it?**
+Often yes, partly. Compressing images, adding caching, removing dead plugins and moving to better hosting can lift a mobile score from the 20s to the 50s-60s. But on a heavy WordPress site you are fighting the platform - the next plugin update can undo it. For green-by-default speed, a rebuild on Next.js is the durable fix.
+
+**How much faster is Next.js really?**
+On real projects I keep LCP around 0.5-1 second versus 4-6 seconds on a typical loaded WordPress site, and the mobile PageSpeed score in the 90s. The page is static HTML from a CDN with automatic image optimization, so it is fast by default, not after stacking caching plugins.
+
+**Will fixing speed bring my Google rankings back?**
+It helps and it is a real ranking factor, but speed alone is not magic - the content still has to be there and relevant. What I see on rebuilds is bounce dropping and positions recovering over a quarter as Google re-reads the faster, better-performing pages. Fast plus good content wins; fast plus empty does not.

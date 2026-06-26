@@ -1,0 +1,85 @@
+---
+title: "KSeF 2026 and Your Online Store: How to Integrate"
+description: "KSeF 2026 for online stores in Poland: who must comply and when, how I wire the API, generate structured FA(3) invoices and sync them with accounting."
+date: "2026-07-09"
+cluster: "ksef-2026-online-store-en"
+keywords:
+  - "KSeF 2026 online store integration"
+  - "how to prepare a shop for KSeF"
+  - "KSeF API integration Poland"
+  - "structured invoice FA(3)"
+  - "KSeF WooCommerce Shopify"
+ogImage: "/og/ksef-2026-online-store.webp"
+---
+
+KSeF goes mandatory in Poland in 2026, and store owners keep asking me whether their WooCommerce, Shopify or custom shop is about to break under the new rules. I build online stores and integrations, so let me explain KSeF from a developer's angle: who actually has to use it and when, what really changes inside your store's code, and how to wire it up so invoices fire automatically instead of your accountant re-keying them by hand.
+
+## What KSeF is and who it affects in 2026
+
+KSeF (Krajowy System e-Faktur, the National e-Invoicing System) is a central platform run by the Polish Ministry of Finance. Invoices land there as structured XML in the FA(3) schema, not as PDFs. An invoice legally "exists" only once KSeF accepts it and assigns a KSeF number.
+
+The statutory timeline:
+
+- **1 February 2026** - mandatory for the largest taxpayers, those with sales above 200 million PLN in 2024.
+- **1 April 2026** - mandatory for every other VAT business, which is the vast majority of stores.
+- Administrative penalties (up to 100% of the VAT on a faulty invoice) only start **1 January 2027**, so there is a real window to roll out and test calmly.
+
+One detail people miss: receiving invoices through KSeF effectively applies to almost everyone from February, even if your own obligation to issue starts in April. If you buy stock from suppliers, those purchase invoices will be sitting in KSeF anyway.
+
+## B2B, B2C and cross-border are not the same thing
+
+This is where most of the confusion lives, because KSeF does not cover all of your sales the same way.
+
+- **B2B (business to business)** - the core of KSeF. Every invoice for a customer with a Polish NIP goes through the API as FA(3). Integration here is mandatory.
+- **B2C (private consumer)** - a private person without a business has no KSeF account. Those invoices are issued outside the system, and receipts still go through the fiscal cash register. The store has to detect whether the buyer entered a NIP and route the document accordingly.
+- **Cross-border, OSS/IOSS** - sales to consumers in other EU countries settled under OSS/IOSS follow their own rules and do not flow into KSeF like domestic B2B.
+
+For a developer that means one thing: the store needs a branch in its logic. A NIP field at checkout, validation, and a decision of "this invoice goes to KSeF, that one does not". Without it, the store will either push something to KSeF it shouldn't, or skip an invoice it was required to send.
+
+## What this means technically for Shopify, WooCommerce and custom builds
+
+The store itself doesn't talk to KSeF with a single button. You need a bridge: a layer that takes the order data, builds valid FA(3) XML, authenticates against the KSeF API (with a token or a certificate/seal), sends the invoice, receives the KSeF number and stores it against the order.
+
+- **WooCommerce** - the most freedom. I wire in a plugin or a custom module that listens for a paid order and fires the send to KSeF. Any B2B/B2C logic can sit here.
+- **Shopify** - here it usually runs through an app that connects Shopify to a Polish invoicing or accounting system that already has an official KSeF integration. Shopify knows nothing about Polish invoices, so invoicing is pushed outside.
+- **Custom store (Next.js, headless)** - I write the integration straight to the KSeF API or through an invoicing service with an API. Full control over when the invoice goes, how the XML looks and what happens when KSeF returns an error.
+
+The smart move is usually not to generate XML "from scratch" inside the store, but to connect the store to an invoicing or accounting system that already has a certified KSeF integration, while the store just passes order data. Less risk that a change to the FA(3) schema on the Ministry's side knocks your shop over.
+
+## How I run the rollout and what it costs
+
+I usually do it in stages: an audit of your sales (the B2B vs B2C split, whether OSS/IOSS is in play), picking the path (direct API vs through an invoicing service), wiring in FA(3) generation, authenticating with KSeF, handling the response and the KSeF number, plus testing on the Ministry's pre-production environment before anything goes live.
+
+Rough pricing:
+
+- Store-to-KSeF integration on top of a ready invoicing service with an API - from €1500-2500, depending on how many cases there are (B2B, B2C, cross-border, corrections).
+- Custom store with direct KSeF API and bespoke logic - from €4000.
+- A brand-new turnkey store - from €2500 (Shopify/Woo), headless from €4000, with the KSeF integration added as a module.
+
+Free, firm quote within 24 hours. More on building the store itself on my [online store service page](/en/services/online-store).
+
+## Common mistakes worth avoiding
+
+- **Treating KSeF as a PDF generator.** It is not a pretty printout, it is structured XML the Ministry validates. Wrong structure means a rejected invoice.
+- **No error handling on the API.** KSeF sometimes doesn't respond or returns an error. If the store has no retry queue and no logs, invoices quietly "vanish" and nobody notices until month-end.
+- **Ignoring the issue date.** The KSeF number is assigned the moment the system accepts the document, which affects when the invoice is formally issued. Map that carefully against the sale date.
+- **Doing everything manually the old way.** Since you have to touch the code anyway, wire KSeF into your accounting now so data flows automatically instead of through an Excel export.
+
+If you run a store and aren't sure whether the April 2026 obligation hits you, or how to wire KSeF technically, get in touch - I'll look at your case and propose the simplest integration path. Send a request via my [contact page](/en/contact), quote in 24 hours.
+
+## FAQ
+
+**When does KSeF become mandatory for my store?**
+For the largest firms (sales above 200 million PLN in 2024) from 1 February 2026, for all other VAT taxpayers from 1 April 2026. Administrative penalties only start 1 January 2027, so there's time to roll out and test. Receiving invoices through KSeF effectively applies to almost everyone from February.
+
+**Does KSeF apply to sales to private consumers (B2C)?**
+Not the way B2B does. A private consumer without a business has no KSeF account, so B2C invoices are issued outside the system and the sale still runs through the fiscal cash register. The store has to detect whether the buyer entered a NIP and route the document accordingly. OSS/IOSS sales to other EU countries are settled separately too.
+
+**How do I technically connect KSeF to WooCommerce or Shopify?**
+In WooCommerce via a plugin or custom module that listens for a paid order, builds the FA(3) XML and sends it to the KSeF API. In Shopify usually via an app that links the store to a Polish invoicing system that already integrates with KSeF. In a custom store I write the integration directly to the API or through an invoicing service with an API.
+
+**How much does a store-to-KSeF integration cost?**
+On top of a ready invoicing service with an API, from €1500-2500 depending on the number of cases (B2B, B2C, cross-border, corrections). A custom store with direct KSeF API and bespoke logic, from €4000. Quote is free within 24 hours.
+
+**Do I have to generate the FA(3) XML myself?**
+You don't need to do it by hand. The best approach is usually to connect the store to an invoicing or accounting system with a certified KSeF integration that produces valid XML for you, while the store just passes order data. That reduces the risk that a change to the FA(3) schema on the Ministry's side breaks your invoicing.

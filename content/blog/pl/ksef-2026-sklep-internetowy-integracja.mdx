@@ -1,0 +1,85 @@
+---
+title: "KSeF 2026 a sklep internetowy: jak przygotować integrację"
+description: "KSeF 2026 dla sklepu internetowego: kogo i od kiedy obejmuje obowiązek, jak podpiąć API, generować ustrukturyzowane faktury FA(3) i spiąć to z księgowością."
+date: "2026-07-09"
+cluster: "ksef-2026-online-store-pl"
+keywords:
+  - "KSeF 2026 sklep internetowy integracja"
+  - "jak przygotować sklep na KSeF"
+  - "KSeF API sklep internetowy"
+  - "faktura ustrukturyzowana FA(3) sklep"
+  - "KSeF WooCommerce Shopify"
+ogImage: "/og/ksef-2026-online-store.webp"
+---
+
+KSeF wchodzi na poważnie w 2026 roku i właściciele sklepów internetowych nagle pytają, czy ich Allegro, WooCommerce albo własny sklep "pęknie" od nowych przepisów. Robię sklepy internetowe i integracje z systemami zewnętrznymi, więc spojrzę na KSeF od strony deweloperskiej: kogo to dotyczy, co realnie zmienia się w kodzie sklepu i jak podpiąć system tak, żeby faktury wychodziły same, a księgowa nie przepisywała ich ręcznie.
+
+## Co to jest KSeF i kogo dotyczy w 2026
+
+KSeF (Krajowy System e-Faktur) to centralny system Ministerstwa Finansów, do którego trafiają ustrukturyzowane faktury - czyli pliki XML w schemie FA(3), a nie PDF-y. Faktura "powstaje" formalnie dopiero wtedy, gdy KSeF ją przyjmie i nada jej numer (numer KSeF).
+
+Harmonogram według ustawy wygląda tak:
+
+- **1 lutego 2026** - obowiązek wystawiania faktur w KSeF dla największych podatników, ze sprzedażą powyżej 200 mln zł w 2024 roku.
+- **1 kwietnia 2026** - obowiązek obejmuje wszystkie pozostałe firmy z VAT, czyli zdecydowaną większość sklepów.
+- Kary administracyjne (do 100% kwoty VAT z błędnej faktury) startują dopiero **1 stycznia 2027**, więc jest okno na spokojne wdrożenie i testy.
+
+Ważne: odbieranie faktur w KSeF dotyczy praktycznie wszystkich już od lutego, nawet jeśli sam musisz wystawiać dopiero od kwietnia. Jeśli kupujesz towar od dostawców na fakturę, twoje faktury zakupowe i tak będą lądować w KSeF.
+
+## B2B, B2C i sprzedaż zagraniczna - to nie to samo
+
+Tu jest największe nieporozumienie, bo KSeF nie obejmuje całej sprzedaży tak samo.
+
+- **B2B (firma na firmę)** - to serce KSeF. Każda faktura dla klienta z polskim NIP idzie przez API jako FA(3). Tu integracja jest obowiązkowa.
+- **B2C (klient prywatny)** - osoba fizyczna bez działalności nie ma konta w KSeF. Tu fakturę wystawia się poza systemem, a paragony i tak idą przez kasę fiskalną. Sklep musi umieć rozpoznać, czy klient podał NIP, i odpowiednio pokierować dokument.
+- **Sprzedaż zagraniczna, OSS/IOSS** - sprzedaż do konsumentów w innych krajach UE rozliczana w procedurze OSS/IOSS rządzi się swoimi zasadami i nie wpada w KSeF jak krajowe B2B.
+
+Dla dewelopera oznacza to jedno: w logice sklepu musi siedzieć rozgałęzienie. Pole na NIP w koszyku, walidacja, i decyzja "ta faktura idzie do KSeF, a tamta nie". Bez tego sklep albo wyśle do KSeF coś, czego nie powinien, albo pominie fakturę, którą musiał wysłać.
+
+## Co to znaczy technicznie dla Shopify, WooCommerce i sklepu custom
+
+Sam sklep nie "rozmawia" z KSeF bezpośrednio przyciskiem. Potrzebny jest most: warstwa, która bierze dane zamówienia, składa z nich poprawny XML FA(3), uwierzytelnia się w API KSeF (tokenem albo certyfikatem/pieczęcią), wysyła fakturę, odbiera numer KSeF i zapisuje go przy zamówieniu.
+
+- **WooCommerce** - najwięcej swobody. Podpinam integrację przez wtyczkę albo własny moduł, który nasłuchuje na opłacone zamówienie i odpala wysyłkę do KSeF. Daje się tu wpiąć dowolną logikę B2B/B2C.
+- **Shopify** - tu zwykle wszystko idzie przez aplikację łączącą Shopify z polskim systemem fakturowym lub księgowym, który ma już oficjalną integrację z KSeF. Shopify nie zna polskich faktur, więc fakturowanie wynosi się na zewnątrz.
+- **Sklep custom (Next.js, headless)** - piszę integrację bezpośrednio do API KSeF albo przez fakturownię z API. Pełna kontrola nad tym, kiedy faktura leci, jak wygląda XML i co się dzieje, gdy KSeF zwróci błąd.
+
+Najsensowniej zwykle nie generować XML "od zera" w sklepie, tylko spiąć sklep z systemem fakturowym (np. fakturownia/system księgowy z certyfikowaną integracją KSeF), a sklep tylko przekazuje dane zamówienia. Mniej ryzyka, że zmiana schemy FA(3) po stronie MF położy sklep.
+
+## Jak wygląda wdrożenie u mnie i ile kosztuje
+
+Standardowo robię to w kilku krokach: audyt sprzedaży (jaki udział B2B vs B2C, czy jest OSS/IOSS), wybór ścieżki (bezpośrednie API vs przez fakturownię), wpięcie generowania FA(3), uwierzytelnienie w KSeF, obsługa odpowiedzi i numeru KSeF, plus testy na środowisku przedprodukcyjnym MF zanim cokolwiek pójdzie produkcyjnie.
+
+Cennik orientacyjnie:
+
+- Integracja sklepu z KSeF na bazie gotowej fakturowni z API - od 1500-2500 €, zależnie od liczby przypadków (B2B, B2C, zagranica, korekty).
+- Sklep custom z bezpośrednim API KSeF i własną logiką - od 4000 €.
+- Sam nowy sklep internetowy pod klucz - od 2500 € (Shopify/Woo), headless od 4000 €, a integrację KSeF dokładam jako moduł.
+
+Darmową, wiążącą wycenę daję w 24 h. Więcej o samej budowie sklepu w [usłudze tworzenia sklepu internetowego](/pl/uslugi/sklep-internetowy).
+
+## Najczęstsze błędy, których warto uniknąć
+
+- **Traktowanie KSeF jak generatora PDF.** To nie ładny wydruk, tylko ustrukturyzowany XML, który MF waliduje. Błędna struktura = odrzucona faktura.
+- **Brak obsługi błędów z API.** KSeF czasem nie odpowiada albo zwraca błąd. Jeśli sklep nie ma kolejki ponownych prób i logów, faktury "znikają" i nikt tego nie zauważa do końca miesiąca.
+- **Ignorowanie daty wystawienia.** Numer KSeF nadaje system w momencie przyjęcia - to wpływa na to, kiedy faktura jest formalnie wystawiona. Trzeba to dobrze zmapować z datą sprzedaży.
+- **Robienie wszystkiego ręcznie po staremu.** Skoro i tak trzeba ruszyć kod, lepiej od razu spiąć KSeF z księgowością, żeby dane szły automatycznie, a nie przez eksport do Excela.
+
+Jeśli masz sklep i nie wiesz, czy obejmuje cię obowiązek od kwietnia 2026 i jak technicznie podpiąć KSeF, napisz - przeanalizuję twój przypadek i zaproponuję najprostszą ścieżkę integracji. Złóż zapytanie przez [stronę kontaktu](/pl/kontakt), wycena w 24 h.
+
+## FAQ
+
+**Od kiedy KSeF jest obowiązkowy dla mojego sklepu?**
+Dla największych firm (sprzedaż powyżej 200 mln zł w 2024) od 1 lutego 2026, dla wszystkich pozostałych podatników VAT od 1 kwietnia 2026. Kary administracyjne wchodzą dopiero od 1 stycznia 2027, więc jest czas na wdrożenie i testy. Odbieranie faktur w KSeF dotyczy praktycznie wszystkich już od lutego.
+
+**Czy KSeF dotyczy sprzedaży do klientów prywatnych (B2C)?**
+Nie tak jak B2B. Klient prywatny bez działalności nie ma konta w KSeF, więc faktury B2C wystawia się poza systemem, a sprzedaż dalej idzie przez kasę fiskalną. Sklep musi rozpoznawać, czy klient podał NIP, i kierować dokument odpowiednio. Sprzedaż OSS/IOSS do innych krajów UE też rozlicza się osobno.
+
+**Jak technicznie podłączyć KSeF do WooCommerce albo Shopify?**
+W WooCommerce przez wtyczkę lub własny moduł nasłuchujący na opłacone zamówienie, który składa XML FA(3) i wysyła go do API KSeF. W Shopify zwykle przez aplikację łączącą sklep z polskim systemem fakturowym, który ma już integrację z KSeF. W sklepie custom piszę integrację bezpośrednio do API albo przez fakturownię z API.
+
+**Ile kosztuje integracja sklepu z KSeF?**
+Integracja na bazie gotowej fakturowni z API od 1500-2500 €, zależnie od liczby przypadków (B2B, B2C, zagranica, korekty). Sklep custom z bezpośrednim API KSeF i własną logiką od 4000 €. Wycena za darmo w 24 h.
+
+**Czy muszę sam generować XML FA(3)?**
+Nie musisz robić tego ręcznie. Najczęściej najlepiej spiąć sklep z systemem fakturowym lub księgowym, który ma certyfikowaną integrację z KSeF i sam tworzy poprawny XML. Sklep przekazuje tylko dane zamówienia. To zmniejsza ryzyko, że zmiana schemy FA(3) po stronie Ministerstwa Finansów popsuje fakturowanie.

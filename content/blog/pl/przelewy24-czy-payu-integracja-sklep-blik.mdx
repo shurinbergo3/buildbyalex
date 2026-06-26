@@ -1,0 +1,79 @@
+---
+title: "Przelewy24 czy PayU - integracja sklepu i BLIK"
+description: "Przelewy24, PayU, Autopay, Stripe - który gateway do polskiego sklepu? Prowizje, BLIK One-Click i jak czysty checkout podnosi konwersję o kilkanaście procent."
+date: "2026-07-12"
+cluster: "payment-gateway-poland-blik-przelewy24-pl"
+keywords:
+  - "Przelewy24 czy PayU integracja sklep BLIK"
+  - "bramka płatności sklep internetowy"
+  - "BLIK One-Click sklep"
+  - "integracja płatności WooCommerce"
+  - "porównanie bramek płatności Polska"
+ogImage: "/og/payment-gateway-poland-blik-przelewy24.webp"
+---
+
+Klient dodał produkt do koszyka, doszedł do płatności - i zniknął. W Polsce najczęstszy powód jest banalny: nie znalazł BLIK-a albo checkout wyglądał jak przekierowanie na podejrzaną stronę. Pytanie "Przelewy24 czy PayU, jaka integracja sklepu i czy mają BLIK" dostaję od klientów co tydzień, więc rozłożę to na konkrety - prowizje, wypłaty, BLIK One-Click i to, jak sam checkout potrafi zjeść albo dołożyć kilkanaście procent konwersji.
+
+Buduję i podpinam płatności do sklepów na WooCommerce, Shopify i własnych (Next.js), więc piszę z perspektywy kogoś, kto te bramki wdraża, a nie czyta o nich w cenniku.
+
+## Dlaczego BLIK to w Polsce obowiązek, a nie dodatek
+
+BLIK odpowiada dziś za grubo ponad połowę płatności online w polskich sklepach. Jeśli go nie masz, część koszyków po prostu wyparuje - klient nie ma ochoty przepisywać 16 cyfr karty, skoro wszędzie indziej wbija sześć cyfr z aplikacji banku. To nie kwestia gustu, to przyzwyczajenie całego rynku.
+
+Druga rzecz to **BLIK One-Click**. Po pierwszej płatności klient zapamiętuje urządzenie i kolejne zakupy potwierdza jednym tapnięciem w aplikacji, bez przepisywania kodu. Dla sklepów z powracającymi klientami (suplementy, kawa, kosmetyki) to realnie krótsza ścieżka i wyższa powtarzalność zakupów. Brak BLIK-a w 2026 w polskim sklepie to jak brak InPost Paczkomatów w dostawie - technicznie da się żyć, ale tracisz klientów na pustym miejscu.
+
+## Porównanie bramek - prowizje, aktywacja, wypłaty
+
+Ceny są negocjowalne i zależą od obrotu, ale realne widełki rynkowe wyglądają tak:
+
+| Bramka | Prowizja BLIK / przelew | Karty | Aktywacja | Wypłata | BLIK One-Click |
+|---|---|---|---|---|---|
+| Przelewy24 | ok. 0,9-1,4% | ok. 1,5-2,2% | 1-3 dni, online | D+1 / D+2 | tak |
+| PayU | ok. 1,0-1,5% | ok. 1,7-2,3% | 1-5 dni, więcej formalności | D+1 / tygodniowo | tak (PayU Express) |
+| Autopay (d. Blue Media) | ok. 0,9-1,3% | ok. 1,6-2,2% | 1-3 dni | D+1 | tak |
+| Stripe | brak natywnego BLIK-a w pełni, karty ok. 1,5% + 1 zł | mocne karty / Apple/Google Pay | szybka, online | tygodniowo (D+7) | nie (BLIK ograniczony) |
+
+Krótko, jak to czytam w praktyce:
+
+- **Przelewy24** - mój domyślny wybór dla małych i średnich sklepów. Najwięcej metod w jednym miejscu (BLIK, szybkie przelewy ze wszystkich banków, karty, raty), prosta aktywacja, sensowne prowizje, szybka wypłata.
+- **PayU** - mocne przy większych obrotach i gdy chcesz raty / odroczone płatności (PayU, "Kup teraz, zapłać później"). Formalności trochę więcej, ale dla sklepu robiącego setki zamówień dziennie warunki bywają lepsze.
+- **Autopay (Blue Media)** - solidna alternatywa, często wybierana przez subskrypcje i firmy, które chcą polskiego partnera z dobrym supportem.
+- **Stripe** - genialny do sprzedaży zagranicznej, kart, Apple/Google Pay i subskrypcji SaaS. Ale jako jedyna bramka w polskim sklepie B2C bez pełnego BLIK-a będzie kosztować Cię konwersję. Najczęściej łączę go z Przelewy24: Stripe na zagranicę, P24 na BLIK i polski rynek.
+
+## Jak checkout wpływa na konwersję
+
+Można mieć najtańszą prowizję i dalej tracić pieniądze, jeśli ścieżka płatności jest koślawa. Kilka rzeczy, które realnie ruszają liczby:
+
+- **Checkout white-label, bez brzydkiego przeskoku.** Gdy klient z Twojego sklepu nagle ląduje na obcej stronie z innym logo, część się płoszy. Dobrze wdrożona bramka trzyma płatność w spójnej, Twojej oprawie - to bywa kilka procent mniej porzuceń.
+- **BLIK na pierwszym miejscu.** Metoda, której używa większość, ma być na górze, duża i klikalna - nie schowana pod "inne".
+- **Mniej kroków.** Płatność w jednym ekranie, bez wymuszania zakładania konta. Każde dodatkowe pole to ubytek.
+- **Zapamiętane One-Click** dla wracających klientów.
+
+U klientów po uporządkowaniu checkoutu i dodaniu BLIK-a na widoczne miejsce widywałem wzrost konwersji rzędu 10-20%. To nie magia, to po prostu usunięcie tarcia tam, gdzie ludzie odpadali.
+
+## Jak podpinam bramkę do Twojego sklepu
+
+- **WooCommerce** - oficjalne wtyczki Przelewy24 / PayU / Autopay, konfiguracja webhooków, testy na sandboxie, BLIK i One-Click, poprawiony szablon checkoutu, żeby nie wyglądał jak domyślny WooCommerce. Wdrożenie zwykle 1-3 dni.
+- **Shopify** - przez wspierane integracje i, gdzie trzeba, dodatkowe aplikacje na BLIK/P24, plus odchudzony, jednoekranowy checkout.
+- **Sklep custom / headless (Next.js)** - integracja po API bramki, własny, lekki checkout, pełna kontrola nad UX, BLIK One-Click i obsługą webhooków (statusy, zwroty, raty).
+
+Sama integracja płatności to zwykle koszt rzędu kilkuset euro, a cały sklep na Shopify/Woo buduję od €1500-2500; wersja headless na Next.js od €4000. Wycenę dostajesz w 24 h, za darmo, z konkretnym zakresem - bez "to zależy".
+
+Jeśli masz sklep, który zbiera ruch, ale słabo domyka płatności, najpierw poukładam Ci bramkę i checkout. Zobacz szczegóły w [tworzeniu sklepu internetowego](/pl/uslugi/sklep-internetowy) i napisz przez [kontakt](/pl/kontakt) - powiem, która bramka pasuje do Twojego obrotu i ile realnie da się odzyskać na konwersji.
+
+## FAQ
+
+**Przelewy24 czy PayU - co wybrać do sklepu z BLIK?**
+Do małego i średniego sklepu zwykle Przelewy24 - prostsza aktywacja, BLIK i One-Click w standardzie, szybka wypłata. PayU ma sens przy dużych obrotach i ratach / "kup teraz, zapłać później".
+
+**Ile kosztuje integracja bramki płatności?**
+Sama integracja to zwykle kilkaset euro w zależności od platformy i zakresu (BLIK, One-Click, raty, webhooki). Cały sklep od €1500-2500 na Shopify/Woo. Wycena w 24 h, za darmo.
+
+**Czy BLIK jest konieczny w polskim sklepie?**
+Praktycznie tak. BLIK to ponad połowa płatności online w Polsce, a BLIK One-Click skraca ścieżkę wracającym klientom. Bez niego tracisz koszyki na pustym miejscu.
+
+**Czy Stripe wystarczy w polskim sklepie?**
+Do sprzedaży zagranicznej, kart i subskrypcji - świetny. Jako jedyna bramka w polskim B2C będzie kosztować konwersję, bo nie daje pełnego BLIK-a. Najczęściej łączę Stripe z Przelewy24.
+
+**Jak szybko da się podpiąć płatności?**
+Na WooCommerce zwykle 1-3 dni roboczych z testami na sandboxie. Sklep custom dłużej, bo dochodzi własny checkout, ale wciąż liczone w dniach, nie tygodniach.

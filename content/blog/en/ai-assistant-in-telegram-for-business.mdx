@@ -1,0 +1,79 @@
+---
+title: "AI Assistant in Telegram for Business - Stop Answering the Same Questions"
+description: "An AI assistant in Telegram answers ~80% of client questions itself, qualifies leads and hands the rest to you - 24/7. What it can do, knowledge base, CRM, cost."
+date: "2026-07-16"
+cluster: "ai-assistant-telegram-en"
+keywords:
+  - "ai assistant telegram for business"
+  - "ai chatbot telegram"
+  - "telegram bot with ai"
+  - "ai bot telegram customer questions"
+  - "telegram assistant knowledge base crm"
+ogImage: "/og/ai-assistant-telegram.webp"
+---
+
+You finish dinner, open Telegram, and there they are again: "what's the price?", "are you open Sunday?", "where's my order?", "do you have it in stock?". Same five questions, every evening, every weekend. An AI assistant in Telegram for business can take roughly 80% of that off your plate - it reads your knowledge base, answers in plain language, qualifies the person, and only pings you when a human is actually needed.
+
+I build these for owners who run their whole sales chat from one phone. Below is what the assistant can and can't do, how the knowledge base and CRM hand-off work, and what it costs.
+
+## Why the questions keep landing on you
+
+Most small businesses sell through Telegram now because that's where the clients already are - a huge, active audience, especially among Polish, Russian and Ukrainian speakers. Booksy is for the calendar, Allegro is for the listing, but the actual conversation happens in DMs. And DMs don't close at 6 p.m.
+
+So you become the bottleneck. A client writes at 10 p.m., you answer at 8 a.m., and by then they've messaged two competitors. Count it honestly: if you spend 60-90 minutes a day on repeat questions, that's 30-40 hours a month of unpaid receptionist work - plus every lead you lost because you replied too late.
+
+A simple bot with buttons doesn't fix this, because people don't write in menu commands. They write "hey is the blue one still available and how much with delivery to Wrocław" - one messy sentence with three questions. That's exactly what an AI assistant handles and a button-bot can't.
+
+## What the AI assistant actually does
+
+It sits inside your Telegram, reads incoming messages like a person would, and answers from your data. Concretely:
+
+- **Answers the repeat stuff** - price, hours, delivery, availability, "do you do X", "where are you located" - in natural language, in the language the client wrote in.
+- **Checks order status** when connected to your system: the client gives a name or order number, the bot pulls the status.
+- **Qualifies the lead** - asks budget, city, timeline, what they need - so by the time it reaches you, you already know if it's worth a call.
+- **Hands off to a human** the moment it's unsure, the request is non-standard, or the client asks for you directly. You get the full conversation, not a cold "someone wants to talk".
+- **Works 24/7** and never gets tired at question number forty.
+
+What it can't do, honestly: it won't invent prices you never gave it, it won't negotiate a complex custom deal, and it shouldn't pretend to be human if asked outright. It's there to clear the routine so you handle the conversations that actually need you. Set it up wrong - no knowledge base, no guardrails - and it'll confidently make things up. That's an implementation problem, not a reason to skip it.
+
+## The knowledge base - where the answers come from
+
+The assistant is only as good as what you feed it. The knowledge base is just your real answers in one place: full price list, working hours and holidays, delivery options and costs (InPost Paczkomaty, courier, pickup), return policy, the 20-30 questions you're sick of answering, and your tone of voice.
+
+You don't write code for this. You give me what you already type by hand every day - I structure it, load it, and add rules for the edge cases ("if they ask for a discount over 15%, hand to a human"). When prices or hours change, you update one place and the bot is current everywhere. Most clients pull their first knowledge base together in an afternoon from old chat history.
+
+## CRM hand-off - so leads don't vanish in the chat
+
+Answering is half the job. The other half is making sure a qualified lead lands somewhere you'll act on it. I connect the assistant to your CRM (or a clean Google Sheet / Notion if you don't run one) through n8n or Make: every qualified conversation becomes a record with name, contact, what they want and the full transcript.
+
+When the bot escalates, it drops a notification straight into your Telegram or your team's group with a one-line summary and a link - so you reply in seconds with context, not scrolling. New paid orders, hot leads, "client asked for the owner" - all of it pushed to you live. Nobody refreshes a dashboard, the lead just shows up.
+
+## What it costs and how fast it goes live
+
+An AI assistant in Telegram with a knowledge base runs **from €900 to €2500 to set up**, depending on how much it has to handle, plus a small monthly fee for the AI model usage and hosting (a VPS plus domain is around €60-90 a year). The CRM and payment integrations sit at the top of that range - more moving parts, more testing.
+
+Timeline: a focused assistant answering FAQs from your knowledge base goes live in about 1-2 weeks. Add CRM hand-off, order-status lookups and lead qualification and you're looking at 3-5 weeks, mostly for wiring and testing the integrations properly.
+
+Compared to a part-time person on chat, it usually pays for itself inside the first two or three months - and unlike a person, it doesn't sleep, quit, or take August off. If you want me to scope one for your business, look at the [Telegram bot service](/en/services/telegram-bots) or just write to me on the [contact page](/en/contact).
+
+I built exactly this kind of qualifying assistant for a client - see how it works in the [LeadBot case](/en/work/leadbot): it filters and qualifies incoming leads in chat before they ever reach a salesperson.
+
+## FAQ
+
+**Will an AI assistant in Telegram really answer 80% of questions on its own?**
+For most small businesses, yes - because 80% of incoming messages are the same handful of questions (price, hours, delivery, availability). Once those are in a good knowledge base, the bot handles them and forwards only the non-standard 20% to you with full context.
+
+**Can it pull live order status or stock?**
+Yes, if I connect it to where that data lives - your CRM, store backend or a sheet. The client gives an order number or name, the bot looks it up and replies. Without that integration it can still answer everything else, just not live status.
+
+**What stops it from making up answers?**
+Two things: it answers from your knowledge base, not from the open internet, and I set guardrails so when it isn't confident it hands off to a human instead of guessing. A bot wired this way says "let me get the owner" rather than inventing a price.
+
+**How much does it cost to set up?**
+From €900 to €2500 depending on scope, plus a small monthly cost for the AI usage and hosting (~€60-90/yr for a VPS and domain). FAQ-only is the lower end; CRM and payment integrations sit higher.
+
+**How long until it's live?**
+A knowledge-base FAQ assistant in about 1-2 weeks. Add CRM hand-off and order lookups and it's usually 3-5 weeks, most of which is integrating and testing, not building the bot itself.
+
+**Why Telegram and not WhatsApp or a website chat?**
+Because that's where your audience already talks - Telegram is huge with Polish, Russian and Ukrainian-speaking clients, and people stay reachable in their phone afterward. A website chat only works while someone's on the site. Often the smart move is Telegram first, then add the others.

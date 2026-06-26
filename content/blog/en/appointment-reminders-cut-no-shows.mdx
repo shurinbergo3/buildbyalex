@@ -1,0 +1,87 @@
+---
+title: "Appointment Reminders That Cut No-Shows for Good"
+description: "Up to 30% of booked appointments turn into no-shows. Automated SMS, WhatsApp and Telegram reminders plus a waitlist refill cut that to a few percent."
+date: "2026-07-18"
+cluster: "appointment-reminders-no-show-en"
+keywords:
+  - "appointment reminders automation"
+  - "reduce no-shows"
+  - "SMS appointment reminder"
+  - "WhatsApp booking reminder"
+  - "no-show automation"
+ogImage: "/og/appointment-reminders-no-show.webp"
+---
+
+A client books a slot, then never shows up. No call, no cancellation, just an empty chair where a paying appointment should have been. For a salon, a clinic or a solo specialist that empty slot is money you'll never get back, and across the businesses I work with it's anywhere from 10% to 30% of all bookings. The fix isn't nagging people by hand - it's automation that reminds them, lets them confirm or cancel in one tap, and refills the slot from a waitlist when they do bail.
+
+I'm Alex. I build automation for businesses in Poland as one person, no agency markup. Here's the no-show math, the reminder cadence that actually works, and how I wire it into your booking system.
+
+## What a no-show really costs
+
+Run the numbers once and the problem stops being abstract. Say a hairdresser charges 150 zł per visit and works 8 slots a day. A 20% no-show rate means roughly 1.6 empty slots daily - call it 240 zł lost. Over a 22-day month that's around **5,300 zł gone**, and that's before you count the product, the rent and the stylist's idle time you're still paying for.
+
+A dental practice or an aesthetic clinic feels it harder, because a single empty slot can be 300-600 zł or more. Three no-shows a week at 400 zł is over **60,000 zł a year** evaporating into thin air.
+
+Now compare that to the cost of fixing it. A reminder automation runs from €500 one-time, plus pennies per SMS. If it drags your no-show rate from 20% down to 5%, it pays for itself inside the first month and keeps paying every month after.
+
+## Why people no-show (and why reminders work)
+
+Most no-shows aren't malicious. People book two weeks out, life happens, and the appointment simply falls out of their head. Some meant to cancel but couldn't find your number, or didn't want the awkward phone call. A few double-booked themselves and forgot which one they were keeping.
+
+A well-timed reminder solves nearly all of that. It jogs their memory, and - this is the part most businesses miss - it gives them a frictionless way to cancel. A no-show is the worst outcome for you. A cancellation 24 hours out is a gift, because it gives you time to refill the slot. So the reminder shouldn't just say "don't forget" - it should make cancelling easy, so an empty slot becomes a re-bookable one.
+
+## The reminder cadence that works
+
+More reminders isn't better - the right ones at the right time are. The cadence I set up for most clients:
+
+- **At booking:** an instant confirmation. "Booked: Friday 18 July, 14:00. See you then." This alone catches wrong dates straight away.
+- **24 hours before:** the main reminder, with a one-tap **Confirm** and **Cancel** link. Most cancellations land here, which is exactly what you want - a full day to refill.
+- **2-3 hours before:** a short final nudge, only for appointments not yet confirmed. Skip it for confirmed ones so you're not spamming reliable clients.
+
+For high-value or first-time appointments I sometimes add a reminder 3 days out. For a quick 30-minute haircut, two messages is plenty. The point is to tune it to your no-show pattern, not blast everyone.
+
+## Channels: SMS, WhatsApp or Telegram
+
+Each channel has its place, and I usually set up more than one with a fallback.
+
+**SMS** is the workhorse: it lands on every phone, no app needed, and open rates sit near 98%. Cost in Poland is roughly 0.05-0.10 zł per message through a provider like SMSAPI or Twilio - trivial next to a saved 400 zł slot.
+
+**WhatsApp** is great where your clients already live in it. Richer messages, buttons for confirm/cancel, and you can run a real back-and-forth if they want to reschedule.
+
+**Telegram** works well for a younger, tech-savvy crowd and costs nothing to send. I often build a small bot that both sends reminders and handles the confirm/cancel taps.
+
+My usual setup: WhatsApp or Telegram first if the client has it, SMS as the guaranteed fallback. Nobody slips through.
+
+## How I build it
+
+The automation connects three things: your calendar or booking system, the messaging channel, and a waitlist. I run it on **n8n** or **Make**, wired into whatever you already use - Booksy, Google Calendar, a custom CRM, or a booking widget on your site.
+
+The flow looks like this:
+
+1. A booking appears in the system. The automation reads the client's name, phone and slot time.
+2. It schedules the reminder messages and fires the confirmation immediately.
+3. The client taps **Confirm** or **Cancel** from the message. Their status updates automatically - no one touches a phone.
+4. On a cancellation, the freed slot is offered to your **waitlist**: the next person in line gets a "a 14:00 slot just opened tomorrow, want it?" message. First to say yes gets it.
+
+That last step is what turns a leak into a self-healing system. Instead of you scrambling to fill a hole, the automation fills it while you're with another client.
+
+Cost: a reminder setup starts at **€500** one-time for a single channel and a standard booking system. Add the waitlist refill and WhatsApp, and you're looking at €800-1200 depending on your stack. Running costs are just the SMS fees and, if we self-host n8n, around €20/month for the server - so your data stays on your side. Timeline is usually 1-2 weeks. More detail on the [business process automation](/en/services/automation) page.
+
+I built something very close to this for a lead-handling project - see how the bot side of it works in the [LeadBot case study](/en/work/leadbot).
+
+## FAQ
+
+**How much can reminders cut my no-show rate?**
+In practice from 20-30% down to roughly 3-7%. The biggest single win is the 24-hour reminder with an easy cancel link - it converts silent no-shows into early cancellations you can refill.
+
+**How much does the automation cost?**
+From €500 one-time for one channel and a standard booking system, €800-1200 with waitlist refill and WhatsApp. Running cost is just SMS fees (about 0.05-0.10 zł each) plus ~€20/month if we self-host n8n. Free fixed quote in 24h.
+
+**Does it work with Booksy or my current system?**
+Yes. I connect to Booksy, Google Calendar, custom CRMs and most booking widgets. If it has an API or a calendar feed, I can wire reminders into it without you changing how you book clients.
+
+**Which channel is best - SMS, WhatsApp or Telegram?**
+SMS reaches everyone and has the highest open rate, so it's the safe default. WhatsApp and Telegram are cheaper and allow buttons and chat. I usually set up WhatsApp or Telegram first with SMS as a guaranteed fallback.
+
+**Won't clients find constant messages annoying?**
+Only if you overdo it. Two to three well-timed messages per booking is the sweet spot, and the final nudge only goes to people who haven't confirmed yet. Reliable clients who already confirmed get left alone.

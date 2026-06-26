@@ -1,0 +1,84 @@
+---
+title: "Przeniesienie sklepu z Shoper na WooCommerce: koszt"
+description: "Ile kosztuje migracja z Shoper na WooCommerce, jak nie stracić zamówień, wariantów i pozycji w Google. Bezpieczny plan przeniesienia z przekierowaniami 301."
+date: "2026-07-11"
+cluster: "migrate-from-shoper-to-woocommerce-pl"
+keywords:
+  - "przeniesienie sklepu z shoper na woocommerce koszt"
+  - "migracja z shoper na woocommerce"
+  - "ucieczka z shoper"
+  - "przeniesienie sklepu z saas na woocommerce"
+  - "ile kosztuje migracja sklepu"
+ogImage: "/og/migrate-from-shoper-to-woocommerce.webp"
+---
+
+Shoper podniósł abonament, a ty znów uderzasz w ścianę przy każdej niestandardowej funkcji - i pytasz, ile kosztuje przeniesienie sklepu z Shoper na WooCommerce i czy przy okazji nie wyparują zamówienia, warianty produktów i pozycje w Google. Krótko: bezpieczna migracja małego katalogu to zwykle 4000-8000 zł i 2-4 tygodnie, a przy dobrze poprowadzonych przekierowaniach 301 ruch z Google nie spada. Przeniosłem kilka sklepów z polskich platform SaaS i rozłożę to po kolei, bez straszenia i bez ściemy.
+
+## Dlaczego ludzie uciekają z Shoper i Sky-Shop
+
+Polskie platformy SaaS - Shoper, Sky-Shop (dawne Shoplo), IdoSell - są wygodne na start. Problem zaczyna się, gdy sklep urośnie. Po pierwsze abonament: wyższe pakiety to 200-600 zł miesięcznie, a do tego prowizje i płatne dodatki, których uzbiera się kilka. Po drugie ograniczenia: chcesz nietypowy koszyk, ceny B2B, własny filtr albo integrację z konkretnym WMS - i okazuje się, że „tak się nie da, bo platforma tego nie przewiduje".
+
+Trzeci powód to SEO i wygląd. Na SaaS siedzisz na cudzym szablonie, masz ograniczony dostęp do schema, struktury URL i szybkości. A Core Web Vitals i czas ładowania wprost wpływają na pozycje i konwersję. W pewnym momencie miesięczny rachunek rośnie, a sklep i tak nie robi tego, co potrzebne biznesowi.
+
+## Czego naprawdę boją się właściciele (i słusznie)
+
+Najczęstsze pytanie, jakie dostaję: „a co, jeśli stracę dane?". Konkretnie chodzi o pięć rzeczy:
+
+- **Zamówienia i klienci** - cała historia zakupów, dane do faktur, konta klientów.
+- **Warianty produktów** - rozmiary, kolory, kombinacje cen i stanów magazynowych.
+- **Kategorie i atrybuty** - drzewo kategorii, filtry, opisy.
+- **Opinie** - zebrane latami recenzje, często powiązane z Google i Ceneo.
+- **Adresy URL i SEO** - to, na czym sklep ma pozycje w Google.
+
+I to jest realne ryzyko, ale tylko wtedy, gdy migrację robi się „na szybko". Przy poprawnym planie żadna z tych rzeczy nie ginie. Cała sztuka polega na tym, żeby przenieść dane przez API, a nie przeklejać je ręcznie.
+
+## Jak wygląda bezpieczna migracja krok po kroku
+
+Robię to zawsze w tej samej kolejności, żeby nic nie przepadło i żeby Google nie zauważył przerwy.
+
+1. **Eksport danych przez API.** Shoper i Sky-Shop mają API - pobieram produkty, warianty, kategorie, klientów, zamówienia i opinie w sposób powtarzalny, a nie z ręcznego CSV, który gubi pola.
+2. **Mapowanie struktury.** Warianty Shoper trafiają na warianty WooCommerce (product variations), atrybuty na atrybuty, drzewo kategorii zostaje 1:1. Tu najwięcej pracy - każda platforma trzyma dane inaczej.
+3. **Zachowanie adresów URL.** Jeśli się da, zostawiam te same ścieżki produktów i kategorii. Jeśli nie - na każdy stary URL robię przekierowanie 301 na nowy. Dzięki temu pozycje w Google przechodzą na nowy adres, a klienci z zakładek i linków nie trafiają na 404.
+4. **Przeniesienie klientów i zamówień.** Konta klientów, historia zamówień i opinie wchodzą do WooCommerce. Hasła zwykle wymagają resetu (są zaszyfrowane), więc przygotowuję maila z linkiem do ustawienia nowego.
+5. **Testy na środowisku staging.** Cały sklep stoi najpierw na kopii testowej - sprawdzamy ceny, stany, płatności (Przelewy24, PayU, BLIK), dostawy (InPost Paczkomaty), faktury. Dopiero potem przełączamy domenę.
+
+Downtime przy takim podejściu to zwykle 0-2 godziny, najczęściej w nocy. Sklep nie jest „wyłączony na tydzień".
+
+## WooCommerce czy headless na Next.js
+
+WooCommerce to najczęstszy cel migracji z SaaS: darmowa platforma, pełna kontrola nad treścią, ogromny ekosystem wtyczek. Pasuje do katalogu od 50 do paru tysięcy produktów ze standardową logiką. Trzeba pamiętać, że „darmowy" dotyczy samego silnika - realny sklep dozbiera się z płatnych wtyczek (dostawa, płatności, filtry) za 600-3000 zł rocznie i wymaga aktualizacji co tydzień.
+
+Jeśli liczy się szybkość, własna logika i obrót, przy którym każda dziesiąta sekundy ładowania to pieniądze - warto rozważyć [sklep headless na Next.js](/pl/uslugi/sklep-internetowy). Front serwuje statykę z CDN, więc katalog ładuje się w 0,4-1,2 s zamiast 2-5 s, a logika (B2B, subskrypcje, niestandardowy koszyk) to kod, a nie limity panelu. Migracja danych z Shoper wygląda tak samo - różni się tylko cel, do którego je wkładam.
+
+## Ile to kosztuje i ile trwa
+
+Zależy od wielkości katalogu i tego, ile niestandardowych rzeczy trzeba odtworzyć. Realne widełki:
+
+- **Mały sklep (do 200-300 produktów, standardowe warianty):** 4000-8000 zł, 2-4 tygodnie. WooCommerce z gotowym, dopracowanym motywem, przeniesienie danych, 301, integracje płatności i dostaw.
+- **Średni sklep (do paru tysięcy SKU, własne atrybuty, integracje):** 8000-16000 zł, 4-7 tygodni.
+- **Headless na Next.js z migracją danych:** od 18000 zł, 6-10 tygodni - gdy chodzi o szybkość, SEO i własną logikę.
+
+W tym mieści się sama migracja danych, mapowanie wariantów, mapa przekierowań 301 i testy. Hosting to potem VPS w Polsce plus domena, około 250-400 zł rocznie - bez abonamentu SaaS rosnącego z każdą sprzedażą. Darmową, konkretną wycenę pod twój katalog robię w 24 godziny.
+
+## Jak ograniczam ryzyko
+
+Trzy rzeczy, które robię, żeby migracja była bezpieczna. Po pierwsze, stary sklep zostaje aktywny do końca - przełączamy się dopiero, gdy nowy przejdzie testy. Po drugie, robię pełną mapę przekierowań 301 (każdy stary URL → nowy) i sprawdzam ją narzędziem, zanim Google trafi na 404. Po trzecie, po przełączeniu monitoruję Search Console przez 2-4 tygodnie i wyłapuję ewentualne błędy indeksowania, zanim zrobią szkodę. Dzięki temu pozycje nie spadają, a ty nie tracisz sprzedaży na przejściu.
+
+Jeśli siedzisz na Shoper albo Sky-Shop i abonament zaczyna boleć - zobacz, jak buduję [sklepy internetowe na WooCommerce i Next.js](/pl/uslugi/sklep-internetowy), albo [napisz do mnie](/pl/kontakt). Powiem wprost, czy migracja w twoim przypadku się opłaca, i dam wycenę z planem przeniesienia danych i 301 w ciągu 24 godzin.
+
+## FAQ
+
+**Ile kosztuje przeniesienie sklepu z Shoper na WooCommerce?**
+Mały katalog do 200-300 produktów to 4000-8000 zł i 2-4 tygodnie. Większy sklep z własnymi atrybutami i integracjami - 8000-16000 zł. W cenie jest migracja danych, mapowanie wariantów, przekierowania 301 i testy. Wycena pod twój sklep w 24 h, za darmo.
+
+**Czy stracę pozycje w Google po migracji?**
+Nie, jeśli zachowamy adresy URL albo zrobimy przekierowania 301 z każdego starego adresu na nowy. Wtedy pozycje przechodzą na nowy URL. Po przełączeniu pilnuję Search Console przez 2-4 tygodnie, żeby wyłapać ewentualne błędy.
+
+**Czy przeniosą się zamówienia, klienci i opinie?**
+Tak. Historia zamówień, konta klientów i opinie idą przez API do WooCommerce. Hasła są zaszyfrowane, więc klienci dostają mail z linkiem do ustawienia nowego - dane logowania jako takie nie giną.
+
+**Jak długo sklep będzie niedostępny?**
+Zwykle 0-2 godziny, najczęściej w nocy. Cały sklep budujemy i testujemy na kopii, a domenę przełączamy dopiero na końcu. Stary sklep działa do ostatniej chwili.
+
+**WooCommerce czy headless na Next.js?**
+WooCommerce - gdy katalog jest mały lub średni i logika standardowa. Headless na Next.js - gdy liczy się szybkość (0,4-1,2 s zamiast 2-5 s), własna logika B2B i SEO. Migracja danych z Shoper wygląda tak samo, różni się tylko cel.

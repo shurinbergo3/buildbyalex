@@ -10,6 +10,9 @@ import {
 import { getAllPostSlugs, getPost, getClusterSlugs } from "@/lib/blog";
 import { caseKeyToSlug, caseSlugs, type CaseKey } from "@/lib/cases";
 
+// Re-render hourly so the map drops/adds queued posts as they go live by date.
+export const revalidate = 3600;
+
 const staticPaths: (keyof typeof routing.pathnames)[] = [
   "/",
   "/services",
@@ -40,6 +43,9 @@ function buildAlternates(pathname: keyof typeof routing.pathnames) {
   for (const loc of routing.locales) {
     languages[htmlLang(loc as Locale)] = localizedHref(loc as Locale, pathname);
   }
+  // Mirror the on-page metadata (buildLocalizedMetadata), which includes
+  // x-default → default locale. Identical hreflang sets keep the cluster strong.
+  languages["x-default"] = localizedHref(routing.defaultLocale as Locale, pathname);
   return languages;
 }
 
@@ -82,7 +88,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const loc of routing.locales) {
     for (const slug of getAllPostSlugs(loc as Locale)) {
       const post = getPost(loc as Locale, slug);
-      const cluster = post ? getClusterSlugs(post.cluster) : {};
+      if (!post) continue; // future-dated (queued) or malformed — keep it out of the map
+      const cluster = getClusterSlugs(post.cluster);
       const languages: Record<string, string> = {};
       for (const [clLoc, clSlug] of Object.entries(cluster)) {
         languages[htmlLang(clLoc as Locale)] = `${SITE_URL}/${clLoc}/blog/${clSlug}`;

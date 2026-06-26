@@ -1,0 +1,83 @@
+---
+title: "Dlaczego strona ładuje się wolno i jak ją przyspieszyć"
+description: "Strona ładuje się wolno, PageSpeed na czerwono, ludzie uciekają, pozycje spadają? Dlaczego wolna strona traci klientów i jak ją naprawić - szybkie zmiany i realny fix."
+date: "2026-07-08"
+cluster: "slow-website-core-web-vitals-pl"
+keywords:
+  - "dlaczego strona ładuje się wolno"
+  - "jak przyspieszyć stronę"
+  - "wolna strona internetowa"
+  - "core web vitals na czerwono"
+  - "pagespeed insights wynik"
+ogImage: "/og/slow-website-core-web-vitals.webp"
+---
+
+Wpisujesz swój adres w PageSpeed Insights, a wynik na mobile wraca na czerwono - gdzieś w okolicach 20-30 punktów. Core Web Vitals pokazują "nie zaliczono". I sam to czujesz: strona długo myśli, zanim cokolwiek pokaże, ludzie wychodzą zanim pojawi się pierwszy ekran, a pozycje w Google od miesięcy po cichu spadają. Strach jest realny i słuszny: wolna strona jednocześnie traci klientów i traci pozycje. Pokażę dokładnie, dlaczego tak się dzieje, co poprawisz w tym tygodniu i co naprawdę rozwiązuje sprawę na stałe.
+
+## Co naprawdę mierzą Core Web Vitals
+
+Google ocenia każdą stronę na trzech polach i mimo strasznych nazw to proste rzeczy.
+
+**LCP (Largest Contentful Paint)** - ile czasu mija, zanim pokaże się największy element pierwszego ekranu. Zwykle zdjęcie w nagłówku albo tytuł. Google chce poniżej 2,5 sekundy. Na ciężkiej stronie to często 4-6 sekund, czyli odwiedzający gapi się w pustkę albo w pół-złożoną stronę.
+
+**INP (interaktywność)** - jak szybko strona reaguje, gdy ktoś kliknie przycisk albo otworzy menu. Cel to poniżej 200 milisekund. Gdy strona mieli skrypty, twoje kliknięcie przez sekundę nic nie robi i to uczucie "zawiesiło się?" wypycha ludzi.
+
+**CLS (przeskakiwanie układu)** - czy elementy skaczą podczas ładowania. Sięgasz po przycisk, nad nim doładowuje się reklama albo zdjęcie, przycisk ucieka, klikasz nie tam. Cel to poniżej 0,1. Irytujące, a Google to liczy.
+
+Trzy zielone ptaszki znaczą, że strona jest szybka i stabilna dla żywego człowieka. Czerwone - że nie jest, i widzi to zarówno Google, jak i twoi klienci.
+
+## Dlaczego wolno to mniej klientów i niższe pozycje
+
+To nie jest metryka dla ozdoby. Przełożenie na pieniądze jest wprost.
+
+Mniej więcej połowa użytkowników mobilnych porzuca stronę, która ładuje się dłużej niż 3 sekundy. Badania Google mówią bez owijania: przejście z 1 do 3 sekund ładowania podnosi szansę ucieczki o jakieś 32%, a z 1 do 5 sekund prawie ją podwaja. Czyli przy LCP na poziomie 5 sekund tracisz spory kawałek ludzi, którzy już kliknęli - byli zainteresowani, tylko nigdy nie zobaczyli strony.
+
+I jest jeszcze ranking. Core Web Vitals to oficjalny sygnał rankingowy Google. Sama szybkość nie wepchnie słabej strony na pierwsze miejsce, ale gdy dwie strony są blisko, wygrywa szybsza. To się też nawarstwia: wolna strona, wyższy odsetek ucieczek, Google czyta to jako "ludzie nie znaleźli tego, czego chcieli", pozycje schodzą w dół, mniej ruchu, mniej klientów. Sklep z 1000 wizyt miesięcznie i konwersją 2% to 20 zamówień. Spadnij do 1%, bo strona się wlecze, i połowa przychodu znika, choć na papierze nie straciłeś ani jednego odwiedzającego.
+
+## Najczęstsi winowajcy
+
+W prawie każdej wolnej stronie, którą audytuję, są te same trzy podejrzane.
+
+**WordPress plus stos wtyczek.** WordPress składa stronę od zera przy każdym wejściu, a każda wtyczka dorzuca swój CSS i JavaScript. Po dwudziestu czy trzydziestu wtyczkach przeglądarka pobiera i odpala pół megabajta skryptu, zanim cokolwiek da się kliknąć. Page buildery jak Elementor czy WPBakery są najgorsze - wymieniają czysty kod na wygodę przeciągnij-i-upuść, a odwiedzający płaci sekundami.
+
+**Niezoptymalizowane zdjęcia.** To plaga. Ktoś wrzuca zdjęcie 4000 px prosto z telefonu, 5 MB, a ono jest zmniejszane w przeglądarce przez CSS zamiast porządnie przeskalowane i skompresowane. Jedna podstrona potrafi nieść 8-15 MB zdjęć, które powinny ważyć 300 KB. Na danych mobilnych to twoje LCP po kostki.
+
+**Tani hosting współdzielony.** Plan za 15 zł miesięcznie wrzuca twoją stronę na serwer z setkami innych. Gdy sąsiad dostanie skok ruchu, twój czas odpowiedzi leci na łeb. Sam serwer potrzebuje 1-2 sekund, żeby zacząć wysyłać stronę (TTFB), zanim załaduje się choć jedno zdjęcie.
+
+## Szybkie zmiany kontra realny fix
+
+Trochę szybkości odzyskasz bez przebudowy. To warto zrobić:
+
+- **Skompresuj i przeskaluj zdjęcia.** Konwersja do WebP, rozmiar dopasowany do tego, co realnie widać. To samo często rusza wynik o 15-20 punktów.
+- **Dodaj wtyczkę cache.** WP Rocket albo podobna serwuje gotowe strony zamiast składać je za każdym razem.
+- **Wytnij martwe wtyczki.** Każda usunięta to mniej skryptu. Wyłącz wszystko, czego naprawdę nie potrzebujesz.
+- **Przejdź na lepszy hosting.** Porządny VPS albo zarządzany WordPress bije tani współdzielony za każdym razem.
+
+To pomaga. Ale rozumiej, co robisz: walczysz z platformą, a nie naprawiasz ją. Ciężki WordPress dopolerujesz z 25 do może 60 na mobile. Potem jedna aktualizacja wtyczki przesuwa układ albo dokładasz nową funkcję i znów jesteś na czerwono. Wynajmujesz szybkość, a nie masz jej na własność.
+
+Realny fix to architektura. Wolne strony przebudowuję na **Next.js**, gdzie strona to w większości statyczny HTML serwowany z CDN, zdjęcia optymalizują się automatycznie, a JavaScript jest dzielony tak, że przeglądarka ładuje tylko to, co potrzebne. Efekt jest taki, że LCP i INP są zielone domyślnie - nie po trzech wtyczkach cache, tylko od startu. Na realnych projektach trzymam LCP w okolicy 0,5-1 sekundy i wynik PageSpeed na mobile w okolicach 90. I pokazuję ci raport Lighthouse w trakcie budowy, a nie jako obietnicę na koniec - widzisz, jak wynik robi się zielony, zanim zapłacisz resztę. To jest [tworzenie stron, które robię](/pl/uslugi/strony-internetowe), szybkie od pierwszej linijki.
+
+Konkret: [VisionAir](/pl/realizacje/visionair) przebudowałem na Next.js, wynik na mobile siedzi w okolicach 90, LCP poniżej sekundy, a strona konwertuje około 4,2% odwiedzających - szybkość i konwersja to ta sama rozmowa.
+
+## Ile kosztuje przebudowa i ile trwa
+
+Strona firmowa przebudowana na Next.js z CMS i czystym technicznym SEO to 1200-2000 €, 3-4 tygodnie. Prostsza wizytówka to 500-800 € w jakieś 2 tygodnie. Jeśli potrzebujesz integracji - rezerwacje, CRM, płatności - zaczyna się od 2500 €. Stare adresy mapuję przekierowaniami 301, żebyś zachował pozycje, które już masz, a hosting spada do jakichś 60-90 € rocznie, bo nie ma płatnych wtyczek do odnawiania. Wycenę dostajesz w 24 godziny, pracuję zdalnie w całej Polsce.
+
+Jeśli twój PageSpeed świeci na czerwono i czujesz, że ruch ucieka, wyślij mi adres i [napisz do mnie](/pl/kontakt) - przepuszczę go, powiem, czy wystarczą szybkie zmiany, czy potrzebna przebudowa, i wycenię uczciwie.
+
+## FAQ
+
+**Dlaczego moja strona ładuje się tak wolno?**
+Prawie zawsze jedno z trzech: ciężki WordPress z nadmiarem wtyczek i page builderem, duże niezoptymalizowane zdjęcia ładowane w pełnym rozmiarze albo tani hosting współdzielony z wolnym serwerem. Przepuść adres przez PageSpeed Insights na mobile - raport wskaże palcem największego winowajcę.
+
+**Co znaczy, że Core Web Vitals są na czerwono?**
+Że realny użytkownik odbiera stronę jako wolną lub niestabilną: LCP powyżej 2,5 s (główna treść za długo się pojawia), INP powyżej 200 ms (kliknięcia mulą), albo CLS powyżej 0,1 (elementy skaczą). Google używa tego jako sygnału rankingowego, więc czerwień kosztuje i konwersje, i pozycje.
+
+**Czy da się przyspieszyć stronę bez przebudowy?**
+Często tak, częściowo. Kompresja zdjęć, cache, usunięcie martwych wtyczek i lepszy hosting potrafią podnieść wynik mobilny z 20 do 50-60. Ale na ciężkim WordPressie walczysz z platformą - kolejna aktualizacja wtyczki to cofnie. Po szybkość zieloną domyślnie trwałym rozwiązaniem jest przebudowa na Next.js.
+
+**O ile szybszy jest naprawdę Next.js?**
+Na realnych projektach trzymam LCP w okolicy 0,5-1 sekundy wobec 4-6 sekund na typowym obciążonym WordPressie, a wynik PageSpeed na mobile w okolicach 90. Strona to statyczny HTML z CDN z automatyczną optymalizacją zdjęć, więc jest szybka domyślnie, a nie po doklejeniu wtyczek cache.
+
+**Czy naprawa szybkości przywróci moje pozycje w Google?**
+Pomaga i to realny czynnik rankingowy, ale sama szybkość to nie magia - treść nadal musi być i być trafna. Na przebudowach widzę spadek odsetka ucieczek i powrót pozycji w ciągu kwartału, gdy Google na nowo czyta szybsze, lepiej działające strony. Szybko plus dobra treść wygrywa, szybko plus pusto nie.

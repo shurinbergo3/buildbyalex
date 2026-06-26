@@ -11,6 +11,9 @@ import { buildLocalizedMetadata } from "@/lib/metadata";
 
 const CATEGORY_ORDER = ["websites", "store", "ai", "automation", "mobile", "ads", "telegram"] as const;
 
+// Re-render hourly so future-dated (queued) posts go live on their day without a redeploy.
+export const revalidate = 3600;
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }

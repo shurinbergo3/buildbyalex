@@ -1,0 +1,77 @@
+---
+title: "InPost Paczkomaty Integration: How to Set It Up"
+description: "Geowidget map in checkout, automatic labels via ShipX API, status webhooks. How to wire InPost lockers into your store properly and stop clicking by hand."
+date: "2026-07-13"
+cluster: "inpost-paczkomaty-integration-en"
+keywords:
+  - "InPost Paczkomaty integration"
+  - "InPost Geowidget checkout"
+  - "InPost ShipX API"
+  - "automatic InPost labels"
+  - "InPost lockers WooCommerce Shopify"
+ogImage: "/og/inpost-paczkomaty-integration.webp"
+---
+
+If your checkout doesn't let a Polish customer pick a Paczkomat, you're losing orders you'll never even see in your analytics. In Poland InPost lockers (Paczkomaty) aren't one delivery option among many - they're the default. Anyone selling online here eventually asks how to do InPost Paczkomaty integration, so I'll show you what a proper setup actually includes: the Geowidget map inside checkout, automatic shipments and labels through the ShipX API, and webhooks that email the customer their status without you touching anything.
+
+I build stores on Next.js, WooCommerce and Shopify together with shipping, so this comes from someone who has wired lockers in at 30 orders a day and at 300.
+
+## Why Paczkomaty aren't optional in Poland
+
+Over 23,000 lockers across the country, most of them open 24/7, pickup with no queue and no waiting for a courier in a four-hour window. For a Polish buyer this is simply the default way to receive a parcel - cheaper and more convenient than to-the-door delivery.
+
+What that means in numbers: if there's no locker picker with a map in your cart, a chunk of customers just close the tab. I've seen stores where adding a map-based locker choice lifted checkout completion by **double digits in percent**. On 50,000 zł of monthly revenue that's several thousand recovered every month - purely because the customer didn't have to type a locker code from memory.
+
+## What a proper integration actually contains
+
+Having "InPost Paczkomaty" sit in your list of shipping methods is only half the job. A working integration has three parts:
+
+- **Geowidget in checkout** - the InPost map embedded in your cart. The customer types a city or shares their location, taps a point on the map, and the locker code (e.g. KRA01APP) lands on the order automatically. No retyping, no typos, no parcels bouncing back because someone got the code wrong.
+- **Automatic shipments and labels via ShipX API** - once the order is paid, the system creates the shipment in InPost, pulls the tracking number and generates a printable PDF label. You just stick it on and drop the parcel into a sending locker.
+- **Webhooks and status emails** - InPost pings your store on every status change ("dispatched", "in locker", "collected"), and the store automatically emails or texts the customer. They know what's happening and don't message you asking "where's my parcel".
+
+Without all three you have lockers in name only - everything else you still do by hand.
+
+## How much manual work this removes
+
+Let's count honestly. Without automation, one order means: copy the locker address, log into InPost Manager, create the shipment manually, print the label, paste the tracking number back into the store, email the customer. Realistically **3-5 minutes per parcel**.
+
+At 40 orders a day that's over two hours daily of pure clicking, plus errors in copied codes. After integration the same process is: print the label, stick it on. The rest happens on its own. At higher volume that's the difference between "I need to hire someone for shipping" and "I do it over morning coffee".
+
+## WooCommerce, Shopify or a custom store
+
+**WooCommerce** - there's an official InPost plugin plus mature options (Furgonetka, BaseLinker). Geowidget and labels work after a few hours of setup. The fastest route if you're already on WordPress. You do need to keep plugins updated.
+
+**Shopify** - there are apps that handle lockers (via BaseLinker or dedicated ones), but a Geowidget natively wired into checkout can be fiddly and sometimes needs Shopify Plus or a cart workaround. It works, just less out-of-the-box than on Woo.
+
+**Custom / headless on Next.js** - here I wire ShipX API directly: Geowidget as a checkout component, shipment creation server-side, webhooks on my own endpoint. Most control, cleanest behavior, zero dependency on someone else's plugin. That's what I do when a store has custom logic or high volume. More on how I [build online stores](/en/services/online-store) is on the service page.
+
+## Common problems you'll hit
+
+- **Sandbox vs production** - ShipX has separate test (sandbox) and production environments with separate tokens. The classic mistake: testing on production and creating real shipments, or the reverse - shipping a live store with a sandbox token and nothing gets created.
+- **Geowidget v5 and tokens** - the new widget needs its own token and correct CSP config, otherwise the map won't load in the cart. A frequent bug on custom checkouts.
+- **Cash on delivery (COD)** - if you accept payment on pickup at the locker, that's a separate setup and you have to watch amount limits.
+- **Webhook with no retry** - if your endpoint goes down for a moment, the status is lost. That's why I build a queue with retries instead of "catch it and hope".
+
+## Cost and timeline
+
+For WooCommerce or Shopify, setting up lockers with Geowidget, labels and status emails is usually **2,000-3,500 zł** and a few working days. For a custom/headless store a ShipX integration from scratch is **from 3,000-5,000 zł**, depending on whether you also need COD, return labels and a bulk-print panel. InPost itself bills per shipment under your contract - the integration is a one-off cost that pays back in recovered carts and the hours you don't waste clicking.
+
+Got a store with no Paczkomaty, or a clunky text field instead of a map in checkout? I'll wire InPost into your [online store](/en/services/online-store) with Geowidget, automatic labels and webhooks. [Get in touch](/en/contact) - within 24h I'll quote the integration for your platform and volume.
+
+## FAQ
+
+**How much does InPost Paczkomaty integration cost?**
+On WooCommerce or Shopify it's usually 2,000-3,500 zł and a few days. For a custom/headless store, a ShipX API integration from scratch starts at 3,000-5,000 zł. Free quote within 24h.
+
+**What is the InPost Geowidget?**
+It's a ready-made InPost map embedded in your cart. The customer taps a locker on the map and its code lands on the order automatically - no typing an address, no typos that cause parcels to bounce back.
+
+**Can InPost labels be created automatically?**
+Yes. Through the ShipX API, once an order is paid the store creates the shipment, pulls the tracking number and generates a printable PDF label. You just print and drop it off.
+
+**How does the customer get tracking status?**
+InPost sends a webhook on every status change and the store automatically emails or texts the customer ("dispatched", "in locker", "collected"). Far fewer "where's my parcel" messages for you.
+
+**Lockers on Shopify or WooCommerce - which is easier?**
+WooCommerce has an official plugin and Geowidget works faster. Shopify needs an app (e.g. BaseLinker), and a native Geowidget in checkout can be fiddly. Custom on Next.js gives the most control.

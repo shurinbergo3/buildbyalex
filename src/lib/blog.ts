@@ -6,6 +6,13 @@ import type { Locale } from "@/i18n/routing";
 
 const CONTENT_ROOT = path.join(process.cwd(), "content", "blog");
 
+// Posts dated in the future stay hidden until their day — lets us queue a batch
+// and have one go live per day. Evaluated at request time thanks to `revalidate`
+// on the blog routes, so a scheduled post appears without a redeploy.
+function todayISO(): string {
+  return new Date().toISOString().slice(0, 10);
+}
+
 export type PostFrontmatter = {
   title: string;
   description: string;
@@ -96,9 +103,10 @@ export function getAllPostSlugs(locale: Locale): string[] {
 }
 
 export function getAllPosts(locale: Locale): PostMeta[] {
+  const today = todayISO();
   return getAllPostSlugs(locale)
     .map((slug) => readPostFile(locale, slug))
-    .filter((p): p is Post => p !== null)
+    .filter((p): p is Post => p !== null && p.date <= today)
     .sort((a, b) => (a.date < b.date ? 1 : -1))
     .map(({ content, ...meta }) => {
       void content;
@@ -107,7 +115,9 @@ export function getAllPosts(locale: Locale): PostMeta[] {
 }
 
 export function getPost(locale: Locale, slug: string): Post | null {
-  return readPostFile(locale, slug);
+  const post = readPostFile(locale, slug);
+  if (!post || post.date > todayISO()) return null;
+  return post;
 }
 
 /** servicesMenu keys in messages (`nav.servicesMenu.<key>.title`). */
@@ -303,11 +313,45 @@ export const clusterToService: Record<string, { menuKey: ServiceMenuKey; path: S
   "mobile-lublin-en": { menuKey: "mobile", path: "/services/mobile-apps" },
   "mobile-lublin-ru": { menuKey: "mobile", path: "/services/mobile-apps" },
   "mobile-lublin-ua": { menuKey: "mobile", path: "/services/mobile-apps" },
+  // 2026-06 pain-point batch (25 topics x 4 locales). Per-locale cluster
+  // (`<slug>-<locale>`) → independent ranking, no cross-locale hreflang. Only
+  // the base slug is registered here; the resolver strips the locale suffix.
+  "dental-clinic-get-patients-poland": { menuKey: "websites", path: "/services/websites" },
+  "beauty-salon-clients-without-booksy": { menuKey: "websites", path: "/services/websites" },
+  "construction-company-get-clients-online": { menuKey: "websites", path: "/services/websites" },
+  "law-accounting-firm-clients-online": { menuKey: "websites", path: "/services/websites" },
+  "auto-repair-shop-local-clients": { menuKey: "websites", path: "/services/websites" },
+  "fitness-club-attract-retain-clients": { menuKey: "websites", path: "/services/websites" },
+  "why-website-gets-no-leads": { menuKey: "websites", path: "/services/websites" },
+  "website-builder-vs-developer": { menuKey: "websites", path: "/services/websites" },
+  "landing-page-vs-website": { menuKey: "websites", path: "/services/websites" },
+  "do-i-need-website-with-instagram": { menuKey: "websites", path: "/services/websites" },
+  "slow-website-core-web-vitals": { menuKey: "websites", path: "/services/websites" },
+  "ksef-2026-online-store": { menuKey: "store", path: "/services/online-store" },
+  "allegro-vs-own-store": { menuKey: "store", path: "/services/online-store" },
+  "migrate-from-shoper-to-woocommerce": { menuKey: "store", path: "/services/online-store" },
+  "payment-gateway-poland-blik-przelewy24": { menuKey: "store", path: "/services/online-store" },
+  "inpost-paczkomaty-integration": { menuKey: "store", path: "/services/online-store" },
+  "recover-abandoned-carts-automation": { menuKey: "automation", path: "/services/automation" },
+  "appointment-reminders-no-show": { menuKey: "automation", path: "/services/automation" },
+  "ai-intercept-missed-calls": { menuKey: "ai", path: "/services/ai-agents" },
+  "ai-lead-qualification": { menuKey: "ai", path: "/services/ai-agents" },
+  "reduce-support-costs-ai": { menuKey: "ai", path: "/services/ai-agents" },
+  "ai-assistant-telegram": { menuKey: "telegram", path: "/services/telegram-bots" },
+  "restaurant-online-ordering-no-commission": { menuKey: "mobile", path: "/services/mobile-apps" },
+  "does-business-need-mobile-app": { menuKey: "mobile", path: "/services/mobile-apps" },
+  "loyalty-app-cafe-salon": { menuKey: "mobile", path: "/services/mobile-apps" },
 };
+
+/** Resolve a cluster to its service, stripping a trailing locale suffix
+ * (`-en|-pl|-ru|-ua`) when the full cluster isn't registered directly. */
+function lookupCluster(cluster: string) {
+  return clusterToService[cluster] ?? clusterToService[cluster.replace(/-(en|pl|ru|ua)$/, "")];
+}
 
 /** The service a post links to, or null if its cluster isn't mapped. */
 export function getRelatedService(cluster: string) {
-  return clusterToService[cluster] ?? null;
+  return lookupCluster(cluster) ?? null;
 }
 
 /**
@@ -318,9 +362,9 @@ export function getRelatedService(cluster: string) {
 export function getRelatedPosts(locale: Locale, currentSlug: string, limit = 3): PostMeta[] {
   const current = readPostFile(locale, currentSlug);
   const others = getAllPosts(locale).filter((p) => p.slug !== currentSlug);
-  const menuKey = current ? clusterToService[current.cluster]?.menuKey : undefined;
+  const menuKey = current ? lookupCluster(current.cluster)?.menuKey : undefined;
   const sameGroup = menuKey
-    ? others.filter((p) => clusterToService[p.cluster]?.menuKey === menuKey)
+    ? others.filter((p) => lookupCluster(p.cluster)?.menuKey === menuKey)
     : [];
   const rest = others.filter((p) => !sameGroup.includes(p));
   return [...sameGroup, ...rest].slice(0, limit);

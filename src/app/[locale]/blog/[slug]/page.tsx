@@ -22,6 +22,9 @@ import {
 } from "@/lib/blog";
 import { SITE_URL, htmlLang } from "@/lib/site";
 
+// Re-render hourly so future-dated (queued) posts go live on their day without a redeploy.
+export const revalidate = 3600;
+
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
     getAllPostSlugs(locale).map((slug) => ({ locale, slug })),
