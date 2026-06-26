@@ -10,6 +10,7 @@ import { ServiceHero } from "./ServiceHero";
 import { FAQAccordion, type QA } from "./FAQAccordion";
 import { ServicePricing, type PricingTier } from "./ServicePricing";
 import { HowItWorks } from "./home/HowItWorks";
+import { Testimonials } from "./home/Testimonials";
 import { AiSyncShowcase } from "./AiSyncShowcase";
 import { AdsShowcase } from "./AdsShowcase";
 import { WebsiteShowcase } from "./WebsiteShowcase";
@@ -194,6 +195,9 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
           <FAQAccordion items={data.faq.items} />
         </Container>
       </Section>
+
+      {/* ── Reviews (47 Google reviews, shared block) ── */}
+      <Testimonials />
 
       {/* ── Final CTA (shared glass-window bookend) ── */}
       <FinalCta
