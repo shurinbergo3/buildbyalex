@@ -3006,6 +3006,36 @@
           "value": "200+",
           "label": "ćwiczeń z wideo"
         }
+      },
+      "bodyforgesite": {
+        "industry": "Landing page aplikacji iOS",
+        "title": "Body Forge - strona aplikacji",
+        "imageAlt": "Ciemny landing Body Forge z limonkowym akcentem i zrzutem aplikacji - case strony",
+        "tagline": "Dwujęzyczny landing dla aplikacji fitness: ciemna, nastawiona na konwersję strona pod instalacje z App Store, w wersji rosyjskiej i angielskiej, z pierwszym ekranem renderowanym w mniej niż sekundę.",
+        "problem": "Aplikacja miała stronę w App Store, ale nie było dokąd kierować ruchu. Link do sklepu nie tłumaczy, czym Body Forge bije setkę innych trackerów, nie rankuje w wyszukiwarce i działa w jednym języku. Potrzebna była własna strona: krótka, szybka i w stylu samej aplikacji - żeby ktoś z reklamy albo z wyszukiwarki zrozumiał wartość już na pierwszym ekranie i przeszedł do instalacji.",
+        "solution": "Zbudowałem ciemny landing w identyfikacji aplikacji: czarne tło, limonkowy akcent, duża typografia. Pierwszy ekran to żywy zrzut treningu i jeden przycisk App Store. Niżej scroll rozkłada bloki - jak działa pętla treningu, trener AI, system gotowości, biblioteka ćwiczeń, programy i FAQ, każdy z animacją przy wejściu. Cała strona działa w dwóch językach (RU i EN) z poprawnym hreflang i zlokalizowanymi metatagami, z własnym blogiem pod ruch organiczny i znacznikami Schema.org. Wszystko statyczne i lekkie - pierwszy ekran serwuje się w około 0,7 sekundy.",
+        "results": [
+          "Dwujęzyczny landing (RU + EN) z hreflang i zlokalizowanymi metatagami",
+          "Pierwszy ekran renderuje się w ~0,7 s, pełne wczytanie poniżej sekundy",
+          "Jedna jasna droga do celu: z każdego bloku prosto do App Store",
+          "Wbudowany blog i znaczniki Schema.org pracują na ruch organiczny"
+        ],
+        "stack": [
+          "Next.js",
+          "TypeScript",
+          "Tailwind CSS",
+          "Framer Motion",
+          "next-intl",
+          "Schema.org",
+          "Vercel"
+        ],
+        "url": "bodyforges.com",
+        "quote": "Chciałem, żeby strona otwierała się natychmiast i mówiła językiem aplikacji. Dlatego minimum wagi, maksimum charakteru: czerń, limonka i jeden przycisk.",
+        "quoteAuthor": "Alex, buildbyalex",
+        "metric": {
+          "value": "RU · EN",
+          "label": "dwujęzyczny landing"
+        }
       }
     },
     "caseMetrics": {
@@ -3077,6 +3107,20 @@
         {
           "value": "iOS 17+",
           "label": "Natywny build SwiftUI"
+        }
+      ],
+      "bodyforgesite": [
+        {
+          "value": "RU · EN",
+          "label": "Dwa języki, hreflang"
+        },
+        {
+          "value": "0,7 s",
+          "label": "Do pierwszego ekranu"
+        },
+        {
+          "value": "100%",
+          "label": "Responsywność na telefonie"
         }
       ]
     },
@@ -3956,6 +4000,49 @@
             "Statystyki"
           ]
         }
+      },
+      "bodyforgesite": {
+        "eyebrow": "Jedna strona, dwa języki",
+        "headline": "Ten sam landing - po rosyjsku i angielsku",
+        "subhead": "Przełącz język i zobacz, jak zmienia się cały ekran. Desktop i telefon - jeden layout, dwie wersje, poprawny hreflang na obu.",
+        "langHint": "Zmień język",
+        "highlights": [
+          {
+            "tag": "Lokalizacja",
+            "title": "RU + EN od ręki",
+            "desc": "Pełne tłumaczenie, zlokalizowane metatagi i hreflang - obie wersje indeksują się jako osobne strony."
+          },
+          {
+            "tag": "Szybkość",
+            "title": "Pierwszy ekran w ~0,7 s",
+            "desc": "Statyczne serwowanie, lekki start (~36 KB), animacje ładowane dopiero przy scrollu."
+          },
+          {
+            "tag": "Konwersja",
+            "title": "Jeden cel: instalacja",
+            "desc": "Każdy blok prowadzi do jednego przycisku App Store. Między zainteresowaniem a instalacją nic zbędnego."
+          }
+        ],
+        "scenes": [
+          {
+            "tag": "Jak to działa",
+            "title": "Jedna pętla, która kręci się codziennie",
+            "desc": "Trzy kroki - zbiera dane, AI je czyta, zwraca decyzję - na jednym ekranie.",
+            "img": "loop"
+          },
+          {
+            "tag": "Żywy trening",
+            "title": "Zapisz serię w sekundę",
+            "desc": "Poprzednia sesja i minutnik już są na ekranie, telefon nie kradnie treningu.",
+            "img": "logset"
+          },
+          {
+            "tag": "Gotowość",
+            "title": "Werdykt dnia: zielony, żółty, czerwony",
+            "desc": "Rada opiera się na realnych liczbach - sen, tętno i obciążenie tygodnia.",
+            "img": "analyze"
+          }
+        ]
       }
     },
     "caseLabels": {

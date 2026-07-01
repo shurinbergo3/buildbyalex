@@ -31,8 +31,11 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const isHome = pathname === "/";
+
   return (
     <header
+      data-light-header={!scrolled && isHome ? "true" : undefined}
       className={cn(
         "fixed inset-x-0 top-0 z-40 transition-[backdrop-filter,background-color,border-color] duration-300",
         "h-[var(--header-h)]",

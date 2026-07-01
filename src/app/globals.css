@@ -127,6 +127,15 @@
   color-scheme: dark;
 }
 
+/* ── Header over dark hero (light-mode only): force light tokens so logo
+   and icon buttons are visible against the always-dark hero surface.      */
+header[data-light-header="true"] {
+  color: #ffffff;
+  --color-text:    #ffffff;
+  --c-hairline:    rgba(255, 255, 255, 0.18);
+  --color-bg-alt:  rgba(255, 255, 255, 0.08);
+}
+
 /* ───────────────────── RESET ───────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { padding: 0; margin: 0; }

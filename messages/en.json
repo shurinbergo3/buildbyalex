@@ -3006,6 +3006,36 @@
           "value": "200+",
           "label": "exercises with video"
         }
+      },
+      "bodyforgesite": {
+        "industry": "iOS app landing page",
+        "title": "Body Forge - app landing",
+        "imageAlt": "Dark, lime-accented Body Forge landing page with an app screenshot - website case study",
+        "tagline": "A bilingual landing page for a fitness app: a dark, conversion-first site built to drive App Store installs, shipped in Russian and English, with the first screen painting in under a second.",
+        "problem": "The app had an App Store page, but nowhere to send traffic. A store link doesn't explain how Body Forge beats a hundred other trackers, doesn't rank in search, and lives in one language. It needed its own site: short, fast and built in the app's own style, so anyone coming from an ad or a search grasps the value on the first screen and goes straight to install.",
+        "solution": "I built a dark landing page in the app's identity: black canvas, lime accent, oversized type. The first screen is a live workout screenshot and a single App Store button. Below it the scroll lays out the pieces - how the training loop works, the AI coach, the readiness system, the exercise library, programs and an FAQ, each animating in on scroll. The whole site ships in two languages (RU and EN) with correct hreflang and localized meta tags, its own blog for organic reach and Schema.org markup. Everything is static and light - the first screen is served in about 0.7 seconds.",
+        "results": [
+          "Bilingual landing (RU + EN) with hreflang and localized meta tags",
+          "First screen paints in ~0.7 s, full load under a second",
+          "One clear path to the goal: from any block straight to the App Store",
+          "Built-in blog and Schema.org markup working for organic search traffic"
+        ],
+        "stack": [
+          "Next.js",
+          "TypeScript",
+          "Tailwind CSS",
+          "Framer Motion",
+          "next-intl",
+          "Schema.org",
+          "Vercel"
+        ],
+        "url": "bodyforges.com",
+        "quote": "I wanted the site to open instantly and speak the app's language. So - minimum weight, maximum character: black, lime and a single button.",
+        "quoteAuthor": "Alex, buildbyalex",
+        "metric": {
+          "value": "RU · EN",
+          "label": "bilingual landing"
+        }
       }
     },
     "caseMetrics": {
@@ -3077,6 +3107,20 @@
         {
           "value": "iOS 17+",
           "label": "Native SwiftUI build"
+        }
+      ],
+      "bodyforgesite": [
+        {
+          "value": "RU · EN",
+          "label": "Two languages, hreflang"
+        },
+        {
+          "value": "0.7 s",
+          "label": "To first paint"
+        },
+        {
+          "value": "100%",
+          "label": "Responsive on phone"
         }
       ]
     },
@@ -3956,6 +4000,49 @@
             "Stats"
           ]
         }
+      },
+      "bodyforgesite": {
+        "eyebrow": "One site, two languages",
+        "headline": "The same landing - in Russian and English",
+        "subhead": "Flip the language and watch the whole screen change. Desktop and phone: one layout, two locales, correct hreflang on both.",
+        "langHint": "Switch language",
+        "highlights": [
+          {
+            "tag": "Localization",
+            "title": "RU + EN out of the box",
+            "desc": "Full translation, localized meta tags and hreflang - both versions are indexed as standalone pages."
+          },
+          {
+            "tag": "Speed",
+            "title": "First screen in ~0.7 s",
+            "desc": "Static delivery, a light start (~36 KB), animations that load only on scroll."
+          },
+          {
+            "tag": "Conversion",
+            "title": "One goal: the install",
+            "desc": "Every block leads to a single App Store button. Nothing sits between interest and install."
+          }
+        ],
+        "scenes": [
+          {
+            "tag": "How it works",
+            "title": "One loop that runs every day",
+            "desc": "Three steps - collect data, let the AI read it, get a decision - on a single screen.",
+            "img": "loop"
+          },
+          {
+            "tag": "Live workout",
+            "title": "Log a set in one second",
+            "desc": "Last session and the timer are already on screen; the phone never steals the workout.",
+            "img": "logset"
+          },
+          {
+            "tag": "Readiness",
+            "title": "Today's verdict: green, amber, red",
+            "desc": "The advice is built on real numbers - sleep, heart rate and weekly load.",
+            "img": "analyze"
+          }
+        ]
       }
     },
     "caseLabels": {
