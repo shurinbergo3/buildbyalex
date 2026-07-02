@@ -82,7 +82,7 @@
       "primaryCta": "Book a free call",
       "secondaryCta": "See my work",
       "trustLine": "Warsaw · Available worldwide · RU / EN / PL / UA",
-      "reviews": "4.8 out of 5 · 47 reviews"
+      "reviews": "4.8 out of 5 · {count} {count, plural, one {review} other {reviews}}"
     },
     "pain": {
       "eyebrow": "Why work with me",

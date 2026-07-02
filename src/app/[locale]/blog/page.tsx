@@ -8,6 +8,7 @@ import { BlogList, type BlogListItem } from "@/components/blog/BlogList";
 import { routing, type Locale } from "@/i18n/routing";
 import { getAllPosts, getPostImage, clusterToService } from "@/lib/blog";
 import { buildLocalizedMetadata } from "@/lib/metadata";
+import { getLiveReviewCount } from "@/lib/reviews";
 
 const CATEGORY_ORDER = ["websites", "store", "ai", "automation", "mobile", "ads", "telegram"] as const;
 
@@ -52,6 +53,7 @@ export default async function BlogIndex({
   const t = await getTranslations({ locale, namespace: "blog" });
   const tServices = await getTranslations({ locale, namespace: "nav.servicesMenu" });
   const posts = getAllPosts(locale as Locale);
+  const reviewCount = await getLiveReviewCount(locale as Locale);
 
   const items: BlogListItem[] = posts.map((p) => ({
     slug: p.slug,
@@ -91,7 +93,7 @@ export default async function BlogIndex({
         </Container>
       </Section>
 
-      <FinalCTA />
+      <FinalCTA reviewCount={reviewCount} />
     </>
   );
 }

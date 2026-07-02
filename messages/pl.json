@@ -82,7 +82,7 @@
       "primaryCta": "Bezpłatna konsultacja",
       "secondaryCta": "Zobacz realizacje",
       "trustLine": "Warszawa · Cały świat · RU / EN / PL / UA",
-      "reviews": "4,8 na 5 · 47 opinii"
+      "reviews": "4,8 na 5 · {count} {count, plural, one {opinię} few {opinie} many {opinii} other {opinii}}"
     },
     "pain": {
       "eyebrow": "Dlaczego ze mną",

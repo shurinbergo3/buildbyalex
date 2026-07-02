@@ -5,6 +5,7 @@ import { WorkShowcase, type GalleryCase } from "@/components/work/WorkShowcase";
 import { routing, type Locale } from "@/i18n/routing";
 import { caseSlugs, caseKeyToSlug, caseImages, caseCategory } from "@/lib/cases";
 import { buildLocalizedMetadata } from "@/lib/metadata";
+import { getLiveReviewCount } from "@/lib/reviews";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -35,6 +36,7 @@ export default async function WorkIndex({
   const intro = await getTranslations({ locale, namespace: "work.intro" });
   const tCases = await getTranslations({ locale, namespace: "work.cases" });
   const tFilters = await getTranslations({ locale, namespace: "work.filters" });
+  const reviewCount = await getLiveReviewCount(locale as Locale);
 
   const cases: GalleryCase[] = caseSlugs.map((key) => ({
     key,
@@ -68,7 +70,7 @@ export default async function WorkIndex({
         }}
       />
 
-      <FinalCTA />
+      <FinalCTA reviewCount={reviewCount} />
     </>
   );
 }

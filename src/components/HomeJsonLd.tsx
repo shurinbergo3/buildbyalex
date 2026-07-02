@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { type Locale } from "@/i18n/routing";
-import { SITE_URL, localizedHref, htmlLang } from "@/lib/site";
+import { SITE_URL, localizedHref, localeSegment, htmlLang } from "@/lib/site";
+import { isReviewLive } from "@/lib/reviews";
 
 /**
  * Site-wide structured data, rendered once on the homepage.
@@ -32,7 +33,14 @@ export async function HomeJsonLd({ locale }: { locale: Locale }) {
   const tt = await getTranslations({ locale, namespace: "home.testimonials" });
 
   // Real reviews shown in the Testimonials section → Review nodes on the business.
-  const reviews = (tt.raw("list") as Review[]).map((r) => ({
+  // Same publishAt gate as the on-page list, so structured data never claims a
+  // review the visitor can't actually see yet, and the count below always
+  // matches what the Testimonials block renders.
+  const now = Date.now();
+  const liveReviews = (tt.raw("list") as (Review & { publishAt?: string })[]).filter((r) =>
+    isReviewLive(r, now),
+  );
+  const reviews = liveReviews.map((r) => ({
     "@type": "Review",
     author: { "@type": "Person", name: r.name },
     reviewRating: {
@@ -71,7 +79,7 @@ export async function HomeJsonLd({ locale }: { locale: Locale }) {
         "@id": businessId,
         name: t("siteName"),
         url: SITE_URL,
-        image: `${SITE_URL}/${locale}/opengraph-image`,
+        image: `${SITE_URL}${localeSegment(locale)}/opengraph-image`,
         description: t("defaultDescription"),
         email: EMAIL,
         priceRange: "€800–€10 000+",
@@ -90,8 +98,8 @@ export async function HomeJsonLd({ locale }: { locale: Locale }) {
         sameAs: SAME_AS,
         aggregateRating: {
           "@type": "AggregateRating",
-          ratingValue: "4.8",
-          reviewCount: "47",
+          ratingValue: tt("rating").replace(",", "."),
+          reviewCount: String(liveReviews.length),
           bestRating: "5",
         },
         review: reviews,

@@ -8,7 +8,7 @@ import { Link } from "@/i18n/navigation";
 import { GoogleG } from "@/components/GoogleG";
 import { HeroCodeSurface } from "@/components/home/HeroCodeSurface";
 
-export function Hero() {
+export function Hero({ reviewCount }: { reviewCount: number }) {
   const t = useTranslations("home.hero");
   const locale = useLocale();
   const headlineLines = t("headline").split("\n");
@@ -317,7 +317,7 @@ export function Hero() {
 
                 <Link
                   href={{ pathname: "/", hash: "reviews" }}
-                  aria-label={t("reviews")}
+                  aria-label={t("reviews", { count: reviewCount })}
                   className="group mt-6 sm:mt-9 inline-flex items-center justify-center gap-3 rounded-full transition-opacity hover:opacity-90 animate-[fadeUp_900ms_cubic-bezier(0.16,1,0.3,1)_both]"
                   style={{ animationDelay: "440ms" }}
                 >
@@ -351,7 +351,7 @@ export function Hero() {
                     <span className="mt-1 flex items-center gap-1.5 text-[12.5px] font-medium text-white/80">
                       <GoogleG size={13} />
                       <span className="underline decoration-white/20 decoration-from-font underline-offset-[3px] transition-colors group-hover:text-white group-hover:decoration-white/50">
-                        {t("reviews")}
+                        {t("reviews", { count: reviewCount })}
                       </span>
                     </span>
                   </div>

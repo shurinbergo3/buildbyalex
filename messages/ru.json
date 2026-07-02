@@ -82,7 +82,7 @@
       "primaryCta": "Бесплатная консультация",
       "secondaryCta": "Посмотреть работы",
       "trustLine": "Варшава · По всему миру · RU / EN / PL / UA",
-      "reviews": "4,8 из 5 · 47 отзывов"
+      "reviews": "4,8 из 5 · {count} {count, plural, one {отзыв} few {отзыва} many {отзывов} other {отзыва}}"
     },
     "pain": {
       "eyebrow": "Почему я",

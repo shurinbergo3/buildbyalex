@@ -7,6 +7,7 @@ import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 import { GoogleG } from "@/components/GoogleG";
+import { isReviewLive } from "@/lib/reviews";
 import { ReviewForm } from "./ReviewForm";
 
 type Review = { name: string; role: string; date: string; quote: string; rating?: number; publishAt?: string };
@@ -118,7 +119,7 @@ export function Testimonials() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
   const list = mounted
-    ? all.filter((r) => !r.publishAt || new Date(r.publishAt).getTime() <= Date.now())
+    ? all.filter((r) => isReviewLive(r, Date.now()))
     : all.filter((r) => !r.publishAt);
 
   // Count + histogram derive from the currently-visible reviews, so the "N Google

@@ -20,7 +20,7 @@ import {
   getPostImage,
   extractFaq,
 } from "@/lib/blog";
-import { SITE_URL, htmlLang } from "@/lib/site";
+import { SITE_URL, localeSegment, htmlLang } from "@/lib/site";
 
 // Re-render hourly so future-dated (queued) posts go live on their day without a redeploy.
 export const revalidate = 3600;
@@ -39,7 +39,7 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   const post = getPost(locale as Locale, slug);
   if (!post) return {};
-  const url = `${SITE_URL}/${locale}/blog/${slug}`;
+  const url = `${SITE_URL}${localeSegment(locale as Locale)}/blog/${slug}`;
   const image = getPostImage(post.ogImage);
   const ogImages = image
     ? [{ url: `${SITE_URL}${image}`, width: 1200, height: 630, alt: post.title }]
@@ -50,11 +50,11 @@ export async function generateMetadata({
   const cluster = getClusterSlugs(post.cluster);
   const languages: Record<string, string> = {};
   for (const [loc, locSlug] of Object.entries(cluster)) {
-    languages[htmlLang(loc as Locale)] = `${SITE_URL}/${loc}/blog/${locSlug}`;
+    languages[htmlLang(loc as Locale)] = `${SITE_URL}${localeSegment(loc as Locale)}/blog/${locSlug}`;
   }
   const defaultSlug = cluster[routing.defaultLocale as Locale];
   if (defaultSlug) {
-    languages["x-default"] = `${SITE_URL}/${routing.defaultLocale}/blog/${defaultSlug}`;
+    languages["x-default"] = `${SITE_URL}${localeSegment(routing.defaultLocale as Locale)}/blog/${defaultSlug}`;
   }
 
   return {

@@ -200,6 +200,12 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
 .hero-scroll {
   position: relative;
   height: 190vh;
+  /* The hero is a full-bleed sticky stage meant to sit *under* the transparent
+     header. `main` adds pt-[--header-h], which would otherwise push the 100vh
+     stage down by the header height and leave a gap of plain page background
+     behind the transparent header (invisible white logo/icons on light bg).
+     Pull the stage back up so it's flush with the real viewport top. */
+  margin-top: calc(-1 * var(--header-h));
 }
 .hero-sticky {
   position: sticky;
@@ -560,15 +566,10 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
 }
 
 @media (max-width: 640px) {
-  /* The hero is a full-bleed sticky stage meant to sit *under* the transparent
-     header. `main` adds pt-[--header-h], which on phones pushes the 100vh stage
-     below the fold (centering the content low and clipping the rating/trust row
-     under the bottom edge). Pull the stage back up under the header and add the
-     header height back as top padding so the centered content clears it. */
-  .hero-scroll {
-    height: 185vh;
-    margin-top: calc(-1 * var(--header-h));
-  }
+  /* On phones the shorter viewport centers content low enough to clip the
+     rating/trust row under the bottom edge — add the header height back as
+     top padding so the centered content clears it. */
+  .hero-scroll { height: 185vh; }
   .hero-content { padding: calc(18px + var(--header-h)) 0 18px; }
   /* The full-size hero type (clamp min 48px) wraps the long RU/UA headline to
      ~7 lines and, with the social-proof + trust rows, overflows the stage.
@@ -1878,7 +1879,11 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
    ──────────────────────────────────────────────────────────────────────── */
 .home-sections > section:not(.hero-scroll):not([data-cv-off]) {
   content-visibility: auto;
-  contain-intrinsic-size: auto 800px;
+  /* Measured close to most sections' real rendered height (~960px) — a
+     placeholder far from reality means a bigger pop when the section first
+     lays out for real, which briefly changes total document height while
+     Lenis (smooth-scroll) is mid-gesture and can read as a stutter. */
+  contain-intrinsic-size: auto 960px;
 }
 
 /* ────────────────────────────────────────────────────────────────────────

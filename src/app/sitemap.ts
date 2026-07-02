@@ -5,6 +5,7 @@ import {
   localizedHref,
   localizedDynamicHref,
   dynamicLanguageAlternates,
+  localeSegment,
   htmlLang,
 } from "@/lib/site";
 import { getAllPostSlugs, getPost, getClusterSlugs } from "@/lib/blog";
@@ -92,14 +93,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       const cluster = getClusterSlugs(post.cluster);
       const languages: Record<string, string> = {};
       for (const [clLoc, clSlug] of Object.entries(cluster)) {
-        languages[htmlLang(clLoc as Locale)] = `${SITE_URL}/${clLoc}/blog/${clSlug}`;
+        languages[htmlLang(clLoc as Locale)] = `${SITE_URL}${localeSegment(clLoc as Locale)}/blog/${clSlug}`;
       }
       const defaultSlug = cluster[routing.defaultLocale as Locale];
       if (defaultSlug) {
-        languages["x-default"] = `${SITE_URL}/${routing.defaultLocale}/blog/${defaultSlug}`;
+        languages["x-default"] = `${SITE_URL}${localeSegment(routing.defaultLocale as Locale)}/blog/${defaultSlug}`;
       }
       out.push({
-        url: `${SITE_URL}/${loc}/blog/${slug}`,
+        url: `${SITE_URL}${localeSegment(loc as Locale)}/blog/${slug}`,
         lastModified: post ? new Date(post.date) : STATIC_LAST_MODIFIED,
         changeFrequency: "monthly",
         priority: 0.5,

@@ -1,6 +1,7 @@
 import type { ComponentType } from "react";
 import { useTranslations, useMessages, useLocale } from "next-intl";
 import { SITE_URL, localizedHref } from "@/lib/site";
+import { countLiveReviews, type Review } from "@/lib/reviews";
 import type { Locale } from "@/i18n/routing";
 import { Container } from "./Container";
 import { Section } from "./Section";
@@ -88,6 +89,10 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
   const priceKey = PRICE_KEY[branch];
   const Demo = DEMOS[branch];
 
+  // Same source of truth as the homepage — keeps this page's rating badge and
+  // structured data in sync with the Testimonials block instead of a stale count.
+  const reviewCount = countLiveReviews(tr.raw("list") as Review[], Date.now());
+
   // A service can ship a multi-tier grid via `services.<branch>.pricing.tiers`.
   // When absent, fall back to the single starting-price card built from
   // `home.pricing.tiers.<priceKey>` so every other service keeps working.
@@ -120,8 +125,8 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
       url: SITE_URL,
       aggregateRating: {
         "@type": "AggregateRating",
-        ratingValue: "4.8",
-        reviewCount: "47",
+        ratingValue: tr("rating").replace(",", "."),
+        reviewCount: String(reviewCount),
         bestRating: "5",
       },
     },
@@ -207,7 +212,7 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
         </Container>
       </Section>
 
-      {/* ── Reviews (47 Google reviews, shared block) ── */}
+      {/* ── Reviews (Google reviews, shared block) ── */}
       <Testimonials />
 
       {/* ── Final CTA (shared glass-window bookend) ── */}
@@ -220,7 +225,7 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
         available={tl("ctaAvailable")}
         primary={{ label: t("primaryCta"), href: "/contact" }}
         secondary={{ label: tf("email"), href: `mailto:${tf("email")}`, kind: "link" }}
-        rating={{ value: tr("rating"), count: tr("count") }}
+        rating={{ value: tr("rating"), count: `${reviewCount} ${tr("count")}` }}
         note={tl("ctaNote")}
       />
     </>

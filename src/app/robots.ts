@@ -1,9 +1,12 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
 
-// Utility / no-index routes — kept out of every crawler's reach.
+// Utility / no-index routes — kept out of every crawler's reach. The default
+// locale (ru) is served unprefixed ("as-needed"), so its thank-you page needs
+// its own unprefixed entry alongside the "/*/" pattern that covers en/pl/ua.
 const disallow = [
   "/api/",
+  "/kontakty/spasibo",
   "/*/contact/thank-you",
   "/*/kontakt/dziekuje",
   "/*/kontakt/dyakuyu",

@@ -15,6 +15,16 @@ export function ogLocale(locale: Locale): string {
 }
 
 /**
+ * URL locale segment, mirroring `routing.localePrefix: "as-needed"` — empty
+ * for the default locale (served unprefixed at "/"), "/xx" otherwise. Every
+ * absolute-URL builder below (canonical, hreflang, sitemap, OG) must agree
+ * with this or search engines see a different URL than the one that's live.
+ */
+export function localeSegment(locale: Locale): string {
+  return locale === routing.defaultLocale ? "" : `/${locale}`;
+}
+
+/**
  * Build the localized URL for a logical pathname.
  * Reads localized slugs from `routing.pathnames`.
  */
@@ -30,7 +40,7 @@ export function localizedHref(locale: Locale, pathname: keyof typeof routing.pat
   }
   // Strip [slug]-style placeholders — callers should pass the resolved slug instead
   if (p.includes("[")) p = p.replace(/\/\[[^\]]+\]/g, "");
-  return `${SITE_URL}/${locale}${p === "/" ? "" : p}`;
+  return `${SITE_URL}${localeSegment(locale)}${p === "/" ? "" : p}`;
 }
 
 export function languageAlternates(
@@ -64,7 +74,7 @@ export function localizedDynamicHref(
     p = def[locale] ?? def[routing.defaultLocale as Locale] ?? String(pathname);
   else p = String(pathname);
   p = p.replace("[slug]", slug);
-  return `${SITE_URL}/${locale}${p}`;
+  return `${SITE_URL}${localeSegment(locale)}${p}`;
 }
 
 /**

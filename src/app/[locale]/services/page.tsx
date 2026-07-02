@@ -6,6 +6,7 @@ import { ServicesOverview } from "@/components/home/ServicesOverview";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { routing, type Locale } from "@/i18n/routing";
 import { buildLocalizedMetadata } from "@/lib/metadata";
+import { getLiveReviewCount } from "@/lib/reviews";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -34,12 +35,13 @@ export default async function ServicesPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "services.intro" });
+  const reviewCount = await getLiveReviewCount(locale as Locale);
 
   return (
     <>
       <PageHeader eyebrow={t("eyebrow")} headline={t("headline")} lead={t("subhead")} />
       <ServicesOverview />
-      <FinalCTA />
+      <FinalCTA reviewCount={reviewCount} />
     </>
   );
 }

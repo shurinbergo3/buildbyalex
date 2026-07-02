@@ -1,6 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing, type Locale } from "@/i18n/routing";
+import { getLiveReviewCount } from "@/lib/reviews";
 import { HomeJsonLd } from "@/components/HomeJsonLd";
 import { Hero } from "@/components/home/Hero";
 import { PainPoints } from "@/components/home/PainPoints";
@@ -23,10 +24,15 @@ export default async function HomePage({
   if (!(routing.locales as readonly string[]).includes(locale)) notFound();
   setRequestLocale(locale);
 
+  // Single source of truth for "how many reviews" — the hero trust line and
+  // the JSON-LD aggregate rating both read this so they never drift from the
+  // Testimonials block, which computes its own count from the same list.
+  const reviewCount = await getLiveReviewCount(locale as Locale);
+
   return (
     <div className="home-sections">
       <HomeJsonLd locale={locale as Locale} />
-      <Hero />
+      <Hero reviewCount={reviewCount} />
       <PainPoints />
       <ServicesOverview />
       <FeaturedWork />
@@ -36,7 +42,7 @@ export default async function HomePage({
       <Pricing />
       <Testimonials />
       <FAQ />
-      <FinalCTA />
+      <FinalCTA reviewCount={reviewCount} />
     </div>
   );
 }
