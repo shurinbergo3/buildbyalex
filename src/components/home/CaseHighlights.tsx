@@ -71,18 +71,15 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
     sync();
     track.addEventListener("scroll", sync, { passive: true });
     window.addEventListener("resize", sync);
-    // Direction-aware wheel: horizontal-dominant gestures drive the rail and
-    // are kept from bubbling to Lenis (which would hijack them into vertical
-    // page scroll); vertical-dominant gestures pass straight through so the
-    // page keeps scrolling normally while the cursor sits over the carousel.
-    const onWheel = (e: WheelEvent) => {
-      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) e.stopPropagation();
-    };
-    track.addEventListener("wheel", onWheel, { passive: true });
+    // The rail carries `data-lenis-prevent`, so Lenis leaves every wheel/touch
+    // gesture over it to the browser. Native horizontal scroll then works in
+    // both directions with real momentum and coordinates correctly with the
+    // mandatory scroll-snap (the earlier stopPropagation hack let Lenis eat the
+    // "scroll back" half of the gesture). A vertical wheel can't move this
+    // x-only container, so it bubbles up and scrolls the page as usual.
     return () => {
       track.removeEventListener("scroll", sync);
       window.removeEventListener("resize", sync);
-      track.removeEventListener("wheel", onWheel);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, [sync]);
@@ -105,6 +102,7 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
         aria-roledescription="carousel"
         tabIndex={0}
         onKeyDown={onKeyDown}
+        data-lenis-prevent
         className="flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain pb-1 outline-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:gap-5"
         style={{
           scrollPaddingInline: "0px",
