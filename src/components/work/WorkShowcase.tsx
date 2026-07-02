@@ -5,6 +5,7 @@ import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Link } from "@/i18n/navigation";
 import { Container } from "@/components/Container";
+import { CaseArt, hasCaseArt } from "@/components/CaseArt";
 import type { CaseCategory } from "@/lib/cases";
 
 export type GalleryCase = {
@@ -211,23 +212,33 @@ const CaseCard = memo(function CaseCard({
               : "aspect-[16/12] sm:aspect-[4/3]"
           }`}
         >
-          {/* Photograph — slow cinematic zoom on hover */}
-          <Image
-            src={data.imageSrc}
-            alt={data.imageAlt}
-            fill
-            sizes={featured ? "(max-width: 1024px) 100vw, 1180px" : "(max-width: 1024px) 100vw, 50vw"}
-            className="absolute inset-0 object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
-          />
+          {/* Cover — code-drawn product scene when we have one, photo otherwise */}
+          {hasCaseArt(data.key) ? (
+            <div className="absolute inset-0 transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]">
+              <CaseArt caseKey={data.key} />
+            </div>
+          ) : (
+            <Image
+              src={data.imageSrc}
+              alt={data.imageAlt}
+              fill
+              sizes={featured ? "(max-width: 1024px) 100vw, 1180px" : "(max-width: 1024px) 100vw, 50vw"}
+              className="absolute inset-0 object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
+            />
+          )}
 
-          {/* Graded scrim — guarantees white type legibility over any photo */}
+          {/* Graded scrim — guarantees white type legibility over any cover */}
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0"
             style={{
-              background: featured
-                ? "linear-gradient(90deg, rgba(6,7,9,0.86) 0%, rgba(6,7,9,0.52) 38%, rgba(6,7,9,0.08) 64%, transparent 100%), linear-gradient(0deg, rgba(6,7,9,0.78) 0%, transparent 46%)"
-                : "linear-gradient(0deg, rgba(6,7,9,0.90) 2%, rgba(6,7,9,0.42) 42%, rgba(6,7,9,0.04) 72%, transparent 100%)",
+              background: hasCaseArt(data.key)
+                ? featured
+                  ? "linear-gradient(90deg, rgba(6,7,9,0.72) 0%, rgba(6,7,9,0.34) 38%, transparent 60%), linear-gradient(0deg, rgba(6,7,9,0.62) 0%, transparent 42%)"
+                  : "linear-gradient(0deg, rgba(6,7,9,0.82) 2%, rgba(6,7,9,0.3) 40%, transparent 66%)"
+                : featured
+                  ? "linear-gradient(90deg, rgba(6,7,9,0.86) 0%, rgba(6,7,9,0.52) 38%, rgba(6,7,9,0.08) 64%, transparent 100%), linear-gradient(0deg, rgba(6,7,9,0.78) 0%, transparent 46%)"
+                  : "linear-gradient(0deg, rgba(6,7,9,0.90) 2%, rgba(6,7,9,0.42) 42%, rgba(6,7,9,0.04) 72%, transparent 100%)",
             }}
           />
 

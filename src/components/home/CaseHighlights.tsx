@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "@/i18n/navigation";
+import { CaseArt, hasCaseArt } from "@/components/CaseArt";
 
 /* ────────────────────────────────────────────────────────────────────────
    Cinematic case carousel. A peeking, scroll-snap track of full-photo cards —
@@ -133,26 +134,37 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
                 data-active={isActive}
                 className="group relative block h-[clamp(440px,62vh,660px)] overflow-hidden rounded-[26px] bg-black opacity-100 transition-[transform,opacity] duration-500 data-[active=false]:scale-[0.965] data-[active=false]:opacity-[0.72] sm:rounded-[30px]"
               >
-                {/* Photo */}
-                <div
-                  role="img"
-                  aria-label={it.image.alt}
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
-                  style={{ backgroundImage: `url(${it.image.src})` }}
-                />
-                {/* Scrims */}
+                {/* Cover: code-drawn product scene when we have one, photo otherwise */}
+                {hasCaseArt(it.key) ? (
+                  <div className="absolute inset-0 transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]">
+                    <CaseArt caseKey={it.key} />
+                  </div>
+                ) : (
+                  <div
+                    role="img"
+                    aria-label={it.image.alt}
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
+                    style={{ backgroundImage: `url(${it.image.src})` }}
+                  />
+                )}
+                {/* Scrims — the art scenes are already dark, so they get a lighter grade */}
                 <div
                   aria-hidden
                   className="absolute inset-0"
                   style={{
-                    background:
-                      "linear-gradient(to top, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.86) 26%, rgba(0,0,0,0.6) 48%, rgba(0,0,0,0.28) 70%, rgba(0,0,0,0.14) 100%)",
+                    background: hasCaseArt(it.key)
+                      ? "linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 26%, rgba(0,0,0,0.22) 48%, transparent 70%)"
+                      : "linear-gradient(to top, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.86) 26%, rgba(0,0,0,0.6) 48%, rgba(0,0,0,0.28) 70%, rgba(0,0,0,0.14) 100%)",
                   }}
                 />
                 <div
                   aria-hidden
                   className="absolute inset-0"
-                  style={{ background: "linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.12) 45%, transparent 68%)" }}
+                  style={{
+                    background: hasCaseArt(it.key)
+                      ? "linear-gradient(to right, rgba(0,0,0,0.44) 0%, rgba(0,0,0,0.08) 42%, transparent 62%)"
+                      : "linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.12) 45%, transparent 68%)",
+                  }}
                 />
 
                 {/* Copy */}
