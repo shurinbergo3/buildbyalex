@@ -71,18 +71,53 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
     sync();
     track.addEventListener("scroll", sync, { passive: true });
     window.addEventListener("resize", sync);
-    // The rail carries `data-lenis-prevent`, so Lenis leaves every wheel/touch
-    // gesture over it to the browser. Native horizontal scroll then works in
-    // both directions with real momentum and coordinates correctly with the
-    // mandatory scroll-snap (the earlier stopPropagation hack let Lenis eat the
-    // "scroll back" half of the gesture). A vertical wheel can't move this
-    // x-only container, so it bubbles up and scrolls the page as usual.
+
+    // Horizontal wheel / trackpad swipe drives the rail directly. We own the
+    // scroll (preventDefault + stopPropagation) so Lenis never sees it — its
+    // own preventDefault would otherwise kill the native horizontal scroll,
+    // which is what made "scroll back" flaky. Vertical-dominant gestures are
+    // left completely untouched, so Lenis still smooth-scrolls the page even
+    // while the cursor sits over the rail (data-lenis-prevent broke that).
+    //
+    // Snap is switched off for the duration of the gesture so mandatory snap
+    // can't fight the manual scroll, then we ease onto the nearest card once
+    // the wheel goes quiet.
+    let snapTimer = 0;
+    const settle = () => {
+      track.style.scrollSnapType = "";
+      const center = track.scrollLeft + track.clientWidth / 2;
+      let best = 0;
+      let bestD = Infinity;
+      Array.from(track.children).forEach((ch, i) => {
+        const el = ch as HTMLElement;
+        const c = el.offsetLeft + el.clientWidth / 2;
+        const d = Math.abs(c - center);
+        if (d < bestD) {
+          bestD = d;
+          best = i;
+        }
+      });
+      stepTo(best);
+    };
+    const onWheel = (e: WheelEvent) => {
+      if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return; // vertical → let the page scroll
+      e.preventDefault();
+      e.stopPropagation();
+      track.style.scrollSnapType = "none";
+      track.scrollLeft += e.deltaX;
+      if (snapTimer) clearTimeout(snapTimer);
+      snapTimer = window.setTimeout(settle, 140);
+    };
+    track.addEventListener("wheel", onWheel, { passive: false });
+
     return () => {
       track.removeEventListener("scroll", sync);
       window.removeEventListener("resize", sync);
+      track.removeEventListener("wheel", onWheel);
+      if (snapTimer) clearTimeout(snapTimer);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
-  }, [sync]);
+  }, [sync, stepTo]);
 
   const onKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "ArrowRight") {
@@ -102,7 +137,6 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
         aria-roledescription="carousel"
         tabIndex={0}
         onKeyDown={onKeyDown}
-        data-lenis-prevent
         className="flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain pb-1 outline-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:gap-5"
         style={{
           scrollPaddingInline: "0px",
