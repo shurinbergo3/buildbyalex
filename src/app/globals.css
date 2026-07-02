@@ -1987,6 +1987,12 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
   50%      { transform: scale(1.035); }
 }
 
+/* radar sweep inside the tracking reticle */
+.ca-rotate { animation: caRotate 5.5s linear infinite; }
+@keyframes caRotate {
+  to { transform: rotate(360deg); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .case-art * { animation: none !important; }
   .ca-sheen { display: none; }
