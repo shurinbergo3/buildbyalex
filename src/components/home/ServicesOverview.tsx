@@ -105,7 +105,7 @@ export function ServicesOverview() {
               <p className="relative mt-2 text-[14px] leading-[1.5] text-[color:var(--color-text-2)]">
                 {t("items.websites.desc")}
               </p>
-              <BrowserArt />
+              <BrowserArt rank={t("art.rank")} />
               <CardCta label={t("items.websites.link")} />
             </Link>
           </Reveal>
@@ -134,7 +134,13 @@ export function ServicesOverview() {
               <p className="relative mt-2 text-[14px] leading-[1.5] text-white/70">
                 {t("items.ai.desc")}
               </p>
-              <AiChatArt />
+              <AiChatArt
+                chat1={t("art.chat1")}
+                chat2={t("art.chat2")}
+                chat3={t("art.chat3")}
+                lead={t("art.lead")}
+                deal={t("art.deal")}
+              />
               <CardCta label={t("items.ai.link")} dark />
             </Link>
           </Reveal>
@@ -183,18 +189,31 @@ export function ServicesOverview() {
 /* ───────────────────────── ILLUSTRATIONS ───────────────────────── */
 
 /** AI tile — a compact chat with a "→ CRM · deal won" chip. */
-function AiChatArt() {
+function AiChatArt({
+  chat1,
+  chat2,
+  chat3,
+  lead,
+  deal,
+}: {
+  chat1: string;
+  chat2: string;
+  chat3: string;
+  lead: string;
+  deal: string;
+}) {
   return (
     <div aria-hidden className="relative mt-4 rounded-2xl border border-white/10 bg-white/[0.03] p-3 backdrop-blur-sm">
       <div className="flex flex-col gap-1.5">
         <span className="max-w-[90%] self-start rounded-2xl rounded-bl-[5px] px-2.5 py-1.5 text-[12px] leading-[1.35] text-white" style={{ background: "#182533" }}>
-          👋 Отвечу за секунду и соберу заявку
+          {chat1}
         </span>
         <span className="max-w-[78%] self-end rounded-2xl rounded-br-[5px] px-2.5 py-1.5 text-[12px] leading-[1.35] text-white" style={{ background: "#2b5278" }}>
-          Сколько стоит?
+          {chat2}
         </span>
-        <span className="max-w-[92%] self-start rounded-2xl rounded-bl-[5px] px-2.5 py-1.5 text-[12px] leading-[1.35] text-white" style={{ background: "#182533" }}>
-          От €600. Передам в CRM ✅
+        <span className="max-w-[92%] inline-flex items-center gap-1.5 self-start rounded-2xl rounded-bl-[5px] px-2.5 py-1.5 text-[12px] leading-[1.35] text-white" style={{ background: "#182533" }}>
+          {chat3}
+          <Check className="shrink-0 text-emerald-400" />
         </span>
       </div>
 
@@ -206,10 +225,10 @@ function AiChatArt() {
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" style={{ color: "var(--c-accent)" }}>
             <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          Лид в CRM
+          {lead}
         </span>
         <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-400">
-          <Check /> Сделка
+          <Check /> {deal}
         </span>
       </div>
     </div>
@@ -217,7 +236,7 @@ function AiChatArt() {
 }
 
 /** Websites — a tiny browser window with a Lighthouse-style speed score. */
-function BrowserArt() {
+function BrowserArt({ rank }: { rank: string }) {
   return (
     <div
       aria-hidden
@@ -237,7 +256,7 @@ function BrowserArt() {
           <span className="h-2 w-3/4 rounded-full bg-[color:var(--color-divider)]" />
           <span className="h-2 w-1/2 rounded-full bg-[color:var(--color-divider)]" />
           <span className="mt-1 inline-flex w-fit items-center gap-1 rounded-full bg-[color:var(--c-accent-soft)] px-2 py-0.5 text-[10px] font-medium text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
-            <Check className="h-2.5 w-2.5" /> топ-10 Google
+            <Check className="h-2.5 w-2.5" /> {rank}
           </span>
         </div>
       </div>

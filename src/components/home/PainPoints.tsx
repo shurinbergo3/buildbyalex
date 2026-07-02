@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
@@ -37,39 +36,44 @@ const items = [
 export function PainPoints() {
   const t = useTranslations("home.pain");
   return (
-    <Section tone="default" pad="default" className="overflow-hidden">
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <Image
-          src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover opacity-[0.06] dark:opacity-[0.08]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--color-bg)] via-[color:var(--color-bg)]/70 to-[color:var(--color-bg)]" />
-      </div>
-      <Container className="relative">
-        <Reveal>
-          <div className="mx-auto max-w-[820px] text-center">
-            <p className="t-eyebrow">{t("eyebrow")}</p>
-            <h2 className="mt-3 t-h2">{t("headline")}</h2>
-          </div>
-        </Reveal>
+    <Section tone="default" pad="default">
+      <Container>
+        <div className="grid gap-12 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-16 lg:gap-24">
+          <Reveal>
+            <div className="md:sticky md:top-28">
+              <p className="t-eyebrow">{t("eyebrow")}</p>
+              <h2 className="mt-3 t-h2 max-w-[440px] text-balance">{t("headline")}</h2>
+            </div>
+          </Reveal>
 
-        <div className="mt-14 grid gap-6 md:mt-20 md:grid-cols-3 md:gap-8">
-          {items.map(({ key, Icon }, i) => (
-            <Reveal key={key} delay={i * 80}>
-              <div className="flex flex-col gap-4">
-                <div className="grid h-11 w-11 place-items-center rounded-2xl bg-[color:var(--c-accent-soft)] text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
-                  <Icon />
+          <ul>
+            {items.map(({ key, Icon }, i) => (
+              <Reveal
+                as="li"
+                key={key}
+                delay={i * 90}
+                className={i > 0 ? "border-t border-[color:var(--c-hairline)]" : undefined}
+              >
+                <div className={`grid grid-cols-[44px_1fr] gap-x-4 sm:grid-cols-[56px_1fr_auto] sm:gap-x-6 ${i > 0 ? "py-9 md:py-11" : "pb-9 md:pb-11 md:pt-2"}`}>
+                  <span className="pt-1 font-mono text-[13px] tracking-[0.06em] text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
+                    0{i + 1}
+                  </span>
+                  <div>
+                    <h3 className="t-h4">{t(`items.${key}.title`)}</h3>
+                    <p className="mt-3 max-w-[520px] text-[15px] leading-[1.55] text-[color:var(--color-text-2)]">
+                      {t(`items.${key}.body`)}
+                    </p>
+                  </div>
+                  <span
+                    className="hidden h-11 w-11 place-items-center rounded-2xl bg-[color:var(--c-accent-soft)] text-[color:var(--c-accent-ink)] sm:grid dark:text-[color:var(--c-accent)]"
+                    aria-hidden="true"
+                  >
+                    <Icon />
+                  </span>
                 </div>
-                <h3 className="t-h4">{t(`items.${key}.title`)}</h3>
-                <p className="text-[15px] leading-[1.55] text-[color:var(--color-text-2)]">
-                  {t(`items.${key}.body`)}
-                </p>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            ))}
+          </ul>
         </div>
       </Container>
     </Section>

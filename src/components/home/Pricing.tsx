@@ -41,8 +41,8 @@ export function Pricing() {
                 ].join(" ")}
               >
                 {featured && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[color:var(--c-accent)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-white">
-                    Most asked
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[color:var(--c-accent)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-white">
+                    {t("badge")}
                   </span>
                 )}
                 <h3 className={`text-[15px] font-semibold ${featured ? "text-white/70" : "text-[color:var(--color-text-2)]"}`}>
@@ -73,7 +73,7 @@ export function Pricing() {
                     size="md"
                     className="w-full"
                   >
-                    {t(`tiers.${key}.title`)} →
+                    {t("ctaLabel")} →
                   </Button>
                 </div>
               </article>

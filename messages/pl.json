@@ -164,6 +164,14 @@
         "price": "Od €1 500"
       },
       "badge": "Najczęściej wybierane",
+      "art": {
+        "chat1": "Odpowiadam od razu i zbieram zgłoszenie",
+        "chat2": "Ile to kosztuje?",
+        "chat3": "Od €600. Przekazuję do CRM",
+        "lead": "Lead w CRM",
+        "deal": "Umowa",
+        "rank": "top 10 w Google"
+      },
       "automation": {
         "category": "Automatyzacja",
         "title": "Automatyzacja procesów biznesowych",
@@ -444,6 +452,8 @@
     },
     "pricing": {
       "eyebrow": "Ceny od",
+      "badge": "Najczęściej wybierane",
+      "ctaLabel": "Omówmy projekt",
       "headline": "Cennik wprost.\nBez niespodzianek.",
       "subhead": "Ostateczną cenę ustalamy po rozmowie wstępnej, kiedy zakres jest jasny. Żadnej faktury, której się nie spodziewasz.",
       "tiers": {

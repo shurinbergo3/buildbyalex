@@ -164,6 +164,14 @@
         "price": "From €1,500"
       },
       "badge": "Most asked",
+      "art": {
+        "chat1": "I reply in seconds and take the brief",
+        "chat2": "How much does it cost?",
+        "chat3": "From €600. Sending to CRM",
+        "lead": "Lead in CRM",
+        "deal": "Deal won",
+        "rank": "top 10 on Google"
+      },
       "automation": {
         "category": "Automation",
         "title": "Business process automation",
@@ -444,6 +452,8 @@
     },
     "pricing": {
       "eyebrow": "Starting prices",
+      "badge": "Most asked",
+      "ctaLabel": "Discuss your project",
       "headline": "Transparent pricing.\nNo surprises.",
       "subhead": "Final price is set after the discovery call, once the scope is clear. You'll never get an invoice you weren't expecting.",
       "tiers": {
