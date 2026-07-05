@@ -49,8 +49,21 @@ jobs:
               -t ${{ env.IMAGE }}:latest \
               -t ${{ env.IMAGE }}:${{ github.sha }} \
               .
+      # Вебхук Dokploy ставит редеплой в очередь при получении запроса, но держит
+      # соединение открытым, пока идёт пересборка — из-за этого curl без --max-time
+      # зависал на ~135с и падал по таймауту (код 28), роняя весь пайплайн, хотя
+      # редеплой уже стартовал. Поэтому шлём fire-and-forget: ограничиваем время,
+      # ретраим на транзиентных сбоях и не валим деплой из-за медленного ответа.
       - name: Trigger Dokploy redeploy
-        run: curl -fsS -X GET "${{ secrets.DOKPLOY_WEBHOOK }}"
+        run: |
+          code=$(curl -sS -o /dev/null -w '%{http_code}' \
+            --max-time 30 --retry 2 --retry-delay 5 --retry-connrefused \
+            -X GET "${{ secrets.DOKPLOY_WEBHOOK }}") || true
+          echo "Dokploy webhook status: ${code:-timeout}"
+          case "${code:-timeout}" in
+            2*|3*) echo "Redeploy triggered." ;;
+            *) echo "::warning::Dokploy webhook did not return success (status=${code:-timeout}); the redeploy may still be running — verify in the Dokploy dashboard." ;;
+          esac
       # After deploy, ping IndexNow (Bing/Yandex) for blog posts changed in this push.
       # Runs on the GitHub runner (full network egress), so no sandbox 403.
       - uses: actions/setup-node@v4
