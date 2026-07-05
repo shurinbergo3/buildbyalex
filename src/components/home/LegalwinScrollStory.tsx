@@ -44,6 +44,7 @@ type SiteData = {
   ratingLabel: string;
   ctaPrimary: string;
   ctaSecondary: string;
+  services: string[];
   chat: { name: string; role: string; message: string; placeholder: string };
 };
 
@@ -94,6 +95,7 @@ export function LegalwinScrollStory() {
       ratingLabel: t("site.ratingLabel"),
       ctaPrimary: t("site.ctaPrimary"),
       ctaSecondary: t("site.ctaSecondary"),
+      services: t.raw("site.services") as string[],
       chat: {
         name: t("site.chat.name"),
         role: t("site.chat.role"),
@@ -555,8 +557,8 @@ function WebsiteScreen({ site, showChat }: { site: SiteData; showChat: boolean }
           className="absolute inset-0 bg-cover bg-bottom"
           style={{
             backgroundImage: "url(/cases/legalwin-hero.webp)",
-            filter: "blur(5px) saturate(0.9)",
-            transform: "scale(1.12)",
+            filter: "blur(11px) saturate(0.85) brightness(0.7)",
+            transform: "scale(1.2)",
           }}
         />
         {/* Legibility wash — darker where the copy sits (top-left), gold hint */}
@@ -565,13 +567,13 @@ function WebsiteScreen({ site, showChat }: { site: SiteData; showChat: boolean }
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(120% 90% at 80% -10%, rgba(214,176,96,0.14) 0%, transparent 45%), linear-gradient(105deg, rgba(7,8,12,0.94) 0%, rgba(7,8,12,0.68) 52%, rgba(7,8,12,0.42) 100%)",
+              "radial-gradient(120% 90% at 82% -10%, rgba(214,176,96,0.16) 0%, transparent 44%), linear-gradient(102deg, rgba(7,8,12,0.97) 0%, rgba(7,8,12,0.86) 44%, rgba(7,8,12,0.5) 80%, rgba(7,8,12,0.55) 100%)",
           }}
         />
         <div
           aria-hidden
           className="absolute inset-0"
-          style={{ background: "linear-gradient(180deg, rgba(7,8,12,0.45) 0%, transparent 35%, rgba(7,8,12,0.55) 100%)" }}
+          style={{ background: "linear-gradient(180deg, rgba(7,8,12,0.5) 0%, transparent 32%, rgba(7,8,12,0.72) 100%)" }}
         />
 
         <div className="relative flex h-full flex-col">
@@ -597,41 +599,47 @@ function WebsiteScreen({ site, showChat }: { site: SiteData; showChat: boolean }
 
           {/* Hero — top-aligned so long (RU/UA/PL) copy flows down and clips at
               the fold instead of spilling up into the header. */}
-          <div className="flex min-h-0 flex-1 items-start overflow-hidden px-5 pt-3 sm:px-7 sm:pt-4">
-            <div className="grid w-full items-start gap-4 lg:grid-cols-[1fr_auto]">
-              <div className="max-w-[460px]">
-                <p className="flex items-center gap-2 text-[9px] font-semibold uppercase tracking-[0.18em] text-[#d6b060]">
-                  <span className="h-px w-5 bg-[#d6b060]/70" />
+          <div className="flex min-h-0 flex-1 items-start overflow-hidden px-4 pt-2.5 sm:px-7 sm:pt-5">
+            <div className="grid w-full items-start gap-4 sm:grid-cols-[1fr_auto]">
+              <div className="max-w-[470px]">
+                <p className="flex items-center gap-2 text-[9px] font-semibold uppercase tracking-[0.22em] text-[#d6b060]">
+                  <span className="h-px w-6 bg-gradient-to-r from-[#d6b060] to-transparent" />
                   {site.badge}
                 </p>
-                <h3 className="mt-2 font-serif text-[clamp(17px,2.7vw,26px)] font-semibold leading-[1.06] tracking-[-0.01em] text-white">
+                <h3 className="mt-2 font-serif text-[clamp(16px,2.9vw,29px)] font-semibold leading-[1.08] tracking-[-0.012em] text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.5)] sm:mt-2.5">
                   {site.title}
                 </h3>
-                <p className="mt-1 font-serif text-[clamp(14px,2.1vw,20px)] italic leading-[1.1] text-[#e8c879]">
+                <p className="mt-1.5 font-serif text-[clamp(12.5px,2.2vw,21px)] italic leading-[1.12] text-[#e8c879]">
                   {site.titleAccent}
                 </p>
-                <p className="mt-2.5 max-w-[380px] text-[11px] leading-[1.45] text-white/60">{site.subhead}</p>
+                <p className="mt-2.5 hidden max-w-[390px] text-[11px] leading-[1.5] text-white/65 sm:line-clamp-2">{site.subhead}</p>
 
-                <div className="mt-3.5 flex items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[#d6b060]/40 px-2.5 py-1 text-[10px] text-white/85">
-                    <span className="text-[#e8c879]">★★★★★</span>
-                    <span className="font-semibold">{site.rating}</span>
+                <div className="mt-3.5 hidden items-center gap-2.5 sm:flex">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[#d6b060]/35 bg-black/30 px-2.5 py-1 text-[10px] text-white/90 backdrop-blur-sm">
+                    <span className="tracking-[0.08em] text-[#e8c879]">★★★★★</span>
+                    <span className="font-semibold tabular-nums">{site.rating}</span>
                   </span>
-                  <span className="text-[9px] uppercase tracking-[0.14em] text-white/45">{site.ratingLabel}</span>
+                  <span className="text-[9px] uppercase tracking-[0.16em] text-white/40">{site.ratingLabel}</span>
                 </div>
 
-                <div className="mt-4 flex flex-wrap items-center gap-2.5">
-                  <span className="rounded-full bg-[#d6b060] px-3.5 py-1.5 text-[11px] font-semibold text-[#1a1408]">
+                <div className="mt-3 flex flex-wrap items-center gap-2.5 sm:mt-4">
+                  <span
+                    className="rounded-full px-3.5 py-1.5 text-[11px] font-semibold text-[#1a1408]"
+                    style={{
+                      background: "linear-gradient(135deg, #e8c879 0%, #d6b060 100%)",
+                      boxShadow: "inset 0 1px 0 rgba(255,255,255,0.35), 0 8px 22px -8px rgba(214,176,96,0.55)",
+                    }}
+                  >
                     {site.ctaPrimary} →
                   </span>
-                  <span className="rounded-full border border-white/20 px-3.5 py-1.5 text-[11px] font-medium text-white/85">
+                  <span className="rounded-full border border-white/25 bg-white/[0.04] px-3.5 py-1.5 text-[11px] font-medium text-white/90 backdrop-blur-sm">
                     {site.ctaSecondary}
                   </span>
                 </div>
               </div>
 
               {/* Chat widget */}
-              <div className="hidden w-[210px] lg:block">
+              <div className="hidden w-[210px] sm:block">
                 <AnimatePresence>
                   {showChat && (
                     <motion.div
@@ -670,7 +678,34 @@ function WebsiteScreen({ site, showChat }: { site: SiteData; showChat: boolean }
               </div>
             </div>
           </div>
+
+          {/* Services strip — anchors the fold like the live site */}
+          <div className="relative hidden border-t border-white/[0.08] bg-black/30 px-5 py-2.5 backdrop-blur-sm sm:block sm:px-7">
+            <div
+              className="flex items-center gap-2 overflow-hidden"
+              style={{
+                maskImage: "linear-gradient(90deg, #000 82%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(90deg, #000 82%, transparent 100%)",
+              }}
+            >
+              {site.services.map((s) => (
+                <span
+                  key={s}
+                  className="whitespace-nowrap rounded-full border border-white/10 bg-white/[0.045] px-2.5 py-1 text-[9.5px] text-white/60"
+                >
+                  {s}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
+
+        {/* Fold fade — on phones the screen crops at the fold; melt the cut */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-10 sm:hidden"
+          style={{ background: "linear-gradient(180deg, transparent 0%, rgba(7,8,12,0.92) 88%)" }}
+        />
       </div>
     </div>
   );

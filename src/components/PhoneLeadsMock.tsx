@@ -324,10 +324,10 @@ function FlagSvg({ code }: { code: FlagCode }) {
             return (
               <line
                 key={i}
-                x1={15 + Math.cos(a) * 4}
-                y1={9 + Math.sin(a) * 4}
-                x2={15 + Math.cos(a) * 5.2}
-                y2={9 + Math.sin(a) * 5.2}
+                x1={(15 + Math.cos(a) * 4).toFixed(3)}
+                y1={(9 + Math.sin(a) * 4).toFixed(3)}
+                x2={(15 + Math.cos(a) * 5.2).toFixed(3)}
+                y2={(9 + Math.sin(a) * 5.2).toFixed(3)}
                 stroke="#FEC50C"
                 strokeWidth="0.7"
               />

@@ -135,6 +135,18 @@ header[data-light-header="true"] {
   --c-hairline:    rgba(255, 255, 255, 0.18);
   --color-bg-alt:  rgba(255, 255, 255, 0.08);
 }
+/* The "Услуги" mega-dropdown lives inside the header, so it would inherit the
+   white-on-dark tokens above and render its titles white on its own light
+   panel. It's a standalone elevated surface — give it back the theme tokens. */
+#nav-services-menu {
+  color: var(--c-text);
+  --color-text:   var(--c-text);
+  --color-bg-alt: var(--c-bg-alt);
+  --c-hairline:   rgba(10, 10, 10, 0.08);
+}
+[data-theme="dark"] #nav-services-menu {
+  --c-hairline:   rgba(255, 255, 255, 0.08);
+}
 
 /* ───────────────────── RESET ───────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
@@ -2027,4 +2039,50 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
 @container (max-width: 430px) {
   .ca-panel { transform: scale(0.92); }
   .ca-narrow-hide { display: none; }
+}
+
+/* ── Scroll story device (Telegram → CRM mock) ── */
+
+/* data stream between the chat and CRM chips in the window chrome */
+.ss-flow-dot { animation: ssFlowDot 1.4s ease-in-out infinite; }
+@keyframes ssFlowDot {
+  0%, 100% { opacity: 0.2; transform: translateX(-1px); }
+  50%      { opacity: 1;   transform: translateX(2px); }
+}
+
+.ss-spin { animation: ssSpin 3.4s linear infinite; }
+@keyframes ssSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* pulse ring on the active pipeline stage */
+.ss-ring { animation: ssRing 2.2s ease-out infinite; }
+@keyframes ssRing {
+  0%   { box-shadow: 0 0 0 0 rgba(255, 122, 45, 0.45); }
+  70%  { box-shadow: 0 0 0 7px rgba(255, 122, 45, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 122, 45, 0); }
+}
+
+/* light sweep across the deal progress bar */
+.ss-shimmer { animation: ssShimmer 2.6s ease-in-out infinite; }
+@keyframes ssShimmer {
+  0%   { transform: translateX(-110%); }
+  55%  { transform: translateX(220%); }
+  100% { transform: translateX(220%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ss-flow-dot, .ss-spin, .ss-ring, .ss-shimmer { animation: none !important; }
+}
+
+/* slow drift for the story section light fields */
+.ss-drift { animation: ssDrift 26s ease-in-out infinite alternate; }
+.ss-drift-slow { animation: ssDrift 34s ease-in-out infinite alternate-reverse; }
+@keyframes ssDrift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(4%, -5%, 0) scale(1.12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ss-drift, .ss-drift-slow { animation: none !important; }
 }

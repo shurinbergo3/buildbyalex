@@ -430,7 +430,8 @@
         "HubSpot, but it's getting too expensive for our team",
         "Got it — that's exactly what we solve. I'll send a Calendly link so you can book a 20-min call with Alex this week 📅",
         "Perfect, thanks! ✅"
-      ]
+      ],
+      "today": "Today"
     },
     "crmFunnel": {
       "eyebrow": "After the chat",
