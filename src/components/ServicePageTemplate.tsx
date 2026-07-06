@@ -20,6 +20,14 @@ import { MobileAppShowcase } from "./MobileAppShowcase";
 import { AutomationShowcase } from "./AutomationShowcase";
 import { TelegramMiniAppShowcase } from "./TelegramMiniAppShowcase";
 import { ServiceRelatedCases } from "./ServiceRelatedCases";
+import { WebsitesPain } from "./WebsitesPain";
+import { WebsitesSiteTypes } from "./WebsitesSiteTypes";
+import { WebsitesCaseProof } from "./WebsitesCaseProof";
+import { WebsitesGuarantees } from "./WebsitesGuarantees";
+import { WebsitesTimeline } from "./WebsitesTimeline";
+import { WebsitesCompare } from "./WebsitesCompare";
+import { WebsitesLossCalc } from "./WebsitesLossCalc";
+import { WebsitesResources } from "./WebsitesResources";
 
 type Branch = "websites" | "store" | "ai" | "automation" | "mobile" | "telegram" | "ads";
 
@@ -88,6 +96,9 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
   const data: ServiceData = messages.services[branch];
   const priceKey = PRICE_KEY[branch];
   const Demo = DEMOS[branch];
+  // Websites is the flagship page: it carries extra decision-stage sections
+  // (pain, formats, before/after case, guarantees, comparison, loss calc).
+  const isWebsites = branch === "websites";
 
   // Same source of truth as the homepage — keeps this page's rating badge and
   // structured data in sync with the Testimonials block instead of a stale count.
@@ -162,8 +173,17 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
       {/* ── Hero (cinematic key-art stage) ── */}
       <ServiceHero branch={branch} />
 
+      {/* ── Pain: why the current site stays silent (websites only) ── */}
+      {isWebsites && <WebsitesPain />}
+
       {/* ── Service demo (per-branch animated showcase; each owns its section) ── */}
       {Demo && <Demo />}
+
+      {/* ── Site formats with prices and timelines (websites only) ── */}
+      {isWebsites && <WebsitesSiteTypes />}
+
+      {/* ── Before/after case deep dive (websites only) ── */}
+      {isWebsites && <WebsitesCaseProof />}
 
       {/* ── What's included ── */}
       <Section pad="default" tone={Demo ? "default" : "alt"}>
@@ -189,8 +209,11 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
       {/* ── Related work (recent case for this service; omitted when none) ── */}
       <ServiceRelatedCases branch={branch} tone={Demo ? "alt" : "default"} />
 
-      {/* ── Process (shared 4-step) ── */}
-      <HowItWorks />
+      {/* ── Contract guarantees (websites only) ── */}
+      {isWebsites && <WebsitesGuarantees />}
+
+      {/* ── Process: week-by-week for websites, shared 4-step elsewhere ── */}
+      {isWebsites ? <WebsitesTimeline /> : <HowItWorks />}
 
       {/* ── Pricing for this service (single card, or multi-tier grid) ── */}
       <ServicePricing
@@ -202,6 +225,12 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
         marketLabel={data.pricing?.marketLabel}
       />
 
+      {/* ── Me vs studio vs freelancer vs builder (websites only) ── */}
+      {isWebsites && <WebsitesCompare />}
+
+      {/* ── What a slow site costs (websites only) ── */}
+      {isWebsites && <WebsitesLossCalc />}
+
       {/* ── FAQ ── */}
       <Section pad="default" tone="alt">
         <Container size="md">
@@ -211,6 +240,9 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
           <FAQAccordion items={data.faq.items} />
         </Container>
       </Section>
+
+      {/* ── Blog cluster links (websites only) ── */}
+      {isWebsites && <WebsitesResources />}
 
       {/* ── Reviews (Google reviews, shared block) ── */}
       <Testimonials />

@@ -1094,7 +1094,7 @@
         "description": "Custom Next.js websites — multilingual, SEO-ready, built to convert. Warsaw-based, from €800, launched in 2–4 weeks. Get a free quote."
       },
       "eyebrow": "Websites · Warsaw",
-      "headline": "Websites\nthat actually rank.",
+      "headline": "Websites\nthat bring in leads.",
       "lead": "Custom website development in Warsaw: a modern Next.js production site — multilingual and SEO-ready from day one, not a 2015-era business-card page.",
       "from": "From €800",
       "primaryCta": "Discuss the project",
@@ -1110,8 +1110,8 @@
             "l": "first paint"
           },
           {
-            "v": "+38%",
-            "l": "organic / 3 mo"
+            "v": "x5",
+            "l": "leads after redesign"
           }
         ],
         "mock": {
@@ -1376,6 +1376,22 @@
           {
             "q": "Do you work only in Warsaw, or across Poland?",
             "a": "We work across all of Poland and remotely — Warsaw, Kraków, Wrocław, Gdańsk, Poznań or a smaller town, it makes no difference. Calls, demos and handover happen online; the contract and payment are remote. An in-person meeting in Warsaw is available on request."
+          },
+          {
+            "q": "Why not build it myself on Wix or Squarespace?",
+            "a": "If the budget is zero, a builder beats having nothing. But it has a ceiling: template looks, weak speed, capped SEO and a platform subscription forever. A builder site is rented; your own site is owned. For a business that plans to win clients from Google, a builder almost always ends up more expensive - not in money, but in lost enquiries."
+          },
+          {
+            "q": "Do you do redesigns? Will I lose my Google rankings?",
+            "a": "I do, it's a frequent job. Rankings survive thanks to a proper migration: a map of old URLs, 301 redirects to the new ones, preserved heading structure and content, and an indexing check after the move. Usually rankings don't drop after migration - they grow, thanks to speed and clean markup."
+          },
+          {
+            "q": "How will I know the site works? What analytics do I get?",
+            "a": "Every site ships with analytics from day one: where people come from, which pages they view, where they click, how many enquiries arrive and from which sources. Form submissions are duplicated to your Telegram or email. Once a month you open the report yourself and see the numbers - no “ask your developer for an export”."
+          },
+          {
+            "q": "Can I edit texts and photos myself after launch?",
+            "a": "Yes, if you need it - I hook up a CMS: you edit copy, photos and articles in a friendly admin panel without a developer. If your content changes twice a year, a CMS is overkill: within support I apply edits faster than you'd write the brief. We pick the option that fits your team at the start."
           }
         ]
       },
@@ -1433,6 +1449,341 @@
               "Integrations: CRM, payments, conversion tracking",
               "30 days of edits included"
             ]
+          }
+        ]
+      },
+      "pain": {
+        "eyebrow": "The problem",
+        "headline": "A pretty website is not a sales channel yet",
+        "sub": "When a site “exists but doesn't work”, the reasons are almost always the same. Check yours against these three - takes a minute.",
+        "items": [
+          {
+            "title": "It loads slowly",
+            "body": "By the third second of loading, more than half of mobile visitors are gone. They don't complain that your site is slow - they just go back to Google and click the competitor one line below."
+          },
+          {
+            "title": "Google can't see it",
+            "body": "Without proper structure, schema markup and speed, a site sits on page 3-4 of the results. Less than 1% of searchers ever get there. Formally the site exists; in practice nobody finds it."
+          },
+          {
+            "title": "It doesn't lead to an enquiry",
+            "body": "A visitor lands, scrolls, leaves: the offer is vague, there are no prices, the form hides under “Contact”. The site talks about the company instead of selling its services."
+          }
+        ],
+        "vs": {
+          "oldLabel": "A typical site",
+          "newLabel": "A buildbyalex site",
+          "oldUrl": "old-site.com",
+          "newUrl": "your-site.com",
+          "loading": "Loading…",
+          "oldMetrics": [
+            {
+              "v": "4.3s",
+              "l": "load time"
+            },
+            {
+              "v": "page 4",
+              "l": "on Google"
+            },
+            {
+              "v": "0.8%",
+              "l": "conversion"
+            }
+          ],
+          "newMetrics": [
+            {
+              "v": "0.8s",
+              "l": "load time"
+            },
+            {
+              "v": "top 3",
+              "l": "on Google"
+            },
+            {
+              "v": "4.2%",
+              "l": "conversion"
+            }
+          ],
+          "bounce": "Visitor left",
+          "lead": "New enquiry",
+          "replay": "Replay"
+        }
+      },
+      "siteTypes": {
+        "eyebrow": "Formats",
+        "headline": "Which website fits your business",
+        "sub": "Four typical formats. Not sure which one is yours - tell me about the task on a call and I'll give you a straight answer. Including “you don't need this yet”.",
+        "priceFrom": "from",
+        "items": [
+          {
+            "title": "Landing page",
+            "price": "€400",
+            "time": "1-2 weeks",
+            "desc": "One page with one goal: collect leads from ads, sell a service, announce a launch.",
+            "audience": "For services, experts and ad campaigns",
+            "bullets": [
+              "Sales-driven structure: offer, benefits, proof, form",
+              "Built for Google Ads and Meta traffic",
+              "Analytics and conversion tracking from day one"
+            ]
+          },
+          {
+            "title": "Company website",
+            "price": "€800",
+            "time": "2-4 weeks",
+            "desc": "A multi-page site: services, case studies, blog. The main format for ranking on Google.",
+            "audience": "For companies, clinics, studios, B2B",
+            "bullets": [
+              "A dedicated SEO page for every service",
+              "Up to 4 languages: PL, EN, UA, RU",
+              "A blog and case studies that bring organic traffic"
+            ]
+          },
+          {
+            "title": "Online store",
+            "price": "€1,200",
+            "time": "3-5 weeks",
+            "desc": "Catalogue, cart, payments: Stripe, Przelewy24, BLIK. Shipping and inventory integrations.",
+            "audience": "For product businesses and D2C brands",
+            "bullets": [
+              "Card payments, BLIK and Przelewy24",
+              "InPost and courier integrations",
+              "Stock and order synchronisation"
+            ],
+            "href": "/services/online-store",
+            "linkLabel": "More about stores"
+          },
+          {
+            "title": "Redesign & migration",
+            "price": "€600",
+            "time": "2-3 weeks",
+            "desc": "Your site is dated or sluggish - I move it to a fast architecture without losing Google rankings.",
+            "audience": "For sites older than 3-4 years and slow WordPress",
+            "bullets": [
+              "301 redirects: rankings and links survive",
+              "Speed improves 3-5x",
+              "Design and copy brought up to 2026 standards"
+            ]
+          }
+        ]
+      },
+      "caseProof": {
+        "eyebrow": "A case in numbers",
+        "headline": "Before and after: VisionAir",
+        "sub": "Igor flies drones in Warsaw: weddings, real estate, site inspections. His old site took 4 seconds to load and ranked for none of his services. Here's what moving to a new one changed.",
+        "beforeLabel": "Before",
+        "afterLabel": "After",
+        "rows": [
+          {
+            "label": "Page load",
+            "before": "4.1s",
+            "after": "0.9s"
+          },
+          {
+            "label": "Visitor-to-lead conversion",
+            "before": "0.8%",
+            "after": "4.2%"
+          },
+          {
+            "label": "SEO service pages",
+            "before": "1",
+            "after": "7"
+          },
+          {
+            "label": "Reply time to a client",
+            "before": "hours",
+            "after": "2 sec"
+          }
+        ],
+        "growth": "x5",
+        "growthLabel": "lead conversion growth",
+        "quote": "He got the business after one call. Leads don't get lost anymore - they land in Telegram and I reply within minutes.",
+        "quoteAuthor": "Igor P. · CEO VisionAir",
+        "cta": "See the full case study",
+        "note": "An enquiry from the site reaches the owner's Telegram in 2 seconds - while the client is still on the page."
+      },
+      "compare": {
+        "eyebrow": "Comparison",
+        "headline": "buildbyalex, an agency,\na freelancer or a site builder",
+        "sub": "Each option has its niche. The question is what exactly you get for your money and time - here's the honest breakdown.",
+        "colMe": "buildbyalex",
+        "cols": [
+          "Agency",
+          "Freelancer",
+          "Site builder"
+        ],
+        "rows": [
+          {
+            "label": "Price",
+            "me": "€400-1,500",
+            "vals": [
+              "4,000-40,000 zł",
+              "unpredictable",
+              "from 300 zł/yr + your time"
+            ]
+          },
+          {
+            "label": "Time to launch",
+            "me": "2-4 weeks",
+            "vals": [
+              "1-3 months",
+              "2 weeks to 6 months",
+              "depends on you"
+            ]
+          },
+          {
+            "label": "Speed: LCP < 1s",
+            "me": true,
+            "vals": [
+              "hit or miss",
+              "hit or miss",
+              "almost always in the red"
+            ]
+          },
+          {
+            "label": "SEO from day one",
+            "me": true,
+            "vals": [
+              "costs extra",
+              "rarely",
+              "capped by the platform"
+            ]
+          },
+          {
+            "label": "4 languages: PL / EN / UA / RU",
+            "me": true,
+            "vals": [
+              "costs extra",
+              "rarely",
+              "clunky or expensive"
+            ]
+          },
+          {
+            "label": "You own the code and domain",
+            "me": true,
+            "vals": [
+              "not always",
+              "usually yes",
+              "no, you rent the platform"
+            ]
+          },
+          {
+            "label": "You talk directly to",
+            "me": "the developer",
+            "vals": [
+              "a project manager",
+              "the contractor",
+              "a help centre"
+            ]
+          },
+          {
+            "label": "Mandatory fees after launch",
+            "me": "€0",
+            "vals": [
+              "retainer 200-500 zł/mo",
+              "negotiable",
+              "subscription forever"
+            ]
+          }
+        ],
+        "note": "Market figures come from public price lists of Polish agencies and marketplaces, autumn 2025."
+      },
+      "guarantees": {
+        "eyebrow": "Zero risk",
+        "headline": "Four guarantees in the contract",
+        "sub": "Not verbal promises - clauses in the contract we sign before work starts.",
+        "items": [
+          {
+            "title": "Fixed quote",
+            "body": "I name the price before we start and don't change it midway. If the scope grows - we agree on a new quote first, then I build."
+          },
+          {
+            "title": "Deadline in writing",
+            "body": "The launch date is written into the contract. If a delay is my fault - you get a discount for every week of slippage."
+          },
+          {
+            "title": "You own code and domain",
+            "body": "The domain and hosting are registered in your name, the source goes to your GitHub. Switch developers - everything stays with you."
+          },
+          {
+            "title": "30 days of tweaks",
+            "body": "For a month after launch I fix things free: copy, sections, small changes. No tickets, no queues, no “that's a new quote”."
+          }
+        ]
+      },
+      "timeline": {
+        "eyebrow": "Process",
+        "headline": "From a call to launch - 4 weeks",
+        "sub": "The typical plan for a company website. A landing page walks the same path in 1-2 weeks. Your side of it takes a couple of hours, not a couple of months.",
+        "yourTime": "Your time",
+        "weeks": [
+          {
+            "n": "01",
+            "title": "Call and structure",
+            "body": "A 30-minute talk about your business. Then I prepare the quote, the page structure and a homepage concept. You approve - we sign a contract with a launch date.",
+            "time": "~1 hour"
+          },
+          {
+            "n": "02",
+            "title": "Design and build",
+            "body": "I build the pages straight in code: design, responsiveness, animations. You get a live link - open it on your phone, comment, I adjust as we go.",
+            "time": "~30 min"
+          },
+          {
+            "n": "03",
+            "title": "Content and SEO",
+            "body": "Copy, translations, meta tags, schema, speed. I run the site through a 40+ point checklist: from hreflang to OG images.",
+            "time": "~30 min"
+          },
+          {
+            "n": "04",
+            "title": "Launch and handover",
+            "body": "We connect the domain, switch on analytics, I submit the sitemap to Google. You get the access, the code and a short guide on living with the site.",
+            "time": "~30 min"
+          }
+        ]
+      },
+      "calc": {
+        "eyebrow": "Do the math",
+        "headline": "What a slow website costs",
+        "sub": "Google has been measuring the same thing for years: the longer a page loads, the more people leave before seeing it. Plug in your numbers and see what that adds up to per month.",
+        "visitors": "Visitors per month",
+        "conv": "Lead conversion, %",
+        "value": "Average lead value, €",
+        "resultTitle": "Revenue lost on a slow site",
+        "perMonth": "per month",
+        "perYear": "per year",
+        "leadsLost": "leads lost per month",
+        "note": "Estimate: a site loading in 3+ seconds loses about 40% of mobile visitors before first paint. Rough math, but the order of magnitude holds.",
+        "cta": "I want a fast site"
+      },
+      "resources": {
+        "eyebrow": "Dig deeper",
+        "headline": "Worth reading before you order",
+        "items": [
+          {
+            "slug": "website-cost-poland-2025",
+            "title": "How much a website costs in Poland: 2025-2026 prices"
+          },
+          {
+            "slug": "landing-page-vs-website",
+            "title": "Landing page vs full website: which one you need"
+          },
+          {
+            "slug": "nextjs-vs-wordpress",
+            "title": "Next.js vs WordPress: what to build a business site on"
+          },
+          {
+            "slug": "why-website-gets-no-leads",
+            "title": "Why your website gets no leads: the real reasons"
+          },
+          {
+            "slug": "how-long-does-it-take-to-build-a-website",
+            "title": "How long a website takes: stages and timelines"
+          },
+          {
+            "slug": "website-builder-vs-developer",
+            "title": "Site builder vs developer: when a cheap site loses clients"
           }
         ]
       }

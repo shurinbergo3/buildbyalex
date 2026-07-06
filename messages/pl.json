@@ -1094,7 +1094,7 @@
         "description": "Tworzymy szybkie strony www w Next.js — wielojęzyczne i SEO-ready. Warszawa, wycena za darmo, realizacja w 2–4 tygodnie. Od 800 €."
       },
       "eyebrow": "Strony internetowe · Warszawa",
-      "headline": "Strony internetowe,\nktóre realnie rankują.",
+      "headline": "Strony internetowe,\nktóre przynoszą zapytania.",
       "lead": "Tworzenie stron internetowych w Warszawie pod klucz: nowoczesny serwis na Next.js, wielojęzyczny i gotowy pod SEO od pierwszego dnia — nie „wizytówka” z 2015 roku.",
       "from": "Od 800 €",
       "primaryCta": "Porozmawiajmy o projekcie",
@@ -1110,8 +1110,8 @@
             "l": "pierwsze wyświetlenie"
           },
           {
-            "v": "+38%",
-            "l": "ruchu / 3 mies."
+            "v": "x5",
+            "l": "zapytań po redesignie"
           }
         ],
         "mock": {
@@ -1376,6 +1376,22 @@
           {
             "q": "Pracujecie tylko w Warszawie, czy w całej Polsce?",
             "a": "Pracujemy w całej Polsce i zdalnie — Warszawa, Kraków, Wrocław, Gdańsk, Poznań czy mniejsze miasto, bez różnicy. Rozmowy, demo i odbiór odbywają się online, umowa i płatność zdalnie. Spotkanie na żywo w Warszawie — w razie potrzeby."
+          },
+          {
+            "q": "Czemu nie zrobić strony samemu na Wix albo WebWave?",
+            "a": "Jeśli budżet jest zerowy - kreator jest lepszy niż nic. Ale ma sufit: szablonowy wygląd, słaba szybkość, ograniczone SEO i wieczna subskrypcja platformy. Stronę na kreatorze wynajmujesz, własną - masz. Dla biznesu, który planuje zdobywać klientów z Google, kreator prawie zawsze wychodzi drożej: nie w pieniądzach, to w utraconych zapytaniach."
+          },
+          {
+            "q": "Robicie redesign? Nie stracę pozycji w Google?",
+            "a": "Robię, to częste zlecenie. Pozycje zostają dzięki poprawnej migracji: mapa starych adresów, przekierowania 301 na nowe, zachowanie struktury nagłówków i treści, kontrola indeksacji po przeprowadzce. Zwykle po migracji pozycje nie spadają, tylko rosną - dzięki szybkości i czystym danym strukturalnym."
+          },
+          {
+            "q": "Skąd będę wiedzieć, że strona działa? Jaka będzie analityka?",
+            "a": "Na każdej stronie od pierwszego dnia działa analityka: skąd przychodzą ludzie, które strony oglądają, gdzie klikają, ile jest zapytań i z jakich źródeł. Zapytania z formularza trafiają do Ciebie na Telegram albo maila. Raz w miesiącu sam otwierasz raport i widzisz liczby - bez „poproś swojego programistę o eksport”."
+          },
+          {
+            "q": "Czy będę mógł sam zmieniać teksty i zdjęcia po starcie?",
+            "a": "Tak, jeśli tego potrzebujesz - podpinam CMS: edytujesz teksty, zdjęcia i artykuły w wygodnym panelu bez programisty. Jeśli treści zmieniają się raz na pół roku, CMS nie jest konieczny: poprawki w ramach wsparcia wprowadzam szybciej, niż napiszesz brief. Wariant dobieramy na starcie."
           }
         ]
       },
@@ -1433,6 +1449,341 @@
               "Integracje: CRM, płatności, śledzenie konwersji",
               "30 dni poprawek w cenie"
             ]
+          }
+        ]
+      },
+      "pain": {
+        "eyebrow": "Problem",
+        "headline": "Ładna strona to jeszcze nie kanał sprzedaży",
+        "sub": "Kiedy strona „jest, ale nie działa”, powody są prawie zawsze te same. Sprawdź swoją w trzech punktach - zajmie to minutę.",
+        "items": [
+          {
+            "title": "Wolno się ładuje",
+            "body": "Przy trzeciej sekundzie ładowania odpada ponad połowa użytkowników mobilnych. Nikt nie napisze „strona wam muli” - ludzie po prostu wracają do Google i klikają konkurenta linijkę niżej."
+          },
+          {
+            "title": "Niewidoczna w Google",
+            "body": "Bez porządnej struktury, danych schema i szybkości strona wisi na 3-4 stronie wyników. Dociera tam mniej niż 1% szukających. Formalnie strona istnieje, praktycznie nikt jej nie znajduje."
+          },
+          {
+            "title": "Nie prowadzi do zapytania",
+            "body": "Użytkownik wszedł, przewinął i wyszedł: oferta rozmyta, cen brak, formularz schowany w „Kontakcie”. Strona opowiada o firmie, zamiast sprzedawać jej usługi."
+          }
+        ],
+        "vs": {
+          "oldLabel": "Typowa strona",
+          "newLabel": "Strona od buildbyalex",
+          "oldUrl": "stara-strona.pl",
+          "newUrl": "twoja-strona.com",
+          "loading": "Ładowanie…",
+          "oldMetrics": [
+            {
+              "v": "4.3s",
+              "l": "ładowanie"
+            },
+            {
+              "v": "str. 4",
+              "l": "w Google"
+            },
+            {
+              "v": "0.8%",
+              "l": "konwersja"
+            }
+          ],
+          "newMetrics": [
+            {
+              "v": "0.8s",
+              "l": "ładowanie"
+            },
+            {
+              "v": "top 3",
+              "l": "w Google"
+            },
+            {
+              "v": "4.2%",
+              "l": "konwersja"
+            }
+          ],
+          "bounce": "Użytkownik wyszedł",
+          "lead": "Nowe zapytanie",
+          "replay": "Powtórz"
+        }
+      },
+      "siteTypes": {
+        "eyebrow": "Formaty",
+        "headline": "Jaka strona pasuje do Twojego biznesu",
+        "sub": "Cztery typowe formaty. Nie wiesz, który jest Twój - opowiedz o zadaniu na rozmowie, doradzę szczerze. Łącznie z opcją „na razie tego nie potrzebujesz”.",
+        "priceFrom": "od",
+        "items": [
+          {
+            "title": "Landing page",
+            "price": "€400",
+            "time": "1-2 tygodnie",
+            "desc": "Jedna strona pod jeden cel: zbierać zapytania z reklam, sprzedać usługę, ogłosić start.",
+            "audience": "Dla usług, ekspertów i kampanii reklamowych",
+            "bullets": [
+              "Sprzedażowa struktura: oferta, korzyści, realizacje, formularz",
+              "Zaprojektowany pod ruch z Google Ads i Meta",
+              "Analityka i śledzenie konwersji od pierwszego dnia"
+            ]
+          },
+          {
+            "title": "Strona firmowa",
+            "price": "€800",
+            "time": "2-4 tygodnie",
+            "desc": "Wielostronicowy serwis firmy: usługi, realizacje, blog. Główny format do pozycjonowania w Google.",
+            "audience": "Dla firm, klinik, studiów, B2B",
+            "bullets": [
+              "Osobna strona SEO pod każdą usługę",
+              "Do 4 języków: PL, EN, UA, RU",
+              "Blog i case studies, które przyciągają ruch organiczny"
+            ]
+          },
+          {
+            "title": "Sklep internetowy",
+            "price": "€1 200",
+            "time": "3-5 tygodni",
+            "desc": "Katalog, koszyk, płatności: Stripe, Przelewy24, BLIK. Integracje z dostawą i magazynem.",
+            "audience": "Dla biznesu towarowego i marek D2C",
+            "bullets": [
+              "Płatność kartą, BLIK i Przelewy24",
+              "Integracja z InPost i kurierami",
+              "Synchronizacja stanów i zamówień"
+            ],
+            "href": "/services/online-store",
+            "linkLabel": "Więcej o sklepach"
+          },
+          {
+            "title": "Redesign i migracja",
+            "price": "€600",
+            "time": "2-3 tygodnie",
+            "desc": "Strona się zestarzała albo muli - przenoszę ją na szybką architekturę bez utraty pozycji w Google.",
+            "audience": "Dla stron starszych niż 3-4 lata i wolnego WordPressa",
+            "bullets": [
+              "Przekierowania 301: pozycje i linki zostają",
+              "Szybkość rośnie 3-5 razy",
+              "Design i teksty podciągnięte do poziomu 2026 roku"
+            ]
+          }
+        ]
+      },
+      "caseProof": {
+        "eyebrow": "Case z liczbami",
+        "headline": "Przed i po: VisionAir",
+        "sub": "Igor lata dronem w Warszawie: śluby, nieruchomości, inspekcje obiektów. Stara strona ładowała się 4 sekundy i nie rankowała w żadnej z usług. Oto co zmieniła przeprowadzka na nową.",
+        "beforeLabel": "Było",
+        "afterLabel": "Jest",
+        "rows": [
+          {
+            "label": "Ładowanie strony",
+            "before": "4.1s",
+            "after": "0.9s"
+          },
+          {
+            "label": "Konwersja na zapytanie",
+            "before": "0.8%",
+            "after": "4.2%"
+          },
+          {
+            "label": "Stron SEO usług",
+            "before": "1",
+            "after": "7"
+          },
+          {
+            "label": "Czas odpowiedzi klientowi",
+            "before": "godziny",
+            "after": "2 sek"
+          }
+        ],
+        "growth": "x5",
+        "growthLabel": "wzrost konwersji na zapytanie",
+        "quote": "Zrozumiał biznes po jednej rozmowie. Leady już nie giną - wpadają na Telegram, odpowiadam w ciągu minut.",
+        "quoteAuthor": "Igor P. · CEO VisionAir",
+        "cta": "Zobacz cały case",
+        "note": "Zapytanie ze strony trafia do właściciela na Telegramie w 2 sekundy - gdy klient wciąż jest na stronie."
+      },
+      "compare": {
+        "eyebrow": "Porównanie",
+        "headline": "buildbyalex, agencja,\nfreelancer czy kreator",
+        "sub": "Każda opcja ma swoją niszę. Pytanie, co dokładnie dostajesz za pieniądze i czas - oto uczciwe zestawienie.",
+        "colMe": "buildbyalex",
+        "cols": [
+          "Agencja",
+          "Freelancer",
+          "Kreator"
+        ],
+        "rows": [
+          {
+            "label": "Cena",
+            "me": "€400-1 500",
+            "vals": [
+              "4 000-40 000 zł",
+              "nieprzewidywalna",
+              "od 300 zł/rok + Twój czas"
+            ]
+          },
+          {
+            "label": "Czas do startu",
+            "me": "2-4 tygodnie",
+            "vals": [
+              "1-3 miesiące",
+              "od 2 tygodni do pół roku",
+              "zależy od Ciebie"
+            ]
+          },
+          {
+            "label": "Szybkość: LCP < 1s",
+            "me": true,
+            "vals": [
+              "jak się trafi",
+              "jak się trafi",
+              "prawie zawsze czerwona strefa"
+            ]
+          },
+          {
+            "label": "SEO od pierwszego dnia",
+            "me": true,
+            "vals": [
+              "za dopłatą",
+              "rzadko",
+              "ograniczone przez platformę"
+            ]
+          },
+          {
+            "label": "4 języki: PL / EN / UA / RU",
+            "me": true,
+            "vals": [
+              "za dopłatą",
+              "rzadko",
+              "krzywo albo drogo"
+            ]
+          },
+          {
+            "label": "Kod i domena - Twoje",
+            "me": true,
+            "vals": [
+              "nie zawsze",
+              "zwykle tak",
+              "nie, wynajem platformy"
+            ]
+          },
+          {
+            "label": "Rozmawiasz bezpośrednio z",
+            "me": "programistą",
+            "vals": [
+              "project managerem",
+              "wykonawcą",
+              "centrum pomocy"
+            ]
+          },
+          {
+            "label": "Obowiązkowe opłaty po starcie",
+            "me": "€0",
+            "vals": [
+              "abonament 200-500 zł/mies.",
+              "do uzgodnienia",
+              "subskrypcja na zawsze"
+            ]
+          }
+        ],
+        "note": "Dane rynkowe - z otwartych cenników polskich agencji i platform, jesień 2025."
+      },
+      "guarantees": {
+        "eyebrow": "Bez ryzyka",
+        "headline": "Cztery gwarancje w umowie",
+        "sub": "Nie obietnice na słowo, tylko zapisy umowy, którą podpisujemy przed startem prac.",
+        "items": [
+          {
+            "title": "Stała wycena",
+            "body": "Cenę podaję przed startem i nie zmieniam w trakcie. Jeśli zakres urósł - najpierw uzgadniamy nową wycenę, potem robię."
+          },
+          {
+            "title": "Termin na piśmie",
+            "body": "Data startu jest zapisana w umowie. Jeśli opóźnienie wynika z mojej winy - za każdy tydzień poślizgu daję rabat."
+          },
+          {
+            "title": "Kod i domena - Twoje",
+            "body": "Domenę i hosting rejestruję na Twoje dane, źródła trafiają do Twojego GitHuba. Zmienisz wykonawcę - wszystko zostaje u Ciebie."
+          },
+          {
+            "title": "30 dni poprawek",
+            "body": "Miesiąc po starcie poprawiam za darmo: teksty, sekcje, drobiazgi. Bez ticketów, kolejek i „to już nowa wycena”."
+          }
+        ]
+      },
+      "timeline": {
+        "eyebrow": "Proces",
+        "headline": "Od rozmowy do startu - 4 tygodnie",
+        "sub": "Typowy plan strony firmowej. Landing przechodzi tę samą drogę w 1-2 tygodnie. Od Ciebie wymaga to paru godzin, nie paru miesięcy.",
+        "yourTime": "Twój czas",
+        "weeks": [
+          {
+            "n": "01",
+            "title": "Rozmowa i struktura",
+            "body": "30 minut rozmowy o biznesie. Potem przygotowuję wycenę, strukturę stron i koncept strony głównej. Akceptujesz - podpisujemy umowę z datą startu.",
+            "time": "~1 godz."
+          },
+          {
+            "n": "02",
+            "title": "Design i development",
+            "body": "Składam strony od razu w kodzie: design, responsywność, animacje. Wysyłam działający link - otwierasz z telefonu, komentujesz, poprawiam na bieżąco.",
+            "time": "~30 min"
+          },
+          {
+            "n": "03",
+            "title": "Treści i SEO",
+            "body": "Teksty, tłumaczenia, meta tagi, schema, szybkość. Przechodzę stronę checklistą 40+ punktów: od hreflang po grafiki OG.",
+            "time": "~30 min"
+          },
+          {
+            "n": "04",
+            "title": "Start i przekazanie",
+            "body": "Podpinamy domenę, włączamy analitykę, wysyłam sitemapę do Google. Przekazuję dostępy, kod i krótką instrukcję, jak dalej żyć ze stroną.",
+            "time": "~30 min"
+          }
+        ]
+      },
+      "calc": {
+        "eyebrow": "Policz sam",
+        "headline": "Ile kosztuje wolna strona",
+        "sub": "Google od lat mierzy to samo: im dłużej ładuje się strona, tym więcej osób wychodzi, nie doczekawszy się. Podstaw swoje liczby i zobacz, ile to daje miesięcznie.",
+        "visitors": "Odwiedzających miesięcznie",
+        "conv": "Konwersja na zapytanie, %",
+        "value": "Średnia wartość zapytania, €",
+        "resultTitle": "Utracony przychód na wolnej stronie",
+        "perMonth": "miesięcznie",
+        "perYear": "rocznie",
+        "leadsLost": "utraconych zapytań miesięcznie",
+        "note": "Szacunek: strona ładująca się 3+ sekundy traci około 40% użytkowników mobilnych przed pierwszym ekranem. Wyliczenie z grubsza, ale rząd wielkości się zgadza.",
+        "cta": "Chcę szybką stronę"
+      },
+      "resources": {
+        "eyebrow": "Zgłęb temat",
+        "headline": "Warto przeczytać przed zamówieniem",
+        "items": [
+          {
+            "slug": "ile-kosztuje-strona-internetowa-2025",
+            "title": "Ile kosztuje strona internetowa w Polsce: ceny 2025-2026"
+          },
+          {
+            "slug": "landing-czy-strona-internetowa",
+            "title": "Landing page czy strona internetowa: co wybrać"
+          },
+          {
+            "slug": "nextjs-czy-wordpress",
+            "title": "Next.js czy WordPress: na czym budować stronę firmy"
+          },
+          {
+            "slug": "dlaczego-strona-nie-sprzedaje",
+            "title": "Dlaczego strona nie sprzedaje: realne powody"
+          },
+          {
+            "slug": "ile-trwa-stworzenie-strony-etapy",
+            "title": "Ile trwa stworzenie strony: etapy i terminy"
+          },
+          {
+            "slug": "strona-na-kreatorze-czy-od-programisty",
+            "title": "Kreator czy programista: kiedy tania strona traci klientów"
           }
         ]
       }
