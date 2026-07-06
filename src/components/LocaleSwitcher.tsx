@@ -58,6 +58,13 @@ export function LocaleSwitcher({
     // wrong-locale URL that 404s (blog) or 307-redirects (services) — both of
     // which Google flagged as indexing errors.
     if (typeof document !== "undefined") {
+      // A hard navigation bypasses next-intl's router, which normally writes the
+      // NEXT_LOCALE cookie. Without it the middleware still sees the old locale
+      // and (under localePrefix "as-needed") redirects the unprefixed default-
+      // locale URL straight back — so switching to RU appeared to do nothing.
+      // Set the cookie ourselves before navigating.
+      document.cookie = `NEXT_LOCALE=${next}; path=/; max-age=31536000; samesite=lax`;
+
       const hl = htmlLang(next); // ua → uk, matching the hreflang codes
       const link = document.querySelector<HTMLLinkElement>(
         `link[rel="alternate"][hreflang="${hl}"]`,
