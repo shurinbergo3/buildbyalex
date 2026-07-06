@@ -9,8 +9,8 @@ import { Reveal } from "./Reveal";
 
 type Week = { n: string; title: string; body: string; time: string };
 
-export function WebsitesTimeline() {
-  const t = useTranslations("services.websites.timeline");
+export function ServiceTimeline({ branch }: { branch: "websites" | "store" }) {
+  const t = useTranslations(`services.${branch}.timeline`);
   const weeks = t.raw("weeks") as Week[];
 
   const howToSchema = {

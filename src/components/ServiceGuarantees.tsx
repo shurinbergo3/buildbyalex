@@ -30,8 +30,8 @@ const icons = [
   </svg>,
 ];
 
-export function WebsitesGuarantees() {
-  const t = useTranslations("services.websites.guarantees");
+export function ServiceGuarantees({ branch }: { branch: "websites" | "store" }) {
+  const t = useTranslations(`services.${branch}.guarantees`);
   const items = t.raw("items") as Guarantee[];
 
   return (

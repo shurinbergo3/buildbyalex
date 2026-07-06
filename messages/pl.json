@@ -1506,66 +1506,27 @@
           ],
           "bounce": "Użytkownik wyszedł",
           "lead": "Nowe zapytanie",
-          "replay": "Powtórz"
-        }
-      },
-      "siteTypes": {
-        "eyebrow": "Formaty",
-        "headline": "Jaka strona pasuje do Twojego biznesu",
-        "sub": "Cztery typowe formaty. Nie wiesz, który jest Twój - opowiedz o zadaniu na rozmowie, doradzę szczerze. Łącznie z opcją „na razie tego nie potrzebujesz”.",
-        "priceFrom": "od",
-        "items": [
-          {
-            "title": "Landing page",
-            "price": "€400",
-            "time": "1-2 tygodnie",
-            "desc": "Jedna strona pod jeden cel: zbierać zapytania z reklam, sprzedać usługę, ogłosić start.",
-            "audience": "Dla usług, ekspertów i kampanii reklamowych",
-            "bullets": [
-              "Sprzedażowa struktura: oferta, korzyści, realizacje, formularz",
-              "Zaprojektowany pod ruch z Google Ads i Meta",
-              "Analityka i śledzenie konwersji od pierwszego dnia"
-            ]
-          },
-          {
-            "title": "Strona firmowa",
-            "price": "€800",
-            "time": "2-4 tygodnie",
-            "desc": "Wielostronicowy serwis firmy: usługi, realizacje, blog. Główny format do pozycjonowania w Google.",
-            "audience": "Dla firm, klinik, studiów, B2B",
-            "bullets": [
-              "Osobna strona SEO pod każdą usługę",
-              "Do 4 języków: PL, EN, UA, RU",
-              "Blog i case studies, które przyciągają ruch organiczny"
-            ]
-          },
-          {
-            "title": "Sklep internetowy",
-            "price": "€1 200",
-            "time": "3-5 tygodni",
-            "desc": "Katalog, koszyk, płatności: Stripe, Przelewy24, BLIK. Integracje z dostawą i magazynem.",
-            "audience": "Dla biznesu towarowego i marek D2C",
-            "bullets": [
-              "Płatność kartą, BLIK i Przelewy24",
-              "Integracja z InPost i kurierami",
-              "Synchronizacja stanów i zamówień"
+          "replay": "Powtórz",
+          "old": {
+            "logo": "F.H.U. Twój Partner",
+            "tagline": "wizytówka internetowa firmy",
+            "nav": [
+              "Strona główna",
+              "O firmie",
+              "Oferta",
+              "Cennik",
+              "Galeria",
+              "Kontakt"
             ],
-            "href": "/services/online-store",
-            "linkLabel": "Więcej o sklepach"
-          },
-          {
-            "title": "Redesign i migracja",
-            "price": "€600",
-            "time": "2-3 tygodnie",
-            "desc": "Strona się zestarzała albo muli - przenoszę ją na szybką architekturę bez utraty pozycji w Google.",
-            "audience": "Dla stron starszych niż 3-4 lata i wolnego WordPressa",
-            "bullets": [
-              "Przekierowania 301: pozycje i linki zostają",
-              "Szybkość rośnie 3-5 razy",
-              "Design i teksty podciągnięte do poziomu 2026 roku"
-            ]
+            "marquee": "!!! PROMOCJA !!! RABAT 50% TYLKO DO KOŃCA MIESIĄCA !!! DZWOŃ !!!",
+            "welcome": "Witamy na naszej oficjalnej stronie internetowej!",
+            "p1": "Nasza firma od ponad 15 lat z powodzeniem działa na rynku i oferuje szeroki zakres usług w najkorzystniejszych cenach. Indywidualne podejście do każdego klienta!",
+            "more": "Więcej >>",
+            "imgAlt": "zdjęcie nie wczytało się",
+            "counter": "Odwiedzin dzisiaj: 47",
+            "updated": "Aktualizacja: 12.03.2016"
           }
-        ]
+        }
       },
       "caseProof": {
         "eyebrow": "Case z liczbami",
@@ -1786,6 +1747,64 @@
             "title": "Kreator czy programista: kiedy tania strona traci klientów"
           }
         ]
+      },
+      "formats": {
+        "eyebrow": "Formaty",
+        "headline": "Jaka strona pasuje do Twojego biznesu",
+        "sub": "Cztery typowe formaty. Nie wiesz, który jest Twój - opowiedz o zadaniu na rozmowie, doradzę szczerze. Łącznie z opcją „na razie tego nie potrzebujesz”.",
+        "priceFrom": "od",
+        "items": [
+          {
+            "title": "Landing page",
+            "price": "€400",
+            "time": "1-2 tygodnie",
+            "desc": "Jedna strona pod jeden cel: zbierać zapytania z reklam, sprzedać usługę, ogłosić start.",
+            "audience": "Dla usług, ekspertów i kampanii reklamowych",
+            "bullets": [
+              "Sprzedażowa struktura: oferta, korzyści, realizacje, formularz",
+              "Zaprojektowany pod ruch z Google Ads i Meta",
+              "Analityka i śledzenie konwersji od pierwszego dnia"
+            ]
+          },
+          {
+            "title": "Strona firmowa",
+            "price": "€800",
+            "time": "2-4 tygodnie",
+            "desc": "Wielostronicowy serwis firmy: usługi, realizacje, blog. Główny format do pozycjonowania w Google.",
+            "audience": "Dla firm, klinik, studiów, B2B",
+            "bullets": [
+              "Osobna strona SEO pod każdą usługę",
+              "Do 4 języków: PL, EN, UA, RU",
+              "Blog i case studies, które przyciągają ruch organiczny"
+            ]
+          },
+          {
+            "title": "Sklep internetowy",
+            "price": "€1 200",
+            "time": "3-5 tygodni",
+            "desc": "Katalog, koszyk, płatności: Stripe, Przelewy24, BLIK. Integracje z dostawą i magazynem.",
+            "audience": "Dla biznesu towarowego i marek D2C",
+            "bullets": [
+              "Płatność kartą, BLIK i Przelewy24",
+              "Integracja z InPost i kurierami",
+              "Synchronizacja stanów i zamówień"
+            ],
+            "href": "/services/online-store",
+            "linkLabel": "Więcej o sklepach"
+          },
+          {
+            "title": "Redesign i migracja",
+            "price": "€600",
+            "time": "2-3 tygodnie",
+            "desc": "Strona się zestarzała albo muli - przenoszę ją na szybką architekturę bez utraty pozycji w Google.",
+            "audience": "Dla stron starszych niż 3-4 lata i wolnego WordPressa",
+            "bullets": [
+              "Przekierowania 301: pozycje i linki zostają",
+              "Szybkość rośnie 3-5 razy",
+              "Design i teksty podciągnięte do poziomu 2026 roku"
+            ]
+          }
+        ]
       }
     },
     "store": {
@@ -2001,6 +2020,22 @@
           {
             "q": "Pracujecie tylko w Warszawie, czy w całej Polsce?",
             "a": "Pracujemy w całej Polsce i zdalnie — Warszawa, Kraków, Wrocław, Gdańsk, Poznań czy mniejsze miasto, bez różnicy. Rozmowy, demo i odbiór odbywają się online, umowa i płatność zdalnie. Spotkanie na żywo w Warszawie — w razie potrzeby."
+          },
+          {
+            "q": "Ile kosztuje utrzymanie sklepu miesięcznie?",
+            "a": "Domena - około 70-160 zł rocznie, hosting - grosze albo zero, prowizja operatora płatności - około 1-1,5% od transakcji. To wszystko. Żadnego abonamentu platformy ani procentu serwisu od każdej sprzedaży. Dla porównania: na SaaS płacisz 70-300 zł miesięcznie plus limity pakietu, na Allegro - 6-15% od obrotu."
+          },
+          {
+            "q": "Co z częścią prawną: regulamin, RODO, zwroty?",
+            "a": "Stronę techniczną zamykam ja: strony regulaminu i polityki prywatności, baner RODO, Consent Mode v2, poprawna obsługa zwrotów w 14 dni w panelu zamówienia. Same teksty prawne - od Twojego prawnika albo na bazie sprawdzonych polskich wzorów, podpowiem skąd wziąć. Efekt: sklep nie odstrasza klienta i przechodzi weryfikacje systemów reklamowych."
+          },
+          {
+            "q": "Czy będę mógł sam dodawać produkty i zmieniać ceny?",
+            "a": "Tak, to podstawa. Produkty, ceny, stany, zdjęcia, kody rabatowe i statusy zamówień prowadzisz w panelu bez programisty. Jeśli produktami zarządza Baselinker albo magazyn dostawcy - ustawiam synchronizację i ręcznie nie robisz nic."
+          },
+          {
+            "q": "Czy sklep będzie gotowy na KSeF w 2026 roku?",
+            "a": "Tak. Od 2026 roku w Polsce etapami wchodzą obowiązkowe e-faktury KSeF i sklepy wystawiające faktury ręcznie czeka wesoły luty. Wystawianie faktur przez integrację zakładam od razu, żeby przejście na KSeF było zmianą ustawień, a nie przebudową sklepu."
           }
         ]
       },
@@ -2057,6 +2092,302 @@
               "Podłączenie płatności i wysyłki",
               "30 dni poprawek w cenie"
             ]
+          }
+        ]
+      },
+      "pain": {
+        "eyebrow": "Problem",
+        "headline": "Ruch jest, sprzedaży nie ma - znajome?",
+        "sub": "Sklepy, które „nie sprzedają”, mają prawie zawsze te same trzy dziury. Sprawdź swój - i policz, ile przez nie ucieka co miesiąc.",
+        "items": [
+          {
+            "title": "Koszyki porzucane przy kasie",
+            "body": "Klient dodał produkt, otworzył zamówienie - i wyszedł: checkout w pięciu krokach, obowiązkowa rejestracja, brak BLIKa. W Polsce nawet 70% koszyków nie dochodzi do płatności, a większość z tego leczy zwykły porządny checkout."
+          },
+          {
+            "title": "Cała sprzedaż zależy od Allegro",
+            "body": "Platforma pobiera prowizję od każdej sprzedaży, podnosi cenniki i trzyma u siebie Twoją bazę klientów. Jeden sporny komentarz albo blokada konta - i sprzedaż staje. To nie Twój biznes, to wynajem lady."
+          },
+          {
+            "title": "Sklepu nie widać w Google",
+            "body": "Karty produktów bez porządnych tytułów, duplikaty stron, zero danych strukturalnych. Ludzie szukają „kupić … Warszawa” - a w wynikach jest Allegro i konkurencja, nie Ty."
+          }
+        ]
+      },
+      "formats": {
+        "eyebrow": "Formaty",
+        "headline": "Jaki sklep pasuje do Ciebie",
+        "sub": "Trzy typowe scenariusze. Nie wiesz, który jest Twój - opowiedz na rozmowie, co sprzedajesz. Czasem uczciwa odpowiedź brzmi: „zacznij od Allegro, sklep później” - i tak właśnie powiem.",
+        "priceFrom": "od",
+        "items": [
+          {
+            "title": "Sklep na start",
+            "price": "€1 500",
+            "time": "2-3 tygodnie",
+            "desc": "Katalog do 100 produktów, koszyk i płatności - wszystko, żeby zacząć sprzedawać z własnej domeny.",
+            "audience": "Dla pierwszego sklepu i marek D2C",
+            "bullets": [
+              "Płatności BLIK, Przelewy24, karty - od pierwszego dnia",
+              "Dostawa InPost Paczkomaty i kurierzy",
+              "Checkout w jednym kroku, bez obowiązkowej rejestracji"
+            ]
+          },
+          {
+            "title": "Sklep pod biznes",
+            "price": "€4 000",
+            "time": "4-6 tygodni",
+            "desc": "Duży katalog, integracje z magazynem, Allegro i księgowością. Sklep jako system, nie witryna.",
+            "audience": "Dla działającego handlu i hurtu",
+            "bullets": [
+              "Synchronizacja z Baselinkerem, Allegro, magazynem",
+              "Faktury i gotowość na KSeF 2026",
+              "Cenniki B2B, rabaty, programy lojalnościowe"
+            ]
+          },
+          {
+            "title": "Przeniesienie z platformy",
+            "price": "€2 000",
+            "time": "2-4 tygodnie",
+            "desc": "Przeprowadzka z Shopera, Wixa albo wolnego WooCommerce na szybką architekturę - bez utraty pozycji.",
+            "audience": "Dla sklepów, które uderzyły w sufit platformy",
+            "bullets": [
+              "Przekierowania 301: pozycje i linki zostają",
+              "Produkty, klienci i zamówienia przenoszą się w całości",
+              "Koniec abonamentu platformy i limitów pakietu"
+            ]
+          }
+        ]
+      },
+      "integrations": {
+        "eyebrow": "Integracje",
+        "headline": "Wszystko, czego potrzebuje sklep w Polsce",
+        "sub": "Sklep sprzedaje, kiedy płatności, dostawa i księgowość działają same. Oto co podłączam - większość agencji o tej części w ogóle nie pisze.",
+        "groups": [
+          {
+            "title": "Płatności",
+            "body": "Klient płaci tak, jak przywykł płacić w Polsce - jednym kliknięciem, bez zbędnych ekranów.",
+            "items": [
+              "BLIK",
+              "Przelewy24",
+              "PayU",
+              "Stripe",
+              "Visa / Mastercard",
+              "PayPal",
+              "Apple Pay / Google Pay"
+            ]
+          },
+          {
+            "title": "Dostawa",
+            "body": "Koszt liczy się sam, etykiety drukujesz z panelu, klient widzi tracking.",
+            "items": [
+              "InPost Paczkomaty",
+              "InPost Kurier",
+              "DPD",
+              "DHL",
+              "Poczta Polska",
+              "Odbiór osobisty"
+            ]
+          },
+          {
+            "title": "Magazyn i księgowość",
+            "body": "Stany, zamówienia i faktury synchronizują się bez ręcznej roboty i Excela po nocach.",
+            "items": [
+              "Baselinker",
+              "Synchronizacja z Allegro",
+              "Stany i hurtownie",
+              "Faktury + KSeF 2026",
+              "Google Sheets",
+              "CRM"
+            ]
+          },
+          {
+            "title": "Marketing i prawo",
+            "body": "Analityka widzi każdą sprzedaż, a RODO i zgody cookie są ustawione tak, żeby reklamy nie oślepły.",
+            "items": [
+              "GA4 + zdarzenia zakupu",
+              "Meta Pixel",
+              "TikTok Pixel",
+              "Google Ads",
+              "Consent Mode v2",
+              "Baner RODO",
+              "Newslettery e-mail"
+            ]
+          }
+        ],
+        "note": "Nie ma Twojego systemu na liście? Najpewniej i tak go podłączę - zapytaj na rozmowie."
+      },
+      "compare": {
+        "eyebrow": "Porównanie",
+        "headline": "Własny sklep, platforma SaaS\nczy Allegro",
+        "sub": "Każda droga ma swoją cenę - tylko nie zawsze jest napisana na metce. Oto uczciwe zestawienie na dystansie.",
+        "colMe": "Własny sklep (buildbyalex)",
+        "cols": [
+          "SaaS: Shoper, Shopify",
+          "Allegro"
+        ],
+        "rows": [
+          {
+            "label": "Start",
+            "me": "od €1 500 jednorazowo",
+            "vals": [
+              "70-300 zł/mies. abonament",
+              "start za darmo"
+            ]
+          },
+          {
+            "label": "Prowizja od każdej sprzedaży",
+            "me": "0% (tylko bramka ~1%)",
+            "vals": [
+              "0-2% + pakiet",
+              "6-15% + promowanie"
+            ]
+          },
+          {
+            "label": "Opłaty po roku",
+            "me": "≈ 0 zł obowiązkowych",
+            "vals": [
+              "840-3 600 zł i rośnie",
+              "dziesiątki tysięcy zł prowizji"
+            ]
+          },
+          {
+            "label": "Baza klientów",
+            "me": true,
+            "vals": [
+              "Twoja",
+              "zostaje u platformy"
+            ]
+          },
+          {
+            "label": "Design i marka",
+            "me": true,
+            "vals": [
+              "szablony z dopłatami",
+              "karta jak u wszystkich"
+            ]
+          },
+          {
+            "label": "SEO i Google",
+            "me": true,
+            "vals": [
+              "ograniczone przez platformę",
+              "rankuje Allegro, nie Ty"
+            ]
+          },
+          {
+            "label": "Kod i dane - Twoje",
+            "me": true,
+            "vals": [
+              "wynajem platformy",
+              "wynajem lady"
+            ]
+          },
+          {
+            "label": "Funkcje pod Twój proces",
+            "me": "dowolne",
+            "vals": [
+              "ramy pakietu i aplikacji",
+              "brak"
+            ]
+          }
+        ],
+        "note": "Allegro to normalny kanał sprzedaży. Problem zaczyna się, gdy jest jedyny. Liczby - otwarte cenniki platform i serwisu, jesień 2025."
+      },
+      "guarantees": {
+        "eyebrow": "Bez ryzyka",
+        "headline": "Cztery gwarancje w umowie",
+        "sub": "Nie obietnice na słowo, tylko zapisy umowy, którą podpisujemy przed startem prac.",
+        "items": [
+          {
+            "title": "Stała wycena",
+            "body": "Cenę podaję przed startem i nie zmieniam w trakcie. Jeśli zakres urósł - najpierw uzgadniamy nową wycenę, potem robię."
+          },
+          {
+            "title": "Termin na piśmie",
+            "body": "Data startu jest zapisana w umowie. Jeśli opóźnienie wynika z mojej winy - za każdy tydzień poślizgu daję rabat."
+          },
+          {
+            "title": "Kod, domena i dane - Twoje",
+            "body": "Domena i hosting na Twoich danych, kod w Twoim GitHubie, baza klientów i zamówień - wyłącznie Twoja. Zero uzależnienia ode mnie."
+          },
+          {
+            "title": "30 dni poprawek",
+            "body": "Miesiąc po starcie poprawiam za darmo: teksty, sekcje, drobiazgi. Bez ticketów, kolejek i „to już nowa wycena”."
+          }
+        ]
+      },
+      "timeline": {
+        "eyebrow": "Proces",
+        "headline": "Od rozmowy do pierwszej sprzedaży - 3-5 tygodni",
+        "sub": "Typowy plan sklepu na start. Większy projekt z integracjami idzie 4-6 tygodni tymi samymi krokami. Twój udział to parę godzin, nie drugi etat.",
+        "yourTime": "Twój czas",
+        "weeks": [
+          {
+            "n": "01",
+            "title": "Rozmowa i struktura katalogu",
+            "body": "30 minut o produkcie i procesach: co sprzedajesz, jak dostarczasz, skąd biorą się stany. Potem wycena, struktura kategorii i umowa z datą startu.",
+            "time": "~1 godz."
+          },
+          {
+            "n": "02",
+            "title": "Witryna i karty produktów",
+            "body": "Strona główna, katalog, karta produktu i koszyk - od razu w kodzie. Oglądasz z telefonu przez działający link i komentujesz, poprawiam na bieżąco.",
+            "time": "~30 min"
+          },
+          {
+            "n": "03",
+            "title": "Płatności, dostawa i prawo",
+            "body": "Podłączam BLIK, Przelewy24 i karty, ustawiam InPost i kurierów, dodaję baner RODO, Consent Mode v2 i strony regulaminu. Przechodzę testowe płatności.",
+            "time": "~30 min"
+          },
+          {
+            "n": "04",
+            "title": "Produkty, testy i start",
+            "body": "Wgrywamy produkty, sprawdzamy zamówienia od koszyka po fakturę, włączamy analitykę. Przekazuję dostępy i pokazuję, jak zarządzać sklepem z panelu.",
+            "time": "~1 godz."
+          }
+        ]
+      },
+      "calc": {
+        "eyebrow": "Policz sam",
+        "headline": "Ile oddajesz Allegro",
+        "sub": "Prowizja 6-15% od każdej sprzedaży wygląda niewinnie, dopóki nie zsumujesz jej za rok. Przesuń suwaki pod swoje liczby.",
+        "sales": "Sprzedaż przez Allegro miesięcznie, zł",
+        "fee": "Średnia prowizja, %",
+        "resultTitle": "Prowizje za rok",
+        "perYear": "oddajesz platformie rocznie",
+        "perMonth": "miesięcznie",
+        "storesEquiv": "własnych sklepów za te pieniądze",
+        "note": "Prowizja zależy od kategorii, do tego dochodzi płatne promowanie. Własny sklep nie zastąpi Allegro w dniu startu, ale przestanie karmić cudzą platformę przy każdej sprzedaży i zacznie budować Twoją bazę klientów.",
+        "cta": "Chcę własny sklep"
+      },
+      "resources": {
+        "eyebrow": "Zgłęb temat",
+        "headline": "Warto przeczytać przed startem sklepu",
+        "items": [
+          {
+            "slug": "ile-kosztuje-sklep-internetowy",
+            "title": "Ile kosztuje sklep internetowy w Polsce"
+          },
+          {
+            "slug": "allegro-czy-wlasny-sklep-co-sie-bardziej-oplaca",
+            "title": "Allegro czy własny sklep: co się bardziej opłaca"
+          },
+          {
+            "slug": "jak-otworzyc-sklep-internetowy-w-polsce",
+            "title": "Jak otworzyć sklep internetowy w Polsce: krok po kroku"
+          },
+          {
+            "slug": "przelewy24-czy-payu-integracja-sklep-blik",
+            "title": "Przelewy24 czy PayU: bramka płatnicza z BLIKiem"
+          },
+          {
+            "slug": "integracja-sklepu-z-inpost-paczkomaty",
+            "title": "Integracja sklepu z InPost Paczkomaty"
+          },
+          {
+            "slug": "woocommerce-shopify-czy-headless",
+            "title": "WooCommerce, Shopify czy headless: co wybrać"
           }
         ]
       }

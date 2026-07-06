@@ -19,8 +19,8 @@ function CheckBadge() {
   );
 }
 
-export function WebsitesCompare() {
-  const t = useTranslations("services.websites.compare");
+export function ServiceCompare({ branch }: { branch: "websites" | "store" }) {
+  const t = useTranslations(`services.${branch}.compare`);
   const rows = t.raw("rows") as CompareRow[];
   const cols = t.raw("cols") as string[];
   const headline = t("headline").split("\n");
@@ -42,7 +42,7 @@ export function WebsitesCompare() {
 
         <Reveal delay={120}>
           <div className="mt-12 overflow-x-auto rounded-[24px] border border-[color:var(--c-hairline)] bg-[color:var(--color-bg)] md:mt-14">
-            <table className="w-full min-w-[820px] border-collapse text-left">
+            <table className={`w-full border-collapse text-left ${cols.length <= 2 ? "min-w-[680px]" : "min-w-[820px]"}`}>
               <thead>
                 <tr className="border-b border-[color:var(--c-hairline)]">
                   <th className="w-[26%] px-5 py-4 md:px-6" />

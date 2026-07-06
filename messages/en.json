@@ -1506,66 +1506,27 @@
           ],
           "bounce": "Visitor left",
           "lead": "New enquiry",
-          "replay": "Replay"
-        }
-      },
-      "siteTypes": {
-        "eyebrow": "Formats",
-        "headline": "Which website fits your business",
-        "sub": "Four typical formats. Not sure which one is yours - tell me about the task on a call and I'll give you a straight answer. Including “you don't need this yet”.",
-        "priceFrom": "from",
-        "items": [
-          {
-            "title": "Landing page",
-            "price": "€400",
-            "time": "1-2 weeks",
-            "desc": "One page with one goal: collect leads from ads, sell a service, announce a launch.",
-            "audience": "For services, experts and ad campaigns",
-            "bullets": [
-              "Sales-driven structure: offer, benefits, proof, form",
-              "Built for Google Ads and Meta traffic",
-              "Analytics and conversion tracking from day one"
-            ]
-          },
-          {
-            "title": "Company website",
-            "price": "€800",
-            "time": "2-4 weeks",
-            "desc": "A multi-page site: services, case studies, blog. The main format for ranking on Google.",
-            "audience": "For companies, clinics, studios, B2B",
-            "bullets": [
-              "A dedicated SEO page for every service",
-              "Up to 4 languages: PL, EN, UA, RU",
-              "A blog and case studies that bring organic traffic"
-            ]
-          },
-          {
-            "title": "Online store",
-            "price": "€1,200",
-            "time": "3-5 weeks",
-            "desc": "Catalogue, cart, payments: Stripe, Przelewy24, BLIK. Shipping and inventory integrations.",
-            "audience": "For product businesses and D2C brands",
-            "bullets": [
-              "Card payments, BLIK and Przelewy24",
-              "InPost and courier integrations",
-              "Stock and order synchronisation"
+          "replay": "Replay",
+          "old": {
+            "logo": "Your Partner Ltd.",
+            "tagline": "official company homepage",
+            "nav": [
+              "Home",
+              "About us",
+              "Services",
+              "Price list",
+              "Gallery",
+              "Contact"
             ],
-            "href": "/services/online-store",
-            "linkLabel": "More about stores"
-          },
-          {
-            "title": "Redesign & migration",
-            "price": "€600",
-            "time": "2-3 weeks",
-            "desc": "Your site is dated or sluggish - I move it to a fast architecture without losing Google rankings.",
-            "audience": "For sites older than 3-4 years and slow WordPress",
-            "bullets": [
-              "301 redirects: rankings and links survive",
-              "Speed improves 3-5x",
-              "Design and copy brought up to 2026 standards"
-            ]
+            "marquee": "!!! SPECIAL OFFER !!! 50% OFF UNTIL THE END OF THE MONTH !!! CALL NOW !!!",
+            "welcome": "Welcome to our official website!",
+            "p1": "Our company has been successfully operating on the market for over 15 years, offering a wide range of services at the best prices. An individual approach to every client!",
+            "more": "Read more >>",
+            "imgAlt": "image failed to load",
+            "counter": "Visitors today: 47",
+            "updated": "Last updated: 12.03.2016"
           }
-        ]
+        }
       },
       "caseProof": {
         "eyebrow": "A case in numbers",
@@ -1786,6 +1747,64 @@
             "title": "Site builder vs developer: when a cheap site loses clients"
           }
         ]
+      },
+      "formats": {
+        "eyebrow": "Formats",
+        "headline": "Which website fits your business",
+        "sub": "Four typical formats. Not sure which one is yours - tell me about the task on a call and I'll give you a straight answer. Including “you don't need this yet”.",
+        "priceFrom": "from",
+        "items": [
+          {
+            "title": "Landing page",
+            "price": "€400",
+            "time": "1-2 weeks",
+            "desc": "One page with one goal: collect leads from ads, sell a service, announce a launch.",
+            "audience": "For services, experts and ad campaigns",
+            "bullets": [
+              "Sales-driven structure: offer, benefits, proof, form",
+              "Built for Google Ads and Meta traffic",
+              "Analytics and conversion tracking from day one"
+            ]
+          },
+          {
+            "title": "Company website",
+            "price": "€800",
+            "time": "2-4 weeks",
+            "desc": "A multi-page site: services, case studies, blog. The main format for ranking on Google.",
+            "audience": "For companies, clinics, studios, B2B",
+            "bullets": [
+              "A dedicated SEO page for every service",
+              "Up to 4 languages: PL, EN, UA, RU",
+              "A blog and case studies that bring organic traffic"
+            ]
+          },
+          {
+            "title": "Online store",
+            "price": "€1,200",
+            "time": "3-5 weeks",
+            "desc": "Catalogue, cart, payments: Stripe, Przelewy24, BLIK. Shipping and inventory integrations.",
+            "audience": "For product businesses and D2C brands",
+            "bullets": [
+              "Card payments, BLIK and Przelewy24",
+              "InPost and courier integrations",
+              "Stock and order synchronisation"
+            ],
+            "href": "/services/online-store",
+            "linkLabel": "More about stores"
+          },
+          {
+            "title": "Redesign & migration",
+            "price": "€600",
+            "time": "2-3 weeks",
+            "desc": "Your site is dated or sluggish - I move it to a fast architecture without losing Google rankings.",
+            "audience": "For sites older than 3-4 years and slow WordPress",
+            "bullets": [
+              "301 redirects: rankings and links survive",
+              "Speed improves 3-5x",
+              "Design and copy brought up to 2026 standards"
+            ]
+          }
+        ]
       }
     },
     "store": {
@@ -2001,6 +2020,22 @@
           {
             "q": "Do you work only in Warsaw, or across Poland?",
             "a": "We work across all of Poland and remotely — Warsaw, Kraków, Wrocław, Gdańsk, Poznań or a smaller town, it makes no difference. Calls, demos and handover happen online; the contract and payment are remote. An in-person meeting in Warsaw is available on request."
+          },
+          {
+            "q": "How much does running the store cost per month?",
+            "a": "The domain is about 70-160 zł a year, hosting is pennies or zero, the payment operator takes about 1-1.5% per transaction. That's it. No platform subscription and no marketplace percentage on every sale. For comparison: on SaaS you pay 70-300 zł a month plus plan limits; on Allegro, 6-15% of turnover."
+          },
+          {
+            "q": "What about the legal side: terms, GDPR, returns?",
+            "a": "I close the technical side: the terms and privacy pages, the GDPR banner, Consent Mode v2, and correct 14-day return handling in the order flow. The legal texts themselves come from your lawyer or proven Polish templates - I'll point you to them. The result: the store doesn't scare customers away and passes ad-platform verifications."
+          },
+          {
+            "q": "Will I be able to add products and change prices myself?",
+            "a": "Yes, that's table stakes. Products, prices, stock, photos, promo codes and order statuses are all yours to manage in the admin, no developer needed. If Baselinker or your supplier's warehouse manages the products - I set up a sync and you touch nothing by hand."
+          },
+          {
+            "q": "Will the store be ready for KSeF in 2026?",
+            "a": "Yes. From 2026 Poland is phasing in mandatory KSeF e-invoices, and stores that issue invoices by hand are in for a fun February. I wire invoicing through an integration from the start, so switching to KSeF is a settings update, not a store rebuild."
           }
         ]
       },
@@ -2057,6 +2092,302 @@
               "Payment and shipping setup",
               "30 days of edits included"
             ]
+          }
+        ]
+      },
+      "pain": {
+        "eyebrow": "The problem",
+        "headline": "Traffic comes in, sales don't - sound familiar?",
+        "sub": "Stores that “don't sell” almost always leak in the same three places. Check yours - and count how much drains through them every month.",
+        "items": [
+          {
+            "title": "Carts abandoned at checkout",
+            "body": "The customer added a product, opened checkout - and left: five steps, forced registration, no BLIK. In Poland up to 70% of carts never reach payment, and most of that is cured by a plain decent checkout."
+          },
+          {
+            "title": "All revenue depends on Allegro",
+            "body": "The marketplace takes a cut of every sale, raises its fees and keeps your customer base to itself. One disputed review or an account block - and sales stop. That's not your business, that's renting a counter."
+          },
+          {
+            "title": "Google can't find the store",
+            "body": "Product pages without proper titles, duplicate URLs, zero structured data. People search “buy … Warsaw” - and the results show Allegro and your competitors, not you."
+          }
+        ]
+      },
+      "formats": {
+        "eyebrow": "Formats",
+        "headline": "Which store fits you",
+        "sub": "Three typical scenarios. Not sure which is yours - tell me what you sell on a call. Sometimes the honest answer is “start on Allegro, build the store later” - and that's exactly what I'll say.",
+        "priceFrom": "from",
+        "items": [
+          {
+            "title": "Starter store",
+            "price": "€1,500",
+            "time": "2-3 weeks",
+            "desc": "A catalogue up to 100 products, cart and payments - everything to start selling from your own domain.",
+            "audience": "For a first store and D2C brands",
+            "bullets": [
+              "BLIK, Przelewy24 and card payments from day one",
+              "InPost Paczkomaty and courier delivery",
+              "One-step checkout, no forced registration"
+            ]
+          },
+          {
+            "title": "Business store",
+            "price": "€4,000",
+            "time": "4-6 weeks",
+            "desc": "A large catalogue with warehouse, Allegro and accounting integrations. A store as a system, not a storefront.",
+            "audience": "For established retail and wholesale",
+            "bullets": [
+              "Sync with Baselinker, Allegro and your warehouse",
+              "Invoicing ready for KSeF 2026",
+              "B2B price lists, discounts, loyalty programs"
+            ]
+          },
+          {
+            "title": "Platform migration",
+            "price": "€2,000",
+            "time": "2-4 weeks",
+            "desc": "Moving off Shoper, Wix or slow WooCommerce onto a fast architecture - without losing rankings.",
+            "audience": "For stores that hit the platform's ceiling",
+            "bullets": [
+              "301 redirects: rankings and links survive",
+              "Products, customers and orders move over in full",
+              "No more platform subscription and plan limits"
+            ]
+          }
+        ]
+      },
+      "integrations": {
+        "eyebrow": "Integrations",
+        "headline": "Everything a store in Poland needs",
+        "sub": "A store sells when payments, delivery and back office run themselves. Here's what I hook up - most agencies don't even mention this part.",
+        "groups": [
+          {
+            "title": "Payments",
+            "body": "Customers pay the way they're used to paying in Poland - one click, no extra screens.",
+            "items": [
+              "BLIK",
+              "Przelewy24",
+              "PayU",
+              "Stripe",
+              "Visa / Mastercard",
+              "PayPal",
+              "Apple Pay / Google Pay"
+            ]
+          },
+          {
+            "title": "Delivery",
+            "body": "Shipping costs calculate themselves, labels print from the admin, customers see tracking.",
+            "items": [
+              "InPost Paczkomaty",
+              "InPost Courier",
+              "DPD",
+              "DHL",
+              "Poczta Polska",
+              "Local pickup"
+            ]
+          },
+          {
+            "title": "Warehouse & accounting",
+            "body": "Stock, orders and invoices sync without manual work or late-night Excel.",
+            "items": [
+              "Baselinker",
+              "Allegro sync",
+              "Stock & wholesalers",
+              "Invoices + KSeF 2026",
+              "Google Sheets",
+              "CRM"
+            ]
+          },
+          {
+            "title": "Marketing & legal",
+            "body": "Analytics sees every sale, and GDPR plus cookie consents are set up so your ads don't go blind.",
+            "items": [
+              "GA4 + purchase events",
+              "Meta Pixel",
+              "TikTok Pixel",
+              "Google Ads",
+              "Consent Mode v2",
+              "GDPR banner",
+              "Email campaigns"
+            ]
+          }
+        ],
+        "note": "Don't see your system on the list? I can most likely hook it up anyway - ask on the call."
+      },
+      "compare": {
+        "eyebrow": "Comparison",
+        "headline": "Your own store, a SaaS platform\nor Allegro",
+        "sub": "Every path has its price - it's just not always printed on the tag. Here's the honest long-run breakdown.",
+        "colMe": "Own store (buildbyalex)",
+        "cols": [
+          "SaaS: Shoper, Shopify",
+          "Allegro"
+        ],
+        "rows": [
+          {
+            "label": "Getting started",
+            "me": "from €1,500 one-off",
+            "vals": [
+              "70-300 zł/mo subscription",
+              "free to start"
+            ]
+          },
+          {
+            "label": "Commission per sale",
+            "me": "0% (gateway ~1% only)",
+            "vals": [
+              "0-2% + plan",
+              "6-15% + promotion"
+            ]
+          },
+          {
+            "label": "Fees after a year",
+            "me": "≈ 0 zł mandatory",
+            "vals": [
+              "840-3,600 zł and rising",
+              "tens of thousands zł in fees"
+            ]
+          },
+          {
+            "label": "Customer base",
+            "me": true,
+            "vals": [
+              "yours",
+              "stays with the marketplace"
+            ]
+          },
+          {
+            "label": "Design and brand",
+            "me": true,
+            "vals": [
+              "templates with add-ons",
+              "a listing like everyone's"
+            ]
+          },
+          {
+            "label": "SEO and Google",
+            "me": true,
+            "vals": [
+              "capped by the platform",
+              "Allegro ranks, not you"
+            ]
+          },
+          {
+            "label": "You own code and data",
+            "me": true,
+            "vals": [
+              "you rent the platform",
+              "you rent the counter"
+            ]
+          },
+          {
+            "label": "Features for your process",
+            "me": "anything",
+            "vals": [
+              "plan and app limits",
+              "none"
+            ]
+          }
+        ],
+        "note": "Allegro is a fine sales channel. The problem starts when it's the only one. Figures from public platform and marketplace price lists, autumn 2025."
+      },
+      "guarantees": {
+        "eyebrow": "Zero risk",
+        "headline": "Four guarantees in the contract",
+        "sub": "Not verbal promises - clauses in the contract we sign before work starts.",
+        "items": [
+          {
+            "title": "Fixed quote",
+            "body": "I name the price before we start and don't change it midway. If the scope grows - we agree on a new quote first, then I build."
+          },
+          {
+            "title": "Deadline in writing",
+            "body": "The launch date is written into the contract. If a delay is my fault - you get a discount for every week of slippage."
+          },
+          {
+            "title": "Code, domain and data are yours",
+            "body": "Domain and hosting in your name, code in your GitHub, the customer and order database - yours alone. Zero lock-in to me."
+          },
+          {
+            "title": "30 days of tweaks",
+            "body": "For a month after launch I fix things free: copy, sections, small changes. No tickets, no queues, no “that's a new quote”."
+          }
+        ]
+      },
+      "timeline": {
+        "eyebrow": "Process",
+        "headline": "From a call to first sales - 3-5 weeks",
+        "sub": "The typical plan for a starter store. A bigger project with integrations takes 4-6 weeks through the same steps. Your side of it is a couple of hours, not a second job.",
+        "yourTime": "Your time",
+        "weeks": [
+          {
+            "n": "01",
+            "title": "Call and catalogue structure",
+            "body": "30 minutes on your product and process: what you sell, how you ship, where stock levels come from. Then the quote, the category structure and a contract with a launch date.",
+            "time": "~1 hour"
+          },
+          {
+            "n": "02",
+            "title": "Storefront and product pages",
+            "body": "Homepage, catalogue, product page and cart - built straight in code. You browse a live link from your phone and comment; I adjust as we go.",
+            "time": "~30 min"
+          },
+          {
+            "n": "03",
+            "title": "Payments, delivery and legal",
+            "body": "I connect BLIK, Przelewy24 and cards, set up InPost and couriers, add the GDPR banner, Consent Mode v2 and the terms pages. Then I run test payments.",
+            "time": "~30 min"
+          },
+          {
+            "n": "04",
+            "title": "Products, tests and launch",
+            "body": "We load the products, walk orders from cart to invoice, switch on analytics. I hand over access and show you how to run the store from the admin.",
+            "time": "~1 hour"
+          }
+        ]
+      },
+      "calc": {
+        "eyebrow": "Do the math",
+        "headline": "What you're handing to Allegro",
+        "sub": "A 6-15% commission per sale looks harmless until you add it up over a year. Move the sliders to your numbers.",
+        "sales": "Monthly sales via Allegro, zł",
+        "fee": "Average commission, %",
+        "resultTitle": "Commissions per year",
+        "perYear": "goes to the marketplace yearly",
+        "perMonth": "per month",
+        "storesEquiv": "own stores that money buys",
+        "note": "Commission depends on the category, paid promotion comes on top. Your own store won't replace Allegro on launch day - but it stops feeding someone else's marketplace on every sale and starts building your own customer base.",
+        "cta": "I want my own store"
+      },
+      "resources": {
+        "eyebrow": "Dig deeper",
+        "headline": "Worth reading before launching a store",
+        "items": [
+          {
+            "slug": "online-store-cost-poland",
+            "title": "How much an online store costs in Poland"
+          },
+          {
+            "slug": "allegro-vs-own-online-store",
+            "title": "Allegro vs your own store: which pays off"
+          },
+          {
+            "slug": "how-to-open-online-store-in-poland",
+            "title": "How to open an online store in Poland: step by step"
+          },
+          {
+            "slug": "payment-gateway-poland-blik-przelewy24",
+            "title": "Payment gateway in Poland: BLIK and Przelewy24"
+          },
+          {
+            "slug": "inpost-paczkomaty-integration",
+            "title": "Integrating a store with InPost Paczkomaty"
+          },
+          {
+            "slug": "recover-abandoned-carts-automation",
+            "title": "Abandoned carts: how to win customers back"
           }
         ]
       }

@@ -1,17 +1,24 @@
+import type { ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { Container } from "./Container";
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
-import { SlowVsFastRace } from "./SlowVsFastRace";
 
-/* Websites-only pain section: the three reasons a site stays silent, plus the
-   slow-vs-fast loading race as living proof. Mirrors the homepage PainPoints
-   rhythm (sticky header left, numbered list right). */
+/* Pain section for flagship service pages: why the current site/store stays
+   silent. Sticky header left, numbered list right (homepage PainPoints
+   rhythm), plus an optional demo node below — e.g. the loading race on the
+   websites page. */
 
 type PainItem = { title: string; body: string };
 
-export function WebsitesPain() {
-  const t = useTranslations("services.websites.pain");
+export function ServicePain({
+  branch,
+  children,
+}: {
+  branch: "websites" | "store";
+  children?: ReactNode;
+}) {
+  const t = useTranslations(`services.${branch}.pain`);
   const items = t.raw("items") as PainItem[];
 
   return (
@@ -50,11 +57,11 @@ export function WebsitesPain() {
           </ul>
         </div>
 
-        <Reveal delay={120}>
-          <div className="mt-12 md:mt-14">
-            <SlowVsFastRace />
-          </div>
-        </Reveal>
+        {children && (
+          <Reveal delay={120}>
+            <div className="mt-12 md:mt-14">{children}</div>
+          </Reveal>
+        )}
       </Container>
     </Section>
   );

@@ -26,8 +26,8 @@ function Check() {
   );
 }
 
-export function WebsitesSiteTypes() {
-  const t = useTranslations("services.websites.siteTypes");
+export function ServiceFormats({ branch }: { branch: "websites" | "store" }) {
+  const t = useTranslations(`services.${branch}.formats`);
   const items = t.raw("items") as SiteType[];
 
   const catalogSchema = {
@@ -59,7 +59,7 @@ export function WebsitesSiteTypes() {
           </div>
         </Reveal>
 
-        <div className="mt-12 grid gap-5 md:mt-14 md:grid-cols-2 md:gap-6">
+        <div className={`mt-12 grid gap-5 md:mt-14 md:gap-6 ${items.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"}`}>
           {items.map((item, i) => (
             <Reveal key={item.title} delay={i * 80}>
               <article className="flex h-full flex-col rounded-[24px] border border-[color:var(--c-hairline)] bg-[color:var(--color-bg-alt)] p-6 transition-[transform,box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[var(--shadow-card-hover)] md:p-8">
@@ -97,10 +97,10 @@ export function WebsitesSiteTypes() {
                   ))}
                 </ul>
 
-                {item.href === "/services/online-store" && item.linkLabel && (
+                {(item.href === "/services/online-store" || item.href === "/services/websites") && item.linkLabel && (
                   <div className="mt-auto pt-5">
                     <Link
-                      href="/services/online-store"
+                      href={item.href as "/services/online-store" | "/services/websites"}
                       className="inline-flex items-center gap-1.5 text-[14.5px] font-medium text-[color:var(--c-accent-ink)] underline-offset-4 hover:underline dark:text-[color:var(--c-accent)]"
                     >
                       {item.linkLabel}

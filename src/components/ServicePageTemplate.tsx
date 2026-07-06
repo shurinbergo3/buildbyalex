@@ -20,14 +20,17 @@ import { MobileAppShowcase } from "./MobileAppShowcase";
 import { AutomationShowcase } from "./AutomationShowcase";
 import { TelegramMiniAppShowcase } from "./TelegramMiniAppShowcase";
 import { ServiceRelatedCases } from "./ServiceRelatedCases";
-import { WebsitesPain } from "./WebsitesPain";
-import { WebsitesSiteTypes } from "./WebsitesSiteTypes";
+import { ServicePain } from "./ServicePain";
+import { ServiceFormats } from "./ServiceFormats";
+import { ServiceGuarantees } from "./ServiceGuarantees";
+import { ServiceTimeline } from "./ServiceTimeline";
+import { ServiceCompare } from "./ServiceCompare";
+import { ServiceResources } from "./ServiceResources";
+import { SlowVsFastRace } from "./SlowVsFastRace";
 import { WebsitesCaseProof } from "./WebsitesCaseProof";
-import { WebsitesGuarantees } from "./WebsitesGuarantees";
-import { WebsitesTimeline } from "./WebsitesTimeline";
-import { WebsitesCompare } from "./WebsitesCompare";
 import { WebsitesLossCalc } from "./WebsitesLossCalc";
-import { WebsitesResources } from "./WebsitesResources";
+import { StoreIntegrations } from "./StoreIntegrations";
+import { StoreAllegroCalc } from "./StoreAllegroCalc";
 
 type Branch = "websites" | "store" | "ai" | "automation" | "mobile" | "telegram" | "ads";
 
@@ -96,8 +99,11 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
   const data: ServiceData = messages.services[branch];
   const priceKey = PRICE_KEY[branch];
   const Demo = DEMOS[branch];
-  // Websites is the flagship page: it carries extra decision-stage sections
-  // (pain, formats, before/after case, guarantees, comparison, loss calc).
+  // Websites and store are flagship pages: they carry extra decision-stage
+  // sections (pain, formats, guarantees, comparison, a calculator). Each also
+  // has branch-unique blocks: the loading race and before/after case for
+  // websites, the integrations wall and Allegro calc for the store.
+  const flagship = branch === "websites" || branch === "store" ? branch : null;
   const isWebsites = branch === "websites";
 
   // Same source of truth as the homepage — keeps this page's rating badge and
@@ -173,14 +179,21 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
       {/* ── Hero (cinematic key-art stage) ── */}
       <ServiceHero branch={branch} />
 
-      {/* ── Pain: why the current site stays silent (websites only) ── */}
-      {isWebsites && <WebsitesPain />}
+      {/* ── Pain: why the current site/store stays silent (flagship pages) ── */}
+      {flagship && (
+        <ServicePain branch={flagship}>
+          {isWebsites ? <SlowVsFastRace /> : undefined}
+        </ServicePain>
+      )}
 
       {/* ── Service demo (per-branch animated showcase; each owns its section) ── */}
       {Demo && <Demo />}
 
-      {/* ── Site formats with prices and timelines (websites only) ── */}
-      {isWebsites && <WebsitesSiteTypes />}
+      {/* ── Formats with prices and timelines (flagship pages) ── */}
+      {flagship && <ServiceFormats branch={flagship} />}
+
+      {/* ── Payments / delivery / back-office integrations (store only) ── */}
+      {branch === "store" && <StoreIntegrations />}
 
       {/* ── Before/after case deep dive (websites only) ── */}
       {isWebsites && <WebsitesCaseProof />}
@@ -209,11 +222,11 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
       {/* ── Related work (recent case for this service; omitted when none) ── */}
       <ServiceRelatedCases branch={branch} tone={Demo ? "alt" : "default"} />
 
-      {/* ── Contract guarantees (websites only) ── */}
-      {isWebsites && <WebsitesGuarantees />}
+      {/* ── Contract guarantees (flagship pages) ── */}
+      {flagship && <ServiceGuarantees branch={flagship} />}
 
-      {/* ── Process: week-by-week for websites, shared 4-step elsewhere ── */}
-      {isWebsites ? <WebsitesTimeline /> : <HowItWorks />}
+      {/* ── Process: week-by-week for flagship pages, shared 4-step elsewhere ── */}
+      {flagship ? <ServiceTimeline branch={flagship} /> : <HowItWorks />}
 
       {/* ── Pricing for this service (single card, or multi-tier grid) ── */}
       <ServicePricing
@@ -225,11 +238,12 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
         marketLabel={data.pricing?.marketLabel}
       />
 
-      {/* ── Me vs studio vs freelancer vs builder (websites only) ── */}
-      {isWebsites && <WebsitesCompare />}
+      {/* ── Honest alternatives table (flagship pages) ── */}
+      {flagship && <ServiceCompare branch={flagship} />}
 
-      {/* ── What a slow site costs (websites only) ── */}
+      {/* ── Cost of inaction: slow-site losses / Allegro fees ── */}
       {isWebsites && <WebsitesLossCalc />}
+      {branch === "store" && <StoreAllegroCalc />}
 
       {/* ── FAQ ── */}
       <Section pad="default" tone="alt">
@@ -241,8 +255,8 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
         </Container>
       </Section>
 
-      {/* ── Blog cluster links (websites only) ── */}
-      {isWebsites && <WebsitesResources />}
+      {/* ── Blog cluster links (flagship pages) ── */}
+      {flagship && <ServiceResources branch={flagship} />}
 
       {/* ── Reviews (Google reviews, shared block) ── */}
       <Testimonials />
