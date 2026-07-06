@@ -1094,7 +1094,7 @@
         "description": "Tworzymy szybkie strony www w Next.js — wielojęzyczne i SEO-ready. Warszawa, wycena za darmo, realizacja w 2–4 tygodnie. Od 800 €."
       },
       "eyebrow": "Strony internetowe · Warszawa",
-      "headline": "Strony internetowe w Warszawie,\nktóre realnie rankują.",
+      "headline": "Strony internetowe,\nktóre realnie rankują.",
       "lead": "Tworzenie stron internetowych w Warszawie pod klucz: nowoczesny serwis na Next.js, wielojęzyczny i gotowy pod SEO od pierwszego dnia — nie „wizytówka” z 2015 roku.",
       "from": "Od 800 €",
       "primaryCta": "Porozmawiajmy o projekcie",
@@ -1392,7 +1392,7 @@
           {
             "title": "Landing",
             "from": "od",
-            "price": "€500",
+            "price": "€400",
             "market": "4 000–6 000 zł",
             "body": "Jednostronicowa strona pod jeden cel — lead albo sprzedaż.",
             "features": [
@@ -1406,7 +1406,7 @@
           {
             "title": "Wielojęzyczny projekt",
             "from": "od",
-            "price": "€2 500",
+            "price": "€1 000",
             "market": "20 000–40 000 zł",
             "featured": true,
             "body": "Wiele podstron + lokalizacje EN / PL / UA / RU.",

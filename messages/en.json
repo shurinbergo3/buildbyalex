@@ -1094,7 +1094,7 @@
         "description": "Custom Next.js websites — multilingual, SEO-ready, built to convert. Warsaw-based, from €800, launched in 2–4 weeks. Get a free quote."
       },
       "eyebrow": "Websites · Warsaw",
-      "headline": "Websites built in Warsaw\nthat actually rank.",
+      "headline": "Websites\nthat actually rank.",
       "lead": "Custom website development in Warsaw: a modern Next.js production site — multilingual and SEO-ready from day one, not a 2015-era business-card page.",
       "from": "From €800",
       "primaryCta": "Discuss the project",
@@ -1392,7 +1392,7 @@
           {
             "title": "Landing",
             "from": "from",
-            "price": "€500",
+            "price": "€400",
             "market": "4,000–6,000 zł",
             "body": "A one-pager built around a single goal — a lead or a sale.",
             "features": [
@@ -1406,7 +1406,7 @@
           {
             "title": "Multilingual build",
             "from": "from",
-            "price": "€2,500",
+            "price": "€1,000",
             "market": "20,000–40,000 zł",
             "featured": true,
             "body": "Many pages + EN / PL / UA / RU localisations.",
