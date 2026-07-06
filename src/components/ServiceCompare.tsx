@@ -19,7 +19,7 @@ function CheckBadge() {
   );
 }
 
-export function ServiceCompare({ branch }: { branch: "websites" | "store" }) {
+export function ServiceCompare({ branch }: { branch: "websites" | "store" | "mobile" | "ai" | "automation" | "telegram" | "ads" }) {
   const t = useTranslations(`services.${branch}.compare`);
   const rows = t.raw("rows") as CompareRow[];
   const cols = t.raw("cols") as string[];

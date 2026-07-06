@@ -10,7 +10,6 @@ import { FinalCta } from "./FinalCta";
 import { ServiceHero } from "./ServiceHero";
 import { FAQAccordion, type QA } from "./FAQAccordion";
 import { ServicePricing, type PricingTier } from "./ServicePricing";
-import { HowItWorks } from "./home/HowItWorks";
 import { Testimonials } from "./home/Testimonials";
 import { AiSyncShowcase } from "./AiSyncShowcase";
 import { AdsShowcase } from "./AdsShowcase";
@@ -31,6 +30,8 @@ import { WebsitesCaseProof } from "./WebsitesCaseProof";
 import { WebsitesLossCalc } from "./WebsitesLossCalc";
 import { StoreIntegrations } from "./StoreIntegrations";
 import { StoreAllegroCalc } from "./StoreAllegroCalc";
+import { MobileCaseProof } from "./MobileCaseProof";
+import { MobileCostCalc } from "./MobileCostCalc";
 
 type Branch = "websites" | "store" | "ai" | "automation" | "mobile" | "telegram" | "ads";
 
@@ -99,12 +100,14 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
   const data: ServiceData = messages.services[branch];
   const priceKey = PRICE_KEY[branch];
   const Demo = DEMOS[branch];
-  // Websites and store are flagship pages: they carry extra decision-stage
-  // sections (pain, formats, guarantees, comparison, a calculator). Each also
-  // has branch-unique blocks: the loading race and before/after case for
-  // websites, the integrations wall and Allegro calc for the store.
-  const flagship = branch === "websites" || branch === "store" ? branch : null;
+  // Every service page carries the decision-stage set (pain, formats,
+  // guarantees, week-by-week process, comparison, blog links). On top of that
+  // some branches have unique blocks: the loading race and before/after case
+  // for websites, the integrations wall and Allegro calc for the store, the
+  // Body Forge deep dive and cost configurator for mobile.
   const isWebsites = branch === "websites";
+  // Ads has no fixed-price formats — its pricing tiers already carry that job.
+  const hasFormats = branch !== "ads";
 
   // Same source of truth as the homepage — keeps this page's rating badge and
   // structured data in sync with the Testimonials block instead of a stale count.
@@ -179,24 +182,23 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
       {/* ── Hero (cinematic key-art stage) ── */}
       <ServiceHero branch={branch} />
 
-      {/* ── Pain: why the current site/store stays silent (flagship pages) ── */}
-      {flagship && (
-        <ServicePain branch={flagship}>
-          {isWebsites ? <SlowVsFastRace /> : undefined}
-        </ServicePain>
-      )}
+      {/* ── Pain: where the money leaks without this service ── */}
+      <ServicePain branch={branch}>
+        {isWebsites ? <SlowVsFastRace /> : undefined}
+      </ServicePain>
 
       {/* ── Service demo (per-branch animated showcase; each owns its section) ── */}
       {Demo && <Demo />}
 
-      {/* ── Formats with prices and timelines (flagship pages) ── */}
-      {flagship && <ServiceFormats branch={flagship} />}
+      {/* ── Formats with prices and timelines ── */}
+      {hasFormats && <ServiceFormats branch={branch} />}
 
       {/* ── Payments / delivery / back-office integrations (store only) ── */}
       {branch === "store" && <StoreIntegrations />}
 
-      {/* ── Before/after case deep dive (websites only) ── */}
+      {/* ── Case deep dives: VisionAir for websites, Body Forge for mobile ── */}
       {isWebsites && <WebsitesCaseProof />}
+      {branch === "mobile" && <MobileCaseProof />}
 
       {/* ── What's included ── */}
       <Section pad="default" tone={Demo ? "default" : "alt"}>
@@ -222,11 +224,11 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
       {/* ── Related work (recent case for this service; omitted when none) ── */}
       <ServiceRelatedCases branch={branch} tone={Demo ? "alt" : "default"} />
 
-      {/* ── Contract guarantees (flagship pages) ── */}
-      {flagship && <ServiceGuarantees branch={flagship} />}
+      {/* ── Contract guarantees ── */}
+      <ServiceGuarantees branch={branch} />
 
-      {/* ── Process: week-by-week for flagship pages, shared 4-step elsewhere ── */}
-      {flagship ? <ServiceTimeline branch={flagship} /> : <HowItWorks />}
+      {/* ── Process, week by week ── */}
+      <ServiceTimeline branch={branch} />
 
       {/* ── Pricing for this service (single card, or multi-tier grid) ── */}
       <ServicePricing
@@ -238,12 +240,13 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
         marketLabel={data.pricing?.marketLabel}
       />
 
-      {/* ── Honest alternatives table (flagship pages) ── */}
-      {flagship && <ServiceCompare branch={flagship} />}
+      {/* ── Honest alternatives table ── */}
+      <ServiceCompare branch={branch} />
 
-      {/* ── Cost of inaction: slow-site losses / Allegro fees ── */}
+      {/* ── Cost of inaction / cost configurator ── */}
       {isWebsites && <WebsitesLossCalc />}
       {branch === "store" && <StoreAllegroCalc />}
+      {branch === "mobile" && <MobileCostCalc />}
 
       {/* ── FAQ ── */}
       <Section pad="default" tone="alt">
@@ -255,8 +258,8 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
         </Container>
       </Section>
 
-      {/* ── Blog cluster links (flagship pages) ── */}
-      {flagship && <ServiceResources branch={flagship} />}
+      {/* ── Blog cluster links ── */}
+      <ServiceResources branch={branch} />
 
       {/* ── Reviews (Google reviews, shared block) ── */}
       <Testimonials />

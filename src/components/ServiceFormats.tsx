@@ -26,7 +26,7 @@ function Check() {
   );
 }
 
-export function ServiceFormats({ branch }: { branch: "websites" | "store" }) {
+export function ServiceFormats({ branch }: { branch: "websites" | "store" | "mobile" | "ai" | "automation" | "telegram" | "ads" }) {
   const t = useTranslations(`services.${branch}.formats`);
   const items = t.raw("items") as SiteType[];
 
@@ -97,10 +97,10 @@ export function ServiceFormats({ branch }: { branch: "websites" | "store" }) {
                   ))}
                 </ul>
 
-                {(item.href === "/services/online-store" || item.href === "/services/websites") && item.linkLabel && (
+                {(item.href === "/services/online-store" || item.href === "/services/websites" || item.href === "/services/telegram-bots") && item.linkLabel && (
                   <div className="mt-auto pt-5">
                     <Link
-                      href={item.href as "/services/online-store" | "/services/websites"}
+                      href={item.href as "/services/online-store" | "/services/websites" | "/services/telegram-bots"}
                       className="inline-flex items-center gap-1.5 text-[14.5px] font-medium text-[color:var(--c-accent-ink)] underline-offset-4 hover:underline dark:text-[color:var(--c-accent)]"
                     >
                       {item.linkLabel}

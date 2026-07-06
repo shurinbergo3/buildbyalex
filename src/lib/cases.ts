@@ -24,10 +24,11 @@ export type ServiceBranch = "websites" | "store" | "ai" | "automation" | "mobile
  */
 export const serviceToCases: Record<ServiceBranch, CaseKey[]> = {
   websites: ["legalwin", "visionair", "bodyforgesite"],
-  store: ["visionair", "legalwin"],
+  store: [],
   ai: ["crmbot", "leadbot"],
   automation: ["crmbot", "leadbot"],
-  mobile: ["bodyforge", "bodyforgesite"],
+  // bodyforge itself lives in the MobileCaseProof deep dive on that page.
+  mobile: ["bodyforgesite"],
   telegram: ["leadbot"],
   ads: [],
 };

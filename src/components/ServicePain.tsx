@@ -15,7 +15,7 @@ export function ServicePain({
   branch,
   children,
 }: {
-  branch: "websites" | "store";
+  branch: "websites" | "store" | "mobile" | "ai" | "automation" | "telegram" | "ads";
   children?: ReactNode;
 }) {
   const t = useTranslations(`services.${branch}.pain`);

@@ -9,7 +9,7 @@ import { Reveal } from "./Reveal";
 
 type Week = { n: string; title: string; body: string; time: string };
 
-export function ServiceTimeline({ branch }: { branch: "websites" | "store" }) {
+export function ServiceTimeline({ branch }: { branch: "websites" | "store" | "mobile" | "ai" | "automation" | "telegram" | "ads" }) {
   const t = useTranslations(`services.${branch}.timeline`);
   const weeks = t.raw("weeks") as Week[];
 

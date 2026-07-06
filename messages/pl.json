@@ -2050,36 +2050,6 @@
         "caption": "Kurs ≈ 4,3 zł za €1. Ostateczną cenę ustalam po 30-minutowej rozmowie. Poprawki po starcie — €50/h, bez obowiązkowego abonamentu.",
         "tiers": [
           {
-            "title": "Sklep Start",
-            "from": "od",
-            "price": "€1 500",
-            "market": "10 000–18 000 zł",
-            "body": "Gotowy katalog z koszykiem i płatnościami — szybki start sprzedaży.",
-            "features": [
-              "Do 100 produktów, filtry i wyszukiwarka",
-              "Płatności: BLIK, Przelewy24, karty",
-              "RWD, SSL, podstawowe SEO produktów",
-              "Koszyk i zamówienie w jednym kroku",
-              "GA4 i zdarzenia zakupu"
-            ]
-          },
-          {
-            "title": "Sklep dla biznesu",
-            "from": "od",
-            "price": "€4 000",
-            "market": "25 000–60 000 zł",
-            "featured": true,
-            "body": "Integracje magazynu, CRM i wysyłki pod realne procesy.",
-            "features": [
-              "Wszystko ze «Sklep Start», plus:",
-              "Synchronizacja stanów i eksport zamówień",
-              "Integracja CRM, InPost, DPD, fiskalizacja",
-              "Wielojęzyczność PL/EN/UA/RU + hreflang",
-              "Feed do Google Shopping, rozszerzone SEO",
-              "Serwerowy tracking konwersji"
-            ]
-          },
-          {
             "title": "Przeniesienie / redesign",
             "from": "od",
             "price": "€2 000",
@@ -2091,6 +2061,36 @@
               "Nowy szybki front na Next.js",
               "Podłączenie płatności i wysyłki",
               "30 dni poprawek w cenie"
+            ]
+          },
+          {
+            "title": "Sklep Start",
+            "from": "od",
+            "price": "€1 500",
+            "market": "10 000–18 000 zł",
+            "body": "Gotowy katalog z koszykiem i płatnościami — szybki start sprzedaży.",
+            "features": [
+              "Do 100 produktów, filtry i wyszukiwarka",
+              "Płatności: BLIK, Przelewy24, karty",
+              "RWD, SSL, podstawowe SEO produktów",
+              "Koszyk i zamówienie w jednym kroku",
+              "GA4 i zdarzenia zakupu"
+            ],
+            "featured": true
+          },
+          {
+            "title": "Sklep dla biznesu",
+            "from": "od",
+            "price": "€4 000",
+            "market": "25 000–60 000 zł",
+            "body": "Integracje magazynu, CRM i wysyłki pod realne procesy.",
+            "features": [
+              "Wszystko ze «Sklep Start», plus:",
+              "Synchronizacja stanów i eksport zamówień",
+              "Integracja CRM, InPost, DPD, fiskalizacja",
+              "Wielojęzyczność PL/EN/UA/RU + hreflang",
+              "Feed do Google Shopping, rozszerzone SEO",
+              "Serwerowy tracking konwersji"
             ]
           }
         ]
@@ -2571,6 +2571,231 @@
             ]
           }
         ]
+      },
+      "pain": {
+        "eyebrow": "Problem",
+        "headline": "Klienci piszą teraz. Ty odpowiadasz jutro",
+        "sub": "Trzy miejsca, w których firma traci zapytania, zanim ktokolwiek zdąży porozmawiać z klientem. Wszystkie trzy zamyka jeden agent.",
+        "items": [
+          {
+            "title": "Leady stygną w godzinę",
+            "body": "Klient napisał wieczorem, odpowiedź dostał rano. W tym czasie zdążył się umówić u tego, kto odpisał w minutę. Szybkość odpowiedzi decyduje częściej niż cena: agent odpowiada w sekundy, o 3 w nocy też."
+          },
+          {
+            "title": "Zespół w roli drogiej sekretarki",
+            "body": "80% pytań się powtarza: ile kosztuje, jaki termin, jak się zapisać. Płacenie człowiekowi za te same odpowiedzi wychodzi drogo, a on jeszcze bierze urlop i choruje. Agent przejmuje rutynę, ludziom zostają transakcje."
+          },
+          {
+            "title": "Szablonowe widgety czatu wkurzają",
+            "body": "SaaS-owe boty z „wybierz opcję z menu” nie znają Twoich cen ani usług - klient się irytuje i zamyka czat. Agent na Twoich danych odpowiada konkretnie, jak pracownik, który nauczył się wszystkiego i nigdy się nie męczy."
+          }
+        ]
+      },
+      "formats": {
+        "eyebrow": "Formaty",
+        "headline": "Jaki agent jest dla Ciebie",
+        "sub": "Trzy typowe scenariusze. Nie wiesz, który Twój - opowiedz na rozmowie, gdzie uciekają Ci klienci. Jeśli wystarczy prosta automatyzacja za €400, powiem to wprost.",
+        "priceFrom": "od",
+        "items": [
+          {
+            "title": "Agent czatu na stronę",
+            "price": "€500",
+            "time": "1-2 tygodnie",
+            "desc": "Odpowiada na pytania o Twoje usługi i ceny, zbiera kontakty, przekazuje Ci zgłoszenia.",
+            "audience": "Dla usług, klinik, salonów, studiów",
+            "bullets": [
+              "Wytrenowany na Twoich cennikach, stronach i FAQ",
+              "Widget na stronę, Telegram lub WhatsApp",
+              "Zgłoszenia trafiają do Ciebie od razu"
+            ]
+          },
+          {
+            "title": "Agent sprzedażowy z CRM",
+            "price": "€1 500",
+            "time": "2-3 tygodnie",
+            "desc": "Kwalifikuje leada, umawia na usługę, prowadzi kartę w CRM - jak handlowiec, tylko przez całą dobę.",
+            "audience": "Dla działów sprzedaży i zapisów klientów",
+            "bullets": [
+              "Kwalifikacja według Twoich pytań",
+              "Zapis do kalendarza i karta w CRM",
+              "Przekazanie żywemu handlowcowi we właściwym momencie"
+            ]
+          },
+          {
+            "title": "Agent z wieloma narzędziami",
+            "price": "€3 000",
+            "time": "3-5 tygodni",
+            "desc": "Pracuje z kilkoma systemami naraz: CRM, magazyn, kalendarz, dokumenty. Nie odpowiada, tylko działa.",
+            "audience": "Dla firm ze złożonymi procesami",
+            "bullets": [
+              "Kilka kanałów: strona, Telegram, e-mail",
+              "Działania w Twoich systemach, nie tylko odpowiedzi",
+              "Panel z metrykami i historią rozmów"
+            ]
+          }
+        ]
+      },
+      "compare": {
+        "eyebrow": "Porównanie",
+        "headline": "Agent szyty na miarę, bot SaaS\nczy kolejny pracownik",
+        "sub": "Zadanie jest jedno - szybko odpowiadać klientom. Zobacz, ile każdy sposób kosztuje w skali roku.",
+        "colMe": "Agent od buildbyalex",
+        "cols": [
+          "Kreator SaaS",
+          "Kolejny handlowiec"
+        ],
+        "rows": [
+          {
+            "label": "Start",
+            "me": "€500-3 000 jednorazowo",
+            "vals": [
+              "€0-100",
+              "rekrutacja + wdrożenie"
+            ]
+          },
+          {
+            "label": "Koszt miesięczny",
+            "me": "€10-50 za API",
+            "vals": [
+              "abonament €50-500",
+              "od 5 000 zł + ZUS"
+            ]
+          },
+          {
+            "label": "Pracuje 24/7 bez wolnego",
+            "me": true,
+            "vals": [
+              "tak",
+              "8 godzin, urlop, L4"
+            ]
+          },
+          {
+            "label": "Zna Twoje usługi i ceny",
+            "me": true,
+            "vals": [
+              "szablonowe odpowiedzi",
+              "tak"
+            ]
+          },
+          {
+            "label": "Zapisuje do CRM i umawia",
+            "me": true,
+            "vals": [
+              "rzadko i byle jak",
+              "tak"
+            ]
+          },
+          {
+            "label": "Języki: PL / EN / UA / RU",
+            "me": true,
+            "vals": [
+              "zależnie od pakietu",
+              "te, które zna"
+            ]
+          },
+          {
+            "label": "Odpowiada w sekundy",
+            "me": true,
+            "vals": [
+              "tak",
+              "kiedy nie jest zajęty"
+            ]
+          },
+          {
+            "label": "Kod i prompty są Twoje",
+            "me": true,
+            "vals": [
+              "nie, wynajem platformy",
+              "wiedza odchodzi razem z nim"
+            ]
+          }
+        ],
+        "note": "Agent nie zastępuje zespołu - przejmuje powtarzalne 80%, żeby ludzie zajmowali się transakcjami, a nie kopiowaniem."
+      },
+      "guarantees": {
+        "eyebrow": "Bez ryzyka",
+        "headline": "Cztery gwarancje w umowie",
+        "sub": "Nie obietnice na słowo, tylko zapisy umowy, którą podpisujemy przed startem prac.",
+        "items": [
+          {
+            "title": "Stała wycena",
+            "body": "Cenę podaję przed startem i nie zmieniam jej po drodze. Jeśli scenariuszy przybędzie - najpierw uzgadniamy nową wycenę, potem robię."
+          },
+          {
+            "title": "Termin na piśmie",
+            "body": "Data startu jest zapisana w umowie. Jeśli opóźnienie wynika z mojej winy - za każdy tydzień poślizgu daję rabat."
+          },
+          {
+            "title": "RODO i dane w UE",
+            "body": "Historia rozmów zostaje u Ciebie, dane osobowe przetwarzane są zgodnie z RODO, modele działają przez europejskie endpointy. Żadnego „dane poleciały nie wiadomo dokąd”."
+          },
+          {
+            "title": "Agent i kod są Twoje",
+            "body": "Prompty, baza wiedzy, integracje i dostępy są zapisane na Ciebie. Zmienisz wykonawcę - agent będzie działał dalej beze mnie."
+          }
+        ]
+      },
+      "timeline": {
+        "eyebrow": "Proces",
+        "headline": "Od rozmowy do działającego agenta - 1-3 tygodnie",
+        "sub": "Typowy plan agenta czatu. Wersja z wieloma narzędziami idzie tymi samymi krokami, tylko integracji jest więcej. Twój udział to dosłownie kilka godzin.",
+        "yourTime": "Twój czas",
+        "weeks": [
+          {
+            "n": "01",
+            "title": "Rozmowa i scenariusze",
+            "body": "30 minut o tym, gdzie uciekają Ci klienci: jakie pytania zadają, co ma się dziać ze zgłoszeniem, gdzie agent mieszka - strona, Telegram, WhatsApp. Potem wycena i umowa.",
+            "time": "~1 godzina"
+          },
+          {
+            "n": "02",
+            "title": "Baza wiedzy i charakter",
+            "body": "Buduję bazę z Twoich cenników, stron i FAQ, ustawiam ton pod markę. Agent uczy się odpowiadać jak Twój najlepszy handlowiec, a nie jak robot z infolinii banku.",
+            "time": "~30 minut"
+          },
+          {
+            "n": "03",
+            "title": "Integracje i testy na wytrzymałość",
+            "body": "CRM, kalendarz, przekazanie żywemu handlowcowi. Potem maglowanie agenta podchwytliwymi pytaniami: prowokacje, literówki, pytania nie na temat - i dokręcanie odpowiedzi.",
+            "time": "~30 minut"
+          },
+          {
+            "n": "04",
+            "title": "Start i dostrajanie",
+            "body": "Włączamy na prawdziwych klientach. Przez pierwszy tydzień przeglądam żywe rozmowy i poprawiam słabe punkty. Przekazuję panel z metrykami: rozmowy, zgłoszenia, konwersja.",
+            "time": "~30 minut"
+          }
+        ]
+      },
+      "resources": {
+        "eyebrow": "Do poczytania",
+        "headline": "Przydatna wiedza o agentach AI",
+        "items": [
+          {
+            "slug": "czym-jest-agent-ai",
+            "title": "Czym jest agent AI i czym różni się od chatbota"
+          },
+          {
+            "slug": "ile-kosztuje-chatbot-ai",
+            "title": "Ile kosztuje chatbot AI"
+          },
+          {
+            "slug": "chatbot-ai-oszczednosci-roi",
+            "title": "ROI chatbota AI: kiedy się zwraca"
+          },
+          {
+            "slug": "agent-ai-dla-dzialu-sprzedazy",
+            "title": "Agent AI dla działu sprzedaży"
+          },
+          {
+            "slug": "chatbot-ai-z-baza-wiedzy",
+            "title": "Chatbot z bazą wiedzy: jak to działa"
+          },
+          {
+            "slug": "chatbot-ai-na-strone-jak-wdrozyc",
+            "title": "Jak wdrożyć chatbota AI na stronie"
+          }
+        ]
       }
     },
     "automation": {
@@ -2769,6 +2994,240 @@
             "examples": "Pełna budowa · dashboardy · monitoring · wsparcie · od 3 tygodni"
           }
         ]
+      },
+      "pain": {
+        "eyebrow": "Problem",
+        "headline": "Twój zespół to drogi kopiuj-wklej",
+        "sub": "Policz, ile godzin tygodniowo schodzi Wam na przenoszenie danych z jednego okna do drugiego. Oto trzy najdroższe nawyki.",
+        "items": [
+          {
+            "title": "Rutyna zjada dzień pracy",
+            "body": "Zgłoszenia z maila do CRM ręcznie, faktury pojedynczo, statusy na czatach. Godzina dziennie na kopiuj-wklej to ponad 250 godzin rocznie na pracownika. Przy polskich stawkach - tysiące złotych za pracę, którą scenariusz robi za €400."
+          },
+          {
+            "title": "Czynnik ludzki gubi klientów",
+            "body": "Ktoś zapomniał oddzwonić, zgubił maila, wysłał fakturę po terminie. Każdy taki drobiazg to minus klient i minus reputacja. Automatyzacja nie zapomina i nie bierze urlopu."
+          },
+          {
+            "title": "Systemy nie rozmawiają ze sobą",
+            "body": "Strona, CRM, magazyn i księgowość żyją osobno, a uzgadnia je Excel w piątki. Dane się rozjeżdżają, a decyzje zapadają na podstawie starych liczb."
+          }
+        ]
+      },
+      "formats": {
+        "eyebrow": "Formaty",
+        "headline": "Od czego zacząć automatyzację",
+        "sub": "Trzy typowe skale. Warto zaczynać od małego: jedno połączenie zwraca się w kilka tygodni i pokazuje, gdzie kopać dalej.",
+        "priceFrom": "od",
+        "items": [
+          {
+            "title": "Połączenie",
+            "price": "€400",
+            "time": "2-5 dni",
+            "desc": "Dwa systemy zaczynają współpracować: zgłoszenie ze strony samo trafia do CRM i na Twój Telegram.",
+            "audience": "Na pierwszy krok i sprawdzenie efektu",
+            "bullets": [
+              "Jedno zadanie rozwiązane do końca",
+              "Start w kilka dni",
+              "Zwraca się w pierwszych tygodniach"
+            ]
+          },
+          {
+            "title": "Przepływ",
+            "price": "€1 000",
+            "time": "1-2 tygodnie",
+            "desc": "Proces w całości: od zgłoszenia do faktury. Powiadomienia, statusy, dokumenty - bez ręcznych kroków.",
+            "audience": "Dla procesów z 3-5 systemami",
+            "bullets": [
+              "Mapa procesu przed i po",
+              "Obsługa błędów i ponowne próby",
+              "Powiadomienia dla zespołu we właściwym momencie"
+            ]
+          },
+          {
+            "title": "System",
+            "price": "€2 500",
+            "time": "2-4 tygodnie",
+            "desc": "Kilka procesów + kroki AI: klasyfikacja maili, szkice odpowiedzi, wyciąganie danych z dokumentów.",
+            "audience": "Dla firm, w których rutyna to wąskie gardło",
+            "bullets": [
+              "Przetwarzanie tekstów i dokumentów przez AI",
+              "n8n na Twoim serwerze, bez wynajmu",
+              "Monitoring i alerty w standardzie"
+            ]
+          }
+        ]
+      },
+      "compare": {
+        "eyebrow": "Porównanie",
+        "headline": "Ja, integrator, Zapier na własną rękę\nczy zostawić jak jest",
+        "sub": "Cztery sposoby na rutynę. Trzy z nich coś kosztują, czwarty jest najdroższy - tylko nie widać tego na fakturach.",
+        "colMe": "buildbyalex",
+        "cols": [
+          "Integrator",
+          "Zapier na własną rękę",
+          "Zostawić jak jest"
+        ],
+        "rows": [
+          {
+            "label": "Start",
+            "me": "€400-2 500 jednorazowo",
+            "vals": [
+              "od €5 000",
+              "abonament + Twoje wieczory",
+              "€0"
+            ]
+          },
+          {
+            "label": "Miesięcznie",
+            "me": "€5-30 hosting",
+            "vals": [
+              "retainer",
+              "€20-600 za operacje",
+              "godziny zespołu każdego dnia"
+            ]
+          },
+          {
+            "label": "Czas startu",
+            "me": "dni, nie miesiące",
+            "vals": [
+              "1-3 miesiące",
+              "wieczór, jeśli się poszczęści",
+              "nigdy"
+            ]
+          },
+          {
+            "label": "Gdy coś padnie - kto naprawia",
+            "me": "ja, widzę po alertach",
+            "vals": [
+              "ticket w kolejce",
+              "Ty sam",
+              "nie ma czemu padać, wszystko ręcznie"
+            ]
+          },
+          {
+            "label": "Kroki AI w procesie",
+            "me": true,
+            "vals": [
+              "za dopłatą",
+              "ograniczone",
+              "nie"
+            ]
+          },
+          {
+            "label": "Złożona logika i własne API",
+            "me": true,
+            "vals": [
+              "tak, drogo",
+              "ramy kreatora",
+              "nie"
+            ]
+          },
+          {
+            "label": "Scenariusze i dostępy są Twoje",
+            "me": true,
+            "vals": [
+              "nie zawsze",
+              "wynajem platformy",
+              "nie ma czego mieć"
+            ]
+          },
+          {
+            "label": "Zwrot z inwestycji",
+            "me": "tygodnie",
+            "vals": [
+              "miesiące",
+              "zależy od Ciebie",
+              "minus co miesiąc"
+            ]
+          }
+        ],
+        "note": "Liczy się to prosto: godziny rutyny tygodniowo × stawka × 52. Ta kwota prawie zawsze jest kilka razy większa niż koszt automatyzacji."
+      },
+      "guarantees": {
+        "eyebrow": "Bez ryzyka",
+        "headline": "Cztery gwarancje w umowie",
+        "sub": "Nie obietnice na słowo, tylko zapisy umowy, którą podpisujemy przed startem prac.",
+        "items": [
+          {
+            "title": "Stała wycena",
+            "body": "Cenę podaję przed startem i nie zmieniam jej po drodze. Jeśli procesów przybędzie - najpierw uzgadniamy nową wycenę, potem robię."
+          },
+          {
+            "title": "Termin na piśmie",
+            "body": "Data startu jest zapisana w umowie. Jeśli opóźnienie wynika z mojej winy - za każdy tydzień poślizgu daję rabat."
+          },
+          {
+            "title": "Monitoring i alerty",
+            "body": "Każdy scenariusz jest pod obserwacją: jeśli coś padnie, widzę to wcześniej niż Ty i naprawiam. Błędy nie zbierają się po cichu tygodniami."
+          },
+          {
+            "title": "Scenariusze i dostępy są Twoje",
+            "body": "n8n stawiam na Twoim serwerze, dostępy i dokumentacja zostają u Ciebie. Zmienisz wykonawcę - wszystko będzie działać dalej."
+          }
+        ]
+      },
+      "timeline": {
+        "eyebrow": "Proces",
+        "headline": "Od audytu do działającego procesu - 1-2 tygodnie",
+        "sub": "Typowy plan dla „Przepływu”. Połączenie przechodzi te same kroki w parę dni, system - w 2-4 tygodnie.",
+        "yourTime": "Twój czas",
+        "weeks": [
+          {
+            "n": "01",
+            "title": "Audyt procesów",
+            "body": "30-60 minut o tym, jak płynie praca: gdzie są zgłoszenia, kto co przekłada, co się gubi. Na wyjściu mapa procesu, wycena i to, co automatyzujemy najpierw.",
+            "time": "~1 godzina"
+          },
+          {
+            "n": "02",
+            "title": "Budowa scenariusza",
+            "body": "Podłączam Twoje systemy i buduję przepływ w n8n lub Make: triggery, warunki, obsługa błędów. Ty w tym czasie pracujesz jak zwykle.",
+            "time": "~30 minut"
+          },
+          {
+            "n": "03",
+            "title": "Testy na prawdziwych danych",
+            "body": "Puszczam scenariusz równolegle ze starym procesem: przypadki brzegowe, duplikaty, ponowne próby. Nic nie psuje się na produkcji.",
+            "time": "~30 minut"
+          },
+          {
+            "n": "04",
+            "title": "Start i monitoring",
+            "body": "Przełączamy na automat, ustawiam alerty. Przez pierwszy tydzień patrzę na każde uruchomienie. Przekazuję dostępy i krótką instrukcję.",
+            "time": "~30 minut"
+          }
+        ]
+      },
+      "resources": {
+        "eyebrow": "Do poczytania",
+        "headline": "Przydatna wiedza o automatyzacji",
+        "items": [
+          {
+            "slug": "co-zautomatyzowac-w-firmie-najpierw",
+            "title": "Co zautomatyzować w firmie najpierw"
+          },
+          {
+            "slug": "ile-kosztuje-automatyzacja-n8n",
+            "title": "Ile kosztuje automatyzacja na n8n"
+          },
+          {
+            "slug": "automatyzacja-procesow-od-czego-zaczac",
+            "title": "Automatyzacja procesów: od czego zacząć"
+          },
+          {
+            "slug": "make-vs-n8n-vs-zapier",
+            "title": "Make, n8n czy Zapier: co wybrać"
+          },
+          {
+            "slug": "przypomnienia-o-wizycie-sms-no-show",
+            "title": "Przypomnienia o wizycie: mniej no-show"
+          },
+          {
+            "slug": "integracja-crm-z-telegramem-i-whatsapp",
+            "title": "Integracja CRM z Telegramem i WhatsAppem"
+          }
+        ]
       }
     },
     "mobile": {
@@ -2921,6 +3380,22 @@
           {
             "q": "Pracujecie tylko w Warszawie, czy w całej Polsce?",
             "a": "Pracujemy w całej Polsce i zdalnie — Warszawa, Kraków, Wrocław, Gdańsk, Poznań czy mniejsze miasto, bez różnicy. Rozmowy, demo i odbiór odbywają się online, umowa i płatność zdalnie. Spotkanie na żywo w Warszawie — w razie potrzeby."
+          },
+          {
+            "q": "Jak ludzie znajdą aplikację w sklepach?",
+            "a": "Publikacja to połowa roboty, dalej działa ASO: nazwa i podtytuł pod zapytania w sklepie, słowa kluczowe, screenshoty, które sprzedają, a nie tylko pokazują ekrany. Podstawowe ASO robię przy publikacji. Do tego aplikacja prawie zawsze potrzebuje landing page - strony, którą znajduje Google i z której prowadzi przycisk „Pobierz”. Taką stronę też robię, przykład - landing Body Forge w realizacjach."
+          },
+          {
+            "q": "Czy można wbudować w aplikację AI?",
+            "a": "Tak, i to taniej, niż brzmi. W Body Forge działa trener AI na GPT: czyta trening i w ~10 sekund oddaje osobistą analizę. Tym samym schematem do aplikacji wchodzi konsultant AI, generator tekstów, analiza zdjęć albo wejście głosowe. Zwykle to +€900 do wyceny, a nie osobny projekt."
+          },
+          {
+            "q": "Apple co roku aktualizuje iOS. Aplikacja się nie zepsuje?",
+            "a": "Stack cross-platform aktualizuje się w ślad za iOS i Androidem, a drobne poprawki wchodzą we wsparcie €50/godz. - zwykle 1-2 godziny rocznie. Konto deweloperskie Apple kosztuje $99/rok, Google - $25 jednorazowo, oba zakładane na Ciebie. Żadnych obowiązkowych abonamentów „żeby żyło”."
+          },
+          {
+            "q": "Mam tylko pomysł, bez specyfikacji. Wystarczy?",
+            "a": "Wystarczy. Klasyczna specyfikacja nie jest potrzebna: na rozmowie rozbieramy pomysł do głównego scenariusza - kto jest użytkownikiem i które działanie przynosi pieniądze. Z tego robię mapę ekranów i wycenę, Ty akceptujesz. To bezpłatne i do niczego nie zobowiązuje: w najgorszym razie wyjdziesz z uporządkowaną strukturą swojego pomysłu."
           }
         ]
       },
@@ -2978,6 +3453,315 @@
               "Wsparcie i rozwój po wydaniu"
             ],
             "examples": "Integracje · panel · wsparcie · od 10 tygodni"
+          }
+        ]
+      },
+      "pain": {
+        "eyebrow": "Problem",
+        "headline": "Dlaczego pomysły na aplikacje nie dojeżdżają do sklepów",
+        "sub": "Dobre pomysły umierają nie przez konkurencję, tylko przez trzy banalne rzeczy. Wszystkie trzy rozwiązuje podejście, nie budżet.",
+        "items": [
+          {
+            "title": "Agencje mówią: pół roku i €30 000",
+            "body": "Klasyczna agencja sprzedaje proces: briefy, sprinty, project managerów. Pomysł w tym czasie stygnie. Hipotezę trzeba sprawdzać działającym MVP w 4-8 tygodni, a nie prezentacją za kwartał."
+          },
+          {
+            "title": "No-code szybko uderza w sufit",
+            "body": "Kreatory są dobre do pierwszego „a można jeszcze…”: subskrypcje rosną, aplikacja muli, w sklepach wygląda jak szablon, a dorobku nie ma dokąd przenieść. Przepisywać i tak trzeba - już za drugie pieniądze."
+          },
+          {
+            "title": "Publikacja to osobny quest",
+            "body": "Recenzja Apple, konta deweloperskie, certyfikaty, polityka prywatności, screenshoty pod wszystkie ekrany. Połowa samodzielnych aplikacji utyka właśnie tu - krok od sklepu."
+          }
+        ]
+      },
+      "formats": {
+        "eyebrow": "Formaty",
+        "headline": "Jaka aplikacja jest dla Ciebie",
+        "sub": "Cztery typowe scenariusze. Nie wiesz, który Twój - opowiedz pomysł na rozmowie. Jeśli da się go sprawdzić botem za €300 zamiast aplikacji za €3 000, tak właśnie powiem.",
+        "priceFrom": "od",
+        "items": [
+          {
+            "title": "MVP",
+            "price": "€3 000",
+            "time": "3-5 tygodni",
+            "desc": "Jedno jądro produktu w obu sklepach - sprawdź pomysł na realnych użytkownikach przed dużymi wydatkami.",
+            "audience": "Dla startupów i weryfikacji hipotez",
+            "bullets": [
+              "iOS + Android z jednej bazy kodu",
+              "Logowanie i główny scenariusz",
+              "Publikacja w App Store i Google Play w cenie"
+            ]
+          },
+          {
+            "title": "Aplikacja",
+            "price": "€7 000",
+            "time": "6-10 tygodni",
+            "desc": "Pełny produkt z backendem, płatnościami i push - gotowy na pierwszych płacących użytkowników.",
+            "audience": "Dla biznesu, który zarabia na aplikacji",
+            "bullets": [
+              "Backend, API i baza danych",
+              "Płatności, subskrypcje i powiadomienia push",
+              "Analityka lejka i aktualizacje OTA"
+            ]
+          },
+          {
+            "title": "Produkt",
+            "price": "€15 000",
+            "time": "od 10 tygodni",
+            "desc": "Skalowalny system: integracje, panel administracyjny, role, opieka po starcie.",
+            "audience": "Dla firm z żywą bazą użytkowników",
+            "bullets": [
+              "Integracje z zewnętrznymi serwisami i CRM",
+              "Panel administracyjny i złożone role",
+              "Wsparcie i rozwój po premierze"
+            ]
+          },
+          {
+            "title": "Mini App w Telegramie",
+            "price": "€300",
+            "time": "1-2 tygodnie",
+            "desc": "Aplikacja wewnątrz Telegrama: bez sklepów, recenzji i instalacji. Często to najtańszy sposób na test pomysłu.",
+            "audience": "Dla szybkich startów i widowni w Telegramie",
+            "bullets": [
+              "Start bez App Store i Google Play",
+              "Płatności bezpośrednio w Telegramie",
+              "Gotowe w tydzień-dwa, nie w miesiące"
+            ],
+            "href": "/services/telegram-bots",
+            "linkLabel": "Więcej o aplikacjach w Telegramie"
+          }
+        ]
+      },
+      "caseProof": {
+        "eyebrow": "Case study",
+        "headline": "Body Forge: od pomysłu do App Store",
+        "sub": "Nie koncept ani prototyp, tylko żywa aplikacja, którą można pobrać już teraz. Tak wygląda poziom, na jakim robię produkty mobilne.",
+        "cta": "Zobacz cały case",
+        "storeSub": "Pobierz w"
+      },
+      "compare": {
+        "eyebrow": "Porównanie",
+        "headline": "buildbyalex, agencja,\nfreelancer czy no-code",
+        "sub": "Aplikację można zdobyć na cztery sposoby. Pytanie, co zostanie u Ciebie za rok - oto uczciwe zestawienie.",
+        "colMe": "buildbyalex",
+        "cols": [
+          "Agencja",
+          "Freelancer",
+          "No-code"
+        ],
+        "rows": [
+          {
+            "label": "MVP pod klucz",
+            "me": "€3 000-4 000",
+            "vals": [
+              "€15 000-30 000",
+              "nieprzewidywalnie",
+              "subskrypcja €50-300/mies."
+            ]
+          },
+          {
+            "label": "Czas do sklepów",
+            "me": "4-8 tygodni",
+            "vals": [
+              "4-8 miesięcy",
+              "od 2 miesięcy do ∞",
+              "szybko, ale nie zawsze wpuszczą"
+            ]
+          },
+          {
+            "label": "iOS + Android od razu",
+            "me": true,
+            "vals": [
+              "często dwa zespoły",
+              "rzadko",
+              "zależy od platformy"
+            ]
+          },
+          {
+            "label": "Publikacja w sklepach w cenie",
+            "me": true,
+            "vals": [
+              "za dopłatą",
+              "„poradzisz sobie sam”",
+              "często niemożliwa"
+            ]
+          },
+          {
+            "label": "Backend i integracje",
+            "me": true,
+            "vals": [
+              "tak, drogo",
+              "jak się trafi",
+              "ramy kreatora"
+            ]
+          },
+          {
+            "label": "Kod i konta - Twoje",
+            "me": true,
+            "vals": [
+              "nie zawsze",
+              "zwykle tak",
+              "nie, wynajem platformy"
+            ]
+          },
+          {
+            "label": "Rozmawiasz bezpośrednio z",
+            "me": "programistą",
+            "vals": [
+              "project managerem",
+              "wykonawcą",
+              "pomocą i forum"
+            ]
+          },
+          {
+            "label": "Koszt zmian później",
+            "me": "€50/godz.",
+            "vals": [
+              "nowy kontrakt",
+              "jeśli go znajdziesz",
+              "rosnąca subskrypcja"
+            ]
+          }
+        ],
+        "note": "Widełki rynkowe - z otwartych cenników polskich agencji i platform, jesień 2025."
+      },
+      "guarantees": {
+        "eyebrow": "Bez ryzyka",
+        "headline": "Cztery gwarancje w umowie",
+        "sub": "Nie obietnice na słowo, tylko zapisy umowy, którą podpisujemy przed startem prac.",
+        "items": [
+          {
+            "title": "Stała wycena",
+            "body": "Cenę podaję przed startem i nie zmieniam w trakcie. Jeśli funkcji przybyło - najpierw uzgadniamy nową wycenę, potem robię."
+          },
+          {
+            "title": "Termin na piśmie",
+            "body": "Data premiery jest zapisana w umowie. Jeśli opóźnienie wynika z mojej winy - za każdy tydzień poślizgu daję rabat."
+          },
+          {
+            "title": "Kod i konta - Twoje",
+            "body": "Konta Apple i Google rejestrowane na Ciebie, kod trafia do Twojego GitHuba. Zmienisz wykonawcę - aplikacja zostaje Twoja."
+          },
+          {
+            "title": "Publikacja pod klucz",
+            "body": "Recenzje Apple i Google to moja sprawa: certyfikaty, screenshoty, opisy. Jeśli sklep odrzuci aplikację - poprawiam i składam ponownie bez dopłat."
+          }
+        ]
+      },
+      "timeline": {
+        "eyebrow": "Proces",
+        "headline": "Od pomysłu do App Store - 4-8 tygodni",
+        "sub": "Typowy plan MVP. Większa aplikacja idzie tymi samymi krokami, tylko każdy etap trwa dłużej. Postęp oglądasz na swoim telefonie, nie w raportach.",
+        "yourTime": "Twój czas",
+        "weeks": [
+          {
+            "n": "01",
+            "title": "Rozmowa i scenariusze",
+            "body": "30 minut o pomyśle: kto jest użytkownikiem, które działanie jest kluczowe, na czym zarabiasz. Potem mapa ekranów, wycena i umowa z datą premiery.",
+            "time": "~1 godz."
+          },
+          {
+            "n": "02",
+            "title": "Design i jądro",
+            "body": "Główny scenariusz składam od razu w kodzie. Po paru tygodniach masz na telefonie działający build w TestFlight - klikasz, komentujesz, poprawiam.",
+            "time": "~30 min"
+          },
+          {
+            "n": "03",
+            "title": "Backend i integracje",
+            "body": "Logowanie, baza, płatności, push. Każdy nowy build przylatuje do Ciebie automatycznie - postęp widać na ekranie, nie w raportach.",
+            "time": "~30 min"
+          },
+          {
+            "n": "04",
+            "title": "Sklepy i premiera",
+            "body": "Screenshoty, opisy, teksty ASO, recenzje Apple i Google. Po premierze przekazuję dostępy i pokazuję analitykę: instalacje, lejek, retencję.",
+            "time": "~1 godz."
+          }
+        ]
+      },
+      "calc": {
+        "eyebrow": "Złóż wycenę",
+        "headline": "Ile będzie kosztować Twoja aplikacja",
+        "sub": "Agencje chowają ceny za „zostaw kontakt”. Tutaj odwrotnie: zaznacz, czego potrzebuje aplikacja, i od razu zobacz widełki.",
+        "baseLabel": "Baza: MVP na iOS + Android",
+        "baseIncludes": "Jedna baza kodu, logowanie, główny scenariusz, publikacja w obu sklepach, podstawowa analityka.",
+        "features": [
+          {
+            "label": "Płatności i subskrypcje",
+            "p": 900,
+            "w": 1
+          },
+          {
+            "label": "Powiadomienia push",
+            "p": 400,
+            "w": 0
+          },
+          {
+            "label": "Czat i wiadomości",
+            "p": 800,
+            "w": 1
+          },
+          {
+            "label": "Funkcje AI (GPT)",
+            "p": 900,
+            "w": 1
+          },
+          {
+            "label": "Panel administracyjny",
+            "p": 800,
+            "w": 1
+          },
+          {
+            "label": "Mapa i geolokalizacja",
+            "p": 500,
+            "w": 1
+          },
+          {
+            "label": "Integracja z CRM / API",
+            "p": 600,
+            "w": 1
+          },
+          {
+            "label": "Tryb offline",
+            "p": 500,
+            "w": 1
+          }
+        ],
+        "resultTitle": "Orientacyjne widełki",
+        "weeksLabel": "Termin",
+        "weeksUnit": "tygodni",
+        "note": "To szacunek, nie oferta: dokładna kwota zależy od szczegółów i jest ustalana w wycenie po rozmowie. Ale rząd wielkości jest właśnie taki - bez niespodzianek na końcu.",
+        "cta": "Umów wycenę na rozmowie"
+      },
+      "resources": {
+        "eyebrow": "Zgłęb temat",
+        "headline": "Warto przeczytać przed startem aplikacji",
+        "items": [
+          {
+            "slug": "ile-kosztuje-aplikacja-mobilna",
+            "title": "Ile kosztuje aplikacja mobilna"
+          },
+          {
+            "slug": "czy-moja-firma-potrzebuje-aplikacji-mobilnej",
+            "title": "Czy Twoja firma potrzebuje aplikacji mobilnej"
+          },
+          {
+            "slug": "tworzenie-mvp-aplikacji-dla-startupu",
+            "title": "MVP dla startupu: jak tanio sprawdzić pomysł"
+          },
+          {
+            "slug": "aplikacja-natywna-czy-hybrydowa",
+            "title": "Aplikacja natywna czy hybrydowa"
+          },
+          {
+            "slug": "aplikacja-mobilna-czy-pwa",
+            "title": "Aplikacja mobilna czy PWA: co wybrać"
+          },
+          {
+            "slug": "jak-opublikowac-aplikacje-w-app-store",
+            "title": "Jak opublikować aplikację w App Store"
           }
         ]
       }
@@ -3345,6 +4129,187 @@
             ]
           }
         ]
+      },
+      "pain": {
+        "eyebrow": "Problem",
+        "headline": "Panel kręci. Kasa milczy",
+        "sub": "Reklama „nie działa” prawie zawsze z jednego z trzech powodów - i budżet nie ma tu nic do rzeczy.",
+        "items": [
+          {
+            "title": "Optymalizacja pod kliknięcia, nie pod pieniądze",
+            "body": "Bez ustawionego śledzenia konwersji algorytm nie wie, czym jest „zgłoszenie”, i sprowadza klikaczy zamiast klientów. Połowa kont w Polsce działa właśnie tak: ruch jest, sprzedaży nie ma."
+          },
+          {
+            "title": "Agencji opłaca się Twój duży budżet",
+            "body": "Model „% od budżetu” to wbudowany konflikt interesów: agencja zarabia, gdy wydajesz więcej, a nie gdy zgłoszenie kosztuje mniej. Dlatego raporty mówią o zasięgach, a nie o cenie zgłoszenia."
+          },
+          {
+            "title": "Reklama prowadzi na słabą stronę",
+            "body": "Połowa wyniku to landing. Wolna strona bez oferty i formularza spala nawet idealnie ustawiony ruch. Robię i reklamy, i strony - i odpowiadam za całość."
+          }
+        ]
+      },
+      "compare": {
+        "eyebrow": "Porównanie",
+        "headline": "Ja, agencja\nczy samemu w panelu",
+        "sub": "Trzy sposoby na uruchomienie reklam. Różnica nie tkwi w przyciskach, tylko w modelu rozliczenia i w tym, kto odpowiada za wynik.",
+        "colMe": "buildbyalex",
+        "cols": [
+          "Agencja",
+          "Samemu"
+        ],
+        "rows": [
+          {
+            "label": "Model rozliczenia",
+            "me": "stała stawka €290-850/mies.",
+            "vals": [
+              "% od budżetu",
+              "Twój czas"
+            ]
+          },
+          {
+            "label": "Co się opłaca wykonawcy",
+            "me": "tanie zgłoszenie",
+            "vals": [
+              "duży budżet",
+              "-"
+            ]
+          },
+          {
+            "label": "Minimalny budżet",
+            "me": "od 1 500 zł/mies.",
+            "vals": [
+              "od 5 000-10 000 zł/mies.",
+              "dowolny"
+            ]
+          },
+          {
+            "label": "Śledzenie konwersji do zgłoszenia",
+            "me": true,
+            "vals": [
+              "nie zawsze",
+              "trudne bez doświadczenia"
+            ]
+          },
+          {
+            "label": "Landing pod reklamy",
+            "me": "robię sam",
+            "vals": [
+              "podwykonawca za osobne pieniądze",
+              "brak"
+            ]
+          },
+          {
+            "label": "Konta i piksele są Twoje",
+            "me": true,
+            "vals": [
+              "nie zawsze",
+              "tak"
+            ]
+          },
+          {
+            "label": "Raport",
+            "me": "co tydzień, ludzkim językiem",
+            "vals": [
+              "PDF raz w miesiącu",
+              "-"
+            ]
+          },
+          {
+            "label": "Umowa",
+            "me": "z miesiąca na miesiąc, odchodzisz kiedy chcesz",
+            "vals": [
+              "kontrakt na 6-12 mies.",
+              "-"
+            ]
+          }
+        ],
+        "note": "Samodzielny start to normalna droga, jeśli masz 10+ godzin tygodniowo na naukę. Zwykle taniej wychodzi kupić te godziny u specjalisty."
+      },
+      "guarantees": {
+        "eyebrow": "Bez ryzyka",
+        "headline": "Cztery zasady współpracy",
+        "sub": "Model, w którym opłaca mi się to samo co Tobie: tanie zgłoszenie, a nie duży budżet.",
+        "items": [
+          {
+            "title": "Bez % od budżetu",
+            "body": "Stała cena za prowadzenie. Nie zarabiam więcej dlatego, że więcej wydajesz - opłaca mi się obniżać cenę zgłoszenia."
+          },
+          {
+            "title": "Konta są Twoje",
+            "body": "Google Ads, Meta, piksele i cała historia zostają na Twoich kontach. Odejdziesz - wszystko zostaje u Ciebie, łącznie z zebranymi danymi."
+          },
+          {
+            "title": "Raport co tydzień",
+            "body": "Ile wydane, ile zgłoszeń, po ile zgłoszenie, co zmieniam dalej. Ludzkim językiem, bez „zasięgów” i lania wody."
+          },
+          {
+            "title": "Bez wiązania umową",
+            "body": "Rozliczamy się z miesiąca na miesiąc, bez długich kontraktów. Możesz odejść w każdym miesiącu - i to najlepsza motywacja, żebym pracował dobrze."
+          }
+        ]
+      },
+      "timeline": {
+        "eyebrow": "Proces",
+        "headline": "Pierwszy miesiąc reklam - krok po kroku",
+        "sub": "Tak wygląda start od zera. Jeśli konto już jest - zaczynamy od audytu i zwykle znajdujemy 20-30% budżetu, który przecieka w pustkę.",
+        "yourTime": "Twój czas",
+        "weeks": [
+          {
+            "n": "01",
+            "title": "Audyt i strategia",
+            "body": "Rozbieramy produkt, marżę i regiony. Liczymy docelową cenę zgłoszenia, wybieramy kanały: Google na gorący popyt, Meta na ciepły. Ustalamy plan i budżet.",
+            "time": "~1 godzina"
+          },
+          {
+            "n": "02",
+            "title": "Konfiguracja",
+            "body": "Kampanie, grupy odbiorców, reklamy i najważniejsze - śledzenie konwersji aż do zgłoszenia i telefonu, łącznie z serwerowym. Bez tego kroku reklama to loteria.",
+            "time": "~30 minut"
+          },
+          {
+            "n": "03",
+            "title": "Start i pierwsze dane",
+            "body": "Pierwsze 1-2 tygodnie: czyszczenie śmieciowych fraz, testy reklam, korekty stawek. Algorytmy uczą się na właściwych sygnałach.",
+            "time": "~30 minut"
+          },
+          {
+            "n": "04",
+            "title": "Optymalizacja i raport",
+            "body": "Co przynosi zgłoszenia - skalujemy, co pali budżet - wyłączamy. Na koniec miesiąca raport z liczbami: wydatki, zgłoszenia, cena zgłoszenia, plan na kolejny miesiąc.",
+            "time": "~30 minut"
+          }
+        ]
+      },
+      "resources": {
+        "eyebrow": "Do poczytania",
+        "headline": "Przydatna wiedza o reklamie",
+        "items": [
+          {
+            "slug": "google-ads-czy-meta-ads",
+            "title": "Google Ads czy Meta Ads: co wybrać"
+          },
+          {
+            "slug": "jak-pozyskac-klientow-do-salonu-kosmetycznego",
+            "title": "Jak pozyskać klientów do salonu kosmetycznego"
+          },
+          {
+            "slug": "jak-pozyskac-pacjentow-do-gabinetu-stomatologicznego",
+            "title": "Jak pozyskać pacjentów do gabinetu stomatologicznego"
+          },
+          {
+            "slug": "jak-pozyskac-klientow-firma-remontowo-budowlana",
+            "title": "Jak pozyskać klientów w firmie remontowo-budowlanej"
+          },
+          {
+            "slug": "jak-reklamowac-warsztat-samochodowy-w-internecie",
+            "title": "Jak reklamować warsztat samochodowy w internecie"
+          },
+          {
+            "slug": "nieodebrane-polaczenia-jak-nie-tracic-klientow",
+            "title": "Nieodebrane połączenia: jak nie tracić klientów"
+          }
+        ]
       }
     },
     "telegram": {
@@ -3532,7 +4497,232 @@
       "demoEyebrow": "Na żywo",
       "startingPrice": "Cena startowa",
       "bookCta": "Bezpłatna rozmowa",
-      "includedTitle": "Co wchodzi w skład"
+      "includedTitle": "Co wchodzi w skład",
+      "pain": {
+        "eyebrow": "Problem",
+        "headline": "Klienci już są na Telegramie. A Twoja firma?",
+        "sub": "Dopóki zamówienia przyjmujesz przez „napisz na priv”, pieniądze giną w trzech miejscach.",
+        "items": [
+          {
+            "title": "Zgłoszenia toną w wiadomościach",
+            "body": "Klienci piszą na priv i w komentarzach, a odpowiada im ktoś, kiedy akurat może. Połowa zapytań stygnie przed odpowiedzią. Bot przyjmuje zgłoszenie w 20 sekund o każdej porze."
+          },
+          {
+            "title": "Aplikacja za droga, nikt jej nie instaluje",
+            "body": "Natywna aplikacja to od €3 000 i miesiące pracy, a i tak nikt nie chce jej instalować. Mini App otwiera się wewnątrz Telegrama od razu: bez sklepów, review i instalacji."
+          },
+          {
+            "title": "Płatność „przelewem na konto”",
+            "body": "Zamówienia ręcznie, potwierdzenia na słowo, zapłata przelewem - wygląda niepoważnie i odstrasza kupujących. W Telegramie płaci się kartą i BLIK-iem prosto w czacie, bez wychodzenia z rozmowy."
+          }
+        ]
+      },
+      "formats": {
+        "eyebrow": "Formaty",
+        "headline": "Jaki bot jest dla Ciebie",
+        "sub": "Trzy typowe scenariusze - od prostego przyjmowania zgłoszeń po sklep wewnątrz Telegrama. Ceny i terminy uczciwe, z praktyki.",
+        "priceFrom": "od",
+        "items": [
+          {
+            "title": "Bot do zgłoszeń",
+            "price": "€300",
+            "time": "1-2 tygodnie",
+            "desc": "Menu, pytania i odpowiedzi, przyjmowanie zgłoszeń i zamówień. Każde zgłoszenie od razu ląduje u Ciebie na czacie.",
+            "audience": "Dla usług, zapisów i przyjmowania zamówień",
+            "bullets": [
+              "Scenariusz pod Twój proces, nie szablon",
+              "Powiadomienia dla Ciebie i klienta",
+              "Statystyki zgłoszeń"
+            ]
+          },
+          {
+            "title": "Bot AI z CRM",
+            "price": "€700",
+            "time": "2-3 tygodnie",
+            "desc": "Odpowiada na pytania na podstawie Twojej bazy wiedzy, kwalifikuje leady i zapisuje wszystko w CRM.",
+            "audience": "Dla strumienia pytań i żywych rozmów",
+            "bullets": [
+              "Odpowiedzi AI na Twoich danych, bez zmyślania",
+              "Karta leada w CRM automatycznie",
+              "Przekazanie żywemu handlowcowi jednym tapnięciem"
+            ]
+          },
+          {
+            "title": "Mini App z płatnościami",
+            "price": "€1 500",
+            "time": "2-4 tygodnie",
+            "desc": "Pełnoprawna aplikacja wewnątrz Telegrama: witryna, koszyk, płatność kartą i BLIK-iem w czacie.",
+            "audience": "Dla sklepów, dostaw i zapisów",
+            "bullets": [
+              "Katalog i koszyk jak w aplikacji",
+              "Płatność bez wychodzenia z Telegrama",
+              "Bez App Store, review i instalacji"
+            ]
+          }
+        ]
+      },
+      "compare": {
+        "eyebrow": "Porównanie",
+        "headline": "Własny bot, kreator\nczy handlowiec na privie",
+        "sub": "Zgłoszenia z Telegrama można przyjmować różnie. Zobacz, co każdy sposób daje i ile kosztuje.",
+        "colMe": "Bot od buildbyalex",
+        "cols": [
+          "Kreator botów",
+          "Handlowiec na privie"
+        ],
+        "rows": [
+          {
+            "label": "Start",
+            "me": "€300-1 500 jednorazowo",
+            "vals": [
+              "abonament €15-100/mies.",
+              "€0"
+            ]
+          },
+          {
+            "label": "Odpowiada",
+            "me": "od razu, 24/7",
+            "vals": [
+              "szablonowo, 24/7",
+              "kiedy zdąży"
+            ]
+          },
+          {
+            "label": "Odpowiedzi AI z Twojej bazy",
+            "me": true,
+            "vals": [
+              "zależnie od pakietu",
+              "wie, o ile pamięta"
+            ]
+          },
+          {
+            "label": "Płatność kartą i BLIK w czacie",
+            "me": true,
+            "vals": [
+              "rzadko",
+              "przelew „na konto”"
+            ]
+          },
+          {
+            "label": "Zgłoszenia w CRM",
+            "me": true,
+            "vals": [
+              "za dopłatą",
+              "jeśli nie zapomni"
+            ]
+          },
+          {
+            "label": "Wysyłki i powiadomienia",
+            "me": true,
+            "vals": [
+              "tak",
+              "ręcznie"
+            ]
+          },
+          {
+            "label": "Bot, tokeny i baza są Twoje",
+            "me": true,
+            "vals": [
+              "wynajem platformy",
+              "rozmowy w cudzym telefonie"
+            ]
+          },
+          {
+            "label": "Zmiany później",
+            "me": "€50/godz., dowolne",
+            "vals": [
+              "ramy pakietu",
+              "-"
+            ]
+          }
+        ],
+        "note": "API Telegrama jest darmowe, hosting bota to €5-30 miesięcznie. Żadnych abonamentów dla platform."
+      },
+      "guarantees": {
+        "eyebrow": "Bez ryzyka",
+        "headline": "Cztery gwarancje w umowie",
+        "sub": "Nie obietnice na słowo, tylko zapisy umowy, którą podpisujemy przed startem prac.",
+        "items": [
+          {
+            "title": "Stała wycena",
+            "body": "Cenę podaję przed startem i nie zmieniam jej po drodze. Jeśli scenariusz urósł - najpierw uzgadniamy nową wycenę, potem robię."
+          },
+          {
+            "title": "Termin na piśmie",
+            "body": "Data startu jest zapisana w umowie. Jeśli opóźnienie wynika z mojej winy - za każdy tydzień poślizgu daję rabat."
+          },
+          {
+            "title": "Bot i tokeny są Twoje",
+            "body": "Bot powstaje na Twoim koncie, tokeny, kod i baza danych zostają u Ciebie. Zmienisz wykonawcę - bot będzie działał dalej."
+          },
+          {
+            "title": "30 dni poprawek",
+            "body": "Przez miesiąc po starcie poprawiam za darmo: teksty, przyciski, scenariusze. Bez ticketów, kolejek i „to już nowa wycena”."
+          }
+        ]
+      },
+      "timeline": {
+        "eyebrow": "Proces",
+        "headline": "Od pomysłu do bota w Telegramie - 1-3 tygodnie",
+        "sub": "Typowy plan bota AI. Prosty bot do zgłoszeń przechodzi te same kroki w tydzień, Mini App w 2-4 tygodnie.",
+        "yourTime": "Twój czas",
+        "weeks": [
+          {
+            "n": "01",
+            "title": "Rozmowa i scenariusz",
+            "body": "30 minut o zadaniu: o co pytają klienci, co zamawiają, dokąd mają trafiać zgłoszenia. Rysuję scenariusz rozmowy, podaję wycenę, podpisujemy umowę.",
+            "time": "~1 godzina"
+          },
+          {
+            "n": "02",
+            "title": "Bot w kodzie",
+            "body": "Buduję bota lub Mini App: przyciski, ekrany, teksty. Wersję testową masz w swoim Telegramie niemal od razu - klikasz na bieżąco i komentujesz.",
+            "time": "~30 minut"
+          },
+          {
+            "n": "03",
+            "title": "Płatności i integracje",
+            "body": "Podłączam płatności w czacie, CRM, powiadomienia dla zespołu. Przy bocie AI buduję bazę wiedzy z Twoich materiałów i przepytuję go z podchwytliwych pytań.",
+            "time": "~30 minut"
+          },
+          {
+            "n": "04",
+            "title": "Start i przekazanie",
+            "body": "Przenoszę bota na Twoje konto, włączamy na prawdziwych klientach. Przekazuję dostępy i pokazuję statystyki: rozmowy, zgłoszenia, płatności.",
+            "time": "~30 minut"
+          }
+        ]
+      },
+      "resources": {
+        "eyebrow": "Do poczytania",
+        "headline": "Przydatna wiedza o botach na Telegramie",
+        "items": [
+          {
+            "slug": "ile-kosztuje-bot-na-telegramie",
+            "title": "Ile kosztuje bot na Telegramie"
+          },
+          {
+            "slug": "bot-na-telegramie-dla-firmy-zastosowania",
+            "title": "Bot na Telegramie dla firmy: zastosowania"
+          },
+          {
+            "slug": "bot-telegram-czy-chat-na-stronie",
+            "title": "Bot na Telegramie czy czat na stronie"
+          },
+          {
+            "slug": "chatbot-telegram-dla-firmy-asystent-ai",
+            "title": "Asystent AI w Telegramie dla firmy"
+          },
+          {
+            "slug": "bot-telegram-zamowienia-platnosci",
+            "title": "Zamówienia i płatności w Telegramie"
+          },
+          {
+            "slug": "kwalifikacja-leadow-ai",
+            "title": "Kwalifikacja leadów przez AI"
+          }
+        ]
+      }
     }
   },
   "work": {

@@ -147,6 +147,19 @@ header[data-light-header="true"] {
 [data-theme="dark"] #nav-services-menu {
   --c-hairline:   rgba(255, 255, 255, 0.08);
 }
+/* Same story for the language dropdown: it's an elevated panel inside the
+   header, so on the home hero it inherited the white-on-dark tokens and
+   rendered every option white-on-white (only the active accent-colored one
+   stayed readable). Restore the theme tokens. */
+.locale-menu {
+  color: var(--c-text);
+  --color-text:   var(--c-text);
+  --color-bg-alt: var(--c-bg-alt);
+  --c-hairline:   rgba(10, 10, 10, 0.08);
+}
+[data-theme="dark"] .locale-menu {
+  --c-hairline:   rgba(255, 255, 255, 0.08);
+}
 
 /* ───────────────────── RESET ───────────────────── */
 *, *::before, *::after { box-sizing: border-box; }

@@ -2050,36 +2050,6 @@
         "caption": "Rate ≈ 4.3 zł per €1. The final price is fixed after a 30-minute call. Post-launch edits — €50/hr, no mandatory retainer.",
         "tiers": [
           {
-            "title": "Starter store",
-            "from": "from",
-            "price": "€1,500",
-            "market": "10,000–18,000 zł",
-            "body": "A ready catalog with cart and payments — for a fast sales start.",
-            "features": [
-              "Up to 100 products, filters and search",
-              "Payments: BLIK, Przelewy24, cards",
-              "Responsive, SSL, basic product SEO",
-              "Cart and one-step checkout",
-              "GA4 and purchase events"
-            ]
-          },
-          {
-            "title": "Business store",
-            "from": "from",
-            "price": "€4,000",
-            "market": "25,000–60,000 zł",
-            "featured": true,
-            "body": "Warehouse, CRM and shipping integrations for your real processes.",
-            "features": [
-              "Everything in Starter store, plus:",
-              "Stock sync and order export",
-              "CRM, InPost, DPD integration, fiscalization",
-              "Multilingual PL/EN/UA/RU + hreflang",
-              "Google Shopping feed, advanced SEO",
-              "Server-side conversion tracking"
-            ]
-          },
-          {
             "title": "Migration / redesign",
             "from": "from",
             "price": "€2,000",
@@ -2091,6 +2061,36 @@
               "New fast front-end on Next.js",
               "Payment and shipping setup",
               "30 days of edits included"
+            ]
+          },
+          {
+            "title": "Starter store",
+            "from": "from",
+            "price": "€1,500",
+            "market": "10,000–18,000 zł",
+            "body": "A ready catalog with cart and payments — for a fast sales start.",
+            "features": [
+              "Up to 100 products, filters and search",
+              "Payments: BLIK, Przelewy24, cards",
+              "Responsive, SSL, basic product SEO",
+              "Cart and one-step checkout",
+              "GA4 and purchase events"
+            ],
+            "featured": true
+          },
+          {
+            "title": "Business store",
+            "from": "from",
+            "price": "€4,000",
+            "market": "25,000–60,000 zł",
+            "body": "Warehouse, CRM and shipping integrations for your real processes.",
+            "features": [
+              "Everything in Starter store, plus:",
+              "Stock sync and order export",
+              "CRM, InPost, DPD integration, fiscalization",
+              "Multilingual PL/EN/UA/RU + hreflang",
+              "Google Shopping feed, advanced SEO",
+              "Server-side conversion tracking"
             ]
           }
         ]
@@ -2571,6 +2571,231 @@
             ]
           }
         ]
+      },
+      "pain": {
+        "eyebrow": "The problem",
+        "headline": "Clients message now. You reply tomorrow",
+        "sub": "Three places where a business loses leads before a manager even says hello. One agent closes all three.",
+        "items": [
+          {
+            "title": "Leads go cold within an hour",
+            "body": "A client writes in the evening and gets a reply in the morning. By then they have already booked with whoever answered in a minute. Response speed beats price: the agent replies in seconds, at 3 am too."
+          },
+          {
+            "title": "Your team is an expensive autoresponder",
+            "body": "80% of questions repeat: how much, how long, how do I book. Paying a person to type the same answers is expensive - and they also take vacations and sick days. The agent takes the routine, people keep the deals."
+          },
+          {
+            "title": "Canned chat widgets annoy people",
+            "body": "SaaS bots with \"pick a menu option\" don't know your prices or services - the client gets annoyed and closes the chat. An agent trained on your data answers the actual question, like an employee who memorized everything and never gets tired."
+          }
+        ]
+      },
+      "formats": {
+        "eyebrow": "Formats",
+        "headline": "Which agent you need",
+        "sub": "Three typical scenarios. Not sure which one is yours - tell me on a call where you lose clients. If a simple €400 automation is enough, I'll say so.",
+        "priceFrom": "from",
+        "items": [
+          {
+            "title": "Website chat agent",
+            "price": "€500",
+            "time": "1-2 weeks",
+            "desc": "Answers questions about your services and prices, collects contacts, sends leads straight to you.",
+            "audience": "For services, clinics, salons, studios",
+            "bullets": [
+              "Trained on your price lists, pages and FAQ",
+              "Widget for your site, Telegram or WhatsApp",
+              "Leads land with you instantly"
+            ]
+          },
+          {
+            "title": "Sales agent with CRM",
+            "price": "€1 500",
+            "time": "2-3 weeks",
+            "desc": "Qualifies the lead, books the appointment, keeps the CRM card updated - like a manager, just around the clock.",
+            "audience": "For sales teams and client booking",
+            "bullets": [
+              "Qualification with your questions",
+              "Calendar booking and a CRM card",
+              "Hands over to a human at the right moment"
+            ]
+          },
+          {
+            "title": "Multi-tool agent",
+            "price": "€3 000",
+            "time": "3-5 weeks",
+            "desc": "Works with several systems at once: CRM, inventory, calendar, documents. Doesn't just answer - gets things done.",
+            "audience": "For companies with complex processes",
+            "bullets": [
+              "Multiple channels: website, Telegram, e-mail",
+              "Actions in your systems, not just answers",
+              "Admin panel with metrics and chat history"
+            ]
+          }
+        ]
+      },
+      "compare": {
+        "eyebrow": "Comparison",
+        "headline": "A custom agent, a SaaS bot\nor one more employee",
+        "sub": "The job is the same - answer clients fast. Here is what each option costs over a year.",
+        "colMe": "Agent by buildbyalex",
+        "cols": [
+          "SaaS builder",
+          "One more manager"
+        ],
+        "rows": [
+          {
+            "label": "Upfront",
+            "me": "€500-3 000 one-time",
+            "vals": [
+              "€0-100",
+              "recruiting + onboarding"
+            ]
+          },
+          {
+            "label": "Monthly cost",
+            "me": "€10-50 for API",
+            "vals": [
+              "€50-500 subscription",
+              "from 5 000 zł + social contributions (ZUS)"
+            ]
+          },
+          {
+            "label": "Works 24/7, no days off",
+            "me": true,
+            "vals": [
+              "yes",
+              "8 hours, vacations, sick leave"
+            ]
+          },
+          {
+            "label": "Knows your services and prices",
+            "me": true,
+            "vals": [
+              "canned replies",
+              "yes"
+            ]
+          },
+          {
+            "label": "Writes to CRM and books clients",
+            "me": true,
+            "vals": [
+              "rarely and poorly",
+              "yes"
+            ]
+          },
+          {
+            "label": "Languages: PL / EN / UA / RU",
+            "me": true,
+            "vals": [
+              "limited by plan",
+              "whatever they happen to speak"
+            ]
+          },
+          {
+            "label": "Replies in seconds",
+            "me": true,
+            "vals": [
+              "yes",
+              "when not busy"
+            ]
+          },
+          {
+            "label": "Code and prompts are yours",
+            "me": true,
+            "vals": [
+              "no, you rent a platform",
+              "the knowledge leaves with them"
+            ]
+          }
+        ],
+        "note": "The agent doesn't replace your team - it takes over the repetitive 80% so people can work on deals instead of copy-paste."
+      },
+      "guarantees": {
+        "eyebrow": "Zero risk",
+        "headline": "Four guarantees in the contract",
+        "sub": "Not verbal promises - actual clauses in the contract we sign before work starts.",
+        "items": [
+          {
+            "title": "Fixed quote",
+            "body": "The price is set before we start and doesn't change along the way. More scenarios than planned - we agree on a new quote first, then I build."
+          },
+          {
+            "title": "Deadline in writing",
+            "body": "The launch date is in the contract. If a delay is on me, you get a discount for every week it slips."
+          },
+          {
+            "title": "GDPR and data in the EU",
+            "body": "Chat history stays with you, personal data is handled under GDPR, models run through European endpoints. No \"the data went somewhere, who knows where\"."
+          },
+          {
+            "title": "The agent and code are yours",
+            "body": "Prompts, knowledge base, integrations and access are all registered to you. Switch developers - the agent keeps working without me."
+          }
+        ]
+      },
+      "timeline": {
+        "eyebrow": "The process",
+        "headline": "From a call to a working agent in 1-3 weeks",
+        "sub": "A typical plan for a chat agent. The multi-tool one goes through the same steps, just with more integrations. Your part takes a couple of hours.",
+        "yourTime": "Your time",
+        "weeks": [
+          {
+            "n": "01",
+            "title": "Call and scenarios",
+            "body": "30 minutes on where you lose clients: what people ask, what should happen with a lead, where the agent lives - website, Telegram, WhatsApp. Then a quote and a contract.",
+            "time": "~1 hour"
+          },
+          {
+            "n": "02",
+            "title": "Knowledge base and personality",
+            "body": "I build the base from your price lists, pages and FAQ and tune the tone to your brand. The agent learns to answer like your best manager, not like a bank robot.",
+            "time": "~30 minutes"
+          },
+          {
+            "n": "03",
+            "title": "Integrations and stress tests",
+            "body": "CRM, calendar, handover to a human. Then I grill the agent with tricky questions: provocations, typos, off-topic stuff - and tighten up the answers.",
+            "time": "~30 minutes"
+          },
+          {
+            "n": "04",
+            "title": "Launch and fine-tuning",
+            "body": "We switch it on for real clients. For the first week I watch live conversations and fix the weak spots. You get an admin panel with metrics: chats, leads, conversion.",
+            "time": "~30 minutes"
+          }
+        ]
+      },
+      "resources": {
+        "eyebrow": "Dig deeper",
+        "headline": "Useful reads on AI agents",
+        "items": [
+          {
+            "slug": "what-is-an-ai-agent",
+            "title": "What an AI agent is and how it differs from a chatbot"
+          },
+          {
+            "slug": "how-much-does-an-ai-chatbot-cost",
+            "title": "How much an AI chatbot costs"
+          },
+          {
+            "slug": "ai-chatbot-savings-roi",
+            "title": "AI chatbot economics: when it pays off"
+          },
+          {
+            "slug": "ai-agent-for-sales-team",
+            "title": "An AI agent for your sales team"
+          },
+          {
+            "slug": "ai-chatbot-with-knowledge-base",
+            "title": "A chatbot with a knowledge base: how it works"
+          },
+          {
+            "slug": "how-to-add-ai-chatbot-to-website",
+            "title": "How to add an AI chatbot to your website"
+          }
+        ]
       }
     },
     "automation": {
@@ -2769,6 +2994,240 @@
             "examples": "Full build · dashboards · monitoring · support · 3+ weeks"
           }
         ]
+      },
+      "pain": {
+        "eyebrow": "The problem",
+        "headline": "Your team is expensive copy-paste",
+        "sub": "Count the hours a week your people spend moving data from one window to another. Here are the three most expensive habits.",
+        "items": [
+          {
+            "title": "Routine eats the workday",
+            "body": "Leads copied from email to CRM by hand, invoices one by one, statuses posted in chats. An hour a day of copy-paste is 250+ hours a year per employee. At Polish rates that's thousands of zloty for work a €400 workflow does."
+          },
+          {
+            "title": "Human error loses clients",
+            "body": "Forgot to call back, lost an email, sent the invoice late. Every little slip costs a client and a piece of reputation. Automation doesn't forget and doesn't go on vacation."
+          },
+          {
+            "title": "Your systems don't talk to each other",
+            "body": "Website, CRM, inventory and accounting live separate lives, and Excel reconciles them on Fridays. Numbers drift apart, decisions get made on stale data."
+          }
+        ]
+      },
+      "formats": {
+        "eyebrow": "Formats",
+        "headline": "Where to start with automation",
+        "sub": "Three typical sizes. Start small: one connection pays for itself in weeks and shows where to dig next.",
+        "priceFrom": "from",
+        "items": [
+          {
+            "title": "Connection",
+            "price": "€400",
+            "time": "2-5 days",
+            "desc": "Two systems start working together: a lead from your website lands in the CRM and in your Telegram on its own.",
+            "audience": "For the first step and proving the effect",
+            "bullets": [
+              "One task, solved end to end",
+              "Live in a matter of days",
+              "Pays for itself within weeks"
+            ]
+          },
+          {
+            "title": "Flow",
+            "price": "€1 000",
+            "time": "1-2 weeks",
+            "desc": "A whole process, from lead to invoice. Notifications, statuses, documents - no manual steps.",
+            "audience": "For processes spanning 3-5 systems",
+            "bullets": [
+              "A process map, before and after",
+              "Error handling and retries",
+              "Team notifications at the right moment"
+            ]
+          },
+          {
+            "title": "System",
+            "price": "€2 500",
+            "time": "2-4 weeks",
+            "desc": "Several processes plus AI steps: email classification, reply drafts, data extraction from documents.",
+            "audience": "For companies where routine is the bottleneck",
+            "bullets": [
+              "AI processing of texts and documents",
+              "n8n on your server, nothing rented",
+              "Monitoring and alerts out of the box"
+            ]
+          }
+        ]
+      },
+      "compare": {
+        "eyebrow": "Comparison",
+        "headline": "Me, an integrator, DIY Zapier\nor leaving it as is",
+        "sub": "Four ways to deal with routine. Three of them cost something, the fourth costs the most - it just never shows up on an invoice.",
+        "colMe": "buildbyalex",
+        "cols": [
+          "Integrator",
+          "DIY Zapier",
+          "Leave as is"
+        ],
+        "rows": [
+          {
+            "label": "Upfront",
+            "me": "€400-2 500 one-time",
+            "vals": [
+              "from €5 000",
+              "subscription + your evenings",
+              "€0"
+            ]
+          },
+          {
+            "label": "Monthly",
+            "me": "€5-30 hosting",
+            "vals": [
+              "retainer",
+              "€20-600 for operations",
+              "team hours every single day"
+            ]
+          },
+          {
+            "label": "Time to launch",
+            "me": "days, not months",
+            "vals": [
+              "1-3 months",
+              "one evening, if you're lucky",
+              "never"
+            ]
+          },
+          {
+            "label": "When it breaks, who fixes it",
+            "me": "I do, alerts tell me first",
+            "vals": [
+              "a ticket in the queue",
+              "you do",
+              "nothing to break, it's all manual"
+            ]
+          },
+          {
+            "label": "AI steps in the process",
+            "me": true,
+            "vals": [
+              "for an extra fee",
+              "limited",
+              "no"
+            ]
+          },
+          {
+            "label": "Complex logic and custom APIs",
+            "me": true,
+            "vals": [
+              "yes, pricey",
+              "builder limits",
+              "no"
+            ]
+          },
+          {
+            "label": "Workflows and access are yours",
+            "me": true,
+            "vals": [
+              "not always",
+              "you rent a platform",
+              "nothing to own"
+            ]
+          },
+          {
+            "label": "Payback",
+            "me": "weeks",
+            "vals": [
+              "months",
+              "depends on you",
+              "a loss every month"
+            ]
+          }
+        ],
+        "note": "The math is simple: routine hours per week × hourly rate × 52. That number is almost always several times the cost of the automation."
+      },
+      "guarantees": {
+        "eyebrow": "Zero risk",
+        "headline": "Four guarantees in the contract",
+        "sub": "Not verbal promises - actual clauses in the contract we sign before work starts.",
+        "items": [
+          {
+            "title": "Fixed quote",
+            "body": "The price is set before we start and doesn't change along the way. More processes than planned - we agree on a new quote first, then I build."
+          },
+          {
+            "title": "Deadline in writing",
+            "body": "The launch date is in the contract. If a delay is on me, you get a discount for every week it slips."
+          },
+          {
+            "title": "Monitoring and alerts",
+            "body": "Every workflow is under watch: if something breaks, I see it before you do and fix it. Errors don't pile up quietly for weeks."
+          },
+          {
+            "title": "Workflows and access are yours",
+            "body": "n8n is deployed on your server, access and documentation stay with you. Switch developers - everything keeps running."
+          }
+        ]
+      },
+      "timeline": {
+        "eyebrow": "The process",
+        "headline": "From audit to a working process in 1-2 weeks",
+        "sub": "A typical plan for a Flow. A Connection goes through the same steps in a couple of days, a System takes 2-4 weeks.",
+        "yourTime": "Your time",
+        "weeks": [
+          {
+            "n": "01",
+            "title": "Process audit",
+            "body": "30-60 minutes on how work actually flows: where leads come from, who moves what where, what gets lost. You get a process map, a quote and the first thing to automate.",
+            "time": "~1 hour"
+          },
+          {
+            "n": "02",
+            "title": "Building the workflow",
+            "body": "I connect your systems and build the flow in n8n or Make: triggers, conditions, error handling. You keep working as usual in the meantime.",
+            "time": "~30 minutes"
+          },
+          {
+            "n": "03",
+            "title": "Tests on real data",
+            "body": "The workflow runs in parallel with the old process: edge cases, duplicates, retries. Nothing breaks in production.",
+            "time": "~30 minutes"
+          },
+          {
+            "n": "04",
+            "title": "Launch and monitoring",
+            "body": "We switch to autopilot and I set up alerts. For the first week I watch every run. You get the access and a short manual.",
+            "time": "~30 minutes"
+          }
+        ]
+      },
+      "resources": {
+        "eyebrow": "Dig deeper",
+        "headline": "Useful reads on automation",
+        "items": [
+          {
+            "slug": "what-to-automate-first-in-business",
+            "title": "What to automate first in your business"
+          },
+          {
+            "slug": "how-much-does-automation-cost-n8n",
+            "title": "How much n8n automation costs"
+          },
+          {
+            "slug": "business-process-automation-where-to-start",
+            "title": "Process automation: where to start"
+          },
+          {
+            "slug": "make-vs-n8n-vs-zapier",
+            "title": "Make, n8n or Zapier: which to pick"
+          },
+          {
+            "slug": "appointment-reminders-cut-no-shows",
+            "title": "Appointment reminders that cut no-shows"
+          },
+          {
+            "slug": "crm-telegram-whatsapp-integration",
+            "title": "Connecting your CRM to Telegram and WhatsApp"
+          }
+        ]
       }
     },
     "mobile": {
@@ -2921,6 +3380,22 @@
           {
             "q": "Do you work only in Warsaw, or across Poland?",
             "a": "We work across all of Poland and remotely — Warsaw, Kraków, Wrocław, Gdańsk, Poznań or a smaller town, it makes no difference. Calls, demos and handover happen online; the contract and payment are remote. An in-person meeting in Warsaw is available on request."
+          },
+          {
+            "q": "How will people find the app in the stores?",
+            "a": "Publishing is half the job; then ASO kicks in: a name and subtitle matched to store searches, keywords, and screenshots that sell rather than just show screens. I do baseline ASO at publishing. An app also almost always needs a landing page - the page Google finds, with the Download button. I build those too; see the Body Forge landing in my work."
+          },
+          {
+            "q": "Can you build AI into the app?",
+            "a": "Yes, and it's cheaper than it sounds. Body Forge ships an AI coach on GPT: it reads your workout and returns a personal analysis in ~10 seconds. The same pattern adds an AI consultant, copy generator, photo analysis or voice input to your app. Usually that's +€900 on the quote, not a separate project."
+          },
+          {
+            "q": "Apple updates iOS every year. Won't the app break?",
+            "a": "The cross-platform stack updates in step with iOS and Android, and small fixes fall under €50/hour support - usually 1-2 hours a year. The Apple developer account costs $99/year, Google's is a one-off $25, both registered to you. No mandatory “keep it alive” retainers."
+          },
+          {
+            "q": "I only have an idea, no spec. Is that enough?",
+            "a": "It's enough. You don't need a classic spec: on a call we strip the idea down to the core flow - who the user is and which action makes money. From that I produce a screen map and a quote; you approve. It's free and commits you to nothing: worst case, you leave with your idea neatly structured."
           }
         ]
       },
@@ -2978,6 +3453,315 @@
               "Support and growth after release"
             ],
             "examples": "Integrations · admin · support · 10+ weeks"
+          }
+        ]
+      },
+      "pain": {
+        "eyebrow": "The problem",
+        "headline": "Why app ideas never reach the stores",
+        "sub": "Good ideas die not from competition but from three banal things. All three are solved by approach, not budget.",
+        "items": [
+          {
+            "title": "Agencies quote six months and €30,000",
+            "body": "A classic agency sells you process: briefs, sprints, project managers. Meanwhile the idea goes cold. A hypothesis needs a working MVP in 4-8 weeks, not a slide deck next quarter."
+          },
+          {
+            "title": "No-code hits its ceiling fast",
+            "body": "Builders are great until the first “can we also…”: subscriptions grow, the app lags, it looks like a template in the stores, and there's nowhere to take your work. You end up rewriting anyway - on a second budget."
+          },
+          {
+            "title": "Publishing is a quest of its own",
+            "body": "Apple review, developer accounts, certificates, privacy policies, screenshots for every screen size. Half of DIY apps get stuck right here - one step from the store."
+          }
+        ]
+      },
+      "formats": {
+        "eyebrow": "Formats",
+        "headline": "Which app fits you",
+        "sub": "Four typical scenarios. Not sure which is yours - pitch the idea on a call. If it can be tested with a €300 bot instead of a €3,000 app, that's exactly what I'll tell you.",
+        "priceFrom": "from",
+        "items": [
+          {
+            "title": "MVP",
+            "price": "€3,000",
+            "time": "3-5 weeks",
+            "desc": "One product core in both stores - test the idea on real users before big spending.",
+            "audience": "For startups and hypothesis testing",
+            "bullets": [
+              "iOS + Android from one codebase",
+              "Auth and the core user flow",
+              "App Store and Google Play publishing included"
+            ]
+          },
+          {
+            "title": "App",
+            "price": "€7,000",
+            "time": "6-10 weeks",
+            "desc": "A full product with a backend, payments and push - ready for the first paying users.",
+            "audience": "For businesses that earn through the app",
+            "bullets": [
+              "Backend, API and database",
+              "Payments, subscriptions and push notifications",
+              "Funnel analytics and OTA updates"
+            ]
+          },
+          {
+            "title": "Product",
+            "price": "€15,000",
+            "time": "from 10 weeks",
+            "desc": "A scalable system: integrations, admin panel, roles, and support after launch.",
+            "audience": "For companies with a live audience",
+            "bullets": [
+              "Third-party and CRM integrations",
+              "Admin panel and complex roles",
+              "Support and growth after release"
+            ]
+          },
+          {
+            "title": "Telegram Mini App",
+            "price": "€300",
+            "time": "1-2 weeks",
+            "desc": "An app inside Telegram: no stores, no review, no install. Often the cheapest way to test an idea.",
+            "audience": "For fast launches and Telegram audiences",
+            "bullets": [
+              "Launch without App Store and Google Play",
+              "Payments right inside Telegram",
+              "Ready in a week or two, not months"
+            ],
+            "href": "/services/telegram-bots",
+            "linkLabel": "More about Telegram apps"
+          }
+        ]
+      },
+      "caseProof": {
+        "eyebrow": "Case study",
+        "headline": "Body Forge: from idea to the App Store",
+        "sub": "Not a concept or a prototype - a live app you can download right now. This is the level I build mobile products at.",
+        "cta": "See the full case study",
+        "storeSub": "Download on the"
+      },
+      "compare": {
+        "eyebrow": "Comparison",
+        "headline": "buildbyalex, an agency,\na freelancer or no-code",
+        "sub": "There are four ways to get an app. The question is what you're left with in a year - here's the honest breakdown.",
+        "colMe": "buildbyalex",
+        "cols": [
+          "Agency",
+          "Freelancer",
+          "No-code"
+        ],
+        "rows": [
+          {
+            "label": "Turnkey MVP",
+            "me": "€3,000-4,000",
+            "vals": [
+              "€15,000-30,000",
+              "unpredictable",
+              "€50-300/mo subscription"
+            ]
+          },
+          {
+            "label": "Time to the stores",
+            "me": "4-8 weeks",
+            "vals": [
+              "4-8 months",
+              "2 months to ∞",
+              "fast, but not always allowed in"
+            ]
+          },
+          {
+            "label": "iOS + Android at once",
+            "me": true,
+            "vals": [
+              "often two teams",
+              "rarely",
+              "depends on the platform"
+            ]
+          },
+          {
+            "label": "Store publishing included",
+            "me": true,
+            "vals": [
+              "costs extra",
+              "“figure it out yourself”",
+              "often impossible"
+            ]
+          },
+          {
+            "label": "Backend and integrations",
+            "me": true,
+            "vals": [
+              "yes, expensive",
+              "hit or miss",
+              "builder limits"
+            ]
+          },
+          {
+            "label": "You own code and accounts",
+            "me": true,
+            "vals": [
+              "not always",
+              "usually yes",
+              "no, you rent the platform"
+            ]
+          },
+          {
+            "label": "You talk directly to",
+            "me": "the developer",
+            "vals": [
+              "a project manager",
+              "the contractor",
+              "docs and a forum"
+            ]
+          },
+          {
+            "label": "Cost of changes later",
+            "me": "€50/hour",
+            "vals": [
+              "a new contract",
+              "if you can find them",
+              "a growing subscription"
+            ]
+          }
+        ],
+        "note": "Market ranges from public price lists of Polish agencies and marketplaces, autumn 2025."
+      },
+      "guarantees": {
+        "eyebrow": "Zero risk",
+        "headline": "Four guarantees in the contract",
+        "sub": "Not verbal promises - clauses in the contract we sign before work starts.",
+        "items": [
+          {
+            "title": "Fixed quote",
+            "body": "I name the price before we start and don't change it midway. If the feature list grows - we agree on a new quote first, then I build."
+          },
+          {
+            "title": "Deadline in writing",
+            "body": "The release date is written into the contract. If a delay is my fault - you get a discount for every week of slippage."
+          },
+          {
+            "title": "Code and accounts are yours",
+            "body": "Apple and Google accounts are registered to you, the code goes to your GitHub. Switch developers - the app stays yours."
+          },
+          {
+            "title": "Turnkey publishing",
+            "body": "Apple and Google reviews are my job: certificates, screenshots, listings. If a store bounces the app - I fix and resubmit at no charge."
+          }
+        ]
+      },
+      "timeline": {
+        "eyebrow": "Process",
+        "headline": "From idea to the App Store - 4-8 weeks",
+        "sub": "The typical MVP plan. A bigger app walks the same steps, each stage just takes longer. You'll watch progress on your own phone, not in reports.",
+        "yourTime": "Your time",
+        "weeks": [
+          {
+            "n": "01",
+            "title": "Call and user flows",
+            "body": "30 minutes on the idea: who the user is, which action matters most, how you make money. Then a screen map, a quote and a contract with a release date.",
+            "time": "~1 hour"
+          },
+          {
+            "n": "02",
+            "title": "Design and the core",
+            "body": "I build the main flow straight in code. Within a couple of weeks you have a working build in TestFlight on your phone - you tap through, comment, I adjust.",
+            "time": "~30 min"
+          },
+          {
+            "n": "03",
+            "title": "Backend and integrations",
+            "body": "Auth, database, payments, push. Every new build lands on your phone automatically - progress is on your screen, not in reports.",
+            "time": "~30 min"
+          },
+          {
+            "n": "04",
+            "title": "Stores and launch",
+            "body": "Screenshots, listings, ASO copy, Apple and Google review. After release I hand over access and show you the analytics: installs, funnel, retention.",
+            "time": "~1 hour"
+          }
+        ]
+      },
+      "calc": {
+        "eyebrow": "Build your quote",
+        "headline": "What your app will cost",
+        "sub": "Agencies hide prices behind “leave your contact”. Here it's the opposite: tick what your app needs and see the range instantly.",
+        "baseLabel": "Base: MVP for iOS + Android",
+        "baseIncludes": "One codebase, auth, the core flow, publishing in both stores, basic analytics.",
+        "features": [
+          {
+            "label": "Payments & subscriptions",
+            "p": 900,
+            "w": 1
+          },
+          {
+            "label": "Push notifications",
+            "p": 400,
+            "w": 0
+          },
+          {
+            "label": "Chat & messaging",
+            "p": 800,
+            "w": 1
+          },
+          {
+            "label": "AI features (GPT)",
+            "p": 900,
+            "w": 1
+          },
+          {
+            "label": "Admin panel",
+            "p": 800,
+            "w": 1
+          },
+          {
+            "label": "Maps & geolocation",
+            "p": 500,
+            "w": 1
+          },
+          {
+            "label": "CRM / API integration",
+            "p": 600,
+            "w": 1
+          },
+          {
+            "label": "Offline mode",
+            "p": 500,
+            "w": 1
+          }
+        ],
+        "resultTitle": "Estimated range",
+        "weeksLabel": "Timeline",
+        "weeksUnit": "weeks",
+        "note": "This is an estimate, not an offer: the exact figure depends on details and is fixed in the quote after a call. But the order of magnitude is exactly this - no surprises at the end.",
+        "cta": "Lock the quote on a call"
+      },
+      "resources": {
+        "eyebrow": "Dig deeper",
+        "headline": "Worth reading before starting an app",
+        "items": [
+          {
+            "slug": "how-much-does-it-cost-to-build-an-app",
+            "title": "How much it costs to build an app"
+          },
+          {
+            "slug": "does-business-need-mobile-app",
+            "title": "Does your business need a mobile app"
+          },
+          {
+            "slug": "mvp-app-development-for-startups",
+            "title": "An MVP for a startup: test the idea cheaply"
+          },
+          {
+            "slug": "native-vs-cross-platform-app",
+            "title": "Native vs cross-platform app"
+          },
+          {
+            "slug": "mobile-app-or-pwa",
+            "title": "Mobile app or PWA: which to choose"
+          },
+          {
+            "slug": "how-to-publish-app-on-app-store",
+            "title": "How to publish an app on the App Store"
           }
         ]
       }
@@ -3345,6 +4129,187 @@
             ]
           }
         ]
+      },
+      "pain": {
+        "eyebrow": "The problem",
+        "headline": "The ads are spending. The till is quiet",
+        "sub": "When ads \"don't work\", it's almost always one of three reasons - and the budget isn't one of them.",
+        "items": [
+          {
+            "title": "Optimized for clicks, not money",
+            "body": "Without conversion tracking the algorithm has no idea what a \"lead\" is, so it brings clickers instead of clients. Half the ad accounts in Poland run exactly like this: plenty of traffic, no sales."
+          },
+          {
+            "title": "Agencies profit from your big budget",
+            "body": "The \"% of budget\" model is a built-in conflict of interest: the agency earns when you spend more, not when a lead gets cheaper. That's why the reports talk about reach instead of cost per lead."
+          },
+          {
+            "title": "Ads pointing at a weak page",
+            "body": "Half the result is the landing page. A slow page with no offer and no form burns even perfectly tuned traffic. I build both the ads and the pages - and answer for the whole chain."
+          }
+        ]
+      },
+      "compare": {
+        "eyebrow": "Comparison",
+        "headline": "Me, an agency\nor doing it yourself",
+        "sub": "Three ways to run ads. The difference isn't in the buttons - it's in the payment model and who answers for the result.",
+        "colMe": "buildbyalex",
+        "cols": [
+          "Agency",
+          "DIY"
+        ],
+        "rows": [
+          {
+            "label": "Payment model",
+            "me": "flat €290-850/month",
+            "vals": [
+              "% of budget",
+              "your time"
+            ]
+          },
+          {
+            "label": "What pays the contractor",
+            "me": "a cheap lead",
+            "vals": [
+              "a big budget",
+              "-"
+            ]
+          },
+          {
+            "label": "Minimum budget",
+            "me": "from 1 500 zł/month",
+            "vals": [
+              "from 5 000-10 000 zł/month",
+              "any"
+            ]
+          },
+          {
+            "label": "Conversion tracking down to the lead",
+            "me": true,
+            "vals": [
+              "not always",
+              "hard without experience"
+            ]
+          },
+          {
+            "label": "Landing page for the ads",
+            "me": "I build it myself",
+            "vals": [
+              "subcontracted, billed separately",
+              "no"
+            ]
+          },
+          {
+            "label": "Accounts and pixels are yours",
+            "me": true,
+            "vals": [
+              "not always",
+              "yes"
+            ]
+          },
+          {
+            "label": "Reporting",
+            "me": "weekly, in plain language",
+            "vals": [
+              "a PDF once a month",
+              "-"
+            ]
+          },
+          {
+            "label": "Lock-in",
+            "me": "month to month, leave any time",
+            "vals": [
+              "6-12 month contract",
+              "-"
+            ]
+          }
+        ],
+        "note": "Running it yourself is a fine path if you have 10+ hours a week to learn. Usually it's cheaper to buy those hours from a specialist."
+      },
+      "guarantees": {
+        "eyebrow": "Zero risk",
+        "headline": "Four working principles",
+        "sub": "A model where I want the same thing you do: a cheap lead, not a big budget.",
+        "items": [
+          {
+            "title": "No % of budget",
+            "body": "A flat fee for management. My income doesn't grow when you spend more - my incentive is to push the cost per lead down."
+          },
+          {
+            "title": "The accounts are yours",
+            "body": "Google Ads, Meta, pixels and the full history live on your accounts. If you leave, everything stays with you, including the accumulated data."
+          },
+          {
+            "title": "A report every week",
+            "body": "How much was spent, how many leads came in, what a lead costs, what I'm changing next. In plain language, no \"reach\" and no fluff."
+          },
+          {
+            "title": "No lock-in",
+            "body": "We work month to month, no long contracts. You can leave any month - and that's my best incentive to do a good job."
+          }
+        ]
+      },
+      "timeline": {
+        "eyebrow": "The process",
+        "headline": "Your first month of ads, step by step",
+        "sub": "This is what a launch from scratch looks like. If you already have an account, we start with an audit - and usually find 20-30% of the budget going up in smoke.",
+        "yourTime": "Your time",
+        "weeks": [
+          {
+            "n": "01",
+            "title": "Audit and strategy",
+            "body": "We go over the product, margins and regions. We set a target cost per lead and pick the channels: Google for hot demand, Meta for warm. Plan and budget locked in.",
+            "time": "~1 hour"
+          },
+          {
+            "n": "02",
+            "title": "Setup",
+            "body": "Campaigns, audiences, ads and the key part - conversion tracking down to the lead and the call, server-side included. Skip this step and ads become a lottery.",
+            "time": "~30 minutes"
+          },
+          {
+            "n": "03",
+            "title": "Launch and first data",
+            "body": "The first 1-2 weeks: cutting junk queries, testing ads, adjusting bids. The algorithms learn from the right signals.",
+            "time": "~30 minutes"
+          },
+          {
+            "n": "04",
+            "title": "Optimization and report",
+            "body": "What brings leads gets scaled, what burns budget gets cut. At the end of the month you get a report with numbers: spend, leads, cost per lead, plan for the next month.",
+            "time": "~30 minutes"
+          }
+        ]
+      },
+      "resources": {
+        "eyebrow": "Dig deeper",
+        "headline": "Useful reads on ads",
+        "items": [
+          {
+            "slug": "google-ads-vs-meta-ads",
+            "title": "Google Ads or Meta Ads: which to pick"
+          },
+          {
+            "slug": "beauty-salon-clients-without-booksy",
+            "title": "Getting clients for a beauty salon"
+          },
+          {
+            "slug": "dental-clinic-get-patients-poland",
+            "title": "Getting patients for a dental clinic"
+          },
+          {
+            "slug": "construction-company-get-clients-online",
+            "title": "Getting clients for a construction company"
+          },
+          {
+            "slug": "auto-repair-shop-get-local-clients",
+            "title": "Getting local clients for an auto repair shop"
+          },
+          {
+            "slug": "ai-intercept-missed-calls",
+            "title": "Missed calls: how not to lose clients"
+          }
+        ]
       }
     },
     "telegram": {
@@ -3532,7 +4497,232 @@
       "demoEyebrow": "Live",
       "startingPrice": "Starting price",
       "bookCta": "Free call",
-      "includedTitle": "What's included"
+      "includedTitle": "What's included",
+      "pain": {
+        "eyebrow": "The problem",
+        "headline": "Your clients are on Telegram. Is your business?",
+        "sub": "As long as orders come in via \"DM us\", money leaks in three places.",
+        "items": [
+          {
+            "title": "Leads drown in DMs",
+            "body": "Clients write in private messages and comments, the manager replies when they can. Half the requests go cold before an answer. A bot takes an order in 20 seconds, any time of day."
+          },
+          {
+            "title": "An app is pricey, the site gets skipped",
+            "body": "A native app starts at €3 000 and takes months, and nobody wants to install it anyway. A Mini App opens inside Telegram instantly: no stores, no review, no install."
+          },
+          {
+            "title": "Payment by \"transfer to my card\"",
+            "body": "Manual orders, verbal confirmations, payment by bank transfer - it looks amateur and loses buyers. In Telegram people pay by card and BLIK right in the chat, without leaving the conversation."
+          }
+        ]
+      },
+      "formats": {
+        "eyebrow": "Formats",
+        "headline": "Which bot you need",
+        "sub": "Three typical scenarios - from simple order intake to a store inside Telegram. Prices and timelines are honest, straight from practice.",
+        "priceFrom": "from",
+        "items": [
+          {
+            "title": "Order bot",
+            "price": "€300",
+            "time": "1-2 weeks",
+            "desc": "Menu, Q&A, order and booking intake. Every request lands in your chat instantly.",
+            "audience": "For services, bookings and orders",
+            "bullets": [
+              "A flow built around your process, not a template",
+              "Notifications for you and the client",
+              "Order stats"
+            ]
+          },
+          {
+            "title": "AI bot with CRM",
+            "price": "€700",
+            "time": "2-3 weeks",
+            "desc": "Answers questions from your knowledge base, qualifies leads and logs everything in the CRM.",
+            "audience": "For a steady stream of questions and real conversations",
+            "bullets": [
+              "AI answers on your data, no making things up",
+              "A lead card in the CRM, automatically",
+              "Handover to a human in one tap"
+            ]
+          },
+          {
+            "title": "Mini App with payments",
+            "price": "€1 500",
+            "time": "2-4 weeks",
+            "desc": "A full app inside Telegram: storefront, cart, card and BLIK payments in the chat.",
+            "audience": "For stores, delivery and bookings",
+            "bullets": [
+              "Catalog and cart, app-grade",
+              "Payment without leaving Telegram",
+              "No App Store, review or install"
+            ]
+          }
+        ]
+      },
+      "compare": {
+        "eyebrow": "Comparison",
+        "headline": "Your own bot, a builder\nor a manager in DMs",
+        "sub": "There's more than one way to take orders from Telegram. Here is what each one gives and what it costs.",
+        "colMe": "Bot by buildbyalex",
+        "cols": [
+          "Bot builder",
+          "Manager in DMs"
+        ],
+        "rows": [
+          {
+            "label": "Upfront",
+            "me": "€300-1 500 one-time",
+            "vals": [
+              "€15-100/month subscription",
+              "€0"
+            ]
+          },
+          {
+            "label": "Replies",
+            "me": "instantly, 24/7",
+            "vals": [
+              "from a template, 24/7",
+              "when they get to it"
+            ]
+          },
+          {
+            "label": "AI answers from your base",
+            "me": true,
+            "vals": [
+              "limited by plan",
+              "knows it, if they remember"
+            ]
+          },
+          {
+            "label": "Card and BLIK payments in chat",
+            "me": true,
+            "vals": [
+              "rarely",
+              "\"transfer to my card\""
+            ]
+          },
+          {
+            "label": "Leads in CRM",
+            "me": true,
+            "vals": [
+              "for an extra fee",
+              "if they don't forget"
+            ]
+          },
+          {
+            "label": "Broadcasts and notifications",
+            "me": true,
+            "vals": [
+              "yes",
+              "by hand"
+            ]
+          },
+          {
+            "label": "Bot, tokens and database are yours",
+            "me": true,
+            "vals": [
+              "you rent a platform",
+              "chat history on someone else's phone"
+            ]
+          },
+          {
+            "label": "Changes later",
+            "me": "€50/hour, anything you want",
+            "vals": [
+              "plan limits",
+              "-"
+            ]
+          }
+        ],
+        "note": "The Telegram API is free, bot hosting runs €5-30 a month. No platform subscriptions."
+      },
+      "guarantees": {
+        "eyebrow": "Zero risk",
+        "headline": "Four guarantees in the contract",
+        "sub": "Not verbal promises - actual clauses in the contract we sign before work starts.",
+        "items": [
+          {
+            "title": "Fixed quote",
+            "body": "The price is set before we start and doesn't change along the way. If the scope grows - we agree on a new quote first, then I build."
+          },
+          {
+            "title": "Deadline in writing",
+            "body": "The launch date is in the contract. If a delay is on me, you get a discount for every week it slips."
+          },
+          {
+            "title": "Bot and tokens are yours",
+            "body": "The bot is created on your account; tokens, code and database stay with you. Switch developers - the bot keeps working."
+          },
+          {
+            "title": "30 days of tweaks",
+            "body": "For a month after launch I make changes for free: copy, buttons, flows. No tickets, no queues, no \"that's a new quote\"."
+          }
+        ]
+      },
+      "timeline": {
+        "eyebrow": "The process",
+        "headline": "From idea to a live Telegram bot in 1-3 weeks",
+        "sub": "A typical plan for an AI bot. A simple order bot goes through the same steps in a week, a Mini App takes 2-4 weeks.",
+        "yourTime": "Your time",
+        "weeks": [
+          {
+            "n": "01",
+            "title": "Call and flow",
+            "body": "30 minutes on the task: what clients ask, what they order, where leads should land. I sketch the conversation flow, give a quote, we sign the contract.",
+            "time": "~1 hour"
+          },
+          {
+            "n": "02",
+            "title": "Bot in code",
+            "body": "I build the bot or Mini App: buttons, screens, copy. A test version shows up in your Telegram almost right away - you poke around and comment as I go.",
+            "time": "~30 minutes"
+          },
+          {
+            "n": "03",
+            "title": "Payments and integrations",
+            "body": "I wire up in-chat payments, CRM, team notifications. For an AI bot I build the knowledge base from your materials and run it through tricky questions.",
+            "time": "~30 minutes"
+          },
+          {
+            "n": "04",
+            "title": "Launch and handover",
+            "body": "I move the bot to your account and we go live with real clients. You get the access and a stats view: conversations, orders, payments.",
+            "time": "~30 minutes"
+          }
+        ]
+      },
+      "resources": {
+        "eyebrow": "Dig deeper",
+        "headline": "Useful reads on Telegram bots",
+        "items": [
+          {
+            "slug": "how-much-does-a-telegram-bot-cost",
+            "title": "How much a Telegram bot costs"
+          },
+          {
+            "slug": "telegram-bot-for-business-use-cases",
+            "title": "Telegram bots for business: 12 working use cases"
+          },
+          {
+            "slug": "telegram-bot-vs-website-chat",
+            "title": "Telegram bot or website chat: which to pick"
+          },
+          {
+            "slug": "ai-assistant-in-telegram-for-business",
+            "title": "An AI assistant in Telegram: how it works"
+          },
+          {
+            "slug": "telegram-bot-for-orders-and-payments",
+            "title": "Orders and payments in Telegram"
+          },
+          {
+            "slug": "ai-lead-qualification-bot",
+            "title": "A bot that qualifies your leads"
+          }
+        ]
+      }
     }
   },
   "work": {

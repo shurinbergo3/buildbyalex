@@ -103,7 +103,7 @@ export function LocaleSwitcher({
         <ul
           role="listbox"
           className={cn(
-            "absolute z-50 min-w-[160px] overflow-hidden rounded-2xl border border-[color:var(--c-hairline)] bg-[color:var(--color-bg-elev)] py-1.5 shadow-[var(--shadow-card)]",
+            "locale-menu absolute z-50 min-w-[160px] overflow-hidden rounded-2xl border border-[color:var(--c-hairline)] bg-[color:var(--color-bg-elev)] py-1.5 shadow-[var(--shadow-card)]",
             placement === "bottom-end" && "right-0 mt-2",
             placement === "top-start" && "bottom-full left-0 mb-2",
           )}

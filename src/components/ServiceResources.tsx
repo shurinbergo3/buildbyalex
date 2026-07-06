@@ -9,7 +9,7 @@ import { Reveal } from "./Reveal";
 
 type ResourceItem = { slug: string; title: string };
 
-export function ServiceResources({ branch }: { branch: "websites" | "store" }) {
+export function ServiceResources({ branch }: { branch: "websites" | "store" | "mobile" | "ai" | "automation" | "telegram" | "ads" }) {
   const t = useTranslations(`services.${branch}.resources`);
   const items = t.raw("items") as ResourceItem[];
 
