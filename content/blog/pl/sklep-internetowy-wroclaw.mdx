@@ -2,7 +2,7 @@
 title: "Sklep internetowy Wrocław: ile kosztuje wdrożenie i co się zwraca"
 description: "Ile kosztuje sklep internetowy we Wrocławiu, ile trwa wdrożenie, jaką platformę wybrać i co realnie podnosi konwersję. Konkretne widełki dla wrocławskich sprzedawców."
 date: "2026-05-02"
-cluster: "online-store-development-wroclaw-pl"
+cluster: "online-store-development-wroclaw"
 keywords:
   - "sklep internetowy Wrocław"
   - "tworzenie sklepu internetowego Wrocław"
@@ -10,7 +10,7 @@ keywords:
 ogImage: "/og/online-store-wroclaw.webp"
 ---
 
-Chcesz uruchomić **sklep internetowy** we Wrocławiu i potrzebujesz liczby, a nie "od 99 zł"? Konkret na start: porządny sklep na gotowej platformie to **5 000–8 000 €**, custom na Next.js **9 000–18 000 €**, a wdrożenie trwa **od 4 do 10 tygodni** zależnie od wariantu. Resztę — platformę, płatności, integrację z magazynem i to, co naprawdę podnosi konwersję — rozpisuję niżej.
+Chcesz uruchomić **sklep internetowy** we Wrocławiu i potrzebujesz liczby, a nie "od 99 zł"? Konkret na start: porządny sklep na gotowej platformie to **5 000-8 000 €**, custom na Next.js **9 000-18 000 €**, a wdrożenie trwa **od 4 do 10 tygodni** zależnie od wariantu. Resztę - platformę, płatności, integrację z magazynem i to, co naprawdę podnosi konwersję - rozpisuję niżej.
 
 Piszę to z perspektywy kogoś, kto te sklepy potem utrzymuje, a nie znika po fakturze. Wrocław ma jedną cechę, którą widać w każdej wycenie: gęstość agencji jest tu absurdalna. Połowa to spółki obsługujące korporacje z Business Garden i okolic Sky Tower, druga połowa to studenci Politechniki, którzy zrobią ci WooCommerce za 2 000 zł i znikną przed pierwszą aktualizacją. Lokalnej marce żadne z tych dwóch rozwiązań nie pasuje.
 
@@ -18,72 +18,80 @@ Piszę to z perspektywy kogoś, kto te sklepy potem utrzymuje, a nie znika po fa
 
 Wybór silnika przesądza o kosztach na lata, nie o samym starcie. Trzy realne opcje:
 
-- **Shopify** — abonament od ~30 € miesięcznie plus prowizja od bramki. Wszystko działa od ręki, App Store pełen integracji. Najszybszy start, najmniejsza kontrola nad checkoutem. Za wygodę płacisz co miesiąc.
-- **WooCommerce (WordPress)** — najpopularniejszy w Polsce, w tym wśród wrocławskich sprzedawców. Silnik za darmo, ale płacisz za hosting, wtyczki i utrzymanie. Elastyczny, wymaga opieki: aktualizacje, bezpieczeństwo, wydajność.
-- **Headless / custom na Next.js + Stripe albo Medusa** — najdroższy front, ale najszybszy i najbardziej elastyczny. Ma sens przy nietypowej logice: ceny B2B, subskrypcje, konfigurator, marketplace.
+- **Shopify** - abonament od ~30 € miesięcznie plus prowizja od bramki. Wszystko działa od ręki, App Store pełen integracji. Najszybszy start, najmniejsza kontrola nad checkoutem. Za wygodę płacisz co miesiąc.
+- **WooCommerce (WordPress)** - najpopularniejszy w Polsce, w tym wśród wrocławskich sprzedawców. Silnik za darmo, ale płacisz za hosting, wtyczki i utrzymanie. Elastyczny, wymaga opieki: aktualizacje, bezpieczeństwo, wydajność.
+- **Headless / custom na Next.js + Stripe albo Medusa** - najdroższy front, ale najszybszy i najbardziej elastyczny. Ma sens przy nietypowej logice: ceny B2B, subskrypcje, konfigurator, marketplace.
 
-Prosta zasada: standardowy sklep z 50–500 produktami → Shopify albo WooCommerce. Nietypowa logika albo bardzo duży ruch → headless. Wrocławska marka odzieżowa z 200 SKU nie potrzebuje headless. Hurtownia części samochodowych z cennikiem B2B i tysiącami indeksów — owszem, bo tam katalog i ceny żyją w osobnym systemie.
+Prosta zasada: standardowy sklep z 50-500 produktami → Shopify albo WooCommerce. Nietypowa logika albo bardzo duży ruch → headless. Wrocławska marka odzieżowa z 200 SKU nie potrzebuje headless. Hurtownia części samochodowych z cennikiem B2B i tysiącami indeksów - owszem, bo tam katalog i ceny żyją w osobnym systemie.
 
-## Polskie płatności i logistyka — tu wykłada się większość zagranicznych szablonów
+## Polskie płatności i logistyka - tu wykłada się większość zagranicznych szablonów
 
-To jest sedno. Wrocławski klient nie kupi, jeśli nie zobaczy **BLIK-a** i **paczkomatu InPost**. Paczkomaty to pierwszy wybór dostawy dla około 70% kupujących online w Polsce. A Wrocław jest nimi gęsto upakowany — paczkomat masz pod blokiem na Krzykach, przy wejściu do Magnolia Park, na każdym osiedlu wokół Placu Grunwaldzkiego.
+To jest sedno. Wrocławski klient nie kupi, jeśli nie zobaczy **BLIK-a** i **paczkomatu InPost**. Paczkomaty to pierwszy wybór dostawy dla około 70% kupujących online w Polsce. A Wrocław jest nimi gęsto upakowany - paczkomat masz pod blokiem na Krzykach, przy wejściu do Magnolia Park, na każdym osiedlu wokół Placu Grunwaldzkiego.
 
 Czego sklep potrzebuje, żeby w ogóle sprzedawać:
 
-1. **Płatności:** BLIK, Przelewy24, PayU albo Tpay. BLIK to absolutna podstawa — bez niego porzucasz połowę koszyków. Stripe dorzucam, gdy sprzedajesz za granicę (kart zagranicznych P24 nie obsłuży tak czysto).
+1. **Płatności:** BLIK, Przelewy24, PayU albo Tpay. BLIK to absolutna podstawa - bez niego porzucasz połowę koszyków. Stripe dorzucam, gdy sprzedajesz za granicę (kart zagranicznych P24 nie obsłuży tak czysto).
 2. **Dostawa:** InPost Paczkomaty jako priorytet, kurier DPD albo DHL jako druga opcja, odbiór osobisty jeśli masz punkt w mieście.
 3. **Integracja statusów:** automatyczne etykiety, śledzenie, mail po nadaniu paczki.
 
-Jeśli ktoś wycenia ci sklep i nie wymienia z nazwy BLIK-a, Przelewy24 i InPostu — albo nie robił sklepów w Polsce, albo dopisze to później jako "dodatkowe integracje" na osobnej fakturze. Sam doprowadzam to do działania end-to-end, dlatego [zobacz usługę sklepów internetowych](/pl/uslugi/sklep-internetowy) i potraktuj wdrożenie jako pełny proces sprzedażowy, a nie sam wygląd.
+Jeśli ktoś wycenia ci sklep i nie wymienia z nazwy BLIK-a, Przelewy24 i InPostu - albo nie robił sklepów w Polsce, albo dopisze to później jako "dodatkowe integracje" na osobnej fakturze. Sam doprowadzam to do działania end-to-end, dlatego [zobacz usługę sklepów internetowych](/pl/uslugi/sklep-internetowy) i potraktuj wdrożenie jako pełny proces sprzedażowy, a nie sam wygląd.
 
-## Integracja z magazynem i kurierami — gdzie Wrocław ma przewagę i pułapkę
+## Integracja z magazynem i kurierami - gdzie Wrocław ma przewagę i pułapkę
 
-Wrocław to miasto logistyki. Magazyny i centra fulfillmentu siedzą na obrzeżach — Bielany Wrocławskie, Magnice, korytarz przy A4. Wielu lokalnych sprzedawców trzyma towar nie u siebie, tylko w zewnętrznym magazynie albo u operatora 3PL. I tu zaczyna się robota, której większość ofert nie widzi.
+Wrocław to miasto logistyki. Magazyny i centra fulfillmentu siedzą na obrzeżach - Bielany Wrocławskie, Magnice, korytarz przy A4. Wielu lokalnych sprzedawców trzyma towar nie u siebie, tylko w zewnętrznym magazynie albo u operatora 3PL. I tu zaczyna się robota, której większość ofert nie widzi.
 
-Jeśli stany magazynowe żyją w Subiekcie GT, Comarch Optima albo BaseLinkerze, a sklep ich nie czyta na żywo, to prędzej czy później sprzedasz coś, czego nie masz. Widziałem to u wrocławskiego sklepu z rękodziełem: stany aktualizowali ręcznie raz dziennie, w weekend wpadło 40 zamówień na produkt, który zszedł w piątek wieczorem. Zwroty, przeprosiny, zjechana ocena. Integracja z BaseLinkerem kosztowała ich potem 1 200 € — gdyby zrobili ją od razu, wyszłoby taniej i bez wizerunkowej wpadki.
+Jeśli stany magazynowe żyją w Subiekcie GT, Comarch Optima albo BaseLinkerze, a sklep ich nie czyta na żywo, to prędzej czy później sprzedasz coś, czego nie masz. Widziałem to u wrocławskiego sklepu z rękodziełem: stany aktualizowali ręcznie raz dziennie, w weekend wpadło 40 zamówień na produkt, który zszedł w piątek wieczorem. Zwroty, przeprosiny, zjechana ocena. Integracja z BaseLinkerem kosztowała ich potem 1 200 € - gdyby zrobili ją od razu, wyszłoby taniej i bez wizerunkowej wpadki.
 
-Druk etykiet InPost i DPD prosto z panelu, synchronizacja stanów co kilka minut, statusy wracające do klienta mailem — to nie jest dodatek, tylko fundament sklepu.
+Druk etykiet InPost i DPD prosto z panelu, synchronizacja stanów co kilka minut, statusy wracające do klienta mailem - to nie jest dodatek, tylko fundament sklepu.
+
+## Realny przykład: marka odzieżowa D2C z Wrocławia
+
+Lokalna marka minimalistycznej odzieży z punktem na Krzykach - szyją małymi partiami, publiczność młoda, sporo studentów i diaspory. Sklep mieli na szablonowym kreatorze: ładna witryna, ale ładowała się cztery sekundy na telefonie, BLIK działał krzywo przez zewnętrzny widżet, a paczkomat trzeba było wpisywać ręcznie w komentarz do zamówienia. Właściciel widział w analityce, że ludzie dochodzą do koszyka i wychodzą, i nie rozumiał dlaczego.
+
+Co zrobiliśmy. Przenieśliśmy sklep z kreatora na WooCommerce - dla ich 200-300 SKU to klasyczny wybór, elastycznie i bez cudzego abonamentu. Najpierw zajęliśmy się szybkością: wyczyściliśmy ciężkie skrypty kreatora, ścisnęliśmy zdjęcia, wyprowadziliśmy Core Web Vitals na zielone. Wstawiliśmy porządny BLIK i Przelewy24 zamiast widżetu-podpórki, podpięliśmy InPost z mapą paczkomatów prosto w checkout i automatycznym podstawieniem najbliższego. Etykiety i śledzenie - automatem, żeby wieczorami nie kleić naklejek ręcznie.
+
+Efekt po dwóch miesiącach: czas ładowania na telefonie spadł z czterech sekund do jakichś **1,5 sekundy**, konwersja urosła o **35%**, a porzucenia koszyka na kroku płatności wyraźnie spadły - dokładnie tam, gdzie wcześniej męczył krzywy BLIK. Paczkomat domyślnie zdjął tę zacinkę, na której uciekali studenci z tramwaju. Przenosiny zajęły **pięć tygodni**, a stary sklep działał aż do samego przełączenia, więc sprzedaż nie stanęła ani na dzień.
 
 ## Realne przedziały cenowe (Wrocław, 2026)
 
 Ceny podaję w euro, bo tak rozliczam i bo kurs złotówki potrafi skakać. Widełki z rynku, nie z sufitu:
 
-- **Sklep na gotowej platformie (Shopify / WooCommerce), do ~300 produktów, BLIK + InPost + integracja stanów:** 5 000–8 000 €.
-- **Custom na Next.js, własny checkout, nietypowa logika, B2B albo subskrypcje:** 9 000–18 000 €.
-- **Migracja istniejącego sklepu** (np. ze starego WooCommerce na czyste wdrożenie) bez utraty SEO: 2 500–5 000 €.
-- **Utrzymanie miesięczne:** 150–400 € zależnie od ruchu i liczby integracji.
+- **Sklep na gotowej platformie (Shopify / WooCommerce), do ~300 produktów, BLIK + InPost + integracja stanów:** 5 000-8 000 €.
+- **Custom na Next.js, własny checkout, nietypowa logika, B2B albo subskrypcje:** 9 000-18 000 €.
+- **Migracja istniejącego sklepu** (np. ze starego WooCommerce na czyste wdrożenie) bez utraty SEO: 2 500-5 000 €.
+- **Utrzymanie miesięczne:** 150-400 € zależnie od ruchu i liczby integracji.
 
-Wrocławskie agencje korporacyjne potrafią za ten sam zakres policzyć 25 000–40 000 € — bo mają biuro w wieżowcu, account managera i zespół, który ty finansujesz. Druga skrajność, freelancer za 2 000 zł, kończy się tym, że po trzech miesiącach nikt nie odbiera telefonu. Środek jest zdrowy.
+Wrocławskie agencje korporacyjne potrafią za ten sam zakres policzyć 25 000-40 000 € - bo mają biuro w wieżowcu, account managera i zespół, który ty finansujesz. Druga skrajność, freelancer za 2 000 zł, kończy się tym, że po trzech miesiącach nikt nie odbiera telefonu. Środek jest zdrowy.
 
 ## Za co wrocławscy sprzedawcy przepłacają
 
 Najczęstszy przepał: design, którego nikt nie ogląda. Marka gastronomiczna z dostawą na Nadodrzu zapłaciła 6 000 zł za animowaną stronę główną, a 80% jej zamówień szło z telefonu, w trzech kliknięciach, z pominięciem tej strony w całości. Pieniądze w błoto.
 
-Drugi przepał: funkcje "na zapas". Konfigurator, program lojalnościowy, wiele języków od pierwszego dnia. Wrocław ma dużą społeczność studencką, międzynarodową i ukraińską, więc wersja ukraińska albo angielska bywa sensowna — ale dopiero gdy widzisz w analityce, że ten ruch realnie kupuje. Dodanie języka później to dzień roboty, nie tydzień. Nie płać za to na starcie.
+Drugi przepał: funkcje "na zapas". Konfigurator, program lojalnościowy, wiele języków od pierwszego dnia. Wrocław ma dużą społeczność studencką, międzynarodową i ukraińską, więc wersja ukraińska albo angielska bywa sensowna - ale dopiero gdy widzisz w analityce, że ten ruch realnie kupuje. Dodanie języka później to dzień roboty, nie tydzień. Nie płać za to na starcie.
 
 Trzeci: SEO sprzedawane jako abonament 800 zł miesięcznie bez planu. Lokalny sklep zarobi więcej na poprawnym Google Business Profile i na stronie, która ładuje się poniżej 2 sekund, niż na mglistej "optymalizacji".
 
 ## Co naprawdę podnosi konwersję
 
-Szybkość. Klient klika wynik z Google, mijają trzy sekundy, strona dalej się ładuje, klient wraca do wyszukiwarki. Straciłeś sprzedaż, zanim w ogóle zobaczył produkt. Czysty Next.js ładuje się szybciej niż obładowane wtyczkami WooCommerce — to jeden z powodów, dla których przy większym ruchu wybieram custom.
+Szybkość. Klient klika wynik z Google, mijają trzy sekundy, strona dalej się ładuje, klient wraca do wyszukiwarki. Straciłeś sprzedaż, zanim w ogóle zobaczył produkt. Czysty Next.js ładuje się szybciej niż obładowane wtyczkami WooCommerce - to jeden z powodów, dla których przy większym ruchu wybieram custom.
 
-Po szybkości: checkout bez rejestracji, BLIK jako pierwsza metoda, koszt dostawy widoczny od razu (ukryte koszty to zabójca koszyka numer jeden), zdjęcia produktów robione porządnie, a nie z telefonu pod świetlówką. I zaufanie — wrocławski klient sprawdza, czy za sklepem stoi realna firma. Adres, NIP, prawdziwe opinie. Marka odzieżowa, która dodała sekcję "odbiór osobisty w Rynku" i twarz właściciela, podniosła konwersję mocniej niż jakąkolwiek zmianą wizualną.
+Po szybkości: checkout bez rejestracji, BLIK jako pierwsza metoda, koszt dostawy widoczny od razu (ukryte koszty to zabójca koszyka numer jeden), zdjęcia produktów robione porządnie, a nie z telefonu pod świetlówką. I zaufanie - wrocławski klient sprawdza, czy za sklepem stoi realna firma. Adres, NIP, prawdziwe opinie. Marka odzieżowa, która dodała sekcję "odbiór osobisty w Rynku" i twarz właściciela, podniosła konwersję mocniej niż jakąkolwiek zmianą wizualną.
 
 ## Ile to trwa naprawdę
 
-Gotowa platforma z pełną integracją płatności i logistyki: **4–6 tygodni**. Custom na Next.js: **6–10 tygodni**. To zakłada, że masz gotowe teksty i zdjęcia produktów — bo brak treści to powód numer jeden, dla którego wdrożenia się ślimaczą. Nie kod, treści.
+Gotowa platforma z pełną integracją płatności i logistyki: **4-6 tygodni**. Custom na Next.js: **6-10 tygodni**. To zakłada, że masz gotowe teksty i zdjęcia produktów - bo brak treści to powód numer jeden, dla którego wdrożenia się ślimaczą. Nie kod, treści.
 
-Migracja istniejącego sklepu bez utraty pozycji w Google to osobny temat: trzeba przepisać przekierowania 301, zachować strukturę URL i mapę produktów. Robiona na hurra potrafi skasować ruch z dnia na dzień. Robiona spokojnie — pozostaje niewidoczna dla klienta.
+Migracja istniejącego sklepu bez utraty pozycji w Google to osobny temat: trzeba przepisać przekierowania 301, zachować strukturę URL i mapę produktów. Robiona na hurra potrafi skasować ruch z dnia na dzień. Robiona spokojnie - pozostaje niewidoczna dla klienta.
 
 ## FAQ
 
 **Ile kosztuje sklep internetowy we Wrocławiu w 2026 roku?**
 
-Porządny sklep na Shopify albo WooCommerce z pełną integracją BLIK, Przelewy24 i InPost to 5 000–8 000 €. Custom na Next.js z nietypową logiką albo B2B to 9 000–18 000 €. Migracja istniejącego sklepu bez utraty SEO mieści się w 2 500–5 000 €. Ceny ofert korporacyjnych z wrocławskich wieżowców bywają 3–4 razy wyższe za ten sam zakres.
+Porządny sklep na Shopify albo WooCommerce z pełną integracją BLIK, Przelewy24 i InPost to 5 000-8 000 €. Custom na Next.js z nietypową logiką albo B2B to 9 000-18 000 €. Migracja istniejącego sklepu bez utraty SEO mieści się w 2 500-5 000 €. Ceny ofert korporacyjnych z wrocławskich wieżowców bywają 3-4 razy wyższe za ten sam zakres.
 
 **Shopify czy WooCommerce dla wrocławskiego sklepu?**
 
-Dla standardowego sklepu z 50–500 produktami obie platformy są dobre. WooCommerce daje pełną kontrolę i brak abonamentu za silnik, ale wymaga opieki technicznej. Shopify startuje najszybciej i niczym się nie przejmujesz, płacąc miesięczny abonament i prowizję. Headless na Next.js wybieraj tylko przy B2B, subskrypcjach albo bardzo dużym ruchu.
+Dla standardowego sklepu z 50-500 produktami obie platformy są dobre. WooCommerce daje pełną kontrolę i brak abonamentu za silnik, ale wymaga opieki technicznej. Shopify startuje najszybciej i niczym się nie przejmujesz, płacąc miesięczny abonament i prowizję. Headless na Next.js wybieraj tylko przy B2B, subskrypcjach albo bardzo dużym ruchu.
 
 **Jakie płatności i dostawy są niezbędne w polskim sklepie?**
 
@@ -91,8 +99,8 @@ Absolutna podstawa to BLIK, Przelewy24 lub PayU oraz paczkomaty InPost. Bez BLIK
 
 **Czy potrzebuję integracji z magazynem i programem księgowym?**
 
-Jeśli trzymasz towar w zewnętrznym magazynie albo u operatora 3PL — a wielu wrocławskich sprzedawców tak robi, bo logistyka siedzi na obrzeżach miasta — to tak. Bez synchronizacji stanów na żywo prędzej czy później sprzedasz coś, czego nie masz, i zbierzesz złe oceny. Integracja z BaseLinkerem, Subiektem GT czy Comarch Optima to koszt rzędu 1 000–1 500 €, który zwraca się przy pierwszym uniknięciu nadsprzedaży.
+Jeśli trzymasz towar w zewnętrznym magazynie albo u operatora 3PL - a wielu wrocławskich sprzedawców tak robi, bo logistyka siedzi na obrzeżach miasta - to tak. Bez synchronizacji stanów na żywo prędzej czy później sprzedasz coś, czego nie masz, i zbierzesz złe oceny. Integracja z BaseLinkerem, Subiektem GT czy Comarch Optima to koszt rzędu 1 000-1 500 €, który zwraca się przy pierwszym uniknięciu nadsprzedaży.
 
 **Ile trwa wdrożenie sklepu internetowego?**
 
-Gotowa platforma z pełną integracją płatności i logistyki zajmuje 4–6 tygodni, custom na Next.js 6–10 tygodni. Najczęstszym hamulcem nie jest kod, tylko brak gotowych tekstów i zdjęć produktów. Jeśli treści masz przygotowane przed startem, wdrożenie idzie zgodnie z planem.
+Gotowa platforma z pełną integracją płatności i logistyki zajmuje 4-6 tygodni, custom na Next.js 6-10 tygodni. Najczęstszym hamulcem nie jest kod, tylko brak gotowych tekstów i zdjęć produktów. Jeśli treści masz przygotowane przed startem, wdrożenie idzie zgodnie z planem.

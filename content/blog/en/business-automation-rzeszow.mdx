@@ -2,7 +2,7 @@
 title: "Business automation Rzeszów - n8n and Make from €600"
 description: "Business process automation in Rzeszów from €600. I build n8n and Make workflows that remove repetitive tasks from your team's day. Free fixed-price quote."
 date: "2026-07-03"
-cluster: "auto-rzeszow-en"
+cluster: "auto-rzeszow"
 keywords:
   - "business automation Rzeszów"
   - "business process automation Rzeszów"
@@ -50,6 +50,16 @@ For most businesses in Rzeszów, Make is fine to start with. When volume grows o
 Rzeszów is one of Poland's fastest-growing cities - strong aerospace industry, a growing IT sector, and a well-developed business services scene. Companies here understand efficiency and do not spend budget on repetitive work a machine can handle.
 
 I work with Rzeszów clients remotely - Slack, email and video calls cover everything. A face-to-face meeting in Rzeszów is possible on request but is not the standard. Service details on the [automation](/en/services/automation) page.
+
+## Real-world case: a cross-border logistics firm
+
+A small transport-and-forwarding firm outside Rzeszów - runs to Ukraine and back, a temporary storage warehouse, B2B clients. After 2022 the flow of inquiries multiplied: the border corridor to Ukraine runs right through Podkarpacie, and requests came from every direction. Clients sent them by email in three languages - PL, UA, RU - in free form: sometimes a list of items in the body, sometimes an Excel attachment, sometimes just "got cargo Rzeszów-Lviv, give me a price".
+
+The bottleneck was parsing. Two people spent morning to evening reading emails, moving data into a spreadsheet by hand and creating records in the CRM. At 40-60 inquiries a day that's three or four hours of pure time each, and some emails still got lost by evening while the client went to whoever answered first.
+
+What we did. I built a workflow in n8n: it pulls emails from the dedicated inbox, separates real inquiries from the rest, extracts route, cargo type, volume and contact from the body and the attachments, normalizes it and creates a CRM record tagged with the route and the client's language. It doesn't invent anything for the odd or ambiguous emails - those go to a separate "needs a human" folder with the data already pulled in. In parallel a Telegram alert fires on the hot routes.
+
+The result over the first month: manual parsing dropped about 70%, the two people got back roughly 25-30 hours a week between them and moved to actual logistics and sales instead of retyping. Inquiries stopped getting lost by evening, and time to first reply went from hours to minutes. The build took three weeks and paid for itself on the first month's flow - the firm stopped handing competitors the requests it simply couldn't process in time.
 
 ## How the work goes
 

@@ -53,14 +53,16 @@ function buildAlternates(pathname: keyof typeof routing.pathnames) {
 export default function sitemap(): MetadataRoute.Sitemap {
   const out: MetadataRoute.Sitemap = [];
 
-  // Static pages
+  // Static pages. The default (ru) locale is the primary market, so its variants
+  // get a higher priority to bias crawl scheduling toward Russian pages first.
   for (const path of staticPaths) {
     for (const loc of routing.locales) {
+      const isDefault = loc === routing.defaultLocale;
       out.push({
         url: localizedHref(loc as Locale, path),
         lastModified: STATIC_LAST_MODIFIED,
         changeFrequency: "monthly",
-        priority: path === "/" ? 1 : 0.7,
+        priority: path === "/" ? 1 : isDefault ? 0.8 : 0.6,
         alternates: { languages: buildAlternates(path) },
       });
     }
@@ -103,7 +105,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: `${SITE_URL}${localeSegment(loc as Locale)}/blog/${slug}`,
         lastModified: post ? new Date(post.date) : STATIC_LAST_MODIFIED,
         changeFrequency: "monthly",
-        priority: 0.5,
+        priority: loc === routing.defaultLocale ? 0.6 : 0.5,
         ...(Object.keys(languages).length > 0 ? { alternates: { languages } } : {}),
       });
     }

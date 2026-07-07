@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "node scripts/indexnow.mjs --since HEAD~1 || true",
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",

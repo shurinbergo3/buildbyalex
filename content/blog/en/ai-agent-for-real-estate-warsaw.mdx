@@ -2,7 +2,7 @@
 title: "AI Agent for Real Estate in Warsaw: Cost, Build, ROI"
 description: "What a real estate AI agent for a Warsaw agency actually costs, how long it takes to build, and the ROI math. Lead qualification 24/7, not just a chatbot."
 date: "2026-05-12"
-cluster: "ai-agent-real-estate-en"
+cluster: "ai-agent-real-estate"
 keywords:
   - "AI agent for real estate"
   - "real estate AI agent Warsaw Poland"
@@ -10,18 +10,18 @@ keywords:
 ogImage: "/og/ai-agent-real-estate-en.webp"
 ---
 
-A real estate **AI agent** that actually qualifies leads, books viewings, and writes back to your CRM costs **€900–€8,000 to build** and **4–8 weeks** to ship. A simple FAQ widget is cheaper and basically useless. The difference is the whole point of this article.
+A real estate **AI agent** that actually qualifies leads, books viewings, and writes back to your CRM costs **€900-€8,000 to build** and **4-8 weeks** to ship. A simple FAQ widget is cheaper and basically useless. The difference is the whole point of this article.
 
 Here's the problem every Warsaw agency I talk to has: an Otodom or OLX inquiry lands at 22:40, the agent sees it at 9:15 the next morning, and by then the buyer has already messaged three other listings. Responding within five minutes makes you roughly 100x more likely to actually connect with that lead. Nobody on your team is awake at 22:40. An AI agent is.
 
-## What an AI agent is — and what it is NOT
+## What an AI agent is - and what it is NOT
 
 Most "real estate chatbots" you've seen are decision trees: press 1 for sales, press 2 for rentals. They capture a name and a phone number and then sit there. That's a **lead-capture form with a face**.
 
-An AI agent is a different animal. It runs on a large language model with **retrieval over your actual listings and knowledge base** (RAG), so it answers from *your* data, not generic fluff. It holds a real conversation, decides what to ask next, and then **takes actions** — creating a CRM record, booking a slot in the agent's calendar, escalating a hot lead to a human.
+An AI agent is a different animal. It runs on a large language model with **retrieval over your actual listings and knowledge base** (RAG), so it answers from *your* data, not generic fluff. It holds a real conversation, decides what to ask next, and then **takes actions** - creating a CRM record, booking a slot in the agent's calendar, escalating a hot lead to a human.
 
 - **Chatbot:** "Leave your number, an agent will call you." Conversion to qualified lead: low single digits.
-- **AI agent:** "You're looking at 60–75 m² in Mokotów up to 1.2M zł — I have three matching listings and the owner of the Puławska one is free Thursday at 18:00. Want me to book it?" Conversion: meaningfully higher because the lead is *advanced*, not just captured.
+- **AI agent:** "You're looking at 60-75 m² in Mokotów up to 1.2M zł - I have three matching listings and the owner of the Puławska one is free Thursday at 18:00. Want me to book it?" Conversion: meaningfully higher because the lead is *advanced*, not just captured.
 
 If a vendor sells you a "chatbot" and means the first one, you've bought a toy. The funnel only works when the system can act.
 
@@ -30,92 +30,102 @@ If a vendor sells you a "chatbot" and means the first one, you've bought a toy. 
 This is what I build the agent to do, in priority order:
 
 1. **24/7 lead qualification.** Budget, district, property type, buy vs. rent, timeline, financing readiness. The agent asks the same questions your best agent would, scores the lead, and tags it.
-2. **Instant replies to portal inquiries.** New message from **Otodom or OLX** gets a contextual answer in under a minute — pulling the right listing details, not a canned template.
+2. **Instant replies to portal inquiries.** New message from **Otodom or OLX** gets a contextual answer in under a minute - pulling the right listing details, not a canned template.
 3. **Booking viewings.** The agent checks the agent's calendar, offers real slots, confirms, and sends a reminder. No phone tag.
-4. **Buyer–listing matching.** Given the buyer's criteria, it surfaces the 2–3 listings from your inventory that actually fit, instead of dumping the whole catalogue.
+4. **Buyer-listing matching.** Given the buyer's criteria, it surfaces the 2-3 listings from your inventory that actually fit, instead of dumping the whole catalogue.
 5. **Multilingual handling.** Warsaw is **PL / EN / UA / RU**. The agent detects the language and replies natively in all four. You don't hire four receptionists.
-6. **CRM integration.** Everything lands in **Asari, EstiCRM, HubSpot, Pipedrive** — whatever you run — with the conversation, the score, and the next action attached.
+6. **CRM integration.** Everything lands in **Asari, EstiCRM, HubSpot, Pipedrive** - whatever you run - with the conversation, the score, and the next action attached.
 
 The agent doesn't replace your closers. It handles the first line so the people who close deals only ever talk to leads worth their time.
+
+## Real-world case: a real estate agency in Warsaw
+
+An agency in Mokotów, four agents, resale and rentals. Their lead flow came mostly from Otodom and OLX, and it kept no schedule. On an average day around 25-30 inquiries came in, half of them in the evening and at night: someone scrolls listings after work and messages five flats at 10 or 11 pm. Whoever replies first gets the conversation. By morning the team had a stack of messages and the lead was already out viewing someone else's flat. On top of that, a lot of noise - "can I get it for half price", "just browsing" - that the agents sorted by hand.
+
+What we did. I put the agent on the inbound from both portals and on the website widget. It replies within a minute at any hour, holds a normal conversation and qualifies: budget, district, property type, buy or rent, timeline, mortgage question. Then it surfaces 2-3 genuinely matching listings from the inventory instead of dumping the whole catalogue. If the lead is real and ready to view, the agent opens the right agent's calendar, offers free slots and books the viewing with a reminder. Everything lands in the CRM with the conversation, the score and the client's language - Warsaw is also PL/EN/UA/RU in one stream. It turns the non-targets away politely on its own, without pulling in a person.
+
+The result over the first six weeks: around 70% of inbound closed on the agent with no agent touch at all - qualification, listing answers, booking the viewing. Night inquiries stopped going cold, and people showed up to viewings already warm, with a clear budget and brief. By the team's own sense, each agent got back roughly 2-2.5 hours a day that used to go to chat and filtering. The build took 5 weeks and paid for itself on the first two extra deals that would otherwise have leaked to whoever answered at night.
+
+That's what an agent means for a Warsaw agency: not "a chat on the site" but a night shift covered on the first line of the funnel.
 
 ## What it costs to build
 
 Honest ranges for the Warsaw / Polish market, one-time build:
 
-### Starter agent — €900–€1,500
+### Starter agent - €900-€1,500
 
 Website + one portal channel (Otodom *or* OLX). Lead qualification, language detection, CRM write to one system. Ships in ~4 weeks. Good for a single-office agency testing the water.
 
-### Standard agent — €2,000–€4,000
+### Standard agent - €2,000-€4,000
 
-Multiple channels (website, WhatsApp, Otodom, OLX), full PL/EN/UA/RU, viewing booking against a real calendar, buyer–listing matching, CRM with lead scoring and handoff rules. 5–7 weeks. This is what most agencies actually need.
+Multiple channels (website, WhatsApp, Otodom, OLX), full PL/EN/UA/RU, viewing booking against a real calendar, buyer-listing matching, CRM with lead scoring and handoff rules. 5-7 weeks. This is what most agencies actually need.
 
-### Custom / multi-office — €5,000–€8,000
+### Custom / multi-office - €5,000-€8,000
 
-Multi-branch routing, deeper CRM logic, voice channel, analytics dashboards, custom matching on your own inventory rules. 6–8 weeks and up.
+Multi-branch routing, deeper CRM logic, voice channel, analytics dashboards, custom matching on your own inventory rules. 6-8 weeks and up.
 
-On top of the build there's a **running cost: roughly €50–€200/month** — LLM API usage, hosting, and the channel/CRM connectors. That scales with conversation volume, not with headcount. I'll quote it flat before we start.
+On top of the build there's a **running cost: roughly €50-€200/month** - LLM API usage, hosting, and the channel/CRM connectors. That scales with conversation volume, not with headcount. I'll quote it flat before we start.
 
-If you only ever see "€40/user/month" SaaS pricing online, that's a rented generic tool. A build is yours, integrated into *your* CRM and *your* listings — which is the difference between a demo and a system that moves your numbers. I cover the full scope on my [AI agents service page](/en/services/ai-agents).
+If you only ever see "€40/user/month" SaaS pricing online, that's a rented generic tool. A build is yours, integrated into *your* CRM and *your* listings - which is the difference between a demo and a system that moves your numbers. I cover the full scope on my [AI agents service page](/en/services/ai-agents).
 
 ## The ROI math (do this before you commit)
 
 Don't buy on vibes. Run the numbers:
 
 - Inquiries you get per month outside working hours: **N**
-- Of those, the share that currently goes cold before anyone replies: **typically 50–80%**
+- Of those, the share that currently goes cold before anyone replies: **typically 50-80%**
 - Your average commission per closed deal: **C**
 - Realistic conversion lift from instant, qualified follow-up
 
-If you get 200 inquiries a month, half arrive after hours, and recovering even a handful of otherwise-dead leads closes **one extra deal a quarter**, a Warsaw commission usually pays back the entire build inside the first year — often the first few months. The agent works nights, weekends, and the two weeks your best agent is on holiday.
+If you get 200 inquiries a month, half arrive after hours, and recovering even a handful of otherwise-dead leads closes **one extra deal a quarter**, a Warsaw commission usually pays back the entire build inside the first year - often the first few months. The agent works nights, weekends, and the two weeks your best agent is on holiday.
 
 ## What data the agent needs from you
 
 The build goes fast when you bring these. It stalls when you don't:
 
-- [ ] **Current listings** — a feed or export (the agent matches and quotes from this)
-- [ ] **Your qualification questions** — what your best agent actually asks
-- [ ] **CRM access** — which system, and a sandbox/API key
-- [ ] **Calendar** — for viewing booking (Google Calendar / your CRM's calendar)
-- [ ] **Handoff rules** — when does a lead get pushed to a human, and to whom
-- [ ] **Tone + FAQs** — how you talk, plus the 20 questions buyers always ask
-- [ ] **Languages** — confirm PL/EN/UA/RU or whichever subset
+- [ ] **Current listings** - a feed or export (the agent matches and quotes from this)
+- [ ] **Your qualification questions** - what your best agent actually asks
+- [ ] **CRM access** - which system, and a sandbox/API key
+- [ ] **Calendar** - for viewing booking (Google Calendar / your CRM's calendar)
+- [ ] **Handoff rules** - when does a lead get pushed to a human, and to whom
+- [ ] **Tone + FAQs** - how you talk, plus the 20 questions buyers always ask
+- [ ] **Languages** - confirm PL/EN/UA/RU or whichever subset
 
 That's it. I handle the model, the RAG, the connectors, and the testing.
 
 ## What I do and charge
 
-I build production AI agents end to end — no no-code template you'll outgrow in a month. You get:
+I build production AI agents end to end - no no-code template you'll outgrow in a month. You get:
 
 - A **30-minute discovery call**, then a **fixed quote with a start date** within 24 hours.
-- Build in 4–8 weeks depending on scope, with a working demo on your real listings before launch.
+- Build in 4-8 weeks depending on scope, with a working demo on your real listings before launch.
 - CRM + portal integration done properly, not faked with email forwarding.
-- 30 days of post-launch tuning included — because the first weeks of real conversations are where you sharpen it.
+- 30 days of post-launch tuning included - because the first weeks of real conversations are where you sharpen it.
 
 Pricing is **fixed before we start**. No surprise add-ons mid-project.
 
 ## FAQ
 
 **Is an AI agent just a fancy chatbot?**
-No. A chatbot captures a name and number from a script. An AI agent understands natural language, answers from your real listings, qualifies the buyer through conversation, and takes actions — booking viewings and writing to your CRM. The difference shows up directly in conversion rates.
+No. A chatbot captures a name and number from a script. An AI agent understands natural language, answers from your real listings, qualifies the buyer through conversation, and takes actions - booking viewings and writing to your CRM. The difference shows up directly in conversion rates.
 
 **How long does it take to build?**
-A starter agent ships in about 4 weeks. A standard multilingual agent with booking and CRM integration is 5–7 weeks. Multi-office custom builds run 6–8 weeks. You'll see a working demo on your own listings before launch.
+A starter agent ships in about 4 weeks. A standard multilingual agent with booking and CRM integration is 5-7 weeks. Multi-office custom builds run 6-8 weeks. You'll see a working demo on your own listings before launch.
 
 **Can it really handle Polish, English, Ukrainian and Russian?**
-Yes — modern LLMs handle all four natively. The agent detects the inquiry language and replies in it. For a Warsaw agency that's a serious edge: you serve UA and RU buyers without hiring extra staff.
+Yes - modern LLMs handle all four natively. The agent detects the inquiry language and replies in it. For a Warsaw agency that's a serious edge: you serve UA and RU buyers without hiring extra staff.
 
 **Will it connect to Otodom and OLX?**
-It replies to inquiries that come from those portals — usually via your inbox or CRM where those leads land — with full listing context, in under a minute. Direct portal API access depends on what each portal exposes, so I confirm the cleanest path during discovery.
+It replies to inquiries that come from those portals - usually via your inbox or CRM where those leads land - with full listing context, in under a minute. Direct portal API access depends on what each portal exposes, so I confirm the cleanest path during discovery.
 
 **Does it integrate with my CRM?**
-Yes. Asari, EstiCRM, HubSpot, Pipedrive, or a custom system — the agent writes the conversation, the lead score, and the next action into your CRM so nothing gets re-typed and nothing gets lost.
+Yes. Asari, EstiCRM, HubSpot, Pipedrive, or a custom system - the agent writes the conversation, the lead score, and the next action into your CRM so nothing gets re-typed and nothing gets lost.
 
 **What does it cost to run each month?**
-Roughly €50–€200/month for LLM usage, hosting, and connectors, depending on conversation volume. It scales with traffic, not with how many agents you employ — which is the whole economic point.
+Roughly €50-€200/month for LLM usage, hosting, and connectors, depending on conversation volume. It scales with traffic, not with how many agents you employ - which is the whole economic point.
 
 **Will it replace my agents?**
-No, and it shouldn't. It handles the first line — qualifying, answering, booking — so your closers spend their time on leads that are actually ready. The deals still get closed by people.
+No, and it shouldn't. It handles the first line - qualifying, answering, booking - so your closers spend their time on leads that are actually ready. The deals still get closed by people.
 
 ---
 

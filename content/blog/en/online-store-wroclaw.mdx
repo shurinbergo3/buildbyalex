@@ -2,7 +2,7 @@
 title: "Online Store Development in Wrocław: Costs and What Pays Off"
 description: "What an online store costs to build in Wrocław, how long it takes, which platform to pick, and what actually lifts conversion. Concrete EUR ranges for Wrocław sellers."
 date: "2026-05-02"
-cluster: "online-store-development-wroclaw-en"
+cluster: "online-store-development-wroclaw"
 keywords:
   - "online store development Wrocław"
   - "ecommerce Wrocław"
@@ -12,81 +12,89 @@ ogImage: "/og/online-store-wroclaw.webp"
 
 Short version: a real online store for a Wrocław seller costs €1,000 to €18,000 to build, and the spread isn't about how fancy the agency's office near the Rynek looks. It's about scope. Thirty products and a card form is one number. Five thousand SKUs synced to a warehouse out by Bielany Wrocławskie, with InPost lockers and B2B pricing, is another.
 
-I'm a developer based in Warsaw, and a good chunk of my online-store work is for sellers in Wrocław. The city is thick with agencies, and the gap between what they quote and what they deliver is wide enough to drive a DPD van through. So I'll lay it out the way I'd explain it over coffee — real numbers, and none of that "it depends on your needs" hand-waving.
+I'm a developer based in Warsaw, and a good chunk of my online-store work is for sellers in Wrocław. The city is thick with agencies, and the gap between what they quote and what they deliver is wide enough to drive a DPD van through. So I'll lay it out the way I'd explain it over coffee - real numbers, and none of that "it depends on your needs" hand-waving.
 
 ## What an online store actually costs in Wrocław
 
 | Store type | Build price (EUR) | Build time |
 |---|---|---|
-| Template (Shopify / ready theme) | €1,000–2,500 | 1–2 weeks |
-| WooCommerce store | €1,800–6,000 | 2–5 weeks |
-| Custom / headless (Next.js) | €5,500–18,000 | 5–10 weeks |
+| Template (Shopify / ready theme) | €1,000-2,500 | 1-2 weeks |
+| WooCommerce store | €1,800-6,000 | 2-5 weeks |
+| Custom / headless (Next.js) | €5,500-18,000 | 5-10 weeks |
 | Marketplace / B2B platform | €18,000+ | 3+ months |
 
 These are 2026 Wrocław-market numbers. The reason a local clothing brand near Plac Grunwaldzki and an auto-parts shop in Krzyki get wildly different quotes for "the same store" is that one needs 60 product pages and clean photos, and the other needs 8,000 part numbers cross-referenced to car models, with stock that moves every hour.
 
-Here's where Wrocław sellers overpay. There are dozens of studios in the city, many of them staffed by graduates from Politechnika and the IT scene that grew up around IBM, Nokia, and the Magnolia Park cluster. All that supply should push prices down. Instead, plenty of studios pad the quote with monthly "care packages," premium themes you don't need, and a per-page CMS markup. I once reviewed a quote that priced a 40-product fashion store at €9,000 — for a Shopify theme swap. That's not a build. That's a markup.
+Here's where Wrocław sellers overpay. There are dozens of studios in the city, many of them staffed by graduates from Politechnika and the IT scene that grew up around IBM, Nokia, and the Magnolia Park cluster. All that supply should push prices down. Instead, plenty of studios pad the quote with monthly "care packages," premium themes you don't need, and a per-page CMS markup. I once reviewed a quote that priced a 40-product fashion store at €9,000 - for a Shopify theme swap. That's not a build. That's a markup.
 
-## Which platform — WooCommerce, Shopify, or headless?
+## Which platform - WooCommerce, Shopify, or headless?
 
 Quick verdict so you're not reading 600 words to get it:
 
 - **Shopify** if you want to launch in two weeks, you'll sell under ~500 products, and you don't mind paying a subscription and sometimes a cut of revenue forever.
 - **WooCommerce** if you already run WordPress, you want to own everything, and you (or someone) will handle the plugin upkeep.
-- **Headless / Next.js** if speed is money for you — high traffic, lots of SKUs, or you're spending real budget on ads and every dropped millisecond costs conversions.
+- **Headless / Next.js** if speed is money for you - high traffic, lots of SKUs, or you're spending real budget on ads and every dropped millisecond costs conversions.
 
-Shopify is the fastest off the line. A Wrocław crafts seller doing 80 products can be live in days, and that's a legitimate choice — don't let anyone shame you into a custom build you don't need. The catch shows up later. The subscription runs $29–299/month, and unless you use Shopify Payments you pay up to 2% of revenue on top. For a store turning over 40,000 zł a month, that 2% is 800 zł walking out the door before you've covered the subscription.
+Shopify is the fastest off the line. A Wrocław crafts seller doing 80 products can be live in days, and that's a legitimate choice - don't let anyone shame you into a custom build you don't need. The catch shows up later. The subscription runs $29-299/month, and unless you use Shopify Payments you pay up to 2% of revenue on top. For a store turning over 40,000 zł a month, that 2% is 800 zł walking out the door before you've covered the subscription.
 
-WooCommerce looks free. It isn't. The platform costs nothing, but you assemble the actual store out of paid plugins — €150–800 a year — and it needs weekly upkeep or it rots. I migrate clients off neglected WooCommerce installs more often than off anything else. Usually the story is the same: an agency built it, handed it over, and two years later it's a stack of outdated plugins held together with hope.
+WooCommerce looks free. It isn't. The platform costs nothing, but you assemble the actual store out of paid plugins - €150-800 a year - and it needs weekly upkeep or it rots. I migrate clients off neglected WooCommerce installs more often than off anything else. Usually the story is the same: an agency built it, handed it over, and two years later it's a stack of outdated plugins held together with hope.
 
-Headless on Next.js costs the most to build and the least to own. No subscription, no plugin tax, and it's fast — which matters more here than people think. Most orders come from phones, often on a patchy connection somewhere between the Old Town and a tram stop. If your catalog takes four seconds to load, the buyer's gone before the product even appears. I aim for LCP under one second. That's not vanity; it's measurably more sales.
+Headless on Next.js costs the most to build and the least to own. No subscription, no plugin tax, and it's fast - which matters more here than people think. Most orders come from phones, often on a patchy connection somewhere between the Old Town and a tram stop. If your catalog takes four seconds to load, the buyer's gone before the product even appears. I aim for LCP under one second. That's not vanity; it's measurably more sales.
 
 ## Polish payments: what your checkout has to have
 
 This is non-negotiable for any store selling to Polish customers, and it's the part foreign founders moving to Wrocław get wrong most often.
 
-You need **BLIK and Przelewy24**, full stop. BLIK is how Poles pay — a six-digit code from the banking app, one tap, done. Skip it and you'll watch carts get abandoned by people who don't want to type a card number. Przelewy24 (or PayU/Tpay) covers fast bank transfers and aggregates the rest. Add **cards plus Apple Pay / Google Pay** for the one-tap crowd.
+You need **BLIK and Przelewy24**, full stop. BLIK is how Poles pay - a six-digit code from the banking app, one tap, done. Skip it and you'll watch carts get abandoned by people who don't want to type a card number. Przelewy24 (or PayU/Tpay) covers fast bank transfers and aggregates the rest. Add **cards plus Apple Pay / Google Pay** for the one-tap crowd.
 
-For Wrocław's large international and Ukrainian customer base, add **Stripe**. It clears foreign cards cleanly where Polish gateways sometimes choke, and it's the path of least resistance for a buyer paying from outside Poland. Processing fees across all of these land around 0.9–1.9% per transaction. Budget for it; it's a cost of doing business, not an upsell.
+For Wrocław's large international and Ukrainian customer base, add **Stripe**. It clears foreign cards cleanly where Polish gateways sometimes choke, and it's the path of least resistance for a buyer paying from outside Poland. Processing fees across all of these land around 0.9-1.9% per transaction. Budget for it; it's a cost of doing business, not an upsell.
 
 ## Shipping: InPost is the whole game
 
-If you ignore everything else here, don't ignore this. In Poland, **InPost parcel lockers are how people expect to receive packages**, and Wrocław is no exception. The lockers are everywhere — outside Biedronka, by Magnolia Park, tucked into apartment-block courtyards in Krzyki and Psie Pole. A checkout without a locker picker loses sales to a competitor who has one.
+If you ignore everything else here, don't ignore this. In Poland, **InPost parcel lockers are how people expect to receive packages**, and Wrocław is no exception. The lockers are everywhere - outside Biedronka, by Magnolia Park, tucked into apartment-block courtyards in Krzyki and Psie Pole. A checkout without a locker picker loses sales to a competitor who has one.
 
 So the must-haves are an InPost integration with the locker-selection map right in the cart, **DPD** as the courier-to-door option, and Poczta Polska for the customers who still ask for it. Wire in live shipping-cost calculation and order export to whatever fulfillment you use. Plenty of Wrocław sellers ship from a 3PL out toward Bielany or Nowa Wieś Wrocławska, not their kitchen table, so the store has to push orders there automatically. Doing that by hand at 50 orders a day is how people burn out.
 
 ## What actually lifts conversion (and what's a waste)
 
-After enough builds and migrations, the same few things move revenue — and they're rarely the things sellers spend on.
+After enough builds and migrations, the same few things move revenue - and they're rarely the things sellers spend on.
 
 What pays off: a fast mobile site, BLIK and Apple Pay in one tap, the InPost locker map at checkout, and product pages that load instantly with real photos. A Wrocław clothing brand I looked at had gorgeous Instagram content and a checkout that forced you to create an account before paying. We turned guest checkout on. Conversion climbed in the first week, no other change.
 
 What's a waste: a custom CMS for a 50-product catalog, a "premium" animated theme that adds two seconds to load, a blog nobody updates, and an annual "maintenance retainer" priced like rent on a Rynek storefront. You're paying for activity, not outcomes.
 
-And the legal layer isn't optional in Poland — terms (regulamin), privacy policy, a GDPR cookie banner, the 14-day return right. It's cheap to do and expensive to skip, because skipping it can get you fined.
+And the legal layer isn't optional in Poland - terms (regulamin), privacy policy, a GDPR cookie banner, the 14-day return right. It's cheap to do and expensive to skip, because skipping it can get you fined.
 
 ## How long it takes
 
-- **Template or small catalog:** 1–2 weeks.
-- **WooCommerce or headless store with payments and InPost:** 4–6 weeks.
-- **Full build with warehouse sync, B2B pricing, fiscalization:** 6–10 weeks.
-- **Migration from another platform:** 3–5 weeks, with 301 redirects so you keep your Google rankings.
+- **Template or small catalog:** 1-2 weeks.
+- **WooCommerce or headless store with payments and InPost:** 4-6 weeks.
+- **Full build with warehouse sync, B2B pricing, fiscalization:** 6-10 weeks.
+- **Migration from another platform:** 3-5 weeks, with 301 redirects so you keep your Google rankings.
 
-I fix the date in writing before we start. What slows a Wrocław project down isn't the code — it's content. Product photos, descriptions, specs. When those are ready, the build flies. When they're not, no platform on earth saves you. For the full breakdown of what's included at each tier, [see the online store service](/en/services/online-store).
+I fix the date in writing before we start. What slows a Wrocław project down isn't the code - it's content. Product photos, descriptions, specs. When those are ready, the build flies. When they're not, no platform on earth saves you. For the full breakdown of what's included at each tier, [see the online store service](/en/services/online-store).
+
+## A real Wrocław build: a D2C clothing brand
+
+A local brand doing minimalist clothing, small batches, a single point in Krzyki, the usual young crowd - students, a lot of the Ukrainian and international set. They came to me with a store built on a template site-builder. It looked good. It also took four seconds to load on a phone, BLIK limped along through some third-party widget, and choosing an InPost locker meant the customer typing it into the order-comment box by hand. The owner could see it in the analytics: people reached the cart and vanished, and he had no idea why.
+
+We moved them off the builder onto WooCommerce - for 200 to 300 SKUs that's the obvious call, flexible and no one else's subscription. Speed came first. I stripped out the builder's heavy scripts, compressed the photos, and got Core Web Vitals into the green. Then a proper BLIK and Przelewy24 instead of the widget crutch, InPost with the locker map right in the checkout and the nearest one filled in automatically. Labels and tracking went automatic too, so nobody's peeling stickers by hand in the evening.
+
+Two months later: mobile load dropped from four seconds to about a second and a half, conversion was up 35%, and cart abandonment at the payment step fell off a cliff - exactly where the broken BLIK used to kill it. Making the locker the default removed the little snag that had been losing students halfway out of the tram. The migration took five weeks, and the old store kept running right up to the switch, so sales never paused.
 
 ## FAQ
 
 **How much does it cost to build an online store in Wrocław?**
-From around €1,000 for a store on a ready Shopify or WooCommerce template to €18,000+ for a custom headless build with warehouse sync and B2B pricing. A typical mid-size Wrocław store with proper payments and InPost integration lands at roughly €3,000–7,000. The spread is about scope and SKU count, not the agency's prestige.
+From around €1,000 for a store on a ready Shopify or WooCommerce template to €18,000+ for a custom headless build with warehouse sync and B2B pricing. A typical mid-size Wrocław store with proper payments and InPost integration lands at roughly €3,000-7,000. The spread is about scope and SKU count, not the agency's prestige.
 
 **Which payment methods does a Wrocław store need?**
-BLIK and Przelewy24 are mandatory for Polish buyers — most people here pay with BLIK, and a checkout without it loses sales. Add cards plus Apple Pay and Google Pay for one-tap payment, and Stripe for Wrocław's large international and Ukrainian customer base paying with foreign cards. Processing fees sit around 0.9–1.9% per transaction.
+BLIK and Przelewy24 are mandatory for Polish buyers - most people here pay with BLIK, and a checkout without it loses sales. Add cards plus Apple Pay and Google Pay for one-tap payment, and Stripe for Wrocław's large international and Ukrainian customer base paying with foreign cards. Processing fees sit around 0.9-1.9% per transaction.
 
 **Is InPost integration really necessary?**
 Yes. InPost parcel lockers are the default way Poles receive online orders, and Wrocław is blanketed with them. A store without a locker picker in the checkout loses orders to competitors who have one. Pair it with DPD for door delivery and Poczta Polska as a fallback.
 
-**Shopify, WooCommerce, or headless — which is best for a Wrocław seller?**
-Shopify for a fast launch under ~500 products if you accept the subscription and possible revenue cut. WooCommerce if you want full ownership and will handle plugin upkeep. Headless on Next.js if speed and ad spend matter — it costs more to build but is cheaper to own and noticeably faster, which lifts mobile conversion.
+**Shopify, WooCommerce, or headless - which is best for a Wrocław seller?**
+Shopify for a fast launch under ~500 products if you accept the subscription and possible revenue cut. WooCommerce if you want full ownership and will handle plugin upkeep. Headless on Next.js if speed and ad spend matter - it costs more to build but is cheaper to own and noticeably faster, which lifts mobile conversion.
 
 **Can I move my store off another platform without losing Google rankings?**
-Yes. Products, orders, and SEO-friendly URLs carry over, and the old URLs are closed with 301 redirects, so rankings are preserved. It's a routine migration — I do it most often coming off neglected WooCommerce installs that an agency built and abandoned.
+Yes. Products, orders, and SEO-friendly URLs carry over, and the old URLs are closed with 301 redirects, so rankings are preserved. It's a routine migration - I do it most often coming off neglected WooCommerce installs that an agency built and abandoned.

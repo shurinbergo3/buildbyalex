@@ -2,7 +2,7 @@
 title: "Aplikacje mobilne Szczecin: koszt MVP i jak wybrać technologię"
 description: "Tworzenie aplikacji mobilnych Szczecin: od 6 000 EUR za MVP, ile trwa, React Native vs natywna. Konkretne ceny i terminy dla firm ze Szczecina i regionu."
 date: "2026-06-29"
-cluster: "mobile-szczecin-pl"
+cluster: "mobile-szczecin"
 keywords:
   - "tworzenie aplikacji mobilnych Szczecin"
   - "aplikacje mobilne Szczecin"
@@ -68,6 +68,16 @@ Buduję aplikacje mobilne jako niezależny senior developer - bez warstwy PM-ów
 Szczecin ma specyfikę, której duże agencje z Warszawy często nie rozumieją: firmy stąd działają na dwóch rynkach jednocześnie, mają klientów po stronie brandenburskiej i potrzebują rozwiązań, które to uwzględniają. Widziałem wystarczająco dużo projektów dla firm portowych i logistycznych, żeby wiedzieć, że "panel mobilny dla pracownika" i "aplikacja lojalnościowa dla kawiarni" to zupełnie różne problemy wymagające różnych decyzji.
 
 Jeśli chcesz zobaczyć, co buduję, [wejdź na stronę usługi aplikacji mobilnych](/pl/uslugi/aplikacje-mobilne).
+
+## Realny przykład: usługa dostaw w Szczecinie
+
+Zgłosiła się szczecińska usługa dostaw - wożą jedzenie i produkty po mieście oraz w przygraniczne rejony, część klientów i kurierów mówi po niemiecku. Zamówienia przyjmowali telefonicznie i na WhatsAppie, kurierów prowadzili we wspólnym czacie i arkuszu. W szczytowe wieczory to wszystko się rozjeżdżało: zamówienia ginęły, klient nie wiedział, gdzie kurier, a operatorzy siedzieli na telefonie zamiast rozgrzebywać kolejkę.
+
+Co zrobiliśmy. Zbudowałem na React Native dwie połączone aplikacje z jednej bazy: klienckią - katalog, zamówienie, płatność przez Przelewy24, status dostawy i push na każdym etapie; kurierską - lista zamówień, przyciski przyjąłem/odebrałem/dostarczyłem, mapa i potwierdzenie. Obie po polsku i po niemiecku od pierwszej wersji, bo dla przygranicznego Szczecina to nie opcja. Nad tym prosty panel admina, żeby operatorzy widzieli zamówienia i kurierów na jednym ekranie.
+
+Efekt: działające MVP złożyliśmy w **sześć tygodni**, kolejny tydzień poszedł na publikację w obu sklepach. Po starcie udział zamówień składanych bez telefonu do operatora doszedł do jakichś **70%**, a push o statusie zdjął główną masę pytań "gdzie moje zamówienie". Niemiecka wersja od razu podpięła klientów zza granicy, których na polskim interfejsie się traciło.
+
+To jest właśnie sens aplikacji dla Szczecina: nie witryna, tylko robocze narzędzie, które trzyma i klientów, i kurierów na dwóch językach i zdejmuje obciążenie z telefonu w godzinach szczytu.
 
 ## FAQ
 

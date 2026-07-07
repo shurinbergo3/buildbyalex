@@ -46,7 +46,15 @@ function contentPathToUrl(file) {
 // Discover changed blog URLs from git since a ref. Static/service pages live in
 // localized routes that aren't 1:1 with files, so for those pass URLs explicitly.
 function fromGitSince(ref) {
-  const out = execSync(`git diff --name-only ${ref} HEAD`, { encoding: "utf8" });
+  let out;
+  try {
+    out = execSync(`git diff --name-only ${ref} HEAD`, { encoding: "utf8" });
+  } catch {
+    // Shallow clones (Vercel) may not have the ref — skip the ping instead of
+    // failing the build. postbuild is wrapped in `|| true` as a second guard.
+    console.error(`IndexNow: git ref "${ref}" unavailable, skipping.`);
+    return [];
+  }
   const urls = [];
   for (const file of out.split("\n").map((l) => l.trim()).filter(Boolean)) {
     const url = contentPathToUrl(file);

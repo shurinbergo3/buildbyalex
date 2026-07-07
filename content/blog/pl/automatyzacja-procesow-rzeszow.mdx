@@ -2,7 +2,7 @@
 title: "Automatyzacja procesów Rzeszów - n8n i Make od €600"
 description: "Automatyzacja procesów biznesowych w Rzeszowie od €600. Buduję scenariusze n8n i Make, które zdejmują powtarzalne zadania z twojego zespołu. Wycena w 24 h."
 date: "2026-07-03"
-cluster: "auto-rzeszow-pl"
+cluster: "auto-rzeszow"
 keywords:
   - "automatyzacja procesów Rzeszów"
   - "automatyzacja biznesu Rzeszów"
@@ -24,6 +24,16 @@ Automatyzacja to nie jeden produkt - to scenariusze dopasowane do konkretnych bo
 - **Onboarding klientów** - seria e-maili, zadania w CRM, zaproszenie do platformy - całość uruchamia się samoczynnie po podpisaniu umowy.
 
 Jeśli twój zespół robi coś ręcznie więcej niż trzy razy dziennie, to kandydat do automatyzacji.
+
+## Realny przykład: firma logistyczna na przygranicznym ruchu
+
+Niewielka firma transportowo-spedycyjna pod Rzeszowem - przewozy na Ukrainę i z powrotem, magazyn czasowego składowania, praca z klientami B2B. Po 2022 roku strumień zapytań urósł wielokrotnie: przygraniczny korytarz na Ukrainę idzie właśnie przez Podkarpacie i zapytania posypały się ze wszystkich stron. Klienci przysyłali je mailami w trzech językach - PL, UA, RU - w dowolnej formie: raz lista pozycji w treści maila, raz Excel w załączniku, raz po prostu "mam ładunek Rzeszów-Lwów, policzcie".
+
+Problem był w rozbiórce tych maili. Dwie osoby od rana do wieczora czytały wiadomości, ręcznie przenosiły dane do arkusza i zakładały zapytania w CRM. Przy 40-60 mailach dziennie to jakieś trzy-cztery godziny czystego czasu na każdą z nich, a i tak część wiadomości ginęła do wieczora, a klient szedł do tego, kto odpisał pierwszy.
+
+Co zrobiliśmy. Złożyłem scenariusz w n8n: zabiera maile z branżowej skrzynki, oddziela zapytania od reszty poczty, wyciąga z treści i załączników relację, typ ładunku, objętość i kontakt, sprowadza to do jednego formatu i tworzy zapytanie w CRM z tagiem trasy i języka klienta. Nietypowych i spornych maili scenariusz nie zmyśla, tylko odkłada do osobnego folderu "na oko człowieka" z już podciągniętymi danymi. Równolegle idzie alert na Telegram po "gorących" kierunkach.
+
+Efekt po pierwszym miesiącu: ręczna rozbiórka wiadomości spadła o jakieś **70%**, dwie osoby odzyskały łącznie około **25-30 godzin tygodniowo** i zajęły się nie przepisywaniem, tylko samą logistyką i sprzedażą. Zapytania przestały ginąć do wieczora, a czas do pierwszej odpowiedzi skrócił się z kilku godzin do minut. Wdrożenie zajęło **trzy tygodnie** i zwróciło się na strumieniu pierwszego miesiąca - firma przestała oddawać konkurencji zapytania, których zwyczajnie nie zdążała obsłużyć.
 
 ## Ceny i czas realizacji
 
