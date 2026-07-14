@@ -686,7 +686,7 @@
           "rating": 5
         },
         {
-          "name": "Piotr Zieliński",
+          "name": "Piotr Zielinski",
           "role": "Automatyzacja AI",
           "date": "w zeszłym tygodniu",
           "quote": "Chcieliśmy dodać AI do analizy maili od klientów. Ekipa buildbyalex zaproponowała mega rozwiązanie, teraz system sam sortuje zgłoszenia po tematach. Naprawdę ułatwili nam życie.",
@@ -942,6 +942,286 @@
           "quote": "Zrobili bardzo ładny sklep internetowy z kosmetykami. Wszystkie przyciski na miejscu, na telefonach otwiera się błyskawicznie. Miło było mieć z chłopakami do czynienia.",
           "rating": 5,
           "publishAt": "2026-07-01"
+        },
+        {
+          "name": "Michał K.",
+          "role": "Barbershop",
+          "date": "niedawno",
+          "quote": "Alex wymiata! Zrobił landing dla mojego barbershopu w tydzień. Klienci już przychodzą z Google.",
+          "rating": 5,
+          "publishAt": "2026-07-15"
+        },
+        {
+          "name": "Sarah Jenkins",
+          "role": "Sklep online",
+          "date": "w zeszłym tygodniu",
+          "quote": "Bot działa jak w zegarku. Dzięki za tempo!",
+          "rating": 5,
+          "publishAt": "2026-07-15"
+        },
+        {
+          "name": "Ivan Petrov",
+          "role": "Właściciel strony",
+          "date": "5 dni temu",
+          "quote": "Wreszcie znalazłem programistę, który nie zwodzi obietnicami. Powiedział dwa tygodnie, zrobił w dwanaście dni. Polecam.",
+          "rating": 5,
+          "publishAt": "2026-07-15"
+        },
+        {
+          "name": "Mateusz Wójcik",
+          "role": "Lokalny biznes",
+          "date": "tydzień temu",
+          "quote": "Szybko, konkretnie, na temat. Strona śmiga, design sztos.",
+          "rating": 5,
+          "publishAt": "2026-07-15"
+        },
+        {
+          "name": "David Mueller",
+          "role": "Firma B2B",
+          "date": "3 dni temu",
+          "quote": "Zamówiliśmy integrację z CRM. Wszystko ustawione, leady wpadają prosto na Telegrama. Mega wygodne.",
+          "rating": 5,
+          "publishAt": "2026-07-16"
+        },
+        {
+          "name": "Olga Smirnova",
+          "role": "Usługi",
+          "date": "niedawno",
+          "quote": "Świetna robota! Strona ładuje się błyskawicznie, a SEO już przynosi pierwsze efekty.",
+          "rating": 4,
+          "publishAt": "2026-07-16"
+        },
+        {
+          "name": "Krzysztof Nowak",
+          "role": "Firma usługowa",
+          "date": "w zeszłym tygodniu",
+          "quote": "Asystent AI to czysty top. Odpowiada klientom szybciej niż ja i oszczędza mnóstwo czasu.",
+          "rating": 5,
+          "publishAt": "2026-07-16"
+        },
+        {
+          "name": "Elena Rossi",
+          "role": "Startup",
+          "date": "5 dni temu",
+          "quote": "Bez lania wody. Stawiasz zadanie - dostajesz gotową aplikację. Idealny format pracy.",
+          "rating": 5,
+          "publishAt": "2026-07-16"
+        },
+        {
+          "name": "Thomas Wright",
+          "role": "Zespół produktowy",
+          "date": "tydzień temu",
+          "quote": "Bardzo podszedł mi sposób pracy. Alex sam zaproponował kilka funkcji, o których w ogóle nie myśleliśmy.",
+          "rating": 5,
+          "publishAt": "2026-07-17"
+        },
+        {
+          "name": "Agnieszka Lewandowska",
+          "role": "Sklep internetowy",
+          "date": "3 dni temu",
+          "quote": "Zrobiliśmy sklep na Next.js. Płatności działają, wszystko śmiga. Jestem zadowolona.",
+          "rating": 5,
+          "publishAt": "2026-07-17"
+        },
+        {
+          "name": "Maksim Volkov",
+          "role": "Lokalny biznes",
+          "date": "niedawno",
+          "quote": "Bot na Telegramie zbiera zgłoszenia całą dobę. Zwrócił się w pierwszym tygodniu.",
+          "rating": 5,
+          "publishAt": "2026-07-17"
+        },
+        {
+          "name": "Sophie Martin",
+          "role": "Mały biznes",
+          "date": "w zeszłym tygodniu",
+          "quote": "Polecam. Solidny specjalista, zawsze na kontakcie.",
+          "rating": 4,
+          "publishAt": "2026-07-17"
+        },
+        {
+          "name": "Kacper Kowalski",
+          "role": "Produkcja",
+          "date": "5 dni temu",
+          "quote": "Wcześniej pracowałem z agencją - sama biurokracja i przeciąganie terminów. U Alexa jest inaczej: zdzwoniliśmy się, omówiliśmy i po dwóch tygodniach strona była online. Różnica kolosalna.",
+          "rating": 5,
+          "publishAt": "2026-07-17"
+        },
+        {
+          "name": "Daniel Harris",
+          "role": "Startup (iOS)",
+          "date": "tydzień temu",
+          "quote": "Potrzebowaliśmy pilnego MVP dla inwestorów. Alex złożył działającą apkę na iOS w trzy tygodnie. Inwestycję dostaliśmy, pracujemy dalej.",
+          "rating": 5,
+          "publishAt": "2026-07-18"
+        },
+        {
+          "name": "Anna Sokolova",
+          "role": "Usługi, Warszawa",
+          "date": "3 dni temu",
+          "quote": "Największy plus - SEO od pierwszego dnia. Wcześniej mieliśmy stronę z kreatora, której nikt nie widział. Teraz stabilnie jesteśmy w top 10 w Warszawie.",
+          "rating": 5,
+          "publishAt": "2026-07-18"
+        },
+        {
+          "name": "Piotr Wiśniewski",
+          "role": "Usługi",
+          "date": "niedawno",
+          "quote": "Szukaliśmy kogoś, kto ustawi agenta AI do odpowiedzi po godzinach. Bot od Alexa nie odpowiada szablonami - realnie doradza i domyka sprzedaż.",
+          "rating": 5,
+          "publishAt": "2026-07-18"
+        },
+        {
+          "name": "Lucas Silva",
+          "role": "Usługi prawne",
+          "date": "w zeszłym tygodniu",
+          "quote": "Mamy trudną niszę (usługi prawne). Alex wgryzł się w proces, zrobił świetny quiz na stronie i spiął to wszystko z naszym CRM. Handlowcy pracują teraz tylko z ciepłymi leadami.",
+          "rating": 4,
+          "publishAt": "2026-07-18"
+        },
+        {
+          "name": "Dmitry Ivanov",
+          "role": "Klient",
+          "date": "5 dni temu",
+          "quote": "Bardzo spodobał mi się brak pośredników. Nie trzeba tłumaczyć zadania menedżerowi, który potem przekazuje je programiście jak głuchy telefon. Rozmawiasz wprost z osobą, która to robi.",
+          "rating": 5,
+          "publishAt": "2026-07-19"
+        },
+        {
+          "name": "Tomasz Kamiński",
+          "role": "Nagrania z drona",
+          "date": "tydzień temu",
+          "quote": "Zamawiałem landing dla firmy od nagrań z drona. Konwersja wzrosła dwukrotnie w porównaniu ze starą stroną. Osobne podziękowania za integrację z Telegramem - zgłoszenia przychodzą natychmiast.",
+          "rating": 5,
+          "publishAt": "2026-07-19"
+        },
+        {
+          "name": "Emily Davis",
+          "role": "Sklep internetowy",
+          "date": "3 dni temu",
+          "quote": "Zrobiliśmy złożonego bota na Telegramie z witryną i płatnościami. Wszystko działa bez zacięć, klientom wygodnie.",
+          "rating": 5,
+          "publishAt": "2026-07-19"
+        },
+        {
+          "name": "Jakub Zieliński",
+          "role": "Sprzedaż online",
+          "date": "niedawno",
+          "quote": "Alex nie tylko pisze kod - rozumie cele biznesowe. Strona wyszła dokładnie taka, jaka była potrzebna do sprzedaży, a nie tylko ładny obrazek.",
+          "rating": 5,
+          "publishAt": "2026-07-19"
+        },
+        {
+          "name": "Maria Kuznetsova",
+          "role": "Mały biznes",
+          "date": "w zeszłym tygodniu",
+          "quote": "Świetna opcja dla małego biznesu. Dostajesz poziom seniora, ale bez kosmicznych cenników agencji.",
+          "rating": 4,
+          "publishAt": "2026-07-19"
+        },
+        {
+          "name": "Oliver Schmidt",
+          "role": "Automatyzacja",
+          "date": "5 dni temu",
+          "quote": "Trzeba było połączyć kilka różnych usług (formularze, CRM, pocztę). Alex ustawił to wszystko przez n8n, automatyzacja działa idealnie.",
+          "rating": 5,
+          "publishAt": "2026-07-20"
+        },
+        {
+          "name": "Julia Szymańska",
+          "role": "Sklep internetowy",
+          "date": "tydzień temu",
+          "quote": "Uruchomiliśmy sklep internetowy z płatnością Blik. Wszystko szybko, wygodnie, klienci nie narzekają.",
+          "rating": 5,
+          "publishAt": "2026-07-20"
+        },
+        {
+          "name": "Adam Dąbrowski",
+          "role": "Firma usługowa",
+          "date": "3 dni temu",
+          "quote": "Długo wątpiłem, czy potrzebujemy konsultanta AI. Wydawało się, że klienci nie będą rozmawiać z botem. Alex przekonał mnie, żeby spróbować, i ustawił bota, który kopiuje styl rozmowy naszego handlowca. Efekt: 30% rutynowych pytań zamyka się bez udziału człowieka, leady są lepiej kwalifikowane. Zaoszczędziliśmy mnóstwo czasu i nerwów.",
+          "rating": 5,
+          "publishAt": "2026-07-20"
+        },
+        {
+          "name": "Markus Weber",
+          "role": "Startup fitness",
+          "date": "niedawno",
+          "quote": "Pracowaliśmy z Alexem nad aplikacją fitness. Co mnie ujęło: sam zaproponował architekturę, dobrał właściwy stack i wziął na siebie absolutnie wszystko - od designu po release w App Store. Nie trzeba było osobno szukać backendowca, frontendowca i projektanta. Format pod klucz w jego wykonaniu naprawdę działa.",
+          "rating": 5,
+          "publishAt": "2026-07-20"
+        },
+        {
+          "name": "Alina Popova",
+          "role": "Kancelaria prawna, Warszawa",
+          "date": "w zeszłym tygodniu",
+          "quote": "Mamy kancelarię prawną w Warszawie. Mieliśmy starą stronę, która w ogóle nie przynosiła zgłoszeń. Alex zrobił nowy wielojęzyczny portal, przemyślał strukturę pod SEO i dołożył asystenta AI. W dwa miesiące weszliśmy do topu na główne zapytania. Zwrot z projektu przerósł wszystkie oczekiwania.",
+          "rating": 5,
+          "publishAt": "2026-07-21"
+        },
+        {
+          "name": "Maciej Kaczmarek",
+          "role": "Biznes",
+          "date": "5 dni temu",
+          "quote": "Doświadczenie z agencjami miałem złe - ciągłe przesuwanie terminów i pompowanie budżetu. Z Alexem umówiliśmy się na konkretną kwotę i termin (3 tygodnie). Oddał projekt dokładnie na czas, bez ani jednej dopłaty. Strona działa szybko, kod czysty, wszystkie integracje (Google Ads, analityka) były ustawione od razu.",
+          "rating": 4,
+          "publishAt": "2026-07-21"
+        },
+        {
+          "name": "Sergey Morozov",
+          "role": "Sprzedaż / CRM",
+          "date": "tydzień temu",
+          "quote": "Zgłosiłem się po ustawienie automatyzacji sprzedaży. Mieliśmy chaos ze zgłoszeniami w różnych komunikatorach. Alex zebrał to w jeden system: leady trafiają do CRM, klient dostaje automatyczną odpowiedź, a po godzinach bot AI podtrzymuje rozmowę. Procesy stały się przejrzyste, konwersja wzrosła.",
+          "rating": 5,
+          "publishAt": "2026-07-21"
+        },
+        {
+          "name": "Emma Johansson",
+          "role": "Startup",
+          "date": "3 dni temu",
+          "quote": "Startowaliśmy ze startupem, potrzebowaliśmy landinga i prostej aplikacji webowej dla pierwszych użytkowników. Budżet był ograniczony. Alex zaproponował optymalne rozwiązanie na stacku (Next.js), które pozwoliło zmieścić się w budżecie i uzyskać świetny efekt. Strona ładuje się natychmiast i wygląda drogo.",
+          "rating": 5,
+          "publishAt": "2026-07-21"
+        },
+        {
+          "name": "Michalina Kozłowska",
+          "role": "Biznes online",
+          "date": "niedawno",
+          "quote": "Co wyróżnia Alexa, to zagłębianie się w logikę biznesu. Nie tylko składa makiety - zadaje pytania: A jak poprowadzimy użytkownika dalej? Jaki jest cel tego przycisku? W efekcie strona staje się narzędziem sprzedaży, a nie tylko wizytówką.",
+          "rating": 5,
+          "publishAt": "2026-07-21"
+        },
+        {
+          "name": "John Brooks",
+          "role": "Klient korporacyjny",
+          "date": "w zeszłym tygodniu",
+          "quote": "Robiliśmy integrację systemu RAG dla wewnętrznej bazy wiedzy firmy. Zadanie było trudne, bo danych jest dużo i nie są ustrukturyzowane. Alex świetnie sobie poradził: teraz pracownicy mogą po prostu zadać pytanie botowi na Telegramie i dostać precyzyjną odpowiedź z linkiem do dokumentu.",
+          "rating": 5,
+          "publishAt": "2026-07-22"
+        },
+        {
+          "name": "Egor Lebedev",
+          "role": "Founder",
+          "date": "5 dni temu",
+          "quote": "Zamawiałem projekt od zera. Miałem tylko pomysł i ogólne pojęcie, czego chcę. Alex pomógł to uporządkować, zrobił prototypy, design i uruchomił projekt. Cały proces był przejrzysty, zawsze wiedziałem, na jakim etapie jesteśmy.",
+          "rating": 4,
+          "publishAt": "2026-07-22"
+        },
+        {
+          "name": "Patryk Mazur",
+          "role": "Biznes online",
+          "date": "tydzień temu",
+          "quote": "Świetna ekspertyza w Next.js. Strona wyszła niesamowicie szybka, Google PageSpeed pokazuje zielone pola. Dla nas było to krytycznie ważne z powodu konkurencji w wyszukiwarce. Wynik 10 na 10.",
+          "rating": 5,
+          "publishAt": "2026-07-22"
+        },
+        {
+          "name": "Clara Dubois",
+          "role": "Sklep internetowy",
+          "date": "3 dni temu",
+          "quote": "Wdrożyliśmy menedżera AI na Telegramie. Działa 24/7, odpowiada na pytania o ceny, warunki dostawy, a nawet pomaga złożyć zamówienie. Odciążyliśmy support prawie o połowę. Alex wszystko ustawił, przetestował i nauczył nas, jak zarządzać botem. Naprawdę świetna inwestycja w biznes.",
+          "rating": 5,
+          "publishAt": "2026-07-22"
         }
       ],
       "showAll": "Pokaż wszystkie {count} {count, plural, one {opinię} few {opinie} many {opinii} other {opinii}}",
