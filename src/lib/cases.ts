@@ -25,7 +25,7 @@ export type ServiceBranch = "websites" | "store" | "ai" | "automation" | "mobile
  */
 export const serviceToCases: Record<ServiceBranch, CaseKey[]> = {
   websites: ["baltic", "legalwin", "visionair"],
-  store: [],
+  store: ["baltic"],
   ai: ["crmbot", "leadbot"],
   automation: ["crmbot", "leadbot"],
   // bodyforge itself lives in the MobileCaseProof deep dive on that page.
