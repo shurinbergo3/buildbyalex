@@ -1,11 +1,12 @@
-export type CaseKey = "legalwin" | "visionair" | "bodyforgesite" | "crmbot" | "leadbot" | "bodyforge";
+export type CaseKey = "baltic" | "legalwin" | "visionair" | "bodyforgesite" | "crmbot" | "leadbot" | "bodyforge";
 
-export const caseSlugs: CaseKey[] = ["legalwin", "visionair", "bodyforgesite", "crmbot", "leadbot", "bodyforge"];
+export const caseSlugs: CaseKey[] = ["baltic", "legalwin", "visionair", "bodyforgesite", "crmbot", "leadbot", "bodyforge"];
 
 /** Discipline each case belongs to — drives the gallery filter. Non-localized. */
 export type CaseCategory = "web" | "ai" | "mobile";
 
 export const caseCategory: Record<CaseKey, CaseCategory> = {
+  baltic: "web",
   legalwin: "web",
   visionair: "web",
   bodyforgesite: "web",
@@ -23,7 +24,7 @@ export type ServiceBranch = "websites" | "store" | "ai" | "automation" | "mobile
  * empty list renders no block at all. Keep these aligned with `caseCategory`.
  */
 export const serviceToCases: Record<ServiceBranch, CaseKey[]> = {
-  websites: ["legalwin", "visionair", "bodyforgesite"],
+  websites: ["baltic", "legalwin", "visionair"],
   store: [],
   ai: ["crmbot", "leadbot"],
   automation: ["crmbot", "leadbot"],
@@ -34,6 +35,7 @@ export const serviceToCases: Record<ServiceBranch, CaseKey[]> = {
 };
 
 export const caseSlugToKey: Record<string, CaseKey> = {
+  "baltic-dockyard": "baltic",
   legalwin: "legalwin",
   visionair: "visionair",
   "body-forge-site": "bodyforgesite",
@@ -43,6 +45,7 @@ export const caseSlugToKey: Record<string, CaseKey> = {
 };
 
 export const caseKeyToSlug: Record<CaseKey, string> = {
+  baltic: "baltic-dockyard",
   legalwin: "legalwin",
   visionair: "visionair",
   bodyforgesite: "body-forge-site",
@@ -54,6 +57,7 @@ export const caseKeyToSlug: Record<CaseKey, string> = {
 // Image sources only. The localized alt text lives in messages under
 // `work.cases.<key>.imageAlt` so it translates per locale (used in <img>/OG alt).
 export const caseImages: Record<CaseKey, { src: string }> = {
+  baltic: { src: "/cases/baltic-cover.webp" },
   legalwin: { src: "/cases/legalwin-passport.webp" },
   visionair: { src: "/cases/visionair-warsaw.webp" },
   bodyforgesite: { src: "/cases/bodyforge-site.webp" },

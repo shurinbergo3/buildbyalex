@@ -5014,6 +5014,38 @@
       "live": "All in production"
     },
     "cases": {
+      "baltic": {
+        "industry": "Marine parts supply · Warsaw",
+        "title": "Baltic Dockyard",
+        "imageAlt": "Baltic Dockyard shipping container under a port crane - website case for a marine parts supplier",
+        "tagline": "A turnkey site for a B2B marine-parts supplier: domain email, inbound quote requests and SEO.",
+        "problem": "Baltic Dockyard supplies certified parts for marine engines, pumps and offshore rigs - but online the company barely existed. Requests came through scattered channels, there was no email on the company domain, and professional buyers (procurement, ship engineers) couldn't find the supplier in search.",
+        "solution": "Built the site end to end on Next.js: a bilingual storefront (PL/EN) with a 12,400+ item catalog across six departments, plus delivery and company pages. Set up corporate email on the domain (kontakt@baltic-dockyard.pl) and wired the quote-request form straight to it - inquiries land in the company inbox within seconds, with files and specs attached. On top: technical and on-page SEO for professional queries and a Knowledge Base of expert articles.",
+        "results": [
+          "Bilingual site (PL/EN) with a 12,400+ item catalog across six departments",
+          "Corporate email on the domain - kontakt@baltic-dockyard.pl",
+          "The quote form delivers every request straight to the company inbox",
+          "Technical + on-page SEO: structured data, hreflang, speed",
+          "Knowledge Base with expert articles for professional queries"
+        ],
+        "stack": [
+          "Next.js 15",
+          "TypeScript",
+          "Tailwind CSS",
+          "next-intl (PL/EN)",
+          "Schema.org / JSON-LD",
+          "Resend (form → email)",
+          "Domain email",
+          "Vercel"
+        ],
+        "url": "baltic-dockyard.pl",
+        "quote": "Finally there's one place to send a client to, and requests come straight to our inbox. The site looks serious - exactly how we wanted the company to come across.",
+        "quoteAuthor": "Tomasz W. · Baltic Dockyard",
+        "metric": {
+          "value": "5",
+          "label": "services, one build"
+        }
+      },
       "legalwin": {
         "industry": "Immigration legal services · Warsaw",
         "title": "LegalWin",
@@ -5202,6 +5234,20 @@
       }
     },
     "caseMetrics": {
+      "baltic": [
+        {
+          "value": "12,400+",
+          "label": "Catalog items"
+        },
+        {
+          "value": "38",
+          "label": "Delivery countries"
+        },
+        {
+          "value": "98.6%",
+          "label": "On-time delivery"
+        }
+      ],
       "legalwin": [
         {
           "value": "15+",
@@ -5288,6 +5334,76 @@
       ]
     },
     "caseShowcase": {
+      "baltic": {
+        "deliverables": {
+          "eyebrow": "What we delivered",
+          "headline": "Five jobs, one partner",
+          "subhead": "From the site and email to inbound requests and content for search - built and wired into one working flow.",
+          "items": [
+            {
+              "title": "Company site",
+              "desc": "Bilingual Next.js storefront with catalog, delivery and company pages."
+            },
+            {
+              "title": "Corporate email",
+              "desc": "Email on the baltic-dockyard.pl domain - a serious address, not a gmail box."
+            },
+            {
+              "title": "Inbound requests",
+              "desc": "The quote form sends every inquiry straight to the company inbox in seconds."
+            },
+            {
+              "title": "SEO optimization",
+              "desc": "Technical foundation, structured data and hreflang for professional queries."
+            },
+            {
+              "title": "SEO articles",
+              "desc": "An expert Knowledge Base for procurement and engineer queries."
+            }
+          ]
+        },
+        "site": {
+          "eyebrow": "Site & catalog",
+          "headline": "A storefront that reads as the #1 supplier",
+          "subhead": "A 12,400+ item catalog across six departments, with search, filters and a card for every part. PL and EN from one codebase."
+        },
+        "inbox": {
+          "eyebrow": "Email & requests",
+          "headline": "A request on the site lands straight in the inbox",
+          "subhead": "The domain email and the quote form are wired directly: the client sends a spec, and the message is already in the box - with files and contacts.",
+          "steps": [
+            {
+              "k": "Form on the site",
+              "v": "The client describes the request and attaches files up to 10 MB."
+            },
+            {
+              "k": "Email to the inbox",
+              "v": "The request reaches kontakt@baltic-dockyard.pl in seconds."
+            },
+            {
+              "k": "Reply within 4 hours",
+              "v": "One manager owns the request from quote to delivery."
+            }
+          ]
+        },
+        "seo": {
+          "eyebrow": "SEO",
+          "headline": "So the supplier gets found in search",
+          "subhead": "Technical and on-page SEO for professional queries: a clean catalog structure, classification-society certificates, speed and correct language versions.",
+          "signals": [
+            "hreflang PL / EN",
+            "Schema.org structured data",
+            "Semantic catalog",
+            "Speed & Core Web Vitals",
+            "Sitemap & indexing"
+          ]
+        },
+        "content": {
+          "eyebrow": "Content",
+          "headline": "Expert articles built for search",
+          "subhead": "The Knowledge Base: practical guides on maintenance and certification - for the real queries of procurement and ship engineers, with no marketing fluff."
+        }
+      },
       "legalwin": {
         "serp": {
           "eyebrow": "Google search",

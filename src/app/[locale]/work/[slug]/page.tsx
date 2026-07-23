@@ -13,6 +13,7 @@ import { CrmbotCaseHero } from "@/components/CrmbotCaseHero";
 import { VisionairHeroMock } from "@/components/VisionairHeroMock";
 import { BodyForgeHeroMock } from "@/components/BodyForgeHeroMock";
 import { BodyForgeSiteHeroMock } from "@/components/BodyForgeSiteHeroMock";
+import { BalticDockyardHeroMock } from "@/components/BalticDockyardHeroMock";
 import { LegalwinHeroMock } from "@/components/LegalwinHeroMock";
 import { LegalwinShowcase } from "@/components/LegalwinShowcase";
 import { VisionairShowcase } from "@/components/VisionairShowcase";
@@ -20,6 +21,7 @@ import { LeadBotShowcase } from "@/components/LeadBotShowcase";
 import { BodyForgeShowcase } from "@/components/BodyForgeShowcase";
 import { BodyForgeSiteShowcase } from "@/components/BodyForgeSiteShowcase";
 import { CrmbotShowcase } from "@/components/CrmbotShowcase";
+import { BalticDockyardShowcase } from "@/components/BalticDockyardShowcase";
 import { routing, type Locale } from "@/i18n/routing";
 import { caseSlugToKey, caseImages, caseCategory, type CaseKey } from "@/lib/cases";
 import { SITE_URL, localizedDynamicHref, dynamicLanguageAlternates, htmlLang } from "@/lib/site";
@@ -145,7 +147,12 @@ function CaseContent({ slug, locale }: { slug: string; locale: string }) {
   const chromeHost = c.url.split("/")[0].replace(/^https?:\/\//, "");
   // Final-CTA bookend: same theme/accent as this case's hero.
   const ctaTheme = caseCategory[key];
-  const ctaAccent = key === "bodyforge" || key === "bodyforgesite" ? "#C8FF00" : "#FF7A2D";
+  const ctaAccent =
+    key === "bodyforge" || key === "bodyforgesite"
+      ? "#C8FF00"
+      : key === "baltic"
+        ? "#33C4E8"
+        : "#FF7A2D";
 
   const chapters = [
     { label: labels.problem, body: c.problem },
@@ -179,7 +186,56 @@ function CaseContent({ slug, locale }: { slug: string; locale: string }) {
       {/* ── Hero ── */}
       <Section pad="tight" className="!pt-12 md:!pt-20">
         <Container>
-          {key === "visionair" ? (
+          {key === "baltic" ? (
+            <HeroWindow theme="web" accent="#33C4E8" label={chromeHost} live={liveLabel}>
+              <div className="grid items-center gap-10 md:grid-cols-[0.92fr_1.08fr] md:gap-12 lg:gap-16">
+                <Reveal>
+                  <div>
+                    <p className="t-eyebrow" style={{ color: "#33C4E8" }}>
+                      {c.industry}
+                    </p>
+                    <h1 className="mt-4 text-[clamp(40px,5.5vw+8px,72px)] font-semibold leading-[1.06] tracking-[-0.032em] text-white">
+                      {c.title}
+                    </h1>
+                    <p className="mt-5 max-w-[520px] text-[clamp(17px,1.2vw+13px,22px)] leading-[1.45] tracking-[-0.013em] text-white/70">
+                      {c.tagline}
+                    </p>
+                    <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-5">
+                      {metrics.map((m) => (
+                        <div key={m.label}>
+                          <dt className="text-[clamp(26px,2vw+18px,36px)] font-semibold leading-none tracking-[-0.02em]" style={{ color: "#8FDBF3" }}>
+                            {m.value}
+                          </dt>
+                          <dd className="mt-1.5 text-[13px] text-white/45">{m.label}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                    {isLink && (
+                      <a
+                        href={`https://${c.url.replace(/^https?:\/\//, "")}`}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.05] py-2 pl-3.5 pr-4 text-[14px] font-medium text-white/85 backdrop-blur-sm transition-colors hover:border-[#33C4E8] hover:text-white"
+                      >
+                        <span className="relative grid h-2 w-2 place-items-center">
+                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#33C4E8] opacity-75" />
+                          <span className="relative h-1.5 w-1.5 rounded-full bg-[#33C4E8]" />
+                        </span>
+                        {liveLabel} · {c.url}
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <path d="M7 17 17 7M9 7h8v8" />
+                        </svg>
+                      </a>
+                    )}
+                  </div>
+                </Reveal>
+
+                <Reveal delay={150}>
+                  <BalticDockyardHeroMock />
+                </Reveal>
+              </div>
+            </HeroWindow>
+          ) : key === "visionair" ? (
             <HeroWindow theme="web" accent="#FF7A2D" label={chromeHost} live={liveLabel}>
               <div className="grid items-center gap-10 md:grid-cols-[0.92fr_1.08fr] md:gap-12 lg:gap-16">
                 <Reveal>
@@ -555,6 +611,7 @@ function CaseContent({ slug, locale }: { slug: string; locale: string }) {
         </Container>
       </Section>
 
+      {key === "baltic" && <BalticDockyardShowcase />}
       {key === "legalwin" && <LegalwinShowcase />}
       {key === "visionair" && <VisionairShowcase />}
       {key === "crmbot" && <CrmbotShowcase />}

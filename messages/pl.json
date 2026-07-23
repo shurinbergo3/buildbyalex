@@ -5014,6 +5014,38 @@
       "live": "Wszystko na produkcji"
     },
     "cases": {
+      "baltic": {
+        "industry": "Zaopatrzenie morskie · Warszawa",
+        "title": "Baltic Dockyard",
+        "imageAlt": "Kontener Baltic Dockyard pod portowym dźwigiem - case strony dla dostawcy części okrętowych",
+        "tagline": "Strona pod klucz dla dostawcy części okrętowych B2B: poczta w domenie, zapytania z formularza i SEO.",
+        "problem": "Baltic Dockyard dostarcza certyfikowane części do silników okrętowych, pomp i platform wiertniczych - ale w internecie firmy praktycznie nie było. Zapytania spływały różnymi kanałami, nie było poczty w domenie, a zawodowi kupujący (dział zakupów, mechanicy okrętowi) nie znajdowali dostawcy w wyszukiwarce.",
+        "solution": "Zbudowałem stronę pod klucz na Next.js: dwujęzyczna witryna (PL/EN) z katalogiem 12 400+ pozycji w sześciu działach oraz stronami dostaw i firmy. Skonfigurowałem pocztę firmową w domenie (kontakt@baltic-dockyard.pl) i podłączyłem formularz zapytania o cenę - zapytania z witryny trafiają prosto do skrzynki firmy w kilka sekund, z plikami i specyfikacją. Do tego techniczne i on-page SEO pod zapytania branżowe oraz „Baza wiedzy” z eksperckimi artykułami.",
+        "results": [
+          "Dwujęzyczna strona (PL/EN) z katalogiem 12 400+ pozycji w sześciu działach",
+          "Poczta firmowa w domenie - kontakt@baltic-dockyard.pl",
+          "Formularz zapytania wysyła zgłoszenie prosto do skrzynki firmy",
+          "Techniczne + on-page SEO: dane strukturalne, hreflang, szybkość",
+          "Baza wiedzy z eksperckimi artykułami pod zapytania branżowe"
+        ],
+        "stack": [
+          "Next.js 15",
+          "TypeScript",
+          "Tailwind CSS",
+          "next-intl (PL/EN)",
+          "Schema.org / JSON-LD",
+          "Resend (formularz → e-mail)",
+          "Poczta w domenie",
+          "Vercel"
+        ],
+        "url": "baltic-dockyard.pl",
+        "quote": "Wreszcie mamy jeden adres, pod który można skierować klienta, a zapytania od razu przychodzą na naszą pocztę. Strona wygląda poważnie - dokładnie tak, jak chcieliśmy pokazać firmę.",
+        "quoteAuthor": "Tomasz W. · Baltic Dockyard",
+        "metric": {
+          "value": "5",
+          "label": "usług pod klucz"
+        }
+      },
       "legalwin": {
         "industry": "Imigracyjne usługi prawne · Warszawa",
         "title": "LegalWin",
@@ -5202,6 +5234,20 @@
       }
     },
     "caseMetrics": {
+      "baltic": [
+        {
+          "value": "12 400+",
+          "label": "Pozycji w katalogu"
+        },
+        {
+          "value": "38",
+          "label": "Krajów dostaw"
+        },
+        {
+          "value": "98,6%",
+          "label": "Dostaw na czas"
+        }
+      ],
       "legalwin": [
         {
           "value": "15+",
@@ -5288,6 +5334,76 @@
       ]
     },
     "caseShowcase": {
+      "baltic": {
+        "deliverables": {
+          "eyebrow": "Co zrobiliśmy",
+          "headline": "Pięć zadań - jeden wykonawca",
+          "subhead": "Od strony i poczty po zapytania i treści pod wyszukiwarkę - wszystko złożone i połączone w jeden proces.",
+          "items": [
+            {
+              "title": "Strona firmy",
+              "desc": "Dwujęzyczna witryna na Next.js z katalogiem, dostawami i stroną o firmie."
+            },
+            {
+              "title": "Poczta firmowa",
+              "desc": "Poczta w domenie baltic-dockyard.pl - poważny adres zamiast skrzynki na gmailu."
+            },
+            {
+              "title": "Zapytania z formularza",
+              "desc": "Formularz zapytania o cenę wysyła zgłoszenie prosto do skrzynki firmy."
+            },
+            {
+              "title": "Optymalizacja SEO",
+              "desc": "Baza techniczna, dane strukturalne i hreflang pod zapytania branżowe."
+            },
+            {
+              "title": "Artykuły pod SEO",
+              "desc": "Ekspercka „Baza wiedzy” pod zapytania działów zakupów i mechaników."
+            }
+          ]
+        },
+        "site": {
+          "eyebrow": "Strona i katalog",
+          "headline": "Witryna, która wygląda jak dostawca nr 1",
+          "subhead": "Katalog 12 400+ pozycji w sześciu działach, z wyszukiwarką, filtrami i kartą każdej części. PL i EN z jednej bazy kodu."
+        },
+        "inbox": {
+          "eyebrow": "Poczta i zapytania",
+          "headline": "Zapytanie z witryny trafia prosto do skrzynki",
+          "subhead": "Poczta w domenie i formularz zapytania są połączone bezpośrednio: klient wysyła specyfikację, a wiadomość jest już w skrzynce - z plikami i kontaktem.",
+          "steps": [
+            {
+              "k": "Formularz na stronie",
+              "v": "Klient opisuje zapytanie i dołącza pliki do 10 MB."
+            },
+            {
+              "k": "E-mail na pocztę",
+              "v": "Zapytanie trafia na kontakt@baltic-dockyard.pl w kilka sekund."
+            },
+            {
+              "k": "Odpowiedź w 4 h",
+              "v": "Jeden opiekun prowadzi temat od wyceny do dostawy."
+            }
+          ]
+        },
+        "seo": {
+          "eyebrow": "SEO",
+          "headline": "Żeby dostawcę znaleźć w wyszukiwarce",
+          "subhead": "Techniczne i on-page SEO pod zapytania branżowe: czysta struktura katalogu, certyfikaty towarzystw klasyfikacyjnych, szybkość i poprawne wersje językowe.",
+          "signals": [
+            "hreflang PL / EN",
+            "Dane strukturalne Schema.org",
+            "Semantyczny katalog",
+            "Szybkość i Core Web Vitals",
+            "Sitemap i indeksacja"
+          ]
+        },
+        "content": {
+          "eyebrow": "Treści",
+          "headline": "Eksperckie artykuły pod wyszukiwarkę",
+          "subhead": "Baza wiedzy: praktyczne poradniki o serwisie i certyfikacji - pod realne zapytania działów zakupów i mechaników okrętowych, bez marketingowej waty."
+        }
+      },
       "legalwin": {
         "serp": {
           "eyebrow": "Wyszukiwarka Google",
