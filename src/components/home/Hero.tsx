@@ -5,7 +5,6 @@ import { useLocale, useTranslations } from "next-intl";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { Link } from "@/i18n/navigation";
-import { GoogleG } from "@/components/GoogleG";
 import { HeroCodeSurface } from "@/components/home/HeroCodeSurface";
 
 export function Hero({ reviewCount }: { reviewCount: number }) {
@@ -349,7 +348,6 @@ export function Hero({ reviewCount }: { reviewCount: number }) {
                       ))}
                     </div>
                     <span className="mt-1 flex items-center gap-1.5 text-[12.5px] font-medium text-white/80">
-                      <GoogleG size={13} />
                       <span className="underline decoration-white/20 decoration-from-font underline-offset-[3px] transition-colors group-hover:text-white group-hover:decoration-white/50">
                         {t("reviews", { count: reviewCount })}
                       </span>

@@ -6,6 +6,7 @@ import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
 import { routing, type Locale } from "@/i18n/routing";
 import { buildLocalizedMetadata } from "@/lib/metadata";
+import { getLiveReviewCount } from "@/lib/reviews";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -41,6 +42,7 @@ export default async function ContactPage({
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "contact" });
   const tr = await getTranslations({ locale, namespace: "home.testimonials" });
+  const reviewCount = await getLiveReviewCount(locale as Locale);
   const steps = t.raw("steps.items") as { title: string; desc: string }[];
 
   return (
@@ -60,7 +62,7 @@ export default async function ContactPage({
               <div className="mt-6 flex items-center gap-3">
                 <Stars />
                 <span className="text-[13.5px] text-[color:var(--color-text-2)]">
-                  <span className="font-semibold text-[color:var(--color-text)]">{tr("rating")}</span> · {tr("count")}
+                  <span className="font-semibold text-[color:var(--color-text)]">{tr("rating")}</span> · {reviewCount} {tr("count")}
                 </span>
               </div>
             </Reveal>

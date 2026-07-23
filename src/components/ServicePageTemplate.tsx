@@ -180,7 +180,7 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       {/* ── Hero (cinematic key-art stage) ── */}
-      <ServiceHero branch={branch} />
+      <ServiceHero branch={branch} reviewCount={reviewCount} />
 
       {/* ── Pain: where the money leaks without this service ── */}
       <ServicePain branch={branch}>
@@ -261,7 +261,7 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
       {/* ── Blog cluster links ── */}
       <ServiceResources branch={branch} />
 
-      {/* ── Reviews (Google reviews, shared block) ── */}
+      {/* ── Reviews (shared block) ── */}
       <Testimonials />
 
       {/* ── Final CTA (shared glass-window bookend) ── */}

@@ -5,7 +5,6 @@ import { Reveal } from "./Reveal";
 import { Button } from "./Button";
 import { HeroWindow } from "./HeroWindow";
 import { Link } from "@/i18n/navigation";
-import { GoogleG } from "./GoogleG";
 import type { ContourTheme } from "./heroGlyphs";
 
 type Href = ComponentProps<typeof Link>["href"];
@@ -140,7 +139,6 @@ export function FinalCta({
                   className="group mt-7 inline-flex items-center justify-center gap-2.5 transition-opacity hover:opacity-90"
                 >
                   <Stars accent={accent} />
-                  <GoogleG />
                   <span className="text-[13.5px] text-white/60 underline decoration-white/20 decoration-from-font underline-offset-[3px] transition-colors group-hover:text-white/85 group-hover:decoration-white/45">
                     <span className="font-semibold text-white">{rating.value}</span> · {rating.count}
                   </span>

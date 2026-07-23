@@ -6,7 +6,6 @@ import { AnimatePresence, motion } from "motion/react";
 import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
-import { GoogleG } from "@/components/GoogleG";
 import { isReviewLive } from "@/lib/reviews";
 import { ReviewForm } from "./ReviewForm";
 
@@ -96,9 +95,8 @@ function ReviewCard({ r, i }: { r: Review; i: number }) {
         </div>
       </div>
 
-      <div className="mt-4 flex items-center justify-between">
+      <div className="mt-4 flex items-center">
         <StarRow value={r.rating ?? 5} />
-        <span className="text-[12px] text-[color:var(--color-text-3)]">{r.date}</span>
       </div>
 
       <blockquote className="mt-3 text-[15px] leading-[1.55] text-[color:var(--color-text-2)]">
@@ -122,8 +120,8 @@ export function Testimonials() {
     ? all.filter((r) => isReviewLive(r, Date.now()))
     : all.filter((r) => !r.publishAt);
 
-  // Count + histogram derive from the currently-visible reviews, so the "N Google
-  // reviews" label and the 5★→1★ breakdown grow automatically as scheduled ones land.
+  // Count + histogram derive from the currently-visible reviews, so the "N reviews"
+  // label and the 5★→1★ breakdown grow automatically as scheduled ones land.
   const count = t("count");
   const distribution = [5, 4, 3, 2, 1].map((s) => list.filter((r) => (r.rating ?? 5) === s).length);
   const total = list.length;
@@ -151,7 +149,6 @@ export function Testimonials() {
               </span>
               <StarRow value={Number(rating.replace(",", "."))} size={17} />
               <span className="mt-0.5 flex items-center gap-1.5 text-[12.5px] text-[color:var(--color-text-3)]">
-                <GoogleG />
                 {total} {count}
               </span>
             </div>

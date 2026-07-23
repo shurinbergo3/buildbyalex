@@ -819,7 +819,7 @@ function GoogleG() {
   );
 }
 
-export function ServiceHero({ branch }: { branch: Branch }) {
+export function ServiceHero({ branch, reviewCount }: { branch: Branch; reviewCount: number }) {
   const t = useTranslations(`services.${branch}`);
   const tr = useTranslations("home.testimonials");
   const messages = useMessages() as unknown as HeroShape;
@@ -875,13 +875,12 @@ export function ServiceHero({ branch }: { branch: Branch }) {
 
               <Link
                 href={{ pathname: "/", hash: "reviews" }}
-                aria-label={`${tr("rating")} · ${tr("count")}`}
+                aria-label={`${tr("rating")} · ${reviewCount} ${tr("count")}`}
                 className="group mt-6 inline-flex items-center gap-2.5 transition-opacity hover:opacity-90"
               >
                 <Stars />
-                <GoogleG />
                 <span className="text-[13px] text-white/55 underline decoration-white/20 decoration-from-font underline-offset-[3px] transition-colors group-hover:text-white/80 group-hover:decoration-white/40">
-                  <span className="font-semibold text-white">{tr("rating")}</span> · {tr("count")}
+                  <span className="font-semibold text-white">{tr("rating")}</span> · {reviewCount} {tr("count")}
                 </span>
               </Link>
 
