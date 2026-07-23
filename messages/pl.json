@@ -5049,7 +5049,7 @@
       "legalwin": {
         "industry": "Imigracyjne usługi prawne · Warszawa",
         "title": "LegalWin",
-        "imageAlt": "Paszport przy oknie samolotu o zachodzie słońca — case study imigracyjne LegalWin",
+        "imageAlt": "Paszport przy oknie samolotu o zachodzie słońca - case study imigracyjne LegalWin",
         "tagline": "Konsultant AI + wielojęzyczna strona dla prawnika imigracyjnego.",
         "problem": "Marta — prawniczka imigracyjna w Warszawie — traciła godziny na powtarzające się pytania klientów ('jakie dokumenty na kartę pobytu?', 'ile to trwa?'). Strona-wizytówka nie przynosiła leadów z Google, każdą pierwszą wiadomość trzeba było obsługiwać ręcznie.",
         "solution": "Zbudowałem wielojęzyczny serwis na Next.js 15 (RU / PL / UA) z prawidłowym lokalizowanym routingiem, wdrożoną schemą LegalService, SEO pod komercyjne zapytania ('karta pobytu Warszawa', 'pobyt stały Polska'). Wewnątrz podpiąłem konsultanta RAG na GPT-4o, wytrenowanego na 200+ realnych kejsach i dokumentach urzędu. Bot odpowiada na standardowe pytania, zbiera dane wstępne, przekazuje zakwalifikowanych do Telegrama prawniczki.",

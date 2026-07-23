@@ -5049,7 +5049,7 @@
       "legalwin": {
         "industry": "Immigration legal services · Warsaw",
         "title": "LegalWin",
-        "imageAlt": "Passport by an airplane window at sunset — LegalWin immigration case study",
+        "imageAlt": "Passport by an airplane window at sunset - LegalWin immigration case study",
         "tagline": "AI consultant + multilingual site for an immigration lawyer.",
         "problem": "Marta — an immigration lawyer in Warsaw — was losing hours to repeat client questions ('what documents for karta pobytu?', 'how long does it take?'). Her brochure site brought no Google leads, and every first-touch message was handled manually.",
         "solution": "I built a multilingual Next.js 15 site (RU / PL / UA) with proper localized routing, deployed schema for LegalService, and SEO targeting commercial queries ('karta pobytu Warszawa', 'pobyt stały Polska'). Inside, I connected a RAG consultant on GPT-4o, trained on 200+ real cases and official urząd documents. The bot handles standard questions, gathers initial data, and routes qualified leads to the lawyer's Telegram.",

@@ -59,8 +59,8 @@ export const caseKeyToSlug: Record<CaseKey, string> = {
 export const caseImages: Record<CaseKey, { src: string }> = {
   baltic: { src: "/cases/baltic-cover.webp" },
   legalwin: { src: "/cases/legalwin-passport.webp" },
-  visionair: { src: "/cases/visionair-warsaw.webp" },
-  bodyforgesite: { src: "/cases/bodyforge-site.webp" },
+  visionair: { src: "/cases/visionair-cover.webp" },
+  bodyforgesite: { src: "/cases/bodyforgesite-cover.webp" },
   crmbot: { src: "/cases/crm-ai.webp" },
   leadbot: { src: "/cases/leadbot-chat.webp" },
   bodyforge: { src: "/cases/bodyforge-gym.webp" },

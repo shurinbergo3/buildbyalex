@@ -7,7 +7,10 @@
    animation, keyframes live in globals.css under "case-art".
    ──────────────────────────────────────────────────────────────────────── */
 
-const ART_KEYS = new Set(["legalwin", "visionair", "bodyforgesite", "crmbot", "leadbot", "bodyforge"]);
+// Gallery covers now use real screenshots/photos (see caseImages in cases.ts);
+// the code-drawn scenes below are kept but disabled. Re-add a key here to bring
+// its animated cover back for that case.
+const ART_KEYS = new Set<string>([]);
 
 export function hasCaseArt(key: string): boolean {
   return ART_KEYS.has(key);
