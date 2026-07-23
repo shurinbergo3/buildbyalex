@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { setRequestLocale, getTranslations } from "next-intl/server";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { Link } from "@/i18n/navigation";
@@ -15,6 +15,8 @@ import {
   getAllPostSlugs,
   getPost,
   getClusterSlugs,
+  getLocaleSlugMap,
+  resolveLocalizedSlug,
   getRelatedPosts,
   getRelatedService,
   getPostImage,
@@ -110,7 +112,16 @@ export default async function BlogPostPage({
 }) {
   const { locale, slug } = await params;
   const post = getPost(locale as Locale, slug);
-  if (!post) notFound();
+  if (!post) {
+    // Old wrong-locale URL (e.g. a language-switch link Google still has where
+    // the slug belongs to another language): send it to the right per-locale
+    // article with a permanent redirect instead of a dead 404.
+    const target = resolveLocalizedSlug(locale as Locale, slug);
+    if (target && target !== slug) {
+      permanentRedirect(`${localeSegment(locale as Locale)}/blog/${target}`);
+    }
+    notFound();
+  }
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "blog" });
   const tServices = await getTranslations({ locale, namespace: "nav.servicesMenu" });
@@ -120,6 +131,19 @@ export default async function BlogPostPage({
   const related = getRelatedPosts(locale as Locale, slug, 3);
   const service = getRelatedService(post.cluster);
   const heroImage = getPostImage(post.ogImage);
+
+  // Per-locale targets for the language switcher. Geo/pain articles use a unique
+  // cluster per locale (no hreflang) so the switcher can't read them off the
+  // page's <link> tags — it reads this map instead. Locales without a live
+  // translation point at the localized blog index so switching never 404s.
+  const navSlugs = getLocaleSlugMap(post.cluster);
+  const localeNav = Object.fromEntries(
+    routing.locales.map((loc) => {
+      const seg = localeSegment(loc as Locale);
+      const s = navSlugs[loc as Locale];
+      return [loc, s ? `${seg}/blog/${s}` : `${seg}/blog`];
+    }),
+  );
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -289,6 +313,11 @@ export default async function BlogPostPage({
         </Container>
       </Section>
 
+      <script
+        id="__localeNav"
+        type="application/json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localeNav) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}

@@ -50,13 +50,9 @@ export function LocaleSwitcher({
   function pick(next: Locale) {
     setOpen(false);
 
-    // Prefer the page's own hreflang alternate as the source of truth. The
-    // server computes these correctly even when the slug differs per locale
-    // (blog clusters: chto-takoe-ai-agent ↔ what-is-an-ai-agent; localized
-    // service paths: /uslugi/internet-magazin ↔ /services/online-store).
-    // next-intl's router would otherwise keep the current slug and produce a
-    // wrong-locale URL that 404s (blog) or 307-redirects (services) — both of
-    // which Google flagged as indexing errors.
+    // Resolve the target URL server-side rather than letting next-intl keep the
+    // current slug (which produces a wrong-locale URL that 404s on blog posts or
+    // 307-redirects on services — both flagged by Google as indexing errors).
     if (typeof document !== "undefined") {
       // A hard navigation bypasses next-intl's router, which normally writes the
       // NEXT_LOCALE cookie. Without it the middleware still sees the old locale
@@ -65,6 +61,25 @@ export function LocaleSwitcher({
       // Set the cookie ourselves before navigating.
       document.cookie = `NEXT_LOCALE=${next}; path=/; max-age=31536000; samesite=lax`;
 
+      // Blog posts: a per-locale slug map baked into the page. Covers geo/pain
+      // articles whose translations aren't hreflang-linked (unique cluster per
+      // locale), where the hreflang lookup below would find nothing.
+      const navEl = document.getElementById("__localeNav");
+      if (navEl?.textContent) {
+        try {
+          const map = JSON.parse(navEl.textContent) as Record<string, string>;
+          if (map[next]) {
+            window.location.assign(map[next]);
+            return;
+          }
+        } catch {
+          /* fall through to hreflang */
+        }
+      }
+
+      // Everything else (services, static pages): the page's hreflang alternate,
+      // which the server localizes correctly even when the path differs per
+      // locale (/uslugi/internet-magazin ↔ /services/online-store).
       const hl = htmlLang(next); // ua → uk, matching the hreflang codes
       const link = document.querySelector<HTMLLinkElement>(
         `link[rel="alternate"][hreflang="${hl}"]`,

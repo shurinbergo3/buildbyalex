@@ -383,3 +383,52 @@ export function getClusterSlugs(cluster: string): Partial<Record<Locale, string>
   }
   return out;
 }
+
+// Drop a trailing locale suffix so the per-locale geo/pain clusters
+// (`web-bydgoszcz-pl` … `-en/-ru/-ua`) collapse to one logical article. Those
+// keep a unique cluster on purpose — each ranks independently, no cross-locale
+// hreflang — but for the language switcher they're still the same article.
+function baseCluster(cluster: string): string {
+  return cluster.replace(/-(en|pl|ru|ua)$/, "");
+}
+
+/**
+ * Slug of the same article in every locale that has a *live* translation,
+ * matched on the base cluster. Unlike getClusterSlugs (hreflang — exact cluster
+ * only) this also links geo/pain posts whose cluster is unique per locale, so
+ * switching language never lands on a slug from another language (which 404s).
+ */
+export function getLocaleSlugMap(cluster: string): Partial<Record<Locale, string>> {
+  const base = baseCluster(cluster);
+  const today = todayISO();
+  const out: Partial<Record<Locale, string>> = {};
+  const locales: Locale[] = ["ru", "en", "pl", "ua"];
+  for (const loc of locales) {
+    for (const slug of getAllPostSlugs(loc)) {
+      const post = readPostFile(loc, slug);
+      if (post && post.date <= today && baseCluster(post.cluster) === base) {
+        out[loc] = slug;
+        break;
+      }
+    }
+  }
+  return out;
+}
+
+/**
+ * A slug requested under `wantLocale` where no such post exists there: find the
+ * article that owns the slug in another language and return the right slug for
+ * `wantLocale` (via the base cluster). null → the slug isn't ours, or that
+ * language has no translation. Lets the blog route 301 the old wrong-locale
+ * URLs (left over from the pre-fix language switcher) onto the correct article.
+ */
+export function resolveLocalizedSlug(wantLocale: Locale, slug: string): string | null {
+  const locales: Locale[] = ["ru", "en", "pl", "ua"];
+  for (const loc of locales) {
+    if (loc === wantLocale) continue;
+    const owner = readPostFile(loc, slug);
+    if (!owner) continue;
+    return getLocaleSlugMap(owner.cluster)[wantLocale] ?? null;
+  }
+  return null;
+}
