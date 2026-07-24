@@ -169,16 +169,16 @@ export function ServicesOverview() {
         {/* ── Row 2: priced tiles (four across) ── */}
         <div className="mt-4 grid gap-4 sm:grid-cols-2 md:mt-5 md:gap-5 lg:grid-cols-4">
           <Reveal delay={220}>
-            <SmallTile glyph={<GlyphChip k="store" />} category={<Cat>{t("store.category")}</Cat>} title={t("store.title")} body={t("store.body")} price={t("store.price")} href="/services/online-store" motif="cart" />
+            <SmallTile glyph={<GlyphChip k="store" />} category={<Cat>{t("store.category")}</Cat>} title={t("store.title")} body={t("store.body")} price={t("store.price")} href="/services/online-store" art={<StoreArt />} />
           </Reveal>
           <Reveal delay={280}>
-            <SmallTile glyph={<GlyphChip k="automation" />} category={<Cat>{t("automation.category")}</Cat>} title={t("automation.title")} body={t("automation.body")} price={t("automation.price")} href="/services/automation" motif="flow" />
+            <SmallTile glyph={<GlyphChip k="automation" />} category={<Cat>{t("automation.category")}</Cat>} title={t("automation.title")} body={t("automation.body")} price={t("automation.price")} href="/services/automation" art={<FlowArt />} />
           </Reveal>
           <Reveal delay={340}>
-            <SmallTile glyph={<GlyphChip k="telegram" />} category={<Cat>{t("telegram.category")}</Cat>} title={t("telegram.title")} body={t("telegram.body")} price={t("telegram.price")} href="/services/telegram-bots" motif="chat" />
+            <SmallTile glyph={<GlyphChip k="telegram" />} category={<Cat>{t("telegram.category")}</Cat>} title={t("telegram.title")} body={t("telegram.body")} price={t("telegram.price")} href="/services/telegram-bots" art={<TelegramArt />} />
           </Reveal>
           <Reveal delay={400}>
-            <SmallTile glyph={<GlyphChip k="ads" />} category={<Cat>{t("ads.category")}</Cat>} title={t("ads.title")} body={t("ads.body")} price={t("ads.price")} href="/services/advertising" motif="bars" />
+            <SmallTile glyph={<GlyphChip k="ads" />} category={<Cat>{t("ads.category")}</Cat>} title={t("ads.title")} body={t("ads.body")} price={t("ads.price")} href="/services/advertising" art={<AdsArt />} />
           </Reveal>
         </div>
       </Container>
@@ -325,7 +325,7 @@ function SmallTile({
   body,
   price,
   href,
-  motif,
+  art,
 }: {
   glyph: React.ReactNode;
   category: React.ReactNode;
@@ -333,65 +333,177 @@ function SmallTile({
   body: string;
   price: string;
   href: React.ComponentProps<typeof Link>["href"];
-  motif: "flow" | "chat" | "bars" | "cart";
+  art: React.ReactNode;
 }) {
   return (
     <Link href={href} className={`${tileBase} ${tileLight}`}>
       <Aura />
-      <div className="relative flex items-center justify-between gap-3">
-        <div className="flex items-center gap-3">
-          {glyph}
-          {category}
-        </div>
-        <Motif kind={motif} />
+      <div className="relative flex items-center gap-3">
+        {glyph}
+        {category}
       </div>
       <h3 className="relative mt-4 t-h4 font-[number:var(--fw-semi)] text-[color:var(--color-text)]">{title}</h3>
       <p className="relative mt-2 text-[14px] leading-[1.5] text-[color:var(--color-text-2)]">{body}</p>
 
-      <div className="relative mt-auto flex items-center justify-between gap-3 pt-4 md:pt-6">
-        <span className="text-[14.5px] font-medium tracking-[-0.01em] text-[color:var(--color-text)]">{price}</span>
-        <Arrow className="text-[color:var(--c-accent)] transition-transform duration-200 group-hover:translate-x-1" />
+      {/* mock + price share a bottom-anchored block so all four glances align */}
+      <div className="relative mt-auto">
+        {art}
+        <div className="flex items-center justify-between gap-3 pt-4 md:pt-5">
+          <span className="text-[14.5px] font-medium tracking-[-0.01em] text-[color:var(--color-text)]">{price}</span>
+          <Arrow className="text-[color:var(--c-accent)] transition-transform duration-200 group-hover:translate-x-1" />
+        </div>
       </div>
     </Link>
   );
 }
 
-/** Tiny accent motif in the corner of a priced tile. */
-function Motif({ kind }: { kind: "flow" | "chat" | "bars" | "cart" }) {
-  const stroke = "var(--c-accent)";
+/* Compact, decorative product glances for the four priced tiles — same visual
+   language as the row-1 arts (framed surface, accent + skeleton), so the whole
+   bento reads as one system. All aria-hidden; theme tokens keep them correct in
+   light and dark. */
+
+/** Store — a product row with an add control + a checkout bar. */
+function StoreArt() {
   return (
-    <span aria-hidden className="opacity-70">
-      {kind === "cart" && (
-        <svg width="34" height="22" viewBox="0 0 34 22" fill="none">
-          <path d="M3 3h4l3 12h14l3-9H10" stroke={stroke} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-          <circle cx="13" cy="19" r="1.8" fill={stroke} />
-          <circle cx="25" cy="19" r="1.8" fill={stroke} />
-        </svg>
-      )}
-      {kind === "flow" && (
-        <svg width="44" height="20" viewBox="0 0 44 20" fill="none">
-          <circle cx="6" cy="10" r="3" fill={stroke} />
-          <circle cx="22" cy="4" r="3" fill={stroke} opacity="0.6" />
-          <circle cx="22" cy="16" r="3" fill={stroke} opacity="0.6" />
-          <circle cx="38" cy="10" r="3" fill={stroke} opacity="0.35" />
-          <path d="M9 10l10-5M9 10l10 5M25 5l10 4M25 15l10-4" stroke={stroke} strokeWidth="1.4" opacity="0.5" />
-        </svg>
-      )}
-      {kind === "chat" && (
-        <svg width="34" height="22" viewBox="0 0 34 22" fill="none">
-          <rect x="1" y="2" width="22" height="13" rx="4" fill={stroke} opacity="0.18" />
-          <path d="M6 19l4-5" stroke={stroke} strokeWidth="1.4" opacity="0.3" />
-          <path d="M14 8.5l5 3 9-7" stroke={stroke} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      )}
-      {kind === "bars" && (
-        <svg width="34" height="22" viewBox="0 0 34 22" fill="none">
-          <rect x="2" y="13" width="5" height="7" rx="1.5" fill={stroke} opacity="0.4" />
-          <rect x="11" y="8" width="5" height="12" rx="1.5" fill={stroke} opacity="0.6" />
-          <rect x="20" y="3" width="5" height="17" rx="1.5" fill={stroke} />
-          <path d="M3 9l9-4 9-3" stroke={stroke} strokeWidth="1.4" strokeLinecap="round" opacity="0.5" />
-        </svg>
-      )}
-    </span>
+    <div
+      aria-hidden
+      className="mt-4 rounded-xl border border-[color:var(--color-divider)] bg-[color:var(--color-bg)] p-2.5 shadow-[0_10px_30px_-18px_rgba(0,0,0,0.4)]"
+    >
+      <div className="flex items-center gap-2.5 rounded-lg bg-[color:var(--color-bg-alt)] p-2">
+        <span
+          className="grid h-9 w-9 flex-none place-items-center rounded-lg"
+          style={{ background: "linear-gradient(150deg, var(--c-accent-soft), transparent)" }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--c-accent)" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M3.5 7.5 12 3l8.5 4.5v9L12 21l-8.5-4.5z" />
+            <path d="m3.5 7.5 8.5 4.5 8.5-4.5M12 12v9" />
+          </svg>
+        </span>
+        <span className="flex flex-1 flex-col gap-1.5">
+          <span className="h-2 w-3/4 rounded-full bg-[color:var(--color-divider)]" />
+          <span className="h-2 w-10 rounded-full bg-[color:var(--c-accent)]" />
+        </span>
+        <span className="grid h-6 w-6 flex-none place-items-center rounded-full text-white" style={{ background: "var(--c-accent)" }}>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round">
+            <path d="M12 5v14M5 12h14" />
+          </svg>
+        </span>
+      </div>
+      <div className="mt-2 flex items-center justify-between rounded-lg px-3 py-2" style={{ background: "linear-gradient(160deg,#FF7A2D,#E8590C)" }}>
+        <span className="h-2 w-16 rounded-full bg-white/70" />
+        <span className="h-2 w-7 rounded-full bg-white/90" />
+      </div>
+    </div>
+  );
+}
+
+/** Automation — a three-node pipeline ending in a green "done". */
+function FlowArt() {
+  return (
+    <div
+      aria-hidden
+      className="mt-4 rounded-xl border border-[color:var(--color-divider)] bg-[color:var(--color-bg)] p-3 shadow-[0_10px_30px_-18px_rgba(0,0,0,0.4)]"
+    >
+      <div className="flex items-center">
+        {[0, 1, 2].map((i) => {
+          const done = i === 2;
+          return (
+            <div key={i} className="flex flex-1 items-center last:flex-none">
+              <span
+                className="grid h-7 w-7 flex-none place-items-center rounded-lg text-[11px] font-semibold text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]"
+                style={
+                  done
+                    ? { background: "rgba(52,210,123,0.14)", color: "#2ba86a", boxShadow: "inset 0 0 0 1px rgba(52,210,123,0.4)" }
+                    : { background: "var(--c-accent-soft)", boxShadow: "inset 0 0 0 1px color-mix(in srgb, var(--c-accent) 30%, transparent)" }
+                }
+              >
+                {done ? (
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#2ba86a" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                ) : (
+                  i + 1
+                )}
+              </span>
+              {i < 2 && (
+                <span className="mx-1.5 h-px flex-1" style={{ background: "linear-gradient(90deg, color-mix(in srgb, var(--c-accent) 45%, transparent), var(--color-divider))" }} />
+              )}
+            </div>
+          );
+        })}
+      </div>
+      <div className="mt-3 flex items-center gap-2 rounded-lg border border-[color:var(--color-divider)] bg-[color:var(--color-bg-alt)] px-2.5 py-2">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--c-accent)"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" /></svg>
+        <span className="h-2 flex-1 rounded-full bg-[color:var(--color-divider)]" />
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#2ba86a" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+      </div>
+    </div>
+  );
+}
+
+/** Telegram — a bot bubble with two inline buttons. */
+function TelegramArt() {
+  const TG = "#229ED9";
+  return (
+    <div
+      aria-hidden
+      className="mt-4 overflow-hidden rounded-xl border border-[color:var(--color-divider)] bg-[color:var(--color-bg)] shadow-[0_10px_30px_-18px_rgba(0,0,0,0.4)]"
+    >
+      <div className="flex items-center gap-2 border-b border-[color:var(--color-divider)] px-3 py-2">
+        <span className="grid h-6 w-6 flex-none place-items-center rounded-full" style={{ background: `linear-gradient(160deg, #2AABEE, ${TG})` }}>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M21.9 4.3 18.7 19.5c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-4.9 9-8.1c.4-.3-.1-.5-.6-.2L6.3 13.4l-4.8-1.5c-1-.3-1-1 .2-1.5l18.7-7.2c.9-.3 1.6.2 1.3 1.6Z" /></svg>
+        </span>
+        <span className="flex flex-1 flex-col gap-1">
+          <span className="h-1.5 w-16 rounded-full bg-[color:var(--color-divider)]" />
+          <span className="h-1.5 w-9 rounded-full" style={{ background: `color-mix(in srgb, ${TG} 55%, transparent)` }} />
+        </span>
+      </div>
+      <div className="space-y-2 p-2.5">
+        <div className="max-w-[85%] space-y-1.5 rounded-xl rounded-tl-[4px] px-2.5 py-2" style={{ background: `color-mix(in srgb, ${TG} 12%, var(--color-bg-alt))` }}>
+          <span className="block h-1.5 w-full rounded-full bg-[color:var(--color-divider)]" />
+          <span className="block h-1.5 w-2/3 rounded-full bg-[color:var(--color-divider)]" />
+        </div>
+        <div className="grid grid-cols-2 gap-1.5">
+          {[0, 1].map((i) => (
+            <span key={i} className="grid h-6 place-items-center rounded-lg" style={{ background: `color-mix(in srgb, ${TG} 14%, transparent)` }}>
+              <span className="h-1.5 w-8 rounded-full" style={{ background: `color-mix(in srgb, ${TG} 60%, transparent)` }} />
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/** Ads — a ROAS glance with a bar chart + KPI grid. */
+function AdsArt() {
+  const bars = [40, 55, 48, 68, 60, 82, 96];
+  return (
+    <div
+      aria-hidden
+      className="mt-4 rounded-xl border border-[color:var(--color-divider)] bg-[color:var(--color-bg)] p-3 shadow-[0_10px_30px_-18px_rgba(0,0,0,0.4)]"
+    >
+      <div className="flex items-end justify-between">
+        <div className="flex flex-col gap-1.5">
+          <span className="h-1.5 w-9 rounded-full bg-[color:var(--color-divider)]" />
+          <span className="h-4 w-14 rounded-md" style={{ background: "linear-gradient(150deg, var(--c-accent), color-mix(in srgb, var(--c-accent) 55%, #fff))" }} />
+        </div>
+        <div className="flex h-12 items-end gap-1">
+          {bars.map((h, i) => (
+            <span
+              key={i}
+              className="w-2 rounded-t-[2px]"
+              style={{ height: `${h}%`, background: i === bars.length - 1 ? "var(--c-accent)" : "var(--c-accent-soft)" }}
+            />
+          ))}
+        </div>
+      </div>
+      <div className="mt-2.5 grid grid-cols-2 gap-x-3 gap-y-1.5 border-t border-[color:var(--color-divider)] pt-2.5">
+        {[0, 1].map((i) => (
+          <div key={i} className="flex flex-col gap-1">
+            <span className="h-2 w-10 rounded-full bg-[color:var(--color-divider)]" />
+            <span className="h-1.5 w-6 rounded-full bg-[color:var(--c-accent-soft)]" />
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
