@@ -6250,6 +6250,28 @@
         }
       },
       "bodyforge": {
+        "pageHero": {
+          "eyebrow": "Case study · Native iOS app · Fitness",
+          "titleTop": "An AI coach in your pocket.",
+          "titleAccent": "A breakdown in 10 seconds.",
+          "subhead": "A native SwiftUI app for the gym: log sets in one tap during the workout, then a GPT-4o coach reads your numbers and returns a personal breakdown in ~10 seconds. Programs adapt to your results.",
+          "want": "I want an app like this",
+          "channels": {
+            "appstore": "On the App Store · 4.9★",
+            "ai": "AI coach · GPT-4o"
+          },
+          "proof": {
+            "appName": "Body Forge: AI Fitness Coach",
+            "appCategory": "Health & Fitness",
+            "appAction": "Get",
+            "aiLabel": "AI coach",
+            "aiModel": "GPT-4o",
+            "aiResult": "Workout breakdown ready",
+            "aiWhen": "in ~10 seconds",
+            "healthLabel": "Apple Health",
+            "healthNote": "Activity rings"
+          }
+        },
         "hero": {
           "eyebrow": "Live in the App Store",
           "headline": "A coach that lives on the home screen",

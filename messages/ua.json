@@ -6238,6 +6238,28 @@
         }
       },
       "bodyforge": {
+        "pageHero": {
+          "eyebrow": "Кейс · Нативний iOS-застосунок · Фітнес",
+          "titleTop": "AI-тренер у кишені.",
+          "titleAccent": "Розбір за 10 секунд.",
+          "subhead": "Нативний застосунок на SwiftUI для залу: трекінг підходів в один тап під час тренування, а після - AI-тренер на GPT-4o читає твої цифри і за ~10 секунд віддає персональний розбір. Програми підлаштовуються під результат.",
+          "want": "Хочу такий самий застосунок",
+          "channels": {
+            "appstore": "В App Store · 4.9★",
+            "ai": "AI-тренер · GPT-4o"
+          },
+          "proof": {
+            "appName": "Body Forge: AI Fitness Coach",
+            "appCategory": "Здоров'я і фітнес",
+            "appAction": "Завантажити",
+            "aiLabel": "AI-тренер",
+            "aiModel": "GPT-4o",
+            "aiResult": "Розбір тренування готовий",
+            "aiWhen": "за ~10 секунд",
+            "healthLabel": "Apple Health",
+            "healthNote": "Кільця активності"
+          }
+        },
         "hero": {
           "eyebrow": "Уже в App Store",
           "headline": "Тренер, який живе на головному екрані",

@@ -35,6 +35,7 @@ export function MarketingCaseHero({
   theme,
   icon = "globe",
   url,
+  displayHost,
   liveLabel,
   eyebrow,
   titleTop,
@@ -52,6 +53,9 @@ export function MarketingCaseHero({
   theme: ContourTheme;
   icon?: "globe" | "lock";
   url: string;
+  /** Clean host shown in the chrome bar + live pill when `url` is a long path
+      (e.g. an App Store deep link). The link still points to the full `url`. */
+  displayHost?: string;
   liveLabel: string;
   eyebrow: string;
   titleTop: string;
@@ -65,9 +69,10 @@ export function MarketingCaseHero({
 }) {
   const reduce = useReducedMotion();
   const domain = url.replace(/^https?:\/\//, "");
+  const host = displayHost ?? domain;
 
   return (
-    <HeroWindow theme={theme} accent={accent} label={domain} live={liveLabel} icon={icon}>
+    <HeroWindow theme={theme} accent={accent} label={host} live={liveLabel} icon={icon}>
       <div className="grid grid-cols-[minmax(0,1fr)] items-center gap-10 md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] md:gap-10 lg:gap-14">
         {/* ── Pitch ── */}
         <Reveal className="min-w-0">
@@ -154,7 +159,7 @@ export function MarketingCaseHero({
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-75" style={{ background: accent }} />
                   <span className="relative h-1.5 w-1.5 rounded-full" style={{ background: accent }} />
                 </span>
-                {liveLabel} · {domain}
+                {liveLabel} · {host}
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M7 17 17 7M9 7h8v8" />
                 </svg>

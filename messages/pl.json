@@ -6250,6 +6250,28 @@
         }
       },
       "bodyforge": {
+        "pageHero": {
+          "eyebrow": "Case study · Natywna aplikacja iOS · Fitness",
+          "titleTop": "Trener AI w kieszeni.",
+          "titleAccent": "Analiza w 10 sekund.",
+          "subhead": "Natywna aplikacja SwiftUI na siłownię: zapisuj serie jednym tapnięciem podczas treningu, a potem trener GPT-4o czyta twoje liczby i w ~10 sekund zwraca osobistą analizę. Programy dostosowują się do wyników.",
+          "want": "Chcę taką aplikację",
+          "channels": {
+            "appstore": "W App Store · 4.9★",
+            "ai": "Trener AI · GPT-4o"
+          },
+          "proof": {
+            "appName": "Body Forge: AI Fitness Coach",
+            "appCategory": "Zdrowie i fitness",
+            "appAction": "Pobierz",
+            "aiLabel": "Trener AI",
+            "aiModel": "GPT-4o",
+            "aiResult": "Analiza treningu gotowa",
+            "aiWhen": "w ~10 sekund",
+            "healthLabel": "Apple Health",
+            "healthNote": "Pierścienie aktywności"
+          }
+        },
         "hero": {
           "eyebrow": "Dostępna w App Store",
           "headline": "Trener, który mieszka na ekranie głównym",

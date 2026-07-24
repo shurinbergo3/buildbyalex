@@ -7,11 +7,10 @@ import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 import { FinalCta } from "@/components/FinalCta";
 import { CaseCover } from "@/components/CaseCover";
-import { HeroWindow } from "@/components/HeroWindow";
 import { LeadBotCaseHero } from "@/components/LeadBotCaseHero";
 import { CrmbotCaseHero } from "@/components/CrmbotCaseHero";
 import { VisionairCaseHero } from "@/components/VisionairCaseHero";
-import { BodyForgeHeroMock } from "@/components/BodyForgeHeroMock";
+import { BodyForgeCaseHero } from "@/components/BodyForgeCaseHero";
 import { BodyForgeSiteCaseHero } from "@/components/BodyForgeSiteCaseHero";
 import { BalticCaseHero } from "@/components/BalticCaseHero";
 import { LegalwinCaseHero } from "@/components/LegalwinCaseHero";
@@ -142,9 +141,6 @@ function CaseContent({ slug, locale }: { slug: string; locale: string }) {
   const liveLabel = messages.work.intro.live;
   const image = caseImages[key];
   const isLink = /\./.test(c.url) && !/\s/.test(c.url);
-  // Window-chrome label: the site host for real links, the verbatim label
-  // (e.g. "Под NDA") otherwise.
-  const chromeHost = c.url.split("/")[0].replace(/^https?:\/\//, "");
   // Final-CTA bookend: same theme/accent as this case's hero.
   const ctaTheme = caseCategory[key];
   const ctaAccent =
@@ -193,90 +189,7 @@ function CaseContent({ slug, locale }: { slug: string; locale: string }) {
           ) : key === "bodyforgesite" ? (
             <BodyForgeSiteCaseHero url={c.url} liveLabel={liveLabel} locale={locale} />
           ) : key === "bodyforge" ? (
-            <HeroWindow theme="mobile" accent="#C8FF00" label={chromeHost} live={liveLabel}>
-              <div className="relative grid items-center gap-10 md:grid-cols-[1.02fr_0.98fr] md:gap-12 lg:gap-16">
-                <Reveal>
-                  <div>
-                    <p className="t-eyebrow" style={{ color: "#C8FF00" }}>
-                      {c.industry}
-                    </p>
-                    <h1 className="mt-4 text-[clamp(40px,5.5vw+8px,72px)] font-semibold leading-[1.06] tracking-[-0.032em] text-white">
-                      {c.title}
-                    </h1>
-                    <p className="mt-5 max-w-[520px] text-[clamp(17px,1.2vw+13px,22px)] leading-[1.45] tracking-[-0.013em] text-white/70">
-                      {c.tagline}
-                    </p>
-                    <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-5">
-                      {metrics.map((m) => (
-                        <div key={m.label}>
-                          <dt
-                            className="text-[clamp(26px,2vw+18px,36px)] font-semibold leading-none tracking-[-0.02em]"
-                            style={{ color: "#C8FF00" }}
-                          >
-                            {m.value}
-                          </dt>
-                          <dd className="mt-1.5 text-[13px] text-white/45">{m.label}</dd>
-                        </div>
-                      ))}
-                    </dl>
-                    {c.stack.length > 0 && (
-                      <ul className="mt-7 flex flex-wrap gap-2">
-                        {c.stack.slice(0, 5).map((tech) => (
-                          <li
-                            key={tech}
-                            className="rounded-full border border-white/[0.12] bg-white/[0.04] px-3 py-1 text-[12.5px] font-medium text-white/65 backdrop-blur-sm"
-                          >
-                            {tech}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                    {isLink && (
-                      <a
-                        href={`https://${c.url.replace(/^https?:\/\//, "")}`}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        className="group/store mt-9 inline-flex items-center gap-3.5 rounded-2xl bg-gradient-to-b from-white to-[#ececec] py-2.5 pl-4 pr-5 text-black shadow-[0_12px_34px_-12px_rgba(0,0,0,0.7)] ring-1 ring-black/[0.06] transition-[transform,box-shadow] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:shadow-[0_18px_44px_-12px_rgba(200,255,0,0.4),0_12px_34px_-12px_rgba(0,0,0,0.6)]"
-                      >
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                          <path d="M16.36 12.79c-.02-2.13 1.74-3.15 1.82-3.2-0.99-1.45-2.53-1.65-3.08-1.67-1.31-.13-2.56.77-3.22.77-.66 0-1.69-.75-2.78-.73-1.43.02-2.75.83-3.48 2.11-1.48 2.57-.38 6.37 1.07 8.45.71 1.02 1.55 2.16 2.66 2.12 1.07-.04 1.47-.69 2.76-.69 1.29 0 1.65.69 2.78.67 1.15-.02 1.87-1.04 2.57-2.06.81-1.18 1.14-2.32 1.16-2.38-.03-.01-2.23-.86-2.26-3.39zM14.23 6.31c.58-.71.98-1.69.87-2.67-.84.03-1.86.56-2.47 1.26-.54.62-1.02 1.62-.89 2.58.94.07 1.9-.47 2.49-1.17z" />
-                        </svg>
-                        <span className="flex flex-col leading-none">
-                          <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-black/50">
-                            App Store
-                          </span>
-                          <span className="mt-1 flex items-center gap-2 text-[15px] font-semibold tracking-[-0.01em]">
-                            {liveLabel}
-                            <span className="relative grid h-1.5 w-1.5 place-items-center">
-                              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#34c759] opacity-70" />
-                              <span className="relative h-1.5 w-1.5 rounded-full bg-[#34c759]" />
-                            </span>
-                          </span>
-                        </span>
-                        <svg
-                          width="14"
-                          height="14"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2.2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          aria-hidden="true"
-                          className="text-black/35 transition-transform duration-300 group-hover/store:translate-x-0.5"
-                        >
-                          <path d="M7 17 17 7M9 7h8v8" />
-                        </svg>
-                      </a>
-                    )}
-                  </div>
-                </Reveal>
-
-                <Reveal delay={150}>
-                  <BodyForgeHeroMock />
-                </Reveal>
-              </div>
-            </HeroWindow>
+            <BodyForgeCaseHero url={c.url} liveLabel={liveLabel} />
           ) : key === "legalwin" ? (
             <LegalwinCaseHero url={c.url} liveLabel={liveLabel} />
           ) : key === "leadbot" ? (
