@@ -127,11 +127,11 @@ function LeadBotPhone() {
       <TelemetryChip
         chip={chips[0]}
         pulse
-        className="-right-2 top-[24%] hidden sm:flex md:-right-7"
+        className="-right-2 top-[22%] hidden sm:flex md:-right-12"
       />
       <TelemetryChip
         chip={chips[1]}
-        className="-left-2 top-[56%] hidden sm:flex md:-left-7"
+        className="-left-2 top-[62%] hidden sm:flex md:-left-14"
       />
 
       {/* iPhone */}

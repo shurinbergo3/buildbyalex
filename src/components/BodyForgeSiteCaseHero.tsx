@@ -78,8 +78,8 @@ export function BodyForgeSiteCaseHero({
       deviceMock={<BodyForgeSiteHeroMock locale={locale} />}
       proofCards={[
         <GoogleCard key="g" proof={proof} />,
-        <SpeedCard key="s" proof={proof} />,
         <AppStoreCard key="a" proof={proof} />,
+        <SpeedCard key="s" proof={proof} />,
       ]}
     />
   );

@@ -19,14 +19,15 @@ import type { ContourTheme } from "@/components/heroGlyphs";
 type Metric = { value: string; label: string };
 type Channel = { icon?: React.ReactNode; label: string };
 
-// Default corner slots for up to three proof cards around the device duo.
-// Pinned to the outer corners and kept compact so the device stays readable
-// and the cards read as three distinct floats rather than one jumble.
+// On desktop only the two lead proof cards float — pinned to the device's left
+// edge on a clean top→bottom diagonal and pushed into the column gutter, so they
+// frame the screen without colliding with each other or the phone that sits in
+// the lower-right. The full funnel (all three) still shows in the mobile stack.
 const CARD_SLOTS = [
-  "absolute left-[-6%] top-[-3%] w-[40%] max-w-[196px]",
-  "absolute right-[-6%] top-[3%] w-[44%] max-w-[214px]",
-  "absolute bottom-[6%] left-[-5%] w-[41%] max-w-[202px]",
+  "absolute left-[-8%] top-[-8%] w-[40%] max-w-[204px]",
+  "absolute bottom-[3%] left-[-6%] w-[39%] max-w-[198px]",
 ];
+const DESKTOP_CARDS = CARD_SLOTS.length;
 
 export function MarketingCaseHero({
   accent,
@@ -173,16 +174,16 @@ export function MarketingCaseHero({
           <div className="relative">
             {deviceMock}
 
-            {/* desktop: floating proof cards pinned to the corners */}
+            {/* desktop: the two lead proof cards float on the left diagonal */}
             <div className="pointer-events-none absolute inset-0 z-30 hidden md:block">
-              {proofCards.slice(0, 3).map((card, i) => (
+              {proofCards.slice(0, DESKTOP_CARDS).map((card, i) => (
                 <FloatCard key={i} reduce={!!reduce} delay={i * 1.1} className={CARD_SLOTS[i]}>
                   {card}
                 </FloatCard>
               ))}
             </div>
 
-            {/* mobile: same proof, clean inline stack */}
+            {/* mobile: the full funnel, clean inline stack */}
             <div className="mt-6 grid gap-2.5 md:hidden">
               {proofCards.slice(0, 3).map((card, i) => (
                 <div key={i}>{card}</div>
@@ -222,7 +223,7 @@ export function FloatCard({
 
 export function CardShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="overflow-hidden rounded-[15px] border border-white/[0.12] bg-[rgba(17,19,26,0.72)] shadow-[0_26px_60px_-24px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl">
+    <div className="overflow-hidden rounded-[15px] border border-white/[0.1] bg-[rgba(15,17,23,0.64)] shadow-[0_22px_50px_-26px_rgba(0,0,0,0.8),inset_0_1px_0_rgba(255,255,255,0.07)] backdrop-blur-xl">
       {children}
     </div>
   );

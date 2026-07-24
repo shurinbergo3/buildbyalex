@@ -63,8 +63,8 @@ export function VisionairCaseHero({ url, liveLabel }: { url: string; liveLabel: 
       deviceMock={<VisionairHeroMock url={url} />}
       proofCards={[
         <GoogleCard key="g" proof={proof} />,
-        <SpeedCard key="s" proof={proof} />,
         <TelegramCard key="t" proof={proof} />,
+        <SpeedCard key="s" proof={proof} />,
       ]}
     />
   );

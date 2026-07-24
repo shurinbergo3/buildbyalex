@@ -72,8 +72,8 @@ export function BalticCaseHero({ url, liveLabel }: { url: string; liveLabel: str
       deviceMock={<BalticDockyardHeroMock />}
       proofCards={[
         <GoogleCard key="g" proof={proof} />,
-        <CatalogCard key="c" proof={proof} />,
         <InboxCard key="i" proof={proof} />,
+        <CatalogCard key="c" proof={proof} />,
       ]}
     />
   );
