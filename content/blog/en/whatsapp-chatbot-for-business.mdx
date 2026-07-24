@@ -1,0 +1,129 @@
+---
+title: "WhatsApp Chatbot for Business: How It Works and Cost"
+description: "A WhatsApp chatbot for business answers FAQs, qualifies leads, takes bookings and sends order updates 24/7. When you need the API, Meta pricing, RODO consent and cost."
+date: "2026-07-29"
+cluster: "whatsapp-chatbot-business"
+keywords:
+  - "whatsapp chatbot for business"
+  - "whatsapp business api chatbot"
+  - "ai assistant on whatsapp"
+  - "whatsapp automation for business"
+ogImage: "/og/whatsapp-chatbot-business.webp"
+---
+
+A WhatsApp chatbot for business is an assistant that lives on your WhatsApp number, reads incoming messages like a person and answers from your own knowledge base - price, hours, availability, order status - then passes the tricky ones to a human. To automate it properly you need the WhatsApp Business API (Cloud API), not the free WhatsApp Business app. A modern one runs on an AI model that replies in plain language, so customers are not clicking through a rigid button menu.
+
+I build these assistants for owners who run their whole sales chat from a phone. Below: the app vs the API, what the bot actually does, how Meta's pricing and the 24-hour window work, the RODO consent part everyone forgets, and what it costs to build.
+
+## WhatsApp Business app vs WhatsApp Business API
+
+These are two different products with the same green logo, and the difference decides whether you can automate at all.
+
+The **WhatsApp Business app** is the free one you install on a phone. It is meant for a person tapping replies by hand. You get quick replies, away messages, labels and a product catalog. You can link a few devices, but there is no real chatbot, no shared inbox for a team, and nothing an AI can plug into. Fine for a solo owner with low volume.
+
+The **WhatsApp Business API (Cloud API)** is the version built for software. It has no chat screen of its own - you drive it through a system: your own build, or a provider inbox. This is the only path to an actual chatbot, several agents on one number, CRM integration and automated messages. Meta hosts the Cloud API for free; you pay only per-conversation message fees (more on that below).
+
+| | WhatsApp Business app | WhatsApp Business API (Cloud API) |
+|---|---|---|
+| Price of the tool | Free | Free infrastructure, pay per message to Meta |
+| AI chatbot | No | Yes |
+| Multiple agents, shared inbox | No | Yes |
+| CRM / website integration | No | Yes |
+| Automated order / booking updates | Manual only | Yes, via templates |
+| Best for | Solo owner, low volume | Automation, teams, real chatbot |
+
+If your goal is a bot that answers on its own, you are on the API side of that table. There is no way around it.
+
+## What the WhatsApp bot actually does
+
+It sits on your number, reads incoming chats and replies from your data. In practice:
+
+- **Answers the repeat questions** - price, hours, delivery, "do you have it in stock", "where are you" - in natural language, in whatever language the customer wrote.
+- **Qualifies leads** - asks about budget, city, timeline and what they need, so by the time it reaches you it is clear whether to call.
+- **Takes orders and bookings** - walks the customer through choosing a slot or product and drops the result into your calendar or CRM.
+- **Sends order and appointment updates** - "your order shipped", "reminder: tomorrow at 14:00" - as approved template messages.
+- **Hands off to a human** the moment it is unsure, the request is off-script, or the customer asks for you directly. You get the whole thread, not a dry "someone wants to talk".
+- **Runs 24/7** and does not get tired on the fortieth question.
+
+What it will not do, honestly: it will not invent prices you never gave it, negotiate a complex custom deal, or pretend to be human if asked outright. Set it up badly, with no knowledge base and no rules, and it will confidently make things up. That is an implementation problem, not a reason to skip it.
+
+## The AI answers from your knowledge base, not a menu
+
+The difference between a good WhatsApp bot and the button trees people hate is the model behind it. A rule-based bot forces the customer into "Press 1 for prices". People do not type like that. They write "hi is the blue one still available and how much to Wroclaw" - one messy sentence, three questions at once. A rigid menu drowns; an [AI agent](/en/services/ai-agents) reads intent and answers all three.
+
+The assistant is only as good as what you feed it. The knowledge base is just your real answers in one place: full price list, hours and days off, delivery options and cost, return policy, the 20-30 questions you are sick of, and your tone of voice. You write no code for this. You hand me what you already type by hand every day, I structure it, load it, and add rules for the edge cases ("if they ask for more than 15% off, pass to a human"). Change a price and you edit one place.
+
+## Meta pricing, the 24-hour window and templates
+
+WhatsApp is not free to send on the API, and the pricing is worth understanding before you commit.
+
+Meta bills around **conversations and template messages**. The key rule is the **24-hour customer service window**: when a customer messages you first, you can reply freely with anything for 24 hours, and those service replies are free. Step outside that window - you want to message someone who has gone quiet - and you must use a pre-approved **template message**, which costs money and is priced by category.
+
+| Message type | When you use it | Rough cost |
+|---|---|---|
+| Service reply (in 24h window) | Customer wrote first, you answer within 24h | Free |
+| Utility template | Order shipped, booking reminder, receipt | Low, a few cents |
+| Authentication template | One-time passcodes | Low |
+| Marketing template | Promos, re-engagement, offers | Higher, roughly €0.05-0.08 in Poland |
+
+Prices depend on country and Meta revises the rate card, so treat these as ballpark and check the current numbers. The practical takeaway: answering people who wrote to you is basically free; reaching out first costs, and marketing costs the most. For most small businesses the bulk of traffic is inbound, so the monthly Meta bill stays small.
+
+One setup note: the API needs a phone number dedicated to it. That number cannot also be logged into the WhatsApp Business app at the same time, so most people take a fresh SIM for the bot and keep their personal one separate.
+
+## Opt-in and RODO: the consent part
+
+This one matters in the EU and people trip over it. To send anyone a template message - a promo, a reminder, a re-engagement - you need a clear **opt-in** first. The customer has to agree to be messaged on WhatsApp, and under RODO you need to be able to show that consent: a checkbox at checkout, a line on the contact form, a tick when they book. Replying inside the 24-hour window to someone who wrote to you is fine without a separate opt-in - they started the conversation.
+
+Get this right from day one. Collect consent explicitly, log it, and only fire templates at people who actually agreed. It keeps you compliant and it keeps your number from getting blocked for spam, which Meta does aggressively.
+
+## When WhatsApp beats Telegram or a website chat
+
+Channel choice comes down to where your customers already are. In Poland and most of the EU that is WhatsApp - it is on nearly every phone, and older and service-business customers who never touch Telegram use it daily. If your audience is phone-first and local, WhatsApp is where they will actually reply.
+
+- **Open rates.** WhatsApp messages get opened around 90%+, usually within minutes. Email sits near 20%. A booking reminder on WhatsApp gets read; the same reminder by email gets ignored.
+- **They are already there.** No app to install, no link to click. The customer messages the number on your site or Google profile and the conversation just starts.
+- **It stays with them.** After the chat you are a saved contact in their phone, reachable later. A website chat widget only works while someone is on the site; close the tab and it is gone.
+
+Telegram still wins for Russian- and Ukrainian-speaking audiences, where it is the default. If you serve that crowd, start there. For a Polish or Western customer base, WhatsApp is the stronger first channel. Plenty of businesses end up running both.
+
+## CRM and website integration, and a realistic rollout
+
+Answering is half the job. The other half is making sure a qualified lead lands where you work it. I connect the assistant to your CRM (or a clean Google Sheet / Notion if you have no CRM) through n8n or Make: every qualified chat becomes a record with name, contact, what they want and the full thread. New paid orders, hot leads and "customer asked for the owner" ping you live in a team chat.
+
+On the website, a WhatsApp button or a "click to chat" link starts the conversation from any page, and the same bot that answers on the phone answers there. I wired exactly this kind of CRM-connected flow in the [crm-bot case](/en/work/crm-bot).
+
+A realistic rollout looks like this:
+
+1. Set up the Meta Business account, verify the business, attach a dedicated number to the Cloud API.
+2. Build the knowledge base from your real answers.
+3. Connect the AI agent that reads that base and set the handoff rules.
+4. Add CRM and website integration, plus opt-in capture and approved templates for order and booking updates.
+5. Test on real messages, then go live.
+
+Timeline: a focused FAQ assistant is about 1-2 weeks. Add CRM handoff, order status, bookings and templates and it is 3-5 weeks, most of it clean integration and testing rather than the bot itself.
+
+Cost to build sits around **€900-2500** depending on how much it has to handle, plus a small monthly fee for the AI model and hosting, plus Meta's message fees on top (the pass-through Telegram does not have). Against a part-time person on chat it usually pays back in the first two to three months, and it does not sleep, quit, or take August off.
+
+## FAQ
+
+**Do I need the WhatsApp Business API for a chatbot?**
+Yes. The free WhatsApp Business app has no way to run a real bot, connect a CRM or put several agents on one number. Any actual automation runs on the WhatsApp Business API (Cloud API), which is built for software rather than manual replies.
+
+**Will the WhatsApp bot really answer most questions on its own?**
+For most small businesses, yes, because around 80% of incoming messages are the same handful of questions - price, hours, delivery, availability. With those in a proper knowledge base the AI handles them and passes you only the non-standard cases, with full context.
+
+**How much does Meta charge to send WhatsApp messages?**
+Replies to customers inside the 24-hour window are free. Outside it you send template messages, priced by category: utility and authentication are cheap, marketing is higher (roughly €0.05-0.08 per message in Poland). Rates vary by country and Meta updates them, so check the current rate card.
+
+**Do I need consent to message customers on WhatsApp?**
+To send template messages - promos, reminders, re-engagement - yes, you need a clear opt-in, and under RODO you must be able to show it: a checkbox at checkout or on the form. Replying within 24 hours to someone who wrote to you first needs no separate opt-in.
+
+**WhatsApp or Telegram for my business?**
+Go where your customers already are. In Poland and most of the EU that is WhatsApp, with very high open rates. Telegram is the default for Russian- and Ukrainian-speaking audiences. Many businesses run both, but start with the one your buyers actually use.
+
+**How much does it cost to build a WhatsApp chatbot?**
+Around €900-2500 for the build depending on scope, plus a small monthly fee for the AI model and hosting, plus Meta's per-message fees. A plain FAQ bot is the lower end; CRM, orders and bookings push it up.
+
+---
+
+Want me to scope a WhatsApp assistant for your business? See the [AI agents service](/en/services/ai-agents) for what is included, or write a line about what you need on the [contact page](/en/contact) and I will map out the number, the knowledge base and the integrations.

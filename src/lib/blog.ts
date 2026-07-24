@@ -294,6 +294,27 @@ export const clusterToService: Record<string, { menuKey: ServiceMenuKey; path: S
   "restaurant-online-ordering-no-commission": { menuKey: "mobile", path: "/services/mobile-apps" },
   "does-business-need-mobile-app": { menuKey: "mobile", path: "/services/mobile-apps" },
   "loyalty-app-cafe-salon": { menuKey: "mobile", path: "/services/mobile-apps" },
+  // 2026-07 acquisition/growth batch (18 topics x 4 locales). Informational —
+  // shared cluster across locales (hreflang translations, self-canonical). Heavy
+  // on the thin "ads" money page + SEO/local/CRM/automation gaps.
+  "google-ads-cost": { menuKey: "ads", path: "/services/advertising" },
+  "meta-ads-small-business": { menuKey: "ads", path: "/services/advertising" },
+  "get-clients-from-internet": { menuKey: "ads", path: "/services/advertising" },
+  "landing-page-for-ads": { menuKey: "ads", path: "/services/advertising" },
+  "remarketing-retargeting": { menuKey: "ads", path: "/services/advertising" },
+  "conversion-tracking-ga4": { menuKey: "ads", path: "/services/advertising" },
+  "seo-website-cost": { menuKey: "websites", path: "/services/websites" },
+  "google-business-profile-local": { menuKey: "websites", path: "/services/websites" },
+  "website-redesign": { menuKey: "websites", path: "/services/websites" },
+  "website-security-gdpr": { menuKey: "websites", path: "/services/websites" },
+  "online-booking-system": { menuKey: "automation", path: "/services/automation" },
+  "crm-for-small-business": { menuKey: "automation", path: "/services/automation" },
+  "order-invoicing-automation": { menuKey: "automation", path: "/services/automation" },
+  "email-marketing-automation": { menuKey: "automation", path: "/services/automation" },
+  "increase-online-store-sales": { menuKey: "store", path: "/services/online-store" },
+  "b2b-online-store": { menuKey: "store", path: "/services/online-store" },
+  "whatsapp-chatbot-business": { menuKey: "ai", path: "/services/ai-agents" },
+  "ai-content-generation": { menuKey: "ai", path: "/services/ai-agents" },
 };
 
 /** Resolve a cluster to its service, stripping a trailing locale suffix

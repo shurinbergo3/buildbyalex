@@ -1,0 +1,115 @@
+---
+title: "Website Security and GDPR: What a Business Site Needs"
+description: "Website security and GDPR for a small business site: the real threats, a plain security checklist, cookie consent, privacy policy, and what an incident costs."
+date: "2026-08-03"
+cluster: "website-security-gdpr"
+keywords:
+  - "website security and gdpr"
+  - "small business website security"
+  - "gdpr compliance for websites"
+  - "website security checklist"
+ogImage: "/og/website-security-gdpr.webp"
+---
+
+For a business site, website security and GDPR come down to seven basics and a short legal layer: HTTPS, automatic backups, updates, hosting with a WAF, form spam protection, least-privilege access, and monitoring - plus cookie consent, a privacy policy, and a data processing agreement with every service that touches your data. Almost every hack you'll face is automated, not aimed at you personally, which means the fixes are cheap and mostly one-time. Skipping them is the part that gets expensive.
+
+I build sites on Next.js and I clean up hacked WordPress installs for clients, so I'll give you the honest version - what actually protects a small business site, what it costs, and where people waste money on security theater.
+
+## The real threat: bots, not hackers
+
+Nobody is sitting in a dark room targeting your plumbing company. What's actually happening is a bot scanning millions of sites a day for one thing: a known hole it can walk through automatically.
+
+The four doors it looks for are always the same:
+
+- **Outdated CMS and plugins.** WordPress runs about 43% of the web, so it's the biggest target on the planet. Over 11,000 vulnerabilities were reported in its ecosystem in a single year, and more than 90% of them were in plugins and themes, not the core. Every plugin is someone else's code with full rights to your site. Skip updates for two months and a bot finds the gap.
+- **Form spam and bots.** An unprotected contact form gets flooded with junk, phishing links, and scripted submissions that clog your inbox and sometimes inject payloads.
+- **Weak hosting.** Cheap shared hosting with no firewall, no isolation, and outdated PHP is where infections spread from one hacked site to the next on the same server.
+- **No backups.** This is the one that turns a small incident into a catastrophe. Site defaced or encrypted, and no clean copy to roll back to? Now you're rebuilding from zero.
+
+None of this is exotic. It's the digital equivalent of leaving the front door unlocked in a busy street. The bot doesn't care who you are.
+
+## The security checklist that actually matters
+
+Seven things cover the vast majority of real risk for a business site. Here's what each one does and what it realistically costs on the Polish market.
+
+| Measure | What it protects against | Cost |
+|---|---|---|
+| HTTPS / SSL + HSTS | Data interception, browser "Not secure" warnings | Free (Let's Encrypt) or included |
+| Automatic daily backups | Total loss after a hack or a bad update | €0-15/mo, often included |
+| Updates and patching | Known exploits in CMS, plugins, dependencies | €30-100/mo maintenance, or your time |
+| Managed hosting + WAF | Automated attacks, bad traffic, brute force | €10-40/mo (Cloudflare, managed host) |
+| Form spam protection | Bot floods, spam, payload injection | Free (honeypot, Turnstile) |
+| Least-privilege access + 2FA | Stolen or shared admin logins | Free |
+| Uptime and file monitoring | Silent hacks, downtime you'd otherwise miss | €0-20/mo |
+
+A few notes from real projects. **HTTPS** is non-negotiable in 2026 - it's free, and without it Chrome flags your site as unsafe before anyone reads a word. **Backups** only count if you've actually tested a restore; an untested backup is a rumor. **Least privilege** means every person gets their own account with only the rights they need, 2FA is on, and the accounts of the freelancer who left last year are gone. Most "someone hacked my site" stories are really "we all shared one admin password."
+
+That whole list runs maybe €50-150 a month all in, and half of it is one-time setup. Keep that number in mind for later.
+
+## GDPR in plain terms
+
+Your business site collects personal data whether you meant to or not: a name and email in the contact form, an IP address in your analytics, a phone number in a callback request. Under GDPR (RODO in Poland), that triggers a short list of obligations. None of it is scary once you see it plainly.
+
+**Cookie consent.** If you load anything beyond strictly necessary cookies - Google Analytics, Meta Pixel, ads - you need real consent before those scripts fire. Not a "we use cookies, OK" bar that does nothing. A proper banner blocks non-essential tags until the visitor agrees. If you run Google Analytics or Google Ads for EU traffic, you also need **Consent Mode v2**, which Google has required since 2024 - without it your tags stop passing usable data anyway.
+
+**Privacy policy.** A plain page saying what you collect, why, who you share it with (hosting, email, analytics, CRM), how long you keep it, and how someone can ask to see or delete their data. This is the single most-skipped item on Polish small business sites, and the cheapest to fix.
+
+**Data processing agreements.** Every outside service that stores your visitors' data on your behalf - your host, your newsletter tool, your CRM, Google - is a "processor," and you're supposed to have a data processing agreement with each. The big ones (Google, most Polish hosts) publish a standard DPA you just accept. It's paperwork, not engineering.
+
+**The right to be forgotten.** A person can ask you to delete their data, and you have to be able to actually do it - find their record in your CRM or inbox and remove it. If you don't know where a lead's data lives, you can't comply.
+
+**What a contact form and analytics really collect.** Be honest with yourself: the form captures name, email, phone, message, plus a timestamp and often an IP. Analytics captures device, location, and behavior. List exactly that in the privacy policy and you're most of the way there.
+
+## Why a modern stack has a smaller attack surface
+
+Here's the part that saves you the most trouble long term: architecture. A plugin-heavy CMS is a big attack surface by design. Twenty plugins is twenty separate pieces of third-party code, each a potential hole, each needing updates forever, plus a public login page bots hammer all day.
+
+A modern stack flips that. When I build on **Next.js** and serve pages as static files from a CDN wherever possible, there's simply less to attack:
+
+- No plugins means no plugin vulnerabilities - the single largest category of hacks disappears.
+- Static files on a CDN have nothing executable to break into. There's no database query to inject, no PHP to exploit on the page itself.
+- No public admin panel sitting at a guessable URL for bots to brute-force.
+- Updates become a quarterly dependency bump instead of a weekly plugin-patching chore.
+
+It's not magic and it's not bulletproof - forms and any dynamic bits still need care. But you go from defending a mansion with twenty unlocked windows to defending a bunker with one door. For a law firm site I built where compliance and trust are the whole point, that smaller surface was a feature, not a nice-to-have - you can see it in the [Legalwin case](/en/work/legalwin). If you want a site built this way from the start, that's exactly what my [website work](/en/services/websites) is about.
+
+## What an incident actually costs
+
+The reason to do all this is simple math. Prevention is cheap and predictable. An incident is not.
+
+| Item | Realistic cost |
+|---|---|
+| Full security setup (prevention) | €50-150/mo, mostly one-time |
+| Cleaning a hacked WordPress site | 1,000-5,000 zł (€230-1,150) |
+| Rebuild from scratch, no backup | 5,000-20,000 zł (€1,150-4,600) |
+| Downtime while offline | Every lead and sale lost, for days |
+| Lost trust after a breach | Hard to price, harder to win back |
+| GDPR fine (data breach) | Up to €20M or 4% of turnover |
+
+That fine number sounds theoretical until you look at Poland specifically. The retailer Morele.net was fined roughly 2.8 million zł by the regulator (UODO) after a data breach exposed customer records. Small businesses don't get hit that hard, but "small" fines still run into tens of thousands of zloty, and they come on top of the cleanup and the lost trust.
+
+Put the two columns side by side and the decision makes itself. The full protective setup costs less per year than a single serious cleanup, and it removes the tail risk entirely. Doing it right isn't the expensive option. It's the cheap one.
+
+## FAQ
+
+**What are the most important website security measures for a small business?**
+HTTPS/SSL, automatic tested backups, keeping the CMS and plugins updated, hosting with a WAF, form spam protection, least-privilege access with 2FA, and basic monitoring. Together those cover the vast majority of real risk, because most attacks are automated bots looking for known holes, not targeted hackers.
+
+**Does my business website need to be GDPR compliant?**
+Yes, if it collects any personal data - and a contact form, a callback request, or analytics all do. In practice that means a cookie consent banner for non-essential scripts, a privacy policy explaining what you collect and why, data processing agreements with your service providers, and a way to delete a person's data on request.
+
+**Is a contact form personal data under GDPR?**
+Yes. A contact form typically captures a name, email, phone number, and message, plus a timestamp and often an IP address - all of which is personal data. You need to name it in your privacy policy, get consent where required, and be able to delete it if someone asks.
+
+**Why is WordPress considered less secure than a modern stack?**
+It isn't inherently broken - the core is solid - but its plugin ecosystem is a huge attack surface. Over 90% of WordPress vulnerabilities live in plugins and themes, and every one is third-party code with full access to your site. A static Next.js site has no plugins and no public admin panel, so that entire category of automated hack simply doesn't apply.
+
+**What does it cost to clean up a hacked website?**
+On the Polish market, cleaning an infected WordPress site usually runs 1,000-5,000 zł, and a full rebuild with no backup can hit 5,000-20,000 zł - before you count the sales lost while it was offline. A proper preventive setup costs a fraction of that per year, which is why doing it up front is the cheaper path.
+
+**What is Consent Mode and do I need it?**
+Consent Mode is Google's system for adjusting how its tags (Analytics, Ads) behave based on a visitor's cookie choices. Google has required Consent Mode v2 for EU traffic since 2024. If you run Google Analytics or Ads and serve European visitors, you need it - both to comply and to keep collecting usable measurement data.
+
+---
+
+Want a site that's secure and GDPR-ready from day one instead of patched together after a scare? See what goes into my [website work](/en/services/websites), or just [write to me](/en/contact) - tell me what you've got now, and I'll give you a straight read on what to fix and what it costs.

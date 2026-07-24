@@ -1,0 +1,107 @@
+---
+title: "Online Booking System for a Service Business (2026)"
+description: "Online booking system for a service business: marketplace apps vs Calendly vs a custom widget on your own site. Costs, commission, and who owns the client."
+date: "2026-07-28"
+cluster: "online-booking-system"
+keywords:
+  - "online booking system for service business"
+  - "appointment booking system"
+  - "online booking for salon"
+  - "custom booking system website"
+ogImage: "/og/online-booking-system.webp"
+---
+
+An online booking system lets clients pick a slot and book themselves, at any hour, without a phone call. For a salon, clinic, trainer or workshop you have three real routes: a marketplace app like Booksy or Fresha, a generic tool like Calendly or Reservio, or a custom booking widget on your own website. The one that keeps the most money in your pocket is the last one, because it charges no per-booking commission and the client stays yours.
+
+I'm Alex. I build websites and automations for businesses in Poland, solo, so I'll compare the three honestly - with prices, the commission trap, and who actually owns the client once the dust settles.
+
+## The three options side by side
+
+| Option | Cost | Commission per booking | Whose client and brand | On your own domain |
+|---|---|---|---|---|
+| Marketplace app (Booksy, Fresha) | ~150 zł+/month or "free" setup | Yes - a cut of every new client the app sends you | The marketplace, next to competitor listings | No |
+| Generic tool (Calendly, Reservio) | €0-30/month | No | Yours, but on their subdomain | No |
+| Custom widget on your site | €800-6,000 once, then hosting only | No | Yours, fully, with your data | Yes |
+
+The table already shows the split. Marketplaces are the fastest way to look busy and the slowest way to build something you own. Generic tools are cheap and fair on commission but live on someone else's page. A custom booking on your site costs more up front and then stops taking a cut forever.
+
+## Why booking on your own site beats a marketplace
+
+Booksy and Fresha feel free because the pain is hidden in the commission and the ownership, not in the sticker price.
+
+- **No per-booking commission.** A marketplace charges a subscription and then a fee on new clients it "brings" you (Booksy Boost has historically taken around 30% of the first visit). Do 40 new bookings a month at 150 zł and that tax alone runs into the thousands per year. On your own widget the marginal cost of a booking is zero.
+- **You own the client and the data.** On a marketplace the client base and reviews sit inside the app. If they raise fees or you want to leave, the list does not walk out with you. On your site every phone number, email and visit history is yours, ready for a newsletter or a win-back message.
+- **No competitor ads next to your name.** Open your Booksy page and the app happily suggests three salons nearby, often cheaper. You paid to be there and the marketplace still rents the space beside you to your rivals. Your own page has one business on it: yours.
+- **Your brand, not theirs.** The booking flow looks like your site, uses your colours and your tone. Clients remember you, not the app they downloaded.
+
+The marketplace is not useless - it can be a real discovery channel for a brand-new business with no traffic. The mistake is staying there once clients already know you and search for you by name. At that point you are paying commission on people who would have booked directly anyway.
+
+## The features that actually matter
+
+Most of the price difference between a toy and a real booking system is in these details, not in the calendar itself.
+
+**Calendar sync.** Two-way sync with Google Calendar or Outlook so a slot you block privately disappears from the public booking form. Without it you get double bookings, which is worse than no online booking at all.
+
+**SMS and email reminders.** This is the money feature. Automatic reminders with a one-tap confirm or cancel drop no-shows from the usual 20-30% down to a few percent. One saved slot a week often covers the entire build.
+
+**Deposits and prepayment.** Taking a card deposit at booking, or full prepayment for high-value visits, filters out the people who never show. It also lets you charge a fair no-show fee, which changes behaviour fast.
+
+**Staff and resource scheduling.** Real businesses have several people, chairs, rooms or machines. The system needs to book the right specialist and hold the right resource, not just "a slot". A trainer with three coaches and two rooms cannot run on a single shared calendar.
+
+**Buffer times.** Automatic gaps for cleanup, turnover or travel between the end of one appointment and the start of the next. Skip this and the calendar looks full while the day runs late by lunchtime.
+
+**Service duration and pricing per service.** A 30-minute haircut and a 3-hour colour cannot occupy the same fixed slot. The form should show the real length and price of each service.
+
+## Integration with the site and automation
+
+A booking widget is only half the job. The value shows up when the booking flows into everything else without anyone retyping it.
+
+Here is the automation I usually wire up around the booking form:
+
+1. Client books on your site. The system reads name, phone, service and time.
+2. It sends an instant confirmation, then schedules a **24-hour reminder** and a short **2-3 hour** one with confirm and cancel buttons.
+3. The booking lands in your **CRM or a Google Sheet**, and a notification hits your **Telegram or WhatsApp** so you see it in real time.
+4. If a client cancels, the freed slot can be offered to a waiting list automatically, so a hole in the day refills itself.
+
+That reminder loop is the whole financial argument. No-shows are the biggest silent leak in a service business, and a booking system that reminds, confirms and refills is the cheapest fix I know. I build this glue with n8n or Make on top of the booking widget, and it is the core of my [business process automation](/en/services/automation) work. On a fitness project I put a full schedule-and-booking flow behind the app - you can see it in the [Body Forge case](/en/work/body-forge).
+
+## What it costs to build a custom one
+
+Real ranges from the Polish market, in euros, for a booking built into your existing site:
+
+- **Booking widget on an existing site** - services, calendar sync, email and SMS reminders, one calendar: **€800-2,000**, about 1-2 weeks.
+- **Full system** - multiple staff or resources, deposits and prepayment, buffer times, waiting-list refill, CRM and notifications: **€2,500-6,000**, about 3-6 weeks.
+- **Ongoing cost** - only what you actually use: SMS at roughly 0.05-0.10 zł each, plus about €20/month if reminders run on your own server. No per-booking commission, ever.
+
+Compare that to a marketplace: a mid-size salon paying subscription plus commission easily hands over €1,500-3,000 a year, every year, and never owns the result. A custom booking pays for itself in months and then keeps paying.
+
+## What to avoid
+
+- **A booking button that opens an email.** That is not a booking system, it is a contact form with extra steps. It still needs a human to reply and confirm.
+- **No reminders.** If you skip the one feature that saves money, you have paid for convenience and left the no-show leak wide open.
+- **Locking your calendar inside a closed app.** If you cannot export your clients and bookings, you do not own them. Ask that question before you commit.
+- **Overbuilding on day one.** A solo trainer does not need multi-resource scheduling and deposits from the start. Ship the widget with reminders, add the rest when the volume justifies it.
+
+## FAQ
+
+**What is the best online booking system for a small service business?**
+For a business that clients already know and search for by name, a custom booking widget on your own site is best: no per-booking commission, full ownership of the client data, and your brand on the page. Marketplaces like Booksy make sense mainly as a discovery channel for a brand-new business with no audience yet.
+
+**How much does a custom booking system cost?**
+A booking widget with calendar sync and reminders runs about €800-2,000 and takes 1-2 weeks. A full system with several staff or resources, deposits, buffer times and CRM integration is roughly €2,500-6,000 over 3-6 weeks. After that you only pay for SMS and, optionally, a small server, with no commission on bookings.
+
+**Does Booksy or Fresha take a commission?**
+Yes. On top of the subscription they charge a fee on new clients the marketplace sends you - Booksy Boost has historically taken around 30% of the first visit. On your own booking widget the cost of a booking is effectively zero, so once clients know you, direct booking is far cheaper.
+
+**Do online reminders really cut no-shows?**
+They do. In practice an automatic 24-hour reminder with a one-tap cancel drops no-shows from the usual 20-30% to a few percent. The strongest effect comes from making cancellation easy, because an early cancel gives you time to refill the slot from a waiting list.
+
+**Can the booking system connect to my website and CRM?**
+Yes. I build the widget straight into your existing site and wire the bookings into your CRM, a Google Sheet, and Telegram or WhatsApp notifications. If a tool has an API or a calendar feed, the booking, the reminders and the follow-up all run without anyone retyping anything.
+
+**Should I use Calendly for client bookings?**
+Calendly is fine for meetings and calls, but it is thin for a salon or clinic: weak on services with different durations, staff or resource scheduling, deposits and your own branding, and it lives on a Calendly page rather than your domain. For a service business a purpose-built widget on your site fits better.
+
+---
+
+Want online booking on your own site with reminders that cut no-shows and no commission on a single booking? See the scope on my [business process automation](/en/services/automation) page, or [get in touch](/en/contact): in a 30-minute call I'll map your services, staff and reminders and give you a fixed price with no hidden add-ons.

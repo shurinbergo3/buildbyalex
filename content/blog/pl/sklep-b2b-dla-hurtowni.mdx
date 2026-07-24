@@ -1,0 +1,112 @@
+---
+title: "Sklep B2B dla hurtowni: czym się różni i co musi mieć"
+description: "Sklep B2B dla hurtowni potrzebuje cen netto, indywidualnych cenników, terminów płatności i integracji z ERP. Czym różni się od B2C, jakie integracje i ile kosztuje."
+date: "2026-08-02"
+cluster: "b2b-online-store"
+keywords:
+  - "sklep b2b dla hurtowni"
+  - "platforma b2b zamówienia hurtowe"
+  - "sklep b2b"
+  - "hurtownia internetowa"
+ogImage: "/og/b2b-online-store.webp"
+---
+
+Sklep B2B dla hurtowni to portal samoobsługowy, w którym twoi klienci firmowi logują się, widzą swoje wynegocjowane ceny i składają zamówienia o każdej porze: ceny netto plus VAT, indywidualne cenniki, terminy płatności, minimalne ilości zamówienia i ponowne zamówienie jednym kliknięciem. To nie jest sklep detaliczny z doklejonym "rabatem hurtowym" - logika zamawiania, ceny i integracje są zbudowane inaczej. Zrobiony dobrze, zdejmuje z handlowców przepisywanie zamówień i synchronizuje stany, ceny i faktury wprost z twoim ERP.
+
+Robię sklepy na Next.js i wdrażałem portale hurtowe, których cały sens polegał na tym, żeby handlowiec przestał ręcznie przepisywać zamówienia z maila do programu magazynowego. Rozłożę to konkretnie: co B2B naprawdę musi mieć, co je psuje i ile to kosztuje.
+
+## Czym sklep B2B różni się od sklepu B2C
+
+Najczęstszy błąd, jaki widzę, to traktowanie hurtu jako "detalu z kuponem". Tak to nie działa. Prawie każdy ekran zachowuje się inaczej, gdy kupującym jest firma, a nie konsument.
+
+| Element | B2C (sklep detaliczny) | B2B (portal hurtowy) |
+|---|---|---|
+| Ceny | Brutto, z wliczonym VAT | Netto + VAT osobno |
+| Cenniki | Jeden dla wszystkich | Indywidualne lub progowe per klient |
+| Płatność | Przedpłata: BLIK, karta | Termin płatności (kredyt kupiecki) + przedpłata |
+| Minimum zamówienia | Brak | MOQ i wielokrotności opakowań |
+| Zamawianie | Produkt po produkcie | Szybkie zamówienie po SKU, import CSV |
+| Dostęp | Otwarty dla wszystkich | Logowanie, konto po akceptacji |
+| Obieg zamówienia | Natychmiastowy checkout | Akceptacja i kontrola limitu kredytowego |
+| Ponowne zamówienie | Ręcznie | Jednym kliknięciem z historii |
+
+**Ceny netto i VAT** to pierwsza rzecz do ustawienia poprawnie. Kupujący hurtowy myśli w kwotach netto i potrzebuje jasnego rozbicia na fakturze, bo VAT to jego odliczenie, a nie koszt. Pokazywanie cen brutto jak w detalu tylko miesza po stronie zakupów.
+
+**Indywidualne i progowe cenniki** to serce B2B. Jeden klient ma -12%, drugi ma w pełni indywidualny cennik negocjowany w zeszłym kwartale, trzeci płaci mniej, gdy koszyk przekroczy określony wolumen. Sklep musi wczytać właściwą cenę w chwili, gdy loguje się ta konkretna osoba - nie ogólną "cenę hurtową" dla wszystkich.
+
+**Terminy płatności** zmieniają model całkowicie. Detal to przedpłata; hurt zwykle działa na fakturę z 14, 30 czy 60 dniami na zapłatę, plus limit kredytowy per klient. Sklep musi wiedzieć, ile klient jeszcze zalega, i albo puścić nowe zamówienie, albo je zablokować względem tego limitu.
+
+## Samoobsługa zdejmuje pracę z działu handlowego
+
+To argument, który finansuje cały projekt. W większości hurtowni zamówienia przychodzą mailem, telefonem i na komunikatorze, a handlowiec przepisuje każde do ERP. To wolne, generuje literówki i ogranicza, ilu klientów jedna osoba w ogóle obsłuży.
+
+Dobry portal B2B to odwraca. Klient sam składa zamówienie, choćby o drugiej w nocy, a ono wpada do systemu już uporządkowane. Zespół przestaje przyjmować dyktando i zajmuje się tym, co naprawdę wymaga człowieka.
+
+- **Zamawianie 24/7** bez czekania na godziny pracy i oddzwonienie.
+- **Szybkie zamówienie** po kodzie SKU albo z wklejonej listy CSV - kupiec, który wie, czego chce, wypełnia koszyk na 60 pozycji w dwie minuty.
+- **Powtórka z historii** - to samo comiesięczne zamówienie jednym kliknięciem, bez przeklikiwania od nowa.
+- **Akceptacja zamówienia** - kierownik albo przełożony kupującego zatwierdza, zanim trafi na magazyn, więc nic nie wyjedzie przez pomyłkę.
+- **Wszystko zapisane** - każde zamówienie, cena i dokument w jednym koncie, bez grzebania w wątkach mailowych.
+
+Przy [Baltic Dockyard](/pl/realizacje/baltic-dockyard) zadanie było dokładnie takie: strona pod klucz, która przyjmuje uporządkowane zgłoszenia i kieruje każde tam, gdzie trzeba, zamiast do wspólnej skrzynki. Ten sam schemat skaluje się wprost na zamówienia hurtowe.
+
+## Integracje, które robią albo psują sklep B2B
+
+Sklep B2C przez jakiś czas poradzi sobie sam. Sklep B2B, który nie jest spięty z zapleczem, jest gorszy niż bezużyteczny, bo pokaże błędne stany i błędne ceny dokładnie tym klientom, którzy zamawiają hurtowo.
+
+- **Synchronizacja z ERP / magazynem / księgowością.** W Polsce to zwykle Subiekt GT, Comarch ERP Optima, WAPRO Mag albo enova365. Produkty, stany, ceny i cenniki klientów żyją tam, a sklep ma z tego czytać, nie trzymać drugiej prawdy, która się rozjeżdża.
+- **Stany i ceny na żywo.** Kupujący zamawiający 400 sztuk musi ufać liczbie na ekranie. Synchronizacja w czasie rzeczywistym (albo blisko) ucina telefon "przepraszam, jednak nie ma na stanie", który zabija zaufanie.
+- **Weryfikacja NIP.** Przy rejestracji sklep sprawdza NIP kupującego w rejestrze GUS i na białej liście VAT, więc onboardujesz realne firmy i podstawiasz ich dane do faktury, zamiast dopytywać później.
+- **Faktura i KSeF.** Hurt działa na fakturach VAT, nie paragonach. Sklep wystawia fakturę automatycznie do każdego zamówienia, a od 2026 musi zasilać krajowy system KSeF. Zbudowanie tego od początku jest dużo tańsze niż dorabianie później.
+
+Zrób to dobrze, a portal działa sam. Zrób źle, a masz ładny katalog, do którego twoi najlepsi klienci przestają mieć zaufanie po drugim błędnym stanie.
+
+## Platforma: dlaczego dedykowany sklep zwykle wygrywa z Shopify czy WooCommerce
+
+Logika B2B to miejsce, gdzie rada "weź Shopify" się rozpada. Natywne B2B na Shopify oznacza Shopify Plus, a to start od jakichś 2 300 $ miesięcznie - i nawet wtedy indywidualne reguły cenowe i limity kredytowe walczą z platformą. WooCommerce technicznie zrobi hurt, ale tylko przez doklejenie trzech, czterech wtyczek B2B, które kłócą się przy aktualizacjach i spowalniają katalog, gdy rośnie.
+
+Dedykowany albo headless sklep na Next.js traktuje ceny per klient, limity kredytowe, akceptację zamówień i synchronizację z ERP jako kod, a nie jako ustawienia wtyczki, które naginasz, aż prawie pasują. To oznacza:
+
+- Każdą regułę cenową, którą umiesz opisać, sklep zastosuje - per klient i per próg wolumenu.
+- ERP jest jedynym źródłem prawdy, spięte realnym API, a nie nocnym CSV, który do południa jest już nieaktualny.
+- Katalog zostaje szybki przy tysiącach SKU, co ma znaczenie, gdy kupujący filtrują i szybko zamawiają cały dzień.
+
+Dokładnie tak buduję [sklepy internetowe](/pl/uslugi/sklep-internetowy): front na Next.js, logika biznesowa tam, gdzie jej miejsce, i czysta synchronizacja z tym, co już masz na zapleczu. Do prostego detalu szablon wystarczy. Do hurtu z realnymi regułami cenowymi custom zwraca się w godzinach pracy handlowców, które uwalnia.
+
+## Ile kosztuje i jak to wdrożyć
+
+Portal B2B kosztuje więcej niż sklep detaliczny, bo produktem jest tu logika i integracje, a nie motyw. Ale nie musisz budować wszystkiego naraz - i nie powinieneś.
+
+| Zakres | Cena (zł) | W euro | Czas |
+|---|---|---|---|
+| Katalog B2B + samoobsługowe zamawianie (ceny progowe, szybkie zamówienie) | 25 000 - 50 000 | €5 800 - €11 500 | 5 - 8 tygodni |
+| + synchronizacja z ERP / magazynem, stany na żywo, weryfikacja NIP | +15 000 - 40 000 | +€3 500 - €9 000 | +3 - 6 tygodni |
+| Pełny portal (limity kredytowe, akceptacja, auto-faktura, konta wielu użytkowników) | 60 000 - 120 000+ | €14 000 - €28 000+ | 3 - 4 miesiące |
+
+**Wdrażaj etapami.** Zacznij od katalogu, logowania, indywidualnych cenników i samoobsługowego zamawiania - już to samo kończy chaos maili i telefonów i pozwala klientom zamawiać samodzielnie. Uruchom w 5 do 8 tygodni i daj to swoim kupującym.
+
+Potem, gdy zamówienia już płyną, dołóż synchronizację z ERP i magazynem, weryfikację NIP i automatyczną fakturę. Taki podział sprawia, że widzisz wartość od drugiego miesiąca, zamiast płacić cztery miesiące, zanim cokolwiek ruszy, a każdy kolejny etap wyceniasz na portalu, który już działa.
+
+## FAQ
+
+**Czym jest sklep B2B?**
+Sklep B2B to samoobsługowy portal dla hurtowni i klientów firmowych, w którym logują się, żeby zobaczyć swoje wynegocjowane ceny, zamawiać hurtowo, płacić na termin i powtarzać zamówienia z historii. Różni się od detalu cenami, płatnością i integracjami z ERP oraz księgowością.
+
+**Czym sklep B2B różni się od B2C?**
+B2B pokazuje ceny netto plus VAT osobno, używa indywidualnych lub progowych cenników per klient, obsługuje terminy płatności i minimalne ilości zamówienia, wymaga logowania i akceptacji zamówień oraz synchronizuje się z ERP. B2C to jedna cena brutto dla wszystkich, przedpłata i otwarty dostęp. Logika jest zbudowana inaczej, a nie tylko przeceniona.
+
+**Czy da się zrobić hurtownię na Shopify albo WooCommerce?**
+Da się, w granicach. Realne B2B na Shopify wymaga Shopify Plus (od ok. 2 300 $/mies.), a WooCommerce potrzebuje kilku wtyczek B2B, które się kłócą i spowalniają katalog. Przy złożonych regułach cenowych, limitach kredytowych i ścisłej synchronizacji z ERP dedykowany lub headless sklep jest zwykle tańszy w utrzymaniu i dużo bardziej elastyczny.
+
+**Ile kosztuje sklep B2B w Polsce?**
+Samoobsługowy katalog B2B z cenami progowymi i szybkim zamówieniem to 25 000 - 50 000 zł (€5 800 - €11 500). Dołożenie synchronizacji z ERP i magazynem dokłada 15 000 - 40 000 zł. Pełny portal z limitami kredytowymi, akceptacją i automatyczną fakturą sięga 60 000 - 120 000+ zł. Wdrożenie etapami rozkłada koszt.
+
+**Czy sklep łączy się z moim ERP i wystawia faktury?**
+Tak i powinien. Sklep czyta stany, ceny i cenniki klientów z twojego ERP (Subiekt, Comarch Optima, WAPRO, enova) przez API i wystawia fakturę automatycznie do każdego zamówienia - zasilając system KSeF, który od 2026 staje się obowiązkowy.
+
+**Jak długo trwa uruchomienie?**
+Pierwszy używalny etap - katalog, logowanie, indywidualne ceny i samoobsługowe zamawianie - to 5 do 8 tygodni. Synchronizacja z ERP, weryfikacja NIP i automatyczne fakturowanie dokładają kolejne 3 do 6 tygodni. Pełny portal z logiką kredytu i akceptacji to projekt na 3 do 4 miesiące, najlepiej etapami.
+
+---
+
+Myślisz o przeniesieniu zamówień hurtowych do internetu? Zobacz, jak buduję [sklepy internetowe i portale B2B](/pl/uslugi/sklep-internetowy), albo [napisz do mnie](/pl/kontakt): w 30 minut rozrysujemy twoje reguły cenowe, ERP i plan etapami z ceną bez ukrytych dopłat.

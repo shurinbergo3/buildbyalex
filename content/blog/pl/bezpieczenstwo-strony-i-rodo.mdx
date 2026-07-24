@@ -1,0 +1,115 @@
+---
+title: "Bezpieczeństwo strony internetowej i RODO w praktyce"
+description: "Bezpieczeństwo strony internetowej i RODO bez straszenia: realne zagrożenia, prosta checklista, zgoda na cookies, polityka prywatności i ile kosztuje incydent."
+date: "2026-08-03"
+cluster: "website-security-gdpr"
+keywords:
+  - "bezpieczeństwo strony internetowej"
+  - "strona internetowa a RODO"
+  - "zabezpieczenie strony wordpress"
+  - "polityka prywatności strona firmowa"
+ogImage: "/og/website-security-gdpr.webp"
+---
+
+Dla strony firmowej bezpieczeństwo strony internetowej i RODO to siedem podstaw plus krótka warstwa prawna: HTTPS, automatyczne kopie zapasowe, aktualizacje, hosting z WAF, ochrona formularzy przed spamem, dostęp na zasadzie minimalnych uprawnień i monitoring - a do tego zgoda na cookies, polityka prywatności i umowa powierzenia z każdą usługą, która dotyka Twoich danych. Prawie każde włamanie, na jakie się natkniesz, jest automatyczne, a nie wymierzone w Ciebie osobiście. Dlatego zabezpieczenia są tanie i głównie jednorazowe. Drogie jest dopiero ich pominięcie.
+
+Robię strony na Next.js i sprzątam po włamaniach na WordPressie u klientów, więc powiem uczciwie - co naprawdę chroni stronę małej firmy, ile to kosztuje i gdzie ludzie przepalają pieniądze na pozorne bezpieczeństwo.
+
+## Prawdziwe zagrożenie: boty, nie hakerzy
+
+Nikt nie siedzi w ciemnym pokoju i nie celuje akurat w Twój zakład hydrauliczny. Naprawdę dzieje się co innego: bot skanuje miliony stron dziennie i szuka jednej rzeczy - znanej dziury, przez którą wejdzie automatycznie.
+
+Cztery furtki, których szuka, są zawsze te same:
+
+- **Przestarzały CMS i wtyczki.** WordPress napędza około 43% internetu, więc jest największym celem na świecie. W ciągu jednego roku w jego ekosystemie zgłoszono ponad 11 000 podatności, a ponad 90% z nich było we wtyczkach i motywach, nie w rdzeniu. Każda wtyczka to cudzy kod z pełnymi prawami do Twojej strony. Dwa miesiące bez aktualizacji i bot znajduje lukę.
+- **Spam i boty w formularzach.** Niezabezpieczony formularz kontaktowy zalewa skrzynkę śmieciami, linkami phishingowymi i zgłoszeniami z automatu, które czasem wstrzykują złośliwy kod.
+- **Słaby hosting.** Tani hosting współdzielony bez firewalla, bez izolacji i ze starym PHP to miejsce, gdzie infekcja przeskakuje z jednej zhakowanej strony na kolejne na tym samym serwerze.
+- **Brak kopii zapasowych.** To ten punkt, który z małego incydentu robi katastrofę. Strona podmieniona albo zaszyfrowana, a nie masz czystej kopii do przywrócenia? Budujesz od zera.
+
+Nic z tego nie jest egzotyką. To cyfrowy odpowiednik zostawionych otwartych drzwi przy ruchliwej ulicy. Botowi jest obojętne, kim jesteś.
+
+## Checklista, która naprawdę ma znaczenie
+
+Siedem rzeczy pokrywa zdecydowaną większość realnego ryzyka strony firmowej. Oto co każda z nich robi i ile realnie kosztuje na polskim rynku.
+
+| Element | Przed czym chroni | Koszt |
+|---|---|---|
+| HTTPS / SSL + HSTS | Podsłuch danych, komunikat "Niezabezpieczona" | Za darmo (Let's Encrypt) lub w cenie |
+| Automatyczne kopie codzienne | Całkowita utrata po włamaniu lub złej aktualizacji | 0-60 zł/mies., często w cenie |
+| Aktualizacje i łatanie | Znane exploity w CMS, wtyczkach, zależnościach | 150-400 zł/mies. obsługi lub Twój czas |
+| Hosting zarządzany + WAF | Ataki automatyczne, zły ruch, brute force | 50-180 zł/mies. (Cloudflare, hosting managed) |
+| Ochrona formularzy | Zalew botów, spam, wstrzyknięcie kodu | Za darmo (honeypot, Turnstile) |
+| Minimalne uprawnienia + 2FA | Skradzione lub współdzielone logowanie | Za darmo |
+| Monitoring dostępności i plików | Ciche włamania, przestój, którego byś nie zauważył | 0-90 zł/mies. |
+
+Kilka uwag z realnych projektów. **HTTPS** w 2026 nie podlega dyskusji - jest darmowe, a bez niego Chrome oznacza stronę jako niebezpieczną, zanim ktokolwiek przeczyta choć słowo. **Kopie zapasowe** liczą się tylko wtedy, gdy przetestowałeś przywracanie. Nieprzetestowana kopia to plotka, nie zabezpieczenie. **Minimalne uprawnienia** oznaczają, że każdy ma własne konto z tylko takimi prawami, jakich potrzebuje, 2FA jest włączone, a konta freelancera, który odszedł rok temu, już nie ma. Większość historii "ktoś mi zhakował stronę" to w rzeczywistości "wszyscy używaliśmy jednego hasła admina".
+
+Cała ta lista to jakieś 250-600 zł miesięcznie razem, a połowa to jednorazowa konfiguracja. Zapamiętaj tę liczbę na później.
+
+## RODO po ludzku
+
+Twoja strona firmowa zbiera dane osobowe, czy tego chcesz, czy nie: imię i e-mail w formularzu, adres IP w analityce, numer telefonu w prośbie o kontakt. Pod RODO uruchamia to krótką listę obowiązków. Nic z tego nie jest straszne, gdy zobaczysz to na spokojnie.
+
+**Zgoda na cookies.** Jeśli ładujesz cokolwiek poza plikami ściśle niezbędnymi - Google Analytics, Piksel Meta, reklamy - potrzebujesz realnej zgody, zanim te skrypty się uruchomią. Nie paska "używamy cookies, OK", który niczego nie blokuje. Porządny baner wstrzymuje niekonieczne tagi, dopóki odwiedzający się nie zgodzi. Jeśli puszczasz Google Analytics albo Google Ads na ruch z UE, potrzebujesz też **Consent Mode v2**, którego Google wymaga od 2024 roku - bez niego Twoje tagi i tak przestają przekazywać użyteczne dane.
+
+**Polityka prywatności.** Zwykła strona mówiąca, co zbierasz, po co, komu przekazujesz (hosting, poczta, analityka, CRM), jak długo trzymasz i jak ktoś może poprosić o wgląd lub usunięcie danych. To najczęściej pomijany punkt na stronach polskich małych firm i zarazem najtańszy do naprawienia.
+
+**Umowy powierzenia przetwarzania.** Każda zewnętrzna usługa, która przechowuje dane Twoich odwiedzających w Twoim imieniu - hosting, narzędzie do newslettera, CRM, Google - to "procesor", i z każdym powinieneś mieć umowę powierzenia. Więksi (Google, większość polskich hostingów) udostępniają gotowy wzór, który po prostu akceptujesz. To papierologia, nie inżynieria.
+
+**Prawo do bycia zapomnianym.** Osoba może poprosić o usunięcie swoich danych, a Ty musisz umieć to faktycznie zrobić - znaleźć jej rekord w CRM albo skrzynce i usunąć. Jeśli nie wiesz, gdzie leżą dane leada, nie spełnisz obowiązku.
+
+**Co naprawdę zbiera formularz i analityka.** Bądź ze sobą szczery: formularz łapie imię, e-mail, telefon, treść, a do tego znacznik czasu i często IP. Analityka łapie urządzenie, lokalizację i zachowanie. Wypisz dokładnie to w polityce prywatności i masz większość roboty za sobą.
+
+## Dlaczego nowoczesny stack ma mniejszą powierzchnię ataku
+
+Oto część, która w długim biegu oszczędza najwięcej kłopotów: architektura. CMS obładowany wtyczkami ma dużą powierzchnię ataku z samej konstrukcji. Dwadzieścia wtyczek to dwadzieścia osobnych kawałków cudzego kodu, każdy to potencjalna dziura, każdy wymaga aktualizacji bez końca, plus publiczna strona logowania, którą boty walą przez cały dzień.
+
+Nowoczesny stack odwraca to. Kiedy buduję na **Next.js** i serwuję strony jako pliki statyczne z CDN wszędzie, gdzie się da, po prostu nie ma czego atakować:
+
+- Brak wtyczek to brak podatności we wtyczkach - znika największa kategoria włamań.
+- Pliki statyczne na CDN nie mają nic wykonywalnego, do czego można się włamać. Nie ma zapytania do bazy do wstrzyknięcia, nie ma PHP do wykorzystania na samej stronie.
+- Nie ma publicznego panelu admina pod łatwym do zgadnięcia adresem, który boty forsują brute force.
+- Aktualizacja to kwartalne podbicie zależności zamiast cotygodniowego łatania wtyczek.
+
+To nie magia i nie jest kuloodporne - formularze i wszelka dynamika nadal wymagają uwagi. Ale przechodzisz od obrony rezydencji z dwudziestoma otwartymi oknami do obrony bunkra z jednymi drzwiami. Przy stronie kancelarii prawnej, którą robiłem, gdzie zgodność i zaufanie są całym sensem, ta mniejsza powierzchnia była atutem, nie dodatkiem - widać to w [realizacji Legalwin](/pl/realizacje/legalwin). Jeśli chcesz stronę zbudowaną tak od początku, to właśnie [robię przy stronach](/pl/uslugi/strony-internetowe).
+
+## Ile naprawdę kosztuje incydent
+
+Powód, żeby to wszystko zrobić, jest prosty i arytmetyczny. Prewencja jest tania i przewidywalna. Incydent nie.
+
+| Pozycja | Realny koszt |
+|---|---|
+| Pełna konfiguracja bezpieczeństwa (prewencja) | 250-600 zł/mies., głównie jednorazowo |
+| Czyszczenie zhakowanej strony WordPress | 1 000-5 000 zł |
+| Odbudowa od zera, bez kopii | 5 000-20 000 zł |
+| Przestój, gdy strona leży | Każdy lead i sprzedaż stracone, przez dni |
+| Utrata zaufania po wycieku | Trudno wycenić, trudniej odzyskać |
+| Kara RODO (naruszenie) | Do 20 mln € lub 4% obrotu |
+
+Ta liczba z karą brzmi teoretycznie, dopóki nie spojrzysz konkretnie na Polskę. Sklep Morele.net dostał od UODO karę około 2,8 mln zł po wycieku, który ujawnił dane klientów. Małe firmy nie obrywają aż tak, ale "małe" kary i tak idą w dziesiątki tysięcy złotych, a dochodzą do kosztu sprzątania i utraconego zaufania.
+
+Postaw obie kolumny obok siebie, a decyzja podejmuje się sama. Pełna konfiguracja ochronna kosztuje w skali roku mniej niż jedno poważne czyszczenie i zdejmuje ryzyko ogonowe w całości. Zrobienie tego dobrze to nie droga opcja. To ta tania.
+
+## FAQ
+
+**Jakie zabezpieczenia strony internetowej są najważniejsze dla małej firmy?**
+HTTPS/SSL, automatyczne i przetestowane kopie zapasowe, aktualny CMS i wtyczki, hosting z WAF, ochrona formularzy przed spamem, minimalne uprawnienia z 2FA oraz podstawowy monitoring. Razem pokrywają zdecydowaną większość realnego ryzyka, bo większość ataków to automatyczne boty szukające znanych dziur, a nie ukierunkowani hakerzy.
+
+**Czy moja strona firmowa musi być zgodna z RODO?**
+Tak, jeśli zbiera jakiekolwiek dane osobowe - a formularz kontaktowy, prośba o oddzwonienie czy analityka zbierają. W praktyce oznacza to baner zgody na niekonieczne cookies, politykę prywatności wyjaśniającą co i po co zbierasz, umowy powierzenia z dostawcami usług oraz możliwość usunięcia danych osoby na żądanie.
+
+**Czy formularz kontaktowy to dane osobowe według RODO?**
+Tak. Formularz zwykle zapisuje imię, e-mail, numer telefonu i treść, a do tego znacznik czasu i często adres IP - a to wszystko dane osobowe. Musisz wskazać je w polityce prywatności, zebrać zgodę tam, gdzie jest wymagana, i umieć je usunąć, jeśli ktoś poprosi.
+
+**Dlaczego WordPress uchodzi za mniej bezpieczny niż nowoczesny stack?**
+Sam w sobie nie jest dziurawy - rdzeń jest solidny - ale ekosystem wtyczek to ogromna powierzchnia ataku. Ponad 90% podatności WordPressa siedzi we wtyczkach i motywach, a każda to cudzy kod z pełnym dostępem do strony. Statyczna strona na Next.js nie ma wtyczek ani publicznego panelu, więc cała ta kategoria automatycznych włamań po prostu nie działa.
+
+**Ile kosztuje posprzątanie po włamaniu na stronę?**
+Na polskim rynku wyczyszczenie zainfekowanej strony WordPress to zwykle 1 000-5 000 zł, a pełna odbudowa bez kopii potrafi sięgnąć 5 000-20 000 zł - zanim policzysz sprzedaż utraconą podczas przestoju. Porządna prewencja kosztuje w skali roku ułamek tego, dlatego zrobienie tego z góry jest tańszą drogą.
+
+**Czym jest Consent Mode i czy go potrzebuję?**
+Consent Mode to system Google, który dostosowuje działanie jego tagów (Analytics, Ads) do wyborów cookie odwiedzającego. Google wymaga Consent Mode v2 dla ruchu z UE od 2024 roku. Jeśli puszczasz Google Analytics albo Ads i masz odwiedzających z Europy, potrzebujesz go - żeby być zgodnym i żeby dalej zbierać użyteczne dane pomiarowe.
+
+---
+
+Chcesz stronę bezpieczną i zgodną z RODO od pierwszego dnia zamiast łatanej po przestraszeniu? Zobacz, co wchodzi w [moje strony internetowe](/pl/uslugi/strony-internetowe), albo po prostu [napisz do mnie](/pl/kontakt) - powiedz, co masz teraz, a dam Ci prostą ocenę, co poprawić i ile to kosztuje.

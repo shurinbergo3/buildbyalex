@@ -1,0 +1,120 @@
+---
+title: "How to Increase Online Store Sales Without More Traffic"
+description: "How to increase online store sales by fixing conversion, not just buying ads. The traffic x conversion x AOV equation, Poland-specific checkout, and a priority checklist."
+date: "2026-07-29"
+cluster: "increase-online-store-sales"
+keywords:
+  - "how to increase online store sales"
+  - "increase ecommerce conversion rate"
+  - "online store conversion optimization"
+  - "boost online store revenue"
+ogImage: "/og/increase-online-store-sales.webp"
+---
+
+To increase online store sales, fix conversion before you buy more traffic. Sales come down to one equation: **traffic x conversion rate x average order value**. Lifting conversion from 1% to 2% doubles revenue from the exact same visitors you already pay for, and it is almost always cheaper than doubling your ad budget. Start with page speed, the product page, and checkout - that is where most of the money leaks out.
+
+I build and rebuild online stores on Next.js, and in nearly every audit the same pattern shows up: the traffic is fine, but the store quietly loses buyers somewhere between the product page and the "pay" button. Here is where to look and what to fix first.
+
+## The equation that runs every store
+
+Revenue = visitors x conversion rate x average order value. Three numbers. Most owners obsess over the first and ignore the other two, which is backwards.
+
+Say you get 10,000 visitors a month, convert 1%, and average 200 zł per order. That is 100 orders, 20,000 zł. To double revenue you can either:
+
+- Buy 10,000 more visitors - double the ad budget, while CPCs keep climbing, or
+- Lift conversion from 1% to 2% - same traffic, same ad spend.
+
+The second path is cheaper almost every time, and it compounds: a better conversion rate makes every future ad zloty work harder too. Traffic you rent. Conversion you own. Worse, if your store converts at 1% and you keep pouring money into ads, you are just renting more visitors to leak through the same holes. Plug the holes first.
+
+## Conversion levers and what each one is worth
+
+Not every fix moves the needle equally. Here is where the leverage actually sits, with realistic ranges from stores I have worked on.
+
+| Lever | What it fixes | Typical conversion lift |
+|---|---|---|
+| Page speed / LCP under 2s | Visitors bouncing before the page even loads | +5-20% |
+| Product page quality | Doubt: photos, specs, reviews, a clear price | +10-30% |
+| Checkout: one step + guest checkout | Friction and forced registration | +10-35% |
+| Trust signals | "Is this shop safe to pay?" | +5-15% |
+| Mobile UX | Over half your buyers are on a phone | +10-25% |
+
+These do not simply add up - fix all five and you might see conversion go from 1% to 2.5%, not to 2x anything. But the order matters, and checkout plus speed are usually where the biggest, fastest wins hide.
+
+**Page speed.** A catalog that takes four seconds to paint loses shoppers before they see a single product. Get **LCP under two seconds** and the drop-off on the first screen shrinks immediately - this is the cheapest lift there is because it costs you nothing per visitor.
+
+**Product page.** This is the page that actually sells. Sharp photos from several angles, a zoom, real specs, the price and delivery visible without scrolling, a few genuine reviews, and stock status. A weak product page is the single most common reason a warm visitor leaves.
+
+**Checkout.** Every extra field, every redirect, every "create an account to continue" is a place people quit. One-step checkout plus **guest checkout** is not optional. I will come back to Poland-specific checkout below, because that is where the biggest local gap sits.
+
+## Poland: the checkout details that decide the sale
+
+If you sell in Poland, a few local details separate a store that converts from one that does not. Get these wrong and it does not matter how good the rest is.
+
+- **BLIK, in one tap.** BLIK is how Poland pays online. If a buyer has to hunt for a card while BLIK is missing or buried, a real slice of them abandons on the spot. One-tap BLIK at the top of your payment options is the highest-ROI checkout change you can make here.
+- **Przelewy24 or PayU.** Plug in a gateway that covers BLIK, bank transfers, cards, and Apple Pay / Google Pay in one integration. Commission is usually 0.9-1.9% per transaction - a rounding error next to the orders you recover.
+- **InPost Paczkomaty.** Parcel lockers are the default delivery choice for most Polish shoppers. No InPost in the checkout means lost orders, plain and simple. Add a map picker so they choose their locker in two taps.
+- **Show the delivery cost early.** A shipping fee that only appears on the final screen is the number one reason full carts get abandoned. Put the cost - or a free-shipping threshold - on the product page and in the cart, not as a surprise at the end.
+- **Mobile first, not mobile "too."** More than half of Polish orders come from a phone. If your checkout is awkward with one thumb, you are leaking your biggest segment.
+
+## Keep them buying: retention and bigger baskets
+
+Conversion gets you the first sale. Retention and average order value are how the same store makes far more money without a single extra visitor.
+
+**Abandoned-cart recovery.** Around 70% of carts get abandoned, and most stores never chase a single one. A simple three-email sequence (a gentle reminder at ~1 hour, an objection-closer at ~24 hours, a small nudge at ~72 hours), plus an SMS for high-value carts, typically recovers **15-25%** of them. The intent was already there - you are just reminding and removing the last doubt.
+
+**Cross-sell and upsell.** "Frequently bought together" on the product page and one relevant add-on in the cart lift average order value with almost no downside. Keep it to genuinely related items, not random padding.
+
+**Bundles.** Package a few items at a small discount versus buying them separately. It raises the basket and feels like a deal to the buyer.
+
+**Free-shipping threshold.** Set it just above your current average order. "Add 30 zł for free delivery" is one of the most reliable AOV levers there is - people will add an item to dodge a shipping fee they would happily have paid anyway.
+
+**Email and SMS flows.** A welcome flow, a post-purchase flow, and a win-back flow run on autopilot and keep pulling revenue from customers you already earned. This is the cheapest traffic you will ever get, because you already own the list.
+
+## You cannot fix what you do not measure
+
+This is the invisible, most expensive gap. Without proper funnel tracking, you are optimizing blind - changing the logo color while a broken mobile form quietly kills a third of your orders.
+
+Set up **GA4 with ecommerce events**: product views, add-to-cart, begin-checkout, purchase. That gives you the funnel - how many people move from each step to the next - and the drop-off point tells you exactly where to work. Add a heatmap tool to see where people hesitate on the page. In half the audits I run, the whole problem is one specific thing that is only visible in the data: a payment method that fails on mobile, a coupon field that scares people into leaving to hunt for a code, a delivery cost that appears too late.
+
+Measure first. Then every change becomes a test with a number attached, instead of a guess.
+
+## What to fix first - the priority order
+
+If you do these in order, the early wins usually pay for the rest:
+
+1. **Turn on funnel tracking.** GA4 ecommerce events plus a heatmap. One day of work, and now you can see the leak.
+2. **Fix checkout for Poland.** BLIK one-tap, guest checkout, InPost, delivery cost shown early. This is the biggest, fastest win for most stores.
+3. **Get LCP under two seconds.** Especially on mobile. Compress images, cut heavy plugins, or move to a faster stack.
+4. **Rebuild the product page.** Better photos, clear price and delivery, real reviews, stock status.
+5. **Add trust signals.** Real reviews, return policy, company details, a Polish phone number.
+6. **Turn on abandoned-cart recovery.** Three emails plus SMS for big carts.
+7. **Add AOV levers.** Free-shipping threshold, cross-sell, one or two bundles.
+
+Do not try to do all seven at once. Ship the tracking, fix checkout, and measure the difference before you touch anything else.
+
+## How I do it
+
+When a store owner comes to me with flat sales, I do not start by pitching more ads. I start with a conversion audit - the funnel, the speed, the product page, and the checkout - so we can see where the money actually leaks instead of guessing. From there I usually rebuild the store on Next.js so it loads under two seconds, add one-tap BLIK and InPost, strip checkout down to a single step, and wire up abandoned-cart recovery and the tracking to prove it worked.
+
+You can see what that scope covers on my [online store development](/en/services/online-store) page. The point is simple: the same traffic, converting better, is the cheapest growth your store has.
+
+## FAQ
+
+**How do I increase online store sales without spending more on ads?**
+Raise your conversion rate and average order value instead of buying more traffic. Fix checkout (BLIK one-tap, guest checkout, InPost, delivery cost shown early), get your pages loading under two seconds, and turn on abandoned-cart recovery. Those changes lift revenue from the visitors you already pay for.
+
+**What is a good conversion rate for an online store?**
+Most stores sit around 1-2%, and a well-optimized store reaches 2-4%. The exact number depends on your niche and traffic quality, but moving from 1% to 2% doubles orders on the same traffic - which is why conversion is where the cheap wins are.
+
+**Why do so many shoppers abandon their cart?**
+Usually friction at the worst moment: a surprise delivery cost at the end, forced registration, no BLIK, or a slow, clunky mobile checkout. Fix those and you recover carts for free. For the rest, an abandoned-cart email and SMS sequence typically brings back 15-25%.
+
+**What payment and delivery options do I need in Poland?**
+BLIK is essential and should be one tap, alongside Przelewy24 or PayU covering cards and bank transfers. For delivery, InPost Paczkomaty lockers are the default expectation. Show the delivery cost early, not as a surprise on the final screen.
+
+**How do I know which fix will help most?**
+Set up GA4 ecommerce tracking and look at your funnel: product view, add-to-cart, begin-checkout, purchase. The step with the biggest drop-off is where to work first. Without that data you are guessing, and guessing is how people end up redesigning a logo instead of fixing a broken form.
+
+---
+
+Want to know exactly where your store is leaking sales? See what my [online store development](/en/services/online-store) covers, or [write to me](/en/contact) with your store URL and current numbers - I will send back a short conversion audit and an estimate of what is worth fixing first.

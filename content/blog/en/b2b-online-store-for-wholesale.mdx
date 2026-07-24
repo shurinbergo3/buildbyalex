@@ -1,0 +1,112 @@
+---
+title: "B2B Online Store for Wholesale: What It Really Needs"
+description: "A B2B online store for wholesale needs net prices, per-client price lists, credit terms and ERP sync. How it differs from B2C, the integrations, and what it costs."
+date: "2026-08-02"
+cluster: "b2b-online-store"
+keywords:
+  - "b2b online store for wholesale"
+  - "wholesale ordering platform"
+  - "b2b ecommerce"
+  - "b2b store development poland"
+ogImage: "/og/b2b-online-store.webp"
+---
+
+A B2B online store for wholesale is a self-service portal where your business clients log in, see the prices you negotiated with them, and place orders around the clock: net prices plus VAT, individual price lists, credit terms, minimum order quantities and one-click reordering. It is not a retail shop with a "trade discount" bolted on - the ordering logic, the pricing and the integrations are built differently. Done right, it takes repetitive order-taking off your sales team and syncs stock, prices and invoices straight with your ERP.
+
+I build stores on Next.js and I have shipped wholesale portals where the whole point was to stop the reps from copying orders out of email into the accounting system by hand. So I will lay this out concretely: what B2B actually needs, what breaks it, and what it costs.
+
+## How a B2B store differs from a B2C shop
+
+The mistake I see most often is treating wholesale as "retail plus a coupon". It isn't. Almost every screen behaves differently once the buyer is another company, not a consumer.
+
+| Feature | B2C (retail shop) | B2B (wholesale portal) |
+|---|---|---|
+| Prices | Gross, with VAT baked in | Net + VAT shown separately |
+| Price lists | One list for everyone | Individual or tiered per client |
+| Payment | Prepay: BLIK, card | Credit / deferred (terminy płatności) + prepay |
+| Minimum order | None | MOQ and pack multiples per product |
+| Ordering | Click product by product | Bulk / quick order by SKU, CSV upload |
+| Access | Open to everyone | Login required, account approved first |
+| Order flow | Instant checkout | Approval and credit-limit check |
+| Reordering | Manual | One click from order history |
+
+**Net prices and VAT** are the first thing to get right. A wholesale buyer thinks in net figures and needs the invoice split clearly, because VAT is their reclaim, not their cost. Showing gross prices the retail way confuses the whole purchasing side.
+
+**Individual and tiered price lists** are the heart of B2B. One client gets -12%, another has a fully custom list negotiated last quarter, a third pays less once the cart passes a certain volume. The store has to load the right price the second that specific person logs in - not a generic "wholesale price" for all.
+
+**Credit terms** (terminy płatności) change the model completely. Retail is prepay; wholesale often runs on invoice with 14, 30 or 60 days to pay, plus a credit limit per client. The store has to know how much a client still owes and either allow or block a new order against that limit.
+
+## A self-service portal takes work off your sales team
+
+This is the argument that pays for the whole project. In most wholesale businesses orders arrive by email, phone and messenger, and a rep re-types each one into the ERP. That is slow, it produces typos, and it caps how many clients one person can handle.
+
+A proper B2B portal flips it. The client places the order themselves, at 2am if they want, and it lands in your system already structured. Your team stops taking dictation and starts on the work that actually needs a human.
+
+- **Ordering 24/7** without waiting for office hours or a callback.
+- **Quick order** by SKU code or a pasted CSV list - a purchaser who knows exactly what they want fills a 60-line cart in two minutes.
+- **Reorder from history** - the same monthly order repeated in one click, no re-listing.
+- **Order approval** - a manager or the buyer's own boss confirms before it goes to fulfillment, so nothing ships by mistake.
+- **Everything logged** - every order, price and document sits in one account, no digging through email threads.
+
+On [Baltic Dockyard](/en/work/baltic-dockyard) the brief was exactly this: a turnkey site that takes structured orders and routes every enquiry to the right place instead of a shared inbox. The same pattern scales straight into wholesale ordering.
+
+## Integrations that make or break a B2B store
+
+A B2C shop can live on its own for a while. A B2B store that is not wired into your back office is worse than useless, because it will show wrong stock and wrong prices to the exact clients who order in bulk.
+
+- **ERP / warehouse / accounting sync.** In Poland that usually means Subiekt GT, Comarch ERP Optima, WAPRO Mag or enova365. Products, stock, prices and client price lists live there, and the store has to read from it, not keep a second truth that drifts.
+- **Live stock and pricing.** A wholesale buyer ordering 400 units needs to trust the number on screen. Real-time (or near real-time) sync stops the "sorry, actually out of stock" call that kills confidence.
+- **NIP validation.** At registration the store checks the buyer's NIP against the GUS registry and the biała lista VAT, so you onboard real companies and pre-fill their invoice data instead of chasing it later.
+- **Faktura and KSeF.** Wholesale runs on VAT invoices, not receipts. The store issues a faktura automatically per order, and from 2026 it has to feed the national KSeF e-invoicing system. Building that in from day one is far cheaper than retrofitting it.
+
+Get these right and the portal runs itself. Get them wrong and you have a pretty catalog that your best clients stop trusting after the second stock error.
+
+## Platform: why a dedicated build usually beats basic Shopify or WooCommerce
+
+B2B logic is where the "just use Shopify" advice falls apart. Native B2B on Shopify means Shopify Plus, which starts around $2,300 a month - and even then the custom pricing rules and credit limits fight the platform. WooCommerce can technically do wholesale, but only by stacking three or four B2B plugins that conflict on updates and drag the catalog down as it grows.
+
+A dedicated or headless store on Next.js treats per-client pricing, credit limits, order approval and ERP sync as code, not as plugin settings you bend until they almost fit. That means:
+
+- Any pricing rule you can describe, the store can apply, per client and per volume tier.
+- The ERP is the single source of truth, connected through a real API, not a nightly CSV that is already stale by lunch.
+- The catalog stays fast at thousands of SKUs, which matters when buyers filter and quick-order all day.
+
+This is exactly how I build [online stores](/en/services/online-store): the storefront on Next.js, the business logic where it belongs, and clean sync with whatever you already run in the back office. For simple retail a template is fine. For wholesale with real pricing rules, custom pays for itself in the sales hours it frees up.
+
+## What it costs and how to roll it out
+
+A B2B portal costs more than a retail shop because the logic and integrations are the product, not the theme. But you do not have to build all of it at once - and you shouldn't.
+
+| Scope | Price (zł) | In euro | Timeline |
+|---|---|---|---|
+| B2B catalog + self-service ordering (tiered prices, quick order) | 25,000 - 50,000 | €5,800 - €11,500 | 5 - 8 weeks |
+| + ERP / warehouse sync, live stock, NIP validation | +15,000 - 40,000 | +€3,500 - €9,000 | +3 - 6 weeks |
+| Full portal (credit limits, approval, auto faktura, multi-user accounts) | 60,000 - 120,000+ | €14,000 - €28,000+ | 3 - 4 months |
+
+**Phase it.** Start with the catalog, the login, the individual price lists and self-service ordering - that alone stops the email-and-phone chaos and lets clients order themselves. Ship it in 5 to 8 weeks and put it in front of your buyers.
+
+Then, once orders are flowing, add the ERP and warehouse sync, NIP validation and automatic faktura. Splitting it this way means you see value from month two instead of paying for four months before anything goes live, and every later phase is scoped against a portal that already works.
+
+## FAQ
+
+**What is a B2B online store?**
+A B2B online store is a self-service portal for wholesale and business clients where they log in to see their own negotiated prices, order in bulk, pay on credit terms and reorder from history. It differs from a retail shop in pricing, payment and the integrations with your ERP and accounting.
+
+**How is a B2B store different from a B2C shop?**
+B2B shows net prices plus VAT separately, uses individual or tiered price lists per client, supports credit terms and minimum order quantities, requires login and order approval, and syncs with your ERP. B2C is one gross price for everyone, prepay, and open access. The ordering and pricing logic is built differently, not just discounted.
+
+**Can I build a wholesale store on Shopify or WooCommerce?**
+You can, within limits. Real B2B on Shopify needs Shopify Plus (from about $2,300/mo), and WooCommerce needs several B2B plugins that conflict and slow the catalog. For complex pricing rules, credit limits and tight ERP sync, a dedicated or headless build is usually cheaper to own and far more flexible.
+
+**How much does a B2B online store cost in Poland?**
+A self-service B2B catalog with tiered pricing and quick order runs 25,000 - 50,000 zł (€5,800 - €11,500). Adding ERP and warehouse sync adds 15,000 - 40,000 zł. A full portal with credit limits, order approval and automatic faktura reaches 60,000 - 120,000+ zł. Phasing the rollout spreads the cost.
+
+**Does the store connect to my ERP and issue invoices?**
+Yes, and it should. The store reads stock, prices and client price lists from your ERP (Subiekt, Comarch Optima, WAPRO, enova) over an API, and issues a faktura automatically per order - feeding the KSeF e-invoicing system that becomes mandatory in 2026.
+
+**How long does it take to launch?**
+The first usable phase - catalog, login, individual prices and self-service ordering - takes 5 to 8 weeks. ERP sync, NIP validation and automatic invoicing add another 3 to 6 weeks. A full portal with credit and approval logic is a 3 to 4 month project, best delivered in stages.
+
+---
+
+Thinking about moving your wholesale ordering online? See how I build [online stores and B2B portals](/en/services/online-store), or [write to me](/en/contact): in 30 minutes we will map your pricing rules, ERP and a phased plan with a fixed quote, no hidden add-ons.
