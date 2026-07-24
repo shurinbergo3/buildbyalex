@@ -35,11 +35,11 @@ export function ServiceRelatedCases({
     <Section pad="default" tone={tone}>
       <Container>
         <Reveal>
-          <h2 className="t-h2 mb-10 md:mb-12">{t("cases")}</h2>
+          <h2 className="t-h2 mb-6 md:mb-8">{t("cases")}</h2>
         </Reveal>
         <div
-          className={`grid gap-4 sm:gap-5 ${
-            keys.length > 1 ? "md:grid-cols-2 md:gap-6" : ""
+          className={`grid gap-3 sm:gap-4 ${
+            keys.length > 1 ? "sm:grid-cols-2" : "max-w-[480px]"
           }`}
         >
           {keys.map((key, i) => (
@@ -47,54 +47,48 @@ export function ServiceRelatedCases({
               <Link
                 href={{ pathname: "/work/[slug]", params: { slug: caseKeyToSlug[key] } }}
                 aria-label={`${tCases(`${key}.title`)} — ${tCases(`${key}.industry`)}`}
-                className="group relative flex aspect-[16/11] flex-col justify-end overflow-hidden rounded-[24px] border border-[color:var(--c-hairline)] bg-[#0b0b0c] shadow-[var(--shadow-card)] transition-[box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-[var(--shadow-card-hover)] md:rounded-[28px]"
+                className="group flex items-stretch overflow-hidden rounded-[18px] border border-[color:var(--c-hairline)] bg-[color:var(--color-bg-elev)] shadow-[var(--shadow-card)] transition-[transform,box-shadow,border-color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:border-[color:color-mix(in_srgb,var(--c-accent)_45%,var(--c-hairline))] hover:shadow-[var(--shadow-card-hover)]"
               >
-                <Image
-                  src={caseImages[key].src}
-                  alt={tCases(`${key}.imageAlt`)}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="absolute inset-0 object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
-                />
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-0"
-                  style={{
-                    background:
-                      "linear-gradient(0deg, rgba(6,7,9,0.90) 2%, rgba(6,7,9,0.42) 42%, rgba(6,7,9,0.04) 72%, transparent 100%)",
-                  }}
-                />
-                <div className="relative z-10 flex flex-col gap-2.5 p-5 md:p-7">
-                  <span className="inline-flex w-fit items-center gap-2 text-[12px] font-medium uppercase tracking-[0.05em] text-white/65">
+                <div className="relative w-[104px] shrink-0 overflow-hidden sm:w-[124px]">
+                  <Image
+                    src={caseImages[key].src}
+                    alt={tCases(`${key}.imageAlt`)}
+                    fill
+                    sizes="124px"
+                    className="object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05]"
+                  />
+                </div>
+                <div className="flex min-w-0 flex-1 flex-col justify-center gap-1 px-4 py-3.5 sm:px-5">
+                  <span className="inline-flex w-fit items-center gap-1.5 text-[10.5px] font-medium uppercase tracking-[0.06em] text-[color:var(--color-text-2)]">
                     <span
-                      className="h-1.5 w-1.5 rounded-full bg-[color:var(--c-accent)]"
+                      className="h-1 w-1 shrink-0 rounded-full bg-[color:var(--c-accent)]"
                       aria-hidden="true"
                     />
-                    {tCases(`${key}.industry`)}
+                    <span className="truncate">{tCases(`${key}.industry`)}</span>
                   </span>
-                  <h3 className="text-[clamp(22px,1.4vw+15px,30px)] font-semibold leading-[1.05] tracking-[-0.028em] text-white">
+                  <h3 className="truncate text-[16px] font-semibold leading-[1.2] tracking-[-0.02em] text-[color:var(--color-text)] sm:text-[17px]">
                     {tCases(`${key}.title`)}
                   </h3>
-                  <p className="line-clamp-2 max-w-[46ch] text-[14.5px] leading-[1.45] text-white/72">
+                  <p className="line-clamp-1 text-[13px] leading-[1.4] text-[color:var(--color-text-2)]">
                     {tCases(`${key}.tagline`)}
                   </p>
-                  <div className="mt-1.5 flex flex-wrap items-center gap-x-5 gap-y-3">
-                    <div className="flex items-baseline gap-2">
-                      <span className="font-mono text-[24px] font-semibold tabular-nums tracking-tight text-[color:var(--c-accent)]">
+                  <div className="mt-1 flex items-center gap-2.5">
+                    <span className="inline-flex items-baseline gap-1 text-[13px]">
+                      <span className="font-mono font-semibold tabular-nums tracking-tight text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
                         {tCases(`${key}.metric.value`)}
                       </span>
-                      <span className="max-w-[16ch] text-[12px] leading-[1.2] text-white/55">
+                      <span className="truncate text-[11px] text-[color:var(--color-text-2)]">
                         {tCases(`${key}.metric.label`)}
                       </span>
-                    </div>
-                    <span className="inline-flex items-center gap-1.5 text-[14px] font-medium text-white">
+                    </span>
+                    <span className="ml-auto inline-flex items-center gap-1 text-[12.5px] font-medium text-[color:var(--color-text)]">
                       {tIntro("cta")}
-                      <span className="grid h-6 w-6 place-items-center rounded-full border border-white/25 bg-white/[0.08] transition-[transform,background-color,border-color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-0.5 group-hover:border-[color:var(--c-accent)] group-hover:bg-[color:var(--c-accent)] group-hover:text-black">
-                        <svg width="13" height="13" viewBox="0 0 14 14" aria-hidden="true">
+                      <span className="grid h-5 w-5 place-items-center rounded-full border border-[color:var(--c-hairline)] transition-[transform,background-color,border-color,color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-0.5 group-hover:border-[color:var(--c-accent)] group-hover:bg-[color:var(--c-accent)] group-hover:text-white">
+                        <svg width="11" height="11" viewBox="0 0 14 14" aria-hidden="true">
                           <path
                             d="M5 3l4 4-4 4"
                             stroke="currentColor"
-                            strokeWidth="1.7"
+                            strokeWidth="1.8"
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             fill="none"

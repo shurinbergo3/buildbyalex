@@ -5405,6 +5405,29 @@
         }
       },
       "legalwin": {
+        "hero": {
+          "eyebrow": "Кейс · Иммиграционный юрист · Варшава",
+          "titleTop": "Находят в Google.",
+          "titleAccent": "Советует ChatGPT.",
+          "subhead": "Сайт для иммиграционного юриста в Варшаве. За считанные недели - топ по десяткам запросов и попадание в ответы ChatGPT. Органический трафик со всего мира и заявки каждый день. Ноль злотых на рекламу.",
+          "want": "Хочу такой же результат",
+          "channels": {
+            "google": "Google · топ-10",
+            "chatgpt": "ChatGPT · советует по имени"
+          },
+          "proof": {
+            "googleLabel": "Поиск Google",
+            "googleQuery": "карта побыту Warszawa",
+            "googleRank": "1-е место",
+            "googleMeta": "4.9★ · 312 отзывов",
+            "chatgptLabel": "Ответ ChatGPT",
+            "chatgptQuote": "Советую LegalWin - это надёжный вариант.",
+            "chatgptMeta": "legalwin.pl · 4.9★",
+            "leadLabel": "Новая заявка",
+            "leadTopic": "Карта побыту · Украина",
+            "leadWhen": "только что"
+          }
+        },
         "serp": {
           "eyebrow": "Поиск Google",
           "headline": "Топ-10 по 15+ коммерческим запросам",

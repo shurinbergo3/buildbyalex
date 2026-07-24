@@ -5405,6 +5405,29 @@
         }
       },
       "legalwin": {
+        "hero": {
+          "eyebrow": "Case study · Immigration lawyer · Warsaw",
+          "titleTop": "Found on Google.",
+          "titleAccent": "Named by ChatGPT.",
+          "subhead": "A website for an immigration lawyer in Warsaw. Within weeks - top rankings for dozens of queries and a place in ChatGPT's answers. Organic traffic from all over the world and leads every day. Zero spent on ads.",
+          "want": "I want the same result",
+          "channels": {
+            "google": "Google · top 10",
+            "chatgpt": "ChatGPT · names it directly"
+          },
+          "proof": {
+            "googleLabel": "Google Search",
+            "googleQuery": "karta pobytu Warszawa",
+            "googleRank": "1st place",
+            "googleMeta": "4.9★ · 312 reviews",
+            "chatgptLabel": "ChatGPT reply",
+            "chatgptQuote": "I'd recommend LegalWin - a reliable option.",
+            "chatgptMeta": "legalwin.pl · 4.9★",
+            "leadLabel": "New lead",
+            "leadTopic": "Residence card · Ukraine",
+            "leadWhen": "just now"
+          }
+        },
         "serp": {
           "eyebrow": "Google search",
           "headline": "First page for 15+ commercial keywords",

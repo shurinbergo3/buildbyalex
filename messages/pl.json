@@ -5405,6 +5405,29 @@
         }
       },
       "legalwin": {
+        "hero": {
+          "eyebrow": "Case study · Prawnik imigracyjny · Warszawa",
+          "titleTop": "Znajdują w Google.",
+          "titleAccent": "Poleca ChatGPT.",
+          "subhead": "Strona dla prawnika imigracyjnego w Warszawie. W kilka tygodni - topowe pozycje na dziesiątki zapytań i obecność w odpowiedziach ChatGPT. Ruch organiczny z całego świata i zgłoszenia każdego dnia. Zero wydane na reklamę.",
+          "want": "Chcę taki sam efekt",
+          "channels": {
+            "google": "Google · top 10",
+            "chatgpt": "ChatGPT · poleca z nazwy"
+          },
+          "proof": {
+            "googleLabel": "Wyszukiwarka Google",
+            "googleQuery": "karta pobytu Warszawa",
+            "googleRank": "1. miejsce",
+            "googleMeta": "4.9★ · 312 opinii",
+            "chatgptLabel": "Odpowiedź ChatGPT",
+            "chatgptQuote": "Polecam LegalWin - to solidny wybór.",
+            "chatgptMeta": "legalwin.pl · 4.9★",
+            "leadLabel": "Nowe zgłoszenie",
+            "leadTopic": "Karta pobytu · Ukraina",
+            "leadWhen": "przed chwilą"
+          }
+        },
         "serp": {
           "eyebrow": "Wyszukiwarka Google",
           "headline": "Pierwsza strona dla 15+ komercyjnych zapytań",
