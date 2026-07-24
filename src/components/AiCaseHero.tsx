@@ -2,6 +2,7 @@
 
 import { Reveal } from "@/components/Reveal";
 import { HeroWindow } from "@/components/HeroWindow";
+import { Link } from "@/i18n/navigation";
 
 /* ────────────────────────────────────────────────────────────────────────
    AiCaseHero — the AI cases (ИИ-менеджер для продаж / CRM Bot) on the shared
@@ -19,21 +20,27 @@ type Metric = { value: string; label: string };
 
 export function AiCaseHero({
   industry,
-  title,
+  titleTop,
+  titleAccent,
   tagline,
   metrics,
   stack,
   ndaLabel,
   liveLabel,
+  wantLabel,
   children,
 }: {
   industry: string;
-  title: string;
+  /** Kept for the props spread from the case components; not rendered. */
+  title?: string;
+  titleTop: string;
+  titleAccent: string;
   tagline: string;
   metrics: Metric[];
   stack: string[];
   ndaLabel: string;
   liveLabel: string;
+  wantLabel: string;
   contours?: "leadbot" | "crmbot";
   children: React.ReactNode;
 }) {
@@ -46,8 +53,15 @@ export function AiCaseHero({
             <p className="t-eyebrow" style={{ color: HERO_ACCENT }}>
               {industry}
             </p>
-            <h1 className="mt-4 text-[clamp(40px,5vw+8px,68px)] font-semibold leading-[1.05] tracking-[-0.032em] text-white">
-              {title}
+            <h1 className="mt-4 text-[clamp(38px,5vw+8px,64px)] font-semibold leading-[1.04] tracking-[-0.032em] text-white">
+              {titleTop}
+              <br />
+              <span
+                className="bg-clip-text text-transparent"
+                style={{ backgroundImage: `linear-gradient(96deg, ${HERO_ACCENT_HI}, ${HERO_ACCENT})` }}
+              >
+                {titleAccent}
+              </span>
             </h1>
             <p className="mt-5 max-w-[540px] text-[clamp(16px,1.1vw+12px,20px)] leading-[1.5] tracking-[-0.012em] text-white/65">
               {tagline}
@@ -81,6 +95,30 @@ export function AiCaseHero({
                 ))}
               </ul>
             )}
+
+            <div className="mt-8">
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 rounded-full px-5 py-3 text-[15px] font-semibold text-[#1a1206] shadow-[0_16px_40px_-14px_rgba(255,122,45,0.5)] transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5"
+                style={{ background: `linear-gradient(135deg, ${HERO_ACCENT_HI}, ${HERO_ACCENT})` }}
+              >
+                {wantLabel}
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="transition-transform duration-300 group-hover:translate-x-0.5"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </div>
           </div>
         </Reveal>
 

@@ -6040,6 +6040,11 @@
         }
       },
       "crmbot": {
+        "pageHero": {
+          "titleTop": "Not a single lead",
+          "titleAccent": "goes unanswered.",
+          "want": "I want the same result"
+        },
         "botDemo": {
           "eyebrow": "Live demo",
           "headline": "The bot qualifies a lead right inside Telegram",
@@ -6070,6 +6075,11 @@
         }
       },
       "leadbot": {
+        "pageHero": {
+          "titleTop": "The client can't tell",
+          "titleAccent": "it's an AI.",
+          "want": "I want the same result"
+        },
         "employee": {
           "eyebrow": "Virtual employee",
           "headline": "One digital hire instead of a whole shift",

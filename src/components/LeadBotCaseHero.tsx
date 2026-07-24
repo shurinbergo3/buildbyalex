@@ -35,8 +35,15 @@ type HeroCopy = {
 };
 
 export function LeadBotCaseHero(props: HeroCopy) {
+  const th = useTranslations("work.caseShowcase.leadbot.pageHero");
   return (
-    <AiCaseHero {...props} contours="leadbot">
+    <AiCaseHero
+      {...props}
+      titleTop={th("titleTop")}
+      titleAccent={th("titleAccent")}
+      wantLabel={th("want")}
+      contours="leadbot"
+    >
       <LeadBotPhone />
     </AiCaseHero>
   );

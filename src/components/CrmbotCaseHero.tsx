@@ -35,8 +35,15 @@ type HeroCopy = {
 };
 
 export function CrmbotCaseHero(props: HeroCopy) {
+  const th = useTranslations("work.caseShowcase.crmbot.pageHero");
   return (
-    <AiCaseHero {...props} contours="crmbot">
+    <AiCaseHero
+      {...props}
+      titleTop={th("titleTop")}
+      titleAccent={th("titleAccent")}
+      wantLabel={th("want")}
+      contours="crmbot"
+    >
       <CrmbotConsole />
     </AiCaseHero>
   );

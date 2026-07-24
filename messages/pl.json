@@ -6040,6 +6040,11 @@
         }
       },
       "crmbot": {
+        "pageHero": {
+          "titleTop": "Żaden lead",
+          "titleAccent": "nie zostaje bez odpowiedzi.",
+          "want": "Chcę taki sam efekt"
+        },
         "botDemo": {
           "eyebrow": "Demo na żywo",
           "headline": "Bot kwalifikuje leada wprost w Telegramie",
@@ -6070,6 +6075,11 @@
         }
       },
       "leadbot": {
+        "pageHero": {
+          "titleTop": "Klient nie pozna,",
+          "titleAccent": "że to AI.",
+          "want": "Chcę taki sam efekt"
+        },
         "employee": {
           "eyebrow": "Wirtualny pracownik",
           "headline": "Jeden cyfrowy pracownik zamiast całej zmiany",
