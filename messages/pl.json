@@ -5703,6 +5703,43 @@
         }
       },
       "visionair": {
+        "hero": {
+          "eyebrow": "Case study · Filmowanie z drona · Warszawa",
+          "titleTop": "Zgłoszenie dolatuje",
+          "titleAccent": "w 2 sekundy.",
+          "subhead": "Strona dla operatora drona w Warszawie. Ładowanie poniżej sekundy, topowe pozycje Google w 7 kategoriach zdjęć i zgłoszenie, które trafia do operatora na Telegram w kilka sekund - zanim konkurent zdąży pomyśleć. Konwersja wzrosła 5x.",
+          "want": "Chcę taki sam efekt",
+          "metrics": [
+            {
+              "value": "<1 s",
+              "label": "ładowanie na każdej stronie"
+            },
+            {
+              "value": "4.2%",
+              "label": "konwersja na lead (było 0.8%)"
+            },
+            {
+              "value": "2 s",
+              "label": "lead dolatuje na Telegram"
+            }
+          ],
+          "channels": {
+            "seo": "7 kategorii · top Google",
+            "telegram": "Lead → Telegram · natychmiast"
+          },
+          "proof": {
+            "googleLabel": "Wyszukiwarka Google",
+            "googleQuery": "operator drona Warszawa",
+            "googleRank": "1. miejsce",
+            "googleMeta": "4K Cinematic · 4.9★",
+            "speedLabel": "Core Web Vitals",
+            "speedMetric": "LCP 0.8 s",
+            "speedNote": "Performance 100 / 100",
+            "leadLabel": "Telegram",
+            "leadTopic": "Nowe zgłoszenie · Wesele z lotu",
+            "leadWhen": "doleciało w 2 s"
+          }
+        },
         "macbook": {
           "headline": "Zdjęcia z drona w Warszawie",
           "accent": "kinematograficznie",

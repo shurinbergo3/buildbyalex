@@ -5703,6 +5703,43 @@
         }
       },
       "visionair": {
+        "hero": {
+          "eyebrow": "Case study · Aerial drone filming · Warsaw",
+          "titleTop": "The lead lands",
+          "titleAccent": "in 2 seconds.",
+          "subhead": "A website for a drone operator in Warsaw. Sub-second loads, Google top spots across 7 filming verticals, and a lead that hits the operator's Telegram within seconds - while the competitor is still thinking. Conversion up 5x.",
+          "want": "I want the same result",
+          "metrics": [
+            {
+              "value": "<1 s",
+              "label": "load on every page"
+            },
+            {
+              "value": "4.2%",
+              "label": "visitor-to-lead (was 0.8%)"
+            },
+            {
+              "value": "2 s",
+              "label": "lead reaches Telegram"
+            }
+          ],
+          "channels": {
+            "seo": "7 verticals · Google top",
+            "telegram": "Lead → Telegram · instant"
+          },
+          "proof": {
+            "googleLabel": "Google Search",
+            "googleQuery": "drone operator Warsaw",
+            "googleRank": "1st place",
+            "googleMeta": "4K Cinematic · 4.9★",
+            "speedLabel": "Core Web Vitals",
+            "speedMetric": "LCP 0.8 s",
+            "speedNote": "Performance 100 / 100",
+            "leadLabel": "Telegram",
+            "leadTopic": "New lead · Wedding aerial",
+            "leadWhen": "landed in 2 s"
+          }
+        },
         "macbook": {
           "headline": "Drone filming in Warsaw",
           "accent": "cinematically",

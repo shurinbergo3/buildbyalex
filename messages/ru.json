@@ -5703,6 +5703,43 @@
         }
       },
       "visionair": {
+        "hero": {
+          "eyebrow": "Кейс · Аэросъёмка с дрона · Варшава",
+          "titleTop": "Заявка долетает",
+          "titleAccent": "за 2 секунды.",
+          "subhead": "Сайт для оператора дрона в Варшаве. Загрузка меньше секунды, топ Google по 7 направлениям съёмки и заявка, которая падает оператору в Telegram за пару секунд - пока конкурент ещё думает. Конверсия выросла в 5 раз.",
+          "want": "Хочу такой же результат",
+          "metrics": [
+            {
+              "value": "<1 с",
+              "label": "загрузка на всех страницах"
+            },
+            {
+              "value": "4.2%",
+              "label": "конверсия в лид (было 0.8%)"
+            },
+            {
+              "value": "2 сек",
+              "label": "лид долетает в Telegram"
+            }
+          ],
+          "channels": {
+            "seo": "7 направлений · топ Google",
+            "telegram": "Лид → Telegram · мгновенно"
+          },
+          "proof": {
+            "googleLabel": "Поиск Google",
+            "googleQuery": "оператор дрона Варшава",
+            "googleRank": "1-е место",
+            "googleMeta": "4K Cinematic · 4.9★",
+            "speedLabel": "Core Web Vitals",
+            "speedMetric": "LCP 0.8 с",
+            "speedNote": "Performance 100 / 100",
+            "leadLabel": "Telegram",
+            "leadTopic": "Новая заявка · Аэросъёмка свадьбы",
+            "leadWhen": "долетела за 2 сек"
+          }
+        },
         "macbook": {
           "headline": "Съёмка с дрона в Варшаве",
           "accent": "кинематографично",
