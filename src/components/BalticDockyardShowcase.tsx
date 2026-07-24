@@ -170,7 +170,7 @@ export function BalticDockyardShowcase() {
           </Reveal>
           <Reveal delay={120}>
             <div className="mt-12 md:mt-16">
-              <Frame src="/cases/baltic-contact.webp" path=" /contact" ratio="1760 / 489" />
+              <Frame src="/cases/baltic-rfq.webp" path=" /contact" ratio="1760 / 940" />
             </div>
           </Reveal>
           <Reveal delay={180}>
@@ -223,7 +223,7 @@ export function BalticDockyardShowcase() {
           </Reveal>
           <Reveal delay={140}>
             <div className="mt-12 md:mt-14">
-              <Frame src="/cases/baltic-dzialy.webp" ratio="1760 / 1100" />
+              <Frame src="/cases/baltic-divisions.webp" ratio="1760 / 1309" />
             </div>
           </Reveal>
         </Container>
