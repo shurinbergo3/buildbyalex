@@ -18,7 +18,7 @@ import { motion, useReducedMotion } from "motion/react";
 const GOLD = "#D6B060";
 const GOLD_HI = "#E8C879";
 const INK = "#1a1408";
-const HERO_IMG = "/cases/legalwin-hero.webp";
+const HERO_IMG = "/cases/legalwin-skyline.webp";
 
 const LANGS = ["UK", "RU", "PL", "EN", "TR"];
 
