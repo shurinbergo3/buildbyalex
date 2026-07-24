@@ -292,6 +292,14 @@ export function ChatGptLogo({ className, plain }: { className?: string; plain?: 
   );
 }
 
+export function AppleMark({ className, color = "#fff" }: { className?: string; color?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill={color} aria-hidden="true">
+      <path d="M16.36 12.79c-.02-2.13 1.74-3.15 1.82-3.2-.99-1.45-2.53-1.65-3.08-1.67-1.31-.13-2.56.77-3.22.77-.66 0-1.69-.75-2.78-.73-1.43.02-2.75.83-3.48 2.11-1.48 2.57-.38 6.37 1.07 8.45.71 1.02 1.55 2.16 2.66 2.12 1.07-.04 1.47-.69 2.76-.69 1.29 0 1.65.69 2.78.67 1.15-.02 1.87-1.04 2.57-2.06.81-1.18 1.14-2.32 1.16-2.38-.03-.01-2.23-.86-2.26-3.39zM14.23 6.31c.58-.71.98-1.69.87-2.67-.84.03-1.86.56-2.47 1.26-.54.62-1.02 1.62-.89 2.58.94.07 1.9-.47 2.49-1.17z" />
+    </svg>
+  );
+}
+
 export function TelegramMark({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} aria-hidden="true">

@@ -6365,6 +6365,29 @@
         }
       },
       "bodyforgesite": {
+        "hero": {
+          "eyebrow": "Case study · Landing for an iOS app",
+          "titleTop": "An instant landing -",
+          "titleAccent": "straight to the App Store.",
+          "subhead": "The app had only an App Store page and nowhere to send traffic. I built a dark, lime landing in the app's identity: RU + EN, first paint in 0.7s, one clear path - to the store. A blog and Schema.org bring organic traffic.",
+          "want": "I want the same result",
+          "channels": {
+            "seo": "Found in search · RU/EN",
+            "appstore": "One path → App Store"
+          },
+          "proof": {
+            "googleQuery": "strength training app",
+            "googleRank": "1st place",
+            "googleMeta": "RU / EN",
+            "speedLabel": "Core Web Vitals",
+            "speedMetric": "0.7 s",
+            "speedNote": "First paint · 100/100",
+            "appName": "Body Forge",
+            "appCategory": "Health & Fitness",
+            "appAction": "Get",
+            "appMeta": "4.9★ · App Store"
+          }
+        },
         "eyebrow": "One site, two languages",
         "headline": "The same landing - in Russian and English",
         "subhead": "Flip the language and watch the whole screen change. Desktop and phone: one layout, two locales, correct hreflang on both.",
