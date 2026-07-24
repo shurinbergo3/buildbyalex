@@ -5335,6 +5335,30 @@
     },
     "caseShowcase": {
       "baltic": {
+        "hero": {
+          "eyebrow": "Кейс · Судовые запчасти · B2B · Варшава",
+          "titleTop": "Каталог на 12 400 позиций.",
+          "titleAccent": "Заявки - в почту.",
+          "subhead": "Компании фактически не было в сети. Собрал сайт под ключ на Next.js: двуязычный каталог PL/EN, корпоративная почта на домене и форма запроса цены - заявка снабженца падает в почту за секунды. Теперь поставщика находят по всему миру.",
+          "want": "Хочу такой же результат",
+          "channels": {
+            "seo": "Снабженцы находят в Google",
+            "inbox": "Заявка → почта · за секунды"
+          },
+          "proof": {
+            "googleLabel": "Google",
+            "googleQuery": "поставщик судовых запчастей",
+            "googleRank": "1-е место",
+            "googleMeta": "PL / EN · B2B",
+            "catalogLabel": "Каталог",
+            "catalogValue": "12 400+ позиций",
+            "catalogNote": "6 разделов · PL / EN",
+            "inboxLabel": "Входящие",
+            "inboxFrom": "kontakt@baltic-dockyard.pl",
+            "inboxTopic": "Запрос цены · Rotterdam",
+            "inboxWhen": "только что"
+          }
+        },
         "deliverables": {
           "eyebrow": "Что сделали",
           "headline": "Пять задач - один подрядчик",
@@ -5416,7 +5440,7 @@
             "chatgpt": "ChatGPT · советует по имени"
           },
           "proof": {
-            "googleLabel": "Поиск Google",
+            "googleLabel": "Google",
             "googleQuery": "карта побыту Warszawa",
             "googleRank": "1-е место",
             "googleMeta": "4.9★ · 312 отзывов",
@@ -5728,7 +5752,7 @@
             "telegram": "Лид → Telegram · мгновенно"
           },
           "proof": {
-            "googleLabel": "Поиск Google",
+            "googleLabel": "Google",
             "googleQuery": "оператор дрона Варшава",
             "googleRank": "1-е место",
             "googleMeta": "4K Cinematic · 4.9★",

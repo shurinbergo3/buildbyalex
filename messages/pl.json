@@ -5335,6 +5335,30 @@
     },
     "caseShowcase": {
       "baltic": {
+        "hero": {
+          "eyebrow": "Case study · Części okrętowe · B2B · Warszawa",
+          "titleTop": "Katalog 12 400 pozycji.",
+          "titleAccent": "Zapytania trafiają na mail.",
+          "subhead": "Firmy praktycznie nie było w sieci. Zbudowałem stronę pod klucz na Next.js: dwujęzyczny katalog PL/EN, firmowa poczta w domenie i formularz zapytania o cenę - zapytanie kupca trafia na skrzynkę w kilka sekund. Teraz dostawcę znajdują na całym świecie.",
+          "want": "Chcę taki sam efekt",
+          "channels": {
+            "seo": "Zaopatrzeniowcy znajdują w Google",
+            "inbox": "Zapytanie → poczta · w sekundy"
+          },
+          "proof": {
+            "googleLabel": "Google",
+            "googleQuery": "dostawca części okrętowych",
+            "googleRank": "1. miejsce",
+            "googleMeta": "PL / EN · B2B",
+            "catalogLabel": "Katalog",
+            "catalogValue": "12 400+ pozycji",
+            "catalogNote": "6 działów · PL / EN",
+            "inboxLabel": "Skrzynka",
+            "inboxFrom": "kontakt@baltic-dockyard.pl",
+            "inboxTopic": "Zapytanie o cenę · Rotterdam",
+            "inboxWhen": "przed chwilą"
+          }
+        },
         "deliverables": {
           "eyebrow": "Co zrobiliśmy",
           "headline": "Pięć zadań - jeden wykonawca",
@@ -5416,7 +5440,7 @@
             "chatgpt": "ChatGPT · poleca z nazwy"
           },
           "proof": {
-            "googleLabel": "Wyszukiwarka Google",
+            "googleLabel": "Google",
             "googleQuery": "karta pobytu Warszawa",
             "googleRank": "1. miejsce",
             "googleMeta": "4.9★ · 312 opinii",
@@ -5728,7 +5752,7 @@
             "telegram": "Lead → Telegram · natychmiast"
           },
           "proof": {
-            "googleLabel": "Wyszukiwarka Google",
+            "googleLabel": "Google",
             "googleQuery": "operator drona Warszawa",
             "googleRank": "1. miejsce",
             "googleMeta": "4K Cinematic · 4.9★",

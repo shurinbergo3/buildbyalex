@@ -14,17 +14,18 @@ import type { ContourTheme } from "@/components/heroGlyphs";
    wrapped in up-to-three floating liquid-glass proof cards that dramatise the
    funnel; on mobile the cards collapse into a clean inline stack so the story
    survives the small screen. Colours/copy/cards are per-case; layout is shared.
-   First proven on the LegalWin case.
    ──────────────────────────────────────────────────────────────────────── */
 
 type Metric = { value: string; label: string };
 type Channel = { icon?: React.ReactNode; label: string };
 
 // Default corner slots for up to three proof cards around the device duo.
+// Pinned to the outer corners and kept compact so the device stays readable
+// and the cards read as three distinct floats rather than one jumble.
 const CARD_SLOTS = [
-  "absolute left-[-5%] top-[-2%] w-[43%] max-w-[206px]",
-  "absolute right-[-5%] top-[5%] w-[49%] max-w-[230px]",
-  "absolute bottom-[3%] left-[-4%] w-[45%] max-w-[216px]",
+  "absolute left-[-6%] top-[-3%] w-[40%] max-w-[196px]",
+  "absolute right-[-6%] top-[3%] w-[44%] max-w-[214px]",
+  "absolute bottom-[6%] left-[-5%] w-[41%] max-w-[202px]",
 ];
 
 export function MarketingCaseHero({
@@ -47,7 +48,6 @@ export function MarketingCaseHero({
 }: {
   accent: string;
   accentHi: string;
-  /** Readable text colour on the accent-gradient button. */
   ink?: string;
   theme: ContourTheme;
   icon?: "globe" | "lock";
@@ -96,13 +96,9 @@ export function MarketingCaseHero({
                 {channels.map((c) => (
                   <span
                     key={c.label}
-                    className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.05] py-1.5 pl-2.5 pr-3.5 text-[13px] font-medium text-white/78 backdrop-blur-sm"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.05] py-1.5 pl-2 pr-3.5 text-[13px] font-medium text-white/78 backdrop-blur-sm"
                   >
-                    {c.icon && (
-                      <span className="grid h-5 w-5 place-items-center rounded-full bg-white/95">
-                        {c.icon}
-                      </span>
-                    )}
+                    {c.icon && <span className="grid h-5 w-5 shrink-0 place-items-center">{c.icon}</span>}
                     {c.label}
                   </span>
                 ))}
@@ -238,14 +234,32 @@ export function CardHeader({
 }) {
   return (
     <div className="flex items-center gap-2 border-b border-white/[0.06] px-3 py-2">
-      {glyph}
-      <span className="text-[10.5px] font-medium uppercase tracking-[0.1em] text-white/45">{label}</span>
-      {right && <span className="ml-auto">{right}</span>}
+      <span className="shrink-0">{glyph}</span>
+      <span className="min-w-0 truncate text-[10.5px] font-medium uppercase tracking-[0.08em] text-white/45">{label}</span>
+      {right && <span className="ml-auto shrink-0">{right}</span>}
     </div>
   );
 }
 
-/* ─────────────────────────── shared glyphs ─────────────────────────── */
+export function RankBadge({ children, color, bg }: { children: React.ReactNode; color: string; bg: string }) {
+  return (
+    <span className="whitespace-nowrap rounded-full px-2 py-0.5 text-[10px] font-bold" style={{ background: bg, color }}>
+      {children}
+    </span>
+  );
+}
+
+/* ─────────────────────────── brand marks ─────────────────────────── */
+
+/** Google "G" on a white plate — the plate gives the multicolour mark its
+    counters back on a dark surface. */
+export function GoogleGChip({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <span className={`grid shrink-0 place-items-center rounded-full bg-white ${className}`}>
+      <GoogleG className="h-3 w-3" />
+    </span>
+  );
+}
 
 export function GoogleG({ className }: { className?: string }) {
   return (
@@ -254,6 +268,26 @@ export function GoogleG({ className }: { className?: string }) {
       <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z" />
       <path fill="#FBBC05" d="M11.69 28.18c-.44-1.32-.69-2.73-.69-4.18s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z" />
       <path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z" />
+    </svg>
+  );
+}
+
+/** Official ChatGPT / OpenAI mark (six-fold blossom). Default renders the green
+    app-icon tile; `plain` renders the monochrome blossom in currentColor. */
+export function ChatGptLogo({ className, plain }: { className?: string; plain?: boolean }) {
+  const petal =
+    "M1107.3 299.1c-197.999 0-373.9 127.3-435.2 315.3L650 743.5v427.9c0 21.4 11 40.4 29.4 51.4l344.5 198.515V833.3h.1v-27.9L1372.7 604c33.715-19.52 70.44-32.857 108.47-39.828L1447.6 450.3C1361 353.5 1237.1 298.5 1107.3 299.1zm0 117.5-.6.6c79.699 0 156.3 27.5 217.6 78.4-2.5 1.2-7.4 4.3-11 6.1L952.8 709.3c-18.4 10.4-29.4 30-29.4 51.4V1248l-155.1-89.4V755.8c-.1-187.099 151.601-338.9 339-339.2z";
+  return (
+    <svg viewBox="0 0 2406 2406" className={className} aria-hidden="true">
+      {!plain && (
+        <path
+          d="M1 578.4C1 259.5 259.5 1 578.4 1h1249.1c319 0 577.5 258.5 577.5 577.4V2406H578.4C259.5 2406 1 2147.5 1 1828.6V578.4z"
+          fill="#10a37f"
+        />
+      )}
+      {[0, 60, 120, 180, 240, 300].map((a) => (
+        <path key={a} d={petal} fill={plain ? "currentColor" : "#fff"} transform={a ? `rotate(${a} 1203 1203)` : undefined} />
+      ))}
     </svg>
   );
 }

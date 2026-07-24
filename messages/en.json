@@ -5335,6 +5335,30 @@
     },
     "caseShowcase": {
       "baltic": {
+        "hero": {
+          "eyebrow": "Case study · Marine spare parts · B2B · Warsaw",
+          "titleTop": "A 12,400-part catalog.",
+          "titleAccent": "Quotes hit the inbox.",
+          "subhead": "The company was basically invisible online. I built a turnkey Next.js site: a bilingual PL/EN catalog, corporate email on the domain and a quote-request form - a buyer's request lands in the inbox within seconds. Now procurement finds the supplier worldwide.",
+          "want": "I want the same result",
+          "channels": {
+            "seo": "Procurement finds it on Google",
+            "inbox": "Request → inbox · in seconds"
+          },
+          "proof": {
+            "googleLabel": "Google",
+            "googleQuery": "marine spare parts supplier",
+            "googleRank": "1st place",
+            "googleMeta": "PL / EN · B2B",
+            "catalogLabel": "Catalog",
+            "catalogValue": "12,400+ parts",
+            "catalogNote": "6 sections · PL / EN",
+            "inboxLabel": "Inbox",
+            "inboxFrom": "kontakt@baltic-dockyard.pl",
+            "inboxTopic": "Quote request · Rotterdam",
+            "inboxWhen": "just now"
+          }
+        },
         "deliverables": {
           "eyebrow": "What we delivered",
           "headline": "Five jobs, one partner",
@@ -5416,7 +5440,7 @@
             "chatgpt": "ChatGPT · names it directly"
           },
           "proof": {
-            "googleLabel": "Google Search",
+            "googleLabel": "Google",
             "googleQuery": "karta pobytu Warszawa",
             "googleRank": "1st place",
             "googleMeta": "4.9★ · 312 reviews",
@@ -5728,7 +5752,7 @@
             "telegram": "Lead → Telegram · instant"
           },
           "proof": {
-            "googleLabel": "Google Search",
+            "googleLabel": "Google",
             "googleQuery": "drone operator Warsaw",
             "googleRank": "1st place",
             "googleMeta": "4K Cinematic · 4.9★",

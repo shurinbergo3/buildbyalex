@@ -5323,6 +5323,30 @@
     },
     "caseShowcase": {
       "baltic": {
+        "hero": {
+          "eyebrow": "Кейс · Суднові запчастини · B2B · Варшава",
+          "titleTop": "Каталог на 12 400 позицій.",
+          "titleAccent": "Заявки - на пошту.",
+          "subhead": "Компанії фактично не було в мережі. Зібрав сайт під ключ на Next.js: двомовний каталог PL/EN, корпоративна пошта на домені та форма запиту ціни - заявка постачальника падає на пошту за секунди. Тепер постачальника знаходять по всьому світу.",
+          "want": "Хочу такий самий результат",
+          "channels": {
+            "seo": "Постачальники знаходять у Google",
+            "inbox": "Заявка → пошта · за секунди"
+          },
+          "proof": {
+            "googleLabel": "Google",
+            "googleQuery": "постачальник суднових запчастин",
+            "googleRank": "1-ше місце",
+            "googleMeta": "PL / EN · B2B",
+            "catalogLabel": "Каталог",
+            "catalogValue": "12 400+ позицій",
+            "catalogNote": "6 розділів · PL / EN",
+            "inboxLabel": "Вхідні",
+            "inboxFrom": "kontakt@baltic-dockyard.pl",
+            "inboxTopic": "Запит ціни · Rotterdam",
+            "inboxWhen": "щойно"
+          }
+        },
         "deliverables": {
           "eyebrow": "Що зробили",
           "headline": "П'ять задач - один підрядник",
@@ -5404,7 +5428,7 @@
             "chatgpt": "ChatGPT · радить за назвою"
           },
           "proof": {
-            "googleLabel": "Пошук Google",
+            "googleLabel": "Google",
             "googleQuery": "karta pobytu Warszawa",
             "googleRank": "1-ше місце",
             "googleMeta": "4.9★ · 312 відгуків",
@@ -5716,7 +5740,7 @@
             "telegram": "Лід → Telegram · миттєво"
           },
           "proof": {
-            "googleLabel": "Пошук Google",
+            "googleLabel": "Google",
             "googleQuery": "оператор дрона Варшава",
             "googleRank": "1-ше місце",
             "googleMeta": "4K Cinematic · 4.9★",

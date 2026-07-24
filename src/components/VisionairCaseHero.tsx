@@ -6,7 +6,9 @@ import {
   CardShell,
   CardHeader,
   GoogleG,
+  GoogleGChip,
   TelegramMark,
+  RankBadge,
   Stars,
   CheckDot,
 } from "@/components/CaseHeroKit";
@@ -54,8 +56,8 @@ export function VisionairCaseHero({ url, liveLabel }: { url: string; liveLabel: 
       subhead={t("subhead")}
       metrics={metrics}
       channels={[
-        { icon: <GoogleG className="h-3 w-3" />, label: channels.seo },
-        { icon: <TelegramMark className="h-4 w-4" />, label: channels.telegram },
+        { icon: <GoogleGChip />, label: channels.seo },
+        { icon: <TelegramMark className="h-5 w-5" />, label: channels.telegram },
       ]}
       wantLabel={t("want")}
       deviceMock={<VisionairHeroMock url={url} />}
@@ -74,11 +76,7 @@ function GoogleCard({ proof }: { proof: Proof }) {
       <CardHeader
         glyph={<GoogleG className="h-3.5 w-3.5" />}
         label={proof.googleLabel}
-        right={
-          <span className="rounded-full px-1.5 py-0.5 text-[10px] font-bold" style={{ background: "rgba(203,164,92,0.18)", color: GOLD_HI }}>
-            {proof.googleRank}
-          </span>
-        }
+        right={<RankBadge color={GOLD_HI} bg="rgba(203,164,92,0.18)">{proof.googleRank}</RankBadge>}
       />
       <div className="px-3 py-2.5">
         <div className="flex items-center gap-1.5 rounded-md bg-white/[0.05] px-2 py-1 text-[11px] text-white/60">
