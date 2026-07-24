@@ -187,7 +187,7 @@
     },
     "work": {
       "eyebrow": "Selected work",
-      "headline": "Five launches in production.",
+      "headline": "Seven launches in production.",
       "subhead": "Real clients, real results, real numbers.",
       "cta": "Read the case",
       "viewAll": "All work",
@@ -5049,7 +5049,7 @@
       "legalwin": {
         "industry": "Immigration legal services · Warsaw",
         "title": "LegalWin",
-        "imageAlt": "Passport by an airplane window at sunset - LegalWin immigration case study",
+        "imageAlt": "Immigration lawyer's desk at night: residence card and passport under a lamp, Warsaw skyline in the window - LegalWin case study",
         "tagline": "AI consultant + multilingual site for an immigration lawyer.",
         "problem": "Marta — an immigration lawyer in Warsaw — was losing hours to repeat client questions ('what documents for karta pobytu?', 'how long does it take?'). Her brochure site brought no Google leads, and every first-touch message was handled manually.",
         "solution": "I built a multilingual Next.js 15 site (RU / PL / UA) with proper localized routing, deployed schema for LegalService, and SEO targeting commercial queries ('karta pobytu Warszawa', 'pobyt stały Polska'). Inside, I connected a RAG consultant on GPT-4o, trained on 200+ real cases and official urząd documents. The bot handles standard questions, gathers initial data, and routes qualified leads to the lawyer's Telegram.",
@@ -5110,7 +5110,7 @@
       "crmbot": {
         "industry": "B2B sales automation",
         "title": "CRM Bot",
-        "imageAlt": "Blue network of nodes and links on a dark background — CRM Bot case study",
+        "imageAlt": "Glowing CRM pipeline of glass deal cards moving through the funnel to Won - CRM Bot case study",
         "tagline": "An AI agent that replaced the first-touch sales manager.",
         "problem": "A B2B company with 50–80 incoming leads per day. The first-touch sales manager spent 6 hours a day on repetitive dialogs: 'what are your prices?', 'can you send the deck?', 'do you work with our volume?'. Filtering quality was inconsistent, and leads slipped through.",
         "solution": "I built an AI agent on Gemini 2.0 Flash with function calling. Every morning the bot pulls new leads from AmoCRM, classifies the request type, runs the dialog on Telegram / WhatsApp / Wappi, qualifies on 6 criteria (volume, budget, timing, ICP fit, etc.), automatically moves leads through the pipeline and tags them. The admin dashboard shows all dialogs; a human can step in at any moment.",
@@ -5142,7 +5142,7 @@
       "leadbot": {
         "industry": "Immigration services · Bratislava",
         "title": "AI sales manager",
-        "imageAlt": "A person chatting in a messenger on a smartphone — AI sales manager case study",
+        "imageAlt": "A Telegram chat on a smartphone in a dark room with a typing indicator - AI sales manager case study",
         "tagline": "Replies to clients from the owner's real Telegram account — mirrors his writing style, his timing and the \"typing…\" indicator. Clients never realise they're chatting with an AI, not a real person.",
         "problem": "Maksim is an immigration consultant in Slovakia, handling temporary protection (€350/person) and business services for Ukrainians (€200 paid consultations, residency, s.r.o., živnosť). Inbound on Telegram was steady, but quality suffered: evening messages sat until morning, weekends ate leads, and recurring 'what documents?' / 'how long does it take?' questions soaked up more time than the actual paying clients.",
         "solution": "I built a Telegram userbot on Telethon + GPT-4o that runs from Maksim's real phone number — not a @bot, a live account. It imitates his messaging style and timing (2–12 minute unread windows on first contact, a typing indicator, an explicit read-receipt delay), distinguishes services (€350 temporary protection vs €200 consultation), pulls the live EUR→UAH rate from Monobank's public API, sends the right payment details (IBAN or Mono card with the converted hryvnia amount), flags payments with a [PAYMENT_SENT] marker and quietly hands the conversation over to Maksim. Document uploads and escalations ping the owner instantly with a deep link into the chat.",

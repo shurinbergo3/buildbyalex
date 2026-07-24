@@ -187,7 +187,7 @@
     },
     "work": {
       "eyebrow": "Wybrane realizacje",
-      "headline": "Pięć wdrożeń na produkcji.",
+      "headline": "Siedem wdrożeń na produkcji.",
       "subhead": "Realni klienci, realne wyniki, realne liczby.",
       "cta": "Przeczytaj case",
       "viewAll": "Wszystkie realizacje",
@@ -5049,7 +5049,7 @@
       "legalwin": {
         "industry": "Imigracyjne usługi prawne · Warszawa",
         "title": "LegalWin",
-        "imageAlt": "Paszport przy oknie samolotu o zachodzie słońca - case study imigracyjne LegalWin",
+        "imageAlt": "Biurko prawnika imigracyjnego nocą: karta pobytu i paszport pod lampą, panorama Warszawy za oknem - case study LegalWin",
         "tagline": "Konsultant AI + wielojęzyczna strona dla prawnika imigracyjnego.",
         "problem": "Marta — prawniczka imigracyjna w Warszawie — traciła godziny na powtarzające się pytania klientów ('jakie dokumenty na kartę pobytu?', 'ile to trwa?'). Strona-wizytówka nie przynosiła leadów z Google, każdą pierwszą wiadomość trzeba było obsługiwać ręcznie.",
         "solution": "Zbudowałem wielojęzyczny serwis na Next.js 15 (RU / PL / UA) z prawidłowym lokalizowanym routingiem, wdrożoną schemą LegalService, SEO pod komercyjne zapytania ('karta pobytu Warszawa', 'pobyt stały Polska'). Wewnątrz podpiąłem konsultanta RAG na GPT-4o, wytrenowanego na 200+ realnych kejsach i dokumentach urzędu. Bot odpowiada na standardowe pytania, zbiera dane wstępne, przekazuje zakwalifikowanych do Telegrama prawniczki.",
@@ -5110,7 +5110,7 @@
       "crmbot": {
         "industry": "Automatyzacja sprzedaży B2B",
         "title": "CRM Bot",
-        "imageAlt": "Niebieska sieć węzłów i połączeń na ciemnym tle — case study CRM Bot",
+        "imageAlt": "Świecący pipeline CRM: szklane karty transakcji płyną przez lejek do wygranej - case study CRM Bot",
         "tagline": "Agent AI, który zastąpił managera pierwszego kontaktu.",
         "problem": "Firma B2B z dziennym strumieniem 50–80 leadów. Manager pierwszego kontaktu tracił 6 godzin dziennie na powtarzające się dialogi: 'jakie macie ceny?', 'możecie przysłać prezentację?', 'pracujecie z naszym wolumenem?'. Jakość filtrowania była niestabilna, część leadów ginęła.",
         "solution": "Zbudowałem agenta na Gemini 2.0 Flash z function calling. Każdego ranka bot ściąga nowe leady z AmoCRM, klasyfikuje typ zapytania, prowadzi dialog na Telegram / WhatsApp / Wappi, kwalifikuje po 6 kryteriach (wolumen, budżet, terminy, ICP-fit itp.), automatycznie rusza po lejku w CRM i taguje. Panel admin pokazuje wszystkie dialogi, człowiek może wejść w każdej chwili.",
@@ -5142,7 +5142,7 @@
       "leadbot": {
         "industry": "Usługi imigracyjne · Bratysława",
         "title": "Menedżer sprzedaży AI",
-        "imageAlt": "Osoba pisząca w komunikatorze na smartfonie — case study asystenta sprzedaży AI",
+        "imageAlt": "Rozmowa na Telegramie na smartfonie w ciemnym pokoju, wskaźnik pisania - case study asystenta sprzedaży AI",
         "tagline": "Odpowiada klientom z prawdziwego konta Telegram właściciela — naśladuje jego styl pisania, pauzy i wskaźnik „pisze…”. Klient nie poznaje, że rozmawia z AI, a nie z żywym człowiekiem.",
         "problem": "Maksim to konsultant imigracyjny na Słowacji. Załatwia tymczasową ochronę (350 €/os.) i usługi biznesowe dla Ukraińców (konsultacje 200 €, pobyt, s.r.o., živnosť). Strumień zapytań w Telegramie był stały, ale jakość kulała: wieczorne wiadomości wisiały do rana, weekendy zjadały leady, a powtarzające się 'jakie dokumenty?' i 'ile to potrwa?' wciągały więcej czasu niż realni płacący klienci.",
         "solution": "Zbudowałem Telegramowy userbot na Telethon + GPT-4o, działający z prawdziwego numeru Maksima — nie @bot, tylko żywe konto. Naśladuje jego styl pisania i timing (pauzy 2–12 minut przy pierwszym kontakcie, wskaźnik 'pisze', okno nieprzeczytanego przed potwierdzeniem), rozróżnia usługi (350 € ochrona vs 200 € konsultacja), pobiera kurs EUR→UAH z publicznego API Monobanku, wysyła odpowiednie dane do przelewu (IBAN lub karta Mono z przeliczeniem na hrywny), oznacza płatność markerem [PAYMENT_SENT] i po cichu oddaje rozmowę Maksimowi. Dokumenty i eskalacje natychmiast pingują właściciela z deep-linkiem do chatu.",

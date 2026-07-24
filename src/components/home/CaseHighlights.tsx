@@ -164,7 +164,7 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
                 href={{ pathname: "/work/[slug]", params: { slug: it.slug } }}
                 aria-label={it.title}
                 data-active={isActive}
-                className="group relative block h-[clamp(440px,62vh,660px)] overflow-hidden rounded-[26px] bg-black opacity-100 transition-[transform,opacity] duration-500 data-[active=false]:scale-[0.965] data-[active=false]:opacity-[0.72] sm:rounded-[30px]"
+                className="group relative block h-[clamp(440px,62vh,660px)] overflow-hidden rounded-[26px] bg-black ring-1 ring-white/[0.06] transition-[transform,opacity,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] data-[active=false]:scale-[0.91] data-[active=false]:opacity-[0.62] data-[active=true]:ring-[color:color-mix(in_srgb,var(--c-accent)_28%,transparent)] data-[active=true]:shadow-[0_44px_100px_-34px_rgba(255,122,45,0.5)] sm:rounded-[30px]"
               >
                 {/* Cover: code-drawn product scene when we have one, photo otherwise */}
                 {hasCaseArt(it.key) ? (
@@ -199,6 +199,18 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
                   }}
                 />
 
+                {/* Neighbours recede: a soft grade that lifts only on the active card */}
+                <div
+                  aria-hidden
+                  className="absolute inset-0 bg-black/25 opacity-100 transition-opacity duration-500 group-data-[active=true]:opacity-0"
+                />
+                {/* Accent hairline crowns the active card */}
+                <div
+                  aria-hidden
+                  className="absolute inset-x-0 top-0 h-px opacity-0 transition-opacity duration-500 group-data-[active=true]:opacity-100"
+                  style={{ background: "linear-gradient(90deg, transparent, rgba(255,122,45,0.75) 50%, transparent)" }}
+                />
+
                 {/* Copy */}
                 <div className="absolute inset-0 flex items-end">
                   <div className="w-full max-w-[620px] p-6 sm:p-9 lg:p-12">
@@ -215,13 +227,18 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
                       {it.tagline}
                     </p>
 
-                    <div className="mt-5 flex items-end gap-7">
-                      <div>
-                        <div className="text-[clamp(26px,3vw,40px)] font-semibold leading-none tracking-[-0.02em] text-white">
+                    <div className="mt-5 inline-flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-2.5 backdrop-blur-md">
+                      <span
+                        aria-hidden
+                        className="h-9 w-[3px] shrink-0 rounded-full"
+                        style={{ background: "var(--c-accent)", boxShadow: "0 0 14px rgba(255,122,45,0.65)" }}
+                      />
+                      <span className="leading-none">
+                        <span className="block text-[clamp(24px,2.6vw,34px)] font-semibold leading-none tracking-[-0.02em] tabular-nums text-white">
                           {it.metricValue}
-                        </div>
-                        <div className="mt-1.5 text-[11.5px] uppercase tracking-wider text-white/55">{it.metricLabel}</div>
-                      </div>
+                        </span>
+                        <span className="mt-1.5 block text-[10.5px] uppercase tracking-wider text-white/60">{it.metricLabel}</span>
+                      </span>
                     </div>
 
                     <span className="mt-6 inline-flex items-center gap-1.5 text-[14px] font-semibold text-white">
@@ -239,7 +256,15 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
       </ul>
 
       {/* Controls — below the track, never over the cards */}
-      <div className="mt-7 flex items-center justify-center gap-5">
+      <div className="relative mt-7 flex items-center justify-center gap-5">
+        <span
+          aria-hidden
+          className="absolute left-0 hidden font-mono text-[13px] tabular-nums text-[color:var(--color-text-3)] sm:block"
+        >
+          <span className="text-[color:var(--color-text)]">{String(active + 1).padStart(2, "0")}</span>
+          <span className="mx-1.5 opacity-40">/</span>
+          {String(n).padStart(2, "0")}
+        </span>
         <button
           type="button"
           onClick={() => stepTo(active - 1)}

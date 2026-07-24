@@ -1,0 +1,16 @@
+{
+  "name": "BuildByAlex",
+  "engine_default": "nano",
+  "nano_model": "pro",
+  "aspect": "3:2",
+  "size": "2K",
+  "size_recraft": "1024x1024",
+  "palette": ["#0B0E13", "#FF7A2D", "#1A1207", "#EFE7DF"],
+  "art_direction": "Cinematic dark editorial product photography, shot on a full-frame camera with a fast prime lens, shallow depth of field, premium and understated. One clear hero subject that reads instantly, set in near-black negative space with generous empty room along the bottom for a headline overlay. Rich cinematic color grade of deep shadow and warm amber, controlled contrast, subtle volumetric haze and fine film grain. Real materials and believable motivated light, never flat clip-art or cheerful stock.",
+  "mood": "premium, confident, cinematic, quiet, high-end B2B",
+  "lighting": "dramatic warm directional key with an orange rim light against deep shadow, single motivated source",
+  "do_not": "no bright blue tech-plexus network clichés, no generic smiling stock people, no flat corporate vector, no rainbow gradients, no busy backgrounds, no legible fake UI text",
+  "recraft_style": "",
+  "recraft_substyle": "",
+  "recraft_style_id": ""
+}

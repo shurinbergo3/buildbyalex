@@ -58,10 +58,10 @@ export const caseKeyToSlug: Record<CaseKey, string> = {
 // `work.cases.<key>.imageAlt` so it translates per locale (used in <img>/OG alt).
 export const caseImages: Record<CaseKey, { src: string }> = {
   baltic: { src: "/cases/baltic-cover.webp" },
-  legalwin: { src: "/cases/legalwin-passport.webp" },
+  legalwin: { src: "/cases/legalwin-cover.webp" },
   visionair: { src: "/cases/visionair-cover.webp" },
   bodyforgesite: { src: "/cases/bodyforgesite-cover.webp" },
-  crmbot: { src: "/cases/crm-ai.webp" },
-  leadbot: { src: "/cases/leadbot-chat.webp" },
+  crmbot: { src: "/cases/crmbot-cover.webp" },
+  leadbot: { src: "/cases/leadbot-cover.webp" },
   bodyforge: { src: "/cases/bodyforge-gym.webp" },
 };

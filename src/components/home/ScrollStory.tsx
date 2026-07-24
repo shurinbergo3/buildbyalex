@@ -113,6 +113,18 @@ export function ScrollStory() {
             }}
           />
 
+          {/* Faint cinematic backdrop — barely-there warm haze, blends into the black */}
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-[0.22] mix-blend-screen"
+            style={{
+              backgroundImage: "url(/scroll-story-bg.webp)",
+              maskImage:
+                "radial-gradient(115% 100% at 62% 48%, #000 20%, transparent 100%)",
+              WebkitMaskImage:
+                "radial-gradient(115% 100% at 62% 48%, #000 20%, transparent 100%)",
+            }}
+          />
+
           {/* Fine blueprint grid, fading out towards the edges */}
           <div
             className="absolute inset-0 opacity-[0.5]"
