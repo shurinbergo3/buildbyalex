@@ -2140,3 +2140,117 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
 @media (prefers-reduced-motion: reduce) {
   .ss-drift, .ss-drift-slow { animation: none !important; }
 }
+
+/* ─────────────────────────────────────────────────────────────
+   CONTACT — falling-code stage
+   Canvas rain sits behind the page content; a veil kills it under
+   the left-hand copy so the headline keeps its contrast, and the
+   form floats above as frosted glass.
+   ───────────────────────────────────────────────────────────── */
+.contact-stage {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.contact-rain {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.contact-rain__canvas,
+.contact-rain__plate {
+  position: absolute;
+  inset: 0;
+  display: block;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 14%, #000 80%, transparent 100%);
+          mask-image: linear-gradient(180deg, transparent 0%, #000 14%, #000 80%, transparent 100%);
+}
+
+/* Wash out the rain where the pitch copy lives — text first, mood second. */
+.contact-rain__veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--c-bg) 94%, transparent) 0%,
+      color-mix(in srgb, var(--c-bg) 88%, transparent) 22%,
+      color-mix(in srgb, var(--c-bg) 55%, transparent) 38%,
+      transparent 56%
+    ),
+    radial-gradient(28% 22% at 17% 22%, color-mix(in srgb, var(--c-bg) 70%, transparent) 0%, transparent 78%);
+}
+
+/* Faint amber pool behind the form — gives the glass something to catch. */
+.contact-rain__glow {
+  position: absolute;
+  top: -14%;
+  right: -6%;
+  width: 46%;
+  height: 62%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 107, 26, 0.13), transparent 68%);
+  filter: blur(30px);
+}
+
+[data-theme="dark"] .contact-rain__glow {
+  background: radial-gradient(circle, rgba(255, 122, 45, 0.18), transparent 68%);
+}
+
+/* The form panel — frosted glass over the rain. Backdrop stays milky enough
+   that field labels hold 4.5:1; the code only reads as blurred texture. */
+.contact-panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.66);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--c-bg-elev) 74%, transparent) 0%,
+    color-mix(in srgb, var(--c-bg-elev) 64%, transparent) 100%
+  );
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  box-shadow:
+    0 1px 2px rgba(10, 10, 10, 0.04),
+    0 34px 70px -34px rgba(10, 10, 10, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="dark"] .contact-panel {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--c-bg-elev) 82%, transparent) 0%,
+    color-mix(in srgb, var(--c-bg-elev) 74%, transparent) 100%
+  );
+  box-shadow:
+    0 34px 70px -34px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Fields need a solid base — glass on glass turns unreadable. */
+.contact-panel input,
+.contact-panel select,
+.contact-panel textarea {
+  background: color-mix(in srgb, var(--c-bg-elev) 94%, transparent);
+}
+
+@supports not (backdrop-filter: blur(4px)) {
+  .contact-panel { background: var(--c-bg-elev); }
+}
+
+@media (max-width: 767px) {
+  .contact-rain__canvas,
+  .contact-rain__plate {
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 62%, transparent 90%);
+            mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 62%, transparent 90%);
+    opacity: 0.85;
+  }
+  .contact-rain__veil {
+    background: radial-gradient(70% 34% at 50% 22%, var(--c-bg) 0%, color-mix(in srgb, var(--c-bg) 70%, transparent) 52%, transparent 82%);
+  }
+}

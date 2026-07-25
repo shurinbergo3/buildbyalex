@@ -4,6 +4,7 @@ import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
+import { ContactCodeRain } from "@/components/ContactCodeRain";
 import { routing, type Locale } from "@/i18n/routing";
 import { buildLocalizedMetadata } from "@/lib/metadata";
 import { getLiveReviewCount } from "@/lib/reviews";
@@ -46,8 +47,9 @@ export default async function ContactPage({
   const steps = t.raw("steps.items") as { title: string; desc: string }[];
 
   return (
-    <Section pad="tight" className="!pt-16 md:!pt-24">
-      <Container>
+    <Section pad="tight" className="contact-stage !pt-16 md:!pt-24">
+      <ContactCodeRain />
+      <Container className="relative z-10">
         <div className="grid gap-14 md:grid-cols-12 md:items-start md:gap-16">
           {/* ── Left: pitch, trust, process, channels ── */}
           <div className="md:col-span-5">
@@ -122,7 +124,7 @@ export default async function ContactPage({
           {/* ── Right: form ── */}
           <div className="md:col-span-7 md:sticky md:top-24">
             <Reveal delay={100}>
-              <div className="relative overflow-hidden rounded-[28px] border border-[color:var(--c-hairline)] bg-[color:var(--color-bg-alt)] p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_28px_60px_-32px_rgba(0,0,0,0.22)] md:p-9">
+              <div className="contact-panel p-6 md:p-9">
                 {/* hairline accent across the top edge */}
                 <div
                   aria-hidden
