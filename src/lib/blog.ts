@@ -315,6 +315,14 @@ export const clusterToService: Record<string, { menuKey: ServiceMenuKey; path: S
   "b2b-online-store": { menuKey: "store", path: "/services/online-store" },
   "whatsapp-chatbot-business": { menuKey: "ai", path: "/services/ai-agents" },
   "ai-content-generation": { menuKey: "ai", path: "/services/ai-agents" },
+  // 2026-07 selling geo batch (5 dev services x Poland, RU+EN). Per-locale cluster
+  // (`<base>-<locale>`) -> independent ranking, no cross-locale hreflang. Only the
+  // base slug is registered; the resolver strips the trailing locale suffix.
+  "landing-page-development-poland": { menuKey: "websites", path: "/services/websites" },
+  "saas-development-poland": { menuKey: "websites", path: "/services/websites" },
+  "website-development-poland": { menuKey: "websites", path: "/services/websites" },
+  "ecommerce-development-poland": { menuKey: "store", path: "/services/online-store" },
+  "mobile-app-development-poland": { menuKey: "mobile", path: "/services/mobile-apps" },
 };
 
 /** Resolve a cluster to its service, stripping a trailing locale suffix
