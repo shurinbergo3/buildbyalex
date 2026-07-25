@@ -61,3 +61,32 @@ export function ProductGlyph({ i, className = "" }: { i: number; className?: str
     </svg>
   );
 }
+
+/* Real studio product cutouts (transparent WebP) that replace the line glyphs
+   inside the store mocks. Same index order as GLYPHS so callers keep passing the
+   same `i`: 0 puffer · 1 sneaker · 2 hoodie · 3 jeans · 4 backpack · 5 cap. */
+export const PRODUCT_SHOTS = [
+  "/services/store/puffer.webp",
+  "/services/store/sneaker.webp",
+  "/services/store/hoodie.webp",
+  "/services/store/jeans.webp",
+  "/services/store/backpack.webp",
+  "/services/store/cap.webp",
+];
+
+export function ProductShot({ i, className = "" }: { i: number; className?: string }) {
+  const src = PRODUCT_SHOTS[((i % PRODUCT_SHOTS.length) + PRODUCT_SHOTS.length) % PRODUCT_SHOTS.length];
+  return (
+    <span
+      aria-hidden
+      className={className}
+      style={{
+        backgroundImage: `url(${src})`,
+        backgroundSize: "contain",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        filter: "drop-shadow(0 10px 18px rgba(0,0,0,0.55))",
+      }}
+    />
+  );
+}

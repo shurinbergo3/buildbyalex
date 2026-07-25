@@ -3,7 +3,7 @@
 import { useState, type ReactNode } from "react";
 import { useMessages, useTranslations } from "next-intl";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { ProductGlyph } from "./storeGlyphs";
+import { ProductShot } from "./storeGlyphs";
 
 /* Online-store service demo. A real, *interactive* clothing storefront, hand-built
    and rendered live inside a desktop browser chrome, with an overlapping phone
@@ -144,7 +144,7 @@ function PhoneStore({ shop, count, total }: { shop: Shop; count: number; total: 
         {featured.map((pr, i) => (
           <div key={i} className="flex items-center gap-4 rounded-3xl border border-white/[0.08] bg-white/[0.03] p-3.5">
             <span className="grid h-[78px] w-[78px] flex-none place-items-center rounded-2xl" style={{ background: THUMBS[i % THUMBS.length] }}>
-              <ProductGlyph i={i} className="h-[58%] w-[58%]" />
+              <ProductShot i={i} className="h-[86%] w-[86%]" />
             </span>
             <span className="min-w-0 flex-1">
               <span className="block text-[13px] uppercase tracking-[0.08em] text-white/45">{pr.c}</span>
@@ -280,7 +280,7 @@ export function StoreSiteMock() {
               <div key={i} className="group overflow-hidden rounded-xl border border-white/[0.07] bg-white/[0.02] transition-colors hover:border-white/[0.14]">
                 <div className="relative grid aspect-[4/3] place-items-center" style={{ background: THUMBS[i % THUMBS.length] }}>
                   <span aria-hidden className="absolute inset-0" style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)" }} />
-                  <ProductGlyph i={i} className="h-[46%] w-[46%] transition-transform duration-300 group-hover:scale-[1.06]" />
+                  <ProductShot i={i} className="h-[88%] w-[88%] transition-transform duration-300 group-hover:scale-[1.05]" />
                   {qty[i] > 0 && (
                     <span className="absolute left-2 top-2 grid h-5 min-w-[20px] place-items-center rounded-full px-1 text-[10.5px] font-bold text-[#0a0a0a]" style={{ background: AMBER }}>
                       {qty[i]}
@@ -360,7 +360,7 @@ export function StoreSiteMock() {
                                 qty[i] > 0 ? (
                                   <div key={i} className="flex items-center gap-3 rounded-xl border border-white/[0.07] bg-white/[0.02] p-2.5">
                                     <span className="grid h-12 w-12 flex-none place-items-center rounded-lg" style={{ background: THUMBS[i % THUMBS.length] }}>
-                                      <ProductGlyph i={i} className="h-[56%] w-[56%]" />
+                                      <ProductShot i={i} className="h-[88%] w-[88%]" />
                                     </span>
                                     <span className="min-w-0 flex-1">
                                       <span className="block truncate text-[12px] font-medium text-white/90">{pr.n}</span>

@@ -63,17 +63,7 @@ export function ServiceFormats({ branch }: { branch: "websites" | "store" | "mob
           {items.map((item, i) => (
             <Reveal key={item.title} delay={i * 80}>
               <article className="flex h-full flex-col rounded-[24px] border border-[color:var(--c-hairline)] bg-[color:var(--color-bg-alt)] p-6 transition-[transform,box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[var(--shadow-card-hover)] md:p-8">
-                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
-                  <h3 className="t-h4">{item.title}</h3>
-                  <p className="flex items-baseline gap-1.5">
-                    <span className="text-[12px] uppercase tracking-[0.04em] text-[color:var(--color-text-3)]">
-                      {t("priceFrom")}
-                    </span>
-                    <span className="text-[26px] font-semibold tracking-[-0.03em] text-[color:var(--color-text)]">
-                      {item.price}
-                    </span>
-                  </p>
-                </div>
+                <h3 className="t-h4">{item.title}</h3>
 
                 <div className="mt-3 flex flex-wrap gap-2">
                   <span className="inline-flex items-center gap-1.5 rounded-full bg-[color:var(--c-accent-soft)] px-3 py-1 text-[12px] font-medium text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
