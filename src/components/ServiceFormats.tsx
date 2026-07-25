@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { Container } from "./Container";
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
+import { SectionAtmosphere } from "./SectionAtmosphere";
 
 /* Four site formats (landing / corporate / store / redesign) with prices and
    timelines — segmentation for the visitor, OfferCatalog markup for Google. */
@@ -45,7 +46,8 @@ export function ServiceFormats({ branch }: { branch: "websites" | "store" | "mob
   };
 
   return (
-    <Section pad="default" tone="default">
+    <Section pad="default" tone="default" className="isolate">
+      <SectionAtmosphere variant="a" />
       <Container>
         <script
           type="application/ld+json"
