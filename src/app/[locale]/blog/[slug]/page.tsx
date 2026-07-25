@@ -23,6 +23,7 @@ import {
   extractFaq,
 } from "@/lib/blog";
 import { SITE_URL, localeSegment, htmlLang } from "@/lib/site";
+import { ctaBackground } from "@/lib/ctaBackground";
 
 // Re-render hourly so future-dated (queued) posts go live on their day without a redeploy.
 export const revalidate = 3600;
@@ -131,6 +132,7 @@ export default async function BlogPostPage({
   const related = getRelatedPosts(locale as Locale, slug, 3);
   const service = getRelatedService(post.cluster);
   const heroImage = getPostImage(post.ogImage);
+  const ctaImage = ctaBackground(post.cluster || slug);
 
   // Per-locale targets for the language switcher. Geo/pain articles use a unique
   // cluster per locale (no hreflang) so the switcher can't read them off the
@@ -295,8 +297,8 @@ export default async function BlogPostPage({
       <Section pad="default" tone="default">
         <Container size="md">
           <Reveal>
-            <div className="cta-glass rounded-[28px] px-7 py-12 text-center text-white md:px-10 md:py-16">
-              <CtaGlassLayers />
+            <div className="cta-glass cta-glass--photo rounded-[28px] px-7 py-12 text-center text-white md:px-10 md:py-16">
+              <CtaGlassLayers photo={ctaImage} />
               <div className="relative z-10">
                 <h2 className="text-[clamp(24px,3vw,36px)] font-semibold leading-[1.15] tracking-[-0.024em]">
                   {t("ctaTitle")}

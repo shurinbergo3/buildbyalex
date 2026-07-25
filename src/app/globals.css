@@ -1214,6 +1214,47 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
     inset 0 1px 0 rgba(255, 255, 255, 0.07);
 }
 
+/* Layer -1 — cinematic key-art photo (blog posts). Sits under the aurora,
+   with a centre-weighted scrim so the headline keeps its contrast while the
+   corners of the shot stay alive. Add `cta-glass--photo` on the surface. */
+.cta-glass__photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: inherit;
+}
+.cta-glass__photo img {
+  object-position: center;
+  filter: saturate(106%) contrast(104%);
+  transform: scale(1.02);
+}
+.cta-glass__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(56% 68% at 50% 50%, rgba(6, 5, 8, 0.70) 0%, rgba(6, 5, 8, 0.38) 58%, rgba(6, 5, 8, 0.04) 100%),
+    linear-gradient(180deg, rgba(6, 5, 8, 0.34) 0%, rgba(6, 5, 8, 0.10) 46%, rgba(6, 5, 8, 0.40) 100%);
+}
+
+/* With a photo underneath, thin the frost and calm the aurora — otherwise the
+   34px backdrop blur turns the shot into an unreadable smear. */
+.cta-glass--photo .cta-glass__aurora {
+  opacity: 0.26;
+  mix-blend-mode: screen;
+  filter: blur(30px) saturate(112%);
+}
+.cta-glass--photo .cta-glass__frost {
+  backdrop-filter: blur(3px) saturate(112%);
+  -webkit-backdrop-filter: blur(3px) saturate(112%);
+  background:
+    radial-gradient(120% 86% at 50% 0%, rgba(255, 255, 255, 0.04), transparent 58%),
+    linear-gradient(180deg, rgba(12, 10, 16, 0.06) 0%, rgba(7, 6, 8, 0.20) 100%);
+}
+.cta-glass--photo .cta-glass__grid { opacity: 0.32; }
+
 /* Layer 0 — vibrant light mesh: warm amber lead + cool sapphire
    counter-glow for depth. Lightly pre-blurred; the frost finishes it. */
 .cta-glass__aurora {
