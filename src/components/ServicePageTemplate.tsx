@@ -29,6 +29,7 @@ import { SlowVsFastRace } from "./SlowVsFastRace";
 import { WebsitesCaseProof } from "./WebsitesCaseProof";
 import { WebsitesLossCalc } from "./WebsitesLossCalc";
 import { StoreIntegrations } from "./StoreIntegrations";
+import { SectionAtmosphere } from "./SectionAtmosphere";
 import { StoreAllegroCalc } from "./StoreAllegroCalc";
 import { MobileCaseProof } from "./MobileCaseProof";
 import { MobileCostCalc } from "./MobileCostCalc";
@@ -201,7 +202,8 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
       {branch === "mobile" && <MobileCaseProof />}
 
       {/* ── What's included ── */}
-      <Section pad="default" tone={Demo ? "default" : "alt"}>
+      <Section pad="default" tone={Demo ? "default" : "alt"} className="isolate">
+        <SectionAtmosphere variant="a" />
         <Container>
           <Reveal>
             <h2 className="t-h2 mb-12 md:mb-16">{t("what.title")}</h2>
@@ -249,7 +251,8 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
       {branch === "mobile" && <MobileCostCalc />}
 
       {/* ── FAQ ── */}
-      <Section pad="default" tone="alt">
+      <Section pad="default" tone="alt" className="isolate">
+        <SectionAtmosphere variant="b" />
         <Container size="md">
           <Reveal>
             <h2 className="t-h2 mb-10 md:mb-12 text-center">{t("faq.title")}</h2>

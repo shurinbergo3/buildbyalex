@@ -2,6 +2,7 @@ import { Container } from "./Container";
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
 import { Button } from "./Button";
+import { SectionAtmosphere } from "./SectionAtmosphere";
 
 export type PricingTier = {
   title: string;
@@ -33,7 +34,8 @@ export function ServicePricing({ eyebrow, tiers, bookCta, caption, featuredLabel
   const cols = COLS[tiers.length] ?? "md:grid-cols-3";
 
   return (
-    <Section pad="default" tone="default">
+    <Section pad="default" tone="default" className="isolate">
+      <SectionAtmosphere variant="c" />
       <Container size={tiers.length > 1 ? "md" : "sm"}>
         <Reveal>
           <p className="t-eyebrow text-center">{eyebrow}</p>

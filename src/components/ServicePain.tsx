@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import { Container } from "./Container";
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
+import { SectionAtmosphere } from "./SectionAtmosphere";
 
 /* Pain section for flagship service pages: why the current site/store stays
    silent. Sticky header left, numbered list right (homepage PainPoints
@@ -22,7 +23,8 @@ export function ServicePain({
   const items = t.raw("items") as PainItem[];
 
   return (
-    <Section tone="default" pad="default">
+    <Section tone="default" pad="default" className="isolate">
+      <SectionAtmosphere variant="c" />
       <Container>
         <div className="grid gap-12 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-16 lg:gap-24">
           <Reveal>
