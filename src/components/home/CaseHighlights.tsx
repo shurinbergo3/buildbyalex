@@ -28,6 +28,9 @@ export type HighlightItem = {
 const GAP = 20;
 /** Share of a card you have to drag past to commit without a flick. */
 const COMMIT = 0.2;
+/** Same, for a trackpad swipe — lower, because a card is nearly a viewport wide
+    and an unhurried two-finger swipe never covers a fifth of one. */
+const COMMIT_WHEEL = 0.1;
 /** px/s past which a flick counts as intent even on a short drag. */
 const FLICK = 380;
 const EASE_OUT = [0.22, 1, 0.36, 1] as const;
@@ -116,33 +119,89 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
     [goTo, metrics],
   );
 
-  /* Trackpad: horizontal-dominant gestures drive the rail, vertical ones are
-     left to the page. A trackpad flick fires a long momentum tail, so we step
-     once and then wait for the tail to go quiet before allowing the next one. */
+  /* Trackpad. Two rules, and everything else follows from them.
+
+     1. The axis is locked once per gesture and held until the gesture goes
+        quiet. It is decided on accumulated delta, not on the first event: a
+        two-finger swipe opens with tiny, noisy deltas, so judging one event
+        sent most horizontal swipes down the vertical path — the rail felt dead
+        and the page jerked. Below the threshold we stay out of the way, and a
+        tie still goes to the page.
+     2. A horizontal gesture scrubs the track 1:1 and snaps when it stops — the
+        same contract as a native scroll-snap rail, momentum tail included.
+        "One card per gesture" was the other half of the problem: the rail went
+        unresponsive while the tail was still firing.
+
+     The one place we don't follow the native rail: a card is most of the
+     viewport wide, so an unhurried swipe never covers half of one and would
+     always fall back to where it started. Any gesture that clears a fraction of
+     a card commits to the next one. */
   useEffect(() => {
     const vp = viewportRef.current;
     if (!vp || !metrics.step) return;
-    let armed = true;
+    const limit = metrics.step * (n - 1);
+    const LOCK_AT = 8; // px of accumulated travel before we commit to an axis
+    let axis: "x" | "y" | null = null;
+    let accX = 0;
+    let accY = 0;
+    let from = 0;
+    let travelled = 0;
     let idle = 0;
+
+    const settle = () => {
+      if (axis === "x") {
+        let target = Math.round(-x.get() / metrics.step);
+        if (target === from && Math.abs(travelled) > metrics.step * COMMIT_WHEEL) {
+          target = from + (travelled > 0 ? 1 : -1);
+        }
+        goTo(target);
+      }
+      axis = null;
+      accX = 0;
+      accY = 0;
+      travelled = 0;
+    };
+
     const onWheel = (e: WheelEvent) => {
-      if (Math.abs(e.deltaX) <= Math.abs(e.deltaY) * 1.2) return;
+      window.clearTimeout(idle);
+      idle = window.setTimeout(settle, 160);
+
+      let travel = e.deltaX;
+      if (axis === null) {
+        accX += e.deltaX;
+        accY += e.deltaY;
+        if (Math.abs(accX) < LOCK_AT && Math.abs(accY) < LOCK_AT) return;
+        axis = Math.abs(accX) > Math.abs(accY) * 1.15 ? "x" : "y";
+        if (axis === "y") return; // the page owns this gesture, hands off
+        travel = accX; // replay what the gesture covered before we recognised it
+        from = Math.max(0, Math.min(n - 1, Math.round(-x.get() / metrics.step)));
+        travelled = 0;
+      } else if (axis === "y") {
+        return;
+      }
+
+      // Own it outright: also stops macOS turning the swipe into a back-nav.
       e.preventDefault();
       e.stopPropagation();
-      // Restart the quiet-period clock on every event of the gesture.
-      window.clearTimeout(idle);
-      idle = window.setTimeout(() => {
-        armed = true;
-      }, 260);
-      if (!armed || Math.abs(e.deltaX) < 4) return;
-      armed = false;
-      goTo(activeRef.current + (e.deltaX > 0 ? 1 : -1));
+      runningRef.current?.stop();
+      runningRef.current = null;
+
+      travelled += travel;
+      const next = Math.max(-limit, Math.min(0, x.get() - travel));
+      x.set(next);
+      const i = Math.max(0, Math.min(n - 1, Math.round(-next / metrics.step)));
+      if (i !== activeRef.current) {
+        activeRef.current = i;
+        setActive(i);
+      }
     };
+
     vp.addEventListener("wheel", onWheel, { passive: false });
     return () => {
       vp.removeEventListener("wheel", onWheel);
       window.clearTimeout(idle);
     };
-  }, [goTo, metrics.step]);
+  }, [goTo, metrics.step, n, x]);
 
   useEffect(() => () => runningRef.current?.stop(), []);
 

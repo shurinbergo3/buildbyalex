@@ -2184,12 +2184,12 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
   background:
     linear-gradient(
       90deg,
-      color-mix(in srgb, var(--c-bg) 90%, transparent) 0%,
-      color-mix(in srgb, var(--c-bg) 80%, transparent) 20%,
-      color-mix(in srgb, var(--c-bg) 44%, transparent) 36%,
-      transparent 54%
+      color-mix(in srgb, var(--c-bg) 78%, transparent) 0%,
+      color-mix(in srgb, var(--c-bg) 64%, transparent) 18%,
+      color-mix(in srgb, var(--c-bg) 30%, transparent) 34%,
+      transparent 50%
     ),
-    radial-gradient(26% 20% at 17% 22%, color-mix(in srgb, var(--c-bg) 62%, transparent) 0%, transparent 78%);
+    radial-gradient(24% 18% at 17% 22%, color-mix(in srgb, var(--c-bg) 55%, transparent) 0%, transparent 78%);
 }
 
 /* Faint amber pool behind the form — gives the glass something to catch. */
@@ -2248,13 +2248,11 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
   .contact-rain__plate {
     -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 62%, transparent 90%);
             mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 62%, transparent 90%);
-    opacity: 0.74;
+    opacity: 0.5;
   }
-  /* Narrow screens put the copy over the rain, so the veil has to cover the
-     whole text column instead of just the left rail. */
+  /* Copy runs full width here, so the rain drops to a fine 11px texture
+     instead of being veiled away — only the headline gets cleared. */
   .contact-rain__veil {
-    background:
-      linear-gradient(180deg, color-mix(in srgb, var(--c-bg) 62%, transparent) 0%, color-mix(in srgb, var(--c-bg) 46%, transparent) 55%, transparent 88%),
-      radial-gradient(78% 30% at 50% 18%, var(--c-bg) 0%, color-mix(in srgb, var(--c-bg) 60%, transparent) 58%, transparent 84%);
+    background: radial-gradient(76% 18% at 50% 11%, color-mix(in srgb, var(--c-bg) 78%, transparent) 0%, color-mix(in srgb, var(--c-bg) 28%, transparent) 58%, transparent 86%);
   }
 }

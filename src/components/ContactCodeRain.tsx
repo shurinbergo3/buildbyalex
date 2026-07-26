@@ -26,10 +26,14 @@ const TAPES = [
   `class LeadRepository @Inject constructor(private val api: ContactApi) { suspend fun submit(form: LeadForm): Result<Unit> = runCatching { api.send(form.toDto()) }.onSuccess { analytics.track("lead_submitted") } }`,
 ];
 
-const FONT_SIZE = 13;
-const CELL_H = 17;
-const CELL_W = 19;
 const FRAME_MS = 45;
+
+// Narrow screens get a finer grain — same density, less visual weight behind
+// the copy that now runs full width.
+const metrics = (w: number) =>
+  w < 768
+    ? { font: 11, cellH: 14.5, cellW: 15, plateGap: 1.5 }
+    : { font: 13, cellH: 17, cellW: 17, plateGap: 1.45 };
 
 type Column = {
   x: number;
@@ -69,14 +73,15 @@ export function ContactCodeRain() {
     let raf = 0;
     let last = 0;
     let onScreen = true;
+    let m = metrics(1440);
 
     const palette = () =>
       themeRef.current === "dark"
-        ? { ink: "236, 236, 240", head: "255, 138, 61", tail: 0.26, glow: 0.85, plate: 0.06 }
-        : { ink: "26, 26, 30", head: "255, 96, 10", tail: 0.23, glow: 0.8, plate: 0.05 };
+        ? { ink: "236, 236, 240", head: "255, 138, 61", tail: 0.28, glow: 0.85, plate: 0.085 }
+        : { ink: "26, 26, 30", head: "255, 96, 10", tail: 0.25, glow: 0.8, plate: 0.068 };
 
     const spawn = (x: number, seeded: boolean): Column => {
-      const rows = Math.ceil(h / CELL_H);
+      const rows = Math.ceil(h / m.cellH);
       const tail = Math.round(rand(12, 26));
       return {
         x,
@@ -93,10 +98,9 @@ export function ContactCodeRain() {
     };
 
     const build = (seeded: boolean) => {
-      const count = Math.max(1, Math.floor(w / CELL_W));
-      const inset = (w - count * CELL_W) / 2;
-      cols = Array.from({ length: count }, (_, i) => spawn(inset + i * CELL_W, seeded));
-      cols = cols.filter(() => Math.random() > 0.05);
+      const count = Math.max(1, Math.floor(w / m.cellW));
+      const inset = (w - count * m.cellW) / 2;
+      cols = Array.from({ length: count }, (_, i) => spawn(inset + i * m.cellW, seeded));
     };
 
     // Torn-off horizontal snippets sitting behind the rain, drawn once per
@@ -104,21 +108,21 @@ export function ContactCodeRain() {
     const drawPlate = () => {
       const pal = palette();
       pctx.clearRect(0, 0, w, h);
-      const gap = CELL_H * 1.75;
+      const gap = m.cellH * m.plateGap;
       const rows = Math.floor(h / gap) + 1;
       for (let r = 0; r < rows; r++) {
         const y = r * gap + rand(-4, 4);
-        let x = rand(-220, w * 0.12);
+        let x = rand(-260, w * 0.08);
         while (x < w) {
           const tape = pick(TAPES);
-          const from = Math.floor(rand(0, tape.length - 80));
-          const text = tape.slice(from, from + Math.round(rand(18, 74))).trim();
+          const from = Math.floor(rand(0, tape.length - 96));
+          const text = tape.slice(from, from + Math.round(rand(26, 92))).trim();
           const alpha = pal.plate * rand(0.4, 1.35);
           pctx.fillStyle = /[{}()<>[\];=]/.test(text[0] ?? "")
             ? `rgba(${pal.head}, ${alpha * 1.15})`
             : `rgba(${pal.ink}, ${alpha})`;
           pctx.fillText(text, x, y);
-          x += pctx.measureText(text).width + rand(40, 190);
+          x += pctx.measureText(text).width + rand(18, 96);
         }
       }
     };
@@ -130,11 +134,12 @@ export function ContactCodeRain() {
       if (nw === w && nh === h) return false;
       w = nw;
       h = nh;
+      m = metrics(w);
       const dpr = Math.min(2, window.devicePixelRatio || 1);
       const mono = getComputedStyle(document.documentElement)
         .getPropertyValue("--font-geist-mono")
         .trim();
-      const font = `500 ${FONT_SIZE}px ${mono ? `${mono}, ` : ""}ui-monospace, SFMono-Regular, Menlo, monospace`;
+      const font = `500 ${m.font}px ${mono ? `${mono}, ` : ""}ui-monospace, SFMono-Regular, Menlo, monospace`;
       for (const [el, c] of [
         [rain, ctx],
         [plate, pctx],
@@ -154,7 +159,7 @@ export function ContactCodeRain() {
       for (let i = 0; i < c.tail; i++) {
         const row = c.head - i;
         if (row < 0) continue;
-        const y = row * CELL_H;
+        const y = row * m.cellH;
         if (y > h) continue;
         const ch = c.tape[(c.offset + row) % c.tape.length];
         if (ch === " ") continue;
@@ -181,7 +186,7 @@ export function ContactCodeRain() {
 
     const paint = (dt: number) => {
       const pal = palette();
-      const rows = Math.ceil(h / CELL_H);
+      const rows = Math.ceil(h / m.cellH);
       ctx.clearRect(0, 0, w, h);
       for (const c of cols) {
         if (c.wait > 0) {
