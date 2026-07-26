@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
+import { registerSmoothScroll } from "@/lib/smoothScroll";
 
 /* ────────────────────────────────────────────────────────────────────────
    Lenis smooth-scroll. Adds the "oily" inertia that makes the scroll-driven
@@ -23,6 +24,8 @@ export function SmoothScroll() {
       touchMultiplier: 1.6,
     });
 
+    registerSmoothScroll(lenis);
+
     let raf = 0;
     const loop = (time: number) => {
       lenis.raf(time);
@@ -32,6 +35,7 @@ export function SmoothScroll() {
 
     return () => {
       cancelAnimationFrame(raf);
+      registerSmoothScroll(null);
       lenis.destroy();
     };
   }, []);

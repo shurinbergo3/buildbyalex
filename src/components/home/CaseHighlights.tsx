@@ -4,6 +4,7 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react
 import { animate, motion, useMotionValue, useReducedMotion, type PanInfo } from "motion/react";
 import { Link } from "@/i18n/navigation";
 import { CaseArt, hasCaseArt } from "@/components/CaseArt";
+import { pausePageScroll, resumePageScroll } from "@/lib/smoothScroll";
 
 /* ────────────────────────────────────────────────────────────────────────
    Case carousel. A transform-driven track instead of a native scroll rail:
@@ -140,21 +141,26 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
     const vp = viewportRef.current;
     if (!vp || !metrics.step) return;
     const limit = metrics.step * (n - 1);
-    const LOCK_AT = 8; // px of accumulated travel before we commit to an axis
+    const LOCK_AT = 5; // px of accumulated travel before we commit to an axis
     let axis: "x" | "y" | null = null;
+    let holdsPage = false;
     let accX = 0;
     let accY = 0;
     let from = 0;
     let travelled = 0;
     let idle = 0;
 
-    const settle = () => {
+    const release = () => {
       if (axis === "x") {
         let target = Math.round(-x.get() / metrics.step);
         if (target === from && Math.abs(travelled) > metrics.step * COMMIT_WHEEL) {
           target = from + (travelled > 0 ? 1 : -1);
         }
         goTo(target);
+      }
+      if (holdsPage) {
+        holdsPage = false;
+        resumePageScroll();
       }
       axis = null;
       accX = 0;
@@ -163,19 +169,36 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
     };
 
     const onWheel = (e: WheelEvent) => {
+      const dx = e.deltaX;
+      const dy = e.deltaY;
       window.clearTimeout(idle);
-      idle = window.setTimeout(settle, 160);
+      idle = window.setTimeout(release, 120);
 
-      let travel = e.deltaX;
+      // A push clearly across the locked axis ends the gesture on the spot.
+      // A macOS momentum tail can run for a second after your fingers leave the
+      // pad, and without this the stale lock swallows whatever you do next —
+      // which is exactly the "swipe sideways, then the page won't scroll" hang.
+      if (axis) {
+        const along = axis === "x" ? dx : dy;
+        const across = axis === "x" ? dy : dx;
+        if (Math.abs(across) > Math.abs(along) * 2 && Math.abs(across) > 4) release();
+      }
+
+      let travel = dx;
       if (axis === null) {
-        accX += e.deltaX;
-        accY += e.deltaY;
+        accX += dx;
+        accY += dy;
         if (Math.abs(accX) < LOCK_AT && Math.abs(accY) < LOCK_AT) return;
         axis = Math.abs(accX) > Math.abs(accY) * 1.15 ? "x" : "y";
         if (axis === "y") return; // the page owns this gesture, hands off
         travel = accX; // replay what the gesture covered before we recognised it
         from = Math.max(0, Math.min(n - 1, Math.round(-x.get() / metrics.step)));
         travelled = 0;
+        // Park the page's inertia. Lenis is still gliding from whatever scroll
+        // brought you here, and a rail moving over a drifting page is the two
+        // scrolls at once.
+        holdsPage = true;
+        pausePageScroll();
       } else if (axis === "y") {
         return;
       }
@@ -200,6 +223,7 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
     return () => {
       vp.removeEventListener("wheel", onWheel);
       window.clearTimeout(idle);
+      if (holdsPage) resumePageScroll(); // never leave the page frozen
     };
   }, [goTo, metrics.step, n, x]);
 
