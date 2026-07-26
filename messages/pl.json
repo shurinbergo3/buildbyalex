@@ -170,23 +170,31 @@
         "chat3": "Od €600. Przekazuję do CRM",
         "lead": "Lead w CRM",
         "deal": "Umowa",
-        "rank": "top 10 w Google",
-        "speed": "0,9 s ładowanie",
+        "speed": "0,9 s do pierwszego ekranu",
         "storeCart": "Koszyk · 2 produkty",
         "storePaid": "Płatność przyjęta",
-        "flow1": "Zgłoszenie",
-        "flow2": "CRM",
-        "flow3": "Telegram",
-        "flowNote": "Działa bez ciebie",
+        "flow1": "Lead",
+        "flow2": "Faktura",
+        "flow3": "Opłata",
         "tgTitle": "Bot · online",
         "tgMsg": "Cześć! W czym pomóc?",
         "tgBtn1": "Katalog",
         "tgBtn2": "Wyceń projekt",
-        "adsRoas": "Zwrot z reklamy",
-        "adsLeads": "leadów miesięcznie",
+        "adsLeads": "leady miesięcznie",
         "appName": "Twoja aplikacja",
-        "appInstall": "Zainstaluj",
-        "appStores": "App Store · Google Play"
+        "appInstall": "Pobierz",
+        "serpQuery": "tworzenie stron warszawa",
+        "serpUrl": "twoja-strona.pl › uslugi",
+        "serpTitle": "Tworzenie stron internetowych w Warszawie pod klucz",
+        "serpSnippet": "Strona na Next.js z wielojęzycznością i SEO. Zapytania od pierwszego miesiąca, stała wycena.",
+        "appSubtitle": "iOS i Android · jedna baza kodu",
+        "appRatings": "1,2 tys. ocen",
+        "appRank": "w kategorii",
+        "flowChat": "WhatsApp · bot",
+        "flowAsk": "Ile to kosztuje?",
+        "flowReply": "Od €600. Zaczynamy?",
+        "adsCpl": "za leada",
+        "adsCheck": "średni koszyk"
       },
       "automation": {
         "category": "Automatyzacja",
@@ -1418,7 +1426,19 @@
             "SEO",
             "Schema",
             "Szybkość"
-          ]
+          ],
+          "brand": "twoja-strona",
+          "nav": [
+            "Usługi",
+            "Realizacje",
+            "Cennik"
+          ],
+          "navCta": "Wyceń",
+          "pageEyebrow": "Warszawa · pod klucz",
+          "pageTitle": "Strona, która przynosi zapytania",
+          "pageSub": "Next.js, wielojęzyczność i SEO od pierwszego dnia. Start w 3 tygodnie, wycena przed startem.",
+          "pageCta": "Omówmy projekt",
+          "pageCta2": "Zobacz realizacje"
         }
       },
       "demo": {
@@ -3121,14 +3141,50 @@
           }
         ],
         "mock": {
-          "flow": "Scenariusz",
-          "nodes": [
-            "Formularz na stronie",
-            "Wzbogacanie danych",
-            "Zapis do CRM",
-            "Powiadomienie w Telegramie"
+          "flow": "Bot · CRM",
+          "client": "Anna K.",
+          "chatStatus": "klient · WhatsApp",
+          "autoBadge": "bot",
+          "msgs": [
+            {
+              "s": "in",
+              "t": "Dzień dobry! Ile to kosztuje?"
+            },
+            {
+              "s": "out",
+              "t": "Od €600. Przyjmuję zgłoszenie?"
+            },
+            {
+              "s": "in",
+              "t": "Tak, poproszę"
+            },
+            {
+              "s": "out",
+              "t": "Gotowe, faktura jest na czacie"
+            }
           ],
-          "done": "Gotowe · zero ręcznej pracy"
+          "sync": "automatycznie do CRM",
+          "crm": "CRM · lejek",
+          "deal": "Anna K. · €1 200",
+          "stages": [
+            {
+              "n": "Nowy lead",
+              "c": "124"
+            },
+            {
+              "n": "W trakcie",
+              "c": "86"
+            },
+            {
+              "n": "Faktura wysłana",
+              "c": "41"
+            },
+            {
+              "n": "Opłacone",
+              "c": "27"
+            }
+          ],
+          "done": "Transakcja zamknięta bez ciebie"
         }
       },
       "what": {
@@ -3554,11 +3610,24 @@
         ],
         "mock": {
           "appName": "Twoja aplikacja",
-          "cardTitle": "Ekran główny",
-          "cardSub": "Natywnie na iOS i Android",
-          "cta": "Zacznij",
+          "cardTitle": "Otwórz",
+          "cardSub": "Zgłoszenia, katalog i płatności w jednej aplikacji",
+          "cta": "Pobierz",
           "rating": "4.9 App Store",
-          "platforms": "iOS · Android"
+          "platforms": "iOS · Android",
+          "ratingsLabel": "1,2 tys. ocen",
+          "chartLabel": "w kategorii",
+          "ageLabel": "Wiek",
+          "tabs": [
+            "Dzisiaj",
+            "Aplikacje",
+            "Szukaj"
+          ],
+          "shot1": "Zgłoszenia",
+          "shot1Cta": "Otwórz",
+          "shot2": "Płatność",
+          "shot2Sub": "Zamówienie #1042",
+          "shot2Cta": "Historia"
         }
       },
       "demo": {
@@ -4089,88 +4158,52 @@
           }
         ],
         "mock": {
-          "dash": "Kampanie · dziś",
+          "dash": "Konto reklamowe",
           "tabs": [
             "Google Ads",
             "Meta Ads"
           ],
+          "leadsLabel": "leady w 30 dni",
+          "waffleNote": "1 kwadrat = 1 lead",
+          "cplLabel": "koszt leada",
+          "checkLabel": "średni koszyk",
           "google": {
-            "roas": "×6.2",
-            "roasLabel": "ROAS · 30 dni",
-            "delta": "+18%",
-            "campaigns": [
-              {
-                "n": "Search · Marka",
-                "v": "×8.1",
-                "on": true
-              },
-              {
-                "n": "Performance Max",
-                "v": "×6.4",
-                "on": true
-              },
-              {
-                "n": "Shopping",
-                "v": "×4.2",
-                "on": false
-              }
-            ],
+            "leads": "142",
+            "delta": "+38%",
+            "cpl": "€2.10",
+            "check": "€100",
             "kpis": [
               {
-                "v": "142",
-                "l": "leady"
+                "v": "€298",
+                "l": "budżet"
               },
               {
-                "v": "€4.10",
-                "l": "koszt / lead"
+                "v": "21",
+                "l": "sprzedaże"
               },
               {
-                "v": "7.8%",
-                "l": "CTR"
-              },
-              {
-                "v": "€0.62",
-                "l": "CPC"
+                "v": "×7",
+                "l": "ROAS"
               }
             ]
           },
           "meta": {
-            "roas": "×4.8",
-            "roasLabel": "ROAS · 30 dni",
-            "delta": "+12%",
-            "campaigns": [
-              {
-                "n": "Advantage+ Shopping",
-                "v": "×5.6",
-                "on": true
-              },
-              {
-                "n": "Remarketing · 7 dni",
-                "v": "×6.9",
-                "on": true
-              },
-              {
-                "n": "Lookalike 1%",
-                "v": "×3.4",
-                "on": false
-              }
-            ],
+            "leads": "98",
+            "delta": "+24%",
+            "cpl": "€2.80",
+            "check": "€100",
             "kpis": [
               {
-                "v": "98",
-                "l": "leady"
+                "v": "€274",
+                "l": "budżet"
               },
               {
-                "v": "€5.30",
-                "l": "koszt / lead"
+                "v": "14",
+                "l": "sprzedaże"
               },
               {
-                "v": "2.4%",
-                "l": "CTR"
-              },
-              {
-                "v": "€6.80",
-                "l": "CPM"
+                "v": "×5.1",
+                "l": "ROAS"
               }
             ]
           }

@@ -25,10 +25,12 @@ export type HighlightItem = {
   image: { src: string; alt: string };
 };
 
-const SPRING = { type: "spring" as const, stiffness: 260, damping: 34, mass: 0.9 };
 const GAP = 20;
 /** Share of a card you have to drag past to commit without a flick. */
-const COMMIT = 0.22;
+const COMMIT = 0.2;
+/** px/s past which a flick counts as intent even on a short drag. */
+const FLICK = 380;
+const EASE_OUT = [0.22, 1, 0.36, 1] as const;
 
 const useIsoLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
 
@@ -40,8 +42,10 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
   const [active, setActive] = useState(0);
   const [metrics, setMetrics] = useState({ card: 0, step: 0, pad: 0 });
   const activeRef = useRef(0);
-  const draggingRef = useRef(false);
+  const dragFromRef = useRef(0);
   const movedRef = useRef(0);
+  /** The settle animation, so a new gesture can cut it off mid-flight. */
+  const runningRef = useRef<{ stop: () => void } | null>(null);
 
   activeRef.current = active;
 
@@ -65,16 +69,27 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
     return () => ro.disconnect();
   }, [measure]);
 
+  /* Every input funnels through here. The settle is a fixed ease-out, not a
+     spring fed by gesture velocity — a hard flick used to inject its momentum
+     into the spring and sail several cards past the target before crawling
+     back. Distance only stretches the duration a little. */
   const goTo = useCallback(
-    (i: number, opts?: { velocity?: number; instant?: boolean }) => {
+    (i: number, instant?: boolean) => {
       const clamped = Math.max(0, Math.min(n - 1, i));
       setActive(clamped);
+      activeRef.current = clamped;
       const target = -clamped * metrics.step;
-      if (opts?.instant || reduce) {
+      runningRef.current?.stop();
+      runningRef.current = null;
+      if (instant || reduce || !metrics.step) {
         x.set(target);
         return;
       }
-      animate(x, target, { ...SPRING, velocity: opts?.velocity ?? 0 });
+      const distance = Math.abs(x.get() - target) / metrics.step;
+      runningRef.current = animate(x, target, {
+        duration: Math.min(0.72, 0.4 + distance * 0.09),
+        ease: EASE_OUT,
+      });
     },
     [metrics.step, n, reduce, x],
   );
@@ -82,54 +97,54 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
   // Keep the track pinned to the active card through resizes.
   useEffect(() => {
     if (!metrics.step) return;
+    runningRef.current?.stop();
     x.set(-activeRef.current * metrics.step);
   }, [metrics.step, x]);
 
   const onDragEnd = useCallback(
     (_: unknown, info: PanInfo) => {
-      draggingRef.current = false;
       const { step } = metrics;
       if (!step) return;
-      // Project where the flick would land, then snap to the nearest card —
-      // capped at one card per gesture so a hard swipe stays predictable.
-      const projected = x.get() + info.velocity.x * 0.12;
-      const raw = -projected / step;
-      const from = activeRef.current;
-      let next = Math.round(raw);
-      if (Math.abs(next - from) > 1) next = from + Math.sign(next - from);
-      if (next === from && Math.abs(info.offset.x) > step * COMMIT) {
-        next = from + (info.offset.x < 0 ? 1 : -1);
-      }
-      goTo(next, { velocity: info.velocity.x });
+      // One card per gesture, measured from where the drag started — never from
+      // wherever the track happens to sit mid-animation.
+      const from = dragFromRef.current;
+      const dir = info.offset.x < 0 ? 1 : -1;
+      const travelled = Math.abs(info.offset.x) > step * COMMIT;
+      const flicked = Math.abs(info.velocity.x) > FLICK && Math.abs(info.offset.x) > 12;
+      goTo(travelled || flicked ? from + dir : from);
     },
-    [goTo, metrics, x],
+    [goTo, metrics],
   );
 
   /* Trackpad: horizontal-dominant gestures drive the rail, vertical ones are
-     left to the page. Debounced so one flick advances one card. */
+     left to the page. A trackpad flick fires a long momentum tail, so we step
+     once and then wait for the tail to go quiet before allowing the next one. */
   useEffect(() => {
     const vp = viewportRef.current;
     if (!vp || !metrics.step) return;
-    let cooling = false;
-    let cool = 0;
+    let armed = true;
+    let idle = 0;
     const onWheel = (e: WheelEvent) => {
       if (Math.abs(e.deltaX) <= Math.abs(e.deltaY) * 1.2) return;
       e.preventDefault();
       e.stopPropagation();
-      if (cooling) return;
-      cooling = true;
-      window.clearTimeout(cool);
-      cool = window.setTimeout(() => {
-        cooling = false;
-      }, 420);
+      // Restart the quiet-period clock on every event of the gesture.
+      window.clearTimeout(idle);
+      idle = window.setTimeout(() => {
+        armed = true;
+      }, 260);
+      if (!armed || Math.abs(e.deltaX) < 4) return;
+      armed = false;
       goTo(activeRef.current + (e.deltaX > 0 ? 1 : -1));
     };
     vp.addEventListener("wheel", onWheel, { passive: false });
     return () => {
       vp.removeEventListener("wheel", onWheel);
-      window.clearTimeout(cool);
+      window.clearTimeout(idle);
     };
   }, [goTo, metrics.step]);
+
+  useEffect(() => () => runningRef.current?.stop(), []);
 
   const onKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "ArrowRight") {
@@ -172,9 +187,13 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
           dragMomentum={false}
           onPointerDownCapture={() => {
             movedRef.current = 0;
-          }}
-          onDragStart={() => {
-            draggingRef.current = true;
+            // Grabbing mid-settle: freeze where it is and treat the nearest card
+            // as the origin, so the gesture can't compound with the animation.
+            runningRef.current?.stop();
+            runningRef.current = null;
+            dragFromRef.current = metrics.step
+              ? Math.max(0, Math.min(n - 1, Math.round(-x.get() / metrics.step)))
+              : activeRef.current;
           }}
           onDrag={(_, info) => {
             movedRef.current = Math.abs(info.offset.x);

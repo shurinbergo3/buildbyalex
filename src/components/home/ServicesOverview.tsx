@@ -4,6 +4,8 @@ import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 import { serviceGlyph, serviceHref } from "@/components/serviceGlyphs";
+import { AppIconMark } from "@/components/AppIconMark";
+import { GoogleG, MetaMark, WhatsAppMark } from "@/components/brandGlyphs";
 
 /* ────────────────────────────────────────────────────────────────────────
    Services — apple.com-style bento with brand illustrations. The big dark AI
@@ -105,7 +107,13 @@ export function ServicesOverview() {
               <p className="relative mt-2 text-[14px] leading-[1.5] text-[color:var(--color-text-2)]">
                 {t("items.websites.desc")}
               </p>
-              <BrowserArt rank={t("art.rank")} speed={t("art.speed")} />
+              <BrowserArt
+                query={t("art.serpQuery")}
+                title={t("art.serpTitle")}
+                breadcrumb={t("art.serpUrl")}
+                snippet={t("art.serpSnippet")}
+                speed={t("art.speed")}
+              />
               <CardCta label={t("items.websites.link")} />
             </Link>
           </Reveal>
@@ -159,7 +167,13 @@ export function ServicesOverview() {
               <p className="relative mt-2 text-[14px] leading-[1.5] text-[color:var(--color-text-2)]">
                 {t("items.mobile.desc")}
               </p>
-              <PhoneArt name={t("art.appName")} install={t("art.appInstall")} stores={t("art.appStores")} />
+              <PhoneArt
+                name={t("art.appName")}
+                subtitle={t("art.appSubtitle")}
+                install={t("art.appInstall")}
+                ratingCount={t("art.appRatings")}
+                rank={t("art.appRank")}
+              />
               <CardCta label={t("items.mobile.link")} />
             </Link>
           </Reveal>
@@ -172,13 +186,13 @@ export function ServicesOverview() {
             <SmallTile glyph={<GlyphChip k="store" />} category={<Cat>{t("store.category")}</Cat>} title={t("store.title")} body={t("store.body")} price={t("store.price")} href="/services/online-store" art={<StoreArt cart={t("art.storeCart")} paid={t("art.storePaid")} />} />
           </Reveal>
           <Reveal delay={280}>
-            <SmallTile glyph={<GlyphChip k="automation" />} category={<Cat>{t("automation.category")}</Cat>} title={t("automation.title")} body={t("automation.body")} price={t("automation.price")} href="/services/automation" art={<FlowArt n1={t("art.flow1")} n2={t("art.flow2")} n3={t("art.flow3")} note={t("art.flowNote")} />} />
+            <SmallTile glyph={<GlyphChip k="automation" />} category={<Cat>{t("automation.category")}</Cat>} title={t("automation.title")} body={t("automation.body")} price={t("automation.price")} href="/services/automation" art={<FlowArt chat={t("art.flowChat")} ask={t("art.flowAsk")} reply={t("art.flowReply")} n1={t("art.flow1")} n2={t("art.flow2")} n3={t("art.flow3")} />} />
           </Reveal>
           <Reveal delay={340}>
             <SmallTile glyph={<GlyphChip k="telegram" />} category={<Cat>{t("telegram.category")}</Cat>} title={t("telegram.title")} body={t("telegram.body")} price={t("telegram.price")} href="/services/telegram-bots" art={<TelegramArt title={t("art.tgTitle")} msg={t("art.tgMsg")} b1={t("art.tgBtn1")} b2={t("art.tgBtn2")} />} />
           </Reveal>
           <Reveal delay={400}>
-            <SmallTile glyph={<GlyphChip k="ads" />} category={<Cat>{t("ads.category")}</Cat>} title={t("ads.title")} body={t("ads.body")} price={t("ads.price")} href="/services/advertising" art={<AdsArt roas={t("art.adsRoas")} leads={t("art.adsLeads")} />} />
+            <SmallTile glyph={<GlyphChip k="ads" />} category={<Cat>{t("ads.category")}</Cat>} title={t("ads.title")} body={t("ads.body")} price={t("ads.price")} href="/services/advertising" art={<AdsArt leads={t("art.adsLeads")} cpl={t("art.adsCpl")} check={t("art.adsCheck")} />} />
           </Reveal>
         </div>
       </Container>
@@ -235,93 +249,169 @@ function AiChatArt({
   );
 }
 
-/** Websites — a tiny browser window with a Lighthouse-style speed score. */
-function BrowserArt({ rank, speed }: { rank: string; speed: string }) {
+/** Websites — the actual promise: your site sitting at #1 in Google. */
+function BrowserArt({
+  query,
+  title,
+  breadcrumb,
+  snippet,
+  speed,
+}: {
+  query: string;
+  title: string;
+  breadcrumb: string;
+  snippet: string;
+  speed: string;
+}) {
   return (
     <div
       aria-hidden
       className="relative mt-4 overflow-hidden rounded-xl border border-[color:var(--color-divider)] bg-[color:var(--color-bg)] shadow-[0_10px_30px_-18px_rgba(0,0,0,0.4)]"
     >
-      <div className="flex items-center gap-1.5 border-b border-[color:var(--color-divider)] px-3 py-1.5">
-        <span className="h-2 w-2 rounded-full bg-[#FF5F57]" />
-        <span className="h-2 w-2 rounded-full bg-[#FEBC2E]" />
-        <span className="h-2 w-2 rounded-full bg-[#28C840]" />
-        <span className="ml-2 flex-1 truncate rounded-full bg-[color:var(--color-bg-alt)] px-2.5 py-1 text-[10px] text-[color:var(--color-text-3)]">
-          site.com
+      {/* search bar */}
+      <div className="flex items-center gap-2 border-b border-[color:var(--color-divider)] px-3 py-2">
+        <GoogleWordmark />
+        <span className="flex min-w-0 flex-1 items-center gap-1.5 rounded-full border border-[color:var(--color-divider)] px-2.5 py-1">
+          <span className="min-w-0 flex-1 truncate text-[10px] leading-none text-[color:var(--color-text-2)]">
+            {query}
+          </span>
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" className="flex-none text-[#4285f4]">
+            <circle cx="11" cy="11" r="6" stroke="currentColor" strokeWidth="2.4" />
+            <path d="m20 20-3.5-3.5" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
+          </svg>
         </span>
       </div>
-      <div className="flex items-center gap-3.5 p-3">
-        <Ring value={98} />
-        <div className="flex min-w-0 flex-1 flex-col gap-1.5">
-          <span className="text-[11px] font-semibold leading-none tracking-[-0.01em] text-[color:var(--color-text)]">
-            {speed}
-          </span>
-          <span className="text-[10.5px] leading-none text-[color:var(--color-text-3)]">PageSpeed 98 / 100</span>
-          <span className="mt-0.5 inline-flex w-fit items-center gap-1 rounded-full bg-[color:var(--c-accent-soft)] px-2 py-0.5 text-[10px] font-medium text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
-            <Check className="h-2.5 w-2.5" /> {rank}
-          </span>
+
+      {/* the #1 result, highlighted */}
+      <div className="relative p-2.5">
+        <span
+          aria-hidden
+          className="absolute inset-x-1.5 inset-y-1.5 rounded-lg"
+          style={{
+            background:
+              "linear-gradient(135deg, color-mix(in srgb, var(--c-accent) 13%, transparent), transparent 72%)",
+            boxShadow: "inset 0 0 0 1px color-mix(in srgb, var(--c-accent) 26%, transparent)",
+          }}
+        />
+        <div className="relative px-1">
+          <div className="flex items-center gap-1.5">
+            <span className="min-w-0 truncate text-[9.5px] leading-none text-[color:var(--color-text-3)]">
+              {breadcrumb}
+            </span>
+            <span
+              className="ml-auto flex-none rounded-full px-1.5 py-[3px] text-[8px] font-bold leading-none tracking-[0.06em] text-white"
+              style={{ background: "var(--c-accent)" }}
+            >
+              #1
+            </span>
+          </div>
+          <p className="mt-1.5 truncate text-[11.5px] font-medium leading-tight text-[#1a56c4] dark:text-[#8ab4f8]">
+            {title}
+          </p>
+          <p className="mt-1 line-clamp-2 text-[9.5px] leading-[1.45] text-[color:var(--color-text-3)]">{snippet}</p>
         </div>
+      </div>
+
+      {/* the runners-up, dimmed — makes "#1" mean something */}
+      <div className="space-y-1.5 px-3.5 pb-2.5 opacity-40">
+        <span className="block h-1.5 w-16 rounded-full bg-[color:var(--color-divider)]" />
+        <span className="block h-2 w-2/3 rounded-full bg-[color:var(--color-divider)]" />
+      </div>
+
+      <div className="flex items-center gap-1.5 border-t border-[color:var(--color-divider)] px-3 py-2">
+        <Check className="flex-none text-[#2ba86a]" />
+        <span className="min-w-0 flex-1 truncate text-[10px] font-medium leading-none text-[color:var(--color-text-2)]">
+          {speed}
+        </span>
+        <span className="flex-none text-[10px] font-semibold leading-none tabular-nums text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
+          PageSpeed 98
+        </span>
       </div>
     </div>
   );
 }
 
-function Ring({ value }: { value: number }) {
-  const r = 18;
-  const c = 2 * Math.PI * r;
+function GoogleWordmark() {
+  const letters: [string, string][] = [
+    ["G", "#4285F4"],
+    ["o", "#EA4335"],
+    ["o", "#FBBC05"],
+    ["g", "#4285F4"],
+    ["l", "#34A853"],
+    ["e", "#EA4335"],
+  ];
   return (
-    <span className="relative grid h-12 w-12 shrink-0 place-items-center">
-      <svg width="48" height="48" viewBox="0 0 48 48" className="-rotate-90">
-        <circle cx="24" cy="24" r={r} fill="none" stroke="var(--color-divider)" strokeWidth="3.5" />
-        <circle
-          cx="24"
-          cy="24"
-          r={r}
-          fill="none"
-          stroke="var(--c-accent)"
-          strokeWidth="3.5"
-          strokeLinecap="round"
-          strokeDasharray={c}
-          strokeDashoffset={c * (1 - value / 100)}
-        />
-      </svg>
-      <span className="absolute text-[12px] font-semibold text-[color:var(--color-text)]">{value}</span>
+    <span className="flex-none text-[12.5px] font-semibold leading-none tracking-[-0.03em]">
+      {letters.map(([ch, color], i) => (
+        <span key={i} style={{ color }}>
+          {ch}
+        </span>
+      ))}
     </span>
   );
 }
 
-/** Mobile — a store listing for the app: icon, rating, install. */
-function PhoneArt({ name, install, stores }: { name: string; install: string; stores: string }) {
+/** Mobile — an App Store product listing, down to the grey GET pill. */
+function PhoneArt({
+  name,
+  subtitle,
+  install,
+  ratingCount,
+  rank,
+}: {
+  name: string;
+  subtitle: string;
+  install: string;
+  ratingCount: string;
+  rank: string;
+}) {
   return (
-    <div aria-hidden className="mt-4 flex justify-center">
-      <div className="relative w-[196px] max-w-full overflow-hidden rounded-[20px] border border-[color:var(--color-divider)] bg-[color:var(--color-bg)] px-2.5 pb-2.5 pt-2 shadow-[0_14px_36px_-18px_rgba(0,0,0,0.45)]">
-        <div className="mx-auto h-1 w-9 rounded-full bg-[color:var(--color-divider)]" />
-        <div className="mt-2.5 rounded-[14px] bg-[color:var(--color-bg-alt)] p-2.5">
-          <div className="flex items-center gap-2.5">
-            <span
-              className="grid h-9 w-9 flex-none place-items-center rounded-[10px] text-[13px] font-bold text-white"
-              style={{ background: "linear-gradient(150deg,#FF9A5A,#E8590C)" }}
-            >
-              A
-            </span>
-            <span className="min-w-0 flex-1">
-              <span className="block truncate text-[10.5px] font-semibold leading-tight text-[color:var(--color-text)]">
-                {name}
-              </span>
-              <span className="mt-1 flex items-center gap-1">
-                <span className="text-[9px] leading-none tracking-[0.06em] text-[#F5A623]">★★★★★</span>
-                <span className="text-[9.5px] leading-none tabular-nums text-[color:var(--color-text-3)]">4,9</span>
-              </span>
-            </span>
-          </div>
-          <div
-            className="mt-2.5 grid h-7 place-items-center rounded-full text-[11px] font-semibold text-white"
-            style={{ background: "linear-gradient(160deg,#FF7A2D,#E8590C)" }}
-          >
+    <div
+      aria-hidden
+      className="mt-4 overflow-hidden rounded-xl border border-[color:var(--color-divider)] bg-[color:var(--color-bg)] shadow-[0_10px_30px_-18px_rgba(0,0,0,0.4)]"
+    >
+      <div className="flex items-center gap-1.5 border-b border-[color:var(--color-divider)] px-3 py-1.5">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" className="flex-none text-[color:var(--color-text)]">
+          <path d="M16.36 12.79c-.02-2.13 1.74-3.15 1.82-3.2-.99-1.45-2.53-1.65-3.08-1.67-1.31-.13-2.56.77-3.22.77-.66 0-1.69-.75-2.78-.73-1.43.02-2.75.83-3.48 2.11-1.48 2.57-.38 6.37 1.07 8.45.71 1.02 1.55 2.16 2.66 2.12 1.07-.04 1.47-.69 2.76-.69 1.29 0 1.65.69 2.78.67 1.15-.02 1.87-1.04 2.57-2.06.81-1.18 1.14-2.32 1.16-2.38-.03-.01-2.23-.86-2.26-3.39zM14.23 6.31c.58-.71.98-1.69.87-2.67-.84.03-1.86.56-2.47 1.26-.54.62-1.02 1.62-.89 2.58.94.07 1.9-.47 2.49-1.17z" />
+        </svg>
+        <span className="text-[9.5px] font-semibold leading-none tracking-[-0.01em] text-[color:var(--color-text-2)]">
+          App Store
+        </span>
+      </div>
+
+      <div className="flex items-center gap-2.5 px-3 py-2.5">
+        <AppIconMark size={44} />
+        <div className="min-w-0 flex-1">
+          <p className="truncate text-[11.5px] font-semibold leading-tight tracking-[-0.01em] text-[color:var(--color-text)]">
+            {name}
+          </p>
+          <p className="mt-0.5 truncate text-[9.5px] leading-tight text-[color:var(--color-text-3)]">{subtitle}</p>
+          <span className="mt-1.5 inline-grid h-[22px] min-w-[62px] place-items-center rounded-full px-3 text-[10px] font-bold uppercase tracking-[0.02em] text-white" style={{ background: "#0071E3" }}>
             {install}
-          </div>
+          </span>
         </div>
-        <p className="mt-2 text-center text-[9.5px] leading-none text-[color:var(--color-text-3)]">{stores}</p>
+      </div>
+
+      <div className="grid grid-cols-3 divide-x divide-[color:var(--color-divider)] border-t border-[color:var(--color-divider)] py-2 text-center">
+        <div className="px-1">
+          <p className="text-[8px] uppercase leading-none tracking-[0.06em] text-[color:var(--color-text-3)]">
+            {ratingCount}
+          </p>
+          <p className="mt-1 flex items-center justify-center gap-0.5 text-[11px] font-semibold leading-none tabular-nums text-[color:var(--color-text-2)]">
+            4,9
+            <span className="text-[9px] text-[#F5A623]">★</span>
+          </p>
+        </div>
+        <div className="px-1">
+          <p className="truncate text-[8px] uppercase leading-none tracking-[0.06em] text-[color:var(--color-text-3)]">
+            {rank}
+          </p>
+          <p className="mt-1 text-[11px] font-semibold leading-none text-[color:var(--color-text-2)]">№1</p>
+        </div>
+        <div className="px-1">
+          <p className="text-[8px] uppercase leading-none tracking-[0.06em] text-[color:var(--color-text-3)]">iOS · Android</p>
+          <p className="mt-1 text-[11px] font-semibold leading-none text-[color:var(--color-text-2)]">2 в 1</p>
+        </div>
       </div>
     </div>
   );
@@ -412,45 +502,79 @@ function StoreArt({ cart, paid }: { cart: string; paid: string }) {
   );
 }
 
-/** Automation — a named three-node pipeline: lead → CRM → Telegram. */
-function FlowArt({ n1, n2, n3, note }: { n1: string; n2: string; n3: string; note: string }) {
-  const nodes = [n1, n2, n3];
+/** WhatsApp glyph on its brand disc — the messenger badge on the light card. */
+const WhatsAppBadge = () => (
+  <span
+    aria-hidden
+    className="grid h-[18px] w-[18px] flex-none place-items-center rounded-full"
+    style={{ background: "#25D366" }}
+  >
+    <WhatsAppMark size={11} color="#fff" />
+  </span>
+);
+
+/** Automation — the bot answers in the messenger, the deal walks the funnel. */
+function FlowArt({
+  chat,
+  ask,
+  reply,
+  n1,
+  n2,
+  n3,
+}: {
+  chat: string;
+  ask: string;
+  reply: string;
+  n1: string;
+  n2: string;
+  n3: string;
+}) {
+  const stages = [n1, n2, n3];
   return (
     <div
       aria-hidden
-      className="mt-4 rounded-xl border border-[color:var(--color-divider)] bg-[color:var(--color-bg)] p-3 shadow-[0_10px_30px_-18px_rgba(0,0,0,0.4)]"
+      className="mt-4 rounded-xl border border-[color:var(--color-divider)] bg-[color:var(--color-bg)] p-2.5 shadow-[0_10px_30px_-18px_rgba(0,0,0,0.4)]"
     >
-      <div className="flex items-center justify-between gap-0.5">
-        {nodes.map((label, i) => (
-          <div key={label} className="flex min-w-0 items-center">
+      <div className="flex items-center gap-1.5">
+        <WhatsAppBadge />
+        <span className="min-w-0 flex-1 truncate text-[9.5px] font-medium uppercase tracking-[0.07em] text-[color:var(--color-text-3)]">
+          {chat}
+        </span>
+      </div>
+
+      <p className="mt-2 w-fit max-w-[88%] rounded-xl rounded-tl-[4px] bg-[color:var(--color-bg-alt)] px-2.5 py-1.5 text-[11px] leading-[1.35] text-[color:var(--color-text-2)]">
+        {ask}
+      </p>
+      <p
+        className="ml-auto mt-1.5 w-fit max-w-[92%] rounded-xl rounded-tr-[4px] px-2.5 py-1.5 text-[11px] leading-[1.35] text-white"
+        style={{ background: "#128C7E" }}
+      >
+        {reply}
+      </p>
+
+      {/* the deal walking the pipeline, ending in a paid stage */}
+      <div className="mt-2.5 flex items-center gap-1 border-t border-[color:var(--color-divider)] pt-2.5">
+        {stages.map((label, i) => (
+          <div key={label} className="flex min-w-0 items-center gap-1">
             <span
-              className="min-w-0 truncate rounded-md px-2 py-1.5 text-center text-[10px] font-semibold leading-none"
-              style={
-                i === 2
-                  ? { background: "rgba(52,210,123,0.14)", color: "#2ba86a", boxShadow: "inset 0 0 0 1px rgba(52,210,123,0.38)" }
-                  : {
-                      background: "var(--c-accent-soft)",
-                      color: "var(--c-accent-ink)",
-                      boxShadow: "inset 0 0 0 1px color-mix(in srgb, var(--c-accent) 26%, transparent)",
-                    }
-              }
+              className="h-1.5 w-1.5 flex-none rounded-full"
+              style={{ background: i === 2 ? "#2ba86a" : "var(--c-accent)" }}
+            />
+            <span
+              className="min-w-0 truncate text-[9.5px] font-semibold leading-none"
+              style={{ color: i === 2 ? "#2ba86a" : "var(--c-accent-ink)" }}
             >
               {label}
             </span>
             {i < 2 && (
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="mx-0.5 flex-none text-[color:var(--color-text-3)]">
-                <path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+              <span
+                className="h-px w-3 flex-none"
+                style={{ background: "color-mix(in srgb, var(--c-accent) 45%, transparent)" }}
+              />
             )}
           </div>
         ))}
-      </div>
-      <div className="mt-2.5 flex items-center gap-2 rounded-lg border border-[color:var(--color-divider)] bg-[color:var(--color-bg-alt)] px-2.5 py-2">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="var(--c-accent)" className="flex-none">
-          <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" />
-        </svg>
-        <span className="min-w-0 flex-1 truncate text-[10.5px] leading-none text-[color:var(--color-text-2)]">{note}</span>
-        <span className="flex-none text-[10px] font-semibold leading-none tabular-nums text-[color:var(--color-text-3)]">24/7</span>
+        <Check className="ml-auto flex-none text-[#2ba86a]" />
       </div>
     </div>
   );
@@ -496,39 +620,76 @@ function TelegramArt({ title, msg, b1, b2 }: { title: string; msg: string; b1: s
   );
 }
 
-/** Ads — the two numbers a client actually asks about. */
-function AdsArt({ roas, leads }: { roas: string; leads: string }) {
-  const bars = [40, 55, 48, 68, 60, 82, 96];
+/** Ads — the two ad accounts, the pile of leads they bring, and what one costs. */
+const ADS_LEADS = 142;
+const ADS_WAFFLE_COLS = 22;
+
+function AdsArt({
+  leads,
+  cpl,
+  check,
+}: {
+  leads: string;
+  cpl: string;
+  check: string;
+}) {
   return (
     <div
       aria-hidden
       className="mt-4 rounded-xl border border-[color:var(--color-divider)] bg-[color:var(--color-bg)] p-3 shadow-[0_10px_30px_-18px_rgba(0,0,0,0.4)]"
     >
-      <div className="flex items-end justify-between gap-3">
-        <div className="min-w-0">
-          <p className="text-[9.5px] uppercase leading-[1.3] tracking-[0.07em] text-[color:var(--color-text-3)]">
-            {roas}
-          </p>
-          <p className="mt-1.5 text-[22px] font-semibold leading-none tracking-[-0.02em] tabular-nums text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
-            4,8×
-          </p>
-        </div>
-        <div className="flex h-11 flex-none items-end gap-1">
-          {bars.map((h, i) => (
-            <span
-              key={i}
-              className="w-2 rounded-t-[2px]"
-              style={{ height: `${h}%`, background: i === bars.length - 1 ? "var(--c-accent)" : "var(--c-accent-soft)" }}
-            />
-          ))}
-        </div>
+      {/* which accounts this runs in */}
+      <div className="flex items-center gap-1.5">
+        <span className="inline-flex items-center gap-1 rounded-full border border-[color:var(--color-divider)] bg-[color:var(--color-bg-alt)] px-1.5 py-1 text-[9.5px] font-semibold leading-none text-[color:var(--color-text-2)]">
+          <GoogleG size={11} /> Google
+        </span>
+        <span className="inline-flex items-center gap-1 rounded-full border border-[color:var(--color-divider)] bg-[color:var(--color-bg-alt)] px-1.5 py-1 text-[9.5px] font-semibold leading-none text-[color:var(--color-text-2)]">
+          <MetaMark size={11} color="#0866FF" /> Meta
+        </span>
       </div>
-      <div className="mt-2.5 flex items-center gap-1.5 border-t border-[color:var(--color-divider)] pt-2.5">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="flex-none text-[#2ba86a]">
-          <path d="M4 17 10 11l4 4 6-6M15 5h5v5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-        <span className="text-[11px] font-semibold leading-none tabular-nums text-[#2ba86a]">+62%</span>
-        <span className="min-w-0 flex-1 truncate text-[10.5px] leading-none text-[color:var(--color-text-3)]">{leads}</span>
+
+      {/* the pile of leads — one square each */}
+      <div className="mt-2.5 flex items-baseline gap-1.5">
+        <p className="text-[22px] font-semibold leading-none tracking-[-0.025em] tabular-nums text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
+          {ADS_LEADS}
+        </p>
+        <p className="min-w-0 truncate text-[10.5px] leading-none text-[color:var(--color-text-3)]">{leads}</p>
+      </div>
+      <div
+        className="mt-2 grid gap-[2px]"
+        style={{ gridTemplateColumns: `repeat(${ADS_WAFFLE_COLS}, minmax(0,1fr))` }}
+      >
+        {Array.from({ length: ADS_LEADS }).map((_, i) => (
+          <span
+            key={i}
+            className="aspect-square rounded-[1.5px]"
+            style={{
+              background: "var(--c-accent)",
+              opacity: 0.4 + (0.6 * i) / (ADS_LEADS - 1),
+            }}
+          />
+        ))}
+      </div>
+
+      {/* what one costs vs what one is worth */}
+      <div className="mt-2.5 grid grid-cols-[1fr_auto_1fr] items-center gap-1.5 border-t border-[color:var(--color-divider)] pt-2.5">
+        <span className="min-w-0">
+          <span className="block text-[13px] font-semibold leading-none tracking-[-0.01em] tabular-nums text-[color:var(--color-text)]">
+            €2.10
+          </span>
+          <span className="mt-1 block truncate text-[9px] uppercase leading-none tracking-[0.06em] text-[color:var(--color-text-3)]">
+            {cpl}
+          </span>
+        </span>
+        <Arrow className="flex-none text-[color:var(--color-text-3)]" />
+        <span className="min-w-0">
+          <span className="block text-[13px] font-semibold leading-none tracking-[-0.01em] tabular-nums text-[#2ba86a]">
+            €100
+          </span>
+          <span className="mt-1 block truncate text-[9px] uppercase leading-none tracking-[0.06em] text-[color:var(--color-text-3)]">
+            {check}
+          </span>
+        </span>
       </div>
     </div>
   );

@@ -170,23 +170,31 @@
         "chat3": "From €600. Sending to CRM",
         "lead": "Lead in CRM",
         "deal": "Deal won",
-        "rank": "top 10 on Google",
-        "speed": "0.9s load",
+        "speed": "0.9s to first paint",
         "storeCart": "Cart · 2 items",
         "storePaid": "Payment received",
         "flow1": "Lead",
-        "flow2": "CRM",
-        "flow3": "Telegram",
-        "flowNote": "Runs without you",
+        "flow2": "Invoice",
+        "flow3": "Paid",
         "tgTitle": "Bot · online",
         "tgMsg": "Hi! How can I help?",
         "tgBtn1": "Catalog",
         "tgBtn2": "Get a quote",
-        "adsRoas": "Return on ad spend",
         "adsLeads": "leads a month",
         "appName": "Your app",
-        "appInstall": "Install",
-        "appStores": "App Store · Google Play"
+        "appInstall": "Get",
+        "serpQuery": "web development warsaw",
+        "serpUrl": "your-site.com › services",
+        "serpTitle": "Web development in Warsaw, done end to end",
+        "serpSnippet": "A Next.js site with multilingual routing and SEO. Leads from month one, fixed quote.",
+        "appSubtitle": "iOS and Android · one codebase",
+        "appRatings": "1.2K ratings",
+        "appRank": "in category",
+        "flowChat": "WhatsApp · bot",
+        "flowAsk": "How much is it?",
+        "flowReply": "From €600. Shall we start?",
+        "adsCpl": "per lead",
+        "adsCheck": "average order"
       },
       "automation": {
         "category": "Automation",
@@ -1418,7 +1426,19 @@
             "SEO",
             "Schema",
             "Speed"
-          ]
+          ],
+          "brand": "your-site",
+          "nav": [
+            "Services",
+            "Work",
+            "Pricing"
+          ],
+          "navCta": "Get a quote",
+          "pageEyebrow": "Warsaw · end to end",
+          "pageTitle": "A site that brings in leads",
+          "pageSub": "Next.js, multilingual and SEO from day one. Live in 3 weeks, quote fixed before we start.",
+          "pageCta": "Discuss the project",
+          "pageCta2": "See the work"
         }
       },
       "demo": {
@@ -3121,14 +3141,50 @@
           }
         ],
         "mock": {
-          "flow": "Workflow",
-          "nodes": [
-            "Form on the site",
-            "Data enrichment",
-            "Saved to CRM",
-            "Telegram alert"
+          "flow": "Bot · CRM",
+          "client": "Anna K.",
+          "chatStatus": "customer · WhatsApp",
+          "autoBadge": "bot",
+          "msgs": [
+            {
+              "s": "in",
+              "t": "Hi! How much does it cost?"
+            },
+            {
+              "s": "out",
+              "t": "From €600. Shall I start the request?"
+            },
+            {
+              "s": "in",
+              "t": "Yes, please"
+            },
+            {
+              "s": "out",
+              "t": "Done, the invoice is in the chat"
+            }
           ],
-          "done": "Done · zero manual work"
+          "sync": "into the CRM automatically",
+          "crm": "CRM · pipeline",
+          "deal": "Anna K. · €1,200",
+          "stages": [
+            {
+              "n": "New lead",
+              "c": "124"
+            },
+            {
+              "n": "In progress",
+              "c": "86"
+            },
+            {
+              "n": "Invoice sent",
+              "c": "41"
+            },
+            {
+              "n": "Paid",
+              "c": "27"
+            }
+          ],
+          "done": "Deal closed without you"
         }
       },
       "what": {
@@ -3554,11 +3610,24 @@
         ],
         "mock": {
           "appName": "Your app",
-          "cardTitle": "Home screen",
-          "cardSub": "Native on iOS & Android",
-          "cta": "Get started",
+          "cardTitle": "Open",
+          "cardSub": "Orders, catalogue and payments in one app",
+          "cta": "Get",
           "rating": "4.9 App Store",
-          "platforms": "iOS · Android"
+          "platforms": "iOS · Android",
+          "ratingsLabel": "1.2K ratings",
+          "chartLabel": "in category",
+          "ageLabel": "Age",
+          "tabs": [
+            "Today",
+            "Apps",
+            "Search"
+          ],
+          "shot1": "Orders",
+          "shot1Cta": "Open",
+          "shot2": "Payment",
+          "shot2Sub": "Order #1042",
+          "shot2Cta": "History"
         }
       },
       "demo": {
@@ -4089,88 +4158,52 @@
           }
         ],
         "mock": {
-          "dash": "Campaigns · today",
+          "dash": "Ad account",
           "tabs": [
             "Google Ads",
             "Meta Ads"
           ],
+          "leadsLabel": "leads in 30 days",
+          "waffleNote": "1 square = 1 lead",
+          "cplLabel": "cost per lead",
+          "checkLabel": "average order",
           "google": {
-            "roas": "×6.2",
-            "roasLabel": "ROAS · 30 days",
-            "delta": "+18%",
-            "campaigns": [
-              {
-                "n": "Search · Brand",
-                "v": "×8.1",
-                "on": true
-              },
-              {
-                "n": "Performance Max",
-                "v": "×6.4",
-                "on": true
-              },
-              {
-                "n": "Shopping",
-                "v": "×4.2",
-                "on": false
-              }
-            ],
+            "leads": "142",
+            "delta": "+38%",
+            "cpl": "€2.10",
+            "check": "€100",
             "kpis": [
               {
-                "v": "142",
-                "l": "leads"
+                "v": "€298",
+                "l": "budget"
               },
               {
-                "v": "€4.10",
-                "l": "cost / lead"
+                "v": "21",
+                "l": "sales"
               },
               {
-                "v": "7.8%",
-                "l": "CTR"
-              },
-              {
-                "v": "€0.62",
-                "l": "CPC"
+                "v": "×7",
+                "l": "ROAS"
               }
             ]
           },
           "meta": {
-            "roas": "×4.8",
-            "roasLabel": "ROAS · 30 days",
-            "delta": "+12%",
-            "campaigns": [
-              {
-                "n": "Advantage+ Shopping",
-                "v": "×5.6",
-                "on": true
-              },
-              {
-                "n": "Retargeting · 7d",
-                "v": "×6.9",
-                "on": true
-              },
-              {
-                "n": "Lookalike 1%",
-                "v": "×3.4",
-                "on": false
-              }
-            ],
+            "leads": "98",
+            "delta": "+24%",
+            "cpl": "€2.80",
+            "check": "€100",
             "kpis": [
               {
-                "v": "98",
-                "l": "leads"
+                "v": "€274",
+                "l": "budget"
               },
               {
-                "v": "€5.30",
-                "l": "cost / lead"
+                "v": "14",
+                "l": "sales"
               },
               {
-                "v": "2.4%",
-                "l": "CTR"
-              },
-              {
-                "v": "€6.80",
-                "l": "CPM"
+                "v": "×5.1",
+                "l": "ROAS"
               }
             ]
           }

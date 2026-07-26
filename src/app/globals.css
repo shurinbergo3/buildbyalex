@@ -1167,8 +1167,16 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
   0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
   30%           { opacity: 1;   transform: translateY(-2px); }
 }
+/* Service hero — leads dropping into the ads waffle, one square at a time.
+   Each square carries its own target opacity in --dot-o so the pile keeps its
+   gradient once the animation settles. */
+@keyframes adsLeadIn {
+  from { opacity: 0; transform: scale(0.4); }
+  to   { opacity: var(--dot-o, 1); transform: scale(1); }
+}
 @media (prefers-reduced-motion: reduce) {
-  [style*="aiTyping"] { animation: none !important; }
+  [style*="aiTyping"],
+  [style*="adsLeadIn"] { animation: none !important; }
 }
 
 /* Headline can include a soft-amber span */
