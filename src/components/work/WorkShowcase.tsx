@@ -258,8 +258,12 @@ const CaseCard = memo(function CaseCard({
               featured ? "gap-3.5 md:max-w-[60%] md:p-9 lg:p-11" : "gap-2.5"
             }`}
           >
-            <span className="inline-flex w-fit items-center gap-2 text-[12px] font-medium uppercase tracking-[0.05em] text-white/65">
-              <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--c-accent)]" aria-hidden="true" />
+            <span className="inline-flex w-fit items-center gap-2.5 text-[12px] font-medium uppercase tracking-[0.06em] text-white/65">
+              <span
+                aria-hidden="true"
+                className="h-px w-6 shrink-0"
+                style={{ background: "linear-gradient(90deg, var(--c-accent), transparent)" }}
+              />
               {data.industry}
             </span>
 

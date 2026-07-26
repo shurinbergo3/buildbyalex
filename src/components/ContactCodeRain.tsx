@@ -28,7 +28,7 @@ const TAPES = [
 
 const FONT_SIZE = 13;
 const CELL_H = 17;
-const CELL_W = 23;
+const CELL_W = 19;
 const FRAME_MS = 45;
 
 type Column = {
@@ -72,8 +72,8 @@ export function ContactCodeRain() {
 
     const palette = () =>
       themeRef.current === "dark"
-        ? { ink: "236, 236, 240", head: "255, 138, 61", tail: 0.26, glow: 0.85, plate: 0.055 }
-        : { ink: "26, 26, 30", head: "255, 96, 10", tail: 0.22, glow: 0.8, plate: 0.042 };
+        ? { ink: "236, 236, 240", head: "255, 138, 61", tail: 0.26, glow: 0.85, plate: 0.06 }
+        : { ink: "26, 26, 30", head: "255, 96, 10", tail: 0.23, glow: 0.8, plate: 0.05 };
 
     const spawn = (x: number, seeded: boolean): Column => {
       const rows = Math.ceil(h / CELL_H);
@@ -96,8 +96,7 @@ export function ContactCodeRain() {
       const count = Math.max(1, Math.floor(w / CELL_W));
       const inset = (w - count * CELL_W) / 2;
       cols = Array.from({ length: count }, (_, i) => spawn(inset + i * CELL_W, seeded));
-      // Thin the field out — a gap-free wall of glyphs reads as wallpaper.
-      cols = cols.filter(() => Math.random() > 0.12);
+      cols = cols.filter(() => Math.random() > 0.05);
     };
 
     // Torn-off horizontal snippets sitting behind the rain, drawn once per
@@ -105,21 +104,21 @@ export function ContactCodeRain() {
     const drawPlate = () => {
       const pal = palette();
       pctx.clearRect(0, 0, w, h);
-      const gap = CELL_H * 2.9;
-      const rows = Math.floor(h / gap);
+      const gap = CELL_H * 1.75;
+      const rows = Math.floor(h / gap) + 1;
       for (let r = 0; r < rows; r++) {
         const y = r * gap + rand(-4, 4);
-        let x = rand(-120, w * 0.45);
+        let x = rand(-220, w * 0.12);
         while (x < w) {
           const tape = pick(TAPES);
-          const from = Math.floor(rand(0, tape.length - 60));
-          const text = tape.slice(from, from + Math.round(rand(10, 38))).trim();
-          const alpha = pal.plate * rand(0.4, 1.3);
+          const from = Math.floor(rand(0, tape.length - 80));
+          const text = tape.slice(from, from + Math.round(rand(18, 74))).trim();
+          const alpha = pal.plate * rand(0.4, 1.35);
           pctx.fillStyle = /[{}()<>[\];=]/.test(text[0] ?? "")
             ? `rgba(${pal.head}, ${alpha * 1.15})`
             : `rgba(${pal.ink}, ${alpha})`;
           pctx.fillText(text, x, y);
-          x += pctx.measureText(text).width + rand(170, 540);
+          x += pctx.measureText(text).width + rand(40, 190);
         }
       }
     };

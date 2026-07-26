@@ -106,10 +106,11 @@ export function WorkCarousel({
               href={{ pathname: "/work/[slug]", params: { slug: item.slug } }}
               className="group flex h-full flex-col rounded-[22px] border border-[color:var(--color-divider)] bg-[color:var(--color-bg-elev)] p-7 transition-[transform,box-shadow,border-color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:border-[color:var(--c-accent)]/40 hover:shadow-[var(--shadow-card-hover)]"
             >
-              <span className="inline-flex w-fit items-center gap-2 text-[11.5px] font-medium uppercase tracking-[0.04em] text-[color:var(--color-text-3)]">
+              <span className="inline-flex w-fit items-center gap-2.5 text-[11.5px] font-medium uppercase tracking-[0.06em] text-[color:var(--color-text-3)]">
                 <span
-                  className="h-1.5 w-1.5 rounded-full bg-[color:var(--c-accent)]"
                   aria-hidden="true"
+                  className="h-px w-6 shrink-0"
+                  style={{ background: "linear-gradient(90deg, var(--c-accent), transparent)" }}
                 />
                 {item.industry}
               </span>

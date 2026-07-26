@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
+import { Eyebrow } from "@/components/Eyebrow";
 import { Link } from "@/i18n/navigation";
 import { PhoneLeadsMock } from "@/components/PhoneLeadsMock";
 import { LegalwinScrollStory } from "@/components/home/LegalwinScrollStory";
@@ -45,10 +46,7 @@ export function LegalwinHomeShowcase() {
         {/* ── Editorial header ────────────────────────────── */}
         <Reveal>
           <div className="mx-auto max-w-[820px] text-center">
-            <p className="inline-flex items-center gap-2 rounded-full border border-[color:var(--color-divider)] bg-[color:var(--color-bg-elev)] px-3 py-1 text-[11px] font-medium uppercase tracking-[0.12em] text-[color:var(--c-accent-ink)]">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-[color:var(--c-accent)]" />
-              {t("eyebrow")}
-            </p>
+            <Eyebrow align="center">{t("eyebrow")}</Eyebrow>
             <h2 className="mt-6 text-[clamp(36px,5vw+8px,64px)] font-semibold leading-[1.04] tracking-[-0.032em] text-[color:var(--color-text)]">
               {t.rich("headline", {
                 accent: (chunks) => <span className="hl-accent">{chunks}</span>,

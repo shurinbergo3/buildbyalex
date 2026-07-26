@@ -2176,12 +2176,12 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
   background:
     linear-gradient(
       90deg,
-      color-mix(in srgb, var(--c-bg) 94%, transparent) 0%,
-      color-mix(in srgb, var(--c-bg) 88%, transparent) 22%,
-      color-mix(in srgb, var(--c-bg) 55%, transparent) 38%,
-      transparent 56%
+      color-mix(in srgb, var(--c-bg) 90%, transparent) 0%,
+      color-mix(in srgb, var(--c-bg) 80%, transparent) 20%,
+      color-mix(in srgb, var(--c-bg) 44%, transparent) 36%,
+      transparent 54%
     ),
-    radial-gradient(28% 22% at 17% 22%, color-mix(in srgb, var(--c-bg) 70%, transparent) 0%, transparent 78%);
+    radial-gradient(26% 20% at 17% 22%, color-mix(in srgb, var(--c-bg) 62%, transparent) 0%, transparent 78%);
 }
 
 /* Faint amber pool behind the form — gives the glass something to catch. */
@@ -2200,47 +2200,39 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
   background: radial-gradient(circle, rgba(255, 122, 45, 0.18), transparent 68%);
 }
 
-/* The form panel — frosted glass over the rain. Backdrop stays milky enough
-   that field labels hold 4.5:1; the code only reads as blurred texture. */
+/* The form panel — a solid island the rain runs behind, never through.
+   Opaque on purpose: nothing competes with the fields. */
 .contact-panel {
   position: relative;
   overflow: hidden;
   border-radius: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.66);
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--c-bg-elev) 74%, transparent) 0%,
-    color-mix(in srgb, var(--c-bg-elev) 64%, transparent) 100%
-  );
-  backdrop-filter: blur(16px) saturate(150%);
-  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  border: 1px solid var(--c-hairline);
+  background: var(--c-bg-elev);
   box-shadow:
-    0 1px 2px rgba(10, 10, 10, 0.04),
-    0 34px 70px -34px rgba(10, 10, 10, 0.26),
-    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    0 1px 2px rgba(10, 10, 10, 0.05),
+    0 10px 26px -12px rgba(10, 10, 10, 0.14),
+    0 44px 90px -40px rgba(10, 10, 10, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 [data-theme="dark"] .contact-panel {
   border-color: rgba(255, 255, 255, 0.1);
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--c-bg-elev) 82%, transparent) 0%,
-    color-mix(in srgb, var(--c-bg-elev) 74%, transparent) 100%
-  );
   box-shadow:
-    0 34px 70px -34px rgba(0, 0, 0, 0.7),
+    0 40px 80px -36px rgba(0, 0, 0, 0.75),
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
-/* Fields need a solid base — glass on glass turns unreadable. */
+/* Fields sit a shade off the panel so they read as inputs, not holes. */
 .contact-panel input,
 .contact-panel select,
 .contact-panel textarea {
-  background: color-mix(in srgb, var(--c-bg-elev) 94%, transparent);
+  background: var(--c-bg);
 }
 
-@supports not (backdrop-filter: blur(4px)) {
-  .contact-panel { background: var(--c-bg-elev); }
+[data-theme="dark"] .contact-panel input,
+[data-theme="dark"] .contact-panel select,
+[data-theme="dark"] .contact-panel textarea {
+  background: rgba(255, 255, 255, 0.03);
 }
 
 @media (max-width: 767px) {
@@ -2248,9 +2240,13 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
   .contact-rain__plate {
     -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 62%, transparent 90%);
             mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 62%, transparent 90%);
-    opacity: 0.85;
+    opacity: 0.74;
   }
+  /* Narrow screens put the copy over the rain, so the veil has to cover the
+     whole text column instead of just the left rail. */
   .contact-rain__veil {
-    background: radial-gradient(70% 34% at 50% 22%, var(--c-bg) 0%, color-mix(in srgb, var(--c-bg) 70%, transparent) 52%, transparent 82%);
+    background:
+      linear-gradient(180deg, color-mix(in srgb, var(--c-bg) 62%, transparent) 0%, color-mix(in srgb, var(--c-bg) 46%, transparent) 55%, transparent 88%),
+      radial-gradient(78% 30% at 50% 18%, var(--c-bg) 0%, color-mix(in srgb, var(--c-bg) 60%, transparent) 58%, transparent 84%);
   }
 }

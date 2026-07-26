@@ -10,6 +10,7 @@ import {
   useScroll,
   useTransform,
 } from "motion/react";
+import { Eyebrow } from "@/components/Eyebrow";
 
 /* ────────────────────────────────────────────────────────────────────────
    Scroll-driven LegalWin discovery story. A tall section pins a horizontal
@@ -51,17 +52,24 @@ type SiteData = {
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 // Scroll-progress timeline (0 → 1 over the pinned section), three chapters:
-// Google search → ChatGPT → the live legalwin.pl site.
-const LID_END = 0.1; // lid finishes opening
-const G_TYPE_START = 0.13;
-const G_TYPE_END = 0.27;
-const G_RESULTS_AT = 0.3;
-const SPLIT_1 = 0.4; // Google → ChatGPT
-const CG_Q_AT = 0.43;
-const CG_TYPE_START = 0.46;
-const CG_TYPE_END = 0.66;
+// Google search → ChatGPT → the live legalwin.pl site. The lid runs on its own
+// track (see ENTRY_* below), so by the time the section pins the screen is
+// already lit and chapter one starts on the first pixel of the pin.
+const G_TYPE_START = 0.02;
+const G_TYPE_END = 0.18;
+const G_RESULTS_AT = 0.22;
+const SPLIT_1 = 0.36; // Google → ChatGPT
+const CG_Q_AT = 0.39;
+const CG_TYPE_START = 0.42;
+const CG_TYPE_END = 0.62;
 const SPLIT_2 = 0.7; // ChatGPT → live site
-const SITE_CHAT_AT = 0.82; // chat widget greeting lands
+const SITE_CHAT_AT = 0.8; // chat widget greeting lands
+
+// Lid track — runs while the section travels up into the pin, so the laptop
+// rises into view already opening instead of sitting closed (and invisible)
+// through the whole approach.
+const ENTRY_OPEN_START = 0.04;
+const ENTRY_OPEN_END = 0.5;
 
 const clamp01 = (v: number) => (v < 0 ? 0 : v > 1 ? 1 : v);
 const span = (v: number, a: number, b: number) => clamp01((v - a) / (b - a));
@@ -115,11 +123,26 @@ export function LegalwinScrollStory() {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
+  // Separate track for the approach: 0 when the section's top touches the
+  // bottom of the viewport, 1 when it reaches the top and pins.
+  const { scrollYProgress: entry } = useScroll({ target: ref, offset: ["start end", "start start"] });
 
   // Lid + screen reveal — smooth motion values, no re-render.
-  const rotateX = useTransform(scrollYProgress, [0, LID_END], reduce ? [0, 0] : [-78, 0]);
-  const screenDim = useTransform(scrollYProgress, [0.02, LID_END], reduce ? [0, 0] : [0.85, 0]);
-  const deviceOpacity = useTransform(scrollYProgress, [0, 0.05], [reduce ? 1 : 0.4, 1]);
+  const rotateX = useTransform(entry, [ENTRY_OPEN_START, ENTRY_OPEN_END], reduce ? [0, 0] : [-72, 0], {
+    clamp: true,
+  });
+  const screenDim = useTransform(
+    entry,
+    [ENTRY_OPEN_START, ENTRY_OPEN_END - 0.1],
+    reduce ? [0, 0] : [0.9, 0],
+    { clamp: true },
+  );
+  const deviceOpacity = useTransform(entry, [0.02, 0.16], [reduce ? 1 : 0.6, 1], { clamp: true });
+  // Lifts the whole stage as the section travels in, so the laptop reaches into
+  // the gap under the flow legend instead of waiting a half-viewport below it.
+  const stageY = useTransform(entry, [0, 1], reduce ? ["0vh", "0vh"] : ["-14vh", "0vh"], {
+    clamp: true,
+  });
 
   // Discrete state the screens read from — updated only when a value flips.
   const [active, setActive] = useState(0);
@@ -201,9 +224,12 @@ export function LegalwinScrollStory() {
   );
 
   return (
-    <div ref={ref} className="relative mt-16 md:mt-20" style={{ height: "340vh" }}>
+    <div ref={ref} className="relative mt-6 md:mt-8" style={{ height: "340vh" }}>
       <div className="sticky top-0 flex h-[100svh] items-center overflow-hidden">
-        <div className="relative flex min-h-[88svh] w-full flex-col justify-center overflow-hidden px-4 py-7 sm:px-8 sm:py-10 md:px-12 md:py-14">
+        <motion.div
+          style={reduce ? undefined : { y: stageY }}
+          className="relative flex min-h-[88svh] w-full flex-col justify-center overflow-hidden px-4 py-7 sm:px-8 sm:py-10 md:px-12 md:py-14"
+        >
           {/* Ambient glow — a soft warm wash that reads on the light page too */}
           <div
             aria-hidden
@@ -214,10 +240,7 @@ export function LegalwinScrollStory() {
           <div className="relative grid items-center gap-5 lg:grid-cols-[minmax(0,360px)_minmax(0,1fr)] lg:gap-14">
             {/* ── Chapter copy ── */}
             <div className="relative">
-              <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[color:var(--c-accent)]">
-                <span className="inline-block h-1.5 w-1.5 rounded-full bg-[color:var(--c-accent)]" />
-                {t("eyebrow")}
-              </p>
+              <Eyebrow>{t("eyebrow")}</Eyebrow>
 
               <div className="relative mt-4 min-h-[112px] sm:mt-5 sm:min-h-[148px] lg:min-h-[180px]">
                 <AnimatePresence mode="wait">
@@ -345,7 +368,7 @@ export function LegalwinScrollStory() {
             </motion.div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

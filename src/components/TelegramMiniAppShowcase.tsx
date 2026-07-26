@@ -90,7 +90,9 @@ export function TelegramMiniAppShowcase() {
                         key={c}
                         className="inline-flex items-center gap-2 rounded-full border border-[color:var(--color-divider)] bg-[color:var(--color-bg-elev)] px-3 py-2 text-[12.5px] font-medium text-[color:var(--color-text-2)]"
                       >
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#2ea6ea]" aria-hidden="true" />
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="shrink-0">
+                          <path d="M5 13l4 4L19 7" stroke="#2ea6ea" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
                         {c}
                       </span>
                     ))}
