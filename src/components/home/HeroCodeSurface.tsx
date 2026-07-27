@@ -82,7 +82,7 @@ export function Hero() {
       </div>
     </section>
   );
-  // ● Live · Warsaw — shipped, not staged
+  // ● Live · Worldwide — shipped, not staged
 }
 
 // app/api/contact/route.ts — leads land in Telegram instantly

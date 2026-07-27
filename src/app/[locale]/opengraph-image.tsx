@@ -12,7 +12,7 @@ const WINDOW = "#0A0A0B";
 
 /**
  * Social card = a snapshot of the live hero (screenshot 2): a dark browser
- * window — traffic lights, the buildbyalex.com URL and a Live · Warsaw badge —
+ * window — traffic lights, the buildbyalex.com URL and a Live · Worldwide badge —
  * framing the wordmark, with the core services spelled out underneath. No name,
  * just the brand and what it builds.
  */
@@ -91,7 +91,7 @@ export default async function OG({ params }: { params: { locale: string } }) {
               buildbyalex.com
             </div>
 
-            {/* Live · Warsaw badge */}
+            {/* Live · Worldwide badge */}
             <div
               style={{
                 display: "flex",
@@ -109,7 +109,7 @@ export default async function OG({ params }: { params: { locale: string } }) {
             >
               <div style={{ width: 9, height: 9, borderRadius: 999, background: "#3FCF6E", display: "flex" }} />
               <div style={{ display: "flex", fontSize: 18, color: "rgba(255,255,255,0.78)", fontWeight: 500 }}>
-                Live · Warsaw
+                Live · Worldwide
               </div>
             </div>
           </div>

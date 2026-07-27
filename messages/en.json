@@ -1,9 +1,9 @@
 {
   "meta": {
     "siteName": "buildbyalex",
-    "defaultTitle": "Web, AI Agent & App Development in Warsaw — buildbyalex",
-    "defaultDescription": "Turnkey development in Warsaw: websites, AI agents and mobile apps in 1–3 weeks — from the first call to release. RU · EN · PL · UA.",
-    "ogAlt": "buildbyalex — independent developer · Warsaw",
+    "defaultTitle": "Web, AI Agent & App Development — buildbyalex",
+    "defaultDescription": "Turnkey development: websites, AI agents and mobile apps in 1-3 weeks, from the first call to release. Working remotely with clients worldwide. RU · EN · PL · UA.",
+    "ogAlt": "buildbyalex · independent developer",
     "ogServices": "Websites · AI agents · Mobile apps · Automation"
   },
   "nav": {
@@ -75,13 +75,13 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "Web development & AI agents · Warsaw",
-      "headline": "Website and app\ndevelopment in Warsaw",
+      "eyebrow": "Web development & AI agents",
+      "headline": "Website, AI agent\nand app development",
       "kicker": "Turnkey in 1-3 weeks",
       "subhead": "Design, code, CRM, messenger and AI integrations, launch and support, handled end to end. From first call to live, with no dropped deadlines.",
       "primaryCta": "Book a free call",
       "secondaryCta": "See my work",
-      "trustLine": "Warsaw · Available worldwide · RU / EN / PL / UA",
+      "trustLine": "Remote worldwide · RU / EN / PL / UA",
       "reviews": "4.8 out of 5 · {count} {count, plural, one {review} other {reviews}}"
     },
     "pain": {
@@ -185,7 +185,7 @@
         "appInstall": "Get",
         "serpQuery": "web development warsaw",
         "serpUrl": "your-site.com › services",
-        "serpTitle": "Web development in Warsaw, done end to end",
+        "serpTitle": "Web development, done end to end",
         "serpSnippet": "A Next.js site with multilingual routing and SEO. Leads from month one, fixed quote.",
         "appSubtitle": "iOS and Android · one codebase",
         "appRatings": "1.2K ratings",
@@ -1277,7 +1277,7 @@
         },
         {
           "q": "Do you work with Polish companies? Do you speak Polish?",
-          "a": "Yes. I'm based in Warsaw and work with Polish clients regularly. I speak conversational Polish, fluent English and native Russian / Ukrainian. Contracts can be signed under Polish law and invoicing is handled with VAT EU."
+          "a": "Yes. I work with Polish clients regularly. I speak conversational Polish, fluent English and native Russian / Ukrainian. Contracts can be signed under Polish law and invoicing is handled with VAT EU."
         },
         {
           "q": "Can you build a site in Ukrainian for the diaspora market?",
@@ -1312,8 +1312,8 @@
           "a": "Edits are billed at €50 per hour, with a one-hour minimum. No forced monthly retainer. You can come back six months later for a small change and I'll handle it — same terms, same rate."
         },
         {
-          "q": "Do you work only in Warsaw, or across Poland?",
-          "a": "We work across all of Poland and remotely — Warsaw, Kraków, Wrocław, Gdańsk, Poznań or a smaller town, it makes no difference. Calls, demos and handover happen online; the contract and payment are remote. An in-person meeting in Warsaw is available on request."
+          "q": "Do you work remotely? Where are your clients based?",
+          "a": "Everything runs remotely, with clients across the EU, the UK, the US and beyond. Calls, demos and handover happen online; the contract and payment are remote too. Time zones are not an issue: I sync to your working hours."
         }
       ]
     },

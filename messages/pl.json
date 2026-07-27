@@ -1,9 +1,9 @@
 {
   "meta": {
     "siteName": "buildbyalex",
-    "defaultTitle": "Tworzenie stron, agentów AI i aplikacji w Warszawie — buildbyalex",
-    "defaultDescription": "Realizacje pod klucz w Warszawie: strony, agenci AI i aplikacje mobilne w 1–3 tygodnie — od pomysłu do startu. PL · EN · UA.",
-    "ogAlt": "buildbyalex — niezależny developer · Warszawa",
+    "defaultTitle": "Tworzenie stron, agentów AI i aplikacji — buildbyalex",
+    "defaultDescription": "Realizacje pod klucz: strony, agenci AI i aplikacje mobilne w 1-3 tygodnie, od pomysłu do startu. Pracuję zdalnie z klientami z całego świata. PL · EN · UA.",
+    "ogAlt": "buildbyalex · niezależny developer",
     "ogServices": "Strony · Agenci AI · Aplikacje mobilne · Automatyzacja"
   },
   "nav": {
@@ -75,13 +75,13 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "Tworzenie stron i agenci AI · Warszawa",
-      "headline": "Tworzenie stron\ni aplikacji w Warszawie",
+      "eyebrow": "Tworzenie stron i agenci AI",
+      "headline": "Tworzenie stron,\nagentów AI i aplikacji",
       "kicker": "Pod klucz w 1-3 tygodnie",
       "subhead": "Projekt, kod, integracje z CRM, komunikatorami i AI, wdrożenie i wsparcie pod klucz. Od pierwszej rozmowy do startu, bez utraconych terminów.",
       "primaryCta": "Bezpłatna konsultacja",
       "secondaryCta": "Zobacz realizacje",
-      "trustLine": "Warszawa · Cały świat · RU / EN / PL / UA",
+      "trustLine": "Zdalnie na całym świecie · RU / EN / PL / UA",
       "reviews": "4,8 na 5 · {count} {count, plural, one {opinię} few {opinie} many {opinii} other {opinii}}"
     },
     "pain": {
@@ -185,7 +185,7 @@
         "appInstall": "Pobierz",
         "serpQuery": "tworzenie stron warszawa",
         "serpUrl": "twoja-strona.pl › uslugi",
-        "serpTitle": "Tworzenie stron internetowych w Warszawie pod klucz",
+        "serpTitle": "Tworzenie stron internetowych pod klucz",
         "serpSnippet": "Strona na Next.js z wielojęzycznością i SEO. Zapytania od pierwszego miesiąca, stała wycena.",
         "appSubtitle": "iOS i Android · jedna baza kodu",
         "appRatings": "1,2 tys. ocen",
@@ -1277,7 +1277,7 @@
         },
         {
           "q": "Pracujesz z polskimi firmami? Mówisz po polsku?",
-          "a": "Tak. Mieszkam w Warszawie i regularnie pracuję z polskimi klientami. Mówię po polsku w pracy, biegle po angielsku, natywnie po rosyjsku i ukraińsku. Umowy podpisujemy pod prawem polskim, faktury z VAT EU."
+          "a": "Tak. Regularnie pracuję z polskimi klientami. Mówię po polsku w pracy, biegle po angielsku, natywnie po rosyjsku i ukraińsku. Umowy podpisujemy pod prawem polskim, faktury z VAT EU."
         },
         {
           "q": "Możesz zrobić stronę po ukraińsku dla diaspory?",
@@ -1312,8 +1312,8 @@
           "a": "Edycje 50 €/h, minimum godzina. Bez wymuszonego abonamentu. Możesz wrócić po pół roku z małą zmianą i zrobię ją — te same warunki, ta sama stawka."
         },
         {
-          "q": "Pracujecie tylko w Warszawie, czy w całej Polsce?",
-          "a": "Pracujemy w całej Polsce i zdalnie — Warszawa, Kraków, Wrocław, Gdańsk, Poznań czy mniejsze miasto, bez różnicy. Rozmowy, demo i odbiór odbywają się online, umowa i płatność zdalnie. Spotkanie na żywo w Warszawie — w razie potrzeby."
+          "q": "Pracujecie zdalnie? Skąd są Wasi klienci?",
+          "a": "Wszystko robimy zdalnie, klienci są w Polsce, UE, UK i USA. Rozmowy, demo i odbiór odbywają się online, umowa i płatność też zdalnie. Strefa czasowa nie jest problemem: dopasowuję się do Waszych godzin pracy."
         }
       ]
     },

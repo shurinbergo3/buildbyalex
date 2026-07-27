@@ -268,7 +268,7 @@ export function Hero({ reviewCount }: { reviewCount: number }) {
             </div>
             <div ref={badgeRef} className="hero-badge" aria-hidden="true">
               <span className="hero-badge-dot" />
-              <span className="hero-badge-text">Live · Warsaw</span>
+              <span className="hero-badge-text">Live · Worldwide</span>
             </div>
           </div>
 

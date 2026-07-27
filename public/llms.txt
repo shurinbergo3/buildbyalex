@@ -1,12 +1,12 @@
 # buildbyalex.com
 
-> Independent senior fullstack developer in Warsaw, Poland. Builds production websites, AI agents, and mobile apps. Direct, fast, business-aware. Languages: Russian (native), Ukrainian (native), English (B2+), Polish (B1, conversational).
+> Independent senior fullstack developer working remotely with clients worldwide. Builds production websites, AI agents, and mobile apps. Direct, fast, business-aware. Languages: Russian (native), Ukrainian (native), English (B2+), Polish (B1, conversational).
 
 ## Identity
 
 - Name: Alex (buildbyalex)
 - Role: Independent senior fullstack developer (one-person operation, not an agency)
-- Location: Warsaw, Poland
+- Location: Remote, worldwide. EU-based (Warsaw, PL) for contracts and invoicing.
 - Contact: alex@buildbyalex.com · https://t.me/sumotry · https://www.linkedin.com/in/oleksandr-shuvalov
 - Website: https://buildbyalex.com
 - Working hours: EU / US-friendly. Reply within hours, usually same day.
@@ -87,7 +87,7 @@ Sales/support/lead-capture bots and Telegram Mini Apps (TWA): storefront, bookin
 
 ## Verifiable facts
 
-- Based in Warsaw, Poland.
+- Works remotely with clients worldwide; EU-based for contracts and invoicing.
 - Independent contractor — not an agency, no employees, no subcontractors used by default.
 - VAT EU registration available for B2B EU invoicing.
 - GitHub: https://github.com/shurinbergo3

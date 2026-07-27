@@ -8,7 +8,7 @@ import { isReviewLive } from "@/lib/reviews";
  *
  * Emits a schema.org @graph with three connected nodes:
  *   • WebSite          — name, multilingual, links every node together
- *   • ProfessionalService — the business: Warsaw, area served, price range,
+ *   • ProfessionalService — the business: area served, price range,
  *                        sameAs profiles, aggregate rating, the four offerings
  *   • Person           — Alex, the founder (first name only), with the same sameAs profiles
  *
@@ -88,16 +88,8 @@ export async function HomeJsonLd({ locale }: { locale: Locale }) {
         description: t("defaultDescription"),
         email: EMAIL,
         priceRange: "€800–€10 000+",
-        areaServed: [
-          { "@type": "City", name: "Warsaw" },
-          { "@type": "Country", name: "Poland" },
-          { "@type": "Place", name: "Worldwide (remote)" },
-        ],
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Warsaw",
-          addressCountry: "PL",
-        },
+        areaServed: { "@type": "Place", name: "Worldwide (remote)" },
+        serviceType: "Remote software development",
         knowsLanguage: ["ru", "uk", "en", "pl"],
         founder: { "@id": personId },
         sameAs: SAME_AS,
@@ -128,7 +120,6 @@ export async function HomeJsonLd({ locale }: { locale: Locale }) {
         email: EMAIL,
         jobTitle: "Independent senior fullstack developer",
         worksFor: { "@id": businessId },
-        homeLocation: { "@type": "Place", name: "Warsaw, Poland" },
         knowsLanguage: ["ru", "uk", "en", "pl"],
         knowsAbout: [
           "Web development",
