@@ -19,9 +19,14 @@ import { isReviewLive } from "@/lib/reviews";
  */
 
 const PERSON_NAME = "Alex";
+// The canonical identity set. Every one of these must resolve to a profile that
+// is actually mine and links back here — `sameAs` is how Google and LLM search
+// decide "these are the same entity", so a wrong or dead link merges me with
+// someone else. Keep in sync with /llms.txt and the GitHub profile README.
 const SAME_AS = [
-  "https://github.com/buildbyalex",
+  "https://github.com/shurinbergo3",
   "https://t.me/sumotry",
+  "https://www.linkedin.com/in/oleksandr-shuvalov",
 ];
 const EMAIL = "alex@buildbyalex.com";
 

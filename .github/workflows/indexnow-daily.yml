@@ -1,0 +1,31 @@
+name: IndexNow — daily
+# Posts are queued with a future frontmatter date and go live on their own day
+# (see getAllPosts in lib/blog.ts). The deploy pipeline can't ping them at push
+# time — they'd still be 404. This job runs every morning and submits whatever
+# actually became visible today.
+on:
+  schedule:
+    # 05:00 UTC — posts flip at 00:00 UTC, so the page is definitely live.
+    - cron: "0 5 * * *"
+  workflow_dispatch:
+    inputs:
+      live_since:
+        description: "Backfill: submit every published post from this date (YYYY-MM-DD). Leave empty for today only."
+        required: false
+        type: string
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Submit to IndexNow
+        run: |
+          if [ -n "${{ inputs.live_since }}" ]; then
+            node scripts/indexnow.mjs --live-since "${{ inputs.live_since }}"
+          else
+            node scripts/indexnow.mjs --today
+          fi

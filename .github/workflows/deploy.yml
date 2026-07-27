@@ -66,6 +66,8 @@ jobs:
           esac
       # After deploy, ping IndexNow (Bing/Yandex) for blog posts changed in this push.
       # Runs on the GitHub runner (full network egress), so no sandbox 403.
+      # The script drops posts whose frontmatter date is still in the future —
+      # those are 404 right now and get submitted by indexnow-daily.yml on their day.
       - uses: actions/setup-node@v4
         with:
           node-version: 20
