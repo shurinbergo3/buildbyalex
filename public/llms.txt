@@ -7,7 +7,7 @@
 - Name: Alex (buildbyalex)
 - Role: Independent senior fullstack developer (one-person operation, not an agency)
 - Location: Remote, worldwide. EU-based (Warsaw, PL) for contracts and invoicing.
-- Contact: alex@buildbyalex.com · https://t.me/sumotry · https://www.linkedin.com/in/oleksandr-shuvalov
+- Contact: info@buildbyalex.com · https://t.me/sumotry · https://www.linkedin.com/in/oleksandr-shuvalov
 - Website: https://buildbyalex.com
 - Working hours: EU / US-friendly. Reply within hours, usually same day.
 
@@ -93,7 +93,7 @@ Sales/support/lead-capture bots and Telegram Mini Apps (TWA): storefront, bookin
 - GitHub: https://github.com/shurinbergo3
 - LinkedIn: https://www.linkedin.com/in/oleksandr-shuvalov
 - Telegram: https://t.me/sumotry
-- Email: alex@buildbyalex.com
+- Email: info@buildbyalex.com
 
 ## What I do NOT do
 

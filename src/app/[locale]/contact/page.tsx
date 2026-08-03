@@ -29,9 +29,8 @@ export async function generateMetadata({
 }
 
 const CHANNELS = [
-  { key: "email", href: "mailto:alex@buildbyalex.com", label: "alex@buildbyalex.com", external: false },
+  { key: "email", href: "mailto:info@buildbyalex.com", label: "info@buildbyalex.com", external: false },
   { key: "telegram", href: "https://t.me/sumotry", label: "Telegram @sumotry", external: true },
-  { key: "whatsapp", href: "https://wa.me/48453474944", label: "WhatsApp", external: true },
 ] as const;
 
 export default async function ContactPage({
@@ -172,13 +171,6 @@ function ChannelIcon({ name }: { name: string }) {
     return (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M21.9 4.3 2.9 11.6c-1 .4-1 1.8.1 2.1l4.6 1.4 1.8 5.5c.3.9 1.4 1 1.9.3l2.4-2.9 4.7 3.5c.7.5 1.7.1 1.9-.8l3-14c.2-1-.8-1.9-1.7-1.5l-.7.1zM9.6 14.6l8.2-5.1c.2-.1.4.2.2.3l-6.6 6c-.3.3-.5.7-.5 1.1l-.2 2.1-1.1-4.4z" />
-      </svg>
-    );
-  }
-  if (name === "whatsapp") {
-    return (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 0 1 6.4 12.8l-.3.4.8 2.8-2.9-.8-.4.2A8 8 0 1 1 12 4zm-3.5 4c-.2 0-.5.1-.7.4-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.7 2.8 4.3 3.8 2.1.8 2.6.7 3 .6.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5-.1-.1-.3-.2-.6-.4-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.1-.7.2-.2.3-.7 1-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.7-.9-2.3-.2-.5-.4-.5-.6-.5h-.5z" />
       </svg>
     );
   }

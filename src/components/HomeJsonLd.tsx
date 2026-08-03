@@ -28,7 +28,7 @@ const SAME_AS = [
   "https://t.me/sumotry",
   "https://www.linkedin.com/in/oleksandr-shuvalov",
 ];
-const EMAIL = "alex@buildbyalex.com";
+const EMAIL = "info@buildbyalex.com";
 
 type Review = { name: string; role?: string; quote: string; rating?: number };
 
