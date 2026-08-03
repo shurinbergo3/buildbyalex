@@ -6,6 +6,7 @@ import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { Link } from "@/i18n/navigation";
 import { HeroCodeSurface } from "@/components/home/HeroCodeSurface";
+import { TELEGRAM_URL } from "@/lib/contacts";
 
 export function Hero({ reviewCount }: { reviewCount: number }) {
   const t = useTranslations("home.hero");
@@ -313,6 +314,21 @@ export function Hero({ reviewCount }: { reviewCount: number }) {
                     {t("secondaryCta")}
                   </Button>
                 </div>
+
+                <p
+                  className="mt-4 text-[13.5px] text-white/60 animate-[fadeUp_900ms_cubic-bezier(0.16,1,0.3,1)_both]"
+                  style={{ animationDelay: "420ms" }}
+                >
+                  {t("altLabel")}{" "}
+                  <a
+                    href={TELEGRAM_URL}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="font-medium text-white/85 underline decoration-white/25 underline-offset-4 transition-colors hover:text-white hover:decoration-white/60"
+                  >
+                    {t("altLink")} ↗
+                  </a>
+                </p>
 
                 <Link
                   href={{ pathname: "/", hash: "reviews" }}

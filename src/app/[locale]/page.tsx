@@ -11,6 +11,7 @@ import { LegalwinHomeShowcase } from "@/components/home/LegalwinHomeShowcase";
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { ScrollStory } from "@/components/home/ScrollStory";
 import { Pricing } from "@/components/home/Pricing";
+import { FitCheck } from "@/components/home/FitCheck";
 import { Testimonials } from "@/components/home/Testimonials";
 import { FAQ } from "@/components/home/FAQ";
 import { FinalCTA } from "@/components/home/FinalCTA";
@@ -40,6 +41,7 @@ export default async function HomePage({
       <HowItWorks />
       <ScrollStory />
       <Pricing />
+      <FitCheck />
       <Testimonials />
       <FAQ />
       <FinalCTA reviewCount={reviewCount} />

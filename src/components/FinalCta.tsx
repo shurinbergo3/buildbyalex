@@ -46,6 +46,7 @@ export function FinalCta({
   steps,
   primary,
   secondary,
+  tertiary,
   rating,
   note,
 }: {
@@ -60,7 +61,9 @@ export function FinalCta({
   primary: { label: string; href?: Href };
   secondary?:
     | { kind: "ghost"; label: string; href: Href }
-    | { kind: "link"; label: string; href: string };
+    | { kind: "link"; label: string; href: string }
+    | { kind: "external"; label: string; href: string };
+  tertiary?: { label: string; href: string };
   rating?: { value: string; count: string };
   note?: string;
 }) {
@@ -122,6 +125,18 @@ export function FinalCta({
                     >
                       {secondary.label}
                     </Button>
+                  ) : secondary.kind === "external" ? (
+                    <Button
+                      as="a"
+                      href={secondary.href}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      variant="ghost"
+                      size="lg"
+                      className="!border-white/20 !text-white hover:!bg-white/10"
+                    >
+                      {secondary.label}
+                    </Button>
                   ) : (
                     <a
                       href={secondary.href}
@@ -130,6 +145,15 @@ export function FinalCta({
                       {secondary.label}
                     </a>
                   ))}
+
+                {tertiary && (
+                  <a
+                    href={tertiary.href}
+                    className="text-[14px] text-white/65 underline underline-offset-4 transition-colors hover:text-white"
+                  >
+                    {tertiary.label}
+                  </a>
+                )}
               </div>
 
               {rating && (

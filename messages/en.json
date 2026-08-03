@@ -82,23 +82,50 @@
       "primaryCta": "Book a free call",
       "secondaryCta": "See my work",
       "trustLine": "Remote worldwide · RU / EN / PL / UA",
-      "reviews": "4.8 out of 5 · {count} {count, plural, one {review} other {reviews}}"
+      "reviews": "4.8 out of 5 · {count} {count, plural, one {review} other {reviews}}",
+      "altLabel": "Not a fan of calls?",
+      "altLink": "Message me on Telegram"
     },
     "pain": {
       "eyebrow": "Why work with me",
       "headline": "Why clients pick me over an agency.",
+      "lead": "Three reasons, each backed by a project that is live right now and bringing in enquiries.",
+      "cta": "Talk about my project",
       "items": {
         "speed": {
-          "title": "Weeks, not quarters.",
-          "body": "Agencies take three months and four meetings to do what gets shipped here in three weeks. Minimal back-and-forth: one decision, one ship date."
+          "title": "Your site is live in 2 weeks",
+          "body": "While an agency is still booking the third briefing call, your site is live and the first enquiries are landing. The launch date is fixed in writing before work starts.",
+          "tab": "2 weeks",
+          "proof": {
+            "label": "VisionAir · drone services, Warsaw",
+            "before": "Before",
+            "after": "After",
+            "caption": "Visitor-to-enquiry conversion after the new site went live.",
+            "link": "See the case"
+          }
         },
         "owner": {
-          "title": "No middlemen. The whole stack.",
-          "body": "You talk straight to the people designing and writing the code. No account managers, no endless Slack channels, no handoffs to a junior."
+          "title": "Your site answers while you sleep",
+          "body": "The AI assistant replies in under a second, asks the right questions and sends a ready lead to Telegram. Nights, weekends, in four languages.",
+          "tab": "24/7",
+          "proof": {
+            "label": "LegalWin · AI assistant on the site",
+            "ask": "How much is a residence permit?",
+            "reply": "From 1,200 zł. Which visa are you on right now?",
+            "delivered": "Lead delivered to Telegram",
+            "speed": "0.4s",
+            "caption": "The bot handles 80% of first contact. You call back a lead that is already warm."
+          }
         },
         "seo": {
-          "title": "Built to rank from day one.",
-          "body": "Technical SEO, schema, performance and content structure aren't a separate phase — they're baked into the build. Pages indexed within hours."
+          "title": "I launch, hand over and let go",
+          "body": "You talk to me directly, no account managers, no juniors. Domain, repository and access sit in your name, with 30 days of support included.",
+          "tab": "Your code",
+          "proof": {
+            "label": "Live right now",
+            "count": "projects in production",
+            "caption": "Plus two under NDA. If I step away, everything stays with you and keeps running."
+          }
         }
       }
     },
@@ -219,35 +246,35 @@
         "legalwin": {
           "industry": "Immigration legal services · Warsaw",
           "title": "LegalWin",
-          "result1": "Ranks for 15+ commercial keywords in PL",
-          "result2": "AI consultant handles 80% of first-touch queries"
+          "result1": "Top 10 on Google for 15+ commercial queries, €0 on ads",
+          "result2": "The AI assistant handles 80% of first contact"
         },
         "visionair": {
           "industry": "Aerial cinematography · Warsaw",
           "title": "VisionAir",
-          "result1": "Sub-1s LCP across 7 service verticals",
-          "result2": "Leads reach the operator on Telegram in under 2s"
+          "result1": "5× more enquiries from the same traffic: 0.8% → 4.2%",
+          "result2": "The lead reaches the operator on Telegram in 2 seconds"
         },
         "crmbot": {
           "industry": "B2B sales automation",
           "title": "CRM Bot",
-          "result1": "Replaces the first-contact sales manager",
-          "result2": "Automated daily lead pull + AI qualification"
+          "result1": "+31% of leads make it to a sales conversation",
+          "result2": "Qualification takes 8 minutes instead of 40"
         }
       },
       "featured": {
         "metrics": [
           {
-            "value": "80%",
-            "label": "of first-contact handled by the bot"
+            "value": "5×",
+            "label": "more enquiries from the same traffic"
           },
           {
-            "value": "24/7",
-            "label": "lead qualification that never sleeps"
+            "value": "+31%",
+            "label": "of leads reach a sales conversation"
           },
           {
-            "value": "<30s",
-            "label": "first response to every new lead"
+            "value": "210 h",
+            "label": "of manager time a month handled by a bot"
           }
         ],
         "seeAll": "See all 5 projects"
@@ -526,6 +553,29 @@
         }
       },
       "caption": "Final price after a discovery call. Edits after launch: €50/hour, 1-hour minimum. No forced retainer."
+    },
+    "fit": {
+      "eyebrow": "Straight talk",
+      "headline": "Whether we are a fit.",
+      "lead": "So neither of us burns an hour on a call that was never going anywhere.",
+      "yesTitle": "I take it on if",
+      "noTitle": "I pass if",
+      "yes": [
+        "There is a real task and a deadline: launch, redesign, automation, an app.",
+        "Budget starts at €500 and you make the call, not a committee of five departments.",
+        "You want one person accountable for everything, from design to deploy.",
+        "Being found on Google and in AI search matters, not just looking nice."
+      ],
+      "no": [
+        "You are shopping for the cheapest quote. I won't do it for €150, and saying so beats failing later.",
+        "You need a full-time in-house developer. I work project by project.",
+        "The brief is \"do something so sales happen\" and there is no product or offer yet.",
+        "Every small change needs a week of approvals. Speed is half the value here."
+      ],
+      "ctaTitle": "Sounds like your situation?",
+      "ctaBody": "Send a couple of lines about the task. I reply within hours and tell you straight whether I'm the right fit.",
+      "ctaPrimary": "Describe the project",
+      "ctaTelegram": "Or on Telegram"
     },
     "testimonials": {
       "eyebrow": "What clients say",
@@ -1323,7 +1373,8 @@
       "subhead": "Free 30-minute call. No sales pitch — just a real conversation about what you need and whether I'm the right person to build it.",
       "primaryCta": "Book a free consultation",
       "or": "or email",
-      "email": "info@buildbyalex.com"
+      "email": "info@buildbyalex.com",
+      "telegramCta": "Message on Telegram"
     },
     "numbers": {
       "stats": [
@@ -5091,8 +5142,8 @@
         "quote": "Finally there's one place to send a client to, and requests come straight to our inbox. The site looks serious - exactly how we wanted the company to come across.",
         "quoteAuthor": "Tomasz W. · Baltic Dockyard",
         "metric": {
-          "value": "5",
-          "label": "services, one build"
+          "value": "12,400+",
+          "label": "catalogue items in search"
         }
       },
       "legalwin": {
@@ -5121,8 +5172,8 @@
         "quote": "Alex shipped in three weeks what two agencies couldn't deliver in three months. The site loads instantly and we're already getting calls from Google.",
         "quoteAuthor": "Marta K. · Founder of LegalWin",
         "metric": {
-          "value": "15+",
-          "label": "keywords in top-10"
+          "value": "€0",
+          "label": "spent on ads to date"
         }
       },
       "visionair": {
@@ -5152,8 +5203,8 @@
         "quote": "He understood the business in one call. Leads don't disappear anymore — they reach me on Telegram, I respond within minutes.",
         "quoteAuthor": "Igor P. · CEO of VisionAir",
         "metric": {
-          "value": "4.2%",
-          "label": "visitor-to-lead"
+          "value": "5×",
+          "label": "more enquiries, same traffic"
         }
       },
       "crmbot": {
@@ -5185,7 +5236,7 @@
         "quoteAuthor": "Anastasia D. · Product Lead",
         "metric": {
           "value": "+31%",
-          "label": "qualified leads"
+          "label": "of leads reach a sale"
         }
       },
       "leadbot": {
@@ -5216,8 +5267,8 @@
         "quote": "The bot writes the way I do — clients have no idea it isn't me. I open Telegram in the morning and three payments are already in, plus three notifications in the owner chat.",
         "quoteAuthor": "Maksim D. · immigration service",
         "metric": {
-          "value": "210h",
-          "label": "saved per month"
+          "value": "€1,170",
+          "label": "saved every month"
         }
       },
       "bodyforge": {
@@ -6684,7 +6735,7 @@
         "mobile": "Mobile app",
         "other": "Other / not sure"
       },
-      "budget": "Budget",
+      "budget": "Budget (optional)",
       "budgetOptions": {
         "under1k": "Under €1,000",
         "to3k": "€1,000–3,000",

@@ -82,23 +82,50 @@
       "primaryCta": "Bezpłatna konsultacja",
       "secondaryCta": "Zobacz realizacje",
       "trustLine": "Zdalnie na całym świecie · RU / EN / PL / UA",
-      "reviews": "4,8 na 5 · {count} {count, plural, one {opinię} few {opinie} many {opinii} other {opinii}}"
+      "reviews": "4,8 na 5 · {count} {count, plural, one {opinię} few {opinie} many {opinii} other {opinii}}",
+      "altLabel": "Nie lubisz rozmów?",
+      "altLink": "Napisz na Telegramie"
     },
     "pain": {
       "eyebrow": "Dlaczego ze mną",
       "headline": "Dlaczego klienci wybierają mnie zamiast agencji.",
+      "lead": "Trzy powody, a za każdym stoi projekt, który już działa i przynosi zapytania.",
+      "cta": "Porozmawiajmy o projekcie",
       "items": {
         "speed": {
-          "title": "Tygodnie, nie kwartały.",
-          "body": "Agencje potrzebują trzech miesięcy i czterech spotkań na to, co tu powstaje w trzy tygodnie. Minimum ustaleń: jedna decyzja, jedna data startu."
+          "title": "Strona online w 2 tygodnie",
+          "body": "Zanim agencja umówi trzecie spotkanie w sprawie briefu, Twoja strona już działa i spływają pierwsze zapytania. Data startu jest ustalona na piśmie przed rozpoczęciem prac.",
+          "tab": "2 tygodnie",
+          "proof": {
+            "label": "VisionAir · usługi dronowe, Warszawa",
+            "before": "Przed",
+            "after": "Po",
+            "caption": "Konwersja odwiedzającego w zapytanie po uruchomieniu nowej strony.",
+            "link": "Zobacz case"
+          }
         },
         "owner": {
-          "title": "Bez pośredników. Cały stack.",
-          "body": "Rozmawiasz wprost z osobami, które projektują i piszą kod. Bez account managerów, bez niekończących się kanałów na Slacku, bez przekazywania zadań juniorom."
+          "title": "Strona odpowiada, kiedy Ty śpisz",
+          "body": "Asystent AI odpowiada w ułamku sekundy, dopytuje o szczegóły i wysyła gotowe zgłoszenie na Telegrama. Nocą, w weekendy, w czterech językach.",
+          "tab": "24/7",
+          "proof": {
+            "label": "LegalWin · asystent AI na stronie",
+            "ask": "Ile kosztuje karta pobytu?",
+            "reply": "Od 1 200 zł. Na jakiej wizie jesteś teraz?",
+            "delivered": "Zgłoszenie poszło na Telegrama",
+            "speed": "0,4 s",
+            "caption": "Bot zamyka 80% pierwszego kontaktu. Oddzwaniasz do klienta, który jest już ciepły."
+          }
         },
         "seo": {
-          "title": "Zbudowane pod Google od pierwszego dnia.",
-          "body": "Techniczne SEO, schema, wydajność i struktura treści to nie osobny etap — są wbudowane w projekt. Strony indeksowane w ciągu godzin."
+          "title": "Uruchamiam, przekazuję i nie uzależniam",
+          "body": "Piszesz bezpośrednio do mnie, bez account managerów i juniorów. Domena, repozytorium i dostępy są na Ciebie, 30 dni wsparcia w cenie.",
+          "tab": "Twój kod",
+          "proof": {
+            "label": "Działają w tej chwili",
+            "count": "projektów na produkcji",
+            "caption": "Plus dwa objęte NDA. Jeśli odejdę, wszystko zostaje u Ciebie i dalej działa."
+          }
         }
       }
     },
@@ -219,35 +246,35 @@
         "legalwin": {
           "industry": "Usługi prawne — imigracja · Warszawa",
           "title": "LegalWin",
-          "result1": "Rankuje na 15+ słów kluczowych w PL",
-          "result2": "Konsultant AI obsługuje 80% pierwszych zapytań"
+          "result1": "Top 10 w Google na 15+ zapytań komercyjnych, 0 € na reklamę",
+          "result2": "Asystent AI zamyka 80% pierwszego kontaktu"
         },
         "visionair": {
           "industry": "Filmowanie z drona · Warszawa",
           "title": "VisionAir",
-          "result1": "LCP poniżej 1s na 7 wertykałach usług",
-          "result2": "Lead trafia do operatora na Telegramie w mniej niż 2s"
+          "result1": "5× więcej zapytań z tego samego ruchu: 0,8% → 4,2%",
+          "result2": "Zgłoszenie trafia do operatora na Telegramie w 2 sekundy"
         },
         "crmbot": {
           "industry": "Automatyzacja sprzedaży B2B",
           "title": "CRM Bot",
-          "result1": "Zastępuje managera pierwszego kontaktu",
-          "result2": "Automatyczne pobieranie leadów + kwalifikacja AI"
+          "result1": "+31% leadów dochodzi do rozmowy sprzedażowej",
+          "result2": "Kwalifikacja zajmuje 8 minut zamiast 40"
         }
       },
       "featured": {
         "metrics": [
           {
-            "value": "80%",
-            "label": "pierwszego kontaktu obsługuje bot"
+            "value": "5×",
+            "label": "więcej zapytań z tego samego ruchu"
           },
           {
-            "value": "24/7",
-            "label": "kwalifikacja leadów bez przerwy"
+            "value": "+31%",
+            "label": "leadów dochodzi do sprzedaży"
           },
           {
-            "value": "<30s",
-            "label": "pierwsza odpowiedź na każdy lead"
+            "value": "210 h",
+            "label": "pracy managera miesięcznie przejmuje bot"
           }
         ],
         "seeAll": "Zobacz wszystkie 5 realizacji"
@@ -526,6 +553,29 @@
         }
       },
       "caption": "Cena ostateczna po rozmowie wstępnej. Edycje po starcie: 50 €/h, minimum 1 godzina. Bez wymuszonego abonamentu."
+    },
+    "fit": {
+      "eyebrow": "Szczerze",
+      "headline": "Czy do siebie pasujemy.",
+      "lead": "Żeby nikt z nas nie tracił godziny na rozmowę, z której i tak nic nie wyjdzie.",
+      "yesTitle": "Biorę projekt, jeśli",
+      "noTitle": "Odpuszczam, jeśli",
+      "yes": [
+        "Jest konkretne zadanie i termin: start, redesign, automatyzacja, aplikacja.",
+        "Budżet od 500 € i decyzję podejmujesz Ty, a nie komitet z pięciu działów.",
+        "Chcesz jedną osobę odpowiedzialną za całość, od projektu po wdrożenie.",
+        "Zależy Ci, żeby Cię znajdowali w Google i w wyszukiwarkach AI, a nie tylko na ładny wygląd."
+      ],
+      "no": [
+        "Szukasz najtańszej oferty. Za 150 € tego nie zrobię i lepiej powiedzieć to od razu.",
+        "Potrzebujesz programisty na etat. Pracuję projektowo, nie na umowę o pracę.",
+        "Brief brzmi \"zróbcie coś, żeby była sprzedaż\", a produktu i oferty jeszcze nie ma.",
+        "Każda poprawka wymaga tygodnia akceptacji. Tempo to połowa wartości takiej współpracy."
+      ],
+      "ctaTitle": "Brzmi jak Twoja sytuacja?",
+      "ctaBody": "Napisz kilka zdań o zadaniu. Odpowiadam w ciągu godzin i mówię wprost, czy się nadaję.",
+      "ctaPrimary": "Opisz projekt",
+      "ctaTelegram": "Albo na Telegramie"
     },
     "testimonials": {
       "eyebrow": "Co mówią klienci",
@@ -1323,7 +1373,8 @@
       "subhead": "Bezpłatna 30-minutowa rozmowa. Zero sprzedażowego pitcha — konkretny dialog o tym, czego potrzebujesz i czy jestem właściwą osobą.",
       "primaryCta": "Umów bezpłatną konsultację",
       "or": "albo napisz",
-      "email": "info@buildbyalex.com"
+      "email": "info@buildbyalex.com",
+      "telegramCta": "Napisz na Telegramie"
     },
     "numbers": {
       "stats": [
@@ -5091,8 +5142,8 @@
         "quote": "Wreszcie mamy jeden adres, pod który można skierować klienta, a zapytania od razu przychodzą na naszą pocztę. Strona wygląda poważnie - dokładnie tak, jak chcieliśmy pokazać firmę.",
         "quoteAuthor": "Tomasz W. · Baltic Dockyard",
         "metric": {
-          "value": "5",
-          "label": "usług pod klucz"
+          "value": "12 400+",
+          "label": "pozycji katalogu w wyszukiwarce"
         }
       },
       "legalwin": {
@@ -5121,8 +5172,8 @@
         "quote": "Alex w trzy tygodnie dostarczył to, czego dwie agencje nie umiały zrobić w trzy miesiące. Strona ładuje się natychmiast, a my dostajemy telefony z Google.",
         "quoteAuthor": "Marta K. · Założycielka LegalWin",
         "metric": {
-          "value": "15+",
-          "label": "fraz w top-10"
+          "value": "0 €",
+          "label": "wydane na reklamę"
         }
       },
       "visionair": {
@@ -5152,8 +5203,8 @@
         "quote": "Zrozumiał biznes w jednej rozmowie. Leady już nie giną — przychodzą w Telegramie, odpowiadam w ciągu minut.",
         "quoteAuthor": "Igor P. · CEO VisionAir",
         "metric": {
-          "value": "4.2%",
-          "label": "konwersja na lead"
+          "value": "5×",
+          "label": "więcej zapytań, ten sam ruch"
         }
       },
       "crmbot": {
@@ -5185,7 +5236,7 @@
         "quoteAuthor": "Anastazja D. · Product Lead",
         "metric": {
           "value": "+31%",
-          "label": "kwalifikowanych leadów"
+          "label": "leadów dochodzi do sprzedaży"
         }
       },
       "leadbot": {
@@ -5216,7 +5267,7 @@
         "quote": "Bot pisze tak, że klienci nie domyślają się, że to nie ja. Rano otwieram Telegram, a tam już trzy wpłaty i trzy powiadomienia w czacie właściciela.",
         "quoteAuthor": "Maksim D. · serwis imigracyjny",
         "metric": {
-          "value": "210 h",
+          "value": "1 170 €",
           "label": "oszczędności miesięcznie"
         }
       },
@@ -6684,7 +6735,7 @@
         "mobile": "Aplikacja mobilna",
         "other": "Inne / nie wiem"
       },
-      "budget": "Budżet",
+      "budget": "Budżet (opcjonalnie)",
       "budgetOptions": {
         "under1k": "Do 1 000 €",
         "to3k": "1 000–3 000 €",
