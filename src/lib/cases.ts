@@ -1,6 +1,6 @@
 export type CaseKey = "baltic" | "legalwin" | "visionair" | "bodyforgesite" | "crmbot" | "leadbot" | "bodyforge";
 
-export const caseSlugs: CaseKey[] = ["baltic", "legalwin", "visionair", "bodyforgesite", "crmbot", "leadbot", "bodyforge"];
+export const caseSlugs: CaseKey[] = ["legalwin", "visionair", "bodyforgesite", "crmbot", "leadbot", "bodyforge", "baltic"];
 
 /** Discipline each case belongs to — drives the gallery filter. Non-localized. */
 export type CaseCategory = "web" | "ai" | "mobile";
@@ -24,7 +24,7 @@ export type ServiceBranch = "websites" | "store" | "ai" | "automation" | "mobile
  * empty list renders no block at all. Keep these aligned with `caseCategory`.
  */
 export const serviceToCases: Record<ServiceBranch, CaseKey[]> = {
-  websites: ["baltic", "legalwin", "visionair"],
+  websites: ["legalwin", "visionair", "baltic"],
   store: ["baltic"],
   ai: ["crmbot", "leadbot"],
   automation: ["crmbot", "leadbot"],
