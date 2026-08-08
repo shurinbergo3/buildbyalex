@@ -235,7 +235,7 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
 .hero-sticky {
   position: sticky;
   top: 0;
-  height: 100vh;
+  height: 100svh;
   overflow: hidden;
   background: var(--color-bg);
 }
@@ -2299,4 +2299,35 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
 
 @media (prefers-reduced-motion: reduce) {
   .pricing-card::after { transition: none; }
+}
+
+
+/* Reviews rail — swipe on phones. The scrollbar is hidden but the rail stays a
+   real scroll container, so keyboard and screen readers still reach every card. */
+.reviews-rail {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.reviews-rail::-webkit-scrollbar { display: none; }
+@media (min-width: 768px) {
+  .reviews-rail { scroll-snap-type: none; }
+}
+
+/* ───────────────────── WORK — sticky case stack ───────────────────────────
+   Cards pin one under another with a small offset, so scrolling the gallery
+   deals them like a hand of cards. Desktop only: on a phone the same trick
+   turns the page into a scroll trap.
+   ──────────────────────────────────────────────────────────────────────── */
+@media (min-width: 1024px) {
+  .case-stack { display: block; }
+  .stack-item {
+    position: sticky;
+    top: calc(var(--header-h) + 26px + var(--i) * 18px);
+  }
+  .stack-gap { height: 18vh; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stack-item { position: static; }
+  .stack-gap { height: 1.25rem; }
 }

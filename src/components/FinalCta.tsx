@@ -3,6 +3,9 @@ import { Section } from "./Section";
 import { Container } from "./Container";
 import { Reveal } from "./Reveal";
 import { Button } from "./Button";
+import { Magnetic } from "./Magnetic";
+import { ShaderGlow } from "./ShaderGlow";
+import { ProximityText } from "./ProximityText";
 import { HeroWindow } from "./HeroWindow";
 import { Link } from "@/i18n/navigation";
 import type { ContourTheme } from "./heroGlyphs";
@@ -72,6 +75,7 @@ export function FinalCta({
       <Container size="default">
         <Reveal>
           <HeroWindow
+            backdrop={<ShaderGlow className="mix-blend-screen opacity-80" />}
             theme={theme}
             accent={accent}
             label={chromeLabel}
@@ -87,7 +91,7 @@ export function FinalCta({
               )}
 
               <h2 className="mt-4 text-[clamp(30px,4vw,50px)] font-semibold leading-[1.05] tracking-[-0.03em] text-white">
-                {title}
+                <ProximityText text={title} />
               </h2>
 
               {body && (
@@ -108,12 +112,14 @@ export function FinalCta({
               )}
 
               <div className="mt-9 flex flex-wrap items-center justify-center gap-x-5 gap-y-3.5">
-                <Button href={primary.href ?? "/contact"} size="lg" className="case-cta-primary">
-                  {primary.label}
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M5 12h14M13 5l7 7-7 7" />
-                  </svg>
-                </Button>
+                <Magnetic>
+                  <Button href={primary.href ?? "/contact"} size="lg" className="case-cta-primary">
+                    {primary.label}
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M5 12h14M13 5l7 7-7 7" />
+                    </svg>
+                  </Button>
+                </Magnetic>
 
                 {secondary &&
                   (secondary.kind === "ghost" ? (

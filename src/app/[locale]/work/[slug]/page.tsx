@@ -3,6 +3,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { useMessages } from "next-intl";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
+import { ReadingProgress } from "@/components/ReadingProgress";
 import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 import { FinalCta } from "@/components/FinalCta";
@@ -179,6 +180,7 @@ function CaseContent({ slug, locale }: { slug: string; locale: string }) {
 
   return (
     <>
+      <ReadingProgress />
       {/* ── Hero ── */}
       <Section pad="tight" className="!pt-12 md:!pt-20">
         <Container>

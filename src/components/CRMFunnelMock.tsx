@@ -293,10 +293,10 @@ function ActiveCard({
       </div>
       <div className="relative mt-2 h-[3px] w-full overflow-hidden rounded-full bg-white/5">
         <motion.div
-          className="h-full rounded-full"
+          className="h-full w-full origin-left rounded-full"
           style={{ background: tone.bar }}
-          initial={{ width: 0 }}
-          animate={{ width: `${progress}%` }}
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: progress / 100 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         />
       </div>

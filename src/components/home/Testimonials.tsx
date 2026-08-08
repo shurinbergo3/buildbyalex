@@ -166,9 +166,9 @@ export function Testimonials() {
                     </span>
                     <div className="h-[7px] flex-1 overflow-hidden rounded-full bg-[color:var(--c-hairline)]">
                       <motion.div
-                        className="h-full rounded-full bg-[color:var(--c-accent)]"
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${pct}%` }}
+                        className="h-full w-full origin-left rounded-full bg-[color:var(--c-accent)]"
+                        initial={{ scaleX: 0 }}
+                        whileInView={{ scaleX: pct / 100 }}
                         viewport={{ once: true, margin: "0px 0px -10% 0px" }}
                         transition={{ duration: 0.7, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
                       />
@@ -185,9 +185,15 @@ export function Testimonials() {
 
         {/* Reviews grid */}
         <div className="relative mt-10 md:mt-12">
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {/* Phones swipe through the reviews instead of scrolling past six
+              stacked cards; from md up it's the same grid as before. */}
+          <div className="reviews-rail -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 md:mx-0 md:grid md:grid-cols-2 md:gap-5 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-3">
             {visible.map((r, i) => (
-              <Reveal key={r.name} delay={(i % 3) * 80}>
+              <Reveal
+                key={r.name}
+                delay={(i % 3) * 80}
+                className="w-[82vw] max-w-[330px] shrink-0 snap-center md:w-auto md:max-w-none"
+              >
                 <ReviewCard r={r} i={i} />
               </Reveal>
             ))}

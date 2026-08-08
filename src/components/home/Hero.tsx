@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
+import { Magnetic } from "@/components/Magnetic";
 import { Link } from "@/i18n/navigation";
 import { HeroCodeSurface } from "@/components/home/HeroCodeSurface";
 import { TELEGRAM_URL } from "@/lib/contacts";
@@ -307,9 +308,11 @@ export function Hero({ reviewCount }: { reviewCount: number }) {
                   className="hero-cta mt-7 sm:mt-10 flex flex-wrap items-center justify-center gap-3 animate-[fadeUp_900ms_cubic-bezier(0.16,1,0.3,1)_both]"
                   style={{ animationDelay: "380ms" }}
                 >
-                  <Button href="/contact" size="lg">
-                    {t("primaryCta")}
-                  </Button>
+                  <Magnetic>
+                    <Button href="/contact" size="lg">
+                      {t("primaryCta")}
+                    </Button>
+                  </Magnetic>
                   <Button href="/work" variant="ghost" size="lg" className="hero-ghost">
                     {t("secondaryCta")}
                   </Button>

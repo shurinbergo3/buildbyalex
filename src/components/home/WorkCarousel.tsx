@@ -175,7 +175,7 @@ export function WorkCarousel({
             className="group relative h-2.5 py-1.5"
           >
             <span
-              className={`block h-1 rounded-full transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              className={`block h-1 rounded-full transition-[width,background-color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 i === active
                   ? "w-7 bg-[color:var(--c-accent)]"
                   : "w-2 bg-[color:var(--color-divider)] group-hover:bg-[color:var(--color-text-3)]"

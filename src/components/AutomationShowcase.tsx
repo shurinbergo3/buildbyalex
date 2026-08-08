@@ -69,8 +69,9 @@ function Connector({ filled }: { filled: boolean }) {
     <div className="relative mx-1 hidden h-[2px] flex-1 self-start md:mt-7 md:block">
       <div className="absolute inset-0 rounded-full bg-[color:var(--color-divider)]" />
       <motion.div
-        className="absolute inset-y-0 left-0 rounded-full bg-[color:var(--c-accent)]"
-        animate={{ width: filled ? "100%" : "0%" }}
+        className="absolute inset-y-0 left-0 w-full origin-left rounded-full bg-[color:var(--c-accent)]"
+        initial={false}
+        animate={{ scaleX: filled ? 1 : 0 }}
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
       />
     </div>

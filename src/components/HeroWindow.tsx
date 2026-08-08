@@ -51,6 +51,7 @@ export function HeroWindow({
   centered = false,
   className = "",
   bodyClassName = "",
+  backdrop,
   children,
 }: {
   label: string;
@@ -62,6 +63,8 @@ export function HeroWindow({
   centered?: boolean;
   className?: string;
   bodyClassName?: string;
+  /** Extra ambient layer drawn above the built-in ones, below the content. */
+  backdrop?: ReactNode;
   children: ReactNode;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -106,6 +109,7 @@ export function HeroWindow({
       <div className="hero-glass-edge" aria-hidden="true" />
       <div className="hero-glass-glint" aria-hidden="true" />
       <div className="hero-glass-sheen" aria-hidden="true" />
+      {backdrop}
       <div className="hero-glass-grain" aria-hidden="true" style={{ backgroundImage: GRAIN }} />
 
       {/* faux macOS window chrome */}

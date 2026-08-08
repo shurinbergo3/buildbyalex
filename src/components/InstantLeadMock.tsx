@@ -252,7 +252,7 @@ function Field({
 }) {
   return (
     <div
-      className={`rounded-xl border bg-white px-3.5 py-2.5 transition-all ${
+      className={`rounded-xl border bg-white px-3.5 py-2.5 transition-[border-color,box-shadow] ${
         active
           ? "border-[#ff6b1a] shadow-[0_0_0_3px_rgba(255,107,26,0.12)]"
           : value
@@ -315,7 +315,7 @@ function Connector({
           sits at a confusing "0,0 s" during the typing phase. Reads as a live
           stopwatch ticking up to the real delivery time. */}
       <div
-        className={`flex flex-col items-center gap-0.5 rounded-full px-3.5 py-1.5 transition-all duration-300 ${
+        className={`flex flex-col items-center gap-0.5 rounded-full px-3.5 py-1.5 transition-[background-color,color] duration-300 ${
           delivered
             ? "bg-[#0cce6b]/10 text-[#0a8a4d]"
             : "bg-[#ff6b1a]/10 text-[#c44a00]"

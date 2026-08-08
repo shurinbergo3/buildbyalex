@@ -1,7 +1,15 @@
 {
  "used": [
+  "fancy/image-trail",
+  "fancy/stacking-cards",
   "magicui/border-beam",
+  "magicui/marquee",
   "magicui/number-ticker",
-  "reactbits/spotlight-card"
+  "magicui/scroll-progress",
+  "reactbits/liquid-chrome",
+  "reactbits/logo-loop",
+  "reactbits/spotlight-card",
+  "reactbits/variable-proximity",
+  "smoothui/magnetic-button"
  ]
 }

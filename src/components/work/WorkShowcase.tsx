@@ -6,6 +6,8 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Link } from "@/i18n/navigation";
 import { Container } from "@/components/Container";
 import { CaseArt, hasCaseArt } from "@/components/CaseArt";
+import { CaseTrail } from "@/components/work/CaseTrail";
+import { StackItem } from "@/components/work/StackItem";
 import type { CaseCategory } from "@/lib/cases";
 
 export type GalleryCase = {
@@ -53,6 +55,7 @@ export function WorkShowcase({
     <>
       {/* ───────── Header ───────── */}
       <header className="relative overflow-hidden pt-16 pb-9 md:pt-24 md:pb-12">
+        <CaseTrail covers={cases.slice(0, 6).map((c) => ({ src: c.imageSrc, alt: c.imageAlt }))} />
         {/* twin accent auroras for an editorial, Apple-keynote backdrop */}
         <div
           aria-hidden="true"
@@ -62,7 +65,7 @@ export function WorkShowcase({
               "radial-gradient(ellipse 50% 64% at 16% 0%, color-mix(in srgb, var(--c-accent) 18%, transparent), transparent 68%), radial-gradient(ellipse 44% 56% at 92% 6%, color-mix(in srgb, var(--c-accent) 10%, transparent), transparent 70%)",
           }}
         />
-        <Container>
+        <Container className="relative z-10">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
             <span className="t-eyebrow text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
               {labels.eyebrow}
@@ -127,18 +130,19 @@ export function WorkShowcase({
       {/* ───────── Gallery ───────── */}
       <section className="pb-12 md:pb-16">
         <Container>
-          <div className="grid grid-cols-1 gap-4 sm:gap-5 lg:grid-cols-12 lg:gap-6">
+          <div className="case-stack grid grid-cols-1 gap-4 sm:gap-5">
             <AnimatePresence mode="popLayout" initial={false}>
               {visible.map((c, i) => (
-                <CaseCard
-                  key={c.key}
-                  data={c}
-                  index={i}
-                  featured={i === 0}
-                  cta={labels.cta}
-                  categoryLabel={filters[c.category]}
-                  reduce={!!reduce}
-                />
+                <StackItem key={c.key} index={i} total={visible.length}>
+                  <CaseCard
+                    data={c}
+                    index={i}
+                    featured
+                    cta={labels.cta}
+                    categoryLabel={filters[c.category]}
+                    reduce={!!reduce}
+                  />
+                </StackItem>
               ))}
             </AnimatePresence>
           </div>

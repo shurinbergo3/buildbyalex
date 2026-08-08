@@ -447,10 +447,10 @@ function ActiveDeal({
       </div>
       <div className="mt-2 h-[3px] w-full overflow-hidden rounded-full bg-white/[0.06]">
         <motion.div
-          className="h-full rounded-full"
+          className="h-full w-full origin-left rounded-full"
           style={{ background: won ? "#34d399" : "var(--c-accent)" }}
-          initial={{ width: 0 }}
-          animate={{ width: `${progress}%` }}
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: progress / 100 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         />
       </div>

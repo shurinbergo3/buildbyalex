@@ -6,6 +6,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { Link } from "@/i18n/navigation";
 import { Container } from "@/components/Container";
+import { ReadingProgress } from "@/components/ReadingProgress";
 import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/Button";
@@ -183,6 +184,7 @@ export default async function BlogPostPage({
 
   return (
     <>
+      <ReadingProgress />
       <Section pad="tight" className="!pt-12 md:!pt-20">
         <Container size="md">
           <Reveal>

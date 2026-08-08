@@ -423,7 +423,7 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
               className="grid h-9 place-items-center px-0.5"
             >
               <span
-                className="block h-2.5 rounded-full transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                className="block h-2.5 rounded-full transition-[width,background-color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
                 style={{
                   width: i === active ? 30 : 9,
                   background:
@@ -455,7 +455,7 @@ function NavButton({
       onClick={onClick}
       disabled={disabled}
       aria-label={dir === "prev" ? "Previous case" : "Next case"}
-      className="flex h-12 w-12 items-center justify-center rounded-full border border-[color:var(--color-divider)] bg-[color:var(--color-bg-elev)] text-[color:var(--color-text)] shadow-[var(--shadow-card)] transition-all duration-200 ease-[cubic-bezier(0.28,0.11,0.32,1)] hover:-translate-y-0.5 hover:border-[color:var(--c-accent)] hover:text-[color:var(--c-accent)] active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-25 disabled:shadow-none disabled:hover:translate-y-0 disabled:hover:border-[color:var(--color-divider)] disabled:hover:text-[color:var(--color-text)]"
+      className="flex h-12 w-12 items-center justify-center rounded-full border border-[color:var(--color-divider)] bg-[color:var(--color-bg-elev)] text-[color:var(--color-text)] shadow-[var(--shadow-card)] transition-[transform,border-color,color,box-shadow,opacity] duration-200 ease-[cubic-bezier(0.28,0.11,0.32,1)] hover:-translate-y-0.5 hover:border-[color:var(--c-accent)] hover:text-[color:var(--c-accent)] active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-25 disabled:shadow-none disabled:hover:translate-y-0 disabled:hover:border-[color:var(--color-divider)] disabled:hover:text-[color:var(--color-text)]"
     >
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
         <path
