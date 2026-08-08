@@ -3,12 +3,21 @@ import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/Button";
+import { PricingCard } from "@/components/home/PricingCard";
+import { serviceHref, type ServiceKey } from "@/components/serviceGlyphs";
 
-const tiers = [
-  { key: "site", featured: false },
-  { key: "ai", featured: true },
-  { key: "mobile", featured: false },
-] as const;
+/* Bento pricing: the AI tier owns a 2×2 block, the five others fill the rest of
+   the 3×3 grid. Every card links to its service page, so the block doubles as
+   navigation instead of six identical CTAs shouting at once. */
+
+const tiers: { key: string; service: ServiceKey; featured?: boolean; span?: string }[] = [
+  { key: "ai", service: "ai", featured: true, span: "lg:col-span-2 lg:row-span-2 md:col-span-2" },
+  { key: "site", service: "websites" },
+  { key: "automation", service: "automation" },
+  { key: "telegram", service: "telegram" },
+  { key: "ads", service: "ads" },
+  { key: "mobile", service: "mobile" },
+];
 
 export function Pricing() {
   const t = useTranslations("home.pricing");
@@ -18,7 +27,7 @@ export function Pricing() {
     <Section tone="default" pad="default">
       <Container>
         <Reveal>
-          <div className="mx-auto max-w-[760px] text-center">
+          <div className="max-w-[680px]">
             <p className="t-eyebrow">{t("eyebrow")}</p>
             <h2 className="mt-3 t-h2">
               {headlineLines.map((line, i) => (
@@ -29,60 +38,33 @@ export function Pricing() {
           </div>
         </Reveal>
 
-        <div className="mt-14 grid gap-5 md:mt-20 md:grid-cols-3">
-          {tiers.map(({ key, featured }, i) => (
-            <Reveal key={key} delay={i * 90}>
-              <article
-                className={[
-                  "relative flex h-full flex-col rounded-[28px] p-7 md:p-8 transition-[transform,box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]",
-                  featured
-                    ? "bg-[#0A0A0A] text-white shadow-[var(--shadow-card)]"
-                    : "bg-[color:var(--color-bg-alt)] hover:-translate-y-1 hover:shadow-[var(--shadow-card-hover)]",
-                ].join(" ")}
+        <div className="mt-12 grid auto-rows-fr gap-4 md:mt-16 md:grid-cols-2 lg:grid-cols-3">
+          {tiers.map(({ key, service, featured, span }, i) => (
+            <Reveal key={key} delay={i * 70} className={`h-full ${span ?? ""}`}>
+              <PricingCard
+                title={t(`tiers.${key}.title`)}
+                from={t(`tiers.${key}.from`)}
+                price={t(`tiers.${key}.price`)}
+                body={t(`tiers.${key}.body`)}
+                examples={t(`tiers.${key}.examples`)}
+                badge={featured ? t("badge") : undefined}
+                href={serviceHref[service]}
+                moreLabel={t("moreLabel")}
+                featured={featured}
+                priceDelay={i * 70 + 120}
               >
-                {featured && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[color:var(--c-accent)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-white">
-                    {t("badge")}
-                  </span>
-                )}
-                <h3 className={`text-[15px] font-semibold ${featured ? "text-white/70" : "text-[color:var(--color-text-2)]"}`}>
-                  {t(`tiers.${key}.title`)}
-                </h3>
-
-                <div className="mt-4 flex items-baseline gap-2">
-                  <span className={`text-[12px] tracking-[0.04em] uppercase ${featured ? "text-white/50" : "text-[color:var(--color-text-3)]"}`}>
-                    {t(`tiers.${key}.from`)}
-                  </span>
-                  <span className={`text-[clamp(36px,3.4vw,52px)] font-semibold tracking-[-0.03em] ${featured ? "text-white" : "text-[color:var(--color-text)]"}`}>
-                    {t(`tiers.${key}.price`)}
-                  </span>
-                </div>
-
-                <p className={`mt-5 text-[15.5px] leading-[1.55] ${featured ? "text-white/80" : "text-[color:var(--color-text-2)]"}`}>
-                  {t(`tiers.${key}.body`)}
-                </p>
-
-                <p className={`mt-6 text-[12.5px] tracking-[0.02em] ${featured ? "text-white/50" : "text-[color:var(--color-text-3)]"}`}>
-                  {t(`tiers.${key}.examples`)}
-                </p>
-
-                <div className="mt-auto pt-8">
-                  <Button
-                    href="/contact"
-                    variant={featured ? "primary" : "ghost"}
-                    size="md"
-                    className="w-full"
-                  >
+                {featured ? (
+                  <Button href="/contact" variant="primary" size="md" className="w-full sm:w-auto">
                     {t("ctaLabel")} →
                   </Button>
-                </div>
-              </article>
+                ) : undefined}
+              </PricingCard>
             </Reveal>
           ))}
         </div>
 
-        <Reveal delay={300}>
-          <p className="mx-auto mt-10 max-w-[640px] text-center text-[13.5px] leading-[1.5] text-[color:var(--color-text-3)]">
+        <Reveal delay={280}>
+          <p className="mt-9 max-w-[640px] text-[13.5px] leading-[1.5] text-[color:var(--color-text-3)]">
             {t("caption")}
           </p>
         </Reveal>

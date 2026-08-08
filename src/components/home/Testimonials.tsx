@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
+import { AnimatedNumber, CountUp } from "@/components/CountUp";
 import { isReviewLive } from "@/lib/reviews";
 import { ReviewForm } from "./ReviewForm";
 
@@ -144,12 +145,13 @@ export function Testimonials() {
         <Reveal delay={80}>
           <div className="mt-9 grid gap-6 rounded-[22px] border border-[color:var(--color-divider)] bg-[color:var(--color-bg-elev)] p-6 sm:grid-cols-[auto_1fr] sm:items-center sm:gap-10 sm:p-8 md:mt-12">
             <div className="flex flex-col items-center gap-1.5 border-b border-[color:var(--color-divider)] pb-6 sm:border-b-0 sm:border-r sm:pb-0 sm:pr-10">
-              <span className="text-[52px] font-semibold leading-none tracking-[-0.04em] text-[color:var(--color-text)]">
-                {rating}
-              </span>
+              <AnimatedNumber
+                text={rating}
+                className="text-[52px] font-semibold leading-none tracking-[-0.04em] text-[color:var(--color-text)]"
+              />
               <StarRow value={Number(rating.replace(",", "."))} size={17} />
               <span className="mt-0.5 flex items-center gap-1.5 text-[12.5px] text-[color:var(--color-text-3)]">
-                {total} {count}
+                <CountUp value={total} separator="" delay={120} /> {count}
               </span>
             </div>
 

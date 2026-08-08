@@ -1,0 +1,15 @@
+{
+  "assets": [
+    {
+      "file": "public/scroll-story-bg-v2.png",
+      "engine": "nano",
+      "model": "gemini-3-pro-image",
+      "prompt": "Abstract light-and-material study, macro photograph, for a dark cinematic website section background: no product, no hero object, no people. A single narrow beam of warm amber light enters from the upper left and passes through a thick slab of optical glass with a chamfered edge, breaking into soft caustic ribbons that spill across a matte near-black surface in the right half of the frame. Fine dust drifts through volumetric haze. Large empty dark space on the left for the headline, and a calm low-contrast centre because a device mockup sits on top of it. 85mm macro at f/4, shallow focus falling off into the corners, fine film grain, gently lifted blacks, no vignette.",
+      "date": "2026-08-08",
+      "verdict": "ok",
+      "aspect": "16:9",
+      "size": "2K",
+      "note": "фон ScrollStory: свет сквозь стекло, каустика вправо, левая треть чистая под текст глав"
+    }
+  ]
+}

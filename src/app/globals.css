@@ -2256,3 +2256,47 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
     background: radial-gradient(76% 18% at 50% 11%, color-mix(in srgb, var(--c-bg) 78%, transparent) 0%, color-mix(in srgb, var(--c-bg) 28%, transparent) 58%, transparent 86%);
   }
 }
+
+/* ───────────────────── PRICING — bento + cursor light ─────────────────────
+   The light follows the cursor through CSS vars set in PricingCard, so no
+   React render runs per frame. Fine pointers only: on touch there is no
+   cursor to follow and the gradient would just sit in a corner.
+   ──────────────────────────────────────────────────────────────────────── */
+.pricing-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur-med) var(--ease-apple);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pricing-card::after {
+    background: radial-gradient(
+      420px circle at var(--mx, 50%) var(--my, 0%),
+      color-mix(in srgb, var(--c-accent) 12%, transparent) 0%,
+      transparent 68%
+    );
+  }
+  .pricing-card:hover::after { opacity: 1; }
+  .pricing-card[data-tone="ink"]::after {
+    background: radial-gradient(
+      460px circle at var(--mx, 50%) var(--my, 0%),
+      color-mix(in srgb, var(--c-accent) 26%, transparent) 0%,
+      transparent 66%
+    );
+  }
+}
+
+/* In dark mode the ink card would be #0A0A0A on a #0A0A0A page — the tier that
+   should stand out disappears. Lift it a step and give it a warm hairline. */
+[data-theme="dark"] .pricing-card[data-tone="ink"] {
+  background: color-mix(in srgb, var(--c-accent) 5%, #141416);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c-accent) 22%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pricing-card::after { transition: none; }
+}

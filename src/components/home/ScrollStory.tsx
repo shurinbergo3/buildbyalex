@@ -113,11 +113,12 @@ export function ScrollStory() {
             }}
           />
 
-          {/* Faint cinematic backdrop — barely-there warm haze, blends into the black */}
+          {/* Faint cinematic backdrop — light through thick glass, caustics spilling to the
+              right so the left column of chapter copy stays on clean black */}
           <div
-            className="absolute inset-0 bg-cover bg-center opacity-[0.22] mix-blend-screen"
+            className="absolute inset-0 bg-cover bg-center opacity-[0.28] mix-blend-screen"
             style={{
-              backgroundImage: "url(/scroll-story-bg.webp)",
+              backgroundImage: "url(/scroll-story-bg-v2.webp)",
               maskImage:
                 "radial-gradient(115% 100% at 62% 48%, #000 20%, transparent 100%)",
               WebkitMaskImage:

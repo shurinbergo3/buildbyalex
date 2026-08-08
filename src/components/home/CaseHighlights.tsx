@@ -4,6 +4,7 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react
 import { animate, motion, useMotionValue, useReducedMotion, type PanInfo } from "motion/react";
 import { Link } from "@/i18n/navigation";
 import { CaseArt, hasCaseArt } from "@/components/CaseArt";
+import { AnimatedNumber } from "@/components/CountUp";
 import { pausePageScroll, resumePageScroll } from "@/lib/smoothScroll";
 
 /* ────────────────────────────────────────────────────────────────────────
@@ -376,9 +377,10 @@ export function CaseHighlights({ items, ctaLabel }: { items: HighlightItem[]; ct
                           style={{ background: "var(--c-accent)", boxShadow: "0 0 14px rgba(255,122,45,0.65)" }}
                         />
                         <span className="leading-none">
-                          <span className="block text-[clamp(24px,2.6vw,34px)] font-semibold leading-none tracking-[-0.02em] tabular-nums text-white">
-                            {it.metricValue}
-                          </span>
+                          <AnimatedNumber
+                            text={it.metricValue}
+                            className="block text-[clamp(24px,2.6vw,34px)] font-semibold leading-none tracking-[-0.02em] text-white"
+                          />
                           <span className="mt-1.5 block text-[10.5px] uppercase tracking-wider text-white/60">{it.metricLabel}</span>
                         </span>
                       </div>

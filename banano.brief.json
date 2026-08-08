@@ -1,0 +1,309 @@
+{
+  "project": {
+    "path": "/Users/shurinberg/Vibe coding/buildbyalex",
+    "folder": "buildbyalex",
+    "framework": "Next.js",
+    "css": "Tailwind",
+    "ui": "",
+    "deps": [
+      "@tailwindcss/postcss",
+      "@tailwindcss/typography",
+      "@types/node",
+      "@types/react",
+      "@types/react-dom",
+      "@vercel/analytics",
+      "@vercel/speed-insights",
+      "clsx",
+      "eslint",
+      "eslint-config-next",
+      "gray-matter",
+      "lenis",
+      "motion",
+      "next",
+      "next-intl",
+      "next-mdx-remote",
+      "postcss",
+      "react",
+      "react-dom",
+      "reading-time",
+      "remark-gfm",
+      "tailwind-merge",
+      "tailwindcss",
+      "typescript"
+    ],
+    "name": "buildbyalex",
+    "description": ""
+  },
+  "pages": [
+    "src/app/[locale]/[...rest]/page.tsx",
+    "src/app/[locale]/blog/[slug]/page.tsx",
+    "src/app/[locale]/blog/page.tsx",
+    "src/app/[locale]/contact/page.tsx",
+    "src/app/[locale]/contact/thank-you/page.tsx",
+    "src/app/[locale]/page.tsx",
+    "src/app/[locale]/services/advertising/page.tsx",
+    "src/app/[locale]/services/ai-agents/page.tsx",
+    "src/app/[locale]/services/automation/page.tsx",
+    "src/app/[locale]/services/mobile-apps/page.tsx",
+    "src/app/[locale]/services/online-store/page.tsx",
+    "src/app/[locale]/services/page.tsx",
+    "src/app/[locale]/services/telegram-bots/page.tsx",
+    "src/app/[locale]/services/websites/page.tsx",
+    "src/app/[locale]/work/[slug]/page.tsx",
+    "src/app/[locale]/work/page.tsx"
+  ],
+  "sections": [
+    "AdsShowcase",
+    "AiCaseHero",
+    "AiSyncShowcase",
+    "AppIconMark",
+    "AutomationShowcase",
+    "BalticCaseHero",
+    "BalticDockyardHeroMock",
+    "BalticDockyardShowcase",
+    "BlogList",
+    "BodyForgeCaseHero",
+    "BodyForgeHeroMock",
+    "BodyForgeShowcase",
+    "BodyForgeSiteCaseHero",
+    "BodyForgeSiteHeroMock",
+    "BodyForgeSiteShowcase",
+    "BotCrmSync",
+    "Button",
+    "CRMFunnelMock",
+    "CaseArt",
+    "CaseCover",
+    "CaseHeroKit",
+    "CaseHighlights",
+    "CaseMetrics",
+    "ChatGPTRecommendMock",
+    "ContactCodeRain",
+    "ContactForm",
+    "Container",
+    "CrmbotCaseHero",
+    "CrmbotShowcase",
+    "CtaGlass",
+    "Eyebrow",
+    "FAQ",
+    "FAQAccordion",
+    "FeaturedWork",
+    "FinalCTA",
+    "FinalCta",
+    "FitCheck",
+    "Footer",
+    "GoogleSerpMock",
+    "Header"
+  ],
+  "meta": {},
+  "headings": {
+    "h1": [
+      "Сайты, AI-агенты и мобильные приложения. Под ключ за 1–3 недели."
+    ],
+    "h2": [],
+    "h3": [
+      "Karta pobytu. Bez stresu."
+    ],
+    "blog": []
+  },
+  "i18n_texts": [
+    "meta.defaultTitle: Web, AI Agent & App Development — buildbyalex",
+    "nav.servicesMenu.label: All services",
+    "nav.servicesMenu.websites.title: Websites",
+    "nav.servicesMenu.websites.tagline: Multilingual sites that rank",
+    "nav.servicesMenu.store.title: Online stores",
+    "nav.servicesMenu.store.tagline: Catalog, cart and payments for Poland",
+    "nav.servicesMenu.ai.title: AI agents",
+    "nav.servicesMenu.ai.tagline: Chat & sales bots, workflow automation",
+    "nav.servicesMenu.automation.title: Automation",
+    "nav.servicesMenu.automation.tagline: Wire tools together, kill the busywork",
+    "nav.servicesMenu.mobile.title: Mobile apps",
+    "nav.servicesMenu.mobile.tagline: iOS & Android from one codebase",
+    "nav.servicesMenu.ads.title: Advertising",
+    "nav.servicesMenu.ads.tagline: Google Ads & Meta Ads built for leads",
+    "nav.servicesMenu.telegram.title: Telegram bots",
+    "nav.servicesMenu.telegram.tagline: Bots & Mini Apps with in-chat payments",
+    "footer.tagline: Turnkey development. Three weeks to launch. Built to rank.",
+    "home.hero.eyebrow: Web development & AI agents",
+    "home.hero.headline: Website, AI agent\nand app development",
+    "home.hero.kicker: Turnkey in 1-3 weeks",
+    "home.hero.subhead: Design, code, CRM, messenger and AI integrations, launch and support, handled end to end. From first call to live, with no dropped deadlines.",
+    "home.hero.primaryCta: Book a free call",
+    "home.hero.secondaryCta: See my work",
+    "home.hero.trustLine: Remote worldwide · RU / EN / PL / UA",
+    "home.hero.reviews: 4.8 out of 5 · {count} {count, plural, one {review} other {reviews}}",
+    "home.hero.altLabel: Not a fan of calls?",
+    "home.hero.altLink: Message me on Telegram",
+    "home.pain.headline: Why clients pick me over an agency.",
+    "home.pain.lead: Three reasons, each backed by a project that is live right now and bringing in enquiries.",
+    "home.pain.cta: Talk about my project",
+    "home.pain.items.speed.title: Your site is live in 2 weeks",
+    "home.pain.items.speed.proof.label: VisionAir · drone services, Warsaw",
+    "home.pain.items.owner.title: Your site answers while you sleep",
+    "home.pain.items.owner.proof.label: LegalWin · AI assistant on the site",
+    "home.pain.items.seo.title: I launch, hand over and let go",
+    "home.pain.items.seo.proof.label: Live right now",
+    "home.services.headline: Websites, AI and apps that bring you clients.",
+    "home.services.items.websites.title: Websites that rank.",
+    "home.services.items.ai.title: AI agents that close.",
+    "home.services.items.mobile.title: Mobile apps that ship.",
+    "label: info@buildbyalex.com",
+    "label: Telegram @sumotry",
+    "jobTitle: Independent senior fullstack developer",
+    "title: Agent AI dla biura nieruchomości w Warszawie: ile kosztuje",
+    "title: Agent AI dla działu sprzedaży: jak kwalifikuje leady i się zwraca",
+    "title: Agent AI dla firm w Gdańsku: ile kosztuje i co realnie daje",
+    "title: Agent AI dla firm w Lublinie - chatbot i automatyzacja procesów",
+    "title: Agent AI dla firm w Poznaniu - chatbot i automatyzacja procesów",
+    "title: Agent AI do obsługi klienta — co naprawdę robi",
+    "title: Agent AI do rezerwacji klientów: jak działa w salonie i klinice"
+  ],
+  "cta": [
+    "info@buildbyalex.com",
+    "Skip to content",
+    "@sumotry",
+    "legalwin.pl/en",
+    "App Store"
+  ],
+  "palette": {
+    "tokens": {
+      "--c-bg": "#FAFAF9",
+      "--c-bg-alt": "#F4F4F2",
+      "--c-bg-elev": "#FFFFFF",
+      "--c-text": "#0A0A0A",
+      "--c-text-2": "#5C5C60",
+      "--c-text-3": "#86868B",
+      "--c-divider": "#E6E6E1",
+      "--c-hairline": "rgba(10, 10, 10, 0.08)",
+      "--c-accent": "#FF6B1A",
+      "--c-accent-hover": "#FF7C36",
+      "--c-accent-soft": "#FFF1E6",
+      "--c-accent-ink": "#C4470A",
+      "--color-text": "#ffffff",
+      "--color-bg-alt": "rgba(255, 255, 255, 0.08)"
+    },
+    "top_hex": [
+      [
+        "#ffffff",
+        69
+      ],
+      [
+        "#000000",
+        49
+      ],
+      [
+        "#ff7a2d",
+        41
+      ],
+      [
+        "#0a0a0a",
+        36
+      ],
+      [
+        "#34d27b",
+        22
+      ],
+      [
+        "#0cce6b",
+        21
+      ],
+      [
+        "#0e1621",
+        18
+      ],
+      [
+        "#5f6368",
+        18
+      ],
+      [
+        "#2ea6ea",
+        17
+      ],
+      [
+        "#ff6b1a",
+        16
+      ],
+      [
+        "#17212b",
+        16
+      ],
+      [
+        "#34d399",
+        15
+      ],
+      [
+        "#ff5f57",
+        14
+      ],
+      [
+        "#ffb487",
+        14
+      ],
+      [
+        "#febc2e",
+        13
+      ]
+    ],
+    "brand_guess": [
+      "#ff7a2d",
+      "#0a0a0a",
+      "#34d27b",
+      "#0cce6b",
+      "#0e1621",
+      "#5f6368",
+      "#2ea6ea",
+      "#ff6b1a",
+      "#17212b",
+      "#34d399",
+      "#ff5f57",
+      "#ffb487"
+    ]
+  },
+  "fonts": [
+    "ui-monospace",
+    "Geist",
+    "Geist Mono",
+    "-apple-system"
+  ],
+  "theme": "dark",
+  "existing_assets": {
+    "count": 237,
+    "dirs": [
+      "public/og",
+      "public/cases",
+      "public/cta",
+      "public/services/store",
+      "assets/og-preview",
+      "public",
+      "src/app"
+    ],
+    "sample": [
+      "public/hero-reveal-poster.webp",
+      "public/scroll-story-bg.webp",
+      "public/cta/cta-06.webp",
+      "public/cta/cta-10.webp",
+      "public/cta/cta-07.webp",
+      "public/cta/cta-01.webp",
+      "public/cta/cta-02.webp",
+      "public/cta/cta-03.webp",
+      "public/cta/cta-08.webp",
+      "public/cta/cta-04.webp",
+      "public/cta/cta-05.webp",
+      "public/cta/cta-09.webp",
+      "public/cases/legalwin-passport.webp",
+      "public/cases/visionair-aerial.webp",
+      "public/cases/baltic-hero.webp",
+      "public/cases/legalwin-skyline.webp",
+      "public/cases/bodyforge-site-hero-ru.webp",
+      "public/cases/visionair-drone.webp",
+      "public/cases/bodyforge-site-hero-en.webp",
+      "public/cases/baltic-catalog.webp",
+      "public/cases/bodyforge-site-loop-ru.webp",
+      "public/cases/legalwin-cover.webp",
+      "public/cases/leadbot-cover.webp",
+      "public/cases/bodyforge-site-loop.webp",
+      "public/cases/bodyforge-app-poster.webp"
+    ]
+  },
+  "files_scanned": 600,
+  "gaps": []
+}
