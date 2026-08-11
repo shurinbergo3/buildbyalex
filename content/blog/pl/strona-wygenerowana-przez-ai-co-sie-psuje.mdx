@@ -1,0 +1,114 @@
+---
+title: "Strona wygenerowana przez AI: co się psuje po pół roku i ile kosztuje naprawa"
+description: "Praktycznie o tym, dlaczego strony z Lovable, v0 i podobnych wyglądają porządnie, ale przegrywają na bezpieczeństwie, SEO i szybkości, oraz kiedy takie podejście jednak ma sens."
+date: "2026-08-11"
+cluster: "ai-generated-website-problems"
+keywords:
+  - "strona wygenerowana przez AI"
+  - "vibe coding problemy"
+  - "strona od AI czy programista"
+  - "kreator stron AI wady"
+  - "poprawa strony zrobionej przez AI"
+ogImage: "/og/ai-generated-website-problems.webp"
+---
+
+Piszę kod z AI codziennie i nie zamierzam opowiadać, że to złe. Właśnie dlatego dobrze widzę granicę: gdzie model oszczędza tygodnie, a gdzie tworzy problem, który wypłynie po pół roku i wyjdzie drożej niż zrobienie strony od zera. W ostatnim roku przyszło do mnie kilku klientów ze "stroną, którą AI zrobiło w jeden wieczór", i obraz się powtarza.
+
+Rozbieram po kolei, co dokładnie się psuje, jak to wygląda z perspektywy firmy i kiedy generowanie jest jednak dobrym wyborem.
+
+## Dlaczego taka strona wygląda normalnie
+
+To główna pułapka. Wygenerowana strona wizualnie wygląda przyzwoicie: równa siatka, nowoczesne kroje, animacje, responsywność. Właściciel otwiera ją na telefonie, wszystko się rusza, przyciski działają - czyli gotowe.
+
+Problem w tym, że widoczna część to 20% pracy. Pozostałe 80% (to, za co płaci się programiście) nie widać na żadnym ekranie: jak strona jest podawana wyszukiwarce, co dzieje się z danymi z formularza, kto może dobić się do Twojej bazy, ile waży strona na LTE w Krakowie, co się stanie, gdy produktów będzie 500 zamiast 5.
+
+## Co się psuje po stronie bezpieczeństwa
+
+Najdroższa kategoria. Model pisze kod, który działa, ale nie pisze kodu, który jest zabezpieczony - o ile nie poprosisz go o to wprost, a zwykły właściciel firmy nie wie, o co prosić.
+
+Co znajdowałem w realnych projektach:
+
+- **Klucze dostępu w kodzie klienta.** Token bazy danych albo bramki płatniczej leży wprost w JavaScripcie, który pobiera każdy odwiedzający. Do znalezienia w przeglądarce w dziesięć sekund.
+- **Wyłączone zabezpieczenia na poziomie bazy.** Linijka "na razie wyłączmy, żeby zadziałało" zostaje na zawsze. Efekt: każdy może odczytać tabelę z zapytaniami i telefonami klientów.
+- **Formularz bez walidacji i limitów.** Tydzień po starcie do CRM leci spam, a na skrzynkę przychodzą maile z podszytego adresu.
+- **Wgrywanie plików bez sprawdzania typu.** Klasyka, przez którą na serwer trafia dosłownie wszystko.
+- **Brak ochrony panelu.** Sekcja zarządzania dostępna z bezpośredniego linku, bo "hasło dodamy później".
+
+Osobno przykre jest to, że o problemie dowiadujesz się nie z audytu, tylko ze skutków: wyciek kontaktów klientów, wysyłka spamu z Twojej domeny, mail z hostingu. Zgodnie z RODO wyciek danych osobowych to już historia ze zgłoszeniem do organu nadzorczego - rozbierałem to w tekście o [bezpieczeństwie strony i RODO](/pl/blog/bezpieczenstwo-strony-i-rodo).
+
+## Co się psuje po stronie SEO
+
+Drugie miejsce pod względem częstości i pierwsze pod względem cichej szkody: strona po prostu nie pojawia się w wyszukiwarce i nikt nie rozumie dlaczego.
+
+**Nagłówki napisane "żeby ładnie brzmiało", a nie jak trzeba.** H1 stoi na haśle "Tworzymy przyszłość", a nazwa usługi i miasto nie występują nigdzie. Dla wyszukiwarki strona jest o niczym.
+
+**Metadane puste albo identyczne na wszystkich podstronach.** Title typu "Home | My App" na dziesięciu stronach z rzędu.
+
+**Brak danych strukturalnych.** Ani Organization, ani LocalBusiness, ani FAQ, ani Product. Czyli ani rozszerzonych wyników, ani sensownego rozumienia Twojej firmy przez modele językowe - a to już wprost wpływa na obecność w odpowiedziach AI, o czym pisałem w [tekście o GEO](/pl/blog/jak-trafic-do-odpowiedzi-chatgpt-i-ai-overviews).
+
+**Wszystko renderowane w przeglądarce.** Wiele generatorów oddaje pusty HTML wypełniany skryptem. Wyszukiwarka radzi sobie z tym co drugi raz, a roboty AI często wcale.
+
+**Brak sitemapy, robots ustawiony na wyczucie,** czasem zostaje `noindex` z wersji podglądowej. Widziałem dwa razy.
+
+**Wielojęzyczność zrobiona przełącznikiem bez hreflang.** Wersje językowe konkurują ze sobą zamiast się wzmacniać. Jak to powinno wyglądać - w tekście o [wielojęzycznej stronie](/pl/blog/wielojezyczna-strona-dla-firmy-w-polsce).
+
+## Co się psuje po stronie szybkości i pieniędzy
+
+Generator ciągnie wszystko jak leci: ciężkie biblioteki animacji dla jednego efektu, fonty w sześciu odmianach, zdjęcia w oryginalnej rozdzielczości z telefonu. Na domowym wifi nie widać, na danych mobilnych strona ładuje się cztery sekundy i połowa ludzi wychodzi, zanim zobaczy ofertę. Co z tym robić - opisałem w [tekście o wolnej stronie](/pl/blog/dlaczego-strona-laduje-sie-wolno-jak-przyspieszyc).
+
+Osobna pozycja kosztowa to reklama. Jeśli lejesz ruch z Google Ads na wolną stronę bez porządnej analityki, płacisz za kliknięcia, które nie zamieniają się w zapytania, i nawet tego nie widzisz w raportach, bo zdarzeń konwersji nikt nie skonfigurował.
+
+## Co się psuje w utrzymaniu
+
+Najbardziej frustrujące wychodzi po kilku miesiącach, kiedy trzeba coś zmienić.
+
+Kod jest generowany kawałkami, spójnej architektury nie ma, ta sama logika jest zduplikowana w pięciu miejscach. Biblioteki zamrożone w wersjach z dnia budowy strony, a po pół roku aktualizacja psuje połowę podstron. Dokumentacji brak. Pierwsze pytanie każdego programisty, któremu to przynoszą, brzmi "a mogę to napisać od nowa?" - i to uczciwa odpowiedź, bo rozgryzienie cudzej generacji często kosztuje więcej niż zbudowanie na nowo.
+
+W pieniądzach wygląda to tak: zaoszczędzone 2 000 € na budowie, po ośmiu miesiącach 3 500 € na przebudowę plus utracone pozycje, które zbierały się przez cały ten czas.
+
+## Kiedy generowanie jest dobrym wyborem
+
+Nie jest to jednoznaczne, sam z tego stale korzystam. Wygenerowana strona świetnie się sprawdza, gdy:
+
+- Trzeba **sprawdzić pomysł** i zobaczyć, czy jest popyt, zanim wyłoży się pieniądze.
+- Potrzebne jest **narzędzie wewnętrzne** dla zespołu, nieindeksowane i bez wrażliwych danych.
+- Potrzebna jest **jednostronicowa wizytówka** pod konkretne wydarzenie na dwa tygodnie.
+- **Sam jesteś programistą** i wiesz dokładnie, co poprawiasz po generacji.
+
+We wszystkich tych przypadkach szybkość jest ważniejsza niż trwałość i to normalny kompromis.
+
+Zły kompromis jest wtedy, gdy wygenerowana strona staje się głównym kanałem sprzedaży. Wtedy budujesz firmę na fundamencie, którego nikt nie sprawdził.
+
+## Co robić, jeśli strona już taka jest
+
+Nie trzeba wszystkiego wyrzucać. Kolejność, według której pracuję:
+
+1. **Audyt w jeden dzień.** Sprawdzam wyciek kluczy, dostępy do bazy, formularze, indeksację, szybkość, znaczniki. Na wyjściu lista problemów z priorytetami i czytelną ceną.
+2. **Zamknąć dziury.** Bezpieczeństwo i wycieki zawsze idą pierwsze. Zwykle 1-2 dni.
+3. **Naprawić bazę SEO.** Nagłówki, metadane, znaczniki, sitemapa, renderowanie po stronie serwera dla kluczowych podstron. Efekt widoczny w 3-6 tygodni.
+4. **Zdecydować o architekturze.** Jeśli strona jest mała i logiki niewiele, taniej napisać od nowa na porządnym stacku. Jeśli projekt urósł, wyciągamy go po kawałku.
+
+Czasem właściwą odpowiedzią jest zostawić jak jest i równolegle spokojnie zrobić porządną wersję. To też opcja, tak robiłem.
+
+## Jak ja składam strony
+
+Używam AI jako przyspieszacza, ale architekturę, bezpieczeństwo, znaczniki i wydajność zakładam ręcznie, bo właśnie za to się płaci. [Strony](/pl/uslugi/strony-internetowe) buduję na Next.js: renderowanie po stronie serwera, dane strukturalne, hreflang dla czterech języków, ładowanie poniżej sekundy, formularze z walidacją i ochroną, analityka ze skonfigurowanymi konwersjami. [Sklepy internetowe](/pl/uslugi/sklep-internetowy) - z poprawnymi danymi o produktach, płatnościami pod Polskę i strukturą katalogu, którą rozumie i wyszukiwarka, i asystent AI.
+
+Termin to 2-3 tygodnie na stronę marketingową. Ceny są w [materiale o kosztach wykonania](/pl/blog/ile-kosztuje-strona-aplikacja-cennik-2026). Jeśli masz już wygenerowaną stronę i chcesz wiedzieć, co z nią nie tak, [napisz](/pl/kontakt): sprawdzę i powiem uczciwie, czy warto naprawiać, czy prościej zrobić od nowa.
+
+## FAQ
+
+**Czy da się w ogóle zrobić porządną stronę przez AI?**
+Da się zrobić działający prototyp i dobry punkt wyjścia, ale nie gotową do boju stronę komercyjną. Model świetnie radzi sobie z layoutem i typowymi komponentami, ale systematycznie pomija to, czego nie widać na ekranie: ochronę formularzy i danych, renderowanie po stronie serwera, dane strukturalne, optymalizację zdjęć, poprawną indeksację. Jeśli obok jest programista, który to dokłada, wynik jest dobry i powstaje szybciej. Bez takiej osoby dostajesz ładną witrynę bez fundamentu.
+
+**Jak poznać, że moja strona jest zrobiona źle, skoro z zewnątrz wygląda dobrze?**
+Szybka autodiagnoza zajmuje dwadzieścia minut. Otwórz źródło strony i sprawdź, czy jest w nim tekst, czy pustka. Porównaj title i description na różnych podstronach - powinny się różnić. Przepuść stronę przez PageSpeed Insights w wersji mobilnej. Poszukaj swoich podstron w Google zapytaniem site:twojadomena. Zajrzyj do robots.txt, czy nie ma tam noindex. Jeśli przynajmniej dwa punkty wypadły źle, warto zajrzeć głębiej.
+
+**Ile kosztuje przerobienie wygenerowanej strony?**
+Zależy, co ratujemy. Pilna naprawa bezpieczeństwa i bazy SEO to zwykle 400-900 €, czyli 1-3 dni pracy. Pełne przebudowanie małej strony na porządnym stacku od 1 200 €. Sklep od 3 000 €. Często opłaca się druga opcja: wygenerowany kod trudno utrzymać i każda kolejna poprawka wychodzi drożej niż na czystej bazie kodu.
+
+**Czy to prawda, że Google obniża strony zrobione przez AI?**
+Google nie karze za sam fakt użycia AI, karze za bezużyteczną treść i problemy techniczne. Kłopot w tym, że wygenerowane strony właśnie na to chorują: puste ogólniki, zduplikowane metadane, brak znaczników, renderowanie wyłącznie w przeglądarce. Formalnie przyczyną nie jest AI, praktycznie efekt jest ten sam - podstrony się nie pozycjonują. Jeśli doprowadzić technikę do porządku i napisać treściwe teksty, pochodzenie kodu nie ma znaczenia.
+
+**Co jest bezpieczniejsze: kreator typu Wix czy generowanie przez AI?**
+Kreator jest bezpieczniejszy technicznie: za aktualizacje, hosting i ochronę odpowiada platforma. W zamian uderzasz w sufit przy szybkości, kastomizacji i niuansach SEO, i płacisz co miesiąc. Generowanie daje więcej swobody, ale całą odpowiedzialność za bezpieczeństwo i optymalizację przerzuca na Ciebie. Porównanie kreatora z pracą programisty zrobiłem osobno w [tym tekście](/pl/blog/strona-na-kreatorze-czy-od-programisty).

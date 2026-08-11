@@ -1,0 +1,132 @@
+---
+title: "Dane strukturalne Schema.org w 2026: co nadal działa, a co po cichu przestało"
+description: "Które typy znaczników dają rozszerzone wyniki, które już nie, ale i tak są potrzebne pod wyszukiwanie AI, gdzie je wstawiać i jakie błędy najczęściej zabijają efekt."
+date: "2026-08-17"
+cluster: "schema-markup-2026"
+keywords:
+  - "dane strukturalne schema.org"
+  - "znaczniki strukturalne strony"
+  - "JSON-LD znaczniki"
+  - "rozszerzone wyniki google"
+  - "znaczniki pod wyszukiwanie AI"
+ogImage: "/og/schema-markup-2026.webp"
+---
+
+Dane strukturalne to sposób, żeby powiedzieć maszynie wprost to, co człowiek i tak widzi na stronie: to jest firma, tu jest jej adres, to jest produkt, tu cena i dostępność, a to odpowiedź na pytanie. Kiedyś wstawiało się je dla gwiazdek w wynikach. Teraz mają drugie życie: modele językowe czytają właśnie dane ustrukturyzowane, bo nie trzeba ich zgadywać.
+
+Rozbieram, co z tych znaczników daje w 2026 roku wynik, co już nie daje, ale i tak jest potrzebne, i jak nie zrobić z nich czegoś bezużytecznego.
+
+## Jak to wygląda technicznie
+
+Znaczniki wstawia się jako blok JSON-LD w kod strony. Mikroformaty i RDFa wciąż spotyka się w starszych projektach, ale nowego nie ma sensu w nich robić: JSON-LD jest oddzielony od kodu widoku, łatwiej go utrzymać i to jego rekomenduje Google.
+
+Wygląda mniej więcej tak:
+
+```
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Nazwa firmy",
+  "url": "https://example.com",
+  "telephone": "+48 000 000 000",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ul. Przykladowa 1",
+    "addressLocality": "Warszawa",
+    "postalCode": "00-001",
+    "addressCountry": "PL"
+  },
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.linkedin.com/company/...",
+    "https://www.facebook.com/..."
+  ]
+}
+```
+
+Żadnej magii: po prostu wymieniasz fakty w formacie, którego maszyna nie może źle zrozumieć.
+
+## Co daje rozszerzone wyniki
+
+Tu efekt widać wprost w wyszukiwarce.
+
+- **`Product` + `Offer`** - cena, dostępność i waluta prosto w wyniku. Dla sklepu to najbardziej zauważalny przyrost kliknięć.
+- **`AggregateRating` i `Review`** - gwiazdki. Działają, gdy opinie są prawdziwe i widoczne na stronie.
+- **`BreadcrumbList`** - ścieżka zamiast gołego adresu w snippecie. Drobiazg, ale wygląda lepiej.
+- **`Event`, `JobPosting`, `Recipe`** - specjalne formaty dla odpowiednich serwisów.
+- **`VideoObject`** - dla podstron z wideo.
+
+## Co rozszerzonych wyników już nie daje, ale jest potrzebne
+
+Ważna część, o której rzadko pisze się uczciwie.
+
+**`FAQPage`.** Google zostawił rozszerzone wyniki FAQ tylko dla wąskiego kręgu autorytatywnych serwisów rządowych i medycznych. Zwykła firma rozwijanych pytań w wynikach nie zobaczy. **Wstawiać i tak warto**, bo modele językowe czytają ten blok i biorą z niego gotowe pary pytanie-odpowiedź. Właśnie tak materiał trafia do odpowiedzi AI w całości, a nie fragmentami.
+
+**`HowTo`.** Podobna historia: wsparcie dla rozszerzonych wyników zwinięte, czytelność maszynowa została.
+
+**`Organization` i `sameAs`.** Zero efektu wizualnego, ale to właśnie łączy Twoją stronę z profilami w social mediach, katalogami i platformami w jedną encję. Dla wyszukiwania AI to krytyczne: model musi rozumieć, że strona, profil na LinkedIn i wpis w katalogu to ta sama firma.
+
+**`Service` i `Offer` dla usług.** Rozszerzonych wyników nie ma, ale to jedyny sposób, żeby jawnie powiedzieć, co robisz i za ile.
+
+Praktyczny wniosek: dzielenie znaczników na "daje gwiazdki" i "nie daje" przestało mieć sens. Druga połowa pracuje teraz na inny kanał.
+
+## Minimalny zestaw według typu firmy
+
+Żeby nie robić wszystkiego naraz.
+
+**Usługi lokalne** (klinika, salon, serwis, remonty): `LocalBusiness` z adresem, telefonem i godzinami, `Service` przy każdej usłudze, `FAQPage` na podstronach usług, `AggregateRating`, `BreadcrumbList`.
+
+**Sklep internetowy**: `Organization`, `Product` + `Offer` na każdej karcie z ceną, walutą, dostępnością, indeksem i danymi wysyłki, `AggregateRating` i `Review`, `BreadcrumbList`, `FAQPage` w sekcjach pomocy. Więcej o tym, po co to asystentom AI - w [tekście o agentic commerce](/pl/blog/zakupy-w-chatgpt-agentic-commerce).
+
+**B2B i usługi bez lokalu**: `Organization` z `sameAs`, `Service`, `Article` przy materiałach blogowych, `FAQPage`, `Person` na stronie autora, jeśli treść jest autorska.
+
+**Blog i sekcje treściowe**: `Article` z autorem i datami, `BreadcrumbList`, `FAQPage`.
+
+## Pięć błędów, które zabijają efekt
+
+Wszystkie widziałem w realnych projektach.
+
+**1. Znaczniki nie zgadzają się z tym, co jest na stronie.** W kodzie cena 199 €, na ekranie 249 €. Albo FAQ jest w znacznikach, a nie ma go w tekście. To bezpośrednie naruszenie zasad i w najlepszym razie znaczniki zostają zignorowane.
+
+**2. Nieaktualne dane.** Ceny i dostępność w znacznikach żyją osobno od katalogu i aktualizują się raz na pół roku. Gorzej niż brak znaczników: asystent poleca produkt w cenie, która nie istnieje.
+
+**3. Opinie, których nie ma.** `AggregateRating` z oceną 5.0 przy braku opinii na stronie to klasyka, za którą przylatują ręczne kary.
+
+**4. Znaczniki są, a strona pusta.** Jeśli treść renderuje się tylko w przeglądarce, a JSON-LD wstawia skrypt, część robotów go nie zobaczy. Wstawiać trzeba do HTML-a z serwera.
+
+**5. Duplikaty i konflikty.** Wtyczka wstawia swoje znaczniki, szablon swoje, programista dodał trzecie. W efekcie na stronie są trzy różne `Organization` z różnymi nazwami. Model nie wie, któremu wierzyć.
+
+## Jak sprawdzić
+
+Trzy narzędzia, wszystkie darmowe:
+
+- **Rich Results Test** od Google - pokazuje, jakie rozszerzone wyniki są dostępne dla strony.
+- **Schema Markup Validator** na schema.org - sprawdza poprawność składni niezależnie od snippetów.
+- **Search Console**, sekcja z ulepszeniami - pokazuje błędy na całej witrynie, a nie na jednej podstronie. Patrzeć trzeba właśnie tu, bo problem zwykle jest szablonowy.
+
+I osobno: otwórz źródło strony (nie inspektor, tylko źródło) i upewnij się, że blok JSON-LD tam jest. Jeśli pojawia się dopiero w inspektorze, wstawia go skrypt i trzeba to naprawić.
+
+## Ile to kosztuje i co daje
+
+Nakład pracy: dla typowej strony na 20-30 podstron od jednego do trzech dni, razem ze sprawdzeniem i poprawkami. Dla sklepu zależy od platformy: gdzieś znaczniki wchodzą szablonem na kartę i działają dla całego katalogu, gdzieś potrzebna jest integracja z danymi produktowymi.
+
+Co to daje: rozszerzone wyniki podnoszą klikalność przy tej samej pozycji, a kompletność danych strukturalnych wprost wpływa na to, czy trafisz do odpowiedzi AI. To drugie jest teraz ważniejsze, bo kliknięć ze zwykłych wyników ubyło - rozbierałem to w [tekście o spadku ruchu](/pl/blog/ruch-spadl-przez-ai-overviews-co-robic).
+
+Wstawiam znaczniki na wszystkich [stronach](/pl/uslugi/strony-internetowe) i w [sklepach](/pl/uslugi/sklep-internetowy) jako część wykonania, nie jako osobną usługę: typy dobiera się pod firmę, a dane biorą się z realnej treści, a nie są wpisywane ręcznie, więc się nie rozjeżdżają. Jeśli masz już stronę i chcesz wiedzieć, jak wyglądają na niej znaczniki, [napisz](/pl/kontakt) - sprawdzę i prześlę listę braków.
+
+## FAQ
+
+**Czy dane strukturalne wpływają na pozycje w Google?**
+Bezpośrednio nie, to nie jest czynnik rankingowy. Wpływają pośrednio i zauważalnie: rozszerzone wyniki zwiększają klikalność przy tej samej pozycji, a poprawne dane strukturalne pomagają wyszukiwarce zrozumieć zawartość strony. Wraz z wyszukiwaniem AI doszedł drugi efekt: modele językowe opierają się na danych ustrukturyzowanych właśnie dlatego, że nie muszą ich wnioskować z kodu.
+
+**Czy znaczniki FAQ działają w 2026 roku?**
+Rozszerzone wyniki FAQ Google zostawił tylko dla ograniczonego kręgu autorytatywnych serwisów rządowych i medycznych, zwykła firma nie zobaczy ich w wynikach. Same znaczniki nadal są jednak przydatne: modele językowe czytają blok pytań i odpowiedzi i wykorzystują gotowe pary w swoich odpowiedziach. Warto je więc wstawiać, tylko dla innego rezultatu niż kiedyś.
+
+**Jakiego formatu znaczników używać?**
+JSON-LD. Jest oddzielony od kodu widoku, wstawia się jednym blokiem, łatwo go generować z danych i jest rekomendowany przez Google. Mikroformaty i RDFa wciąż działają, ale są wplecione w kod, przez co psują się przy każdym redesignie. Jeśli na stronie stoi stary format, warto przenieść go na JSON-LD przy najbliższej większej zmianie szablonów.
+
+**Czy da się wstawić znaczniki samodzielnie?**
+Dla prostej strony tak - darmowe generatory JSON-LD istnieją, a bazowy zestaw Organization, LocalBusiness i Article składa się w jeden wieczór. Schody zaczynają się tam, gdzie dane muszą się zaciągać automatycznie: ceny, dostępność, opinie. Znaczniki aktualizowane ręcznie po miesiącu rozjeżdżają się ze stroną i szkodzą. Dla sklepu trzeba je generować z tych samych danych, które widzi człowiek.
+
+**Co się stanie, jeśli znaczniki nie zgadzają się z treścią strony?**
+W najlepszym razie zostaną zignorowane, w najgorszym przylecą ręczne kary za spam danymi strukturalnymi. Najbardziej ryzykowne są wymyślone oceny i opinie oraz ceny różniące się od widocznych na stronie. Zasada jest prosta: w znacznikach ma być dokładnie to, co człowiek widzi na oczy, i mają się aktualizować razem z treścią.

@@ -1,0 +1,109 @@
+---
+title: "Shopping Inside ChatGPT: How to Prepare Your Online Store for Agentic Commerce"
+description: "AI assistants already build the shortlist and tell people where to buy. How agentic commerce actually works, why products without machine-readable data are invisible, and what to fix in your store now."
+date: "2026-08-11"
+cluster: "agentic-commerce-ai-shopping"
+keywords:
+  - "shopping in ChatGPT"
+  - "agentic commerce for merchants"
+  - "online store AI assistants"
+  - "get products recommended by ChatGPT"
+  - "product structured data for AI"
+ogImage: "/og/agentic-commerce-ai-shopping.webp"
+---
+
+In autumn 2025 OpenAI launched Instant Checkout with Stripe and the open Agentic Commerce Protocol, and in February 2026 buying directly inside the chat went live. Half of ecommerce braced for stores becoming irrelevant. A few months in, the picture turned out to be more interesting - and much better news for store owners.
+
+Here is what is actually happening and which store settings pay off right now, even if you run a small business in Poland and in-chat checkout is still a long way off.
+
+## What the first months showed
+
+The most useful number came from Walmart. Completing a purchase inside the chat converted roughly **three times worse** than clicking through to the store's own site. At the same time ChatGPT brought in about **twice the rate of new customers** compared with normal channels.
+
+Out of that came the working 2026 model: **discover in AI, buy on your site**. The assistant is not the checkout; it is the shop window and the sales consultant. It compares, filters, explains and hands the person over with a decision already made. That is exactly the traffic advertising pays the most for - warm, and arriving with a recommendation.
+
+The second lesson: it is not one channel. Alongside ChatGPT there is Gemini, Perplexity and Claude, each with its own protocol and its own way of sourcing product data. Betting on one platform does not work; being ready to serve data to all of them does.
+
+## Why your products may be invisible
+
+An assistant does not look at your page with eyes. It reads data. If a product has no machine-readable description, that product does not exist for it - even though a human on the same page can see both the price and the stock status.
+
+What makes a product invisible:
+
+- **No `Product` and `Offer` markup.** Price, currency, availability and SKU are never stated explicitly and have to be scraped out of the HTML.
+- **Pages rendered only in the browser.** The AI crawler receives an empty shell.
+- **Price and stock disagree** between the site, the feed and the marketplace. An assistant that recommended an out-of-stock item stops recommending you.
+- **No feed** in Google Merchant Center or equivalents. That is still the main source of structured product data.
+- **Delivery and returns written as an image** or buried in a PDF. Assistants quote text.
+- **Crawlers blocked** in robots.txt along with every other bot.
+
+Nothing exotic, but I see all of it regularly in Polish WooCommerce and legacy Shoper stores.
+
+## What to configure in the store
+
+Ordered by effect-to-effort.
+
+### 1. Complete product markup
+
+`Product` with `name`, `description`, `image`, `sku`, `gtin`, `brand`, a nested `Offer` with `price`, `priceCurrency`, `availability` and `shippingDetails`, plus `AggregateRating` and `Review` where you have them. That is the minimum both Google and the assistants read. More on markup in general in [the Schema.org piece](/en/blog/schema-markup-for-ai-search-2026).
+
+### 2. Server-render product pages
+
+A product page must be served as finished HTML with the price and availability in the source. You can check this in a minute: open page source and search for the price. If it is not there, the assistant will not find it either.
+
+### 3. One source of truth for stock
+
+Price and availability must match across the site, the feed, Merchant Center and any marketplaces. If inventory lives in a separate system, you need synchronisation, not a manual weekly update.
+
+### 4. A product feed
+
+Google Merchant Center with free listings is the baseline for Poland, plus Ceneo and Allegro if you sell there. A feed now does double duty: it feeds your ads and it feeds AI assistants.
+
+### 5. Write out everything people ask about
+
+Delivery times across Poland and the EU, costs, InPost and couriers, returns, warranty, size charts, materials, compatibility. An assistant picks the product whose page answers the buyer's questions, not the one with the prettiest photo. Cheap work, large effect.
+
+### 6. Let AI crawlers in
+
+Check `robots.txt`. Search agents such as `OAI-SearchBot`, `PerplexityBot` and `Google-Extended` need access to the catalogue, otherwise you never enter the shortlist. Covered separately in [llms.txt and AI crawlers](/en/blog/llms-txt-and-ai-crawlers-gptbot).
+
+### 7. Comparison content
+
+Assistants love "X vs Y", "how to choose" and "what suits" formats. Those pages get cited more often than product pages and pull people in at the top of the funnel. It is also classic SEO that worked long before any of this.
+
+### 8. Languages
+
+A Polish buyer asks in Polish, a Ukrainian one in Ukrainian. Product descriptions and terms need to exist in your markets' languages, otherwise you only get recommended in English answers.
+
+## What not to do right now
+
+Do not rush into integrating the Agentic Commerce Protocol unless you are a large US retailer. Instant Checkout is still limited by geography and platform, and the engineering is non-trivial. The sensible strategy for a store in Poland is to **make your data perfect for recommendations and get your own checkout to the point where someone arriving from an AI answer can order in two clicks**. When the protocols reach Europe, you will already have everything needed to plug in.
+
+On your own checkout specifically: when someone arrives already decided, every extra form field, forced registration or missing BLIK turns into lost money. I covered Poland-ready payments in [the payment gateway article](/en/blog/payment-gateway-poland-blik-przelewy24).
+
+## How to measure it
+
+In GA4, the sources `chatgpt.com`, `perplexity.ai` and `gemini.google.com` appear in your traffic acquisition report. Watch three things: volume, share of new users, and conversion rate. The typical pattern is modest volume, a higher-than-average share of new visitors and above-average conversion. If that is what you see, your catalogue is being read and you are being recommended. If it is zero, you are probably invisible, and points 1-3 are where to start.
+
+## What I do on projects
+
+When I build an [online store](/en/services/online-store), full product markup, server-rendered product pages, a Merchant Center feed and stock synchronisation ship as standard, not as a separate "SEO later" add-on. For existing stores I do targeted work: a data audit, markup, feed, faster product pages, proper terms copy. Usually 3-7 days and considerably cheaper than a rebuild.
+
+If you want to know whether an AI assistant can see your catalogue, [get in touch](/en/contact) and I will test a handful of your products in ChatGPT and Perplexity and tell you what is blocking it. Budget ranges for a store are in [the pricing article](/en/blog/online-store-cost-poland).
+
+## FAQ
+
+**Can I already sell directly inside ChatGPT from Poland?**
+Full in-chat checkout is still rolled out narrowly, primarily to US merchants and platforms connected to the Agentic Commerce Protocol. For a store in Poland the relevant play is different: get into the assistant's recommendation and receive the buyer on your own site. The data needed for recommendations is exactly the data the protocols will require later, so none of the work is wasted.
+
+**What matters more for an AI assistant: markup or a product feed?**
+You need both; they cover different paths. On-page markup works when the assistant follows a search link and reads that specific product page. The feed works when data is pulled from product databases like Merchant Center. If resources are tight, start with Product and Offer markup on product pages: it pays off in ordinary search and in AI answers alike.
+
+**Is in-chat buying going to kill online stores?**
+The early data says the opposite. Completing a purchase in the chat converts markedly worse than clicking through to the merchant, while assistants deliver more new customers. The working model is discovery in AI, purchase on the site. You still need the store, but the bar is higher: data has to be machine-readable and checkout has to be short, or the visitor who arrived already decided leaves anyway.
+
+**How do I check whether assistants recommend my products?**
+Put ten queries into ChatGPT, Gemini and Perplexity the way your buyer would phrase them: with a category, a price range, a city or a delivery country. Note which stores get named and which pages the links point to. Then open the source of one of your product pages and check whether the price, availability and Product markup are actually there. The cause of invisibility usually turns up at that step.
+
+**What does it cost to prepare a store for AI assistants?**
+For an existing store, targeted work usually lands in the €400-1,200 range depending on platform and catalogue size: product markup, server-rendered product pages, feed setup, stock synchronisation, delivery and returns copy. For a new store it is part of the build and not billed separately. Payback is measured through the increase in organic and AI-referred traffic to product pages.

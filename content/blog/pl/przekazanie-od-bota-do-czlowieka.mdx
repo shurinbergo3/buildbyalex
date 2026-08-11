@@ -1,0 +1,122 @@
+---
+title: "Kiedy bot musi przekazać rozmowę człowiekowi: zasady eskalacji, które ratują sprzedaż"
+description: "Najdroższy scenariusz to klient tłumaczący botowi to samo trzeci raz i wychodzący. Wyzwalacze przekazania, jak przekazywać z kontekstem, co robić poza godzinami pracy i według jakich metryk to ustawiać."
+date: "2026-08-27"
+cluster: "chatbot-human-handover"
+keywords:
+  - "przekazanie od bota do człowieka"
+  - "eskalacja chatbota"
+  - "bot i żywy konsultant"
+  - "jak ustawić przekazanie do handlowca"
+  - "chatbot traci klientów"
+ogImage: "/og/chatbot-human-handover.webp"
+---
+
+Zły bot to nie ten, który czegoś nie wie. Zły bot to ten, z którego nie da się wyjść. Klient po raz trzeci przeformułowuje pytanie, dostaje trzecią uprzejmą odmowę i idzie do konkurencji, a Ty widzisz w statystyce "rozmowa zakończona" i uznajesz, że wszystko gra.
+
+Eskalacja to najbardziej niedoceniana część wdrożenia. Rozbieram, kiedy bot ma obowiązek zawołać człowieka, jak to zrobić bez utraty kontekstu i jak z liczb poznać, że jest to ustawione dobrze.
+
+## Osiem wyzwalaczy przekazania
+
+Lista, którą domyślnie zakładam w scenariuszach.
+
+**1. Człowiek poprosił wprost.** "Chcę porozmawiać z konsultantem", "poproszę żywą osobę", "czy to bot?". Przekazanie natychmiast, bez pytań doprecyzowujących i bez prób domykania. Każdy opór odczytywany jest tu jako brak szacunku.
+
+**2. Dwie nieudane próby z rzędu.** Jeśli bot dwa razy nie umiał odpowiedzieć albo człowiek dwa razy przeformułował pytanie - lepiej już nie będzie. Liczyć trzeba powtarzające się niezadowolenie, a nie dosłowne "nie zrozumiałem".
+
+**3. Odpowiedzi nie ma w bazie wiedzy.** Bot powinien uczciwie powiedzieć "tego nie mam" i przekazać dalej, zamiast zmyślać. O tym, dlaczego to zasadnicze, pisałem w [tekście o bocie z bazą wiedzy](/pl/blog/chatbot-ai-z-baza-wiedzy).
+
+**4. Niezadowolenie albo reklamacja.** Ostry ton, słowa o zwrocie, wadzie, opóźnieniu, wprowadzeniu w błąd. Tu bot ma tylko zebrać fakty i natychmiast przekazać: przepraszać i rozwiązywać ma człowiek.
+
+**5. Duża albo nietypowa transakcja.** Jeśli kwota przekracza próg albo zapytanie wymaga wyceny, bot kwalifikuje i przekazuje. Tracenie kontraktu za 5 000 € dla oszczędzenia dziesięciu minut handlowca nie ma sensu.
+
+**6. Zobowiązania i odpowiedzialność.** Rabaty poza cennikiem, zmiana warunków umowy, terminy pod konkretny projekt, sprawy prawne i medyczne. Bot takich rzeczy nie obiecuje.
+
+**7. Awaria techniczna.** Model niedostępny, integracja nie odpowiada - musi istnieć droga awaryjna do człowieka albo przynajmniej do formularza, a nie biały ekran.
+
+**8. Ważny klient.** Jeśli system widzi, że pisze obecny klient z dużą historią, rozsądnie jest przekazywać wcześniej niż zwykle.
+
+## Jak przekazywać poprawnie
+
+Przekazanie to nie zdanie "proszę napisać do nas na maila". To działające przejście.
+
+**Z kontekstem.** Handlowiec dostaje całą korespondencję, a nie "klient chce porozmawiać". Nic nie irytuje bardziej niż konieczność tłumaczenia wszystkiego od nowa. Jeśli bot ustalił już zadanie, budżet i terminy - to ma być w karcie.
+
+**Ze zrozumiałą obietnicą.** "Przekazuję konsultantowi, odpowie w ciągu 15 minut" jest dobre. "Twoje zgłoszenie zostało przyjęte" jest złe, bo człowiek nie wie, czy czekać, czy wyjść.
+
+**Do kanału, w którym człowiek już jest.** Jeśli pisze w widżecie na stronie, odpowiedź ma iść tam, a nie telefonem za godzinę. Jeśli na Telegramie - tam samo.
+
+**Z powiadomieniem, które nie zginie.** Wiadomość do handlowca na Telegramie działa lepiej niż mail na wspólną skrzynkę. O tym, jak to spiąć, pisałem w [tekście o powiadomieniach z CRM](/pl/blog/powiadomienia-z-crm-w-telegramie).
+
+**Z zapisem w CRM.** Nawet jeśli nikt nie odpowie od razu, zgłoszenie jest już w systemie z historią i kontaktem. To różnica między "straciliśmy" a "oddzwoniliśmy rano".
+
+## Co robić poza godzinami pracy
+
+Tu traci się najwięcej. Poprawny scenariusz:
+
+1. Bot odpowiada na wszystko, co potrafi - a to większość pytań.
+2. Gdy potrzebny jest człowiek, mówi uczciwie: "Teraz są godziny poza pracą, konsultant odpowie jutro od 9:00".
+3. Bierze kontakt i dogodną porę na kontakt.
+4. Zapisuje zgłoszenie w CRM z oznaczeniem i przypomnieniem.
+5. Rano zespół widzi kolejkę z pełnym kontekstem.
+
+Rzecz kluczowa to uczciwość co do terminów. Osoba, której powiedziano "odpowiemy jutro do 10", poczeka. Osoba, której nie powiedziano nic, napisze do konkurencji po dwudziestu minutach.
+
+## Metryki, według których się to ustawia
+
+Cztery liczby do sprawdzania co tydzień.
+
+**Udział eskalacji.** Ile rozmów trafiło do człowieka. Zdrowy przedział to 20-40%. Poniżej 10% zwykle znaczy, że bot nie puszcza i ludzie nie mają dokąd pójść. Powyżej 60% - że baza wiedzy jest słaba.
+
+**Udział bezpośrednich próśb "poproszę człowieka".** Jeśli rośnie, bot irytuje. To najuczciwsza metryka jakości.
+
+**Czas do odpowiedzi człowieka po przekazaniu.** Powyżej godziny eskalacja jest formalna i nie działa.
+
+**Co dzieje się po przekazaniu.** Czy dochodzi do sprzedaży. Jeśli ludzie odpadają także po przejściu do handlowca, problem nie leży w bocie.
+
+Raz w tygodniu przeczytaj dwadzieścia realnych rozmów. To nudne i jest to najlepsze źródło usprawnień: od razu widać, gdzie bot się zacina, gdzie odpowiada nie na temat i jakie pytania warto dodać do bazy wiedzy.
+
+## Pięć antywzorców
+
+Co widzę w cudzych wdrożeniach i przerabiam.
+
+**Przycisk "konsultant" jest schowany.** Albo nie ma go wcale i jedynym wyjściem jest zamknięcie czatu.
+
+**Bot się czepia.** "Zanim połączę z konsultantem, proszę odpowiedzieć na trzy pytania". Człowiek już powiedział, czego chce.
+
+**Pętla "nie zrozumiałem".** Trzy identyczne odpowiedzi z rzędu i żadnej alternatywnej drogi.
+
+**Przekazanie w próżnię.** Przycisk jest, konsultant niepodłączony, zgłoszenie idzie na skrzynkę, której nikt nie czyta.
+
+**Milczenie o godzinach pracy.** W nocy bot zachowuje się, jakby człowiek odpowiedział za minutę.
+
+## O równowadze
+
+Naturalne pytanie: skoro bot często przekazuje, to po co on w ogóle?
+
+Po to, że i tak zamyka większość zgłoszeń sam - typowe pytania o ceny, warunki, dostępność, status, umówienie wizyty. Jak liczy się oszczędność, rozbierałem w [tekście o zastąpieniu handlowca](/pl/blog/agent-ai-zamiast-handlowca-wyliczenia). Eskalacja nie unieważnia korzyści, tylko chroni przed głównym ryzykiem: utratą gorącego klienta na drobiazgu.
+
+Zasada jest prosta: **bot odpowiada na to, co wie, i nie przeszkadza dotrzeć do człowieka we wszystkim pozostałym**. Taki bot odbierany jest jako wygoda, a nie przeszkoda.
+
+## Jak ja to robię
+
+W każdym [agencie AI](/pl/uslugi/agenci-ai) ustawiam osiem powyższych wyzwalaczy, przekazanie z pełną historią do CRM i na Telegram, uczciwe komunikaty o czasie odpowiedzi, osobny scenariusz nocny i logowanie wszystkich rozmów, żeby było na czym poprawiać. Plus informację, że odpowiada AI - to teraz i wymóg [AI Act](/pl/blog/ai-act-2026-wymogi-dla-chatbotow), i po prostu dobra praktyka.
+
+Jeśli masz już bota i masz wrażenie, że traci ludzi, [napisz](/pl/kontakt) - przeczytam rozmowy i pokażę, gdzie dokładnie.
+
+## FAQ
+
+**Jaki udział rozmów powinien trafiać do człowieka?**
+Zdrowy przedział to 20-40%. Poniżej 10% najczęściej oznacza, że bot nie puszcza i ludzie nie mają dokąd pójść, a nie że świetnie odpowiada. Powyżej 60% wskazuje na słabą bazę wiedzy: bot nie pokrywa nawet typowych pytań. Dokładna liczba zależy od branży: w usługach złożonych eskalacji jest naturalnie więcej, w sklepach z dużym katalogiem mniej.
+
+**Co robić, jeśli konsultant nie może odpowiedzieć od razu?**
+Uczciwie podać termin i wziąć kontakt. Zdanie "konsultant odpowie w ciągu 15 minut" albo "teraz są godziny poza pracą, odpowiemy jutro od 9:00" zatrzymuje człowieka znacznie lepiej niż formalne "zgłoszenie przyjęte". Zgłoszenie powinno przy tym od razu trafiać do CRM z historią rozmowy i przypomnieniem, żeby rano zespół widział kolejkę z kontekstem, a nie puste powiadomienie.
+
+**Jak przekazać rozmowę bez utraty kontekstu?**
+Osoba przejmująca musi dostać całą korespondencję, a nie sam fakt kontaktu. Technicznie wygląda to tak: bot zapisuje rozmowę w CRM, tworzy kartę z ustalonymi danymi (zadanie, budżet, terminy, kontakt) i wysyła powiadomienie do kanału, w którym zespół na pewno je zobaczy, zwykle na Telegram. Odpowiadać trzeba tam, gdzie pisze klient, a nie dzwonić godzinę później z nieznanego mu numeru.
+
+**Czy pozwalać człowiekowi od razu wołać konsultanta?**
+Tak i bez oporu. Bezpośrednia prośba o rozmowę z człowiekiem to najsilniejszy wyzwalacz eskalacji, a próby domykania albo pytania "tylko trzy rzeczy" działają przeciwko Tobie. Przycisk przejścia do człowieka ma być stale widoczny w interfejsie. Udział takich bezpośrednich próśb jest zresztą najlepszym wskaźnikiem jakości bota: rośnie, gdy bot irytuje.
+
+**Jak poznać, że bot traci klientów?**
+Przeczytać dwadzieścia realnych rozmów z tygodnia - to pewniejsze niż jakakolwiek metryka. Szukaj powtarzanych przeformułowań tego samego pytania, kolejnych odpowiedzi "nie zrozumiałem", rozmów urwanych bez zapytania i sytuacji, w których człowiek prosił o konsultanta, a przekazania nie było. Dodatkowo śledź, co dzieje się po eskalacji: jeśli sprzedaż nie dochodzi także tam, problem leży w szybkości odpowiedzi ludzi, a nie w bocie.

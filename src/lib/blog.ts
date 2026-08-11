@@ -323,6 +323,34 @@ export const clusterToService: Record<string, { menuKey: ServiceMenuKey; path: S
   "website-development-poland": { menuKey: "websites", path: "/services/websites" },
   "ecommerce-development-poland": { menuKey: "store", path: "/services/online-store" },
   "mobile-app-development-poland": { menuKey: "mobile", path: "/services/mobile-apps" },
+  // 2026-08 AI-search / compliance / vertical batch (25 topics x 4 locales). Informational
+  // topics -> one shared cluster across locales (hreflang-linked translations). Five go live
+  // immediately, the rest are future-dated and surface one every other day.
+  "geo-ai-search-optimization": { menuKey: "websites", path: "/services/websites" },
+  "zero-click-search-traffic": { menuKey: "websites", path: "/services/websites" },
+  "llms-txt-ai-crawlers": { menuKey: "websites", path: "/services/websites" },
+  "schema-markup-2026": { menuKey: "websites", path: "/services/websites" },
+  "brand-in-llm-answers": { menuKey: "websites", path: "/services/websites" },
+  "ai-generated-website-problems": { menuKey: "websites", path: "/services/websites" },
+  "cookie-consent-mode-2026": { menuKey: "websites", path: "/services/websites" },
+  "new-website-first-90-days": { menuKey: "websites", path: "/services/websites" },
+  "multi-city-local-seo": { menuKey: "websites", path: "/services/websites" },
+  "b2b-manufacturer-website": { menuKey: "websites", path: "/services/websites" },
+  "agentic-commerce-ai-shopping": { menuKey: "store", path: "/services/online-store" },
+  "wcag-eaa-accessibility": { menuKey: "store", path: "/services/online-store" },
+  "ecommerce-seo-checklist": { menuKey: "store", path: "/services/online-store" },
+  "product-page-conversion": { menuKey: "store", path: "/services/online-store" },
+  "cross-border-ecommerce-eu": { menuKey: "store", path: "/services/online-store" },
+  "ai-act-chatbot-compliance": { menuKey: "ai", path: "/services/ai-agents" },
+  "ai-agent-vs-manager-math": { menuKey: "ai", path: "/services/ai-agents" },
+  "ai-chatbot-data-gdpr": { menuKey: "ai", path: "/services/ai-agents" },
+  "chatbot-human-handover": { menuKey: "ai", path: "/services/ai-agents" },
+  "ai-chatbot-no-leads": { menuKey: "ai", path: "/services/ai-agents" },
+  "ai-agent-hotel-apartments": { menuKey: "ai", path: "/services/ai-agents" },
+  "ai-agent-logistics": { menuKey: "ai", path: "/services/ai-agents" },
+  "ai-agent-education": { menuKey: "ai", path: "/services/ai-agents" },
+  "mcp-ai-agent-integrations": { menuKey: "automation", path: "/services/automation" },
+  "recruiting-automation-ai": { menuKey: "automation", path: "/services/automation" },
 };
 
 /** Resolve a cluster to its service, stripping a trailing locale suffix

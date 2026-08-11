@@ -1,0 +1,144 @@
+---
+title: "llms.txt i roboty AI: wpuszczać GPTBota na stronę czy blokować"
+description: "Który bot zbiera dane do treningu, a który do odpowiedzi, dlaczego zablokowanie jednego nie wyłącza drugiego i jak ustawić robots.txt, żeby być cytowanym. Z gotowym przykładem pliku."
+date: "2026-08-15"
+cluster: "llms-txt-ai-crawlers"
+keywords:
+  - "llms.txt co to jest"
+  - "GPTBot blokować czy nie"
+  - "robots.txt dla botów AI"
+  - "OAI-SearchBot PerplexityBot"
+  - "jak wpuścić roboty AI na stronę"
+ogImage: "/og/llms-txt-ai-crawlers.webp"
+---
+
+Pytanie "czy wpuszczać boty AI" brzmi jak etyczne, a w praktyce jest finansowe. Zablokujesz - nie będą Cię cytować w odpowiedziach ChatGPT i Perplexity, kanał zamknięty. Wpuścisz wszystkich - Twoja treść idzie do treningu cudzych modeli, a serwer się grzeje. Właściwa odpowiedź leży pośrodku i zależy od tego, co właściwie sprzedajesz: usługi czy samą treść.
+
+Rozbieram, kto jest kim wśród robotów, dlaczego typowa blokada rzadko robi to, czego się po niej oczekuje, i jak wygląda działająca konfiguracja.
+
+## Dwa różne pliki, dwa różne zadania
+
+Ciągle się je myli, więc od razu.
+
+**`robots.txt` zarządza dostępem.** To reguły, komu i gdzie wolno wchodzić. Plik leży w katalogu głównym i działa od trzydziestu lat.
+
+**`llms.txt` zarządza nawigacją.** To plik markdown z krótkim opisem projektu i listą ważnych podstron - podpowiedź dla modelu językowego, gdzie patrzeć. Format jest nowy, oficjalnego wsparcia ze strony wyszukiwarek nie ma, udowodnionego wpływu na rankingi też. Ale robi się go w pół godziny i nie przeszkadza: na tej stronie taki plik stoi.
+
+Kolejność ma znaczenie: najpierw dostęp, potem nawigacja. Zadbany `llms.txt` przy zamkniętym `robots.txt` jest bezużyteczny.
+
+## Kto chodzi po Twojej stronie
+
+Kluczowa rzecz, na której większość się myli: każda firma ma nie jednego bota, tylko kilka, i mają różne zadania.
+
+**OpenAI.** `GPTBot` zbiera dane do treningu modeli. `OAI-SearchBot` buduje indeks dla wyszukiwania wewnątrz ChatGPT - to on decyduje, czy trafisz do odpowiedzi z linkiem. `ChatGPT-User` wchodzi na stronę, gdy konkretny użytkownik poprosił o otwarcie linku.
+
+**Google.** `Googlebot` to zwykły robot wyszukiwarki, on też zapewnia obecność w AI Overviews. `Google-Extended` to osobny przełącznik odpowiadający za wykorzystanie treści w Gemini. Ważny szczegół: **zablokowanie `Google-Extended` nie usuwa Cię z odpowiedzi AI w wyszukiwarce**, bo te korzystają ze zwykłego indeksu. Wielu blokuje go, sądząc, że "wyłącza AI", i po prostu traci obecność w Gemini.
+
+**Anthropic.** `ClaudeBot` do treningu, osobni agenci do wyszukiwania i do zapytań inicjowanych przez użytkownika.
+
+**Perplexity.** `PerplexityBot` - indeksacja pod odpowiedzi z linkami.
+
+**Meta.** `Meta-ExternalAgent` to jeden z najbardziej aktywnych robotów 2026 roku, około 17% całego ruchu botów AI. Pożytku z cytowań mało, obciążenie zauważalne.
+
+**Pozostałe.** `Bytespider`, `Amazonbot`, `Applebot-Extended` i dziesiątki mniej znanych.
+
+## Prosta logika decyzji
+
+Odpowiedz na jedno pytanie: **czy Twoja treść jest produktem?**
+
+**Sprzedajesz usługi albo towary.** Treść jest marketingiem, jej zadaniem jest przyprowadzać klientów. Wpuszczaj agentów wyszukiwania bez wahania - każda wzmianka w odpowiedzi to darmowa rekomendacja. Boty treningowe możesz wpuścić lub nie, dla biznesu różnica jest znikoma. To przypadek większości stron, mojej też.
+
+**Sprzedajesz treść.** Media, materiały płatne, baza wiedzy w abonamencie, autorskie badania. Logika się odwraca: zamknij boty treningowe, zostaw wyszukiwarkowe, żeby mieć przejścia, i zadbaj, żeby część płatna była za logowaniem, a nie tylko "ukryta" we frontendzie.
+
+**Przypadek mieszany.** Otworzyć część publiczną, zamknąć panel klienta, koszyk, wyniki wyszukiwania na stronie i sekcje techniczne - bot nie ma tam czego szukać, a obciążenie generuje.
+
+## Działający robots.txt dla strony komercyjnej
+
+Co zwykle wgrywam klientom sprzedającym usługi lub towary:
+
+```
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /cart
+Disallow: /checkout
+Disallow: /account
+Disallow: /*?s=
+
+# Agenci wyszukiwania AI - jawnie dozwoleni
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Ciężkie roboty bez pożytku dla cytowań
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+Sitemap: https://example.com/sitemap.xml
+```
+
+Logika: wszystko, co przyprowadza ludzi i cytowania, otwarte; wszystko, co tylko obciąża serwer, zamknięte; sekcje techniczne zamknięte dla wszystkich.
+
+## Najczęstszy błąd: blokada nie jest w robots.txt
+
+Połowa przypadków "nikt nas nie cytuje" nie ma z tym plikiem nic wspólnego.
+
+**Cloudflare i hostingi** od dwóch lat włączają blokowanie botów AI domyślnie dla nowych domen. Właściciel o tym nie wie: `robots.txt` otwarty, a bot dostaje 403 na poziomie ochrony. Sprawdzać trzeba w panelu Cloudflare, w sekcjach o botach i AI Crawl Control.
+
+**WAF i moduły antybotowe** ucinają zapytania po podejrzanych wzorcach, roboty się w to łapią.
+
+**Baner cookies zasłaniający treść** przed zgodą: bot widzi zasłonę zamiast strony.
+
+**Renderowanie wyłącznie w przeglądarce** - formalnie dostęp jest, faktycznie bot dostaje pusty szkielet.
+
+Sprawdza się to prosto: przejrzyj logi serwera po nazwach agentów za ostatni miesiąc. Jeśli `OAI-SearchBot` albo `PerplexityBot` się tam nie pojawiają, problemem nie jest treść.
+
+## O przestrzeganiu reguł
+
+Realistyczne spojrzenie: część botów reguły ignoruje. Badania z lat 2025-2026 pokazują, że znaczna część robotów AI narusza `robots.txt`, a na przeciętną stronę przypadają setki takich zapytań w kilka tygodni. Praktyczny wniosek: **`robots.txt` to deklaracja intencji, a nie ochrona**. Jeśli treści naprawdę nie wolno oddawać, muszą być za logowaniem albo za realną blokadą na poziomie serwera, a nie za linijką `Disallow`.
+
+## Jak zrobić llms.txt
+
+Plik `/llms.txt` w katalogu głównym, zwykły markdown. W środku to, co chciałbyś, żeby model o Tobie wiedział bez zgadywania:
+
+- Kim jesteś i czym się zajmujesz, w dwóch zdaniach.
+- Usługi albo kategorie produktów z cenami od.
+- Obszar działania i języki.
+- Kontakt.
+- Linki do kluczowych podstron z krótkimi opisami.
+
+Trzymaj go krótko i rzeczowo. To nie miejsce na marketingowe sformułowania: model szuka danych, nie emocji. Aktualizuj razem z cennikiem.
+
+## Co dalej
+
+Dostęp to dopiero połowa pracy. Potem trzeba, żeby na stronie było co zacytować: bezpośrednie odpowiedzi, liczby, dane strukturalne, renderowanie po stronie serwera. O tym szczegółowo w [tekście o GEO](/pl/blog/jak-trafic-do-odpowiedzi-chatgpt-i-ai-overviews) i w [rozbiorze Schema.org](/pl/blog/dane-strukturalne-schema-org-dla-ai).
+
+Zakładam to wszystko w [stronach](/pl/uslugi/strony-internetowe) domyślnie: poprawny robots, sitemapa, llms.txt, znaczniki, renderowanie po stronie serwera i sprawdzenie, czy roboty faktycznie docierają. Jeśli podejrzewasz, że po prostu nie jesteś wpuszczany, [napisz](/pl/kontakt) - sprawdzę w kilka godzin.
+
+## FAQ
+
+**Czym jest llms.txt i czy jest obowiązkowy?**
+To plik markdown w katalogu głównym strony z krótkim opisem projektu i listą ważnych podstron, pomyślany jako podpowiedź nawigacyjna dla modeli językowych. Obowiązkowy nie jest, oficjalnego wsparcia ze strony wyszukiwarek nie ma i potwierdzonego wpływu na rankingi też. Warto go zrobić, bo to pół godziny pracy i daje modelom poprawny zestaw faktów o Tobie. Priorytet zawsze mają jednak dostęp w robots.txt i struktura treści.
+
+**Blokować GPTBota?**
+Jeśli sprzedajesz usługi albo towary, a treść traktujesz jako marketing - blokowanie nie ma sensu, różnica dla biznesu jest znikoma. Jeśli treść sama jest produktem, zablokowanie GPTBota jako robota treningowego jest logiczne, przy zostawieniu agentów wyszukiwania typu OAI-SearchBot, którzy dają przejścia i cytowania. Najważniejsze, żeby nie pomylić tych dwóch ról: blokując wyszukiwarkowe, znikasz z odpowiedzi.
+
+**Czy zablokowanie Google-Extended usunie moją stronę z AI Overviews?**
+Nie. Google-Extended steruje wykorzystaniem treści w Gemini, a odpowiedzi AI w wyszukiwarce działają na zwykłym indeksie budowanym przez Googlebota. Blokada Google-Extended kosztuje Cię obecność w Gemini, ale nie usuwa z AI Overviews. Jedynym sposobem na całkowite wyjście z wyszukiwarkowych odpowiedzi AI jest zablokowanie Googlebota, co oznacza zniknięcie z wyszukiwarki w ogóle.
+
+**Dlaczego boty AI nie wchodzą, mimo że robots.txt jest otwarty?**
+Najczęściej blokada stoi poziom wyżej: Cloudflare i wiele hostingów domyślnie filtruje roboty AI, więc bot dostaje odmowę, zanim w ogóle dotrze do robots.txt. Inne częste przyczyny to reguły antybotowe w WAF, baner cookies zasłaniający treść przed zgodą oraz podstrony renderowane wyłącznie w przeglądarce. Sprawdza się to w logach serwera: poszukaj nazw agentów za ostatni miesiąc.
+
+**Czy robots.txt chroni treść przed kopiowaniem?**
+Nie. To prośba, a nie techniczne zabezpieczenie, i część robotów ją ignoruje - badania z 2026 roku dokumentują masowe naruszenia. Jeśli materiału naprawdę nie wolno oddawać, musi być za logowaniem, płatnym dostępem albo blokadą na poziomie serwera. Robots.txt rozsądnie jest używać do zarządzania obciążeniem i do jawnego dopuszczania botów, od których chcesz cytowań.

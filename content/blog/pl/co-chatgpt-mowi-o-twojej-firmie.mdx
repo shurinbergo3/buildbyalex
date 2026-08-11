@@ -1,0 +1,141 @@
+---
+title: "Co ChatGPT mówi o Twojej firmie i jak to zmienić"
+description: "Klienci pytają AI o wykonawcę, zanim do Ciebie napiszą. Jak w pół godziny sprawdzić, co odpowiadają modele, skąd biorą fakty i co zrobić, gdy Cię nie znają albo mylą z kimś innym."
+date: "2026-08-19"
+cluster: "brand-in-llm-answers"
+keywords:
+  - "co ChatGPT mówi o firmie"
+  - "reputacja marki w AI"
+  - "monitoring wzmianek w LLM"
+  - "dlaczego AI nie zna mojej firmy"
+  - "poprawić informacje w ChatGPT"
+ogImage: "/og/brand-in-llm-answers.webp"
+---
+
+Zanim do Ciebie napisze, człowiek pyta ChatGPT: "co to za firma X, czy warto z nimi pracować". I dostaje odpowiedź, której nie pisałeś, nie zatwierdzałeś i najpewniej nigdy nie widziałeś. U jednego z moich klientów model dziarsko oznajmił, że firma pracuje wyłącznie z klientami korporacyjnymi - to była prawda cztery lata temu i kosztowało ich kilka zapytań miesięcznie.
+
+Rozbieram, jak sprawdzić swój obraz w pół godziny, skąd modele biorą fakty i co da się z tym zrobić.
+
+## Dlaczego to stało się ważne
+
+Trzy powody, dla których sprawdzenie przestało być ciekawostką.
+
+**Odpowiedź zastępuje wyniki.** Kiedyś człowiek czytał dziesięć źródeł i sam wyciągał wniosek. Teraz wniosek dostaje gotowy i brzmi on pewnie niezależnie od tego, czy jest prawdziwy.
+
+**To część decyzji zakupowej.** Sprawdzenie wykonawcy przed pierwszym kontaktem jest naturalnym krokiem, a model jest do tego wygodniejszy niż wyszukiwarka.
+
+**Nie dowiesz się o tym.** Negatywna albo nieścisła odpowiedź nie zostawia śladu w analityce. Człowiek po prostu do Ciebie nie pisze, a Ty nie wiesz dlaczego.
+
+## Audyt w pół godziny
+
+Otwórz ChatGPT, Gemini, Perplexity i Claude w osobnych kartach i przepuść przez nie ten sam zestaw pytań. Koniecznie we wszystkich językach, w których pracują Twoi klienci: odpowiedzi różnią się mocno.
+
+**Blok 1. Pytania wprost o Ciebie.**
+- Co to za firma [nazwa]?
+- Czym zajmuje się [nazwa]?
+- Czy można zaufać [nazwa]?
+- Ile kosztują usługi [nazwa]?
+
+**Blok 2. Kategoria i geografia.**
+- Kto robi [Twoja usługa] w [Twoje miasto]?
+- Poleć firmę do [zadanie klienta] w Polsce.
+- Najlepsze [Twoja nisza] dla małych firm.
+
+**Blok 3. Porównanie.**
+- [Twoja nazwa] czy [konkurent]?
+- Alternatywy dla [duży konkurent].
+
+**Blok 4. Obiekcje.**
+- Opinie o [nazwa].
+- Wady współpracy z [nazwa].
+
+Zapisuj odpowiedzi w tabeli: pytanie, model, czy Cię wymieniono, co dokładnie powiedziano, jakie linki podano. Za miesiąc powtórz - tak widać dynamikę.
+
+## Co najpewniej znajdziesz
+
+Z mojego doświadczenia w sprawdzaniu marek klientów obraz sprowadza się do pięciu wariantów.
+
+**Nie ma Cię w ogóle.** Najczęstszy przypadek małej firmy. Model wymienia trzy znane nazwy, a Ciebie wśród nich nie ma. To nie problem reputacji, tylko rozpoznawalności.
+
+**Znają Cię, ale fakty są nieaktualne.** Stare ceny, usługi, których już nie ma, miasto, z którego się wyprowadziłeś. Model opiera się na tym, co zostało zaindeksowane, a nie na dzisiejszym stanie.
+
+**Mylą Cię.** Firma o podobnej nazwie w innym kraju, imiennik, marka z innej branży. Klasyka przy krótkich i ogólnych nazwach.
+
+**Wymieniają Cię, ale ostrożnie.** "Jest niewielka firma X, informacji o niej niewiele". To znaczy, że potwierdzeń z zewnątrz jest mało.
+
+**Zamiast Ciebie polecają konkurenta.** Zwykle tego, o którym więcej piszą osoby trzecie, a nie tego, kto ma lepszą stronę.
+
+## Skąd model bierze fakty
+
+Zrozumienie źródeł podpowiada, co naprawiać.
+
+**Twoja strona** - główne, ale nie jedyne źródło. Ważne, co jest tam napisane tekstem, a nie obrazkiem, i czy są dane strukturalne.
+
+**Katalogi i platformy** - profile w branżowych spisach, na platformach, w rejestrach firm.
+
+**Opinie** - Google, platformy branżowe, social media. Modele czytają i oceny, i tekst.
+
+**Wzmianki u osób trzecich** - artykuły, case studies u partnerów, wywiady, komentarze w zestawieniach. To buduje pewność: co innego strona firmy, a co innego trzy niezależne źródła.
+
+**Social media i sieci zawodowe** - zwłaszcza LinkedIn, bo tam są ustrukturyzowane dane o firmie.
+
+Rzecz kluczowa: **model ufa spójności**. Jeśli nazwa, adres, usługi i pozycjonowanie zgadzają się w pięciu miejscach, odpowiada pewnie. Jeśli wszędzie jest inaczej - ostrożnie albo wcale.
+
+## Co robić
+
+Po kolei, od tego, co kontrolujesz w pełni, do tego, na co wpływasz pośrednio.
+
+### 1. Uporządkować fakty u siebie
+
+Strona "O firmie" musi zawierać weryfikowalne fakty tekstem: czym się zajmujesz, od którego roku, gdzie jesteś, dla kogo pracujesz, jakie usługi i w jakich widełkach cenowych, w jakich językach. Nie hasła, tylko dane. To samo w znacznikach `Organization` z listą `sameAs`, łączącą stronę ze wszystkimi Twoimi profilami. Jak to się robi - w [rozbiorze Schema.org](/pl/blog/dane-strukturalne-schema-org-dla-ai).
+
+Osobno: jeśli zmieniły się ceny, usługi albo geografia, a na stronie odzwierciedla to tylko jedna podstrona, zaktualizuj wszędzie. Model weźmie to, co znajdzie pierwsze.
+
+### 2. Upewnić się, że Cię wpuszczają
+
+Banalne, ale sprawdza się w pierwszej kolejności. Jeśli roboty AI nie docierają do strony, reszty można nie robić. Jak sprawdzić i co ustawić - w [tekście o robotach AI](/pl/blog/llms-txt-i-roboty-ai-gptbot).
+
+### 3. Zsynchronizować profile
+
+Wizytówka Google, LinkedIn, katalogi branżowe, rejestry. Ta sama nazwa, adres, telefon, opis. Rozbieżności to główny powód, dla którego model odpowiada niepewnie.
+
+### 4. Zbierać opinie
+
+Prawdziwe, z tekstem, na platformach, które są indeksowane. Opinia, w której człowiek opisuje zadanie i wynik, jest warta znacznie więcej niż ocena bez komentarza: model cytuje właśnie tekst.
+
+### 5. Pojawiać się u osób trzecich
+
+Zestawienia, wywiady, teksty gościnne, case studies u klientów i partnerów, platformy branżowe. To najbardziej pracochłonne i najskuteczniejsze: to zewnętrzne źródła zamieniają "jest taka firma" w "polecam tę firmę".
+
+### 6. Publikować materiały, które da się cytować
+
+Konkrety, liczby, doświadczenie. Model chętniej cytuje tego, kto ma czym odpowiedzieć na pytanie użytkownika. Mechanika szczegółowo w [tekście o GEO](/pl/blog/jak-trafic-do-odpowiedzi-chatgpt-i-ai-overviews).
+
+## Czego zrobić się nie da
+
+Uczciwie o ograniczeniach: przycisku "popraw informacje o mojej firmie" nie ma. Formularze kontaktu zwrotnego u modeli istnieją, ale nie działają jak edycja wizytówki. Jedyny pewny sposób zmiany odpowiedzi to zmiana tego, z czego się ona składa: Twojej strony, Twoich profili i tego, co piszą o Tobie inni.
+
+Wynika z tego, że proces nie jest szybki. Pierwsze przesunięcia widać zwykle po 4-8 tygodniach od zaindeksowania zaktualizowanych podstron, stabilny obraz po kilku miesiącach.
+
+## Jak obserwować to dalej
+
+Załóż tabelę i raz w miesiącu przepuszczaj ten sam zestaw pytań. Patrz na trzy rzeczy: czy Cię wymieniają, czy fakty się zgadzają, jakie linki podają. Dodatkowo wejścia ze źródeł AI w GA4 i udział zapytań brandowych w Search Console: wzrost liczby osób szukających Cię po nazwie zwykle oznacza, że modele zaczęły Cię polecać.
+
+Jeśli chcesz, żebym zrobił to ja: sprawdzę Twoją firmę we wszystkich czterech modelach w potrzebnych językach, pokażę, co o Tobie odpowiadają, i zrobię listę tego, co naprawiać w pierwszej kolejności. [Napisz](/pl/kontakt). A jeśli po drodze okaże się, że naprawiać trzeba samą stronę - tym też się zajmuję, [podejście tutaj](/pl/uslugi/strony-internetowe).
+
+## FAQ
+
+**Dlaczego ChatGPT nie zna mojej firmy?**
+Najczęściej dlatego, że poza Twoją stroną niewiele o niej napisano. Modele budują obraz z sumy źródeł: strona, katalogi, opinie, wzmianki u osób trzecich, profile w sieciach zawodowych. Jeśli jest tylko strona, nie ma czym potwierdzić istnienia firmy, więc model wymieni tych, o których ma więcej danych. Druga częsta przyczyna jest techniczna: roboty AI nie mają dostępu do strony.
+
+**Jak poprawić błędne informacje o firmie w odpowiedziach AI?**
+Bezpośredniego sposobu nie ma: formularza "popraw dane" modele nie mają, a informacja zwrotna nie działa jak edycja wizytówki. Jedyna działająca droga to zmiana źródeł - zaktualizować fakty na stronie tekstem, uporządkować znaczniki Organization, zsynchronizować profile w katalogach i social mediach, zebrać świeże wzmianki i opinie. Po ponownym zaindeksowaniu odpowiedzi zaczynają się zmieniać, zwykle po 4-8 tygodniach.
+
+**Jak często sprawdzać, co mówią modele?**
+Raz w miesiącu wystarczy dla większości firm, raz na kwartał to minimum. Ważniejsza jest regularność niż częstotliwość: chodzi o to, żeby widzieć dynamikę, a nie jednorazowy zrzut. Koniecznie sprawdzaj po istotnych zmianach: zmianie pozycjonowania, cen, geografii, rebrandingu. Właśnie tam najczęściej powstaje rozbieżność między rzeczywistością a tym, co model uważa za prawdę.
+
+**Czy opinie wpływają na to, co odpowiada AI?**
+Tak, i to wyraźnie. Modele czytają nie tylko ocenę, ale i treść opinii, więc rozbudowany komentarz z opisem zadania i wyniku jest cenniejszy niż pięć gwiazdek bez słów. Liczy się też platforma: opinie na indeksowanych źródłach typu wizytówka Google i katalogi branżowe są brane pod uwagę, zamknięte ankiety wewnętrzne nie. Opinie wpływają też na sformułowania: model często parafrazuje to, co klienci piszą o mocnych stronach.
+
+**Co zrobić, gdy model myli moją firmę z inną?**
+To problem identyfikacji encji i leczy się go spójnością danych. Zadbaj, żeby na stronie były znaczniki Organization z pełną nazwą, danymi rejestrowymi, adresem i listą sameAs prowadzącą do wszystkich oficjalnych profili. Ujednolić pisownię nazwy wszędzie, w social mediach i katalogach też. Jeśli nazwa pokrywa się ze znaną marką z innej branży, pomaga konsekwentne używanie doprecyzowania obok nazwy w tekstach i nagłówkach.

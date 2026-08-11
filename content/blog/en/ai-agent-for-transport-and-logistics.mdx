@@ -1,0 +1,118 @@
+---
+title: "AI Agent for Transport and Logistics: Enquiries, Statuses and Documents"
+description: "Whoever quotes first gets the load. How a bot collects cargo details, filters out irrelevant requests, answers 'where is the truck' and takes load off dispatchers - with the payback calculation."
+date: "2026-09-12"
+cluster: "ai-agent-logistics"
+keywords:
+  - "chatbot for transport company"
+  - "logistics automation AI"
+  - "freight enquiry bot"
+  - "automatic shipment status"
+  - "AI for freight forwarder"
+ogImage: "/og/ai-agent-logistics.webp"
+---
+
+Poland is Europe's largest road freight operator, and competition here is measured in minutes. A customer sends the same request to five carriers, and the load usually goes to whoever gave a clear price first. Everything else - quality, fleet, reputation - only matters after that.
+
+Meanwhile a dispatcher physically cannot respond instantly: they are running trucks, solving route problems and working through email at the same time. Here is what an AI agent takes on.
+
+## Where time and money leak
+
+**Slow first response.** By the time the dispatcher reaches the email, the customer already has three quotes.
+
+**Incomplete enquiries.** "Need to move cargo from Warsaw to Berlin" is not yet an enquiry. You need weight, dimensions, cargo type, dates, vehicle type, loading requirements, temperature regime, hazard class. Clarifying takes two or three emails, each with hours of delay.
+
+**"Where is the truck" calls.** The most frequent and least productive contact type. Consumes dispatcher time, creates no value.
+
+**Irrelevant requests.** Routes you do not run, volumes you do not take, deadlines you cannot meet. Those also have to be filtered, and that is also time.
+
+**Languages.** Clients, drivers and subcontractors speak Polish, English, Ukrainian, Russian and German. Staffing for every language is unrealistic.
+
+## What the bot does
+
+**Takes and qualifies the enquiry.** It asks in order: origin and destination, cargo type, weight and dimensions, pallets or bulk, loading and delivery dates, vehicle type, temperature regime, dangerous goods, documentation requirements, who loads. The dispatcher receives a completed record rather than a one-line email.
+
+**Filters what does not fit you.** If the route, volume or cargo type is outside your specialisation, the bot says so immediately and saves both sides the time.
+
+**Gives a price indication on standard routes.** With a rate table by lane, the bot can quote a range straight away. That is the "quoted first" advantage - used carefully, because pricing non-standard cargo stays with a person.
+
+**Answers status questions.** Connected to your transport management system or tracking, the bot reports where the truck is and when it arrives, with no dispatcher involved. How system access works is in [the MCP article](/en/blog/mcp-connect-ai-agent-to-your-systems).
+
+**Collects documents.** Reminds people what to attach, receives files, checks completeness, files them in the right place.
+
+**Handles subcontractors.** Verifies that a carrier has the required documents and insurance, gathers data during onboarding.
+
+**Answers drivers.** Procedures, routes, what to do about a delay or a loading problem, where to send paperwork. A separate internal knowledge base.
+
+## What gets connected
+
+- **The transport management system** - for statuses and trip data.
+- **CRM** - so an enquiry becomes a structured deal immediately.
+- **Messengers**: WhatsApp and Telegram, the primary channel with both clients and drivers.
+- **Email** - parsing inbound requests and extracting the data.
+- **Document storage** - for collection and filing.
+
+Sensibly, start with enquiry intake in a messenger and on the website: it delivers immediately and does not require touching your operational systems.
+
+## The payback calculation
+
+Three lines.
+
+**Response speed.** If first response currently averages ninety minutes and drops to a minute, your win rate on enquiries rises. Even one extra load per week at typical margin covers the running cost.
+
+**Dispatcher relief.** Count how many monthly contacts are status checks and cargo parameter clarifications. At 300-500 of them taking 4-6 minutes each, that is 20-50 hours a month.
+
+**Nights and weekends.** Logistics does not sleep: requests arrive in the evening and on Saturday. Everything currently waiting until Monday is potentially lost freight.
+
+The method is covered in more detail in [the AI versus manager article](/en/blog/ai-agent-vs-human-manager-real-math).
+
+## Limits: what not to hand to a bot
+
+I always insist on these.
+
+**Final pricing on complex cargo.** Oversize, dangerous goods, multimodal setups, urgent runs - priced by a person. The bot collects the data and passes it on.
+
+**Problems en route.** A breakdown, a delay, damaged cargo, a dispute with the consignee - straight to the dispatcher.
+
+**Deadline commitments.** A promise backed by penalties comes from a person.
+
+**Claims.** The bot records and forwards; apologising and resolving is human.
+
+How to configure that boundary properly is in [the escalation article](/en/blog/chatbot-handover-to-human-escalation).
+
+## What it costs
+
+- **An enquiry intake and qualification bot** on the site and in a messenger with CRM handoff - **€1,500-3,000**, 2-3 weeks.
+- **With transport system integration**, statuses and document handling - **€3,000-6,000**, 3-5 weeks.
+- **A full deployment** covering client-facing and internal flows, several languages and subcontractors - **from €6,000**.
+- Plus monthly model usage by volume.
+
+General price ranges are in [the AI chatbot cost article](/en/blog/how-much-does-an-ai-chatbot-cost); the approach is on the [AI agents page](/en/services/ai-agents).
+
+## Where to start
+
+1. Take a month of correspondence and count what share of contacts are statuses and parameter clarifications.
+2. Write down the data needed to quote: that becomes the questionnaire the bot works from.
+3. Record which routes and cargo types you do not take.
+4. Launch the bot for enquiry intake in one channel.
+5. After a month, read the conversations and add what was missing.
+6. Connect statuses once the client-facing flow is stable.
+
+If you want a rough estimate for your company, [get in touch](/en/contact) with your enquiry volume, routes and what the dispatcher currently does by hand.
+
+## FAQ
+
+**Can a bot price a shipment on its own?**
+On standard lanes with a prepared rate table, yes - it quotes a range immediately, and that is the main competitive advantage on speed. For oversize, dangerous goods, multimodal setups and urgent runs the pricing has to come from a person: too many variables and mistakes are expensive. The working setup is a bot that indicates where it can and collects complete data where the dispatcher prices.
+
+**What data does the bot collect for an enquiry?**
+Loading and unloading points, cargo type, weight and dimensions, number of units and packaging, loading and delivery dates, required vehicle type, temperature regime, hazardous properties, documentation requirements and who performs loading. The dispatcher ends up with a completed CRM record instead of a one-line email, which saves two or three rounds of correspondence.
+
+**Will a bot replace the dispatcher?**
+No. It removes routine contacts: statuses, cargo parameter clarifications, questions about documents and procedures. Everything involving decisions and liability - pricing complex cargo, problems en route, claims, deadline commitments - stays with a person. The practical effect is that the dispatcher runs transport instead of answering "where is the truck" thirty times a day.
+
+**Can a bot answer drivers' questions?**
+Yes, and this internal scenario often pays back faster than the client-facing one. The bot answers questions about procedures and routes, what to do about a delay or a loading problem, where to send paperwork, and reminds people what documents are required. It works in a messenger and in several languages, which matters with a mixed driver pool.
+
+**What does a deployment cost for a transport company?**
+An enquiry intake and qualification bot on the site and in a messenger with CRM handoff is €1,500-3,000 and 2-3 weeks. With transport management system integration, status answers and document handling, €3,000-6,000 and 3-5 weeks. A full deployment covering client-facing and internal flows, several languages and subcontractor handling starts at €6,000. Plus a monthly fee for model usage by contact volume.

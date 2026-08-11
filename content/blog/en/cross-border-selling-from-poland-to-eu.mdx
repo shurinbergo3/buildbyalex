@@ -1,0 +1,133 @@
+---
+title: "Selling Cross-Border from Poland into the EU: What to Set Up Beyond Translation"
+description: "Language, tax, payments, delivery and mandatory product data. The VAT OSS threshold, local payment habits, GPSR requirements and the technical side of a multilingual store."
+date: "2026-09-02"
+cluster: "cross-border-ecommerce-eu"
+keywords:
+  - "cross-border ecommerce from Poland"
+  - "VAT OSS online store"
+  - "selling across EU countries"
+  - "multilingual online store"
+  - "GPSR requirements ecommerce"
+ogImage: "/og/cross-border-ecommerce-eu.webp"
+---
+
+Poland is Central Europe's largest ecommerce market: tens of millions of buyers and turnover measured in tens of billions of euros. The competition matches. So for stores that have hit a ceiling, the natural next step is the neighbours: Czechia, Slovakia, Germany, Romania.
+
+Technically, going live takes a few weeks. The problem is that most stores stop at translating the copy and then wonder why the orders never arrive. Here is what actually needs setting up.
+
+## Tax: the €10,000 threshold and OSS
+
+Money first, because it is the one item where a mistake gets expensive.
+
+Distance sales to consumers across the EU share a **single €10,000 annual threshold** across all countries combined. Below it you can apply the Polish VAT rate. Above it, VAT is due at the buyer's country rate.
+
+From there, two routes. Registering as a taxpayer in each country separately is slow and expensive. Or use the **One Stop Shop**: one registration in Poland, one quarterly return, and the tax office distributes the amounts between countries. For small and mid-sized businesses the second option is effectively the only one.
+
+What that means for the store technically:
+
+- You need to **determine the buyer's country** and apply its VAT rate.
+- Consumer prices are shown **including VAT** for that country.
+- The system must **store country and rate** per order for reporting.
+- Invoices are generated with the correct details.
+
+That is not a settings toggle; it is calculation logic, and it should be built in from the start rather than reworked after the first quarter.
+
+## Language: translation is only the start
+
+Machine-translated product pages are visible to buyers instantly and destroy trust. What is actually required:
+
+- **Product names as people search for them** in that country. A German buyer looks for their own familiar term, not a translated Polish one.
+- **Units and formats** - clothing and shoe sizing differ, as do date and number formats.
+- **Terms and legal texts** in the country's language, not English.
+- **Support in the buyer's language.** An [AI agent](/en/services/ai-agents) works well here: one knowledge base answering in several languages, without hiring a native speaker per country.
+
+On the technical side of going multilingual, see [the multilingual website article](/en/blog/multilingual-website-for-business-in-poland): correct hreflang, separate URLs per language, no automatic IP-based switching.
+
+## Payments: every country has its habits
+
+The most underrated item. A missing familiar payment method cancels out all the work on the catalogue.
+
+- **Poland**: BLIK, Przelewy24, card.
+- **Germany**: PayPal, invoice payment, instalments. Germans have traditionally disliked card prepayment.
+- **Czechia and Slovakia**: card, bank transfer, cash on delivery.
+- **Romania**: cash on delivery still holds a large share.
+
+Practical conclusion: before entering a country, look at what local stores in your niche offer and connect at least the two most common methods. On payment setup in the Polish context, see [this article](/en/blog/payment-gateway-poland-blik-przelewy24).
+
+## Delivery and returns
+
+Here clarity matters more than price.
+
+- **A local carrier** in the options list builds more trust than a delivery discount.
+- **Pickup points and lockers** are the familiar format across the region; InPost operates beyond Poland.
+- **Delivery time as a specific date**, not "5-7 days".
+- **A return address in-country or nearby.** Shipping a return abroad is a serious barrier to purchase.
+- **Return terms under EU rules**: 14 days to withdraw without giving a reason, written clearly.
+
+## Mandatory product information
+
+Since December 2024 the EU General Product Safety Regulation (GPSR) applies, and it hits online sales directly. In short, a product page must carry:
+
+- **Manufacturer details** and an EU responsible person with contact information.
+- **Product identification**: model, batch, image.
+- **Safety information and warnings** in the buyer's country language.
+
+This is not abstract: marketplaces already require these fields and delist products without them. In your own store it belongs in your product data structure rather than typed into the description by hand.
+
+## Technically: how to structure the store
+
+**URLs.** The most practical starting option is subfolders on one domain: `/de/`, `/cz/`. All accumulated domain authority works for every language and there is one thing to manage. Separate country domains make sense once a country becomes its own operation with a local team.
+
+**hreflang** between every language version, including self-references, plus `x-default`.
+
+**Currency.** A dedicated switcher or country binding. Showing euros to a Czech buyer costs you conversion.
+
+**Catalogue.** Availability and prices may differ by country, and the data structure has to allow for that.
+
+**`Product` markup** with the correct currency and price per version, otherwise search engines and AI assistants show the wrong price. Covered in [the Schema.org article](/en/blog/schema-markup-for-ai-search-2026).
+
+## Marketplace or your own store
+
+The sensible strategy is both, in the right order.
+
+**A marketplace** gives a fast demand test: Allegro operates in Czechia, Slovakia and Hungary as well as Poland, and local platforms exist too. You pay commission but skip months of localisation and risk far less budget.
+
+**Your own store** is what you need once demand is proven: better margin, the customer base is yours, and people start finding you directly. A comparison of the two is in [Allegro versus your own store](/en/blog/allegro-vs-own-online-store).
+
+## The order of operations
+
+How I recommend expanding without spreading thin:
+
+1. **One country at a time.** Chosen from data: where orders or traffic already come from.
+2. **Test demand** through a marketplace or ads to a landing page.
+3. **Localise the catalogue**: language, prices, delivery, payment.
+4. **Configure tax** and register for OSS.
+5. **Product data** per GPSR.
+6. **Technical work**: URLs, hreflang, currency, markup.
+7. **Support in the language** - a bot plus a human for the hard cases.
+
+Every country after the first costs a fraction: the infrastructure already exists.
+
+## What I do
+
+I build [online stores](/en/services/online-store) with a multilingual structure, correct hreflang, currencies, per-country tax logic and product data in the required format from the outset. For existing stores I handle expansion into new markets without migrating to another platform.
+
+If you are considering neighbouring countries and want to scope the work, [get in touch](/en/contact) and I will look at your store and tell you what needs adding. For budgets, see [the online store cost article](/en/blog/online-store-cost-poland).
+
+## FAQ
+
+**At what turnover do I have to pay VAT in the buyer's country?**
+Distance sales to consumers in the EU share a single €10,000 annual threshold, counted across all countries combined. Below it you can apply the Polish rate; above it, VAT is due at the buyer's country rate. To avoid registering in every country, businesses use the One Stop Shop procedure: one registration in Poland and one return, with distribution between countries handled by the tax office.
+
+**Is translating the store into the local language enough?**
+No, translation is only the first layer. You need product names phrased the way local buyers search, local sizing and date formats, legal texts in the country's language, familiar payment methods and a local carrier with a sensible return address. A store with a perfect translation but no local payment method converts noticeably worse than an average local competitor.
+
+**Which payment methods should I add for different EU countries?**
+At least the two most common in each country. In Poland that is BLIK, Przelewy24 and card; in Germany PayPal, invoice payment and instalments; in Czechia and Slovakia card, bank transfer and cash on delivery; in Romania cash on delivery still holds a substantial share. Before entering, look at what local stores in your niche offer and match their set.
+
+**What does GPSR require on a product page?**
+Since December 2024, a product page must show manufacturer details and an EU responsible person with contact information, product identification (model, batch, image), and safety information with warnings in the buyer's country language. Marketplaces already check these fields and delist listings without them, so in your own store they belong in the product data structure rather than in free text.
+
+**Separate domain per country, or subfolders?**
+Subfolders on one domain such as /de/ and /cz/ are more practical to start with: accumulated authority works for every language, management is unified and costs are lower. Separate country domains are justified once a country becomes its own operation with a local team, warehouse and marketing. Either way, correct hreflang between versions is mandatory, otherwise they compete with each other in search.

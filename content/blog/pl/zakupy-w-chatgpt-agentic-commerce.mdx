@@ -1,0 +1,109 @@
+---
+title: "Zakupy w ChatGPT: jak przygotować sklep internetowy na agentic commerce"
+description: "Asystenci AI już budują krótką listę i podpowiadają, gdzie kupić. Jak naprawdę działa agentic commerce, dlaczego produkt bez danych maszynowych jest dla nich niewidzialny i co ustawić w sklepie teraz."
+date: "2026-08-11"
+cluster: "agentic-commerce-ai-shopping"
+keywords:
+  - "zakupy w ChatGPT"
+  - "agentic commerce sklep"
+  - "sklep internetowy a asystenci AI"
+  - "jak trafić do rekomendacji ChatGPT produkty"
+  - "dane strukturalne produktów"
+ogImage: "/og/agentic-commerce-ai-shopping.webp"
+---
+
+Jesienią 2025 OpenAI uruchomiło Instant Checkout razem ze Stripe i otwartym Agentic Commerce Protocol, a w lutym 2026 pojawiła się możliwość kupowania wprost w czacie. Połowa branży e-commerce przygotowała się na to, że sklepy przestaną być potrzebne. Po kilku miesiącach obraz okazał się ciekawszy, a dla właściciela sklepu znacznie przyjemniejszy.
+
+Rozbieram, co dzieje się naprawdę i jakie ustawienia w sklepie dają efekt już teraz, nawet jeśli prowadzisz małą firmę w Polsce, a do checkoutu w czacie jeszcze daleko.
+
+## Co pokazały pierwsze miesiące
+
+Najbardziej użyteczna liczba przyszła od Walmartu. Finalizacja zakupu wprost w czacie konwertowała mniej więcej **trzy razy gorzej** niż przejście na stronę sklepu. Jednocześnie ChatGPT przyprowadzał **dwa razy więcej nowych klientów** niż standardowe kanały.
+
+Z tego wyszedł roboczy model 2026 roku: **wybierają w AI, kupują u Ciebie na stronie**. Asystent nie jest kasą, tylko witryną i doradcą: porównuje, odsiewa, tłumaczy i przekazuje człowieka dalej z gotową decyzją. To dokładnie ten ruch, za który w reklamie płaci się najwięcej - ciepły, z rekomendacją.
+
+Drugi wniosek: kanał nie jest jeden. Obok ChatGPT są Gemini, Perplexity i Claude, każdy z własnym protokołem i własnym sposobem pozyskiwania danych o produktach. Postawienie na jedną platformę nie działa, działa gotowość oddawania danych wszystkim.
+
+## Dlaczego Twój produkt może być niewidzialny
+
+Asystent nie patrzy na stronę oczami. Czyta dane. Jeśli produkt nie ma opisu maszynowego, dla niego ten produkt nie istnieje - mimo że człowiek na tej samej stronie widzi i cenę, i dostępność.
+
+Co czyni produkt niewidzialnym:
+
+- **Brak znaczników `Product` i `Offer`.** Cena, waluta, dostępność i indeks nie są nigdzie zadeklarowane wprost, trzeba je wyławiać z kodu.
+- **Strona renderowana tylko w przeglądarce.** Robot AI dostaje pusty szkielet.
+- **Cena i stan magazynowy rozjeżdżają się** między stroną, feedem i marketplace'em. Asystent, który polecił niedostępny produkt, przestaje Cię polecać.
+- **Brak feedu** w Google Merchant Center i odpowiednikach. To wciąż główne źródło ustrukturyzowanych danych o produktach.
+- **Warunki dostawy i zwrotu w postaci obrazka** albo schowane w PDF. Asystenci cytują tekst.
+- **Roboty zablokowane** w robots.txt przy okazji blokowania wszystkich botów.
+
+Nic egzotycznego, ale w polskich sklepach na WooCommerce i starszym Shoperze widzę to regularnie.
+
+## Co ustawić w sklepie
+
+Kolejność według stosunku "efekt do nakładu".
+
+### 1. Pełne znaczniki produktu
+
+`Product` z `name`, `description`, `image`, `sku`, `gtin`, `brand`, zagnieżdżony `Offer` z `price`, `priceCurrency`, `availability` i `shippingDetails`, plus `AggregateRating` i `Review`, jeśli masz opinie. To minimum, które czyta i Google, i asystenci. Więcej o znacznikach ogólnie - w [tekście o Schema.org](/pl/blog/dane-strukturalne-schema-org-dla-ai).
+
+### 2. Renderowanie kart produktu po stronie serwera
+
+Karta produktu musi być oddawana jako gotowy HTML z ceną i dostępnością w źródle. Sprawdzasz to w minutę: otwórz źródło strony i poszukaj ceny. Jeśli jej tam nie ma, asystent też jej nie znajdzie.
+
+### 3. Jedno źródło prawdy o stanach
+
+Cena i dostępność muszą się zgadzać na stronie, w feedzie, w Merchant Center i na marketplace'ach. Jeśli magazyn żyje w osobnym systemie, potrzebna jest synchronizacja, a nie ręczna aktualizacja raz w tygodniu.
+
+### 4. Feed produktowy
+
+Google Merchant Center z bezpłatnymi wynikami to obowiązkowe minimum dla Polski, plus Ceneo i Allegro, jeśli tam jesteś. Feed pełni dziś podwójną rolę: karmi reklamę i karmi asystentów AI.
+
+### 5. Opisać tekstem wszystko, o co pytają
+
+Terminy dostawy w Polsce i UE, koszty, InPost i kurierzy, warunki zwrotu, gwarancja, tabele rozmiarów, skład, kompatybilność. Asystent wybiera produkt, przy którym są odpowiedzi na pytania kupującego, a nie ten z ładniejszym zdjęciem. Tania praca z dużym efektem.
+
+### 6. Wpuścić roboty AI
+
+Sprawdź `robots.txt`. Agenci wyszukiwania typu `OAI-SearchBot`, `PerplexityBot`, `Google-Extended` muszą mieć dostęp do katalogu, inaczej nie trafisz do zestawienia. Temat rozebrany osobno w [tekście o llms.txt i robotach AI](/pl/blog/llms-txt-i-roboty-ai-gptbot).
+
+### 7. Treści porównawcze
+
+Asystenci uwielbiają formaty "X czy Y", "jak wybrać", "co się sprawdzi do". Takie podstrony są cytowane częściej niż karty produktu i przyprowadzają ludzi na górze lejka. Przy okazji to klasyczne SEO, które działało na długo przed całą historią z AI.
+
+### 8. Języki
+
+Polski kupujący zapyta po polsku, ukraiński po ukraińsku. Opisy produktów i warunki muszą istnieć w językach Twoich rynków, inaczej zostaniesz polecony tylko w angielskich odpowiedziach.
+
+## Czego nie robić teraz
+
+Nie rzucaj się na integrację Agentic Commerce Protocol, jeśli nie jesteś dużym retailerem w USA. Instant Checkout jest wciąż ograniczony geograficznie i platformowo, a praca inżynierska tam nietrywialna. Rozsądna strategia dla sklepu w Polsce to **doprowadzić dane do ideału pod rekomendacje i dopracować własny checkout tak, żeby osoba przychodząca z AI składała zamówienie w dwa kliknięcia**. Gdy protokoły dotrą do Europy, będziesz już mieć wszystko, czego trzeba do podłączenia.
+
+Osobno o własnym checkoucie: jeśli człowiek przychodzi już zdecydowany, każde zbędne pole formularza, wymuszona rejestracja czy brak BLIK-a zamienia się w stracone pieniądze. O płatnościach pod Polskę pisałem w [tekście o bramkach płatniczych](/pl/blog/przelewy24-czy-payu-integracja-sklep-blik).
+
+## Jak to zmierzyć
+
+W GA4 źródła `chatgpt.com`, `perplexity.ai`, `gemini.google.com` widać w raporcie pozyskiwania ruchu. Patrz na trzy rzeczy: wolumen, udział nowych użytkowników i konwersję. Typowy obraz to niewielki ruch, wyższy niż średnia udział nowych osób i konwersja powyżej średniej. Jeśli tak jest, katalog jest czytany i jesteś polecany. Jeśli zero - prawdopodobnie jesteś niewidzialny i zaczynać trzeba od punktów 1-3.
+
+## Co robię w projektach
+
+Kiedy składam [sklep internetowy](/pl/uslugi/sklep-internetowy), pełne znaczniki produktowe, renderowanie kart po stronie serwera, feed w Merchant Center i synchronizacja stanów wchodzą w konfigurację bazową, a nie jako osobna usługa "SEO później". Dla istniejących sklepów robię pracę punktową: audyt danych, znaczniki, feed, przyspieszenie kart, teksty warunków. Zwykle 3-7 dni i wyraźnie taniej niż przebudowa.
+
+Jeśli chcesz wiedzieć, czy asystent AI widzi Twój katalog, [napisz](/pl/kontakt) - sprawdzę kilka Twoich produktów w ChatGPT i Perplexity i powiem, co przeszkadza. Widełki budżetowe na sklep są w [tekście o kosztach](/pl/blog/ile-kosztuje-sklep-internetowy).
+
+## FAQ
+
+**Czy z Polski da się już sprzedawać bezpośrednio w ChatGPT?**
+Pełny checkout w czacie jest wciąż wdrażany wąsko, przede wszystkim dla sprzedawców z USA i platform podłączonych do Agentic Commerce Protocol. Dla sklepu w Polsce aktualny jest inny scenariusz: trafić do rekomendacji asystenta i przyjąć kupującego na własnej stronie. Dane potrzebne do rekomendacji to dokładnie te same dane, których protokoły będą wymagać później, więc praca się nie zmarnuje.
+
+**Co jest ważniejsze dla asystenta AI: znaczniki czy feed produktowy?**
+Potrzebne są oba, obsługują różne ścieżki. Znaczniki na stronie działają, gdy asystent wchodzi z linku z wyszukiwarki i czyta konkretną kartę. Feed działa, gdy dane pobierane są z baz produktowych typu Merchant Center. Jeśli zasoby są ograniczone, zacznij od znaczników Product i Offer na kartach: dają efekt zarówno w zwykłym wyszukiwaniu, jak i w odpowiedziach AI.
+
+**Czy zakupy w czacie zabiją sklepy internetowe?**
+Dane z pierwszych miesięcy mówią coś odwrotnego. Finalizacja wprost w czacie konwertuje wyraźnie gorzej niż przejście na stronę sprzedawcy, za to asystenci przyprowadzają więcej nowych klientów. Model roboczy to wybór w AI, zakup na stronie. Sklep jest potrzebny, ale poprzeczka rośnie: dane muszą być maszynowo czytelne, a checkout krótki, inaczej osoba przychodząca z gotową decyzją i tak wyjdzie.
+
+**Jak sprawdzić, czy asystent poleca moje produkty?**
+Wpisz do ChatGPT, Gemini i Perplexity dziesięć zapytań sformułowanych tak, jak zrobiłby to Twój kupujący: z kategorią, przedziałem cenowym, miastem albo krajem dostawy. Zobacz, które sklepy padają i do jakich podstron prowadzą linki. Potem otwórz źródło swojej karty produktu i sprawdź, czy jest tam cena, dostępność i znacznik Product. Zwykle przyczyna niewidzialności ujawnia się na tym kroku.
+
+**Ile kosztuje przygotowanie sklepu pod asystentów AI?**
+Dla istniejącego sklepu praca punktowa mieści się zwykle w 400-1 200 € w zależności od platformy i wielkości katalogu: znaczniki produktów, renderowanie kart po stronie serwera, konfiguracja feedu, synchronizacja stanów, teksty warunków dostawy i zwrotu. Dla nowego sklepu wszystko to wchodzi w zakres wykonania i nie jest osobno płatne. Zwrot liczy się przyrostem ruchu organicznego i z AI na karty produktowe.

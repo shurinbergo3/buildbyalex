@@ -1,0 +1,111 @@
+---
+title: "Cookie Banners and Consent Mode v2 in Poland: Collect Consent Without Going Blind"
+description: "What Polish electronic communications law requires, why an Accept button without an equal Reject no longer passes, how to set up Consent Mode v2, and what to do about the data you lose."
+date: "2026-08-23"
+cluster: "cookie-consent-mode-2026"
+keywords:
+  - "cookie banner requirements Poland"
+  - "Consent Mode v2 setup"
+  - "GDPR cookie consent"
+  - "electronic communications law cookies"
+  - "analytics after consent banner"
+ogImage: "/og/cookie-consent-mode-2026.webp"
+---
+
+A cookie banner looks like a formality you install once and forget. In reality it is where three separate things collide: legal requirements, working advertising and complete analytics. A mistake in any of them costs money - either as a fine, or as ad spend running blind.
+
+Here is what Poland requires, how to build it correctly, and what to do about the data you lose to rejections.
+
+## What the law requires
+
+Two layers. Cookie mechanics are governed by the ePrivacy directive, which each country implements through its own law, while personal data processing falls under GDPR. In Poland, **Prawo komunikacji elektronicznej** has applied since 10 November 2024, replacing the previous telecommunications act.
+
+The practical minimum:
+
+- **Strictly necessary files** (session, cart, login) need no consent; informing users is enough.
+- **Analytics and marketing** need active consent **before** the scripts fire. Not after, not simultaneously - before.
+- **Withdrawing consent must be as easy as giving it.** Polish law underlines this specifically: no extra steps, no hunting for it.
+- **Consent must be provable** tied to a specific event, not as aggregate statistics.
+- **Silence is not consent.** A banner saying "by continuing to use the site you agree" is legally worthless.
+
+On sanctions: for personal data breaches the supervisory authority can impose up to €20 million or 4% of worldwide turnover, while breaches of the electronic communications act carry separate turnover-linked penalties. For a small business the realistic exposure is lower, but a claim usually arrives together with a customer complaint, and then you are fixing things retroactively.
+
+## What the banner must look like
+
+The requirements are simple and routinely broken.
+
+**Accept and Reject on the first screen, of equal weight.** Same size, same visual weight, same prominence. The "bright green Accept" plus "grey Settings link" pattern is a textbook violation.
+
+**No pre-ticked boxes** in the analytics and marketing categories.
+
+**Categories by purpose**: necessary, analytics, marketing, personalisation. Each with a short, plain description of what it covers.
+
+**Nothing fires before consent.** Not GA4, not the Meta pixel, not the chat widget, not an embedded YouTube video. This is the most common technical breach: the banner exists, but the scripts load immediately.
+
+**A way to change the decision later** - a permanent link or icon in the footer.
+
+**Do not block content from search engines.** A detail people miss: if the banner covers the page with an overlay, some crawlers receive the interstitial instead of your content. More on bot access in [the AI crawlers article](/en/blog/llms-txt-and-ai-crawlers-gptbot).
+
+## What Consent Mode v2 is and why it exists
+
+Consent Mode is how you tell Google what the user decided, so its services behave accordingly. Since spring 2024 it has been required for European Economic Area traffic if you use remarketing and personalisation features in Google Ads and want audiences and conversions to keep working.
+
+Four parameters are passed:
+
+- `analytics_storage` - analytics cookies,
+- `ad_storage` - advertising cookies,
+- `ad_user_data` - sending user data to advertising services,
+- `ad_personalization` - ad personalisation.
+
+The key point: all of them must default to `denied` until consent is given. Google's scripts still load, but instead of cookies they send anonymised signals with no identifiers, which lets the system reconstruct part of the picture statistically without breaking the rules.
+
+There are two implementations. **Basic**: no tags load at all before consent. **Advanced**: tags load immediately in denied state and send identifier-free signals. Advanced preserves noticeably more data for conversion modelling, and in most cases it is the one to pick.
+
+## What happens to your analytics
+
+The reality: some users decline, and you will not see those visits attributed in reports. The consent rate depends heavily on how the banner is presented and varies widely.
+
+What people do about it:
+
+**Advanced Consent Mode** is the obvious step. Google fills in missing conversions through modelling based on signals from consenting users.
+
+**Server-side tagging.** Data goes through your own server, giving more control and more resilience against blockers. Worth it once ad budgets are meaningful.
+
+**Metrics that do not depend on cookies.** Enquiries and calls counted in your CRM never break because of rejections. On wiring the site into conversion tracking properly, see [the GA4 article](/en/blog/how-to-track-conversions-ga4).
+
+**Honest period comparison.** If you deployed the banner mid-month, the traffic drop in reports is an artefact, not reality. Do not make decisions from that chart.
+
+## Raising the consent rate without breaking rules
+
+Dark patterns are off the table: they are unlawful and they stop working quickly. What actually helps:
+
+- **Short, plain copy.** One or two sentences on why cookies are used, without legal language.
+- **A fast banner.** If it appears two seconds after load and shifts the layout, people get annoyed and hit reject.
+- **Not full screen.** A bottom bar meets less resistance than a modal covering the content.
+- **Clear categories.** People agree to analytics more readily when it says the data is used to improve the site, rather than "for partners' marketing purposes".
+- **Do not re-prompt** people who already decided. It irritates and lowers consent.
+
+## What I do on projects
+
+I build consent as part of development rather than a plugin bolted on top: scripts are wired through a tag manager and do not fire before the user decides, Consent Mode v2 runs in advanced mode, the consent event is recorded, withdrawal is one click from the footer, and the banner neither blocks crawlers nor damages load speed.
+
+I also audit sites that are already live. Very often the banner is there while GA4 and the Meta pixel load before any button is pressed. Formally that is a breach; practically it is a risk the moment someone complains. Checking and fixing usually takes a day.
+
+If you want me to look at your site, [get in touch](/en/contact). There is a related piece on [security and personal data](/en/blog/website-security-and-gdpr), and how I build [websites](/en/services/websites) is on the service page.
+
+## FAQ
+
+**Is a cookie banner mandatory in Poland?**
+Yes, if the site uses anything beyond strictly necessary files. Analytics, advertising pixels, embedded video, chat widgets and maps all require active consent before firing. The mechanics are governed by Prawo komunikacji elektronicznej, in force since 10 November 2024, and personal data processing by GDPR. Only a site with no analytics and no marketing tools at all can legally operate without a banner.
+
+**Can I offer only an Accept button?**
+No. Reject must be available on the same screen and be as easy as accepting: equal prominence, no extra steps. The pattern where Accept is a large button and rejection hides behind settings counts as a violation. Polish law additionally stresses that withdrawing consent must be no harder than giving it.
+
+**What is Consent Mode v2 and is it required?**
+It is the mechanism for passing the user's decision to Google services so they behave accordingly. For European Economic Area traffic it is necessary if you use remarketing and personalisation in Google Ads: without it, audiences and conversions stop working correctly. Four signals are transmitted, and all must default to denied until consent is granted.
+
+**How much data do you lose after implementing consent?**
+It depends on the rejection rate, which varies widely with banner design and audience. Advanced Consent Mode compensates for part of the loss: Google models missing conversions from anonymised signals. For stability, lean on metrics that do not depend on cookies - enquiries and calls recorded in your CRM - and only compare periods once the banner has run for a full month.
+
+**What are the penalties for a non-compliant banner?**
+For personal data breaches the supervisory authority can impose up to €20 million or 4% of worldwide annual turnover, while breaches of the electronic communications act carry separate turnover-linked sanctions. In practice, for a small business it starts with a customer complaint and a request from the regulator, after which you have a set deadline to bring the site into order.

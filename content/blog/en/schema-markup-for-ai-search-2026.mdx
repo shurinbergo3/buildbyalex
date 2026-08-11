@@ -1,0 +1,132 @@
+---
+title: "Schema.org Markup in 2026: What Still Works and What Quietly Stopped"
+description: "Which structured data types still produce rich results, which no longer do but are needed for AI search anyway, where to put them, and the mistakes that most often kill the effect."
+date: "2026-08-17"
+cluster: "schema-markup-2026"
+keywords:
+  - "schema.org markup"
+  - "structured data for website"
+  - "JSON-LD markup"
+  - "google rich results"
+  - "structured data for AI search"
+ogImage: "/og/schema-markup-2026.webp"
+---
+
+Structured data is how you tell a machine, in plain terms, what a human already sees on the page: this is a company, here is its address, this is a product, here is the price and stock status, and this is an answer to a question. People used to add it for the stars in search results. Now it has a second life: language models read structured data specifically because they do not have to guess it.
+
+Here is what still delivers in 2026, what no longer does but is still needed, and how to avoid making it useless.
+
+## How it works technically
+
+Markup goes into the page as a JSON-LD block. Microformats and RDFa still appear in older projects, but do not build anything new with them: JSON-LD is separate from your HTML, easier to maintain, and it is what Google recommends.
+
+It looks like this:
+
+```
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Company name",
+  "url": "https://example.com",
+  "telephone": "+48 000 000 000",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ul. Przykladowa 1",
+    "addressLocality": "Warszawa",
+    "postalCode": "00-001",
+    "addressCountry": "PL"
+  },
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.linkedin.com/company/...",
+    "https://www.facebook.com/..."
+  ]
+}
+```
+
+No magic to it: you are listing facts in a format a machine cannot misread.
+
+## What still produces rich results
+
+Here the effect is visible directly in the search results.
+
+- **`Product` + `Offer`** - price, availability and currency right in the listing. For a store this is the biggest visible lift in clicks.
+- **`AggregateRating` and `Review`** - stars. They work when the reviews are real and visible on the page.
+- **`BreadcrumbList`** - a path instead of a bare URL in the snippet. Minor, but it looks better.
+- **`Event`, `JobPosting`, `Recipe`** - special formats for the relevant site types.
+- **`VideoObject`** - for pages with video.
+
+## What no longer produces rich results but is still needed
+
+The part people rarely write about honestly.
+
+**`FAQPage`.** Google restricted FAQ rich results to a narrow set of authoritative government and health sites. An ordinary business will not see expandable questions in the SERP. **Add it anyway**, because language models read that block and take ready-made question-answer pairs from it. That is how a piece lands in an AI answer whole rather than in fragments.
+
+**`HowTo`.** Same story: rich result support was wound down, machine readability remains.
+
+**`Organization` and `sameAs`.** No visual effect at all, but this is what ties your website to your social profiles, directory listings and marketplace pages into one entity. For AI search that is critical: the model has to understand that the site, the LinkedIn page and the directory entry are the same company.
+
+**`Service` and `Offer` for services.** No rich results, but it is the only way to state explicitly what you do and what it costs.
+
+The practical conclusion: splitting markup into "gets you stars" and "does not" no longer makes sense. The second half now works on a different channel.
+
+## Minimum set by business type
+
+So you do not implement everything at once.
+
+**Local services** (clinic, salon, workshop, repairs): `LocalBusiness` with address, phone and hours, `Service` for each offering, `FAQPage` on service pages, `AggregateRating`, `BreadcrumbList`.
+
+**Online store**: `Organization`, `Product` + `Offer` on every product page with price, currency, availability, SKU and shipping data, `AggregateRating` and `Review`, `BreadcrumbList`, `FAQPage` on help pages. Why AI assistants need this specifically is in [the agentic commerce article](/en/blog/agentic-commerce-chatgpt-shopping-store).
+
+**B2B and services without a storefront**: `Organization` with `sameAs`, `Service`, `Article` on blog content, `FAQPage`, `Person` on an author page if the content is bylined.
+
+**Blog and content sections**: `Article` with author and dates, `BreadcrumbList`, `FAQPage`.
+
+## Five mistakes that kill the effect
+
+I have seen all of these in real projects.
+
+**1. Markup does not match the page.** The code says €199, the screen says €249. Or the FAQ exists in markup but not in the text. That is a direct policy violation, and at best the markup is simply ignored.
+
+**2. Stale data.** Prices and availability in the markup live separately from the catalogue and get refreshed twice a year. Worse than having none: an assistant recommends a product at a price that does not exist.
+
+**3. Reviews that do not exist.** `AggregateRating` showing 5.0 with no reviews on the page is a classic route to a manual action.
+
+**4. Markup present, page empty.** If content renders only in the browser and the JSON-LD is injected by script, some crawlers never see it. It belongs in the server-rendered HTML.
+
+**5. Duplicates and conflicts.** The plugin adds its own markup, the theme adds another, a developer added a third. The page ends up with three different `Organization` entries carrying different names. The model has no idea which to believe.
+
+## How to check
+
+Three tools, all free:
+
+- **Rich Results Test** from Google shows which rich results are available for a page.
+- **Schema Markup Validator** on schema.org checks syntax correctness independent of rich results.
+- **Search Console**, the enhancements section, shows errors across the whole site rather than one page. This is where to look, because the problem is usually template-wide.
+
+Separately: open page source (the actual source, not the inspector) and confirm the JSON-LD block is there. If it only appears in the inspector, a script is injecting it and that needs fixing.
+
+## Cost and payoff
+
+Effort-wise: a typical 20-30 page site takes one to three days including validation and fixes. For a store it depends on the platform: sometimes the markup goes into the product template and covers the entire catalogue, sometimes it needs integration with your product data.
+
+The payoff: rich results raise click-through at the same ranking position, while completeness of structured data directly affects whether you land in an AI answer. The second matters more now that ordinary search clicks have thinned out - covered in [the traffic drop article](/en/blog/organic-traffic-dropped-ai-overviews).
+
+I add markup to every [website](/en/services/websites) and [store](/en/services/online-store) as part of the build rather than as a separate service: types are chosen to fit the business, and the data is generated from the real content rather than typed by hand, so it never drifts. If you already have a site and want to know what its markup looks like, [message me](/en/contact) and I will check it and send you the gaps.
+
+## FAQ
+
+**Does structured data affect Google rankings?**
+Not directly - it is not a ranking factor. It affects things indirectly and noticeably: rich results increase click-through at the same position, and correct structured data helps the search engine understand what the page is about. With AI search a second effect appeared: language models lean on structured data precisely because they do not have to infer it from HTML.
+
+**Does FAQ markup still work in 2026?**
+Google limited FAQ rich results to a restricted set of authoritative government and health sites, so an ordinary business will not see them in the SERP. The markup itself remains useful, though: language models read the question-answer block and reuse those pairs in their answers. So it is still worth adding, just for a different outcome than before.
+
+**Which markup format should I use?**
+JSON-LD. It is separate from your HTML, drops into the page as a single block, is easy to generate from data and is what Google recommends. Microformats and RDFa still work but are entangled with markup, which is why they break with every redesign. If a site already has an older format, move it to JSON-LD at the next significant template change.
+
+**Can I add markup myself?**
+For a simple site, yes - free JSON-LD generators exist and a basic Organization, LocalBusiness and Article set can be built in an evening. The difficulty starts where the data has to be pulled automatically: prices, availability, reviews. Markup maintained by hand drifts from the site within a month and does more harm than good. For a store it must be generated from the same data shown to the visitor.
+
+**What happens if the markup does not match the page content?**
+At best it gets ignored, at worst you get a manual action for structured data spam. Invented ratings and reviews are the riskiest, along with prices that differ from what is visible. The rule is simple: the markup must contain exactly what a person can see with their own eyes, and it must update together with the content.

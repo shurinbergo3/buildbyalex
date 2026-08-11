@@ -1,0 +1,133 @@
+---
+title: "Sprzedaż z Polski do UE: co ustawić w sklepie poza tłumaczeniem"
+description: "Język, podatki, płatności, dostawa i obowiązkowe dane o produkcie. Rozbieram próg VAT OSS, lokalne metody płatności, wymogi GPSR i część techniczną sklepu wielojęzycznego."
+date: "2026-09-02"
+cluster: "cross-border-ecommerce-eu"
+keywords:
+  - "sprzedaż zagraniczna z Polski"
+  - "VAT OSS sklep internetowy"
+  - "handel transgraniczny UE"
+  - "wielojęzyczny sklep internetowy"
+  - "GPSR wymogi sklep"
+ogImage: "/og/cross-border-ecommerce-eu.webp"
+---
+
+Polska to największy rynek e-commerce w Europie Środkowej: dziesiątki milionów kupujących i obrót liczony w dziesiątkach miliardów euro. Konkurencja odpowiednia. Dlatego dla sklepów, które uderzyły w sufit, naturalnym kolejnym krokiem są kraje sąsiednie: Czechy, Słowacja, Niemcy, Rumunia.
+
+Technicznie wejście zajmuje kilka tygodni. Problem w tym, że większość ogranicza się do przetłumaczenia tekstów i potem nie rozumie, dlaczego zamówień nie ma. Rozbieram, co naprawdę trzeba ustawić.
+
+## Podatki: próg 10 000 euro i OSS
+
+Zaczynamy od pieniędzy, bo to jedyny punkt, w którym błąd drogo kosztuje.
+
+Dla sprzedaży na odległość do konsumentów w UE obowiązuje **wspólny próg 10 000 euro rocznie** liczony łącznie dla wszystkich krajów. Póki jesteś poniżej, można stosować polską stawkę VAT. Po przekroczeniu podatek płaci się według stawki kraju kupującego.
+
+Dalej dwie drogi. Rejestrować się jako podatnik w każdym kraju osobno - długo i drogo. Albo skorzystać z **One Stop Shop**: jedna rejestracja w Polsce, jedna deklaracja kwartalna, a urząd sam rozdziela kwoty między kraje. Dla małych i średnich firm druga opcja praktycznie nie ma alternatywy.
+
+Co to oznacza dla sklepu technicznie:
+
+- Trzeba **rozpoznawać kraj kupującego** i stosować jego stawkę VAT.
+- Ceny dla konsumentów pokazywane są **z VAT** odpowiedniego kraju.
+- System musi **przechowywać kraj i stawkę** przy każdym zamówieniu do sprawozdawczości.
+- Faktury generują się z poprawnymi danymi.
+
+To nie jest "przełącznik w ustawieniach", tylko logika obliczeń, i warto ją zakładać od razu, a nie przerabiać po pierwszym kwartale.
+
+## Język: tłumaczenie to dopiero początek
+
+Tłumaczenie maszynowe kart produktów kupujący widzi natychmiast i zabija to zaufanie. Co jest naprawdę potrzebne:
+
+- **Nazwy produktów tak, jak ich się szuka** w danym kraju. Niemiec szuka własnego, przyzwyczajonego określenia, a nie przetłumaczonej polskiej nazwy.
+- **Jednostki i formaty** - rozmiary odzieży i butów się różnią, formaty dat i liczb też.
+- **Regulaminy i teksty prawne** w języku kraju, a nie po angielsku.
+- **Obsługa w języku kupującego.** Dobrze pomaga tu [agent AI](/pl/uslugi/agenci-ai): jedna baza wiedzy odpowiada w kilku językach i nie trzeba zatrudniać native speakera w każdym kraju.
+
+O technicznej stronie wielojęzyczności - w [tekście o wielojęzycznej stronie](/pl/blog/wielojezyczna-strona-dla-firmy-w-polsce): poprawny hreflang, osobne adresy dla języków, żadnego automatycznego przełączania po IP.
+
+## Płatności: każdy kraj ma swoje przyzwyczajenia
+
+Najbardziej niedoceniany punkt. Brak znanej metody płatności zeruje całą pracę nad katalogiem.
+
+- **Polska**: BLIK, Przelewy24, karta.
+- **Niemcy**: PayPal, płatność za fakturą, raty. Niemcy tradycyjnie nie lubią przedpłaty kartą.
+- **Czechy i Słowacja**: karta, przelew bankowy, za pobraniem.
+- **Rumunia**: płatność za pobraniem wciąż ma duży udział.
+
+Praktyczny wniosek: przed wejściem do kraju sprawdź, co oferują lokalne sklepy w Twojej niszy, i podłącz przynajmniej dwie najpopularniejsze metody. O konfiguracji płatności w polskim kontekście pisałem w [osobnym materiale](/pl/blog/przelewy24-czy-payu-integracja-sklep-blik).
+
+## Dostawa i zwroty
+
+Tu decyduje nie tyle cena, ile zrozumiałość.
+
+- **Lokalny przewoźnik** na liście opcji buduje zaufanie mocniej niż rabat na dostawę.
+- **Punkty odbioru i automaty** to znany format w całym regionie, InPost działa nie tylko w Polsce.
+- **Termin dostawy konkretną datą**, a nie "5-7 dni".
+- **Adres zwrotu w kraju albo blisko.** Odesłanie zwrotu za granicę to poważna bariera zakupowa.
+- **Warunki zwrotu zgodne z UE**: 14 dni na odstąpienie bez podania przyczyny, napisane zrozumiale.
+
+## Obowiązkowe informacje o produkcie
+
+Od grudnia 2024 w UE obowiązuje rozporządzenie o ogólnym bezpieczeństwie produktów (GPSR) i dotyczy sprzedaży online wprost. W skrócie, na karcie musi być:
+
+- **Dane producenta** i osoby odpowiedzialnej w UE wraz z kontaktem.
+- **Identyfikacja produktu**: model, partia, zdjęcie.
+- **Ostrzeżenia i informacje o bezpieczeństwie** w języku kraju kupującego.
+
+To nie abstrakcja: marketplace'y już wymagają tych pól i zdejmują produkty bez nich. We własnym sklepie warto zakładać je w strukturze danych produktu, a nie dopisywać ręcznie do opisu.
+
+## Technicznie: jak ułożyć sklep
+
+**Adresy.** Najbardziej praktyczny wariant na start to podkatalogi na jednej domenie: `/de/`, `/cz/`. Cała wypracowana moc domeny pracuje na wszystkie języki, zarządzanie jest jedno. Osobne domeny krajowe mają sens, gdy kraj staje się samodzielnym kierunkiem z lokalnym zespołem.
+
+**hreflang** między wszystkimi wersjami językowymi, koniecznie ze wskazaniem na siebie, plus `x-default`.
+
+**Waluta.** Osobny przełącznik albo powiązanie z krajem. Pokazywanie euro kupującemu w Czechach to stracona konwersja.
+
+**Katalog.** Dostępność i ceny mogą różnić się między krajami, trzeba to przewidzieć w strukturze danych.
+
+**Znaczniki `Product`** z poprawną walutą i ceną dla każdej wersji, inaczej wyszukiwarka i asystenci AI pokażą złą cenę. Rozbierałem w [tekście o Schema.org](/pl/blog/dane-strukturalne-schema-org-dla-ai).
+
+## Marketplace czy własny sklep
+
+Rozsądna strategia to jedno i drugie, ale w odpowiedniej kolejności.
+
+**Marketplace** daje szybkie sprawdzenie popytu: Allegro działa nie tylko w Polsce, ale też w Czechach, na Słowacji i Węgrzech, są też platformy lokalne. Płacisz prowizję, ale nie tracisz miesięcy na lokalizację i ryzykujesz mniejszym budżetem.
+
+**Własny sklep** jest potrzebny, gdy popyt jest potwierdzony: marża wyższa, baza klientów Twoja, a ludzie zaczynają znajdować Cię bezpośrednio. Porównanie podejść w [tekście o Allegro i własnym sklepie](/pl/blog/allegro-czy-wlasny-sklep-co-sie-bardziej-oplaca).
+
+## Kolejność działań
+
+Jak radzę wchodzić, żeby się nie rozproszyć:
+
+1. **Jeden kraj naraz.** Wybierany na podstawie danych: skąd już przychodzą zamówienia albo ruch.
+2. **Sprawdzenie popytu** przez marketplace albo reklamę na stronę docelową.
+3. **Lokalizacja katalogu**: język, ceny, dostawa, płatności.
+4. **Ustawienie podatków** i rejestracja w OSS.
+5. **Dane o produkcie** zgodnie z GPSR.
+6. **Część techniczna**: adresy, hreflang, waluta, znaczniki.
+7. **Obsługa w języku** - bot plus człowiek do trudnych spraw.
+
+Każdy kolejny kraj po pierwszym kosztuje ułamek tego: infrastruktura już jest.
+
+## Co robię ja
+
+Składam [sklepy internetowe](/pl/uslugi/sklep-internetowy) od razu z wielojęzyczną strukturą, poprawnym hreflangiem, walutami, logiką podatkową per kraj i danymi produktowymi w wymaganym formacie. Dla działających sklepów robię rozszerzenie na nowe rynki bez przeprowadzki na inną platformę.
+
+Jeśli myślisz o wejściu do krajów sąsiednich i chcesz oszacować zakres prac - [napisz](/pl/kontakt), sprawdzę Twój sklep i powiem, co trzeba dołożyć. Widełki budżetowe w [tekście o kosztach sklepu](/pl/blog/ile-kosztuje-sklep-internetowy).
+
+## FAQ
+
+**Od jakiego obrotu trzeba płacić VAT w kraju kupującego?**
+Dla sprzedaży na odległość do konsumentów w UE obowiązuje wspólny próg 10 000 euro rocznie, liczony łącznie dla wszystkich krajów. Poniżej można stosować polską stawkę, powyżej podatek płaci się według stawki kraju kupującego. Żeby nie rejestrować się jako podatnik w każdym kraju, korzysta się z procedury One Stop Shop: jedna rejestracja w Polsce i jedna deklaracja, a rozdzielenie między kraje robi urząd.
+
+**Czy wystarczy przetłumaczyć sklep na język kraju?**
+Nie, tłumaczenie to tylko pierwsza warstwa. Potrzebne są nazwy produktów w sformułowaniach, których szukają lokalni kupujący, lokalne rozmiarówki i formaty dat, teksty prawne w języku kraju, znane metody płatności oraz lokalny przewoźnik ze zrozumiałym adresem zwrotu. Sklep z idealnym tłumaczeniem, ale bez lokalnej metody płatności konwertuje zauważalnie gorzej niż przeciętny lokalny konkurent.
+
+**Jakie metody płatności podłączyć dla różnych krajów UE?**
+Minimum dwie najpopularniejsze w każdym kraju. W Polsce to BLIK, Przelewy24 i karta, w Niemczech PayPal, płatność za fakturą i raty, w Czechach i na Słowacji karta, przelew i za pobraniem, w Rumunii duży udział wciąż ma płatność za pobraniem. Przed wejściem warto sprawdzić, co oferują lokalne sklepy w Twojej niszy, i powtórzyć ich zestaw.
+
+**Czego GPSR wymaga na karcie produktu?**
+Od grudnia 2024 na stronie produktu muszą być dane producenta i osoby odpowiedzialnej w UE wraz z kontaktem, identyfikacja produktu (model, partia, zdjęcie) oraz informacje o bezpieczeństwie z ostrzeżeniami w języku kraju kupującego. Marketplace'y już weryfikują te pola i zdejmują oferty bez nich, dlatego we własnym sklepie lepiej zakładać je w strukturze danych produktu, a nie dopisywać do opisu.
+
+**Osobna domena na kraj czy podkatalogi?**
+Na start praktyczniejsze są podkatalogi na jednej domenie w rodzaju /de/ i /cz/: wypracowana moc pracuje na wszystkie języki, zarządzanie jest jedno, koszty niższe. Osobne domeny krajowe są uzasadnione, gdy kraj staje się samodzielnym kierunkiem z lokalnym zespołem, magazynem i marketingiem. W obu przypadkach obowiązkowy jest poprawny hreflang między wersjami, inaczej konkurują ze sobą w wyszukiwarce.

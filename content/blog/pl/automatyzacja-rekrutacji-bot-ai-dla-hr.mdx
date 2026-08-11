@@ -1,0 +1,111 @@
+---
+title: "Automatyzacja rekrutacji: bot AI, który selekcjonuje, ale nie decyduje"
+description: "Kandydat idzie tam, gdzie odpowiedziano w ciągu godziny. Rozbieram, co bot bierze na siebie w rekrutacji, gdzie przebiega granica prawna i jak liczyć efekt przy naborze masowym i punktowym."
+date: "2026-09-16"
+cluster: "recruiting-automation-ai"
+keywords:
+  - "automatyzacja rekrutacji AI"
+  - "chatbot rekrutacyjny"
+  - "screening kandydatów bot"
+  - "automatyzacja HR Polska"
+  - "AI w rekrutacji"
+ogImage: "/og/recruiting-automation-ai.webp"
+---
+
+W rekrutacji działa ta sama logika co w sprzedaży: wygrywa ten, kto odpowiedział pierwszy. Kandydat aplikuje na pięć ofert w jeden wieczór i idzie na rozmowę tam, gdzie odezwano się tego samego dnia. Po dwóch dniach zaczął już pracę gdzie indziej, a Ty dopiero otwierasz jego CV.
+
+Najmocniej widać to przy naborze masowym - magazyny, produkcja, logistyka, handel, gastronomia - gdzie aplikacji jest dużo, a decyzje zapadają szybko. Rozbieram, co bierze na siebie bot i, co ważniejsze, gdzie kończą się jego uprawnienia.
+
+## Gdzie traci się kandydatów
+
+**Wolny pierwszy kontakt.** Aplikacja przyszła o 20:00, rekruter zobaczył o 11:00 następnego dnia, zadzwonił o 15:00. To już za późno.
+
+**Powtarzalny screening.** Te same pytania każdemu: doświadczenie, dostępność, grafik, oczekiwania finansowe, język, prawo do pracy, gotowość do zmian. Pięćdziesiąt aplikacji to pięćdziesiąt identycznych rozmów.
+
+**Ustalanie terminu.** Trzy wiadomości tam i z powrotem, żeby znaleźć termin, i jeszcze dwie, żeby go przełożyć.
+
+**Nieobecności na rozmowach.** Osobna pozycja strat, zwłaszcza przy naborze masowym.
+
+**Cisza po aplikacji.** Kandydat, któremu nie odpowiedziano, to zapamiętuje. W małym mieście albo wąskiej branży reputacja pracodawcy buduje się dokładnie tak.
+
+**Języki.** Typowa polska sytuacja: aplikacje po polsku, ukraińsku, angielsku i rosyjsku, a rekruter jeden.
+
+## Co robi bot
+
+**Odpowiada na aplikację natychmiast.** Potwierdza otrzymanie, opowiada o stanowisku, firmie, warunkach i następnym kroku. Już to zmienia odbiór procesu.
+
+**Przeprowadza wstępny screening.** Zadaje formalne pytania potrzebne zawsze: doświadczenie w danej branży, dostępność i grafik, oczekiwania finansowe, prawo do pracy i dokumenty, poziom języka, gotowość do wyjazdów albo pracy zmianowej, uprawnienia i certyfikaty. Odpowiedzi trafiają do systemu w formie ustrukturyzowanej.
+
+**Odpowiada na pytania kandydata.** O warunki, grafik, formę zatrudnienia, lokalizację, co wziąć na pierwszy dzień. Kandydaci pytają o to dużo i to również czas rekrutera.
+
+**Umawia rozmowę.** Sprawdza kalendarz, proponuje realne terminy, rezerwuje, wysyła przypomnienia i pozwala przełożyć jednym kliknięciem. O mechanice dostępu do kalendarza - w [tekście o MCP](/pl/blog/mcp-podlaczenie-agenta-ai-do-systemow).
+
+**Zmniejsza nieobecności.** Przypomnienie dzień wcześniej i godzinę wcześniej z możliwością przełożenia. Działa tak samo jak w usługach - rozbierałem w [tekście o nieobecnościach](/pl/blog/przypomnienia-o-wizycie-sms-no-show).
+
+**Trzyma kandydata w obiegu informacji.** Status aplikacji, następny krok, terminy. Milczenie to główna przyczyna złego wrażenia o pracodawcy.
+
+**Wraca do bazy.** Kandydat, który nie pasował pół roku temu, może pasować teraz. Bot pisze i sprawdza aktualność.
+
+**Odpowiada pracownikom.** Osobny scenariusz wewnętrzny: urlopy, dokumenty, procedury, do kogo pisać w jakiej sprawie. Zdejmuje z HR strumień powtarzalnych pytań.
+
+## Gdzie przebiega granica prawna
+
+To najważniejsza część i zwykle jest pomijana.
+
+**Decyzję podejmuje człowiek.** Zgodnie z RODO kandydat ma prawo nie podlegać decyzji opartej wyłącznie na zautomatyzowanym przetwarzaniu, jeśli wywołuje ona istotne skutki. Odmowa zatrudnienia to właśnie taki przypadek. Dlatego bot zbiera i porządkuje dane, a selekcji dokonuje rekruter.
+
+**Rekrutacja to obszar wrażliwy.** W europejskiej regulacji AI systemy używane w zatrudnieniu i zarządzaniu personelem zaliczono do kategorii podwyższonego ryzyka z odpowiednimi wymogami. Terminy w tej części przesunęło cyfrowe omnibus, ale kierunek jest jasny: automatyczne ocenianie kandydatów to obszar, w który bez przygotowania nie warto wchodzić.
+
+**Przejrzystość obowiązuje już teraz.** Kandydat musi wiedzieć, że rozmawia z asystentem AI - wymóg działa od sierpnia 2026 roku. Rozbierałem w [tekście o AI Act](/pl/blog/ai-act-2026-wymogi-dla-chatbotow).
+
+**Dane kandydatów.** Okres przechowywania, podstawa przetwarzania, prawo do usunięcia. CV to dane osobowe ze wszystkimi tego konsekwencjami. Więcej w [tekście o danych i RODO](/pl/blog/gdzie-chatbot-ai-przechowuje-dane-klientow).
+
+Praktyczny wniosek: **bot jako asystent rekrutera jest bezpieczny i przydatny, bot jako automatyczny selekcjoner to zły pomysł i prawnie, i jakościowo**.
+
+## Co się podłącza
+
+- **System rekrutacyjny** - żeby aplikacje i odpowiedzi układały się w karty.
+- **Kalendarz** - do rozmów.
+- **Komunikatory** - WhatsApp i Telegram, gdzie kandydaci odpowiadają chętniej niż mailem.
+- **Portale z ofertami** - przez pocztę albo integrację.
+- **Strona** - zakładka kariera z czatem.
+
+## Jak liczyć efekt
+
+**Szybkość pierwszego kontaktu.** Zmierz, ile obecnie mija od aplikacji do pierwszej odpowiedzi. Jeśli doba zamieni się w pięć minut, konwersja na rozmowę wyraźnie wzrośnie.
+
+**Czas rekrutera.** Screening i ustalanie terminów to główne obciążenie. Przy 200 aplikacjach miesięcznie i 8-10 minutach na każdą to 25-35 godzin.
+
+**Frekwencja na rozmowach.** Licz przed i po wprowadzeniu przypomnień.
+
+**Koszt zamknięcia rekrutacji.** Metryka końcowa, na którą wpływa wszystko powyższe.
+
+Metodykę w ogólnej postaci rozbierałem w [tekście o AI zamiast handlowca](/pl/blog/agent-ai-zamiast-handlowca-wyliczenia).
+
+## Ile to kosztuje
+
+- **Bot na zakładkę kariera i do komunikatora** ze screeningiem i przekazaniem do systemu - **1 200-2 500 €**, dwa tygodnie.
+- **Z kalendarzem**, umawianiem rozmów, przypomnieniami i statusami - **2 500-4 500 €**, 3-4 tygodnie.
+- **Z obiegiem wewnętrznym** dla pracowników i pracą z bazą kandydatów - **od 4 500 €**.
+- Plus miesięcznie praca modelu według wolumenu.
+
+Ogólne orientacje w [tekście o kosztach](/pl/blog/ile-kosztuje-chatbot-ai), podejście na stronie [automatyzacji procesów](/pl/uslugi/automatyzacja-procesow).
+
+Jeśli chcesz oszacować to pod swój strumień - [napisz](/pl/kontakt): podaj liczbę aplikacji miesięcznie, liczbę otwartych stanowisk i to, co rekruter robi ręcznie.
+
+## FAQ
+
+**Czy bot może sam selekcjonować kandydatów?**
+Zbierać i porządkować dane tak, podejmować decyzję o odrzuceniu nie. Przepisy o ochronie danych dają człowiekowi prawo, by nie podlegać decyzji opartej wyłącznie na zautomatyzowanym przetwarzaniu, gdy niesie ona istotne skutki, a odmowa zatrudnienia do takich należy. Dodatkowo rekrutacja w europejskiej regulacji AI zaliczona jest do obszaru podwyższonego ryzyka. Układ roboczy: bot zbiera, rekruter decyduje.
+
+**O co bot pyta kandydata na screeningu?**
+O rzeczy formalne potrzebne w każdym przypadku: doświadczenie w danej branży, dostępność i preferowany grafik, oczekiwania finansowe, prawo do pracy i dokumenty, poziom języka, gotowość do pracy zmianowej albo wyjazdów, uprawnienia i certyfikaty. Odpowiedzi trafiają do systemu w formie ustrukturyzowanej, więc rekruter widzi porównywalne karty zamiast rozproszonej korespondencji.
+
+**Jak bot zmniejsza nieobecności na rozmowach?**
+Potwierdzeniem terminu od razu przy rezerwacji i dwoma przypomnieniami - dzień wcześniej i godzinę wcześniej - z przyciskiem przełożenia. Możliwość przełożenia jest ważniejsza niż samo przypomnienie: kandydatowi łatwiej wybrać inny termin niż nie przyjść. Dodatkowo bot wysyła wszystko, co potrzebne: adres albo link, do kogo się zgłosić, co wziąć, ile potrwa spotkanie.
+
+**Czy trzeba informować kandydata, że rozmawia z botem?**
+Tak, to bezpośredni wymóg przejrzystości obowiązujący w UE od sierpnia 2026 roku: człowiek musi zostać poinformowany o interakcji z systemem AI przy pierwszym kontakcie. W praktyce jest to zdanie w powitaniu bota i oznaczenie w interfejsie. W rekrutacji to również kwestia zaufania: kandydat, który odkryje wprowadzenie w błąd, opowie o tym publicznie, a reputacja pracodawcy ucierpi bardziej niż od wolnej odpowiedzi.
+
+**Czy automatyzacja pasuje do punktowej rekrutacji menedżerów?**
+Częściowo. Screening i ustalanie terminów przydają się w każdej rekrutacji, ale przy stanowiskach, gdzie decyzja zapada na podstawie sumy wrażeń, rola bota sprowadza się do części organizacyjnej: szybka odpowiedź, umówienie, przypomnienia, statusy. Główny efekt automatyzacja daje przy naborze masowym - magazyny, produkcja, logistyka, handel, gastronomia - gdzie strumienie aplikacji są duże, a pytania się powtarzają.

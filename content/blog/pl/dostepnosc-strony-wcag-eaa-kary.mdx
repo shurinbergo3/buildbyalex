@@ -1,0 +1,111 @@
+---
+title: "Dostępność strony według WCAG: EAA, kogo dotyczy i co poprawić w sklepie"
+description: "Od czerwca 2025 sklepy internetowe w UE muszą spełniać WCAG 2.1 AA. Kto jest zwolniony, jakie kary grożą w Polsce, checklista do sprawdzenia w godzinę i co to daje firmie poza zgodnością z prawem."
+date: "2026-08-21"
+cluster: "wcag-eaa-accessibility"
+keywords:
+  - "WCAG 2.1 AA sklep internetowy"
+  - "Europejski Akt o Dostępności strona"
+  - "dostępność cyfrowa wymogi UE"
+  - "kary za niedostępną stronę"
+  - "jak dostosować stronę do WCAG"
+ogImage: "/og/wcag-eaa-accessibility.webp"
+---
+
+O Europejskim Akcie o Dostępności firmy dowiadują się na dwa sposoby: z pisma od prawnika albo ze skargi klienta. Wymogi obowiązują od 28 czerwca 2025 roku, a większość polskich sklepów internetowych wciąż ich nie spełnia - nie ze złej woli, tylko dlatego, że "dostępność" brzmi jak coś dotyczącego stron urzędowych.
+
+Rozbieram, kogo to realnie dotyczy, co trzeba zrobić, ile to kosztuje i dlaczego nie chodzi tylko o przepisy.
+
+## Kogo dotyczy
+
+Dyrektywa obejmuje produkty i usługi cyfrowe skierowane do konsumentów: **handel elektroniczny**, usługi bankowe, telekomunikację, transport, e-booki. W praktyce: jeśli sprzedajesz osobom fizycznym przez stronę, wymogi dotyczą Ciebie.
+
+**Wyłączenie dla mikroprzedsiębiorstw.** Firmy zatrudniające mniej niż 10 osób, których roczny obrót lub suma bilansowa nie przekracza 2 mln euro, są zwolnione z obowiązków w zakresie usług. Ważny szczegół: kryteria liczą się łącznie, a nie do wyboru. Gdy przekroczysz próg, zwolnienie znika.
+
+**Standard.** Prawnie jest to norma europejska EN 301 549, która w praktyce sprowadza się do **WCAG 2.1 na poziomie AA**. Nowsza wersja WCAG 2.2 jest wstecznie zgodna i rozsądniej od razu celować w nią - nowe wymagania nie są trudne.
+
+## Co grozi w Polsce
+
+Sankcje ustala się na poziomie krajowym. W Polsce przewidziano kary finansowe, przy poważnych naruszeniach sięgające procentu rocznego obrotu, a przy niektórych czynach kary są wielokrotnością przeciętnego wynagrodzenia w gospodarce, czyli liczone w dziesiątkach tysięcy złotych.
+
+Realistyczny scenariusz jest jednak inny. Pierwsza przychodzi nie kara, tylko skarga: klient nie zdołał złożyć zamówienia i zgłosił to. Dalej wezwanie do usunięcia i termin. Problem w tym, że przebudowa sklepu pod presją terminu kosztuje dwa razy tyle, co praca zaplanowana.
+
+## Checklista: sprawdź w godzinę
+
+Nie trzeba żadnych narzędzi, wystarczy klawiatura i przeglądarka.
+
+**1. Przejdź całą ścieżkę zakupu samą klawiaturą.** Tab, Shift+Tab, Enter, strzałki. Od katalogu do potwierdzenia zamówienia. Jeśli gdzieś fokus zniknął, utknął w oknie modalnym albo przycisku nie da się nacisnąć - to problem blokujący.
+
+**2. Sprawdź, czy fokus jest widoczny.** Obramowanie wokół aktywnego elementu musi być wyraźne. Projektanci często je usuwają, bo "brzydko wygląda", a to psuje nawigację wszystkim, którzy nie korzystają z myszy.
+
+**3. Sprawdź kontrast.** Zwykły tekst minimum 4.5:1 wobec tła, duży 3:1. Modny od lat jasnoszary tekst na białym zwykle nie przechodzi. Sprawdza się rozszerzeniem do przeglądarki w minutę.
+
+**4. Wyłącz obrazki.** Produkty muszą pozostać rozpoznawalne po tekście alternatywnym. Pusty alt na zdjęciu produktu to typowy błąd sklepu z kreatora.
+
+**5. Wyślij formularz zamówienia z błędem.** Komunikat o błędzie musi tłumaczyć, co jest nie tak i co zrobić, słowami, a nie tylko czerwoną ramką. Pola muszą mieć etykiety, a nie sam placeholder znikający przy wpisywaniu.
+
+**6. Powiększ do 200%.** Nic nie powinno na siebie nachodzić ani być przycięte.
+
+**7. Sprawdź, czy informacja nie jest przekazywana wyłącznie kolorem.** "Produkty przecenione oznaczono na czerwono" jest niedostępne. Potrzebne jest też oznaczenie tekstem.
+
+**8. Spójrz na strukturę nagłówków.** Jeden H1 na stronie, dalej hierarchia. Nagłówek udawany pogrubieniem dla czytnika ekranu nie istnieje.
+
+Jeśli co najmniej trzy punkty nie przeszły, sklep nie spełnia wymogów. Narzędzia automatyczne (Lighthouse, axe, WAVE) wyłapują mniej więcej jedną trzecią problemów i są przydatne jako pierwsze podejście, ale nie zastąpią przejścia ręcznego.
+
+## Co najczęściej psuje się w sklepach
+
+Z moich audytów to zawsze te same miejsca.
+
+- **Filtry katalogu** na własnych checkboksach bez porządnej semantyki, nieosiągalne z klawiatury.
+- **Slidery i karuzele** bez możliwości zatrzymania i bez obsługi strzałek.
+- **Okna modalne** koszyka i szybkiego podglądu, z których fokus nie wychodzi albo odwrotnie, ucieka na tło.
+- **Wybór wariantu produktu** (rozmiar, kolor) kółeczkami bez etykiet i bez stanu "wybrano" dla czytnika ekranu.
+- **Wieloetapowy checkout** bez ogłaszania zmiany kroku.
+- **Baner cookies**, który przechwytuje fokus i nie pozwala dojść do treści.
+- **CAPTCHA** bez alternatywy.
+
+Żaden z tych punktów nie wymaga przerabiania projektu graficznego. To praca w kodzie i zachowaniu interfejsu, zwykle 3-10 dni dla sklepu średniej wielkości.
+
+## Po co to, poza przepisami
+
+Trzy powody, dla których radzę to robić nawet mikroprzedsiębiorstwom formalnie zwolnionym.
+
+**Odbiorcy.** Osoby z ograniczeniami wzroku, słuchu i motoryki to zauważalna część kupujących, a po uwzględnieniu zmian wzroku związanych z wiekiem jeszcze więcej. Sklep, w którym nie da się nacisnąć przycisku z klawiatury, po prostu traci te zamówienia.
+
+**Użytkownicy mobilni w niewygodnych warunkach.** Kontrast ma znaczenie w słońcu, duże pola dotyku w komunikacji miejskiej, zrozumiałe błędy formularza gdy ktoś się spieszy. Dostępność poprawia doświadczenie wszystkim, nie tylko tym, którzy jej formalnie potrzebują.
+
+**SEO i wyszukiwanie AI.** Struktura semantyczna, teksty alternatywne, poprawne nagłówki, czytelne linki - dokładnie to, czego potrzebuje i wyszukiwarka, i model językowy. Praca nad dostępnością automatycznie poprawia czytelność maszynową, o której pisałem w [tekście o znacznikach](/pl/blog/dane-strukturalne-schema-org-dla-ai).
+
+## Ile kosztuje doprowadzenie do porządku
+
+Orientacyjnie z mojego doświadczenia.
+
+- **Audyt z raportem** i listą problemów według priorytetów - 300-600 €, 1-2 dni.
+- **Poprawa typowego sklepu** na WooCommerce, Shopify albo podobnej platformie - 800-2 500 € w zależności od liczby własnych komponentów.
+- **Złożony sklep** z autorskimi filtrami, konfiguratorem produktu i nietypowym checkoutem - od 2 500 €.
+- **Nowy sklep od razu w standardzie** - bez narzutu, bo robienie dostępnie od początku nie kosztuje więcej niż niedostępnie.
+
+Ten ostatni punkt jest ważny: dostępność kosztuje tylko wtedy, gdy dokłada się ją po fakcie. Przy wytwarzaniu to kwestia dyscypliny, a nie budżetu.
+
+## Jak ja to robię
+
+Wszystkie [sklepy internetowe](/pl/uslugi/sklep-internetowy) i [strony](/pl/uslugi/strony-internetowe) składam na semantycznym kodzie z nawigacją klawiaturą, widocznym fokusem, sprawdzonym kontrastem i poprawnymi formularzami - to część pracy, nie opcja. Dla istniejących projektów robię audyt i poprawki: najpierw problemy blokujące na ścieżce zakupowej, potem reszta.
+
+Jeśli nie masz pewności, czy Twój sklep spełnia wymogi, [napisz](/pl/kontakt) - przejdę ścieżkę zakupu, sprawdzę kluczowe punkty i prześlę listę tego, co trzeba poprawić, z oceną czasu.
+
+## FAQ
+
+**Od kiedy obowiązują wymogi dostępności dla sklepów internetowych w UE?**
+Od 28 czerwca 2025 roku. Europejski Akt o Dostępności obejmuje usługi cyfrowe dla konsumentów, w tym handel elektroniczny, usługi bankowe i telekomunikacyjne, transport oraz e-booki. Standardem technicznym jest norma europejska EN 301 549, co w praktyce oznacza zgodność z WCAG na poziomie AA. Wymogi dotyczą stron działających na rynku UE niezależnie od tego, gdzie zarejestrowana jest firma.
+
+**Czy małe firmy są zwolnione?**
+Mikroprzedsiębiorstwa są zwolnione z obowiązków w zakresie usług: to firmy zatrudniające mniej niż 10 osób, których roczny obrót lub suma bilansowa nie przekracza 2 mln euro. Kryteria liczą się łącznie, a nie do wyboru, i po przekroczeniu progu zwolnienie przestaje działać. Warto pamiętać, że zwolnienie dotyczy obowiązku prawnego, a nie samego problemu: niedostępny sklep traci kupujących niezależnie od wielkości firmy.
+
+**Który standard trzeba spełnić: WCAG 2.1 czy 2.2?**
+Prawnie wymagana jest zgodność z normą europejską opartą na WCAG 2.1 poziom AA. WCAG 2.2 jest wstecznie zgodna i dokłada kilka wymagań, głównie o rozmiarze pól dotyku i wygodzie uwierzytelniania. Praktyczne podejście to celować od razu w 2.2: nowych punktów jest niewiele, nie są trudne, a to zabezpiecza przed przeróbką przy kolejnej aktualizacji norm.
+
+**Czy wystarczy wtyczka dostępności?**
+Nie. Nakładkowe widżety z przyciskami "powiększ czcionkę" i "włącz kontrast" nie naprawiają problemów w kodzie: nie sprawiają, że filtry stają się dostępne z klawiatury, nie dodają tekstu alternatywnego do zdjęć i nie naprawiają formularzy. Organy nadzoru i sądy w UE nie uznają takich rozwiązań za samodzielny sposób spełnienia wymogów. Pracować trzeba w kodzie i zachowaniu interfejsu, widżet to w najlepszym razie dodatek.
+
+**Ile trwa dostosowanie sklepu?**
+Audyt 1-2 dni. Poprawki typowego sklepu na popularnej platformie od kilku dni do dwóch tygodni, w zależności od liczby autorskich komponentów: filtrów, karuzeli, okien modalnych, wyboru wariantów, checkoutu. Złożone projekty z konfiguratorami i nietypowym koszykiem wymagają więcej. Projektu graficznego zwykle zmieniać nie trzeba, praca idzie w kodzie i logice interfejsu.

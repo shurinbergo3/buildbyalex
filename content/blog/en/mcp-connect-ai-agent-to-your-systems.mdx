@@ -1,0 +1,124 @@
+---
+title: "MCP: Connecting an AI Agent to Your Systems So It Does Things, Not Just Answers"
+description: "A bot that sees live stock, creates a CRM deal and books a calendar slot. What the Model Context Protocol means in business terms, how it differs from n8n, what permissions to grant and where the risks sit."
+date: "2026-09-08"
+cluster: "mcp-ai-agent-integrations"
+keywords:
+  - "MCP protocol for business"
+  - "connect AI agent to CRM"
+  - "chatbot system integration"
+  - "AI agent with database access"
+  - "what is Model Context Protocol"
+ogImage: "/og/mcp-ai-agent-integrations.webp"
+---
+
+A bot that answers questions is useful. A bot that checks warehouse stock, creates a deal in the CRM and books a customer into a free slot is a different level of useful. The difference between them is access to your systems.
+
+Until recently every such link was custom development for one specific model-and-service pair. Now there is a shared standard: MCP, the Model Context Protocol. Here is what it means for a business, without the technical detail.
+
+## What it actually is
+
+MCP is a way to give a language model access to an external system through a clearly described interface. Roughly: you define which operations are available ("get stock for SKU", "create a deal", "find free slots"), and the agent can call them when needed to answer.
+
+The key change from the old approach: **a connector is written once per system, not per model**. Connect the CRM and different agents and different models can use it. Previously, changing model or adding a scenario meant rewriting everything.
+
+For a business owner the practical meaning is twofold: integrations got cheaper and stopped being disposable.
+
+## What it delivers in practice
+
+The scenarios I build most often.
+
+**Live stock and pricing.** A customer asks about availability and the bot checks the inventory system and answers precisely, rather than "please check with a colleague". For a store with a moving catalogue this closes the main complaint about bots.
+
+**Order status.** "Where is my parcel" - the bot looks it up and answers with a tracking number and date. One of the most common contact types and one of the least worthwhile for a human.
+
+**Creating a CRM deal.** Not an email to a salesperson, but a proper record with fields: contact, requirement, budget, source. The pipeline takes over rather than an inbox. I covered the wiring in [the CRM integration article](/en/blog/ai-agent-crm-integration).
+
+**Calendar booking.** The agent sees genuinely free slots, offers options, books and sends confirmation. Related reading in [online booking systems](/en/blog/online-booking-system-for-service-business).
+
+**Search across internal documents.** Policies, manuals, price lists, contracts. Useful for customers and internally: staff ask the bot instead of hunting through folders.
+
+**Invoices and payments.** Check payment status, issue an invoice, send a link.
+
+## How this differs from n8n, Make and Zapier
+
+A common question, and the difference is fundamental.
+
+**Automation platforms** work on triggers: an event happens and a chain of actions executes. An enquiry arrives, a deal is created, an email goes out, a row is added to a sheet. The scenario is defined in advance and runs identically every time.
+
+**An agent with MCP access** works on demand: it decides which system to reach for based on what the person asked. Asked about stock, it goes to inventory. Asked about delivery, to the shipping system. You do not have to script every branch in advance.
+
+In practice you want both. Automation covers repeating processes; the agent covers live interaction. A comparison of the automation platforms is in [this article](/en/blog/make-vs-n8n-vs-zapier).
+
+## What you need before implementing
+
+The honest list of prerequisites.
+
+**APIs on your systems.** If the CRM, inventory or calendar has no programmatic access, it cannot be connected. Not a problem for mainstream services, a real one for in-house systems without an API.
+
+**Clean data.** If stock levels in the system do not match reality, the bot will confidently mislead customers. Automation amplifies both order and chaos.
+
+**Documented processes.** You need clarity on what the agent may do and may not. That is management work, not technical work.
+
+**An understanding of the limits.** Not everything should be delegated: discounts, changing terms, refunds - those are decisions for a person.
+
+## Permissions and safety
+
+Here I always insist on strict rules.
+
+**Separate read and write.** The agent can read broadly; it changes things only where that was deliberately allowed.
+
+**Consequential actions go through confirmation.** Cancelling an order, issuing a refund, sending a document to a client, changing a price. The agent prepares it, a human approves with one click.
+
+**Least privilege.** The agent needs specific operations, not full system access. Never hand it an admin key.
+
+**An action log.** Everything the agent did must be recorded: what, when, prompted by whom. Without it, investigating an incident is impossible.
+
+**Protection against instruction injection.** A distinct risk: when an agent reads external content - an email, a document, a web page - that content can contain text trying to make it do something beyond the task. The fix is restricted permissions and confirmation of critical actions, not trust in the model.
+
+**Personal data.** Minimal information goes to the model; anything sensitive stays inside your systems. Covered in detail in [the data and GDPR article](/en/blog/where-ai-chatbot-stores-customer-data-gdpr).
+
+## Cost and timeline
+
+Ballpark figures from my projects:
+
+- **One connector to a mainstream system** (a popular CRM, calendar, payment service) - 1-3 days, €400-900.
+- **A connector to an in-house system with an API** - 3-7 days, from €900.
+- **A full agent deployment with 2-3 integrations**, permissions, confirmations and logging - 2-4 weeks, from €2,500.
+- **Running costs** - model usage by volume plus connector maintenance when the systems change.
+
+Payback is calculated the same way as for an ordinary agent: through time no longer spent on routine operations plus enquiries that used to be lost. The method is in [the manager replacement article](/en/blog/ai-agent-vs-human-manager-real-math).
+
+## Where to start
+
+Do not try to connect everything at once. The working order:
+
+1. **Find the most frequent question** the bot currently cannot answer. Usually stock, order status or availability.
+2. **Connect one system** for that scenario.
+3. **Grant read access only** at first.
+4. **Watch for a month** through real conversations: what people ask, where the agent gets it wrong.
+5. **Add write access** where it is safe and proven in practice.
+6. **Expand** one system at a time.
+
+## How I do it
+
+I build [AI agents](/en/services/ai-agents) with access to CRM, calendars, inventory and internal documents: separated permissions, confirmation for critical actions, logging and handover to a person where the decision cannot be automated. Plus [process automation](/en/services/automation) for repeating chains there is no reason to hand to an agent.
+
+If you want to work out which of your systems is worth connecting first, [get in touch](/en/contact) and we will go through your actual enquiries.
+
+## FAQ
+
+**What is MCP in plain terms?**
+It is a standard way to give a language model access to external systems: CRM, inventory, calendars, documents. You define which operations are available and the agent calls them when needed for an answer. The main difference from the old approach is that a connector is written once per system rather than per model, so integrations are cheaper and do not become obsolete when you switch models.
+
+**How does an agent with system access differ from automation in n8n?**
+Automation runs on a trigger and executes a predefined chain: an enquiry arrives, a deal is created, an email goes out. An agent works on demand and decides for itself which system to consult based on the person's question, with no need to script every branch. In practice both get used: automation handles repeating processes, the agent handles live interaction with customers.
+
+**Is it safe to give a bot access to the CRM?**
+With the right configuration, yes. The key rules: separate read and write permissions, grant only the operations needed rather than a full admin key, require human confirmation for consequential actions (refunds, cancellations, price changes), log every operation, and keep sensitive data out of the model. Separately, you need protection against attempts to hijack instructions through external content.
+
+**What do I need before connecting an agent to my systems?**
+Three things. Programmatic access: if your CRM or inventory has no API, the connection cannot be built. Clean data: if stock in the system does not match reality, the bot will confidently mislead customers. And documented processes: clarity on which actions are the agent's and which stay with a person.
+
+**What does connecting an agent to a CRM or inventory cost?**
+One connector to a mainstream system is typically 1-3 days of work and €400-900. For an in-house system with an API, from €900 and 3-7 days. A full agent deployment with two or three integrations, permission setup, confirmations and an action log takes 2-4 weeks and starts at €2,500. On top of that, monthly model usage by volume and connector maintenance.

@@ -1,0 +1,84 @@
+---
+title: "EU AI Act from 2 August 2026: What Your Chatbot Must Do to Avoid a Fine"
+description: "Article 50 of the EU AI Act is live and applies to any business running a bot on its site, in a messenger or on the phone. Plain-language requirements, an implementation checklist and the penalties."
+date: "2026-08-11"
+cluster: "ai-act-chatbot-compliance"
+keywords:
+  - "EU AI Act chatbot requirements"
+  - "AI Act Article 50"
+  - "AI Act 2026 business compliance"
+  - "AI Act fines"
+  - "AI disclosure chatbot EU"
+ogImage: "/og/ai-act-chatbot-compliance.webp"
+---
+
+Since 2 August 2026, Article 50 of the EU AI Act - the transparency part - has been in force. It does not only bind model developers. It binds any business with a bot on its website, an auto-responder in WhatsApp or a voice assistant on the phone. Most owners find out after the fact, so here it is in plain terms: what is required, who it hits and what to do this week.
+
+Upfront caveat: I am a developer, not a lawyer. What follows is the engineering side and how I implement it in projects. For edge cases, get an EU-law specialist.
+
+## Why people think the deadline moved
+
+In late July 2026 the so-called digital omnibus came into force - Regulation (EU) 2026/1744 - pushing high-risk system deadlines to 2 December 2027, and to 2 August 2028 for certain categories. The headline travelled as "the AI Act has been delayed".
+
+Not all of it. **The omnibus left Article 50 transparency untouched**: it started applying on 2 August 2026 exactly as planned. The logic is simple - these are not high-risk obligations but a separate layer that applies to chatbots and generative systems regardless of risk class. One more date to note is 2 December 2026, when machine-readable marking of AI-generated content comes due.
+
+## What Article 50 actually requires
+
+Four scenarios. A business that simply uses off-the-shelf models is normally caught by the first, sometimes the second.
+
+**1. People must know they are talking to an AI.** Any system a user interacts with directly - website chat, Telegram or WhatsApp bot, voice assistant, agentic workflow - has to say so at first contact. The single exception is where it would be obvious to a reasonably well-informed person. Do not rely on obviousness: a modern bot writes far too well to be mistaken for a script.
+
+**2. AI-generated content must be marked machine-readably.** Generated text, images, audio and video need markings that systems can read, not just humans. The weight here falls mostly on providers of generative systems, but if you publish generated content, it touches you too.
+
+**3. Emotion recognition and biometric categorisation** require informing the people subjected to them. Rare for small business, but it shows up in retail and HR.
+
+**4. Deepfakes and AI-generated text on matters of public interest** must be clearly labelled, unless the material went through meaningful human review and a person took editorial responsibility.
+
+The role split matters. The regulation separates the **provider** (who develops the system) from the **deployer** (who uses it under their own authority). If you put a bot on your website, you are the deployer, and the duty to inform users sits with you - even though a contractor built the bot and OpenAI or Anthropic supplied the model.
+
+## The cost of ignoring it
+
+For breaching Article 50, the regulation allows fines of up to **€15 million or 3% of worldwide annual turnover**, whichever is higher. For a small business those numbers are less alarming than they sound, because supervisory authorities apply proportionality. But the fine is not the only exposure. A hidden bot is a reputational story too: the customer who spent an hour messaging "Anna from sales" and then realised it was a model tends to say so publicly.
+
+## Checklist: what to do with your bot
+
+This is what I build into every deployment. It takes a few hours and does not require reworking the conversation logic.
+
+- **Disclosure at first contact.** The bot's opening message or a label in the widget header: "You are chatting with our AI assistant." Not in small grey type in the footer, but where people actually read.
+- **Voice bots disclose in the first sentence of the call.** Before the caller starts explaining anything.
+- **Honest naming.** You can call the bot whatever you like, but you cannot pass it off as a specific employee. "Assistant Alex" is fine. "Anna, sales manager" with no label is not.
+- **A clear route to a human.** Not literally an Article 50 requirement, but it is the first thing both regulators and customers look at. How to wire it properly is in the piece on [handing a conversation from bot to human](/en/blog/chatbot-handover-to-human-escalation).
+- **Mark generated content** if the bot writes copy you then publish under the company's name.
+- **An internal register.** A simple table: where AI is used, which model, which provider, who owns it. That is the first thing anyone will ask for if questions arise.
+- **Paperwork.** Update the privacy policy to mention AI processing, keep the agreement with your model provider, and document what data leaves your perimeter. On the personal-data side this overlaps with GDPR - covered in [where an AI chatbot stores customer data](/en/blog/where-ai-chatbot-stores-customer-data-gdpr).
+
+## What it changes for conversion
+
+The common fear: "if we say it is a bot, people will stop writing." In practice the opposite happens. An honest label removes suspicion and kills the "who am I even talking to" question that sits in half of your visitors' heads. People talk to bots quite happily when they know the rules and can see a human is one click away.
+
+What does suffer is bots that pretended to be human and built trust on that. If your funnel depended on the customer believing they were messaging a salesperson, the funnel needs rebuilding - and honestly, that is good news.
+
+## How I do it in projects
+
+When I build an [AI agent](/en/services/ai-agents), disclosure ships as standard: a labelled greeting, a permanent marker in the widget, a dedicated opening line for the voice channel, a "get a human" button in the interface, and a full log of every conversation with what the bot said and where it escalated. Plus a policy page stating which model is used and what happens to the data.
+
+I also audit bots that are already running for clients. Very often the widget was installed back in 2024, carries no disclosure at all, and the bot cheerfully introduces itself with a human name. Bringing that in line takes a day.
+
+If you have a bot and are not sure it meets the new rules, [get in touch](/en/contact) and I will look and tell you what to fix. If you do not have one yet, I will build it right from the start: disclosure, escalation and clean data handling included. For budgets, see [how much an AI chatbot costs](/en/blog/how-much-does-an-ai-chatbot-cost).
+
+## FAQ
+
+**When did Article 50 of the AI Act start to apply?**
+On 2 August 2026. The digital omnibus that entered into force on 27 July 2026 (Regulation EU 2026/1744) moved deadlines only for high-risk systems, to 2 December 2027 and 2 August 2028 for certain categories. Article 50 transparency obligations were not postponed and apply from the originally planned date. A separate milestone on 2 December 2026 covers machine-readable marking of generated content.
+
+**Does it apply to a small business with a single website bot?**
+Yes. Article 50 is not tied to company size and does not require the system to be classified as high-risk. It is enough that your site, messenger or phone line uses AI to interact with people in the EU. The duty to inform sits with whoever runs the system under their own name - the business owner, not only the developer who built the bot or the provider of the model.
+
+**What exactly do I have to tell users?**
+A clear and timely statement that they are interacting with an AI system. In practice that means an opening line such as "You're chatting with our AI assistant - I can hand you to a person if needed" plus a permanent label in the widget interface. For a voice bot, the statement has to come at the very start of the call. Burying the disclosure in a privacy policy or site footer is not enough.
+
+**What are the penalties?**
+Breaching the transparency obligations can attract up to €15 million or 3% of worldwide annual turnover, whichever is higher. National supervisory authorities apply them with regard to proportionality, the nature of the breach and the size of the company. For a small business the realistic exposure sits well below the ceiling, but voluntarily fixing things costs a fraction of any proceeding.
+
+**Can I give the bot a human name?**
+The name itself is not prohibited; misleading people about the nature of who they are talking to is. The safe formula is a name plus an explicit note that it is an AI assistant, for example "Assistant Ola" with the label "AI assistant". Presenting the bot as a specific member of the sales team with no disclosure is a direct path to a complaint, and to an awkward conversation with the customer who works it out.

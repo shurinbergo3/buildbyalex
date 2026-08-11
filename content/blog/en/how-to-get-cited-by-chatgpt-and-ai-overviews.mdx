@@ -1,0 +1,107 @@
+---
+title: "How to Get Cited by ChatGPT, Gemini and Google AI Overviews: GEO for Business"
+description: "Buyers now ask an AI instead of searching, and the shortlist is built inside the answer. Here is how language models pick their sources and what to change on your site so they name you."
+date: "2026-08-11"
+cluster: "geo-ai-search-optimization"
+keywords:
+  - "how to get cited by ChatGPT"
+  - "generative engine optimization"
+  - "rank in AI Overviews"
+  - "GEO for business website"
+  - "get recommended by AI assistants"
+ogImage: "/og/geo-ai-search-optimization.webp"
+---
+
+Two years ago a buyer googled "ecommerce developer Poland" and opened five tabs. Today they ask ChatGPT the same thing and get three names back. If you are not one of them, you did not lose a ranking battle. You were never in the conversation. That is the real shift of 2026, and it needs deliberate work.
+
+I build websites that rank, and for the last eighteen months I have been explicitly working on getting them seen and quoted by language models. Here is what actually moves the needle.
+
+## What changed, in numbers
+
+The data explains the panic better than any argument.
+
+- Google's AI Overviews now appear on roughly **a quarter of all searches**, based on a 21.9 million query study from Q1 2026.
+- **68% of Google searches end without a single click** to any website. When an AI Overview is present, that jumps to 83%.
+- Pew Research tracked 68,879 real searches: with an AI answer on screen, people clicked a normal result 8% of the time, versus 15% without one.
+- ChatGPT serves around 800 million users a week, and a meaningful share treat it as their search engine.
+
+The conclusion is not "SEO is dead". It is that clicks got more expensive and **being named inside the answer is the new position one**. Google itself says optimising for its generative features is still SEO. Good news: you do not throw away the foundation, you add a layer on top.
+
+## How a model decides who to quote
+
+A language model does not rank websites. It assembles an answer and pulls in whatever is easiest to use. In practice, four properties win.
+
+**The answer is immediately findable.** The model lifts a fragment, it does not read your homepage top to bottom. If the answer sits in paragraph four after your company history, it will not be picked up.
+
+**There are quotable specifics.** Numbers, price ranges, timelines, names, dates. "We offer a personalised approach" is never quoted. "A 300-product store with InPost and Przelewy24 integration runs €3,000-6,000 and takes 4-6 weeks" gets quoted happily.
+
+**The structure is readable.** Question-shaped headings, short paragraphs, lists, an FAQ block. That is the raw material a model turns into an answer without effort.
+
+**Confirmation from elsewhere.** Models do not rely on your site alone. Their picture is built from directories, reviews, profiles and articles by other people. A company nobody writes about has nothing to corroborate it.
+
+## What to actually change on the site
+
+These are the steps I build into projects.
+
+### 1. Write answer-first
+
+Every section opens with a direct one or two sentence answer, then the detail. This works equally well for a human scanning the page in ten seconds and for a model looking for an extractable chunk.
+
+### 2. Phrase headings as queries
+
+Not "Our services" but "How much does an online store cost in Poland". Not "Technology" but "Next.js or WordPress: which to choose for a business site". The heading then matches how a person phrases the question, and the model finds the match faster.
+
+### 3. Ship structured data
+
+Schema.org is how you tell a machine in plain terms who you are, what you sell, at what price and what you answer to common questions. Minimum viable set: `Organization`, `LocalBusiness`, `FAQPage`, `Article`, plus `Product` and `Offer` for a store. Without markup, all of that has to be inferred from your HTML, and inference performs worse.
+
+### 4. Let AI crawlers in
+
+The overlooked part. Plenty of sites accidentally block the bots that feed AI search, then wonder why they are never cited. Check `robots.txt`: search agents such as `OAI-SearchBot`, `PerplexityBot` and `Google-Extended` should have access. You can also publish an `llms.txt` file with a plain-text summary of the company and its services. This site has one.
+
+### 5. Keep your facts identical everywhere
+
+Name, address, phone, services and prices must match across the site, Google Business Profile, directories and social profiles. Inconsistencies blur the entity: the model is no longer sure this is the same company, and prefers a source it is sure about.
+
+### 6. Cover every language your buyers use
+
+A model answers in the language of the question and leans on sources in that language. A Polish client asks in Polish, a Ukrainian one in Ukrainian. If your site only exists in English, you only get cited in English answers. A properly built multilingual site pays back several times over here - more on that in [multilingual website for business in Poland](/en/blog/multilingual-website-for-business-in-poland).
+
+### 7. Build mentions off-site
+
+Industry directories, client reviews, marketplace profiles, guest pieces, partner case studies. This is what turns you from "a website" into "a company the model knows about".
+
+## How to tell whether it is working
+
+Three methods, from crude to proper.
+
+First: just ask. Put a dozen of your real buyer questions into ChatGPT, Gemini and Perplexity and see who gets named. That is a free thirty-minute audit.
+
+Second: watch referrals. GA4 already shows sources like `chatgpt.com`, `perplexity.ai` and `gemini.google.com`. The volume is smaller than search, but conversion is usually better, because the visitor arrives pre-recommended. Setup details in [how to track conversions in GA4](/en/blog/how-to-track-conversions-ga4).
+
+Third: watch branded search. When models start naming you, more people search your company name directly. That is the most reliable signal there is.
+
+## What this changes about your website
+
+The practical takeaway: a website stopped being a brochure and became a data source. It is read by machines that then summarise you to a customer. Which means the things people used to cut from the budget now matter most - clean semantic markup, structured data, speed, structure, and real text with facts instead of filler.
+
+That is how I build: [websites](/en/services/websites) on Next.js with schema, hreflang and sub-second loads, and [online stores](/en/services/online-store) whose product data an AI shopping assistant can actually read and recommend. On top of that sits an [AI agent on the site](/en/services/ai-agents) that catches the visitor arriving from a model's answer and converts them without making them wait for a human.
+
+If you want to know where you currently stand in AI answers and what is blocking citations, [drop me a line](/en/contact) and I will look at your site and tell you specifically.
+
+## FAQ
+
+**What is GEO and how is it different from SEO?**
+GEO (generative engine optimisation) is optimising to be cited inside answers from ChatGPT, Gemini, Perplexity and Google's AI blocks. SEO targets a position in a list of links; GEO targets inclusion in the generated answer itself. It is an extension, not a replacement: Google states that optimising for its generative features is still SEO. The technical foundation is shared, the difference is in how content is presented - specifics, structure, extractable fragments, structured data.
+
+**Should I block AI bots in robots.txt?**
+For most commercial sites, no. Blocking search agents like OAI-SearchBot or PerplexityBot guarantees you are excluded from answers where you could have been recommended. A sensible compromise is to allow the search crawlers that produce citations and, if you want, restrict the purely training-oriented ones. Blocking only makes sense when your content itself is the product you sell.
+
+**How fast does it work?**
+Faster than classic SEO. Search-side AI agents crawl fresh pages and can pull them into answers within weeks rather than months. Durable citation takes longer, though: it needs off-site mentions, consistent entity data and a body of content on the topic. A realistic horizon is first appearances in 3-6 weeks and a stable picture in 3-4 months.
+
+**Do I need to rewrite every page?**
+No. Start with money pages and the articles that already bring traffic: add direct answers at the top of sections, concrete numbers, an FAQ block and schema markup. That delivers most of the gain. A full rewrite is only needed where the copy is pure generalities with nothing worth quoting.
+
+**Does AI traffic actually produce enquiries, or just visits?**
+It produces enquiries, usually at a good rate. The visitor arrives from an answer that already named you as a fit, so they come with a recommendation rather than cold curiosity. Volume is lower than search, but enquiries per visit are higher. The catch is that your landing page must answer the original question immediately and offer an easy way to get in touch, otherwise the advantage evaporates.

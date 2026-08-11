@@ -1,0 +1,127 @@
+---
+title: "Dlaczego chatbot AI nie przynosi zapytań: 7 przyczyn i jak to sprawdzić"
+description: "Bot stoi, rozmowy się toczą, zapytań brak. Rozbieram typowe przyczyny - od bota, który nie prosi o kontakt, po zapytania, które nigdzie nie docierają - i podaję kolejność diagnostyki."
+date: "2026-09-20"
+cluster: "ai-chatbot-no-leads"
+keywords:
+  - "chatbot nie przynosi zapytań"
+  - "problemy z konwersją chatbota"
+  - "jak poprawić chatbota"
+  - "metryki chatbota"
+  - "dlaczego bot nie sprzedaje"
+ogImage: "/og/ai-chatbot-no-leads.webp"
+---
+
+Bot stoi na stronie już miesiąc. Rozmowy się toczą, statystyka pokazuje setki wiadomości, a zapytań jak nie było, tak nie ma. Dalej zwykle pada wniosek "AI nie działa" i widżet po cichu znika.
+
+W dziewięciu przypadkach na dziesięć problem nie leży w modelu, tylko w tym, jak ustawiony jest scenariusz albo co dzieje się z zapytaniem po rozmowie. Rozbieram przyczyny według częstości i podaję kolejność sprawdzania.
+
+## 1. Bot odpowiada, ale nie prosi o kontakt
+
+Najczęstsza. Bot świetnie odpowiada na pytanie o cenę, człowiek mówi "dziękuję" i wychodzi. Rozmowa liczy się jako udana, zapytania nie ma.
+
+Dobry scenariusz po odpowiedzi robi następny krok: proponuje wycenę, konsultację, dobór, umówienie terminu, wysłanie szczegółów mailem. Nienachalnie, ale zawsze. Formuła jest prosta: **odpowiedź, potem propozycja kontynuacji**.
+
+Jak sprawdzić: otwórz dwadzieścia rozmów, w których bot skutecznie odpowiedział. Policz, w ilu zaproponował następny krok.
+
+## 2. Baza wiedzy jest za cienka
+
+Bot na co drugie pytanie odpowiada "proszę dopytać konsultanta". Człowiek dochodzi do wniosku, że prościej napisać do konkurencji.
+
+Objaw: wysoki odsetek eskalacji i krótkie rozmowy. Jeśli ponad 60% rozmów trafia do człowieka, sprawa nie leży w trudności pytań, tylko w tym, że bot nie ma czym odpowiadać.
+
+Leczy się to materiałami, a nie ustawieniami modelu: ceny, warunki, terminy, częste pytania, opisy usług. Jak to działa - w [tekście o bocie z bazą wiedzy](/pl/blog/chatbot-ai-z-baza-wiedzy).
+
+## 3. Widżetu nie widać albo pojawia się nie w porę
+
+Drobiazg, który psuje całą resztę. Przycisk czatu w rogu, szary na białym, wielkości ikonki. Albo odwrotnie: wyskakuje dwie sekundy po załadowaniu i zasłania treść, człowiek odruchowo go zamyka.
+
+Co działa: wyraźny przycisk, zaproszenie po 15-30 sekundach albo przy próbie wyjścia, różne teksty zaproszenia na różnych podstronach. Na stronie z cennikiem "Pomóc w wycenie?" działa lepiej niż "Dzień dobry, w czym mogę pomóc?".
+
+## 4. Z bota nie da się wyjść do człowieka
+
+Odwrotna skrajność: bot nie puszcza. Człowiek trzy razy prosi o konsultanta, a bot dalej proponuje warianty. To irytuje mocniej niż brak bota.
+
+Przycisk przejścia do człowieka ma być widoczny zawsze, a bezpośrednia prośba działać natychmiast. Szczegółowo rozbierałem w [tekście o eskalacji](/pl/blog/przekazanie-od-bota-do-czlowieka).
+
+## 5. Zapytanie jest, ale nigdzie nie dotarło
+
+Przyczyna techniczna spotykana częściej, niż by się chciało. Bot zebrał kontakt, pokazał podziękowanie, a dalej:
+
+- integracja z CRM odpadła miesiąc temu i nikt nie zauważył;
+- powiadomienie idzie na skrzynkę, której nikt nie czyta;
+- zapytania lądują w sekcji, do której zespół nie zagląda;
+- nocne zapytania są widziane rano, ale nieobsługiwane, bo nic ich nie wyróżnia.
+
+Sprawdza się w pięć minut: przejdź całą ścieżkę jak klient, zostaw zapytanie i zobacz, gdzie wyląduje i kto się o nim dowie.
+
+## 6. Nikt nie odpowiada po przekazaniu
+
+Bot uczciwie przekazał rozmowę człowiekowi, a człowiek odpowiedział po dobie. Do tego czasu klient napisał już do konkurencji.
+
+Patrzeć trzeba na czas do pierwszej odpowiedzi człowieka po eskalacji. Jeśli przekracza godzinę w godzinach pracy, problem nie leży w bocie.
+
+## 7. Ruchu jest po prostu mało
+
+Bywa i tak: bot działa świetnie, ale na stronę wchodzi trzydzieści osób dziennie, z czego pięć otwiera czat. Przy takiej bazie zapytań będzie mało niezależnie od jakości scenariusza.
+
+Tutaj naprawiać trzeba nie bota. Materiały pokrewne: [dlaczego strona nie sprzedaje](/pl/blog/dlaczego-strona-nie-sprzedaje) i [co robić przy spadku ruchu](/pl/blog/ruch-spadl-przez-ai-overviews-co-robic).
+
+## Metryki, po których to widać
+
+Cztery liczby do sprawdzania co tydzień.
+
+**Odsetek odwiedzających, którzy zaczęli rozmowę.** Poniżej 2-3% problem leży w widżecie i zaproszeniu, a nie w odpowiedziach.
+
+**Odsetek rozmów z pozostawionym kontaktem.** Metryka kluczowa. Jeśli jest niski, patrz punkt 1: bot nie robi następnego kroku.
+
+**Odsetek eskalacji.** Norma to 20-40%. Poniżej 10% znaczy, że bot nie puszcza, powyżej 60% - że baza wiedzy jest słaba.
+
+**Odsetek bezpośrednich próśb "poproszę człowieka".** Rośnie - bot irytuje.
+
+I najważniejsze: **raz w tygodniu przeczytaj dwadzieścia realnych rozmów**. To nudne, zajmuje pół godziny i daje więcej niż jakikolwiek raport. Od razu widać, gdzie bot się zacina, jakie pytania zostają bez odpowiedzi i w którym momencie ludzie wychodzą.
+
+## Kolejność diagnostyki
+
+Jeśli zapytań nie ma, sprawdzaj w tej kolejności - od najtańszego do najbardziej pracochłonnego.
+
+1. **Zostaw zapytanie samodzielnie** i prześledź jego drogę do CRM i powiadomienia. Pięć minut.
+2. **Sprawdź, czy widać widżet** na telefonie na trzech kluczowych podstronach. Pięć minut.
+3. **Przeczytaj dwadzieścia rozmów.** Pół godziny.
+4. **Policz cztery metryki** powyżej. Godzina.
+5. **Sprawdź czas odpowiedzi człowieka** po eskalacji.
+6. **Spójrz na ruch**: ile osób w ogóle dociera na podstrony, gdzie stoi bot.
+
+Przyczyna zwykle znajduje się w pierwszych trzech krokach.
+
+## Co robić dalej
+
+Kolejność poprawek według zwrotu:
+
+- Dodać następny krok po odpowiedzi - propozycję wyceny, konsultacji albo umówienia terminu.
+- Dopisać do bazy wiedzy to, na co bot nie umiał odpowiedzieć w przeczytanych rozmowach.
+- Naprawić spięcie z CRM i powiadomienia, wyprowadzić je tam, gdzie na pewno będą widziane - zwykle na Telegram.
+- Zrobić widżet wyraźnym i ustawić zaproszenia pod podstrony.
+- Dodać przycisk przejścia do człowieka, jeśli go nie ma.
+- Ustawić scenariusz nocny: uczciwy komunikat o czasie odpowiedzi i zebranie kontaktu.
+
+Pierwsze trzy punkty zajmują zwykle dzień-dwa i dają główną część efektu.
+
+Jeśli masz bota, a on nie przynosi zapytań, [napisz](/pl/kontakt) - przeczytam rozmowy, sprawdzę drogę zapytania i powiem, gdzie dokładnie się gubi. Jak składam agentów AI - na [stronie usługi](/pl/uslugi/agenci-ai), ile to kosztuje - w [tekście o cenach](/pl/blog/ile-kosztuje-chatbot-ai).
+
+## FAQ
+
+**Dlaczego chatbot dobrze odpowiada, a zapytań brak?**
+Najczęściej dlatego, że scenariusz kończy się na odpowiedzi. Bot zamknął pytanie o cenę, człowiek podziękował i wyszedł. Formuła robocza jest inna: najpierw odpowiedź, potem propozycja następnego kroku - wyceny, konsultacji, doboru, umówienia terminu albo wysłania szczegółów mailem. Sprawdzisz to w pół godziny: otwórz dwadzieścia udanych rozmów i policz, w ilu bot zaproponował kontynuację.
+
+**Jaki odsetek odwiedzających powinien zaczynać rozmowę z botem?**
+Orientacyjnie od 2-3% odwiedzających stronę, zależnie od niszy i ruchu. Jeśli jest mniej, przyczyna leży zwykle w samym widżecie: niewidoczny przycisk, zaproszenie pojawiające się za wcześnie i zasłaniające treść albo tekst zaproszenia niezwiązany z podstroną. Na stronie z cennikiem propozycja pomocy w wycenie działa wyraźnie lepiej niż uniwersalne powitanie.
+
+**Jak poznać, czy problem leży w bocie, czy w ruchu?**
+Policz lejek: ile osób wchodzi na podstrony z botem, ile zaczyna rozmowę, ile zostawia kontakt, ile dochodzi do transakcji. Dużo rozmów i mało kontaktów oznacza problem ze scenariuszem. Prawie brak rozmów przy normalnym ruchu oznacza problem z widżetem. Jeśli i ruchu jest mało, naprawianie bota nie ma sensu, zaczynać trzeba od pozyskania.
+
+**Co robić, jeśli bot na wszystko odpowiada "proszę dopytać konsultanta"?**
+To nie problem modelu, tylko brak materiałów. Zbierz to, czego nie ma w bazie wiedzy: ceny i widełki, warunki, terminy, odpowiedzi na częste pytania, opisy usług, ograniczenia. Najszybszy sposób na ustalenie braków to przeczytać rozmowy z tygodnia i wypisać pytania, na które bot nie odpowiedział. Zwykle jest to lista dwudziestu pozycji, a jej zamknięcie zmienia obraz.
+
+**Gdzie powinny trafiać zapytania od bota?**
+Do CRM z pełną historią rozmowy plus natychmiastowe powiadomienie tam, gdzie pracownik na pewno je zobaczy - w praktyce na Telegram, a nie na wspólną skrzynkę. Osobno warto oznaczać zapytania nocne i weekendowe, żeby rano nie zlewały się z bieżącymi. I koniecznie sprawdź spięcie samodzielnie: integracje odpadają po cichu, a dowiadujesz się o tym po miesiącu z braku zapytań.

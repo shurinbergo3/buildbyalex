@@ -1,0 +1,111 @@
+---
+title: "WCAG Accessibility: The European Accessibility Act, Who It Covers and What to Fix"
+description: "Since June 2025 online stores in the EU must meet WCAG 2.1 AA. Who is exempt, what the penalties look like in Poland, a one-hour self-check, and why this pays off beyond compliance."
+date: "2026-08-21"
+cluster: "wcag-eaa-accessibility"
+keywords:
+  - "WCAG 2.1 AA online store"
+  - "European Accessibility Act website"
+  - "EU website accessibility requirements"
+  - "accessibility fines Poland"
+  - "how to make a website accessible"
+ogImage: "/og/wcag-eaa-accessibility.webp"
+---
+
+Businesses usually learn about the European Accessibility Act in one of two ways: a letter from a lawyer, or a customer complaint. The requirements have applied since 28 June 2025, yet most Polish online stores still do not meet them - not out of bad faith, but because "accessibility" sounds like something that concerns government websites.
+
+Here is who it actually covers, what needs doing, what it costs, and why it is not only about the law.
+
+## Who it covers
+
+The directive covers digital products and services aimed at consumers: **e-commerce**, banking, telecoms, transport and e-books. In practice: if you sell to individuals through a website, the requirements apply to you.
+
+**Micro-enterprise exemption.** Companies with fewer than 10 employees and annual turnover or balance sheet total not exceeding €2 million are exempt from the service obligations. Important detail: the criteria apply together, not as a menu. As soon as you outgrow the threshold, the exemption disappears.
+
+**The standard.** Legally this is the European norm EN 301 549, which in practice comes down to **WCAG 2.1 level AA**. The newer WCAG 2.2 is backwards compatible, and it is smarter to target that directly - the added criteria are not difficult.
+
+## What is at stake in Poland
+
+Sanctions are set nationally. Poland provides for financial penalties, reaching a percentage of annual turnover for serious breaches, while some offences carry fines pegged to multiples of the national average salary, meaning tens of thousands of złoty.
+
+The realistic scenario is different, though. What arrives first is not a fine but a complaint: a customer could not complete an order and reported it. Then comes an order to remedy, with a deadline. The problem is that rebuilding a store under deadline pressure costs twice what planned work does.
+
+## A one-hour self-check
+
+No tools required. A keyboard and a browser are enough.
+
+**1. Complete the whole purchase using only the keyboard.** Tab, Shift+Tab, Enter, arrow keys. From catalogue to order confirmation. If focus disappears anywhere, gets trapped in a modal, or a button cannot be activated, that is a blocking issue.
+
+**2. Check that focus is visible.** The outline around the active element must be obvious. Designers often remove it because it "looks bad", and that breaks navigation for everyone not using a mouse.
+
+**3. Check contrast.** Body text needs at least 4.5:1 against its background, large text 3:1. The light-grey-on-white look that has been fashionable for years usually fails. A browser extension checks it in a minute.
+
+**4. Turn images off.** Products must remain identifiable from their alternative text. Empty alt attributes on product images are the classic builder-store mistake.
+
+**5. Submit the checkout form with an error.** The error message must explain what is wrong and what to do, in words, not just a red border. Fields need labels, not only a placeholder that vanishes as you type.
+
+**6. Zoom to 200%.** Nothing should overlap or get cut off.
+
+**7. Check that information is not conveyed by colour alone.** "Discounted items are marked in red" is inaccessible. It needs a text marker as well.
+
+**8. Look at the heading structure.** One H1 per page, then a proper hierarchy. A heading faked with bold text does not exist for a screen reader.
+
+If three or more checks fail, the store does not meet the requirements. Automated tools (Lighthouse, axe, WAVE) catch roughly a third of issues and are useful as a first pass, but they cannot replace the manual walkthrough.
+
+## What usually breaks in stores
+
+From my audits, it is the same places every time.
+
+- **Catalogue filters** built on custom checkboxes without proper semantics, unreachable by keyboard.
+- **Sliders and carousels** with no pause control and no arrow-key handling.
+- **Modals** for cart and quick view where focus never leaves, or escapes to the background.
+- **Variant pickers** (size, colour) as unlabelled swatches with no "selected" state exposed to a screen reader.
+- **Multi-step checkout** that never announces the step change.
+- **Cookie banners** that capture focus and block access to the content.
+- **CAPTCHA** with no alternative.
+
+None of these require a design change. It is markup and behaviour work, usually 3-10 days for a mid-sized store.
+
+## Why do it beyond the law
+
+Three reasons I recommend it even to micro-enterprises that are formally exempt.
+
+**Audience.** People with vision, hearing or motor impairments are a substantial share of buyers, and larger still once age-related vision changes are counted. A store where a button cannot be pressed from a keyboard simply loses those orders.
+
+**Mobile users in awkward conditions.** Contrast matters in sunlight, large tap targets matter on a train, clear form errors matter when someone is in a hurry. Accessibility improves the experience for everyone, not only those who formally need it.
+
+**SEO and AI search.** Semantic structure, alt text, correct headings, meaningful link labels - exactly what both a search engine and a language model need. Accessibility work automatically improves machine readability, which I covered in [the structured data article](/en/blog/schema-markup-for-ai-search-2026).
+
+## What it costs to fix
+
+Ballpark figures from my own work.
+
+- **Audit with a prioritised report** - €300-600, 1-2 days.
+- **Fixing a typical store** on WooCommerce, Shopify or similar - €800-2,500 depending on how many custom components exist.
+- **A complex store** with bespoke filters, a product configurator and a non-standard checkout - from €2,500.
+- **A new store built to standard** - no premium, because building accessibly from the start costs no more than building inaccessibly.
+
+That last point matters: accessibility only costs money when it is retrofitted. During development it is a matter of discipline, not budget.
+
+## How I handle it
+
+I build every [online store](/en/services/online-store) and [website](/en/services/websites) on semantic markup with keyboard navigation, visible focus, verified contrast and correct forms - part of the work, not an option. For existing projects I run an audit and fixes: blocking issues on the path to purchase first, everything else after.
+
+If you are unsure whether your store complies, [message me](/en/contact) - I will walk the purchase path, check the key criteria and send you a list of what needs fixing with time estimates.
+
+## FAQ
+
+**When did accessibility requirements start applying to EU online stores?**
+On 28 June 2025. The European Accessibility Act covers digital consumer services including e-commerce, banking and telecom services, transport and e-books. The technical standard is the European norm EN 301 549, which in practice means conformance with WCAG level AA. The requirements apply to sites operating in the EU market regardless of where the company is registered.
+
+**Are small companies exempt?**
+Micro-enterprises are exempt from the service obligations: companies with fewer than 10 employees and annual turnover or balance sheet total not exceeding €2 million. The criteria apply together rather than as alternatives, and the exemption ends once you exceed the threshold. Worth remembering that the exemption addresses the legal duty, not the underlying problem: an inaccessible store loses buyers regardless of company size.
+
+**Which standard do I have to meet: WCAG 2.1 or 2.2?**
+Legally, conformance with the European norm, which is built on WCAG 2.1 level AA. WCAG 2.2 is backwards compatible and adds a handful of criteria, mainly around target size and authentication convenience. The practical approach is to target 2.2 straight away: there are few new items, they are not hard, and it protects you from a rework when the norms next update.
+
+**Is an accessibility widget enough?**
+No. Overlay widgets with "increase font" and "high contrast" buttons do not fix problems in the code: they do not make filters keyboard-accessible, do not add alternative text to images and do not repair forms. EU regulators and courts do not accept such tools as a standalone route to compliance. The work has to happen in the markup and interface behaviour; a widget is an add-on at best.
+
+**How long does bringing a store into compliance take?**
+An audit takes 1-2 days. Fixes on a typical store on a common platform run from a few days to two weeks, depending on how many custom components exist: filters, carousels, modals, variant pickers, checkout. Complex projects with configurators and a non-standard cart take longer. The design usually does not need to change; the work sits in markup and interface logic.

@@ -1,0 +1,122 @@
+---
+title: "When a Bot Must Hand Over to a Human: Escalation Rules That Save Deals"
+description: "The most expensive scenario is a customer explaining the same thing to a bot three times and leaving. Handover triggers, passing context properly, out-of-hours handling and the metrics to tune it by."
+date: "2026-08-27"
+cluster: "chatbot-human-handover"
+keywords:
+  - "chatbot handover to human"
+  - "chatbot escalation rules"
+  - "bot to live agent transfer"
+  - "how to set up agent handoff"
+  - "chatbot losing customers"
+ogImage: "/og/chatbot-human-handover.webp"
+---
+
+A bad bot is not one that does not know something. A bad bot is one you cannot get out of. The customer rephrases their question for the third time, gets a third polite refusal and goes to a competitor, while your dashboard records "conversation closed" and you assume all is well.
+
+Escalation is the most underrated part of any deployment. Here is when a bot must call a human, how to hand over without losing context, and how to tell from the numbers whether it is set up correctly.
+
+## Eight handover triggers
+
+The list I build into scenarios by default.
+
+**1. The person asked directly.** "I want to talk to a manager", "get me a human", "is this a bot?". Immediate handover, no clarifying questions, no attempt to close them first. Any resistance here reads as disrespect.
+
+**2. Two failed attempts in a row.** If the bot failed twice or the person rephrased twice, it is not getting better. Count repeated dissatisfaction, not literal "I did not understand" messages.
+
+**3. The answer is not in the knowledge base.** The bot should say "I do not have that" and hand over rather than invent. Why that matters is in [the knowledge-base bot article](/en/blog/ai-chatbot-with-knowledge-base).
+
+**4. Dissatisfaction or a complaint.** Sharp tone, mentions of refunds, defects, delays, being misled. Here the bot should only collect facts and escalate at once: apologising and resolving belongs to a person.
+
+**5. A large or non-standard deal.** If the value exceeds a threshold or the request needs an estimate, the bot qualifies and hands over. Losing a €5,000 deal to save ten minutes of a salesperson's time makes no sense.
+
+**6. Commitments and liability.** Off-price-list discounts, changes to contract terms, deadlines for a specific project, legal and medical questions. A bot does not promise those.
+
+**7. A technical failure.** Model unavailable, integration not responding - there must be a fallback to a human or at least to a form, not a blank screen.
+
+**8. A significant customer.** If the system can see an existing client with meaningful history, escalating earlier than usual is sensible.
+
+## How to hand over properly
+
+A handover is not the phrase "please email us". It is a working transition.
+
+**With context.** The salesperson receives the whole conversation, not "customer wants to talk". Nothing annoys people more than having to explain everything again. If the bot already established the job, budget and timeline, that belongs in the record.
+
+**With a clear expectation.** "Passing you to a colleague, they will reply within 15 minutes" is good. "Your enquiry has been received" is bad, because the person does not know whether to wait or leave.
+
+**Into the channel they are already in.** If they are typing in the website widget, the reply belongs there, not in a phone call an hour later. If they are in Telegram, reply in Telegram.
+
+**With a notification that will not get lost.** A Telegram message to the salesperson works better than an email to a shared inbox. How that is wired is in [CRM notifications in Telegram](/en/blog/telegram-notifications-from-crm).
+
+**Recorded in the CRM.** Even if nobody replies immediately, the enquiry is already in the system with history and contact details. That is the difference between "lost" and "called back in the morning".
+
+## What to do outside working hours
+
+This is where most is lost. The correct scenario:
+
+1. The bot answers everything it can - which is most questions.
+2. When a human is needed, it says honestly: "It is outside working hours, someone will reply tomorrow from 9:00."
+3. It takes a contact and a preferred callback time.
+4. It writes the enquiry to the CRM with a flag and a reminder.
+5. In the morning the team sees a queue with full context.
+
+The key is honesty about timing. Someone told "we will reply by 10 tomorrow" will wait. Someone told nothing will message a competitor within twenty minutes.
+
+## The metrics to tune by
+
+Four numbers to check weekly.
+
+**Escalation rate.** How many conversations reached a human. The healthy band is 20-40%. Below 10% usually means the bot will not let go and people have no exit. Above 60% means the knowledge base is thin.
+
+**Rate of explicit "get me a human" requests.** If it climbs, the bot is irritating people. It is the most honest quality metric there is.
+
+**Time to human response after handover.** More than an hour and the escalation is nominal rather than real.
+
+**What happens after the handover.** Whether it reaches a deal. If people drop off even after reaching a salesperson, the problem is not the bot.
+
+Once a week, read two dozen real conversations. It is dull and it is the best source of improvements: you immediately see where the bot stalls, where it answers the wrong thing, and which questions belong in the knowledge base.
+
+## Five anti-patterns
+
+What I find in other people's deployments and rebuild.
+
+**The "agent" button is hidden.** Or absent entirely, so the only exit is closing the chat.
+
+**The bot clings.** "Before I connect you, please answer three questions." They already said what they want.
+
+**The "I did not understand" loop.** Three identical replies in a row and no alternative path.
+
+**Handover into the void.** The button exists, no one is connected, and the enquiry lands in an inbox nobody reads.
+
+**Silence about opening hours.** At night the bot behaves as if someone will reply in a minute.
+
+## On the balance
+
+The obvious question: if the bot escalates often, why have it?
+
+Because it still closes most contacts by itself - routine questions about prices, terms, availability, status and bookings. How the savings are calculated is in [the manager replacement article](/en/blog/ai-agent-vs-human-manager-real-math). Escalation does not cancel the benefit; it protects against the main risk, which is losing a hot lead over something trivial.
+
+The rule is simple: **the bot answers what it knows and never blocks the path to a human for everything else**. That kind of bot is experienced as a convenience rather than an obstacle.
+
+## How I build it
+
+In every [AI agent](/en/services/ai-agents) I configure the eight triggers above, handover with full history into the CRM and Telegram, honest response-time messages, a separate out-of-hours scenario, and logging of every conversation so there is something to improve from. Plus disclosure that an AI is answering, which is now both an [AI Act requirement](/en/blog/eu-ai-act-chatbot-requirements-2026) and simply good practice.
+
+If you already have a bot and suspect it is losing people, [message me](/en/contact) - I will read the conversations and show you exactly where.
+
+## FAQ
+
+**What share of conversations should reach a human?**
+The healthy band is 20-40%. Below 10% usually means the bot will not let go and people have no exit, rather than that it answers brilliantly. Above 60% points to a thin knowledge base that does not even cover routine questions. The exact figure depends on the industry: complex services naturally escalate more, large-catalogue online stores less.
+
+**What if nobody can reply immediately?**
+State the timing honestly and take a contact. "Someone will reply within 15 minutes" or "it is outside working hours, we will get back to you tomorrow from 9:00" holds people far better than a formal "your enquiry has been received". The enquiry should land in the CRM immediately with the conversation history and a reminder, so the morning queue arrives with context rather than as an empty notification.
+
+**How do I hand over without losing context?**
+The person taking over must receive the whole conversation, not just the fact of contact. Technically: the bot writes the conversation to the CRM, creates a record with everything established (job, budget, timeline, contact) and sends a notification to a channel the team will actually see, usually Telegram. The reply then goes back into the same channel the customer used, rather than a phone call an hour later from an unknown number.
+
+**Should people be allowed to summon a human right away?**
+Yes, with no resistance. A direct request to speak to a person is the strongest escalation trigger, and attempts to close them first or ask "just three questions" work against you. The button to reach a human should be permanently visible in the interface. The rate of those direct requests is, incidentally, the best indicator of bot quality: it rises when the bot annoys people.
+
+**How do I know the bot is losing customers?**
+Read two dozen real conversations from the past week - more reliable than any metric. Look for repeated rephrasings of one question, consecutive "I did not understand" replies, conversations that ended with no enquiry, and cases where someone asked for a person and no handover happened. Also track what happens after escalation: if deals stall there too, the problem is response speed on the human side, not the bot.

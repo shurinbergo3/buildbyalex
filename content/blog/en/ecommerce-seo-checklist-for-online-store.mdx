@@ -1,0 +1,126 @@
+---
+title: "Ecommerce SEO: A Checklist for Categories, Filters and Product Pages"
+description: "Why your homepage brings no sales, which filter combinations to open for indexing, what to do with out-of-stock items, and how to stop duplicates from eating your catalogue. Prioritised and practical."
+date: "2026-08-29"
+cluster: "ecommerce-seo-checklist"
+keywords:
+  - "ecommerce SEO checklist"
+  - "category page optimisation"
+  - "faceted navigation indexing"
+  - "product page SEO"
+  - "duplicate content online store"
+ogImage: "/og/ecommerce-seo-checklist.webp"
+---
+
+Store owners almost always start SEO with the homepage and an "about us" paragraph. The money is in the catalogue: people do not search for a shop, they search for "men's running shoes size 44". Which means all the search work in ecommerce lives in category structure, filter behaviour and product page quality.
+
+Here it is by blocks, in priority order. The top items deliver the most for the least effort.
+
+## Block 1. Catalogue structure
+
+**Categories are your main landing pages.** They are what collect "category plus attribute" queries. Every category needs its own title and H1 phrased the way a buyer would say it, not the internal name from your inventory system.
+
+**No more than three clicks deep.** From homepage to any product, three steps maximum. Anything deeper gets crawled rarely.
+
+**Category copy goes at the bottom and stays useful.** Not a thousand words about your advantages, but two or three paragraphs answering real questions: how the subcategories differ, how to choose, what matters. Written once, works for years.
+
+**Breadcrumbs** with `BreadcrumbList` markup - for navigation and for the snippet.
+
+## Block 2. Filters and parameters
+
+The single most common reason a store "will not grow": thousands of junk URLs from filters eating the crawl budget.
+
+**Open for indexing** the combinations people genuinely search: category + brand, category + colour, category + size, category + material. Those pages get their own title, H1 and a short line explaining what is here.
+
+**Block** everything else: sorting, price ranges, arbitrary combinations of three or more filters, session parameters, UTM tags, on-site search results.
+
+**Technically** this is a combination of `robots.txt`, canonical URLs and rules for how links are generated. One caveat: the canonical must point to a meaningful page, not to the category root, otherwise you collapse useful landing pages.
+
+**Pagination.** Pages 2, 3 and 4 must be reachable and carry their own canonicals rather than pointing at page one. Otherwise products on deep pages fall out of the index.
+
+## Block 3. Product pages
+
+**Unique descriptions.** Copied manufacturer text sits on a hundred other stores, and none of them rank for it. Even three or four of your own paragraphs answering real questions make a visible difference. With a huge catalogue, start with the top 100 products by margin.
+
+**Complete `Product` and `Offer` markup** with price, currency, availability and SKU. That is what both search engines and AI assistants read - covered in [the agentic commerce article](/en/blog/agentic-commerce-chatgpt-shopping-store).
+
+**Reviews on the page.** Marked up, and real. Unique content you do not have to write, plus a strong trust signal.
+
+**Product variants.** Colour and size are better held on one page with a shared URL or with correct canonicals. Spawning a separate page per variant is a direct route to duplicates.
+
+**Do not delete out-of-stock products.** The page should stay reachable, state availability honestly, offer alternatives and a back-in-stock notification. Deleting an established page throws away rankings built over months.
+
+**Images** with meaningful filenames and alt text, in modern formats at correct sizes.
+
+## Block 4. Duplicates and technical traps
+
+What to check first:
+
+- The same product reachable in several categories under different URLs.
+- `www` and non-`www` versions, trailing slash and no trailing slash.
+- Print views and `?print=1`.
+- On-site search results in the index.
+- Empty categories and filters with no products.
+- A staging domain accidentally left open to indexing - I find this regularly.
+
+Quick check: run `site:yourdomain` in Google. If the number of indexed pages is several times your product and category count, you have a duplicate problem.
+
+## Block 5. Speed
+
+A category with sixty product cards and unoptimised images takes forever on mobile, which is where most of the traffic now is. What to fix: image formats and sizes, lazy loading below the fold, minimal third-party scripts, caching. Full breakdown in [why your website loads slowly](/en/blog/slow-website-core-web-vitals).
+
+## Block 6. Content around the catalogue
+
+What brings people in at the top of the funnel and what language models cite happily:
+
+- **Buying guides**: "how to choose X", "X for Y", "the difference between A and B".
+- **Size charts and compatibility tables.**
+- **Answers about delivery, returns and warranty** - as text, not an image.
+- **Roundups**: "best X under 500 złoty", "X for beginners".
+
+Those pieces should link to categories and products, and categories should link back.
+
+## Block 7. Local and language details
+
+For a store in Poland:
+
+- **Delivery terms pages** covering InPost, couriers, timings and costs - people search for these separately.
+- **Payment methods** including BLIK and Przelewy24, also as their own page.
+- **Multiple languages with hreflang** if you sell across countries. Without it, language versions compete with each other - covered in [the multilingual website article](/en/blog/multilingual-website-for-business-in-poland).
+
+## Where to start with limited resources
+
+In order of return:
+
+1. Block junk URLs from indexing and fix canonicals.
+2. Write titles and H1s for every category based on real queries.
+3. Open 10-20 of the most searched filter combinations for indexing.
+4. Add `Product` markup to product pages.
+5. Rewrite descriptions for the top 100 products.
+6. Speed up category pages.
+7. Write 5-10 buying guides.
+
+The first four are usually 3-5 days of work and deliver most of the effect.
+
+## How I handle it
+
+When I build an [online store](/en/services/online-store), catalogue structure, filter indexing rules, structured data, pagination and speed go in during development rather than being retrofitted. For existing stores I do a prioritised technical review and the fixes - usually a week of work, and cheaper than paying for ads for years to compensate for a broken organic channel.
+
+If you want to know what is holding your catalogue back, [get in touch](/en/contact) and I will look at structure and indexing and tell you where the main leak is. Related reading: [how to increase online store sales](/en/blog/how-to-increase-online-store-sales) and [SEO cost and where to start](/en/blog/seo-for-website-cost-and-where-to-start).
+
+## FAQ
+
+**Which pages of an online store bring the most traffic?**
+Categories and subcategories, not the homepage. People search for a specific product with an attribute, and those queries land on a category or a filter page. The homepage mostly collects branded traffic from people who already know the shop. Hence the priority: fix category titles, copy and indexing first, everything else after.
+
+**Should filter pages be indexed?**
+Selectively. Open the combinations people genuinely search: category plus brand, colour, size or material. Those pages need their own title, H1 and a short description. Everything else - sorting, price ranges, arbitrary combinations of three or more filters, session parameters - should be blocked, otherwise the crawler spends its budget on junk URLs instead of your products.
+
+**What should I do with out-of-stock products?**
+Do not delete the page. It has already accumulated rankings and links, and deleting resets that work. The right approach is to keep the page reachable, show availability honestly in the markup, offer similar products and let people subscribe to a restock alert. Removing or returning 410 only makes sense for items that will never come back.
+
+**Do I have to rewrite descriptions for every product?**
+No, and with a large catalogue it is not realistic. Start with the products carrying most of your margin and those with real search demand. Even three or four of your own paragraphs answering real buyer questions outperform copied manufacturer text sitting on a hundred other stores. The rest of the catalogue rides on structure, markup and reviews.
+
+**How long does ecommerce SEO take to work?**
+Technical fixes to indexing and structure show first changes in 3-6 weeks, once recrawling completes. Growth on competitive category queries takes three months and up, depending on domain age and competition. The fastest payback comes from removing duplicates, correct category titles and product markup: a few days of work with an effect across the entire catalogue.

@@ -1,0 +1,118 @@
+---
+title: "Agent AI dla firmy transportowej i logistycznej: zapytania, statusy i dokumenty"
+description: "Kto szybciej wycenił, ten wozi. Rozbieram, jak bot zbiera dane o ładunku, odsiewa nietrafione zapytania, odpowiada na pytanie gdzie jest auto i odciąża spedytorów - z wyliczeniem zwrotu."
+date: "2026-09-12"
+cluster: "ai-agent-logistics"
+keywords:
+  - "chatbot dla firmy transportowej"
+  - "automatyzacja logistyki AI"
+  - "bot do przyjmowania zleceń transportowych"
+  - "status ładunku automatycznie"
+  - "AI dla spedytora"
+ogImage: "/og/ai-agent-logistics.webp"
+---
+
+Polska jest największym graczem w transporcie drogowym w Europie, a konkurencja mierzy się tu w minutach. Klient wysyła zapytanie do pięciu przewoźników i zlecenie zwykle trafia do tego, kto pierwszy podał zrozumiałą cenę. Cała reszta - jakość, tabor, reputacja - pracuje dopiero potem.
+
+Przy tym spedytor fizycznie nie może odpowiadać natychmiast: prowadzi auta, rozwiązuje problemy na trasie i równolegle przerabia pocztę. Rozbieram, co bierze na siebie agent AI.
+
+## Gdzie tracą się czas i pieniądze
+
+**Wolna odpowiedź na zapytanie.** Zanim spedytor dojdzie do maila, klient ma już trzy oferty.
+
+**Niekompletne zapytania.** Zapytanie w stylu "trzeba przewieźć ładunek z Warszawy do Berlina" to jeszcze nie zlecenie. Potrzebna jest waga, gabaryty, rodzaj ładunku, terminy, typ pojazdu, wymogi załadunku, temperatura, klasa zagrożenia. Doprecyzowanie zajmuje dwa-trzy maile, każdy z opóźnieniem liczonym w godzinach.
+
+**Telefony "gdzie jest auto".** Najczęstszy i najmniej produktywny typ kontaktu. Zjada czas spedytora, nie tworzy wartości.
+
+**Nietrafione zapytania.** Kierunki, na których nie jeździcie, wolumeny, których nie bierzecie, terminy, których nie dowieziecie. To też trzeba odsiać i to też jest czas.
+
+**Języki.** Klienci, kierowcy i podwykonawcy mówią po polsku, angielsku, ukraińsku, rosyjsku i niemiecku. Utrzymywanie ludzi pod wszystkie języki jest nierealne.
+
+## Co robi bot
+
+**Przyjmuje i kwalifikuje zapytanie.** Pyta po kolei: skąd i dokąd, co za ładunek, waga i gabaryty, palety czy luz, terminy załadunku i rozładunku, typ pojazdu, temperatura, materiały niebezpieczne, wymogi dokumentowe, kto załadowuje. Na wyjściu spedytor dostaje gotową kartę, a nie mail z jednej linijki.
+
+**Odsiewa to, co do Was nie pasuje.** Jeśli kierunek, wolumen albo rodzaj ładunku są poza Waszą specjalizacją, bot mówi o tym od razu i nie marnuje czasu obu stron.
+
+**Podaje orientacyjną cenę na typowych trasach.** Jeśli macie taryfikator po kierunkach, bot może podać widełki od razu. To właśnie owo "szybciej wycenił" - ale z ostrożnością: dokładna wycena nietypowego ładunku zostaje przy człowieku.
+
+**Odpowiada na statusy.** Po podłączeniu do systemu zarządzania transportem albo trackingu bot odpowiada, gdzie jest auto i kiedy będzie, bez udziału spedytora. Jak działa dostęp do systemów - w [tekście o MCP](/pl/blog/mcp-podlaczenie-agenta-ai-do-systemow).
+
+**Zbiera dokumenty.** Przypomina, co trzeba dołączyć, przyjmuje pliki, sprawdza kompletność, odkłada do właściwego miejsca.
+
+**Obsługuje podwykonawców.** Sprawdza, czy przewoźnik ma potrzebne dokumenty i ubezpieczenie, zbiera dane przy dopisywaniu do bazy.
+
+**Odpowiada kierowcom.** Procedury, trasy, co robić przy opóźnieniu albo problemie na załadunku, dokąd wysyłać dokumenty. Osobna baza wiedzy do użytku wewnętrznego.
+
+## Co się podłącza
+
+- **System zarządzania transportem** - dla statusów i danych o kursach.
+- **CRM** - żeby zapytanie od razu stawało się szansą z polami.
+- **Komunikatory**: WhatsApp i Telegram - podstawowy kanał kontaktu i z klientami, i z kierowcami.
+- **Poczta** - przerabianie przychodzących zapytań i wyciąganie danych z maili.
+- **Repozytorium dokumentów** - do zbierania i porządkowania.
+
+Rozsądnie zacząć od przyjmowania zapytań w komunikatorze i na stronie: daje efekt od razu i nie wymaga ruszania systemów operacyjnych.
+
+## Wyliczenie zwrotu
+
+Liczy się z trzech pozycji.
+
+**Szybkość odpowiedzi.** Jeśli obecnie pierwsza odpowiedź zajmuje średnio półtorej godziny, a z botem minutę, rośnie odsetek wygranych zapytań. Nawet jeden dodatkowy transport tygodniowo przy typowej marży pokrywa koszt utrzymania.
+
+**Odciążenie spedytora.** Policz, ile zgłoszeń miesięcznie przypada na statusy i doprecyzowanie parametrów ładunku. Jeśli jest ich 300-500, a każde zabiera 4-6 minut, to 20-50 godzin miesięcznie.
+
+**Noc i weekendy.** Logistyka nie śpi: zapytania przychodzą wieczorem i w sobotę. Wszystko, co dziś leży do poniedziałku, to potencjalnie utracone kursy.
+
+Metodykę szczegółowo rozbierałem w [tekście o AI zamiast handlowca](/pl/blog/agent-ai-zamiast-handlowca-wyliczenia).
+
+## Granice: czego nie oddawać botowi
+
+Tu zawsze się upieram.
+
+**Ostatecznej ceny przy złożonym ładunku.** Ponadgabaryt, materiały niebezpieczne, schematy multimodalne, kursy ekspresowe - wycenia człowiek. Bot zbiera dane i przekazuje.
+
+**Problemów na trasie.** Awaria, opóźnienie, uszkodzenie ładunku, spór z odbiorcą - od razu do spedytora.
+
+**Zobowiązań terminowych.** Obietnicę, za którą odpowiada się karami, składa człowiek.
+
+**Reklamacji.** Bot rejestruje i przekazuje, przeprasza i rozwiązuje człowiek.
+
+Jak poprawnie ustawić tę granicę - w [tekście o eskalacji](/pl/blog/przekazanie-od-bota-do-czlowieka).
+
+## Ile to kosztuje
+
+- **Bot przyjmowania i kwalifikacji zapytań** na stronie i w komunikatorze z przekazaniem do CRM - **1 500-3 000 €**, 2-3 tygodnie.
+- **Z integracją systemu transportowego**, statusami i obsługą dokumentów - **3 000-6 000 €**, 3-5 tygodni.
+- **Wdrożenie kompleksowe** z obiegiem klienckim i wewnętrznym, kilkoma językami i podwykonawcami - **od 6 000 €**.
+- Plus miesięcznie praca modelu według wolumenu.
+
+Ogólne widełki cenowe w [tekście o koszcie chatbota AI](/pl/blog/ile-kosztuje-chatbot-ai), podejście na stronie [agentów AI](/pl/uslugi/agenci-ai).
+
+## Od czego zacząć
+
+1. Wziąć korespondencję z miesiąca i policzyć, jaki odsetek zgłoszeń to statusy i doprecyzowanie parametrów.
+2. Opisać, jakie dane są potrzebne do wyceny: powstanie ankieta, według której pracuje bot.
+3. Zapisać, jakich kierunków i rodzajów ładunku nie bierzecie.
+4. Uruchomić bota do przyjmowania zapytań w jednym kanale.
+5. Po miesiącu przejrzeć rozmowy i dołożyć to, czego zabrakło.
+6. Podłączyć statusy, gdy obieg kliencki jest dopracowany.
+
+Jeśli chcesz oszacować to pod swoją firmę - [napisz](/pl/kontakt): podaj wolumen zapytań, kierunki i to, co spedytor robi dziś ręcznie.
+
+## FAQ
+
+**Czy bot może sam wycenić transport?**
+Na typowych trasach z gotowym taryfikatorem tak, poda widełki od razu i to jest główna przewaga konkurencyjna na szybkości. Przy ponadgabarycie, materiałach niebezpiecznych, schematach multimodalnych i kursach ekspresowych wycenę musi robić człowiek: zbyt wiele czynników, a błąd drogo kosztuje. Układ roboczy to bot podający orientację tam, gdzie może, i zbierający pełne dane tam, gdzie wycenia spedytor.
+
+**Jakie dane bot zbiera przy zapytaniu?**
+Miejsca załadunku i rozładunku, rodzaj ładunku, wagę i gabaryty, liczbę miejsc i sposób pakowania, terminy załadunku i dostawy, wymagany typ pojazdu, temperaturę, właściwości niebezpieczne, wymogi dokumentowe i to, kto wykonuje prace przeładunkowe. Na wyjściu spedytor dostaje wypełnioną kartę w CRM zamiast maila z jednej linijki, co oszczędza dwie-trzy rundy korespondencji.
+
+**Czy bot zastąpi spedytora?**
+Nie. Zdejmuje typowe zgłoszenia: statusy, doprecyzowanie parametrów ładunku, pytania o dokumenty i procedury. Wszystko związane z decyzjami i odpowiedzialnością - wycena złożonego ładunku, problemy na trasie, reklamacje, zobowiązania terminowe - zostaje przy człowieku. Praktyczny efekt polega na tym, że spedytor zajmuje się transportem, a nie odpowiada trzydzieści razy dziennie na pytanie, gdzie jest auto.
+
+**Czy bot może odpowiadać na pytania kierowców?**
+Tak, to osobny scenariusz wewnętrzny, który często zwraca się szybciej niż kliencki. Bot odpowiada na pytania o procedury i trasy, działania przy opóźnieniu albo problemie na załadunku, tłumaczy, dokąd wysyłać dokumenty, i przypomina o kompletności. Działa w komunikatorze i w kilku językach, co jest istotne przy mieszanym składzie kierowców.
+
+**Ile kosztuje wdrożenie dla firmy transportowej?**
+Bot przyjmowania i kwalifikacji zapytań na stronie i w komunikatorze z przekazaniem do CRM to 1 500-3 000 € i 2-3 tygodnie. Z integracją systemu zarządzania transportem, odpowiedziami na statusy i obsługą dokumentów - 3 000-6 000 € i 3-5 tygodni. Wdrożenie kompleksowe z obiegiem klienckim i wewnętrznym, kilkoma językami i obsługą podwykonawców - od 6 000 €. Plus miesięczna opłata za pracę modelu według wolumenu zgłoszeń.

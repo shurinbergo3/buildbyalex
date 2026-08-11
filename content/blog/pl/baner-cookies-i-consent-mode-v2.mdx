@@ -1,0 +1,111 @@
+---
+title: "Baner cookies i Consent Mode v2: jak zbierać zgody i nie oślepnąć w analityce"
+description: "Czego wymaga Prawo komunikacji elektronicznej, dlaczego przycisk Akceptuj bez równorzędnej odmowy już nie przechodzi, jak ustawić Consent Mode v2 i co zrobić z utraconymi danymi."
+date: "2026-08-23"
+cluster: "cookie-consent-mode-2026"
+keywords:
+  - "baner cookies wymogi"
+  - "Consent Mode v2 konfiguracja"
+  - "zgoda na cookies RODO"
+  - "prawo komunikacji elektronicznej cookies"
+  - "analityka po wdrożeniu zgód"
+ogImage: "/og/cookie-consent-mode-2026.webp"
+---
+
+Baner cookies wygląda na formalność, którą stawia się raz i zapomina. W praktyce to miejsce, w którym schodzą się trzy różne rzeczy: wymogi prawa, działanie reklamy i kompletność analityki. Błąd w którejkolwiek z nich kosztuje pieniądze - albo w postaci kary, albo reklamy, która kręci się na ślepo.
+
+Rozbieram, czego wymaga polskie prawo, jak to poprawnie zbudować i co robić z danymi, które tracisz na odmowach.
+
+## Czego wymaga prawo
+
+Dwa poziomy. Mechanikę cookies reguluje dyrektywa ePrivacy, którą każdy kraj wdraża własną ustawą, a przetwarzanie danych osobowych - RODO. W Polsce od 10 listopada 2024 roku obowiązuje **Prawo komunikacji elektronicznej**, które zastąpiło wcześniejsze Prawo telekomunikacyjne.
+
+Praktyczne minimum:
+
+- **Pliki technicznie niezbędne** (sesja, koszyk, logowanie) zgody nie wymagają, wystarczy o nich poinformować.
+- **Analityka i marketing** wymagają aktywnej zgody **przed** uruchomieniem skryptów. Nie po, nie równocześnie - przed.
+- **Wycofanie zgody musi być tak samo łatwe jak jej udzielenie.** Polska ustawa podkreśla to osobno: bez dodatkowych kroków i szukania.
+- **Zgodę trzeba umieć wykazać** z przypisaniem do konkretnego zdarzenia, a nie zbiorczą statystyką.
+- **Milczenie to nie zgoda.** Baner "korzystając ze strony, akceptujesz politykę cookies" jest prawnie bezwartościowy.
+
+Co do sankcji: za naruszenia w zakresie danych osobowych organ nadzorczy może nałożyć do 20 mln euro albo 4% światowego obrotu, a za naruszenia obowiązków z prawa komunikacji elektronicznej przewidziano osobne kary powiązane z przychodem. Dla małej firmy realne ryzyko jest niższe, ale zarzut zwykle przychodzi razem ze skargą klienta i wtedy porządkuje się wszystko po fakcie.
+
+## Jak ma wyglądać baner
+
+Wymogi są proste i regularnie łamane.
+
+**Przyciski "Akceptuj" i "Odrzuć" na pierwszym ekranie, równorzędne.** Ten sam rozmiar, ta sama waga, ta sama widoczność. Schemat "jaskrawa zielona Akceptuj" i "szary link Ustawienia" to podręcznikowe naruszenie.
+
+**Żadnych wcześniej zaznaczonych okienek** w kategoriach analityki i marketingu.
+
+**Kategorie według celu**: niezbędne, analityczne, marketingowe, personalizacja. Z krótkim, zrozumiałym opisem, co obejmuje każda.
+
+**Przed zgodą nic się nie uruchamia.** Ani GA4, ani piksel Meta, ani widżet czatu, ani osadzone wideo z YouTube. To najczęstsze naruszenie techniczne: baner jest, a skrypty ładują się od razu.
+
+**Możliwość zmiany decyzji później** - stały link albo ikona w stopce.
+
+**Nie blokować treści przed wyszukiwarkami.** Szczegół, o którym się nie myśli: jeśli baner zasłania stronę nakładką, część robotów dostaje zamiast treści zasłonę. O dostępie botów więcej w [tekście o robotach AI](/pl/blog/llms-txt-i-roboty-ai-gptbot).
+
+## Czym jest Consent Mode v2 i po co
+
+Consent Mode to sposób przekazania Google decyzji użytkownika, żeby usługi zachowywały się odpowiednio. Od wiosny 2024 roku dla ruchu z Europejskiego Obszaru Gospodarczego jest niezbędny, jeśli korzystasz z remarketingu i personalizacji w Google Ads i chcesz, żeby odbiorcy i konwersje działały.
+
+Przekazywane są cztery parametry:
+
+- `analytics_storage` - cookies analityczne,
+- `ad_storage` - cookies reklamowe,
+- `ad_user_data` - przekazywanie danych użytkownika do usług reklamowych,
+- `ad_personalization` - personalizacja reklam.
+
+Rzecz kluczowa: domyślnie wszystkie muszą być ustawione na odmowę do momentu uzyskania zgody. Skrypty Google i tak się ładują, ale zamiast cookies wysyłają zanonimizowane sygnały bez identyfikatorów, co pozwala systemowi odtworzyć część obrazu statystycznie, nie łamiąc zasad.
+
+Są dwa warianty wdrożenia. **Podstawowy**: przed zgodą tagi w ogóle się nie ładują. **Zaawansowany**: tagi ładują się od razu w trybie odmowy i wysyłają sygnały bez identyfikatorów. Zaawansowany zachowuje wyraźnie więcej danych do modelowania konwersji i w większości przypadków to jego warto wybrać.
+
+## Co dzieje się z analityką
+
+Rzeczywistość: część użytkowników odmawia i tych wizyt nie zobaczysz w raportach imiennie. Odsetek zgód mocno zależy od wyglądu banera i waha się w szerokim zakresie.
+
+Co się z tym robi:
+
+**Zaawansowany Consent Mode** to krok najbardziej oczywisty. Google uzupełnia brakujące konwersje modelowaniem na podstawie sygnałów od osób, które wyraziły zgodę.
+
+**Tagowanie po stronie serwera.** Dane idą przez Twój serwer, co daje więcej kontroli i odporności na blokery. Ma sens przy zauważalnych budżetach reklamowych.
+
+**Metryki niezależne od cookies.** Liczba zapytań i telefonów w CRM to wskaźnik, którego odmowy nie psują w ogóle. O poprawnym spięciu strony z pomiarem konwersji pisałem w [tekście o GA4](/pl/blog/jak-mierzyc-konwersje-ga4).
+
+**Uczciwe porównywanie okresów.** Jeśli wdrożyłeś baner w połowie miesiąca, spadek ruchu w raportach jest artefaktem, a nie rzeczywistością. Nie podejmuj decyzji na podstawie takiego wykresu.
+
+## Jak podnieść odsetek zgód, nie łamiąc zasad
+
+Ciemnych wzorców nie rozważamy: są nielegalne i działają krótko. Co faktycznie pomaga:
+
+- **Krótki, zrozumiały tekst.** Jedno-dwa zdania o tym, po co są cookies, bez języka prawniczego.
+- **Szybki baner.** Jeśli pojawia się dwie sekundy po załadowaniu i przesuwa układ strony, ludzie się irytują i klikają odmowę.
+- **Nie na pełny ekran.** Pasek na dole budzi mniej oporu niż okno modalne zasłaniające treść.
+- **Zrozumiałe kategorie.** Człowiek chętniej zgadza się na analitykę, gdy napisano, że służy poprawie strony, a nie "celom marketingowym partnerów".
+- **Nie pytać ponownie** tych, którzy już zdecydowali. Drażni i obniża zgody.
+
+## Co robię w projektach
+
+Wdrażam zgody jako część wykonania, a nie wtyczkę na wierzchu: skrypty podpięte przez menedżera tagów nie uruchamiają się przed decyzją użytkownika, Consent Mode v2 działa w trybie zaawansowanym, fakt zgody jest zapisywany, wycofanie dostępne ze stopki jednym kliknięciem, a baner nie przeszkadza robotom i nie psuje szybkości ładowania.
+
+Osobno sprawdzam strony już działające: bardzo często baner stoi, a GA4 i piksel Meta ładują się przed naciśnięciem czegokolwiek. Formalnie to naruszenie, praktycznie ryzyko przy pierwszej skardze. Sprawdzenie i uporządkowanie zajmuje zwykle dzień.
+
+Jeśli chcesz, żebym spojrzał na Twoją stronę, [napisz](/pl/kontakt). O pokrewnym temacie bezpieczeństwa i danych osobowych jest [osobny materiał](/pl/blog/bezpieczenstwo-strony-i-rodo), a jak składam [strony](/pl/uslugi/strony-internetowe) - na stronie usługi.
+
+## FAQ
+
+**Czy baner cookies jest obowiązkowy w Polsce?**
+Tak, jeśli strona używa czegokolwiek poza plikami technicznie niezbędnymi. Analityka, piksele reklamowe, osadzone wideo, widżety czatu i mapy wymagają aktywnej zgody przed uruchomieniem. Mechanikę reguluje Prawo komunikacji elektronicznej obowiązujące od 10 listopada 2024 roku, a przetwarzanie danych osobowych RODO. Bez banera legalnie może działać tylko strona bez analityki i bez narzędzi marketingowych.
+
+**Czy można zostawić sam przycisk "Akceptuj"?**
+Nie. Odmowa musi być dostępna na tym samym ekranie i być tak samo prosta jak zgoda: równa widoczność przycisków, żadnych dodatkowych kroków. Wariant, w którym "Akceptuj" to duży przycisk, a odmowa chowa się w ustawieniach, jest uznawany za naruszenie. Polska ustawa dodatkowo podkreśla, że wycofanie zgody nie może być trudniejsze niż jej udzielenie.
+
+**Czym jest Consent Mode v2 i czy jest obowiązkowy?**
+To mechanizm przekazywania decyzji użytkownika do usług Google, żeby zachowywały się zgodnie ze zgodą. Dla ruchu z Europejskiego Obszaru Gospodarczego jest niezbędny, jeśli korzystasz z remarketingu i personalizacji w Google Ads: bez niego odbiorcy i konwersje przestają działać poprawnie. Przekazywane są cztery sygnały i domyślnie wszystkie muszą być w stanie odmowy do czasu uzyskania zgody.
+
+**Ile danych traci się po wdrożeniu zgód?**
+Zależy od odsetka odmów, który mocno zmienia się w zależności od wyglądu banera i grupy odbiorców. Część strat rekompensuje zaawansowany Consent Mode: usługi Google uzupełniają brakujące konwersje modelowaniem na podstawie zanonimizowanych sygnałów. Dla stabilności warto opierać się na metrykach niezależnych od cookies - liczbie zapytań i telefonów w CRM - i porównywać okresy dopiero po pełnym miesiącu działania banera.
+
+**Co grozi za niepoprawny baner?**
+Za naruszenia w zakresie danych osobowych organ nadzorczy może nałożyć karę do 20 mln euro albo 4% światowego rocznego obrotu, a za naruszenia obowiązków z prawa komunikacji elektronicznej przewidziano osobne sankcje powiązane z przychodem. W praktyce dla małej firmy wszystko zaczyna się od skargi klienta i wezwania od organu, po którym trzeba uporządkować stronę w wyznaczonym terminie.

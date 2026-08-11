@@ -1,0 +1,144 @@
+---
+title: "llms.txt and AI Crawlers: Should You Let GPTBot In or Block It?"
+description: "Which bots take data for training, which build the answers, why blocking one does not switch off the other, and how to configure robots.txt so you actually get cited. With a ready-to-use file."
+date: "2026-08-15"
+cluster: "llms-txt-ai-crawlers"
+keywords:
+  - "what is llms.txt"
+  - "should I block GPTBot"
+  - "robots.txt for AI bots"
+  - "OAI-SearchBot PerplexityBot"
+  - "allow AI crawlers website"
+ogImage: "/og/llms-txt-ai-crawlers.webp"
+---
+
+"Should we let the AI bots in" sounds like an ethics question and is in fact a revenue question. Block them and you are not cited in ChatGPT or Perplexity answers, so that channel is shut. Let everyone in and your content trains someone else's model while your server heats up. The right answer sits in the middle, and it depends on what you actually sell: services, or the content itself.
+
+Here is who is who among the crawlers, why the usual blocking rarely does what people expect, and what a working configuration looks like.
+
+## Two different files, two different jobs
+
+They get confused constantly, so let us be clear.
+
+**`robots.txt` controls access.** Rules about who may go where. It sits at the site root and has worked for thirty years.
+
+**`llms.txt` controls navigation.** A markdown file with a short description of the project and a list of important pages - a hint to a language model about where to look. The format is new, there is no official support from search engines and no demonstrated ranking effect. But it takes half an hour and does no harm: this site has one.
+
+The order matters: sort out access first, navigation second. A tidy `llms.txt` behind a closed `robots.txt` is useless.
+
+## Who is crawling your site
+
+The key point most people get wrong: each company runs several bots, not one, and they do different jobs.
+
+**OpenAI.** `GPTBot` collects data for model training. `OAI-SearchBot` builds the index for search inside ChatGPT - that is the one that decides whether you appear in an answer with a link. `ChatGPT-User` fetches a page when a specific user asked to open a link.
+
+**Google.** `Googlebot` is the ordinary search crawler and also what feeds AI Overviews. `Google-Extended` is a separate switch governing use of your content in Gemini. Important detail: **blocking `Google-Extended` does not remove you from AI answers in Search**, because those run on the normal index. Plenty of people block it thinking they are "switching AI off" and simply lose their presence in Gemini.
+
+**Anthropic.** `ClaudeBot` for training, with separate agents for search and for user-initiated fetches.
+
+**Perplexity.** `PerplexityBot` indexes for answers with citations.
+
+**Meta.** `Meta-ExternalAgent` is one of the most active crawlers of 2026, around 17% of all AI bot traffic. Little citation upside, noticeable load.
+
+**Others.** `Bytespider`, `Amazonbot`, `Applebot-Extended` and dozens of lesser-known ones.
+
+## A simple decision rule
+
+Answer one question: **is your content the product?**
+
+**You sell services or goods.** Content is marketing; its job is to bring customers. Let the search agents in without hesitation - every mention in an answer is a free recommendation. Training bots are optional, with almost no business impact either way. That covers most sites, mine included.
+
+**You sell content.** Media, paid material, a subscription knowledge base, original research. The logic reverses: block training crawlers, keep search agents so you still get referrals, and make sure the paid part sits behind authentication rather than merely "hidden" in the front end.
+
+**Mixed case.** Open the public part, close the account area, cart, on-site search results and utility sections - a bot has nothing to do there and generates load.
+
+## A working robots.txt for a commercial site
+
+What I typically deploy for clients selling services or goods:
+
+```
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /cart
+Disallow: /checkout
+Disallow: /account
+Disallow: /*?s=
+
+# AI search agents - explicitly allowed
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Heavy crawlers with no citation upside
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+Sitemap: https://example.com/sitemap.xml
+```
+
+The logic: everything that brings people and citations is open, everything that only loads the server is closed, and utility sections are closed to everyone.
+
+## The most common mistake: the block is not in robots.txt
+
+Half of all "we never get cited" cases have nothing to do with that file.
+
+**Cloudflare and hosting providers** have spent the last two years enabling AI-bot blocking by default on new domains. The owner has no idea: `robots.txt` is wide open while the bot receives a 403 at the edge. Check the Cloudflare dashboard, the bot and AI Crawl Control sections.
+
+**WAF and anti-bot modules** cut requests matching suspicious patterns, and crawlers get caught.
+
+**Cookie banners that gate the content** before consent: the bot sees an interstitial instead of the page.
+
+**Browser-only rendering** - access technically exists, but the bot receives an empty shell.
+
+All of this is easy to verify: check server logs for those agent names over the last month. If `OAI-SearchBot` or `PerplexityBot` never appear, your content is not the problem.
+
+## About rule compliance
+
+A realistic view: some bots ignore the rules. Studies through 2025-2026 found that a substantial share of AI crawlers violate `robots.txt`, with hundreds of such requests hitting an average site over a few weeks. The practical conclusion: **`robots.txt` is a statement of intent, not protection**. If content genuinely must not be taken, it belongs behind authentication or a real server-level block, not behind a `Disallow` line.
+
+## How to write llms.txt
+
+An `/llms.txt` file at the root, plain markdown. Put in what you would want a model to know about you without guessing:
+
+- Who you are and what you do, in two sentences.
+- Services or product categories with starting prices.
+- Geography and languages you work in.
+- Contact details.
+- Links to key pages with short descriptions.
+
+Keep it short and factual. It is not the place for marketing phrasing: a model is looking for data, not sentiment. Update it whenever your pricing changes.
+
+## What comes next
+
+Access is only half the job. After that, the page needs something worth quoting: direct answers, numbers, structured data, server rendering. That is covered in [the GEO article](/en/blog/how-to-get-cited-by-chatgpt-and-ai-overviews) and in [the Schema.org breakdown](/en/blog/schema-markup-for-ai-search-2026).
+
+I build all of it into [websites](/en/services/websites) by default: correct robots, sitemap, llms.txt, structured data, server rendering, plus a check that the bots actually arrive. If you suspect you are simply being turned away at the door, [message me](/en/contact) and I will verify it in a couple of hours.
+
+## FAQ
+
+**What is llms.txt and is it mandatory?**
+It is a markdown file at your site root with a short project description and a list of important pages, designed as a navigational hint for language models. It is not mandatory, has no official support from search engines and no confirmed ranking effect. It is worth doing because it takes half an hour and gives models a correct set of facts about you. But access in robots.txt and content structure always take priority.
+
+**Should I block GPTBot?**
+If you sell services or goods and use content as marketing, blocking makes little sense - the business impact either way is minimal. If your content is the product itself, blocking GPTBot as a training crawler is reasonable, while keeping search agents like OAI-SearchBot that deliver referrals and citations. The critical thing is not to confuse the two roles: block the search agents and you vanish from answers.
+
+**Does blocking Google-Extended remove my site from AI Overviews?**
+No. Google-Extended governs use of your content in Gemini, while AI answers in Search run on the ordinary search index built by Googlebot. Blocking Google-Extended costs you presence in Gemini but does not remove you from AI Overviews. The only way to leave search AI answers entirely is to block Googlebot, which means leaving search altogether.
+
+**Why don't AI bots visit even though robots.txt is open?**
+Usually the block sits a layer higher: Cloudflare and many hosting providers filter AI crawlers by default, so the bot is refused before it ever reads robots.txt. Other common causes are WAF anti-bot rules, a cookie banner gating content before consent, and pages rendered only in the browser. Verify it in server logs by searching for the agent names over the last month.
+
+**Does robots.txt protect content from being copied?**
+No. It is a request, not a technical control, and some crawlers ignore it - 2026 research documents widespread violations. If material genuinely must not be taken, it needs authentication, a paywall or a server-level block. Use robots.txt to manage crawl load and to explicitly allow the bots you want citations from.

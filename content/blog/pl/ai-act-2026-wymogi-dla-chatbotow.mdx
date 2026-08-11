@@ -1,0 +1,84 @@
+---
+title: "AI Act od 2 sierpnia 2026: co musi robić Twój chatbot, żeby nie było kary"
+description: "Artykuł 50 unijnego AI Act już obowiązuje i dotyczy każdej firmy z botem na stronie, w komunikatorze albo na infolinii. Wyjaśniam wymogi prostym językiem, checklistę wdrożenia i wysokość kar."
+date: "2026-08-11"
+cluster: "ai-act-chatbot-compliance"
+keywords:
+  - "AI Act chatbot wymogi"
+  - "artykuł 50 AI Act"
+  - "AI Act 2026 firma"
+  - "kary AI Act"
+  - "obowiązek informowania o AI"
+ogImage: "/og/ai-act-chatbot-compliance.webp"
+---
+
+Od 2 sierpnia 2026 roku w Unii Europejskiej obowiązuje artykuł 50 AI Act - ta część rozporządzenia, która dotyczy przejrzystości. I dotyka nie tylko twórców modeli, ale każdej firmy, która ma bota na stronie, autoodpowiadacz na WhatsAppie albo asystenta głosowego na infolinii. Wiele osób dowiaduje się o tym po fakcie, więc wyjaśniam po ludzku: co dokładnie jest wymagane, kogo dotyczy i co zrobić w tym tygodniu.
+
+Zastrzeżenie na wstępie: jestem programistą, nie prawnikiem. Poniżej strona inżynierska i to, jak realizuję to w projektach. Do trudniejszych przypadków bierz prawnika od prawa unijnego.
+
+## Dlaczego wielu uznało, że terminy przesunięto
+
+Pod koniec lipca 2026 weszło w życie tak zwane cyfrowe omnibus - Regulation (EU) 2026/1744 - które przesunęło terminy dla systemów wysokiego ryzyka: na 2 grudnia 2027 i na 2 sierpnia 2028 dla wybranych kategorii. Wiadomość rozeszła się jako "AI Act odroczony".
+
+Odroczono nie wszystko. **Wymogów przejrzystości z artykułu 50 omnibus nie ruszył**: zaczęły obowiązywać 2 sierpnia 2026 zgodnie z planem. Logika jest prosta - to nie są obowiązki dla systemów wysokiego ryzyka, tylko osobna warstwa, która dotyczy chatbotów i systemów generatywnych niezależnie od klasy ryzyka. Osobno warto zapamiętać datę 2 grudnia 2026 - wtedy dochodzą wymogi maszynowego oznaczania treści generowanych przez AI.
+
+## Czego konkretnie wymaga artykuł 50
+
+Cztery scenariusze. Firmy, która po prostu korzysta z gotowych modeli, zwykle dotyczy pierwszy, czasem drugi.
+
+**1. Człowiek musi wiedzieć, że rozmawia z AI.** Każdy system, z którym użytkownik wchodzi w bezpośrednią interakcję - czat na stronie, bot na Telegramie lub WhatsAppie, asystent głosowy, scenariusz agentowy - musi go o tym poinformować przy pierwszym kontakcie. Jedyny wyjątek to sytuacja, w której jest to i tak oczywiste dla rozsądnie poinformowanej osoby. Na "oczywistość" lepiej nie liczyć: współczesny bot pisze zbyt dobrze, żeby wziąć go za skrypt.
+
+**2. Treści AI muszą być oznaczone maszynowo.** Generowane teksty, obrazy, audio i wideo oznacza się tak, żeby odczytały to systemy, nie tylko człowiek. Główny ciężar spoczywa na dostawcach systemów generatywnych, ale jeśli publikujesz generowane treści, temat dotyczy też Ciebie.
+
+**3. Rozpoznawanie emocji i kategoryzacja biometryczna** wymagają poinformowania osób, wobec których są stosowane. Rzadki scenariusz w małej firmie, ale spotykany w retailu i HR.
+
+**4. Deepfake i teksty AI w sprawach interesu publicznego** muszą być wyraźnie oznaczone, chyba że materiał przeszedł rzeczywistą redakcję człowieka i ktoś wziął za niego odpowiedzialność.
+
+Ważny jest podział ról. Rozporządzenie rozdziela **dostawcę** (tego, kto tworzy system) od **podmiotu stosującego** (tego, kto używa go we własnym imieniu). Jeśli postawiłeś bota na swojej stronie, jesteś podmiotem stosującym i obowiązek informowania użytkownika leży po Twojej stronie - nawet jeśli bota robił wykonawca, a model dostarcza OpenAI czy Anthropic.
+
+## Ile kosztuje ignorowanie tego
+
+Za naruszenie artykułu 50 rozporządzenie przewiduje kary do **15 mln euro albo 3% światowego rocznego obrotu** - liczy się kwota wyższa. Dla małej firmy te liczby brzmią groźniej, niż wyglądają w praktyce: organy nadzoru stosują zasadę proporcjonalności. Ale ryzyko to nie tylko kara. Ukryty bot to też historia wizerunkowa: klient, który godzinę pisał z "Anną z działu sprzedaży", a potem zrozumiał, że to model, zwykle opowiada o tym publicznie.
+
+## Checklista: co zrobić z botem
+
+To, co wkładam do każdego wdrożenia. Zajmuje kilka godzin i nie wymaga przebudowy logiki rozmowy.
+
+- **Informacja przy pierwszym kontakcie.** Pierwsza wiadomość bota albo podpis w nagłówku widżetu: "Odpowiada asystent AI naszej firmy". Nie małym szarym drukiem w stopce, tylko tam, gdzie człowiek czyta.
+- **Bot głosowy informuje w pierwszym zdaniu rozmowy.** Zanim dzwoniący zacznie cokolwiek opowiadać.
+- **Uczciwe imię.** Bota możesz nazwać dowolnie, ale nie możesz podawać go za konkretnego pracownika. "Asystent Alex" jest w porządku. "Anna, opiekun klienta" bez oznaczenia - nie.
+- **Czytelne przejście do człowieka.** To nie jest wprost wymóg artykułu 50, ale zarówno kontrolujący, jak i klienci patrzą na to w pierwszej kolejności. Jak to poprawnie ustawić - w osobnym tekście o [przekazaniu rozmowy od bota do człowieka](/pl/blog/przekazanie-od-bota-do-czlowieka).
+- **Oznaczanie generowanych treści**, jeśli bot pisze teksty, które publikujesz w imieniu firmy.
+- **Wewnętrzny rejestr.** Prosta tabela: gdzie używasz AI, jaki model, jaki dostawca, kto odpowiada. To pierwsza rzecz, o którą ktoś zapyta, jeśli dojdzie do pytań.
+- **Dokumenty.** Zaktualizować politykę prywatności o wzmiankę o przetwarzaniu z użyciem AI, mieć umowę z dostawcą modelu i opis tego, jakie dane wychodzą na zewnątrz. Po stronie danych osobowych temat zahacza o RODO - rozbierałem go w tekście o tym, [gdzie chatbot AI przechowuje dane klientów](/pl/blog/gdzie-chatbot-ai-przechowuje-dane-klientow).
+
+## Co to zmienia w konwersji
+
+Częsta obawa: "jak napiszemy, że to bot, ludzie przestaną pisać". W praktyce dzieje się odwrotnie. Uczciwe oznaczenie zdejmuje podejrzliwość i usuwa pytanie "z kim ja właściwie rozmawiam", które siedzi w głowie połowy odwiedzających. Ludzie spokojnie rozmawiają z botem, gdy znają zasady gry i widzą, że człowiek jest o jedno kliknięcie dalej.
+
+Traci co innego: boty, które udawały ludzi i na tym budowały zaufanie. Jeśli cała Twoja konwersja opierała się na tym, że klient myślał, iż pisze z handlowcem, scenariusz trzeba przebudować - i to raczej dobra wiadomość.
+
+## Jak robię to w projektach
+
+Kiedy składam [agenta AI](/pl/uslugi/agenci-ai), informacja o AI jest w standardzie: powitanie z oznaczeniem, podpis w widżecie, osobne zdanie dla kanału głosowego, przycisk "poproś o człowieka" w interfejsie i log wszystkich rozmów z tym, co bot odpowiadał i gdzie przekazywał dalej. Plus strona polityki, na której napisane jest, jaki model jest używany i co dzieje się z danymi.
+
+Osobno sprawdzam boty, które już u klientów działają. Często okazuje się, że widżet postawiono w 2024 roku, żadnego oznaczenia tam nie ma, a bot dziarsko przedstawia się ludzkim imieniem. Doprowadzenie tego do porządku zajmuje dzień.
+
+Jeśli masz bota i nie masz pewności, czy spełnia nowe zasady, [napisz](/pl/kontakt) - sprawdzę i powiem, co poprawić. Jeśli bota jeszcze nie ma, złożę go od razu poprawnie: z informowaniem, eskalacją i porządną obsługą danych. Widełki budżetowe są w materiale o [koszcie chatbota AI](/pl/blog/ile-kosztuje-chatbot-ai).
+
+## FAQ
+
+**Od kiedy obowiązuje artykuł 50 AI Act?**
+Od 2 sierpnia 2026 roku. Cyfrowe omnibus, które weszło w życie 27 lipca 2026 (Regulation EU 2026/1744), przesunęło terminy wyłącznie dla systemów wysokiego ryzyka - na 2 grudnia 2027 i 2 sierpnia 2028 dla wybranych kategorii. Wymogi przejrzystości z artykułu 50 nie zostały odroczone i obowiązują od pierwotnie zaplanowanej daty. Osobny termin 2 grudnia 2026 dotyczy maszynowego oznaczania treści generowanych.
+
+**Czy dotyczy to małej firmy z jednym botem na stronie?**
+Tak. Artykuł 50 nie jest powiązany z wielkością firmy i nie wymaga, żeby system był zaklasyfikowany jako wysokiego ryzyka. Wystarczy, że Twoja strona, komunikator albo infolinia używa AI do rozmowy z ludźmi w UE. Obowiązek informowania spoczywa na tym, kto stosuje system we własnym imieniu, czyli na właścicielu firmy, a nie tylko na wykonawcy bota czy dostawcy modelu.
+
+**Co dokładnie trzeba napisać użytkownikowi?**
+Wystarczy jasna i podana w odpowiednim momencie informacja, że rozmowa toczy się z systemem AI. W praktyce jest to powitanie bota w stylu "Odpowiada asystent AI, w razie potrzeby przełączę do konsultanta" plus stałe oznaczenie w interfejsie widżetu. Przy bocie głosowym zdanie musi paść na samym początku rozmowy. Schowanie informacji w polityce prywatności albo w stopce strony nie wystarczy.
+
+**Jakie są kary?**
+Za naruszenie obowiązków przejrzystości rozporządzenie przewiduje do 15 mln euro albo 3% światowego rocznego obrotu, w zależności od tego, co jest wyższe. Stosują je krajowe organy nadzoru, z uwzględnieniem proporcjonalności, charakteru naruszenia i wielkości firmy. Dla małej firmy realne ryzyko jest znacznie poniżej górnego pułapu, ale dobrowolne uporządkowanie kosztuje ułamek tego, co jakiekolwiek postępowanie.
+
+**Czy bot może mieć ludzkie imię?**
+Samo imię nie jest zakazane, zakazane jest wprowadzanie w błąd co do natury rozmówcy. Bezpieczna formuła to imię plus wyraźna adnotacja, że to asystent AI, na przykład "Asystent Ola" z podpisem "asystent AI". Przedstawianie bota jako konkretnego handlowca bez oznaczenia to prosta droga do skargi i do nieprzyjemnej rozmowy z klientem, który to odkryje.

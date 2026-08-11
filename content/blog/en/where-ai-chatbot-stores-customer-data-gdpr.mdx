@@ -1,0 +1,131 @@
+---
+title: "Where an AI Chatbot Stores Customer Data: A GDPR Breakdown Without the Fog"
+description: "Where chatbot conversations actually go, who is liable under the law, whether models train on your dialogues, and what to configure so the deployment survives scrutiny. With a checklist for your vendor."
+date: "2026-08-25"
+cluster: "ai-chatbot-data-gdpr"
+keywords:
+  - "AI chatbot personal data"
+  - "chatbot GDPR compliance"
+  - "where is chatbot data stored"
+  - "do models train on my data"
+  - "AI agent data security"
+ogImage: "/og/ai-chatbot-data-gdpr.webp"
+---
+
+The question almost always comes out the same way: "where does what the customer types actually go, and could it surface somewhere?" It is the right question. The moment a bot collects a name, a phone number, a delivery address or a description of a health problem, you become responsible for that data - regardless of whose model your contractor is using.
+
+Here is the data route, how liability splits, and the settings that make a deployment uneventful.
+
+## Where the data physically goes
+
+A typical AI agent on a website works like this:
+
+1. Someone types into the widget. The message goes **to your server** (or your contractor's).
+2. Your server adds context from the knowledge base and **sends a request to the model API** - OpenAI, Anthropic, Google or another.
+3. The model returns an answer, your server passes it to the user.
+4. The conversation is **stored in your database** and, if configured, pushed to the CRM.
+
+The key point: the model does not "remember" the conversation by itself. Conversational memory is what your system stores and feeds back in. So the bulk of the data sits wherever you decided, not with the model provider.
+
+## Who is responsible for what
+
+Under GDPR the roles split like this:
+
+**You are the data controller.** You decide why data is collected and what happens to it. Liability towards the customer and the regulator is yours.
+
+**The model provider is a processor.** It processes data on your instruction. You need a data processing agreement (DPA) with them; the major providers offer a standard one signed at onboarding.
+
+**Your contractor** is also a processor if they host the solution and can access conversations.
+
+Which leads to something practical: "it was not us, it was OpenAI" is not a defence. You are answerable.
+
+## Do models train on your conversations?
+
+The most common fear, and the answer is reassuring with caveats.
+
+At the major providers, data sent **through the API** is **not used for model training** by default. That is fundamentally different from free consumer chat products, where the terms differ. Even so, verify it every time: terms change, and different tiers carry different guarantees.
+
+What to confirm in your provider's current documentation before launch:
+
+- **Whether data is used for training** on your access tier.
+- **How long requests are retained.** Usually a short period (around a month) for abuse monitoring, with zero-retention available on enterprise terms.
+- **Where data is physically processed** and whether EU processing is available.
+- **Who the subprocessors are** and whether the list is current.
+- **Whether a DPA is signed** and what mechanism covers transfers outside the EU.
+
+Those are five questions your contractor should answer without hesitating. If they do not understand them, that is a signal in itself.
+
+## What gets configured for peace of mind
+
+The engineering part I build into every deployment.
+
+**Minimisation.** Only what is needed for the answer goes to the model. Card numbers, national ID numbers and full medical records are never sent - they are either not collected at all or handled through a separate protected path.
+
+**Masking before sending.** If a message contains a phone number or email, they can be swapped for placeholders before the model call and restored inside your own system.
+
+**Storage on your side, in the EU.** Conversation history and enquiries live in your database on European hosting, not scattered across third-party services.
+
+**Retention limits.** Conversations are not kept forever. A sensible window is 30 days to a year depending on why you need them, with automatic deletion.
+
+**Right to erasure.** There must be a technical way to find and delete everything belonging to a specific person on request. Without that button you cannot meet the legal requirement.
+
+**Explicit bot boundaries.** The bot does not ask for more than it needs. A good scenario takes a name and a contact rather than "tell me more about your situation" followed by storing everything.
+
+**Encryption and access control.** Data encrypted in transit and at rest, conversation access limited by role and logged.
+
+## Special cases
+
+**Clinics and healthcare.** Health data is a special category with stricter requirements. The practical approach: the bot answers organisational questions (hours, prices, how to prepare for a procedure) and books appointments, but does not collect symptom descriptions. You get the benefit without creating a special-category processing operation.
+
+**Children.** If your audience includes minors, you need additional grounds and a more careful script.
+
+**Finance.** No payment details through chat, ever; payment always goes through a separate secure gateway. How that is done properly is in [the payment gateway article](/en/blog/payment-gateway-poland-blik-przelewy24).
+
+## What has to exist on paper
+
+The minimum set people ask for first:
+
+- **A privacy policy** mentioning AI use, processing purposes, retention periods and who receives the data.
+- **A record of processing activities** - what data, why, on what basis, retained how long.
+- **Processing agreements** with the model provider and with the contractor.
+- **A lawful basis.** Usually contract performance or legitimate interest for handling enquiries, but the wording is worth agreeing with a lawyer for your case.
+- **An impact assessment** if the processing is large-scale or touches sensitive categories.
+- **Telling users it is AI** - a separate requirement, now also under the AI Act. Covered in [the Article 50 article](/en/blog/eu-ai-act-chatbot-requirements-2026).
+
+## A checklist for your vendor
+
+Before signing a build contract, ask:
+
+1. Where will conversations and enquiries be stored, in which jurisdiction?
+2. Which model provider is used and is there a DPA with them?
+3. Is our data used for training?
+4. What is the retention period for conversations and is it configurable?
+5. What exactly is sent to the model and what stays with us?
+6. Is there a mechanism to delete a specific person's data?
+7. Who on your side can access the conversations?
+8. What happens to the data if we end the engagement?
+
+Answers to those eight belong in the contract, not in an email thread.
+
+## How I handle it
+
+Conversations and enquiries live in your infrastructure in the EU, only minimal context reaches the model, sensitive data is not sent, retention is configurable, deletion on request is implemented, and access is restricted and logged. Disclosure that an AI is answering ships as standard. Approach and examples on the [AI agents page](/en/services/ai-agents), budgets in [the pricing article](/en/blog/how-much-does-an-ai-chatbot-cost).
+
+If you already have a bot and cannot answer the eight questions above, [message me](/en/contact) and I will look at how it is built and tell you where the risk sits.
+
+## FAQ
+
+**Do AI models train on conversations with my customers?**
+When working through the API, the major providers do not use your data for model training by default - unlike free consumer chat products, where the terms differ. That said, it needs verifying against your provider's current documentation and your access tier, with the guarantee recorded in the data processing agreement. Separately, confirm the request retention period and whether a zero-retention mode is available.
+
+**Where are chatbot conversations stored?**
+The bulk is stored wherever you decided: in your website's or service's database. The model itself does not remember the conversation; memory is created by your system feeding prior messages back into the request. The model provider may retain requests for a limited period for abuse monitoring. The correct configuration keeps history in your own infrastructure on European hosting with a configured deletion window.
+
+**Who is legally responsible for data a bot collected?**
+You are, as the data controller: you decide why it is collected and what happens to it. The model provider and the contractor hosting the solution act as processors on your instruction, and you need processing agreements with both. Pointing at an external service does not remove liability, so processor terms are worth checking before launch rather than after.
+
+**Can an AI bot be used in a clinic?**
+Yes, with a constrained scenario. Health data is a special category with stricter requirements. The practical solution is a bot that answers organisational questions about hours, prices and how to prepare for procedures and books appointments, but does not collect symptoms or diagnoses. That relieves the front desk without creating sensitive-data processing.
+
+**Do I have to tell customers an AI is answering?**
+Yes, and it is no longer only a trust question. Since 2 August 2026 the AI Act transparency requirements apply: people must be informed at first contact that they are interacting with an AI system. In addition, the use of AI and the related processing operations belong in your privacy policy. Honest labelling usually helps conversion, because it removes the question of who the person is talking to.

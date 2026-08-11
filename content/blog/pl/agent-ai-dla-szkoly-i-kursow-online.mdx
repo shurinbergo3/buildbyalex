@@ -1,0 +1,117 @@
+---
+title: "Agent AI dla szkoły i kursów online: nabór grup, lekcje próbne i mniej nieobecności"
+description: "Zapytania przychodzą wieczorem, a sekretariat odpowiada rano. Rozbieram, jak bot kwalifikuje ucznia, zapisuje na próbną, zmniejsza liczbę nieobecności i odzyskuje tych, którzy przestali przychodzić."
+date: "2026-09-14"
+cluster: "ai-agent-education"
+keywords:
+  - "chatbot dla szkoły językowej"
+  - "agent AI dla kursów online"
+  - "automatyzacja naboru uczniów"
+  - "zapis na lekcję próbną bot"
+  - "jak zmniejszyć nieobecności na zajęciach"
+ogImage: "/og/ai-agent-education.webp"
+---
+
+Branża edukacyjna ma wyraźną sezonowość i bardzo krótkie okno decyzji. Rodzic albo dorosły kursant wybiera szkołę w jeden wieczór, pisze do trzech miejsc i idzie tam, gdzie odpowiedziano i od razu zaproponowano konkretny termin. Jeśli sekretariat odpowiada rano, jesteś poza grą - niezależnie od tego, jak dobrzy są lektorzy.
+
+Rozbieram, co bierze na siebie agent AI, na przykładzie szkół językowych, centrów dziecięcych i kursów online.
+
+## Co przeszkadza w naborze grup
+
+**Wieczorne zapytania.** Szczyt zgłoszeń przypada po 18:00 i w weekendy, gdy rodzice mają wreszcie czas. Właśnie wtedy sekretariat jest zamknięty.
+
+**Te same pytania.** Grafik, cena, długość, forma, wiek, poziom, lektorzy, gdzie jesteście, czy jest lekcja próbna. Każde zapytanie zaczyna się od tych dziesięciu pytań.
+
+**Długa kwalifikacja.** Żeby zaproponować grupę, trzeba znać poziom, cel, wiek, dogodne godziny i formę. To albo rozmowa telefoniczna, albo dzień korespondencji.
+
+**Nieobecności na lekcji próbnej.** Zapisał się i nie przyszedł to najbardziej frustrująca strata, bo człowiek był już przekonany.
+
+**Ciche odpadanie.** Kursant opuścił dwa tygodnie i po cichu zniknął. Nikt nie zauważył na czas.
+
+**Języki.** W Polsce widać to szczególnie: jedna szkoła obsługuje rodziców polsko-, ukraińsko- i rosyjskojęzycznych, plus angielski.
+
+## Co robi bot
+
+**Odpowiada natychmiast i całą dobę** na pytania o programy, formy, ceny, grafik, grupy wiekowe i lektorów - w języku piszącego.
+
+**Kwalifikuje kursanta.** Krótka sekwencja pytań: wiek, cel nauki, obecny poziom, dogodne dni i godziny, online czy stacjonarnie. Na wyjściu sekretariat dostaje wypełnioną kartę i wie, do której grupy człowiek pasuje.
+
+**Zapisuje na lekcję próbną.** Sprawdza realnie wolne terminy w kalendarzu, proponuje warianty, rezerwuje i wysyła potwierdzenie. Jak działa dostęp do kalendarza - w [tekście o MCP](/pl/blog/mcp-podlaczenie-agenta-ai-do-systemow).
+
+**Przypomina i zmniejsza nieobecności.** Przypomnienie dzień wcześniej i godzinę wcześniej z możliwością przełożenia jednym kliknięciem. To najprostszy sposób na podniesienie frekwencji: człowiekowi wygodniej przełożyć niż po prostu nie przyjść. Temat pokrewny w [tekście o przypomnieniach i nieobecnościach](/pl/blog/przypomnienia-o-wizycie-sms-no-show).
+
+**Obsługuje obecnych kursantów.** Grafik, odwołanie i przełożenie zajęć, pytania o płatności, dostęp do materiałów, co było na opuszczonej lekcji. To zdejmuje z sekretariatu główny strumień rutyny w trakcie roku.
+
+**Odzyskuje tych, którzy zniknęli.** Jeśli kursant nie pojawiał się dwa tygodnie, bot pisze i ustala powód, a sekretariat dostaje listę osób, z którymi warto porozmawiać osobiście.
+
+**Przypomina o płatnościach.** Delikatnie i na czas, bez niezręczności dla pracownika.
+
+**Zbiera opinie** po pierwszym miesiącu i po zakończeniu kursu.
+
+## Co się podłącza
+
+- **CRM albo system ewidencji kursantów** - do kart, grup i frekwencji.
+- **Kalendarz** - do lekcji próbnych i przenoszenia zajęć.
+- **Płatności** - do opłat i przypomnień.
+- **Komunikatory**: najczęściej WhatsApp i Telegram, dla rodziców krytyczne.
+- **Strona** - widżet i formularze zapisu.
+
+Zaczynać warto od strony i jednego komunikatora plus bazy wiedzy o programach. Kalendarz i płatności dokłada się w drugim kroku.
+
+## Wyliczenie efektu
+
+**Zapytania wieczorne i weekendowe.** Policz, ile zgłoszeń przychodzi poza godzinami pracy sekretariatu. W edukacji to zwykle 40-60% całego strumienia. Nawet jeśli obecnie traci się dziesiątą część, odzysk jest zauważalny.
+
+**Frekwencja na próbnych.** Różnica między "zapisał się" a "przyszedł" jest w tej branży zwykle spora. Przypomnienia z możliwością przełożenia podnoszą frekwencję bez dodatkowych kosztów.
+
+**Czas sekretariatu.** Typowe pytania i przekładanie zajęć to główne obciążenie w ciągu roku. Metodyka liczenia w [tekście o zastąpieniu handlowca](/pl/blog/agent-ai-zamiast-handlowca-wyliczenia).
+
+**Utrzymanie.** Kursant odzyskany w trzecim tygodniu ciszy to zachowany przychód za resztę kursu.
+
+## Czego botowi się nie powierza
+
+Ważne granice, zwłaszcza przy dzieciach.
+
+**Oceny poziomu.** Bot może zebrać dane i zaproponować przybliżoną grupę, ale decyzję podejmuje lektor na lekcji próbnej.
+
+**Nauczania.** Bot nie jest lektorem. Może wydać materiały i odpowiedzieć na pytania organizacyjne, ale tłumaczyć przedmiot i sprawdzać zadania ma człowiek.
+
+**Rozmów o dziecku.** Postępy, zachowanie, problemy - wyłącznie z lektorem albo metodykiem.
+
+**Konfliktów i zwrotów.** Niezadowolenie z jakości, spór o płatność - od razu do człowieka. Jak ustawić granicę, pisałem w [tekście o eskalacji](/pl/blog/przekazanie-od-bota-do-czlowieka).
+
+**Danych osób niepełnoletnich.** Osobny temat z wyższymi wymogami: minimum zbieranych danych, czytelna polityka, zgoda rodziców. Rozbierałem w [tekście o danych i RODO](/pl/blog/gdzie-chatbot-ai-przechowuje-dane-klientow).
+
+I obowiązkowo: bot uczciwie przedstawia się jako asystent AI. Od sierpnia 2026 to wymóg [AI Act](/pl/blog/ai-act-2026-wymogi-dla-chatbotow).
+
+## Ile to kosztuje
+
+- **Bot na stronie i w komunikatorze** z bazą wiedzy o programach, kwalifikacją i zbieraniem zapytań - **1 200-2 500 €**, dwa tygodnie.
+- **Z kalendarzem**, zapisem na próbne, przypomnieniami i przenoszeniem - **2 500-4 500 €**, 3-4 tygodnie.
+- **Z integracją systemu ewidencji**, obsługą obecnych kursantów, płatnościami i odzyskiwaniem odpadających - **od 4 500 €**.
+- Plus miesięcznie praca modelu, dla szkoły średniej wielkości to niewielka kwota.
+
+Ogólne orientacje w [tekście o koszcie chatbota AI](/pl/blog/ile-kosztuje-chatbot-ai).
+
+## Kiedy wdrażać
+
+Logika jest prosta: **przed sezonem naboru**, a nie w jego szczycie. Uruchomienie w sierpniu daje efekt we wrześniu, uruchomienie we wrześniu daje ból głowy. Rozsądny termin to miesiąc-półtora przed startem naboru, żeby zdążyć dopracować scenariusze na realnych rozmowach.
+
+Jeśli chcesz przeliczyć to pod swoją szkołę, [napisz](/pl/kontakt): podaj liczbę zgłoszeń miesięcznie, średnią cenę kursu i odsetek nieobecności na próbnych. Podejście na stronie [agentów AI](/pl/uslugi/agenci-ai).
+
+## FAQ
+
+**Czy bot zastąpi sekretariat w szkole?**
+Nie, zdejmuje z niego rutynę. Bot odpowiada na pytania o programy, ceny i grafik, kwalifikuje nowego kursanta, zapisuje na lekcję próbną, przypomina i przekłada. Sekretariat zajmuje się tym, gdzie potrzebny jest człowiek: rozmową z wahającym się rodzicem, przydziałem do grup, rozwiązywaniem problemów i pracą z obecnymi kursantami. Efekt polega na tym, że wieczorne i weekendowe zgłoszenia przestają ginąć.
+
+**Jak bot zmniejsza nieobecności na lekcjach próbnych?**
+Dwoma przypomnieniami - dzień wcześniej i godzinę wcześniej - z przyciskiem przełożenia jednym kliknięciem. Kluczowa jest właśnie możliwość przełożenia: psychologicznie łatwiej wybrać inny termin niż po prostu nie przyjść i potem czuć się niezręcznie. Dodatkowo bot potwierdza zapis od razu i wysyła wszystko, co potrzebne: adres albo link, co zabrać, jak trafić do sali.
+
+**Czy bot może określić poziom kursanta?**
+Może zebrać dane do wstępnego przydziału: wiek, doświadczenie w nauce, cel, samoocenę poziomu, odpowiedzi na krótki zestaw pytań. Ale ostateczną decyzję ma podjąć lektor na lekcji próbnej. Stawianie bota w roli egzaminatora to błąd: pomyłka w poziomie oznacza niepasującą grupę i odejście kursanta po miesiącu.
+
+**Czy to pasuje do kursów online bez lokalu?**
+Tak, często nawet lepiej, bo cały cykl jest już cyfrowy. Bot odpowiada na pytania o program i formę, kwalifikuje, zapisuje na lekcję demonstracyjną, przypomina, wydaje dostępy, odpowiada na pytania organizacyjne w trakcie kursu i odzyskuje tych, którzy przestali się uczyć. Przy kursach do samodzielnego przerabiania to właśnie odzyskiwanie daje zwykle główny efekt.
+
+**Co z danymi dzieci i rodziców?**
+Dane osób niepełnoletnich wymagają ostrożniejszego podejścia. Praktyczna zasada: zbierać minimum - imię, wiek, kontakt do rodzica, cel nauki - i nie prosić przez bota o nic wrażliwego. Rozmowy przechowywane są w Twojej infrastrukturze z ustawionym terminem usuwania, polityka prywatności opisuje wykorzystanie AI, a sam bot uczciwie informuje, że jest asystentem AI, czego wymagają zasady przejrzystości od sierpnia 2026 roku.

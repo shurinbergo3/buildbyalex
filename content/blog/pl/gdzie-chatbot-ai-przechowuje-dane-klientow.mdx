@@ -1,0 +1,131 @@
+---
+title: "Gdzie chatbot AI przechowuje dane klientów: RODO bez prawniczej mgły"
+description: "Dokąd trafia rozmowa z botem, kto odpowiada za dane wobec prawa, czy modele uczą się na Twoich dialogach i co ustawić, żeby wdrożenie przeszło kontrolę. Z listą pytań do wykonawcy."
+date: "2026-08-25"
+cluster: "ai-chatbot-data-gdpr"
+keywords:
+  - "chatbot AI dane osobowe"
+  - "chatbot a RODO"
+  - "gdzie przechowywane są dane chatbota"
+  - "czy modele uczą się na moich danych"
+  - "bezpieczeństwo agenta AI"
+ogImage: "/og/ai-chatbot-data-gdpr.webp"
+---
+
+Pytanie brzmi niemal zawsze tak samo: "dokąd trafia to, co klient pisze botowi, i czy to gdzieś nie wypłynie". Pytanie jest słuszne. Gdy bot zbiera imię, telefon, adres dostawy albo opis problemu zdrowotnego, stajesz się odpowiedzialny za te dane, niezależnie od tego, czyjego modelu używa Twój wykonawca.
+
+Rozbieram trasę danych, podział odpowiedzialności i ustawienia, dzięki którym wdrożenie przebiega spokojnie.
+
+## Dokąd fizycznie trafiają dane
+
+Typowy agent AI na stronie działa tak:
+
+1. Człowiek pisze w widżecie. Wiadomość idzie **na Twój serwer** (albo serwer Twojego wykonawcy).
+2. Twój serwer dokłada do wiadomości kontekst z bazy wiedzy i **wysyła zapytanie do API modelu** - OpenAI, Anthropic, Google albo innego.
+3. Model zwraca odpowiedź, Twój serwer podaje ją użytkownikowi.
+4. Rozmowa **zapisuje się w Twojej bazie** i, jeśli tak skonfigurowano, trafia do CRM.
+
+Rzecz kluczowa: model sam z siebie rozmowy nie pamięta. Pamięć dialogu to coś, co Twój system przechowuje i podstawia z powrotem. Czyli główna masa danych leży tam, gdzie zdecydowałeś, a nie u dostawcy modelu.
+
+## Kto za co odpowiada
+
+Zgodnie z RODO role dzielą się tak:
+
+**Ty jesteś administratorem danych.** To Ty decydujesz, po co zbierać dane i co z nimi robić. Odpowiedzialność wobec klienta i organu nadzorczego leży po Twojej stronie.
+
+**Dostawca modelu jest podmiotem przetwarzającym.** Przetwarza dane na Twoje polecenie. Potrzebna jest z nim umowa powierzenia, u dużych dostawców jest standardowa i podpisuje się ją przy podłączeniu.
+
+**Twój wykonawca** też jest podmiotem przetwarzającym, jeśli hostuje rozwiązanie i ma dostęp do rozmów.
+
+Wynika z tego rzecz praktyczna: zdanie "to nie my, to OpenAI" obroną nie jest. Odpowiadasz Ty.
+
+## Czy modele uczą się na Twoich rozmowach
+
+Najczęstsza obawa i odpowiedź jest uspokajająca, choć z zastrzeżeniami.
+
+U głównych dostawców dane wysyłane **przez API** domyślnie **nie są używane do trenowania modeli**. To zasadnicza różnica wobec darmowych konsumenckich wersji czatów, gdzie warunki są inne. Mimo to sprawdzać trzeba za każdym razem: warunki się zmieniają, a różne plany dają różne gwarancje.
+
+Co warto potwierdzić w aktualnej dokumentacji dostawcy przed startem:
+
+- **Czy dane są używane do treningu** przy Twoim typie dostępu.
+- **Jak długo przechowywane są zapytania.** Zwykle krótki okres (rzędu miesiąca) do kontroli nadużyć, z możliwością zerowego przechowywania na warunkach korporacyjnych.
+- **Gdzie fizycznie przetwarzane** są dane i czy dostępne jest przetwarzanie w UE.
+- **Kim są podprzetwarzający** i czy lista jest aktualna.
+- **Czy podpisana jest umowa powierzenia** i na jakim mechanizmie opiera się przekazywanie poza UE.
+
+To pięć pytań, na które Twój wykonawca powinien odpowiedzieć bez zająknięcia. Jeśli ich nie rozumie, to osobny sygnał.
+
+## Co ustawia się dla spokoju
+
+Część inżynierska, którą zakładam w każdym wdrożeniu.
+
+**Minimalizacja.** Do modelu idzie tylko to, co potrzebne do odpowiedzi. Numer karty, PESEL, pełne dane medyczne do modelu nie trafiają nigdy - albo nie są zbierane w ogóle, albo obsługiwane osobną, chronioną ścieżką.
+
+**Maskowanie przed wysłaniem.** Jeśli w wiadomości jest telefon albo e-mail, można je zamienić na symbole zastępcze przed wysłaniem do modelu i podstawić z powrotem już w Twoim systemie.
+
+**Przechowywanie u siebie, w UE.** Historia rozmów i zapytania leżą w Twojej bazie na europejskim hostingu, a nie rozsmarowane po cudzych usługach.
+
+**Okres przechowywania.** Rozmowy nie leżą wiecznie. Rozsądny okres to od 30 dni do roku w zależności od tego, po co są potrzebne, z automatycznym usuwaniem.
+
+**Prawo do usunięcia.** Musi istnieć techniczna możliwość znalezienia i usunięcia wszystkich danych konkretnej osoby na żądanie. Bez takiego przycisku nie wykonasz obowiązku ustawowego.
+
+**Jasne granice bota.** Bot nie pyta o więcej, niż trzeba. Dobry scenariusz bierze imię i kontakt, a nie "proszę opowiedzieć więcej o swojej sytuacji" z zapisem wszystkiego.
+
+**Szyfrowanie i dostępy.** Dane szyfrowane w transmisji i w spoczynku, dostęp do rozmów ograniczony rolami i logowany.
+
+## Przypadki szczególne
+
+**Kliniki i medycyna.** Dane o zdrowiu to szczególna kategoria, wymogi są ostrzejsze. Praktyczne podejście: bot odpowiada na pytania organizacyjne (godziny, ceny, przygotowanie do zabiegu) i umawia wizyty, ale nie zbiera opisu objawów. Tak masz korzyść bez tworzenia przetwarzania danych wrażliwych.
+
+**Dzieci.** Jeśli odbiorcy obejmują osoby niepełnoletnie, potrzebne są dodatkowe podstawy i ostrożność w scenariuszu.
+
+**Finanse.** Żadnych danych płatniczych przez czat, płatność zawsze przez osobną chronioną bramkę. Jak to zrobić poprawnie - w [tekście o bramkach płatniczych](/pl/blog/przelewy24-czy-payu-integracja-sklep-blik).
+
+## Co musi być na papierze
+
+Minimalny komplet, o który pytają w pierwszej kolejności:
+
+- **Polityka prywatności** ze wzmianką o wykorzystaniu AI, celach przetwarzania, okresach przechowywania i tym, komu dane są przekazywane.
+- **Rejestr czynności przetwarzania** - jakie dane, po co, na jakiej podstawie, jak długo przechowywane.
+- **Umowy powierzenia** z dostawcą modelu i z wykonawcą.
+- **Podstawa przetwarzania.** Zwykle wykonanie umowy albo prawnie uzasadniony interes przy obsłudze zapytań, ale sformułowanie warto uzgodnić z prawnikiem pod Twój przypadek.
+- **Ocena skutków**, jeśli przetwarzanie jest na dużą skalę albo dotyczy kategorii wrażliwych.
+- **Informowanie, że to AI** - osobny wymóg, teraz również z AI Act. Rozbierałem w [tekście o artykule 50](/pl/blog/ai-act-2026-wymogi-dla-chatbotow).
+
+## Lista pytań do wykonawcy
+
+Zanim podpiszesz umowę na wdrożenie bota, zapytaj:
+
+1. Gdzie będą przechowywane rozmowy i zapytania, w jakiej jurysdykcji?
+2. Jaki dostawca modelu jest używany i czy jest z nim umowa powierzenia?
+3. Czy nasze dane są używane do treningu?
+4. Jaki jest okres przechowywania rozmów i czy da się go ustawić?
+5. Co dokładnie wysyłane jest do modelu, a co zostaje u nas?
+6. Czy istnieje mechanizm usunięcia danych konkretnej osoby?
+7. Kto po Waszej stronie ma dostęp do korespondencji?
+8. Co stanie się z danymi, jeśli zakończymy współpracę?
+
+Odpowiedzi na te osiem pytań powinny znaleźć się w umowie, a nie w mailach.
+
+## Jak ja to robię
+
+Rozmowy i zapytania przechowywane są w Twojej infrastrukturze w UE, do modelu idzie minimalny kontekst, dane wrażliwe nie są wysyłane, okres przechowywania jest konfigurowalny, usuwanie na żądanie zaimplementowane, dostęp ograniczony i logowany. Informacja, że odpowiada AI, jest w standardzie. Podejście i przykłady na stronie [agentów AI](/pl/uslugi/agenci-ai), pieniądze w [tekście o kosztach](/pl/blog/ile-kosztuje-chatbot-ai).
+
+Jeśli masz już bota i nie znasz odpowiedzi na osiem powyższych pytań, [napisz](/pl/kontakt) - sprawdzę, jak jest zbudowany, i powiem, gdzie leży ryzyko.
+
+## FAQ
+
+**Czy modele AI uczą się na korespondencji z moimi klientami?**
+Przy pracy przez API u głównych dostawców dane domyślnie nie są używane do trenowania modeli - inaczej niż w darmowych konsumenckich wersjach czatów, gdzie warunki są inne. Trzeba to jednak sprawdzić w aktualnej dokumentacji swojego dostawcy i typu dostępu, a gwarancję zapisać w umowie powierzenia. Osobno doprecyzuj okres przechowywania zapytań i dostępność trybu zerowego przechowywania.
+
+**Gdzie przechowywane są rozmowy z chatbotem?**
+Główna masa jest tam, gdzie zdecydowałeś: w bazie Twojej strony albo usługi. Model sam z siebie rozmowy nie pamięta, pamięć dialogu tworzy Twój system, podstawiając poprzednie wiadomości do zapytania. U dostawcy modelu zapytania mogą być przechowywane przez ograniczony czas do kontroli nadużyć. Poprawna konfiguracja to przechowywanie historii we własnej infrastrukturze na europejskim hostingu z ustawionym terminem usuwania.
+
+**Kto odpowiada wobec prawa za dane zebrane przez bota?**
+Ty, jako administrator danych: to Ty decydujesz, po co je zbierać i co z nimi robić. Dostawca modelu i wykonawca hostujący rozwiązanie występują jako podmioty przetwarzające i działają na Twoje polecenie, z nimi potrzebne są umowy powierzenia. Powołanie się na to, że dane poszły do zewnętrznej usługi, odpowiedzialności nie zdejmuje, więc warunki u przetwarzających warto sprawdzić przed startem, a nie po.
+
+**Czy można używać bota AI w klinice?**
+Tak, ale z ograniczeniem scenariusza. Dane o zdrowiu należą do kategorii szczególnej i wymogi wobec nich są ostrzejsze. Praktyczne rozwiązanie to bot odpowiadający na pytania organizacyjne o godziny, ceny i przygotowanie do zabiegów oraz umawiający wizyty, ale niezbierający opisu objawów i diagnoz. Tak odciążasz rejestrację, nie tworząc przetwarzania danych wrażliwych.
+
+**Czy trzeba informować klientów, że odpowiada AI?**
+Tak i nie jest to już tylko kwestia zaufania. Od 2 sierpnia 2026 obowiązują wymogi przejrzystości z AI Act: człowiek musi zostać poinformowany, że wchodzi w interakcję z systemem AI, przy pierwszym kontakcie. Do tego użycie AI i związane z nim operacje przetwarzania trzeba odzwierciedlić w polityce prywatności. Na konwersję uczciwe oznaczenie wpływa zwykle pozytywnie: znika pytanie, z kim człowiek rozmawia.
