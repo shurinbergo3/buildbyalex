@@ -277,7 +277,7 @@
             "label": "pracy managera miesięcznie przejmuje bot"
           }
         ],
-        "seeAll": "Zobacz wszystkie 5 realizacji"
+        "seeAll": "Zobacz wszystkie {count} {count, plural, one {realizację} few {realizacje} many {realizacji} other {realizacji}}"
       }
     },
     "legalwinShowcase": {

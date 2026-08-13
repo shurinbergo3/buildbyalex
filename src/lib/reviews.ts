@@ -18,7 +18,7 @@ export function countLiveReviews(list: Review[], now: number): number {
 }
 
 /** Server-component convenience wrapper — reads the live count for a page. */
-export async function getLiveReviewCount(locale: Locale): Promise<number> {
+export async function getLiveReviewCount(locale: Locale, now = Date.now()): Promise<number> {
   const t = await getTranslations({ locale, namespace: "home.testimonials" });
-  return countLiveReviews(t.raw("list") as Review[], Date.now());
+  return countLiveReviews(t.raw("list") as Review[], now);
 }

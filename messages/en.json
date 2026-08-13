@@ -277,7 +277,7 @@
             "label": "of manager time a month handled by a bot"
           }
         ],
-        "seeAll": "See all 5 projects"
+        "seeAll": "See all {count} {count, plural, one {project} other {projects}}"
       }
     },
     "legalwinShowcase": {

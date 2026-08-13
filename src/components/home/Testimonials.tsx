@@ -107,19 +107,19 @@ function ReviewCard({ r, i }: { r: Review; i: number }) {
   );
 }
 
-export function Testimonials() {
+export function Testimonials({ now: serverNow }: { now: number }) {
   const t = useTranslations("home.testimonials");
   const all = t.raw("list") as Review[];
   const rating = t("rating");
   const [expanded, setExpanded] = useState(false);
 
   // Reveal scheduled reviews gradually: only those whose publishAt has arrived.
-  // Gate on mount so SSR and first client render match (no hydration drift).
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  const list = mounted
-    ? all.filter((r) => isReviewLive(r, Date.now()))
-    : all.filter((r) => !r.publishAt);
+  // The first render uses the server's timestamp so SSR and hydration agree
+  // (and the count matches the hero trust line); after mount we re-check with
+  // the real clock so reviews scheduled since the build show up too.
+  const [now, setNow] = useState(serverNow);
+  useEffect(() => setNow(Date.now()), []);
+  const list = all.filter((r) => isReviewLive(r, now));
 
   // Count + histogram derive from the currently-visible reviews, so the "N reviews"
   // label and the 5★→1★ breakdown grow automatically as scheduled ones land.

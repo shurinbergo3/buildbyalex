@@ -63,7 +63,7 @@ export function FeaturedWork() {
               href="/work"
               className="group inline-flex items-center gap-2 rounded-full border border-[color:var(--color-divider)] bg-[color:var(--color-bg-elev)] px-6 py-3 text-[15px] font-[number:var(--fw-semi)] text-[color:var(--color-text)] shadow-[var(--shadow-card)] transition-[transform,border-color,color,box-shadow] duration-200 ease-[cubic-bezier(0.28,0.11,0.32,1)] hover:-translate-y-0.5 hover:border-[color:var(--c-accent)] hover:text-[color:var(--c-accent-ink)] hover:shadow-[var(--shadow-card-hover)] dark:hover:text-[color:var(--c-accent)]"
             >
-              {t("featured.seeAll")}
+              {t("featured.seeAll", { count: caseSlugs.length })}
               <svg
                 width="16"
                 height="16"

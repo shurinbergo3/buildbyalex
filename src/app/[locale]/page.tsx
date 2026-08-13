@@ -25,10 +25,11 @@ export default async function HomePage({
   if (!(routing.locales as readonly string[]).includes(locale)) notFound();
   setRequestLocale(locale);
 
-  // Single source of truth for "how many reviews" — the hero trust line and
-  // the JSON-LD aggregate rating both read this so they never drift from the
-  // Testimonials block, which computes its own count from the same list.
-  const reviewCount = await getLiveReviewCount(locale as Locale);
+  // Single source of truth for "how many reviews" — the hero trust line, the
+  // JSON-LD aggregate rating and the Testimonials block all derive from this
+  // same timestamp, so the numbers can never drift apart.
+  const now = Date.now();
+  const reviewCount = await getLiveReviewCount(locale as Locale, now);
 
   return (
     <div className="home-sections">
@@ -42,7 +43,7 @@ export default async function HomePage({
       <ScrollStory />
       <Pricing />
       <FitCheck />
-      <Testimonials />
+      <Testimonials now={now} />
       <FAQ />
       <FinalCTA reviewCount={reviewCount} />
     </div>

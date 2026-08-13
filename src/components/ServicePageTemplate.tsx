@@ -112,7 +112,8 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
 
   // Same source of truth as the homepage — keeps this page's rating badge and
   // structured data in sync with the Testimonials block instead of a stale count.
-  const reviewCount = countLiveReviews(tr.raw("list") as Review[], Date.now());
+  const now = Date.now();
+  const reviewCount = countLiveReviews(tr.raw("list") as Review[], now);
 
   // A service can ship a multi-tier grid via `services.<branch>.pricing.tiers`.
   // When absent, fall back to the single starting-price card built from
@@ -265,7 +266,7 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
       <ServiceResources branch={branch} />
 
       {/* ── Reviews (shared block) ── */}
-      <Testimonials />
+      <Testimonials now={now} />
 
       {/* ── Final CTA (shared glass-window bookend) ── */}
       <FinalCta

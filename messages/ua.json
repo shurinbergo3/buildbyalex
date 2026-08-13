@@ -277,7 +277,7 @@
             "label": "роботи менеджера на місяць бере бот"
           }
         ],
-        "seeAll": "Дивитись усі 5 проєктів"
+        "seeAll": "Дивитись усі {count} {count, plural, one {проєкт} few {проєкти} many {проєктів} other {проєктів}}"
       }
     },
     "legalwinShowcase": {

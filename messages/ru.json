@@ -277,7 +277,7 @@
             "label": "работы менеджера в месяц берёт бот"
           }
         ],
-        "seeAll": "Смотреть все 5 проектов"
+        "seeAll": "Смотреть все {count} {count, plural, one {проект} few {проекта} many {проектов} other {проекта}}"
       }
     },
     "legalwinShowcase": {
