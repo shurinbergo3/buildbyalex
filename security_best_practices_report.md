@@ -1,7 +1,9 @@
 # Отчёт по security best practices - buildbyalex
 
-Дата: 2026-08-13
-Стек: Next.js 15.5.18 (App Router, `output: standalone`), React 19, TypeScript, next-intl 3.26.5, Docker/Node 22.
+Дата: 2026-08-13 (обновлён после исправлений)
+Статус: **все 10 находок исправлены**, `npm audit --omit=dev` → 0 уязвимостей. Что и как правилось - в разделе «Исправлено» в конце.
+Стек: Next.js 15.5.23 (App Router, `output: standalone`), React 19, TypeScript, next-intl 4.13.6, Docker/Node 22.
+Версии в разделах ниже - те, что были на момент аудита (до правок).
 Спецификации: `javascript-typescript-nextjs-web-server-security.md`, `javascript-typescript-react-web-frontend-security.md`.
 
 ## Резюме
@@ -10,7 +12,7 @@
 
 Основной риск - **устаревшие зависимости**: текущий `next` попадает под 8 опубликованных advisory (включая SSRF и DoS), `next-intl` - под open redirect. Дальше по значимости идут rate limiting, который «fails open» и опирается на подделываемый заголовок, и полное отсутствие security-заголовков.
 
-Найдено: **2 High**, **3 Medium**, **5 Low**. Критичных нет.
+Найдено: **2 High**, **3 Medium**, **5 Low**. Критичных нет. Все закрыты, см. «Исправлено».
 
 ---
 
@@ -156,3 +158,34 @@
 3. SEC-04 + SEC-10 - заголовки, потом CSP в report-only.
 4. SEC-08, SEC-06, SEC-07 - мелкие правки.
 5. SEC-02 - апгрейд next-intl до 4.x отдельной веткой с полной проверкой локалей.
+
+---
+
+## Исправлено
+
+Коммиты: `1596a35` (SEC-01, 03..08, 10) и следующий за ним (SEC-02, SEC-05).
+
+| ID | Что сделано | Проверка |
+|----|-------------|----------|
+| SEC-01 | `next` 15.5.18 → **15.5.23** | `npm audit --omit=dev` → 0 |
+| SEC-02 | `next-intl` 3.26.5 → **4.13.6** (мажор) | сборка 666 страниц, вручную проверены 4 локали, локализованные пути (`/uslugi/sayty`, `/pl/uslugi/strony-internetowe`, `/ua/roboty`), блог обеих локалей, rich-text теги `<accent>`/`<br>`, hreflang, canonical, sitemap (572 URL) |
+| SEC-03 | `src/lib/clientIp.ts` - IP берётся из **последнего** хопа `x-forwarded-for` (`TRUSTED_PROXY_HOPS`, по умолчанию 1). `src/lib/rateLimit.ts` больше не возвращает `true` при отсутствии/падении Upstash, а уходит в in-process счётчик с очисткой протухших ключей | 7 POST на `/api/contact` с одного IP → `200 200 200 200 200 429 429`; добавление фейкового первого хопа не сбрасывает счётчик; другой реальный IP → 200 |
+| SEC-04 | `next.config.ts`: глобальные `Content-Security-Policy` (`base-uri`, `object-src 'none'`, `frame-ancestors 'self'`, `form-action 'self'`, `upgrade-insecure-requests`), `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy` | все 5 заголовков в ответе `next start` |
+| SEC-05 | `overrides: { "sharp": "^0.35.3" }` → sharp **0.35.3** | `/_next/image?...` → 200 `image/jpeg`, картинка отдаётся |
+| SEC-06 | `timingSafeEqual` в `src/app/api/telegram/webhook/route.ts` | неверный токен → 403 |
+| SEC-07 | `src/lib/jsonLd.ts` экранирует `<`, U+2028, U+2029; применён во всех 11 местах | `</script>` в данных превращается в `\u003c/script>`, `JSON.parse` возвращает исходную строку |
+| SEC-08 | `Dockerfile`: `npm install` → `npm ci` | - |
+| SEC-10 | `poweredByHeader: false` | `X-Powered-By` в ответе отсутствует |
+
+Дополнительно: `postcss` поднят до 8.5.x через override (сборочная зависимость, эксплуатируемости не было - обрабатывается только собственный CSS).
+
+### Осознанно не сделано
+
+**CSP без `script-src`.** Сайт полностью предрендерится, Next инлайнит RSC-payload в `<script>`. Закрыть `script-src` можно только через nonce, а nonce требует перевести все страницы в dynamic-рендер - это убьёт статику и скорость ради директивы, которая здесь ничего не защищает: пользовательский HTML на страницах не рендерится, единственный сторонний скрипт - Яндекс.Метрика. Возвращаться к этому, если на сайте появится вывод пользовательского контента.
+
+**SEC-09 (SRI для Метрики)** остаётся как принятый риск: тег вендора вставляется динамически его же loader'ом, `integrity` к нему не прикрутить. Единственная реальная альтернатива - убрать Метрику.
+
+### Что настроить на сервере
+
+- `TRUSTED_PROXY_HOPS` - число прокси перед контейнером, если их больше одного (Cloudflare + nginx → `2`). По умолчанию 1.
+- `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN` - без них лимит работает, но только в пределах одного процесса.
