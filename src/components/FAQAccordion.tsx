@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Reveal } from "./Reveal";
+import { jsonLd } from "@/lib/jsonLd";
 
 export type QA = { q: string; a: string };
 
@@ -64,7 +65,7 @@ export function FAQAccordion({ items, title }: { items: QA[]; title?: string }) 
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(schema) }}
       />
     </div>
   );

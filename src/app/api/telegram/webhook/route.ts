@@ -1,4 +1,16 @@
+import { timingSafeEqual } from "node:crypto";
+
 import { handleUpdate } from "@/lib/telegram";
+
+/** Compare without leaking the secret through response timing. */
+function secretMatches(got: string | null, expected: string): boolean {
+  if (!got) return false;
+  const a = Buffer.from(got, "utf8");
+  const b = Buffer.from(expected, "utf8");
+  // timingSafeEqual throws on length mismatch, and the length itself isn't
+  // worth hiding — the token is fixed-length once configured.
+  return a.length === b.length && timingSafeEqual(a, b);
+}
 
 // Node runtime — the bot reads/writes the file-based store.
 export const runtime = "nodejs";
@@ -21,8 +33,7 @@ export async function POST(req: Request) {
     console.error("[telegram webhook] TELEGRAM_WEBHOOK_SECRET is not set — rejecting update");
     return new Response("forbidden", { status: 403 });
   }
-  const got = req.headers.get("x-telegram-bot-api-secret-token");
-  if (got !== secret) {
+  if (!secretMatches(req.headers.get("x-telegram-bot-api-secret-token"), secret)) {
     return new Response("forbidden", { status: 403 });
   }
 

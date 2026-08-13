@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { type Locale } from "@/i18n/routing";
 import { SITE_URL, localizedHref, localeSegment, htmlLang } from "@/lib/site";
 import { isReviewLive } from "@/lib/reviews";
+import { jsonLd } from "@/lib/jsonLd";
 
 /**
  * Site-wide structured data, rendered once on the homepage.
@@ -137,7 +138,7 @@ export async function HomeJsonLd({ locale }: { locale: Locale }) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
+      dangerouslySetInnerHTML={{ __html: jsonLd(graph) }}
       data-lang={htmlLang(locale)}
     />
   );

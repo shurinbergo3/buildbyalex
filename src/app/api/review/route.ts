@@ -1,3 +1,4 @@
+import { clientIp } from "@/lib/clientIp";
 import { isDuplicate, rateLimit } from "@/lib/rateLimit";
 import { addReview } from "@/lib/store";
 import { notifyReview } from "@/lib/telegram";
@@ -37,10 +38,7 @@ export async function POST(req: Request) {
     return Response.json({ ok: false, error: "Review text required" }, { status: 400 });
   }
 
-  const ip =
-    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
-    req.headers.get("x-real-ip") ??
-    "unknown";
+  const ip = clientIp(req);
 
   const allowed = await rateLimit("review", ip, 3);
   if (!allowed) {

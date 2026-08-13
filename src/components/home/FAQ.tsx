@@ -5,6 +5,7 @@ import { useTranslations, useMessages } from "next-intl";
 import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
+import { jsonLd } from "@/lib/jsonLd";
 
 type FAQItem = { q: string; a: string };
 
@@ -76,7 +77,7 @@ export function FAQ() {
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(schema) }}
       />
     </Section>
   );

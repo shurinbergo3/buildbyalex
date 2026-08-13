@@ -1,3 +1,4 @@
+import { clientIp } from "@/lib/clientIp";
 import { isDuplicate, rateLimit } from "@/lib/rateLimit";
 import { addLead } from "@/lib/store";
 import { notifyLead } from "@/lib/telegram";
@@ -47,10 +48,7 @@ export async function POST(req: Request) {
     return Response.json({ ok: false, error: "Description required" }, { status: 400 });
   }
 
-  const ip =
-    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
-    req.headers.get("x-real-ip") ??
-    "unknown";
+  const ip = clientIp(req);
 
   const allowed = await rateLimit("contact", ip, 5);
   if (!allowed) {

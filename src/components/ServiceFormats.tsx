@@ -4,6 +4,7 @@ import { Container } from "./Container";
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
 import { SectionAtmosphere } from "./SectionAtmosphere";
+import { jsonLd } from "@/lib/jsonLd";
 
 /* Four site formats (landing / corporate / store / redesign) with prices and
    timelines — segmentation for the visitor, OfferCatalog markup for Google. */
@@ -51,7 +52,7 @@ export function ServiceFormats({ branch }: { branch: "websites" | "store" | "mob
       <Container>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(catalogSchema) }}
+          dangerouslySetInnerHTML={{ __html: jsonLd(catalogSchema) }}
         />
         <Reveal>
           <div className="mx-auto max-w-[760px] text-center">

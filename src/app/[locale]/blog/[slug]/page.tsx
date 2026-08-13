@@ -25,6 +25,7 @@ import {
 } from "@/lib/blog";
 import { SITE_URL, localeSegment, htmlLang } from "@/lib/site";
 import { ctaBackground } from "@/lib/ctaBackground";
+import { jsonLd } from "@/lib/jsonLd";
 
 // Re-render hourly so future-dated (queued) posts go live on their day without a redeploy.
 export const revalidate = 3600;
@@ -320,16 +321,16 @@ export default async function BlogPostPage({
       <script
         id="__localeNav"
         type="application/json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localeNav) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(localeNav) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(articleSchema) }}
       />
       {faqSchema && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema) }}
         />
       )}
     </>

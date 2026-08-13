@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { Container } from "./Container";
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
+import { jsonLd } from "@/lib/jsonLd";
 
 /* Week-by-week launch plan for the websites service: a vertical rail with
    four milestones and an honest "your time" estimate per week. Ships HowTo
@@ -31,7 +32,7 @@ export function ServiceTimeline({ branch }: { branch: "websites" | "store" | "mo
       <Container size="md">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+          dangerouslySetInnerHTML={{ __html: jsonLd(howToSchema) }}
         />
         <Reveal>
           <div className="mx-auto max-w-[720px] text-center">

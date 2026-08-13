@@ -25,6 +25,7 @@ import { BalticDockyardShowcase } from "@/components/BalticDockyardShowcase";
 import { routing, type Locale } from "@/i18n/routing";
 import { caseSlugToKey, caseImages, caseCategory, type CaseKey } from "@/lib/cases";
 import { SITE_URL, localizedDynamicHref, dynamicLanguageAlternates, htmlLang } from "@/lib/site";
+import { jsonLd } from "@/lib/jsonLd";
 
 export function generateStaticParams() {
   const slugs = Object.keys(caseSlugToKey);
@@ -357,7 +358,7 @@ function CaseContent({ slug, locale }: { slug: string; locale: string }) {
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(articleSchema) }}
       />
     </>
   );

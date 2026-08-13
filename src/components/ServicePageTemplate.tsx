@@ -33,6 +33,7 @@ import { SectionAtmosphere } from "./SectionAtmosphere";
 import { StoreAllegroCalc } from "./StoreAllegroCalc";
 import { MobileCaseProof } from "./MobileCaseProof";
 import { MobileCostCalc } from "./MobileCostCalc";
+import { jsonLd } from "@/lib/jsonLd";
 
 type Branch = "websites" | "store" | "ai" | "automation" | "mobile" | "telegram" | "ads";
 
@@ -175,11 +176,11 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(serviceSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema) }}
       />
       {/* ── Hero (cinematic key-art stage) ── */}
       <ServiceHero branch={branch} reviewCount={reviewCount} />
