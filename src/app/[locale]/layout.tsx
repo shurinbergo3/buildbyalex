@@ -7,8 +7,6 @@ import { notFound } from "next/navigation";
 import { cookies } from "next/headers";
 import { routing, type Locale } from "@/i18n/routing";
 import { SITE_URL, localizedHref, htmlLang, ogLocale } from "@/lib/site";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider, type Theme } from "@/components/ThemeProvider";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -118,8 +116,6 @@ export default async function LocaleLayout({
             </main>
             <Footer />
             <MobileStickyCTA />
-            <Analytics />
-            <SpeedInsights />
             <YandexMetrika />
           </ThemeProvider>
         </NextIntlClientProvider>
