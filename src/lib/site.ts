@@ -15,6 +15,18 @@ export function ogLocale(locale: Locale): string {
 }
 
 /**
+ * Map next-intl locale → BCP-47 tag for `Intl.*`. Our "ua" is a URL segment,
+ * not a language tag (Ukrainian is "uk"), and every Intl constructor silently
+ * falls back when handed it — Node picks en-US, the browser picks the visitor's
+ * own locale. Formatting the same number on both sides then disagrees, which
+ * breaks hydration and shows Ukrainian visitors numbers in whatever format
+ * their OS uses. Always run locales through here before Intl.
+ */
+export function intlLocale(locale: Locale): string {
+  return { ru: "ru-RU", en: "en-GB", pl: "pl-PL", ua: "uk-UA" }[locale] ?? "en-GB";
+}
+
+/**
  * URL locale segment, mirroring `routing.localePrefix: "as-needed"` — empty
  * for the default locale (served unprefixed at "/"), "/xx" otherwise. Every
  * absolute-URL builder below (canonical, hreflang, sitemap, OG) must agree

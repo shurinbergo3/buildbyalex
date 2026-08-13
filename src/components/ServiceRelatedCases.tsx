@@ -42,8 +42,11 @@ export function ServiceRelatedCases({
             keys.length > 1 ? "sm:grid-cols-2" : "max-w-[480px]"
           }`}
         >
+          {/* min-w-0 on the grid item: items default to min-width:auto, so the
+              card's min-content (fixed-width thumb + nowrap truncated title)
+              would push the whole page sideways on narrow phones. */}
           {keys.map((key, i) => (
-            <Reveal key={key} delay={i * 70}>
+            <Reveal key={key} delay={i * 70} className="min-w-0">
               <Link
                 href={{ pathname: "/work/[slug]", params: { slug: caseKeyToSlug[key] } }}
                 aria-label={`${tCases(`${key}.title`)} — ${tCases(`${key}.industry`)}`}
@@ -59,12 +62,17 @@ export function ServiceRelatedCases({
                   />
                 </div>
                 <div className="flex min-w-0 flex-1 flex-col justify-center gap-1 px-4 py-3.5 sm:px-5">
-                  <span className="inline-flex w-fit items-center gap-1.5 text-[10.5px] font-medium uppercase tracking-[0.06em] text-[color:var(--color-text-2)]">
+                  {/* No w-fit here: fit-content never shrinks below min-content,
+                      so with a nowrap label the row stayed wider than the column
+                      and the text got cut by the card instead of ellipsized. */}
+                  <span className="inline-flex min-w-0 items-center gap-1.5 text-[10.5px] font-medium uppercase tracking-[0.06em] text-[color:var(--color-text-2)]">
                     <span
                       className="h-1 w-1 shrink-0 rounded-full bg-[color:var(--c-accent)]"
                       aria-hidden="true"
                     />
-                    <span className="truncate">{tCases(`${key}.industry`)}</span>
+                    {/* min-w-0 so the flex item can shrink and actually
+                        ellipsize instead of being clipped by the card. */}
+                    <span className="min-w-0 truncate">{tCases(`${key}.industry`)}</span>
                   </span>
                   <h3 className="truncate text-[16px] font-semibold leading-[1.2] tracking-[-0.02em] text-[color:var(--color-text)] sm:text-[17px]">
                     {tCases(`${key}.title`)}
@@ -73,16 +81,19 @@ export function ServiceRelatedCases({
                     {tCases(`${key}.tagline`)}
                   </p>
                   <div className="mt-1 flex items-center gap-2.5">
-                    <span className="inline-flex items-baseline gap-1 text-[13px]">
-                      <span className="font-mono font-semibold tabular-nums tracking-tight text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
+                    <span className="inline-flex min-w-0 items-baseline gap-1 text-[13px]">
+                      <span className="shrink-0 whitespace-nowrap font-mono font-semibold tabular-nums tracking-tight text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
                         {tCases(`${key}.metric.value`)}
                       </span>
                       <span className="truncate text-[11px] text-[color:var(--color-text-2)]">
                         {tCases(`${key}.metric.label`)}
                       </span>
                     </span>
-                    <span className="ml-auto inline-flex items-center gap-1 text-[12.5px] font-medium text-[color:var(--color-text)]">
-                      {tIntro("cta")}
+                    {/* On a 390px phone the text column is ~200px wide — the CTA
+                        label would wrap and shove the arrow off the card, so
+                        below sm only the arrow stays. */}
+                    <span className="ml-auto inline-flex shrink-0 items-center gap-1 whitespace-nowrap text-[12.5px] font-medium text-[color:var(--color-text)]">
+                      <span className="hidden sm:inline">{tIntro("cta")}</span>
                       <span className="grid h-5 w-5 place-items-center rounded-full border border-[color:var(--c-hairline)] transition-[transform,background-color,border-color,color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-0.5 group-hover:border-[color:var(--c-accent)] group-hover:bg-[color:var(--c-accent)] group-hover:text-white">
                         <svg width="11" height="11" viewBox="0 0 14 14" aria-hidden="true">
                           <path

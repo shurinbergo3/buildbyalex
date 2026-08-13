@@ -9,6 +9,8 @@ import { Eyebrow } from "@/components/Eyebrow";
 import { Button } from "@/components/Button";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
+import { intlLocale } from "@/lib/site";
+import type { Locale } from "@/i18n/routing";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -26,7 +28,7 @@ const CONV_AFTER = 4.2;
 
 function useCountUp(target: number, active: boolean, decimals = 0, ms = 1100) {
   const reduced = useReducedMotion();
-  const locale = useLocale();
+  const locale = useLocale() as Locale;
   const [value, setValue] = useState(0);
 
   useEffect(() => {
@@ -46,7 +48,7 @@ function useCountUp(target: number, active: boolean, decimals = 0, ms = 1100) {
     return () => cancelAnimationFrame(raf);
   }, [active, target, ms, reduced]);
 
-  return new Intl.NumberFormat(locale, {
+  return new Intl.NumberFormat(intlLocale(locale), {
     minimumFractionDigits: decimals,
     maximumFractionDigits: decimals,
   }).format(value);
