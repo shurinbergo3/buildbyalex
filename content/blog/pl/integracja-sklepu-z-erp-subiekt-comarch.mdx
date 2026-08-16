@@ -1,0 +1,93 @@
+---
+title: "Integracja sklepu z ERP: Subiekt, Comarch, enova - ile kosztuje i co się psuje"
+description: "Stany magazynowe, zamówienia i faktury między sklepem a systemem ERP. Realne koszty integracji, czas wdrożenia i lista rzeczy, które wysypują się najczęściej."
+date: "2026-09-24"
+cluster: "ecommerce-erp-integration"
+keywords:
+  - "integracja sklepu z ERP"
+  - "integracja sklepu z Subiektem"
+  - "integracja Comarch ERP sklep internetowy"
+  - "synchronizacja stanów magazynowych sklep"
+---
+
+Krótka odpowiedź: integracja sklepu z systemem ERP kosztuje **1 500-4 500 €** przy standardowym zakresie (stany, produkty, zamówienia, faktury) i 4 500-9 000 € przy nietypowych regułach cenowych albo wielu magazynach. Czas: 2-6 tygodni. Największym ryzykiem nie jest kod, tylko bałagan w danych, który integracja bezlitośnie obnaża.
+
+W praktyce prawie każdy sklep, który przekroczy 20-30 zamówień dziennie, dochodzi do tego tematu. Ktoś przestaje nadążać z przepisywaniem, a stany zaczynają się rozjeżdżać.
+
+## Co dokładnie się synchronizuje
+
+Integracja to nie jedna rzecz, tylko cztery osobne przepływy, które można wdrażać etapami.
+
+**Produkty i ceny: ERP → sklep.** Nowe pozycje, zmiany cen, opisy, kategorie. Najczęściej raz dziennie albo na żądanie.
+
+**Stany magazynowe: ERP → sklep.** Ten przepływ musi chodzić często, co 5-15 minut, bo od niego zależy, czy sprzedacie coś, czego nie macie. Przy szybko rotującym asortymencie robi się to zdarzeniowo.
+
+**Zamówienia: sklep → ERP.** Zamówienie ląduje w systemie z klientem, pozycjami, dostawą i płatnością. Tu wysypuje się najwięcej rzeczy, bo sklep i ERP mają inne pojęcie o tym, czym jest zamówienie.
+
+**Dokumenty: ERP → sklep i klient.** Faktura, korekta, numer przesyłki. Od 2026 dochodzi obowiązkowy [KSeF](/pl/blog/ksef-2026-sklep-internetowy-integracja), który zmienia sposób, w jaki faktura powstaje i gdzie żyje.
+
+Wycena zależy głównie od tego, ile z tych czterech wdrażacie i w którą stronę.
+
+## Ile kosztuje przy konkretnych systemach
+
+| System | Sposób integracji | Koszt | Uwagi |
+|---|---|---|---|
+| Subiekt GT / nexo | Sfera albo pośrednik na serwerze | 1 800-4 000 € | Wymaga usługi po stronie serwera z Subiektem |
+| Comarch ERP Optima | API / dedykowany konektor | 1 500-3 500 € | Najlepiej udokumentowany z tej trójki |
+| enova365 | API REST | 2 000-4 500 € | Zależy mocno od wersji i modułów |
+| WAPRO, Streamsoft | Baza / pliki wymiany | 2 500-6 000 € | Częściej wymaga rozwiązań niestandardowych |
+
+Do tego licencje po stronie ERP, jeśli moduł wymiany danych nie jest w Waszym pakiecie - to pozycja, o której warto zapytać producenta przed wyceną, bo potrafi dorzucić kilka tysięcy złotych.
+
+## Cztery rzeczy, które psują się najczęściej
+
+**Kody produktów.** Sklep zna produkt po SKU, ERP po własnym indeksie, a magazynier po nazwie z pudełka. Jeśli te trzy rzeczy nie mają jednoznacznego powiązania, integracja zacznie tworzyć duplikaty. To jest praca do wykonania przed startem i zwykle po stronie klienta.
+
+**Warianty.** Koszulka w trzech rozmiarach to w sklepie jeden produkt z wariantami, a w ERP trzy osobne pozycje - albo odwrotnie. Mapowanie wariantów bywa większą częścią projektu niż cała reszta.
+
+**Rezerwacje stanu.** Klient dodał do koszyka, zapłacił po dwóch godzinach, a w międzyczasie ktoś kupił ostatnią sztukę w sklepie stacjonarnym. Bez logiki rezerwacji sprzedajecie towar, którego nie ma - i to jest najczęstsza przyczyna zwrotów i złych opinii.
+
+**Zwroty i korekty.** Wszyscy planują szczęśliwą ścieżkę. Zwrot z częściowym rozliczeniem, korekta faktury i przywrócenie stanu to osobna logika, o której przypomina się po pierwszym zwrocie.
+
+## Jak to wdrażać, żeby nie stanąć
+
+Kolejność, która sprawdza się w praktyce.
+
+Najpierw jeden kierunek: stany z ERP do sklepu. Efekt widać od razu (przestajecie sprzedawać brakujący towar), a ryzyko jest minimalne, bo nic nie zapisujecie w systemie księgowym.
+
+Potem zamówienia ze sklepu do ERP, przez tydzień lub dwa z ręczną kontrolą - ktoś porównuje, czy w systemie pojawia się to samo, co w sklepie.
+
+Na końcu produkty i dokumenty. Ten etap ruszajcie dopiero wtedy, gdy poprzednie chodzą bez niespodzianek.
+
+Wdrożenie wszystkiego naraz w jeden weekend kończy się zwykle tym, że w poniedziałek nikt nie wie, czy błąd jest w mapowaniu produktów, czy w zamówieniach.
+
+## Czego pilnować w umowie
+
+Obsługa błędów i ponowne próby. Integracja bez tego przy pierwszej niedostępności ERP po prostu gubi zamówienie.
+
+Logi w formie czytelnej dla człowieka, żeby dało się sprawdzić, co i kiedy poszło. Bez nich każde "u klienta nie ma faktury" zamienia się w śledztwo.
+
+Powiadomienie, gdy synchronizacja stanie. Cicha awaria wymiany stanów jest gorsza niż jej brak, bo przez trzy dni sprzedajecie na starych danych.
+
+Dostęp do kodu i dokumentacja. Integracja to element, od którego zależy Wasza sprzedaż - nie powinna być czarną skrzynką jednego wykonawcy.
+
+## FAQ
+
+**Ile kosztuje integracja sklepu z Subiektem?**
+Standardowy zakres, czyli stany, produkty, zamówienia i faktury, to 1 800-4 000 € przy 3-5 tygodniach pracy. Subiekt wymaga usługi pośredniczącej działającej na serwerze, na którym stoi program, więc do wyceny dochodzi konfiguracja tego elementu i, w części przypadków, licencja na moduł wymiany danych.
+
+**Jak często powinny synchronizować się stany magazynowe?**
+Przy zwykłym asortymencie wystarczy co 10-15 minut, przy towarze szybko rotującym albo sprzedaży wielokanałowej lepiej działa synchronizacja zdarzeniowa, wywoływana zmianą stanu. Kluczowa jest przy tym logika rezerwacji - bez niej nawet częsta synchronizacja nie uchroni przed sprzedażą ostatniej sztuki dwa razy.
+
+**Czy integrację da się zrobić gotową wtyczką?**
+Dla popularnych par, na przykład WooCommerce i Comarch Optima, istnieją gotowe konektory i przy prostym asortymencie potrafią wystarczyć. Problem zaczyna się przy wariantach, wielu magazynach, cenach per klient i nietypowych rabatach - wtedy konfiguracja gotowca zajmuje więcej niż napisanie integracji pod siebie.
+
+**Co się dzieje, gdy ERP jest niedostępny?**
+Poprawnie zbudowana integracja kolejkuje operacje i ponawia je po powrocie systemu, a Wam wysyła powiadomienie o przerwie. Gorszy scenariusz, spotykany w tanich wdrożeniach, to zgubione zamówienie i brak jakiegokolwiek śladu, że coś nie doszło.
+
+**Ile trwa wdrożenie integracji?**
+Od 2 tygodni przy jednym kierunku i prostym asortymencie do 6 tygodni przy pełnym zakresie z wariantami i wieloma magazynami. Najczęstszym powodem opóźnienia jest porządkowanie kodów produktów po stronie klienta - warto zacząć od tego, zanim programista w ogóle usiądzie do pracy.
+
+---
+
+Rozjeżdżają Wam się stany albo ktoś przepisuje zamówienia ręcznie? [Napiszcie, z jakiego ERP i sklepu korzystacie](/pl/kontakt) - powiem, co da się zintegrować w pierwszym etapie i ile to zajmie.

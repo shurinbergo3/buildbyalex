@@ -1,8 +1,7 @@
 "use client";
 
 import Script from "next/script";
-
-const YM_ID = 109616933;
+import { YM_ID } from "@/lib/analytics";
 
 /**
  * Yandex.Metrika counter. Loaded via next/script with `afterInteractive`

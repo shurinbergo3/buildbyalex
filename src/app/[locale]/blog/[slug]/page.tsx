@@ -11,6 +11,8 @@ import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/Button";
 import { CtaGlassLayers } from "@/components/CtaGlass";
+import { PostOffer } from "@/components/blog/PostOffer";
+import { geoBranchFor } from "@/lib/geoPosts";
 import { routing, type Locale } from "@/i18n/routing";
 import {
   getAllPostSlugs,
@@ -167,6 +169,10 @@ export default async function BlogPostPage({
     keywords: post.keywords?.join(", "),
   };
 
+  // City posts (see lib/geoPosts) sell a specific service — they get a price
+  // and an enquiry button under the headline. null for every other post.
+  const geoBranch = geoBranchFor(post.cluster);
+
   // FAQPage rich-result schema, built from the post's `## FAQ` block (if any).
   const faq = extractFaq(post.content);
   const faqSchema =
@@ -232,6 +238,9 @@ export default async function BlogPostPage({
 
       <Section pad="default" className="!pt-4">
         <Container size="md">
+          {/* City posts carry commercial intent — price and enquiry go above
+              the article, not after it. Other posts render nothing here. */}
+          {geoBranch && <PostOffer branch={geoBranch} />}
           <article className={proseClasses}>
             <MDXRemote source={post.content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
           </article>

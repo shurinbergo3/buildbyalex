@@ -13,10 +13,10 @@
 
 ## What I build (with starting prices)
 
-### Websites — from €800
+### Websites — from €1,200
 Production sites on Next.js 15 / React 19 / TypeScript / Tailwind. Multilingual (RU/EN/PL/UA) with localized URLs and hreflang. Schema.org, IndexNow, OG generation, sub-1s LCP. CMS optional (Sanity, Notion, MDX). 30 days of edits included. Typical delivery: 2–3 weeks for marketing sites, 4–6 weeks for larger projects.
 
-### AI Agents — from €1,200
+### AI Agents — from €1,500
 RAG assistants (knowledge-base chats with strict citation), sales bots (lead qualification, CRM integration), automations (lead pull, email classification, content generation). Models: OpenAI GPT, Anthropic Claude, Google Gemini — provider-agnostic via abstraction layer. Integrations: AmoCRM, HubSpot, Pipedrive, Telegram Bot, WhatsApp via Wappi, Instagram DM, Slack. Always with a human-in-the-loop dashboard.
 
 ### Mobile apps — from €3,000

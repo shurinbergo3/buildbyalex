@@ -1,8 +1,8 @@
 {
   "meta": {
     "siteName": "buildbyalex",
-    "defaultTitle": "Web, AI Agent & App Development — buildbyalex",
-    "defaultDescription": "Turnkey development: websites, AI agents and mobile apps in 1-3 weeks, from the first call to release. Working remotely with clients worldwide. RU · EN · PL · UA.",
+    "defaultTitle": "Web & AI Agent Development in Warsaw - buildbyalex",
+    "defaultDescription": "Websites, AI agents and mobile apps, turnkey in 1-3 weeks. Based in Warsaw, working with clients across Poland, the EU and remotely. Sites from €1,200, AI agents from €1,500.",
     "ogAlt": "buildbyalex · independent developer",
     "ogServices": "Websites · AI agents · Mobile apps · Automation"
   },
@@ -48,7 +48,8 @@
         "title": "Telegram bots",
         "tagline": "Bots & Mini Apps with in-chat payments"
       }
-    }
+    },
+    "pricing": "Pricing"
   },
   "footer": {
     "tagline": "Turnkey development. Three weeks to launch. Built to rank.",
@@ -71,11 +72,11 @@
     },
     "location": "Warsaw, Poland",
     "rights": "All rights reserved.",
-    "legal": "Independent contractor · VAT EU eligible"
+    "legal": "Studio · Warsaw · VAT EU"
   },
   "home": {
     "hero": {
-      "eyebrow": "Web development & AI agents",
+      "eyebrow": "Web development & AI agents · Warsaw",
       "headline": "Website, AI agent\nand app development",
       "kicker": "Turnkey in 1-3 weeks",
       "subhead": "Design, code, CRM, messenger and AI integrations, launch and support, handled end to end. From first call to live, with no dropped deadlines.",
@@ -87,8 +88,8 @@
       "altLink": "Message me on Telegram"
     },
     "pain": {
-      "eyebrow": "Why work with me",
-      "headline": "Why clients pick me over an agency.",
+      "eyebrow": "Why us",
+      "headline": "Why clients pick us over an agency.",
       "lead": "Three reasons, each backed by a project that is live right now and bringing in enquiries.",
       "cta": "Talk about my project",
       "items": {
@@ -118,8 +119,8 @@
           }
         },
         "seo": {
-          "title": "I launch, hand over and let go",
-          "body": "You talk to me directly, no account managers, no juniors. Domain, repository and access sit in your name, with 30 days of support included.",
+          "title": "We launch, hand over and let go",
+          "body": "You talk to the developer directly, no account managers, no juniors. Domain, repository and access sit in your name, with 30 days of support included.",
           "tab": "Your code",
           "proof": {
             "label": "Live right now",
@@ -132,7 +133,7 @@
     "services": {
       "eyebrow": "Services",
       "headline": "Websites, AI and apps that bring you clients.",
-      "subhead": "Pick one or combine them. I work with founders, small companies and marketing teams that need senior delivery without the agency overhead.",
+      "subhead": "Pick one or combine them. We work with founders, small companies and marketing teams that need senior delivery without the agency overhead.",
       "items": {
         "websites": {
           "title": "Websites that rank.",
@@ -140,7 +141,7 @@
           "stack": "Next.js · TypeScript · Tailwind · next-intl · Vercel",
           "link": "Learn more",
           "category": "Websites",
-          "price": "€800",
+          "price": "€1,200",
           "bullets": [
             "Next.js 15 + React 19",
             "Multilingual, SEO & GEO baked in",
@@ -154,7 +155,7 @@
           "stack": "Gemini · GPT · Claude · Function calling · AmoCRM · Telegram",
           "link": "Learn more",
           "category": "AI & Automation",
-          "price": "€500",
+          "price": "€1,500",
           "bullets": [
             "RAG, sales & qualification bots",
             "Plugged into your CRM and tools",
@@ -188,13 +189,13 @@
         "category": "Stores",
         "title": "Online stores",
         "body": "Catalog, cart and BLIK/Przelewy24 payments — a fast store on Next.js, ready for Google.",
-        "price": "From €1,500"
+        "price": "From €1,800"
       },
       "badge": "Most asked",
       "art": {
         "chat1": "I reply in seconds and take the brief",
         "chat2": "How much does it cost?",
-        "chat3": "From €600. Sending to CRM",
+        "chat3": "From €900. Sending to CRM",
         "lead": "Lead in CRM",
         "deal": "Deal won",
         "speed": "0.9s to first paint",
@@ -219,7 +220,7 @@
         "appRank": "in category",
         "flowChat": "WhatsApp · bot",
         "flowAsk": "How much is it?",
-        "flowReply": "From €600. Shall we start?",
+        "flowReply": "From €900. Shall we start?",
         "adsCpl": "per lead",
         "adsCheck": "average order"
       },
@@ -227,7 +228,7 @@
         "category": "Automation",
         "title": "Business process automation",
         "body": "Leads, CRM, notifications, reports — I wire your tools into a flow that runs itself.",
-        "price": "From €600"
+        "price": "From €900"
       },
       "telegram": {
         "category": "Telegram",
@@ -513,21 +514,21 @@
         "site": {
           "title": "Website",
           "from": "from",
-          "price": "€800",
+          "price": "€1,200",
           "body": "Marketing site, multilingual, SEO-ready, deployed and indexed.",
           "examples": "5–15 pages · Next.js · CMS optional"
         },
         "ai": {
           "title": "AI Agent",
           "from": "from",
-          "price": "€500",
+          "price": "€1,500",
           "body": "A focused bot for one job: FAQ, order status or qualification — on your data.",
           "examples": "FAQ bot · RAG · 1 channel"
         },
         "automation": {
           "title": "Automation",
           "from": "from",
-          "price": "€600",
+          "price": "€900",
           "body": "Your tools wired into one automatic flow — no manual data shuffling.",
           "examples": "Make · n8n · API · CRM · Telegram"
         },
@@ -559,133 +560,133 @@
       "eyebrow": "Straight talk",
       "headline": "Whether we are a fit.",
       "lead": "So neither of us burns an hour on a call that was never going anywhere.",
-      "yesTitle": "I take it on if",
-      "noTitle": "I pass if",
+      "yesTitle": "We take it on if",
+      "noTitle": "We pass if",
       "yes": [
         "There is a real task and a deadline: launch, redesign, automation, an app.",
-        "Budget starts at €500 and you make the call, not a committee of five departments.",
-        "You want one person accountable for everything, from design to deploy.",
+        "Budget starts at €900 and you make the call, not a committee of five departments.",
+        "You want one team accountable for the whole result, from design to deploy.",
         "Being found on Google and in AI search matters, not just looking nice."
       ],
       "no": [
-        "You are shopping for the cheapest quote. I won't do it for €150, and saying so beats failing later.",
-        "You need a full-time in-house developer. I work project by project.",
+        "You are shopping for the cheapest quote. We won't do it for €150, and saying so beats failing later.",
+        "You need a full-time in-house developer. We work project by project.",
         "The brief is \"do something so sales happen\" and there is no product or offer yet.",
         "Every small change needs a week of approvals. Speed is half the value here."
       ],
       "ctaTitle": "Sounds like your situation?",
-      "ctaBody": "Send a couple of lines about the task. I reply within hours and tell you straight whether I'm the right fit.",
+      "ctaBody": "Send a couple of lines about the task. We reply within hours and tell you straight whether we're the right fit.",
       "ctaPrimary": "Describe the project",
       "ctaTelegram": "Or on Telegram"
     },
     "testimonials": {
       "eyebrow": "What clients say",
       "headline": "Trusted by founders and operators.",
-      "subhead": "A few words from founders and teams I've shipped for.",
+      "subhead": "A few words from founders and teams we've shipped for.",
       "rating": "4.8",
       "count": "reviews",
       "list": [
         {
           "name": "Marek Wójcik",
-          "role": "Founder · Stryke Apparel",
+          "role": "Founder · apparel brand",
           "date": "2 weeks ago",
           "quote": "Launched our store in 11 days — multilingual, fast, and already on page one for three of our main keywords.",
           "rating": 5
         },
         {
           "name": "Anna Kovalenko",
-          "role": "Marketing · Lumière Clinic",
+          "role": "Marketing · aesthetic clinic",
           "date": "1 month ago",
           "quote": "The Telegram bot handles the first conversation with every lead now. My sales rep only steps in when the deal is hot.",
           "rating": 5
         },
         {
           "name": "Dmytro Orlov",
-          "role": "COO · Vector Logistics",
+          "role": "COO · logistics company",
           "date": "3 weeks ago",
           "quote": "Leads land in our CRM with every field already filled. No more copy-pasting from chats — the pipeline moves itself.",
           "rating": 5
         },
         {
           "name": "Katarzyna Nowak",
-          "role": "Owner · Belle Studio",
+          "role": "Owner · beauty studio, Warsaw",
           "date": "1 month ago",
           "quote": "Shipped to the App Store and Google Play in three weeks. The handover docs let my team take it from there without me.",
           "rating": 5
         },
         {
           "name": "Tomasz Lewandowski",
-          "role": "Director · Nest Estate",
+          "role": "Director · real estate agency",
           "date": "2 months ago",
           "quote": "Set up our Google and Meta ads from zero. Cost per lead dropped by about a third in the first month.",
           "rating": 5
         },
         {
           "name": "Oleh Hrytsenko",
-          "role": "Co-founder · NorthPeak",
+          "role": "Co-founder · tech startup",
           "date": "5 days ago",
           "quote": "He rebuilt the site and six weeks later ChatGPT was recommending us by name. Didn't know that was even possible.",
           "rating": 5
         },
         {
           "name": "Natalia Boyko",
-          "role": "Head of growth · EduLab",
+          "role": "Head of growth · online school",
           "date": "3 months ago",
           "quote": "Our pages went from sluggish to instant. Mobile bounce rate dropped noticeably within weeks.",
           "rating": 5
         },
         {
           "name": "Piotr Zieliński",
-          "role": "Partner · Lex Partners",
+          "role": "Partner · law firm, Warsaw",
           "date": "6 weeks ago",
           "quote": "Friday demos every week meant zero surprises. Delivered exactly what we agreed, on the date he promised.",
           "rating": 5
         },
         {
           "name": "Michał Kaczmarek",
-          "role": "Owner · Forma Fitness",
+          "role": "Owner · fitness club",
           "date": "2 weeks ago",
           "quote": "Talking straight to the person who builds it is a different game. Fast answers, no account-manager runaround.",
           "rating": 5
         },
         {
           "name": "Sofia Adamczyk",
-          "role": "Owner · Brew & Bloom",
+          "role": "Owner · coffee shop, Warsaw",
           "date": "1 week ago",
           "quote": "Booking page, menu and online orders — all live in two weeks. Our regulars order through the site now instead of calling.",
           "rating": 5
         },
         {
           "name": "Wiktor Kowalczyk",
-          "role": "Founder · Tablo",
+          "role": "Founder · SaaS product",
           "date": "1 month ago",
           "quote": "Turned a pile of Notion notes into a working dashboard. The onboarding flow alone cut our support tickets in half.",
           "rating": 5
         },
         {
           "name": "Iryna Savchenko",
-          "role": "Marketing lead · Verde Cosmetics",
+          "role": "Marketing lead · cosmetics brand",
           "date": "2 weeks ago",
           "quote": "Great work in the end, but the first deadline slipped by about a week. To be fair, he flagged it early and the extra polish was worth it.",
           "rating": 4
         },
         {
           "name": "Bartosz Nowicki",
-          "role": "CEO · Hauz Interiors",
+          "role": "CEO · interior design studio",
           "date": "1 month ago",
           "quote": "Our old site looked like 2014. The new one loads instantly and we finally get enquiries from Google, not just referrals.",
           "rating": 5
         },
         {
           "name": "Kamil Pawlak",
-          "role": "Founder · Trek Gear",
+          "role": "Founder · outdoor gear store",
           "date": "1 month ago",
           "quote": "The result is fine and runs reliably. Getting there was slower than promised though — I had to chase for a status update a couple of times during a busy stretch.",
           "rating": 3
         },
         {
           "name": "Olena Tkachenko",
-          "role": "Owner · Mira Jewelry",
+          "role": "Owner · jewellery brand",
           "date": "3 weeks ago",
           "quote": "Migrated the whole store without losing a single order. Checkout is smoother and cart abandonment dropped noticeably in the first month.",
           "rating": 5
@@ -1328,11 +1329,11 @@
         },
         {
           "q": "Do you work with Polish companies? Do you speak Polish?",
-          "a": "Yes. I work with Polish clients regularly. I speak conversational Polish, fluent English and native Russian / Ukrainian. Contracts can be signed under Polish law and invoicing is handled with VAT EU."
+          "a": "Yes. We work with Polish clients regularly: conversational Polish, fluent English, native Russian and Ukrainian. Contracts can be signed under Polish law and invoicing is handled with VAT EU."
         },
         {
           "q": "Can you build a site in Ukrainian for the diaspora market?",
-          "a": "Yes. Several of my projects ship in PL / EN / UA / RU simultaneously. I handle proper i18n routing, hreflang, locale-specific SEO and content translation review with native speakers."
+          "a": "Yes. Several of our projects ship in PL / EN / UA / RU simultaneously. We handle proper i18n routing, hreflang, locale-specific SEO and translation review with native speakers."
         },
         {
           "q": "What happens after the project is delivered?",
@@ -1340,15 +1341,15 @@
         },
         {
           "q": "How much does an AI chatbot or agent cost?",
-          "a": "AI agents start at €500 for a focused use case (a FAQ assistant, a lead qualifier, a single-tool automation). A sales agent with CRM is from €1,500; a multi-tool agent with integrations runs €3,000–8,000. Final price after a 30-minute scoping call."
+          "a": "AI agents start at €1,500 for a focused use case (a FAQ assistant, a lead qualifier, a single-tool automation). A sales agent with CRM is from €2,500; a multi-tool agent with integrations runs €4,500–12,000. Final price after a 30-minute scoping call."
         },
         {
           "q": "Do you build for Android as well as iOS?",
-          "a": "Yes — I build cross-platform from a single codebase using React Native and Expo, then submit to both the App Store and Google Play. If a project genuinely needs platform-native, I'll tell you upfront and quote accordingly."
+          "a": "Yes - cross-platform from a single codebase using React Native and Expo, then submitted to both the App Store and Google Play. If a project genuinely needs platform-native code, we say so upfront and quote it separately."
         },
         {
           "q": "How is working with you different from hiring an agency?",
-          "a": "You message me directly. No account managers, no junior developers handling your project while a senior signs off. The person you brief is the person writing the code. Decisions take minutes, not weeks."
+          "a": "You message the developer directly. No account managers, no junior developers handling your project while a senior signs off. The person you brief is the person writing the code. Decisions take minutes, not weeks."
         },
         {
           "q": "Can you build a website that actually ranks on Google?",
@@ -1360,7 +1361,7 @@
         },
         {
           "q": "What if I need changes after launch?",
-          "a": "Edits are billed at €50 per hour, with a one-hour minimum. No forced monthly retainer. You can come back six months later for a small change and I'll handle it — same terms, same rate."
+          "a": "Edits are billed at €50 per hour, with a one-hour minimum. No forced monthly retainer. You can come back six months later with a small change and we'll handle it - same terms, same rate."
         },
         {
           "q": "Do you work remotely? Where are your clients based?",
@@ -1371,7 +1372,7 @@
     "finalCta": {
       "eyebrow": "Let's build it",
       "headline": "Got something to ship?",
-      "subhead": "Free 30-minute call. No sales pitch — just a real conversation about what you need and whether I'm the right person to build it.",
+      "subhead": "Free 30-minute call. No sales pitch - just a real conversation about what you need and whether we're the right studio to build it.",
       "primaryCta": "Book a free consultation",
       "or": "or email",
       "email": "info@buildbyalex.com",
@@ -1441,18 +1442,18 @@
   "services": {
     "intro": {
       "eyebrow": "Services",
-      "headline": "What I do.",
+      "headline": "What we do.",
       "subhead": "Four focused offerings. Each one ships with a fixed starting price, a clear process and real case studies. Pick one — or combine them."
     },
     "websites": {
       "meta": {
-        "title": "Website Development Agency in Warsaw | from €800",
-        "description": "Custom Next.js websites — multilingual, SEO-ready, built to convert. Warsaw-based, from €800, launched in 2–4 weeks. Get a free quote."
+        "title": "Website Development Agency in Warsaw | from €1,200",
+        "description": "Custom Next.js websites — multilingual, SEO-ready, built to convert. Warsaw-based, from €1,200, launched in 2–4 weeks. Get a free quote."
       },
       "eyebrow": "Websites · Warsaw",
       "headline": "Websites\nthat bring in leads.",
       "lead": "Custom website development in Warsaw: a modern Next.js production site — multilingual and SEO-ready from day one, not a 2015-era business-card page.",
-      "from": "From €800",
+      "from": "From €1,200",
       "primaryCta": "Discuss the project",
       "hero": {
         "badge": "Built for Google & AI search",
@@ -1776,7 +1777,7 @@
           {
             "title": "Landing",
             "from": "from",
-            "price": "€400",
+            "price": "€700",
             "market": "4,000–6,000 zł",
             "body": "A one-pager built around a single goal — a lead or a sale.",
             "features": [
@@ -1790,7 +1791,7 @@
           {
             "title": "Multilingual build",
             "from": "from",
-            "price": "€1,000",
+            "price": "€1,500",
             "market": "20,000–40,000 zł",
             "featured": true,
             "body": "Many pages + EN / PL / UA / RU localisations.",
@@ -1806,7 +1807,7 @@
           {
             "title": "Multi-page / shop",
             "from": "from",
-            "price": "€1,200",
+            "price": "€1,800",
             "market": "10,000–18,000 zł",
             "body": "10–50 pages, or a catalogue with cart and checkout.",
             "features": [
@@ -1944,7 +1945,7 @@
         "rows": [
           {
             "label": "Price",
-            "me": "€400-1,500",
+            "me": "€700-2,500",
             "vals": [
               "4,000-40,000 zł",
               "unpredictable",
@@ -2124,7 +2125,7 @@
         "items": [
           {
             "title": "Landing page",
-            "price": "€400",
+            "price": "€700",
             "time": "1-2 weeks",
             "desc": "One page with one goal: collect leads from ads, sell a service, announce a launch.",
             "audience": "For services, experts and ad campaigns",
@@ -2136,7 +2137,7 @@
           },
           {
             "title": "Company website",
-            "price": "€800",
+            "price": "€1,200",
             "time": "2-4 weeks",
             "desc": "A multi-page site: services, case studies, blog. The main format for ranking on Google.",
             "audience": "For companies, clinics, studios, B2B",
@@ -2148,7 +2149,7 @@
           },
           {
             "title": "Online store",
-            "price": "€1,200",
+            "price": "€1,800",
             "time": "3-5 weeks",
             "desc": "Catalogue, cart, payments: Stripe, Przelewy24, BLIK. Shipping and inventory integrations.",
             "audience": "For product businesses and D2C brands",
@@ -2162,7 +2163,7 @@
           },
           {
             "title": "Redesign & migration",
-            "price": "€600",
+            "price": "€900",
             "time": "2-3 weeks",
             "desc": "Your site is dated or sluggish - I move it to a fast architecture without losing Google rankings.",
             "audience": "For sites older than 3-4 years and slow WordPress",
@@ -2177,13 +2178,13 @@
     },
     "store": {
       "meta": {
-        "title": "Online Store Development in Warsaw — from €1500",
-        "description": "Order an online store in Warsaw, turnkey: catalog, cart, BLIK/Przelewy24/Stripe payments, warehouse and shipping integration. From €1500."
+        "title": "Online Store Development in Warsaw — from €1,800",
+        "description": "Order an online store in Warsaw, turnkey: catalog, cart, BLIK/Przelewy24/Stripe payments, warehouse and shipping integration. From €1,800."
       },
       "eyebrow": "Online stores · Warsaw",
       "headline": "Online stores in Warsaw\nthat actually sell.",
       "lead": "Online store development in Warsaw, turnkey: catalog, cart and checkout that don't lose the buyer on the way to the order. Built on Next.js — fast, multilingual and Google-ready from day one.",
-      "from": "From €1,500",
+      "from": "From €1,800",
       "primaryCta": "Discuss your store",
       "hero": {
         "badge": "Ready for sales and Google",
@@ -2363,7 +2364,7 @@
         "items": [
           {
             "q": "How much does online store development in Warsaw cost?",
-            "a": "It depends on the number of products, integrations and design. A simple store on a ready catalog starts at €1,500; a store with warehouse, CRM and custom logic starts at €4,000. The exact quote is fixed before we start — no hourly surprises."
+            "a": "It depends on the number of products, integrations and design. A simple store on a ready catalog starts at €1,800; a store with warehouse, CRM and custom logic starts at €5,000. The exact quote is fixed before we start — no hourly surprises."
           },
           {
             "q": "How fast can you launch the store?",
@@ -2420,7 +2421,7 @@
           {
             "title": "Migration / redesign",
             "from": "from",
-            "price": "€2,000",
+            "price": "€2,500",
             "market": "15,000–30,000 zł",
             "body": "Migration from WooCommerce, Shopify or PrestaShop without losing rankings.",
             "features": [
@@ -2434,7 +2435,7 @@
           {
             "title": "Starter store",
             "from": "from",
-            "price": "€1,500",
+            "price": "€1,800",
             "market": "10,000–18,000 zł",
             "body": "A ready catalog with cart and payments — for a fast sales start.",
             "features": [
@@ -2449,7 +2450,7 @@
           {
             "title": "Business store",
             "from": "from",
-            "price": "€4,000",
+            "price": "€5,000",
             "market": "25,000–60,000 zł",
             "body": "Warehouse, CRM and shipping integrations for your real processes.",
             "features": [
@@ -2490,7 +2491,7 @@
         "items": [
           {
             "title": "Starter store",
-            "price": "€1,500",
+            "price": "€1,800",
             "time": "2-3 weeks",
             "desc": "A catalogue up to 100 products, cart and payments - everything to start selling from your own domain.",
             "audience": "For a first store and D2C brands",
@@ -2502,7 +2503,7 @@
           },
           {
             "title": "Business store",
-            "price": "€4,000",
+            "price": "€5,000",
             "time": "4-6 weeks",
             "desc": "A large catalogue with warehouse, Allegro and accounting integrations. A store as a system, not a storefront.",
             "audience": "For established retail and wholesale",
@@ -2514,7 +2515,7 @@
           },
           {
             "title": "Platform migration",
-            "price": "€2,000",
+            "price": "€2,500",
             "time": "2-4 weeks",
             "desc": "Moving off Shoper, Wix or slow WooCommerce onto a fast architecture - without losing rankings.",
             "audience": "For stores that hit the platform's ceiling",
@@ -2596,7 +2597,7 @@
         "rows": [
           {
             "label": "Getting started",
-            "me": "from €1,500 one-off",
+            "me": "from €1,800 one-off",
             "vals": [
               "70-300 zł/mo subscription",
               "free to start"
@@ -2762,13 +2763,13 @@
     },
     "ai": {
       "meta": {
-        "title": "AI Agent & Chatbot Development in Warsaw — from €500",
-        "description": "We build production AI agents on your data: RAG, CRM, Telegram & WhatsApp integration. Automate sales and support. Warsaw-based. From €500."
+        "title": "AI Agent & Chatbot Development in Warsaw — from €1,500",
+        "description": "We build production AI agents on your data: RAG, CRM, Telegram & WhatsApp integration. Automate sales and support. Warsaw-based. From €1,500."
       },
       "eyebrow": "AI agents · Warsaw",
       "headline": "AI agents for business in Warsaw\nthat actually close.",
       "lead": "I build AI agents and chatbots for business on your own data: connected to your CRM, Telegram and WhatsApp, with metrics and an admin panel. Production-ready, not a toy.",
-      "from": "From €500",
+      "from": "From €1,500",
       "primaryCta": "Discuss the task",
       "hero": {
         "badge": "Running in production",
@@ -2896,7 +2897,7 @@
           {
             "title": "Chatbot / FAQ agent",
             "from": "from",
-            "price": "€500",
+            "price": "€1,500",
             "market": "€2,000–8,000",
             "body": "A narrow bot for one job: FAQ, order status or qualification — one channel.",
             "features": [
@@ -2910,7 +2911,7 @@
           {
             "title": "Sales agent with CRM",
             "from": "from",
-            "price": "€1,500",
+            "price": "€2,500",
             "market": "€8,000–20,000",
             "featured": true,
             "body": "RAG on your data + CRM integration and lead qualification. The most common pick.",
@@ -2926,7 +2927,7 @@
           {
             "title": "Multi-tool agent",
             "from": "from",
-            "price": "€3,000",
+            "price": "€4,500",
             "market": "€20,000–60,000",
             "body": "An agent that acts, not just answers: multiple tools, integrations and automations.",
             "features": [
@@ -2962,12 +2963,12 @@
       "formats": {
         "eyebrow": "Formats",
         "headline": "Which agent you need",
-        "sub": "Three typical scenarios. Not sure which one is yours - tell me on a call where you lose clients. If a simple €400 automation is enough, I'll say so.",
+        "sub": "Three typical scenarios. Not sure which one is yours - tell me on a call where you lose clients. If a simple €900 automation is enough, I'll say so.",
         "priceFrom": "from",
         "items": [
           {
             "title": "Website chat agent",
-            "price": "€500",
+            "price": "€1,500",
             "time": "1-2 weeks",
             "desc": "Answers questions about your services and prices, collects contacts, sends leads straight to you.",
             "audience": "For services, clinics, salons, studios",
@@ -2979,7 +2980,7 @@
           },
           {
             "title": "Sales agent with CRM",
-            "price": "€1 500",
+            "price": "€2,500",
             "time": "2-3 weeks",
             "desc": "Qualifies the lead, books the appointment, keeps the CRM card updated - like a manager, just around the clock.",
             "audience": "For sales teams and client booking",
@@ -2991,7 +2992,7 @@
           },
           {
             "title": "Multi-tool agent",
-            "price": "€3 000",
+            "price": "€4,500",
             "time": "3-5 weeks",
             "desc": "Works with several systems at once: CRM, inventory, calendar, documents. Doesn't just answer - gets things done.",
             "audience": "For companies with complex processes",
@@ -3015,7 +3016,7 @@
         "rows": [
           {
             "label": "Upfront",
-            "me": "€500-3 000 one-time",
+            "me": "€1,500-4 500 one-time",
             "vals": [
               "€0-100",
               "recruiting + onboarding"
@@ -3168,13 +3169,13 @@
     },
     "automation": {
       "meta": {
-        "title": "Business Process Automation in Warsaw | from €600",
-        "description": "Business process automation services in Warsaw. We connect your CRM, Telegram, WhatsApp & Google Sheets into one workflow with Make, n8n & Zapier. From €600."
+        "title": "Business Process Automation in Warsaw | from €900",
+        "description": "Business process automation services in Warsaw. We connect your CRM, Telegram, WhatsApp & Google Sheets into one workflow with Make, n8n & Zapier. From €900."
       },
       "eyebrow": "Automation · Warsaw",
       "headline": "Business process automation in Warsaw,\nminus the busywork.",
       "lead": "Business process automation in Warsaw: I connect your tools — CRM, Telegram, WhatsApp, spreadsheets — into one Make/n8n workflow that runs itself. No copy-paste, no lost leads.",
-      "from": "From €600",
+      "from": "From €900",
       "primaryCta": "Discuss your process",
       "hero": {
         "badge": "Runs 24/7",
@@ -3204,7 +3205,7 @@
             },
             {
               "s": "out",
-              "t": "From €600. Shall I start the request?"
+              "t": "From €900. Shall I start the request?"
             },
             {
               "s": "in",
@@ -3378,14 +3379,14 @@
           {
             "title": "Connection",
             "from": "from",
-            "price": "€400",
+            "price": "€900",
             "body": "One flow across 2–3 tools — leads, notifications and data moved with no hands.",
             "examples": "1 flow · Make / n8n · 2–3 integrations · 3–5 days"
           },
           {
             "title": "Flow",
             "from": "from",
-            "price": "€1 000",
+            "price": "€1,800",
             "body": "Several linked flows with CRM and notifications, plus error handling and logs.",
             "examples": "Multiple flows · CRM · API · reports · 1–2 weeks",
             "featured": true
@@ -3393,7 +3394,7 @@
           {
             "title": "System",
             "from": "from",
-            "price": "€2 500",
+            "price": "€3,500",
             "body": "End-to-end department automation, turnkey: dashboards, monitoring and support.",
             "examples": "Full build · dashboards · monitoring · support · 3+ weeks"
           }
@@ -3406,7 +3407,7 @@
         "items": [
           {
             "title": "Routine eats the workday",
-            "body": "Leads copied from email to CRM by hand, invoices one by one, statuses posted in chats. An hour a day of copy-paste is 250+ hours a year per employee. At Polish rates that's thousands of zloty for work a €400 workflow does."
+            "body": "Leads copied from email to CRM by hand, invoices one by one, statuses posted in chats. An hour a day of copy-paste is 250+ hours a year per employee. At Polish rates that's thousands of zloty for work a €900 workflow does."
           },
           {
             "title": "Human error loses clients",
@@ -3426,7 +3427,7 @@
         "items": [
           {
             "title": "Connection",
-            "price": "€400",
+            "price": "€900",
             "time": "2-5 days",
             "desc": "Two systems start working together: a lead from your website lands in the CRM and in your Telegram on its own.",
             "audience": "For the first step and proving the effect",
@@ -3438,7 +3439,7 @@
           },
           {
             "title": "Flow",
-            "price": "€1 000",
+            "price": "€1,800",
             "time": "1-2 weeks",
             "desc": "A whole process, from lead to invoice. Notifications, statuses, documents - no manual steps.",
             "audience": "For processes spanning 3-5 systems",
@@ -3450,7 +3451,7 @@
           },
           {
             "title": "System",
-            "price": "€2 500",
+            "price": "€3,500",
             "time": "2-4 weeks",
             "desc": "Several processes plus AI steps: email classification, reply drafts, data extraction from documents.",
             "audience": "For companies where routine is the bottleneck",
@@ -3475,9 +3476,9 @@
         "rows": [
           {
             "label": "Upfront",
-            "me": "€400-2 500 one-time",
+            "me": "€900-3 500 one-time",
             "vals": [
-              "from €5 000",
+              "from €5,000",
               "subscription + your evenings",
               "€0"
             ]
@@ -3829,8 +3830,8 @@
           {
             "title": "MVP",
             "from": "from",
-            "price": "€3 000",
-            "market": "€3 500",
+            "price": "€3,000",
+            "market": "€3,500",
             "body": "Validate your idea with real users — one core app flow, published in both stores.",
             "features": [
               "Cross-platform: iOS + Android from one codebase",
@@ -3843,8 +3844,8 @@
           {
             "title": "App",
             "from": "from",
-            "price": "€7 000",
-            "market": "€9 000",
+            "price": "€7,000",
+            "market": "€9,000",
             "featured": true,
             "body": "A full app with backend, payments and push — ready for your first paying users.",
             "features": [
@@ -4890,7 +4891,7 @@
           },
           {
             "title": "An app is pricey, the site gets skipped",
-            "body": "A native app starts at €3 000 and takes months, and nobody wants to install it anyway. A Mini App opens inside Telegram instantly: no stores, no review, no install."
+            "body": "A native app starts at €3,000 and takes months, and nobody wants to install it anyway. A Mini App opens inside Telegram instantly: no stores, no review, no install."
           },
           {
             "title": "Payment by \"transfer to my card\"",
@@ -4930,7 +4931,7 @@
           },
           {
             "title": "Mini App with payments",
-            "price": "€1 500",
+            "price": "€1,500",
             "time": "2-4 weeks",
             "desc": "A full app inside Telegram: storefront, cart, card and BLIK payments in the chat.",
             "audience": "For stores, delivery and bookings",
@@ -6601,16 +6602,152 @@
   },
   "about": {
     "meta": {
-      "title": "About — independent developer · buildbyalex",
-      "description": "Websites, AI agents and mobile apps. Senior fullstack. Warsaw, Poland. 4 languages, 8 years of experience, business background."
+      "title": "About buildbyalex — web development studio in Warsaw",
+      "description": "A web development studio in Warsaw: websites, AI agents and mobile apps. Who builds your project, live client work you can open, and how contracts work."
     },
-    "eyebrow": "About",
-    "headline": "Alex.\nA developer who understands business.",
-    "lead": "Short version: I build products that make money for my clients. Long version below.",
-    "p1": "I'm Alex — an independent senior fullstack developer. Based in Warsaw, working with clients worldwide: Poland, Ukraine, EU, US, occasionally further.",
-    "p2": "I build three kinds of products: production websites (Next.js, multilingual, SEO baked in), AI agents (RAG assistants, sales bots, function-calling automations) and mobile apps (iOS + Android from a single Expo codebase). Before going solo I worked as a fullstack engineer in product companies and as a founder in my own businesses — that 'understands code + understands money' mix shapes how I run projects.",
-    "p3": "Clients often struggle with agencies for one reason: there are five layers between them and the person writing the code. Account, project, product, lead, junior. Decisions take weeks. I work without those layers — you message me directly, I write the code myself, I respond within hours. Not for everyone, but for MVP-to-mid-size projects it's noticeably faster and cleaner.",
-    "stackTitle": "What I work with",
+    "chrome": "buildbyalex.com",
+    "live": "Taking new projects",
+    "eyebrow": "About the studio · Warsaw",
+    "headline": "A studio where you talk to the person writing the code",
+    "lead": "buildbyalex is a small web development studio in Warsaw. We build websites, AI agents and mobile apps for businesses across Poland and the EU. No account managers between you and the developer.",
+    "ctaPrimary": "Discuss a project",
+    "ctaSecondary": "See our work",
+    "metrics": [
+      {
+        "v": "7",
+        "l": "projects in production"
+      },
+      {
+        "v": "4",
+        "l": "languages shipped: PL, EN, UA, RU"
+      },
+      {
+        "v": "8 yrs",
+        "l": "of commercial development"
+      },
+      {
+        "v": "2-3 wks",
+        "l": "typical time to launch"
+      }
+    ],
+    "who": {
+      "title": "Who actually does the work",
+      "lead": "There are no project managers or juniors shipping work under someone else's signature. The core is a senior fullstack developer who writes the code and answers your messages. Specialists join for specific parts of a project.",
+      "founder": {
+        "monogram": "A",
+        "name": "Alex",
+        "role": "Founder, senior fullstack",
+        "bio": "Eight years of commercial development across product companies, my own businesses and client work. I write the code myself, from design to deploy. Running my own businesses taught me to read a project in money, not just in tickets."
+      },
+      "crew": {
+        "title": "Who joins per project",
+        "items": [
+          {
+            "role": "Design",
+            "body": "When a project needs its own visual language rather than a reworked template."
+          },
+          {
+            "role": "Copy and translation",
+            "body": "Native speakers proofread the Polish and Ukrainian versions before launch."
+          },
+          {
+            "role": "Paid ads",
+            "body": "Google Ads and Meta Ads when a launch needs traffic behind it."
+          },
+          {
+            "role": "QA",
+            "body": "Manual testing on real devices before large projects ship."
+          }
+        ]
+      }
+    },
+    "proof": {
+      "title": "Projects running right now",
+      "lead": "Not portfolio screenshots. Every project below opens in a new tab, so you can check the speed, the languages and the rankings yourself.",
+      "note": "Two more are under NDA: a CRM-connected sales agent for B2B and an AI manager for a sales team. We walk through them on a call.",
+      "items": [
+        {
+          "name": "LegalWin",
+          "url": "legalwin.pl",
+          "href": "https://legalwin.pl",
+          "industry": "Immigration law · Warsaw",
+          "result": "Top-10 on Google for 15+ commercial queries with zero ad spend. The AI consultant closes 80% of first contacts.",
+          "key": "legalwin"
+        },
+        {
+          "name": "VisionAir",
+          "url": "visionair.biz.pl",
+          "href": "https://visionair.biz.pl",
+          "industry": "Drone filming · Warsaw",
+          "result": "Visitor-to-lead conversion went from 0.8% to 4.2% on the same traffic. Leads hit the operator's Telegram in 2 seconds.",
+          "key": "visionair"
+        },
+        {
+          "name": "Baltic Dockyard",
+          "url": "baltic-dockyard.pl",
+          "href": "https://baltic-dockyard.pl",
+          "industry": "Marine parts · Warsaw",
+          "result": "A B2B catalogue with a multilingual structure and quote requests straight from the product card.",
+          "key": "baltic"
+        },
+        {
+          "name": "Body Forge",
+          "url": "App Store · bodyforges.com",
+          "href": "https://apps.apple.com/pl/app/body-forge-ai-fitness-coach/id6761138589",
+          "industry": "Native iOS app · Fitness",
+          "result": "An AI coach taken from idea to App Store release, together with its promo site and subscriptions.",
+          "key": "bodyforge"
+        }
+      ]
+    },
+    "principles": {
+      "title": "How we work",
+      "items": [
+        {
+          "title": "The estimate is fixed before we start",
+          "body": "Scope, price and launch date go into the contract. If the work grew because of us, we finish it at our own cost."
+        },
+        {
+          "title": "A demo every Friday",
+          "body": "You see progress once a week and can change direction while it still costs nothing."
+        },
+        {
+          "title": "The code and the accounts are yours",
+          "body": "Domain, repository, hosting and analytics are registered to you. If we leave, everything keeps running."
+        },
+        {
+          "title": "We say it straight",
+          "body": "If a website won't solve the problem, or the budget won't reach a real result, you hear it on the first call, not a month in."
+        }
+      ]
+    },
+    "stackTitle": "What we build with",
+    "legal": {
+      "title": "The formal side",
+      "rows": [
+        {
+          "k": "Where",
+          "v": "Warsaw, Poland. We work remotely across the EU, UK, US and CIS"
+        },
+        {
+          "k": "Contract",
+          "v": "Written, in Polish or English: scope, payment schedule, deadlines, exit terms"
+        },
+        {
+          "k": "Invoices",
+          "v": "Faktura VAT EU"
+        },
+        {
+          "k": "Ownership",
+          "v": "Transfers to you on final payment: code, design, accounts"
+        },
+        {
+          "k": "Support",
+          "v": "30 days of bug fixes included, then hourly, with no mandatory retainer"
+        }
+      ],
+      "note": "Company details and the contract template go out on request, before anything is signed."
+    },
     "stack": {
       "frontend": {
         "title": "Frontend",
@@ -6668,32 +6805,7 @@
           "EAS Build"
         ]
       }
-    },
-    "languagesTitle": "Languages",
-    "languages": [
-      {
-        "lang": "Русский",
-        "level": "native"
-      },
-      {
-        "lang": "Українська",
-        "level": "native"
-      },
-      {
-        "lang": "English",
-        "level": "B2+, fluent at work"
-      },
-      {
-        "lang": "Polski",
-        "level": "B1, conversational for meetings and contracts"
-      }
-    ],
-    "locationTitle": "Location",
-    "location": "Warsaw, Poland. I work with clients worldwide on EU / US-friendly hours.",
-    "linksTitle": "Where to find me",
-    "ctaTitle": "Let's talk?",
-    "ctaBody": "30-minute call, no commitment. Tell me what you need, I'll tell you honestly if I'm the right fit.",
-    "cta": "Book a call"
+    }
   },
   "contact": {
     "meta": {
@@ -6703,16 +6815,16 @@
     "eyebrow": "Contact",
     "headline": "Tell me about the project.",
     "lead": "30 minutes on a discovery call. 24 hours later you have a fixed estimate on scope, price and launch date.",
-    "responseTime": "I reply within hours — usually same day.",
+    "responseTime": "We reply within hours - usually same day.",
     "availability": "Available for new projects",
     "formTitle": "Tell me about the project",
-    "formSub": "The more detail, the sharper the estimate. I reply personally.",
+    "formSub": "The more detail, the sharper the estimate. The person who builds it answers you.",
     "steps": {
       "title": "How we start",
       "items": [
         {
           "title": "Reply in hours",
-          "desc": "I write back the same day and offer a call slot."
+          "desc": "We write back the same day and offer a call slot."
         },
         {
           "title": "Discovery call",
@@ -6753,7 +6865,10 @@
       "phone": "Phone (optional)",
       "errorEmail": "Check your email — that address looks incomplete.",
       "errorRequired": "Please fill in your name, email and a short description.",
-      "formNote": "No spam. I reply personally, usually the same day."
+      "formNote": "No spam. We reply personally, usually the same day.",
+      "errorContact": "Leave an email or a phone number - I will reply on the same channel.",
+      "optional": "(optional)",
+      "contactHint": "Only your name and one contact are required. You can tell me about the project on the call if you would rather not type it out now."
     }
   },
   "notFound": {
@@ -6788,7 +6903,13 @@
     "relatedServiceLabel": "Related service",
     "ctaTitle": "Liked it? Let's talk about your project.",
     "ctaBody": "30 minutes on a discovery call. No sales pitch.",
-    "cta": "Book a call"
+    "cta": "Book a call",
+    "offer": {
+      "eyebrow": "This is what I do",
+      "note": "Fixed quote and launch date within 24 hours of a short call. No retainer.",
+      "quote": "Get a quote",
+      "details": "About the service"
+    }
   },
   "thankYou": {
     "meta": {
@@ -6797,7 +6918,7 @@
     },
     "eyebrow": "Message received",
     "headline": "Thank you!",
-    "lead": "I've got your message and will reply within hours — usually same day, always before the next business morning.",
+    "lead": "We've got your message and will reply within hours - usually same day, always before the next business morning.",
     "back": "Back to home",
     "headlineLead": "Thank you,",
     "headlineTail": "!",
@@ -6817,14 +6938,14 @@
     "steps": [
       {
         "title": "Request received",
-        "body": "It's already with me — straight into my queue, nothing gets lost."
+        "body": "It's already with us - straight into the queue, nothing gets lost."
       },
       {
         "title": "I read the details",
-        "body": "I go through your task and sketch the first ideas for a solution."
+        "body": "We go through your task and sketch the first ideas for a solution."
       },
       {
-        "title": "You hear from me",
+        "title": "You hear from us",
         "body": "A personal reply lands in your inbox — usually within a couple of hours."
       }
     ],
@@ -6832,6 +6953,135 @@
     "meanwhile": {
       "work": "See recent work",
       "services": "Explore services"
+    }
+  },
+  "quote": {
+    "chrome": "buildbyalex.com · estimate",
+    "eyebrow": "No call needed",
+    "headline": "Fixed estimate in 24 hours",
+    "lead": "Describe the task in two sentences. You get a fixed price, a timeline and a plan. If it isn't a fit for us, we say so straight away and point you elsewhere.",
+    "steps": [
+      "We read the task and ask two or three questions if anything is unclear",
+      "We put together the estimate: scope, price, launch date",
+      "It lands in your inbox within a day. The next move is yours"
+    ],
+    "fields": {
+      "task": "The task",
+      "taskPlaceholder": "For example: a site for a Warsaw clinic in Polish and Ukrainian, with online booking. Launch by October.",
+      "name": "Name",
+      "email": "Email"
+    },
+    "submit": "Get the estimate",
+    "sending": "Sending…",
+    "note": "No newsletters, no unsolicited calls. The answer comes by email.",
+    "successTitle": "Got it",
+    "successBody": "Your estimate arrives by email within 24 hours. If anything needs clarifying, we'll write sooner with a question.",
+    "error": "Something went wrong. Try again or email info@buildbyalex.com",
+    "errorEmail": "Check the email address - it looks incomplete.",
+    "errorRequired": "Add the task and your name - we can't price it without them."
+  },
+  "pricing": {
+    "meta": {
+      "title": "Pricing: what a website, store, AI agent or automation costs",
+      "description": "Real 2026 ranges: websites from €1,200, stores from €1,800, AI agents from €1,500, automation from €900. What is included, what moves the price, how quoting works."
+    },
+    "eyebrow": "Pricing",
+    "headline": "What it costs. No \"request a quote\" wall.",
+    "lead": "The ranges my projects actually land in, and what moves a number up or down. The final figure arrives in writing after a 30-minute call, and it does not change along the way.",
+    "table": {
+      "title": "Everything on one page",
+      "service": "Service",
+      "from": "From",
+      "what": "What you get"
+    },
+    "formats": {
+      "title": "Formats and prices per service",
+      "lead": "Three typical options in each category. Not sure which is yours - describe the task and I will say which one is enough, including when the cheaper one is.",
+      "more": "Service details"
+    },
+    "factors": {
+      "title": "What moves the price",
+      "items": [
+        {
+          "title": "Number of integrations",
+          "body": "One CRM integration over an API is a few days. CRM, calendar, payments, courier and WhatsApp together is a separate project, because every connection needs its own error handling and tests."
+        },
+        {
+          "title": "The state of your material",
+          "body": "Ready copy, photos and a tidy price list cut a week off the project. A catalogue spread across three files, half of it outdated, is a line item of its own."
+        },
+        {
+          "title": "Number of languages",
+          "body": "A second language is not a copy - it is its own URLs, hreflang and text written from scratch. I usually add 20-30% per additional language."
+        },
+        {
+          "title": "Cost of being wrong",
+          "body": "A store taking payments and an agent answering in a law firm need testing a brochure site never does. Where a mistake costs your customer money, hardening is a real part of the work."
+        },
+        {
+          "title": "Deadline",
+          "body": "The standard schedule is included. Compressing it at the expense of other projects is a surcharge I name upfront instead of promising the impossible."
+        },
+        {
+          "title": "Scale",
+          "body": "A 50-product store and a 5,000-product one are different architecture, hosting and performance requirements, even though they look alike on screen."
+        }
+      ]
+    },
+    "process": {
+      "title": "How a quote happens",
+      "items": [
+        {
+          "title": "You write what you want built",
+          "body": "A few sentences is enough. No brief or spec required - that is what the call is for."
+        },
+        {
+          "title": "30 minutes on a call",
+          "body": "Goals, scope, your systems, and what is actually urgent. I also say what is not worth building."
+        },
+        {
+          "title": "Quote within 24 hours",
+          "body": "Scope, fixed price and start date in writing. One number, no hourly top-ups along the way."
+        },
+        {
+          "title": "Delivery in stages",
+          "body": "A demo every week. Scope can change mid-project, but any price change is agreed before the work, never after."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Money questions",
+      "items": [
+        {
+          "q": "Why are prices in euros?",
+          "a": "Because clients come from several countries and the euro is the common denominator. I can invoice in złoty or another currency at the day rate if that suits you better - it is one line in the contract."
+        },
+        {
+          "q": "Is the price fixed or can it grow?",
+          "a": "Fixed for the agreed scope and written into the contract before we start. It grows only if you add something to the scope, and then you get a quote for that change first and decide whether it goes in."
+        },
+        {
+          "q": "How much is paid upfront?",
+          "a": "Usually 40-50% to start and the rest on delivery. Larger projects are split into stages with payment after each one, so risk sits on both sides rather than one."
+        },
+        {
+          "q": "What is included and what is not?",
+          "a": "Included: design, code, launch, technical SEO, handover of the repository and 30 days of bug fixes. Not included: domain and hosting, third-party licences, copy and photography if I produce them, and ad budget."
+        },
+        {
+          "q": "Is there a mandatory retainer?",
+          "a": "No. Post-launch changes are €50/hour with a one-hour minimum, so in a month where nothing needs doing you pay nothing. An ongoing arrangement is available if you want one, not because the contract forces it."
+        },
+        {
+          "q": "Why more than a €400 freelancer?",
+          "a": "Because it is a different product. At that price you get a template with your logo dropped in, usually without integrations and without anyone answering for the result. Here it is custom code in your repository, measurable goals and a launch date in writing. If a template genuinely covers your case, I will say so on the call."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Let us price your project",
+      "body": "Describe the task in a few sentences. Within 24 hours of the call you have scope, a fixed price and a start date.",
+      "button": "Request a quote"
     }
   }
 }

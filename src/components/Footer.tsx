@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { PHONE_HREF, WHATSAPP_URL, formatPhone } from "@/lib/contacts";
 import { Logo } from "./Logo";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 import { Container } from "./Container";
@@ -27,6 +28,7 @@ export function Footer() {
             <h4 className="t-eyebrow mb-4 text-[11px]">{t("sections.explore")}</h4>
             <ul className="space-y-2.5 text-[14px] text-[color:var(--color-text-2)]">
               <li><Link href="/work" className="hover:text-[color:var(--color-text)] transition-colors">{nav("work")}</Link></li>
+              <li><Link href="/pricing" className="hover:text-[color:var(--color-text)] transition-colors">{nav("pricing")}</Link></li>
               <li><Link href="/blog" className="hover:text-[color:var(--color-text)] transition-colors">{nav("blog")}</Link></li>
               <li><Link href="/contact" className="hover:text-[color:var(--color-text)] transition-colors">{nav("contact")}</Link></li>
             </ul>
@@ -47,6 +49,12 @@ export function Footer() {
           <div className="col-span-2 md:col-span-2">
             <h4 className="t-eyebrow mb-4 text-[11px]">{t("sections.contact")}</h4>
             <ul className="space-y-2.5 text-[14px] text-[color:var(--color-text-2)]">
+              {PHONE_HREF && (
+                <li><a href={PHONE_HREF} className="hover:text-[color:var(--color-text)] transition-colors">{formatPhone()}</a></li>
+              )}
+              {WHATSAPP_URL && (
+                <li><a href={WHATSAPP_URL} target="_blank" rel="noreferrer noopener" className="hover:text-[color:var(--color-text)] transition-colors">WhatsApp</a></li>
+              )}
               <li><a href="mailto:info@buildbyalex.com" className="hover:text-[color:var(--color-text)] transition-colors">info@buildbyalex.com</a></li>
               <li><a href="https://t.me/sumotry" target="_blank" rel="noreferrer noopener" className="hover:text-[color:var(--color-text)] transition-colors">{t("links.telegram")} @sumotry</a></li>
             </ul>

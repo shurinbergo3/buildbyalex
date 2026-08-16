@@ -2,6 +2,7 @@ import { clientIp } from "@/lib/clientIp";
 import { isDuplicate, rateLimit } from "@/lib/rateLimit";
 import { addLead } from "@/lib/store";
 import { notifyLead } from "@/lib/telegram";
+import { emailLead } from "@/lib/email";
 
 // Node runtime — we persist leads to a file-based store (not available on edge).
 export const runtime = "nodejs";
@@ -41,11 +42,16 @@ export async function POST(req: Request) {
   if (!name || name.length > 120) {
     return Response.json({ ok: false, error: "Name required" }, { status: 400 });
   }
-  if (!isValidEmail(email)) {
+  // One way to reach them is enough — email or phone. Demanding both, plus a
+  // written brief, filtered out more real leads than spam.
+  if (!email && !phone) {
+    return Response.json({ ok: false, error: "Email or phone required" }, { status: 400 });
+  }
+  if (email && !isValidEmail(email)) {
     return Response.json({ ok: false, error: "Valid email required" }, { status: 400 });
   }
-  if (!description || description.length > 5000) {
-    return Response.json({ ok: false, error: "Description required" }, { status: 400 });
+  if (description.length > 5000) {
+    return Response.json({ ok: false, error: "Description too long" }, { status: 400 });
   }
 
   const ip = clientIp(req);
@@ -57,7 +63,11 @@ export async function POST(req: Request) {
 
   // Identical resubmit within 10 min (double click, impatient refresh) — the
   // lead is already stored, so just acknowledge. Changed content passes through.
-  if (await isDuplicate("contact", email.toLowerCase(), description)) {
+  // The description is optional now, so it can't carry the key alone: without
+  // the type/budget fallback two different enquiries from one phone number
+  // would collapse into one.
+  const dedupeContact = (email || phone).toLowerCase();
+  if (await isDuplicate("contact", dedupeContact, description || `${type}|${budget}`)) {
     return Response.json({ ok: true, deduped: true });
   }
 
@@ -80,8 +90,10 @@ export async function POST(req: Request) {
     return Response.json({ ok: false, error: "Storage error" }, { status: 500 });
   }
 
-  // Notify the admin. Don't fail the request if delivery hiccups — the lead is saved.
-  await notifyLead(lead);
+  // Notify the admin on both channels. Neither can fail the request — the lead
+  // is already stored — and each covers the other: Telegram is instant, email
+  // survives a revoked bot token.
+  await Promise.allSettled([notifyLead(lead), emailLead(lead)]);
 
   return Response.json({ ok: true });
 }

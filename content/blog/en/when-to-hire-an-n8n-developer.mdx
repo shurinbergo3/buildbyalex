@@ -1,0 +1,93 @@
+---
+title: "When to hire an n8n developer instead of building it yourself"
+description: "n8n is approachable enough that most people start alone. Here's the line where DIY stops paying: error handling, credentials, versioning and workflows the business depends on."
+date: "2026-09-03"
+cluster: "hire-n8n-developer"
+keywords:
+  - "hire n8n developer"
+  - "n8n developer cost"
+  - "n8n consultant"
+  - "n8n implementation services"
+---
+
+Short answer: build it yourself while the workflow is convenient. Hire someone the moment it becomes load-bearing - when a silent failure costs you a customer, a payment or a day. A production-grade n8n workflow costs **€700-2,500** to build; independent n8n developers charge **€50-90/hour**.
+
+n8n is deliberately easy to start with, which is why almost everyone starts alone. That's the right call. This is about the point where it stops being the right call.
+
+## The four signs it's time
+
+**Something failed and nobody noticed.** The classic: a workflow moving leads into the CRM stops on a credentials refresh, and three days later someone asks why the pipeline is empty. A workflow with no alerting isn't automation, it's a coin flip.
+
+**You've started copying workflows instead of changing them.** "Lead intake v2 (do not delete)" next to "Lead intake final" means nobody knows which one is live. That's the point where a wrong edit takes down the real one.
+
+**Credentials live in one person's account.** The workflow runs under someone's personal Google account, and that person is on holiday when the token expires.
+
+**The logic outgrew the canvas.** Twelve branches, nested IFs, a Code node someone pasted from a forum. It works, but nobody can safely change it - including the person who built it.
+
+None of these are about n8n being hard. They're about the difference between something that works and something the business can rely on.
+
+## What a developer actually adds
+
+Not nicer nodes. Four things:
+
+**Failure handling.** Retries with backoff, a dead-letter path for items that keep failing, alerts to Slack or Telegram when something breaks. Most self-built workflows have a happy path and nothing else.
+
+**Idempotency.** Running the same webhook twice shouldn't create two invoices. This bites almost every DIY setup eventually, usually during an API outage when everything retries at once.
+
+**Credential and environment hygiene.** Service accounts instead of personal ones, secrets outside the workflow JSON, separate test and production instances.
+
+**Version control.** Workflows exported to a git repository, so a bad change is one revert away rather than an archaeology project.
+
+**Cost control.** At volume, a workflow that calls an API per item instead of batching can multiply your bill. Same output, ten times the cost.
+
+## What it costs
+
+| Scope | Example | Price |
+|---|---|---|
+| Single workflow, hardened | Form to CRM to notification, with retries and alerting | €700-1,200 |
+| Multi-step process | Order intake to invoice to delivery to status update | €1,200-2,500 |
+| AI-assisted workflow | Email parsing, classification, drafted replies | €1,500-3,000 |
+| Audit and repair of existing setup | Fix and document what you already built | €500-1,200 |
+
+Hosting: self-hosted n8n on a small VPS is €5-20 a month regardless of volume, which is the main reason companies with real throughput move off Zapier's per-task pricing.
+
+That audit line is worth flagging. A lot of my n8n work is not building from scratch - it's taking something a founder built at 1am, making it survivable, and writing down how it works.
+
+## When you shouldn't hire anyone
+
+If the workflow saves you twenty minutes a week and breaking it costs nothing, keep building it yourself. Paying €900 to harden a convenience is a bad trade.
+
+If you're still deciding what the process should be, don't hire yet. Automating a process you're about to change is the most reliable way to waste money in this category. Prototype it yourself, run it manually for a month, then automate the version that survived.
+
+If your volume is tiny and your tools are all mainstream, a managed tool might genuinely be cheaper than self-hosting plus a developer. [The Make, n8n and Zapier comparison](/en/blog/make-vs-n8n-vs-zapier) goes through where each one wins.
+
+## What to look for in whoever you hire
+
+Ask what their alerting looks like. Someone who has run workflows in production answers immediately and specifically.
+
+Ask how they handle a third-party API being down for two hours. The answer should involve queuing and retries, not "we'd rerun it manually."
+
+Ask whether workflows end up in your repository. They should.
+
+Ask what they'd do differently from your current setup - and be suspicious of "rebuild everything." Most self-built workflows are 70% fine and need the missing 30% added.
+
+## FAQ
+
+**How much does an n8n developer cost?**
+Independent developers charge €50-90 per hour in the EU, with most work quoted per project instead: €700-1,200 for one hardened workflow, €1,200-2,500 for a multi-step process. Agencies run roughly double.
+
+**Can I self-host n8n without a developer?**
+Yes - a small VPS, Docker and an afternoon gets you running, and the community edition is free for internal use. The part that catches people later is operations: backups, upgrades, restoring after a failed migration. That's worth paying for once rather than learning during an outage.
+
+**Is n8n suitable for production workloads?**
+It is, and plenty of companies run core operations on it. Suitability comes from how it's set up, not the tool: retries, alerting, idempotency, version control and a separate test instance are what make the difference between a toy and infrastructure.
+
+**Should I use n8n or write code?**
+n8n wins when the work is connecting services and the logic is visible on a canvas - most business automation is exactly that. Code wins when logic gets complex enough that the canvas becomes harder to read than a function, which usually happens somewhere past a dozen branches.
+
+**Can n8n run AI steps?**
+Yes, and that's a large part of what it's used for now: classifying incoming email, extracting fields from documents, drafting replies for a human to approve. The pattern that works best is AI for the messy step and plain nodes for everything deterministic around it.
+
+---
+
+Have workflows that work until they don't? [Send me what you've built](/en/contact) - I'll tell you what needs hardening, what needs rebuilding, and what's fine as it is.

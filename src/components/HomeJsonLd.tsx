@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { type Locale } from "@/i18n/routing";
 import { SITE_URL, localizedHref, localeSegment, htmlLang } from "@/lib/site";
 import { isReviewLive } from "@/lib/reviews";
+import { PHONE } from "@/lib/contacts";
 import { jsonLd } from "@/lib/jsonLd";
 
 /**
@@ -88,8 +89,25 @@ export async function HomeJsonLd({ locale }: { locale: Locale }) {
         image: `${SITE_URL}${localeSegment(locale)}/opengraph-image`,
         description: t("defaultDescription"),
         email: EMAIL,
-        priceRange: "€800–€10 000+",
-        areaServed: { "@type": "Place", name: "Worldwide (remote)" },
+        priceRange: "€900–€12 000+",
+        // Warsaw is where the contracts are signed and where every service page
+        // points, so the business needs to say so in structured data too — the
+        // previous "Worldwide (remote)" left no local signal at all. Locality
+        // without a street is deliberate: it's a one-person remote practice with
+        // no walk-in office, and inventing a street address to chase a rich
+        // result is the kind of thing Google penalises.
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Warszawa",
+          addressRegion: "Mazowieckie",
+          addressCountry: "PL",
+        },
+        ...(PHONE ? { telephone: PHONE } : {}),
+        areaServed: [
+          { "@type": "City", name: "Warszawa" },
+          { "@type": "Country", name: "Poland" },
+          { "@type": "Place", name: "Worldwide (remote)" },
+        ],
         serviceType: "Remote software development",
         knowsLanguage: ["ru", "uk", "en", "pl"],
         founder: { "@id": personId },
@@ -105,9 +123,9 @@ export async function HomeJsonLd({ locale }: { locale: Locale }) {
           "@type": "OfferCatalog",
           name: ts("eyebrow"),
           itemListElement: [
-            offer("/services/websites", "items.websites.category", 800),
-            offer("/services/ai-agents", "items.ai.category", 500),
-            offer("/services/automation", "automation.title", 600),
+            offer("/services/websites", "items.websites.category", 1200),
+            offer("/services/ai-agents", "items.ai.category", 1500),
+            offer("/services/automation", "automation.title", 900),
             offer("/services/mobile-apps", "items.mobile.category", 3000),
             offer("/services/advertising", "ads.title", 300),
           ],

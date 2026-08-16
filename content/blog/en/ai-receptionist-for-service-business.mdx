@@ -1,0 +1,98 @@
+---
+title: "AI receptionist for service businesses: what it handles and what it costs"
+description: "Booking, rescheduling, opening hours and price questions handled after closing time. What an AI receptionist covers, what it must never do, and the real numbers."
+date: "2026-09-10"
+cluster: "ai-receptionist-service-business"
+keywords:
+  - "AI receptionist cost"
+  - "AI receptionist for small business"
+  - "virtual receptionist AI"
+  - "AI booking assistant price"
+---
+
+Short answer: an AI receptionist handling bookings, reschedules and routine questions costs **€1,800-3,500** to build and **€30-120/month** to run. It typically absorbs 50-70% of front-desk traffic. The revenue it recovers usually comes from a place people don't expect: evenings and weekends.
+
+Salons, clinics, garages, studios, small law firms. Same pattern everywhere - the phone rings while you're with a customer, and the person on the other end books somewhere else.
+
+## What it handles well
+
+**Booking and rescheduling.** Available slots, staff choice, confirmation. Reads your calendar, writes back to it.
+
+**The questions asked forty times a week.** Opening hours, parking, prices, what to bring, do you take card, how long does it take, do you have availability this week.
+
+**Reminders and confirmations.** The line item with the clearest financial return. A reminder 24 hours ahead with one-tap confirm or reschedule cuts no-shows sharply - at 300 appointments a month and €70 average, a ten-point drop is over €2,000 recovered monthly.
+
+**Waitlist filling.** Someone cancels at 9am, the agent offers the slot to the waitlist, and the day stays full. This one quietly pays for the whole build.
+
+**After-hours capture.** Roughly a third of booking enquiries in service businesses arrive outside working hours. Right now they either wait until morning or go elsewhere.
+
+## What it must not do
+
+Anything requiring judgement about a person's situation.
+
+In a clinic, it doesn't interpret symptoms or suggest urgency. In a legal practice, it doesn't assess a case. In a garage, it doesn't diagnose a noise or promise a repair price sight unseen.
+
+The rule I build in: any question outside the booked scope triggers an immediate handoff with a note attached. Not because the model can't produce an answer - because a wrong answer in those categories costs more than every hour the agent saves.
+
+## What it costs
+
+| Scope | What's included | Build | Monthly |
+|---|---|---|---|
+| Answering only | Hours, prices, directions, FAQ, capture contact | €1,200-1,800 | €20-50 |
+| Booking | Above plus calendar read and write, confirmations | €1,800-2,800 | €30-80 |
+| Full front desk | Above plus reminders, waitlist, reschedules, CRM | €2,800-3,500 | €60-120 |
+
+Monthly cost is model tokens plus hosting, paid to providers directly. WhatsApp adds per-conversation fees if you use it as a channel. [Full breakdown of running costs](/en/blog/ai-agent-maintenance-cost) is in a separate piece.
+
+Voice is a different product with different economics - see [AI voice agent development cost](/en/blog/ai-voice-agent-development-cost). Most service businesses get more from text first, because most booking traffic now starts on a phone screen rather than a phone call.
+
+## The integration question decides your timeline
+
+The single biggest variable is your booking system.
+
+Systems with a proper API - Google Calendar, Calendly, Cal.com, most modern salon and clinic software - take two to four days to wire up. Closed systems with no API need workarounds, which adds a week or two and sometimes changes the answer to "keep booking manual, automate the questions."
+
+Ask your provider whether they have an API before you ask anyone for a quote. It's the fastest way to narrow the estimate.
+
+## What actually changes after launch
+
+From the deployments I've run, in order of impact:
+
+The evening shift stops being lost. Enquiries between 6pm and midnight get answered, and a meaningful share convert that would previously have gone cold overnight.
+
+The front desk stops repeating itself. Staff spend their attention on people physically present instead of the phone interrupting every consultation.
+
+Reschedules go up and no-shows go down - not because customers became more reliable, but because rescheduling got easier than not showing up.
+
+What doesn't change: complicated, emotional or unusual conversations still need a person, and should. An agent that tries to handle those makes things worse.
+
+## Choosing channels
+
+Website widget first - it catches people already looking at your prices.
+
+Messenger and Instagram next if that's where your customers already message you. In beauty and fitness this is often the primary channel.
+
+WhatsApp when your customers use it, accepting the per-conversation fee and the business verification process.
+
+Voice last, and only if call volume justifies it.
+
+## FAQ
+
+**How much does an AI receptionist cost?**
+A version answering questions and capturing contacts is €1,200-1,800; with calendar booking, €1,800-2,800; with reminders, waitlist and CRM, up to €3,500. Running costs are €20-120 a month depending on volume and channels.
+
+**Will it work with my booking system?**
+If your system has an API - which most modern salon, clinic and scheduling platforms do - integration takes a few days. Closed legacy systems need workarounds and sometimes it's better to automate the questions and leave booking with staff, which still removes most of the interruptions.
+
+**What happens when someone asks something unusual?**
+It hands off to a human with the conversation attached, rather than guessing. In practice that's 30-50% of messages in the first weeks, dropping as you add the missing answers to its knowledge base.
+
+**Can it take payments or deposits?**
+Yes, by sending a payment link during the booking flow - useful anywhere no-shows are expensive. Deposits typically cut no-shows further than reminders alone, though they also filter out some casual bookings, so it's worth testing rather than assuming.
+
+**How long until it's live?**
+Two to three weeks for question answering plus booking, assuming your calendar system has an API and your prices and FAQs are written down somewhere. The most common delay is not technical - it's collecting the answers that currently live only in your receptionist's head.
+
+---
+
+Losing bookings after closing time? [Tell me what booking system you use](/en/contact) and I'll tell you what can be automated, in what order, and what it costs.

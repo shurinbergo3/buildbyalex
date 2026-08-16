@@ -1,0 +1,98 @@
+---
+title: "Chatbot AI dla gabinetu i kliniki: co wolno, ile kosztuje, jak nie złamać RODO"
+description: "Asystent AI w placówce medycznej: rejestracja, przypomnienia i pytania pacjentów. Gdzie przebiega granica danych wrażliwych i ile kosztuje zgodne wdrożenie."
+date: "2026-09-24"
+cluster: "ai-chatbot-medical-practice"
+keywords:
+  - "chatbot AI dla kliniki"
+  - "asystent AI gabinet lekarski"
+  - "AI w rejestracji medycznej"
+  - "chatbot medyczny RODO"
+---
+
+Krótka odpowiedź: asystent AI w gabinecie ma sens do rejestracji, przypomnień i pytań organizacyjnych, a nie do czegokolwiek, co dotyka stanu zdrowia pacjenta. Wdrożenie zgodne z RODO kosztuje **1 800-3 500 €**, utrzymanie 150-500 zł miesięcznie. Największą pozycją nie jest technologia, tylko poprawne ustawienie granic tego, o czym bot w ogóle rozmawia.
+
+Placówki medyczne trafiają w tej sprawie na sprzeczne rady. Jedni mówią "AI w medycynie zabronione", inni sprzedają "asystenta diagnostycznego". Prawda leży pośrodku i jest całkiem konkretna.
+
+## Co asystent może robić bez ryzyka
+
+Cztery rzeczy, które zdejmują z rejestracji największą część ruchu:
+
+**Umawianie i przekładanie wizyt.** Wolne terminy, wybór lekarza, potwierdzenie. Dane osobowe tak, dane o zdrowiu nie - "wizyta u dr Kowalskiej, wtorek 15:30" nie wymaga wiedzy, po co pacjent przychodzi.
+
+**Odpowiedzi organizacyjne.** Godziny, adres, parking, przygotowanie do badania, cennik, jakie dokumenty zabrać, czy przyjmujecie NFZ. To pochłania większość rozmów w rejestracji.
+
+**Przypomnienia i potwierdzenia.** Największy efekt finansowy z całej listy. Redukcja nieobecności o kilkanaście punktów procentowych to przy 400 wizytach miesięcznie kilkanaście tysięcy złotych.
+
+**Kierowanie do właściwego specjalisty na podstawie tego, co pacjent sam napisze** - ale bez wnioskowania. "Do ortopedy czy neurologa" to pytanie, na które bot może odpowiedzieć opisem, czym zajmuje się każdy z nich, a nie oceną objawów.
+
+## Czego asystent nie powinien robić
+
+Granica jest ostrzejsza, niż część dostawców przyznaje.
+
+Nie interpretuje objawów. Nie sugeruje rozpoznania. Nie ocenia pilności ("to brzmi groźnie, jedź na SOR" to porada medyczna). Nie omawia wyników badań. Nie modyfikuje zaleceń.
+
+Powód nie jest tylko prawny, choć unijne przepisy o AI traktują systemy wpływające na decyzje zdrowotne jako obarczone wysokim ryzykiem. Powód jest praktyczny: model, który raz odpowie źle w takiej sprawie, wyrządzi szkodę, której nie odrobi żadna oszczędność na rejestracji.
+
+W praktyce buduje się to jako twardą regułę: rozpoznane pytanie o zdrowie kończy się natychmiastowym przekazaniem do człowieka i komunikatem, że kwestie medyczne omawia wyłącznie personel.
+
+## RODO: gdzie naprawdę jest problem
+
+Dane o zdrowiu to szczególna kategoria danych, a już samo umówienie wizyty u konkretnego specjalisty bywa taką informacją - wizyta u onkologa mówi coś o pacjencie, nawet bez opisu objawów.
+
+Cztery rzeczy, które musi mieć zgodne wdrożenie:
+
+**Przetwarzanie w EOG.** Model z europejskim endpointem albo hosting w UE. Nie "serwery w chmurze", tylko konkretna lokalizacja z zapisem w umowie.
+
+**Umowa powierzenia z każdym dostawcą.** Dostawca modelu, hosting, system rezerwacji. Placówka jest administratorem i odpowiada za cały łańcuch.
+
+**Krótka retencja rozmów.** Transkrypcje kasowane po kilku-kilkunastu dniach, bez trwałego magazynowania treści. Jeśli potrzebujecie statystyk, zbierajcie liczby, nie treści.
+
+**Wyłączenie danych z trenowania modelu.** To ustawienie po stronie dostawcy i musi być potwierdzone na piśmie.
+
+Do tego informacja dla pacjenta, że rozmawia z systemem, i możliwość przejścia do człowieka w każdej chwili. Szerzej o samej infrastrukturze danych pisałem w tekście [gdzie chatbot AI przechowuje dane klientów](/pl/blog/gdzie-chatbot-ai-przechowuje-dane-klientow).
+
+## Ile to kosztuje
+
+**1 800-2 500 €** - asystent na stronie i w Messengerze: pytania organizacyjne, cennik, przygotowanie do badań, przekazanie do rejestracji przy wszystkim innym. 2-3 tygodnie.
+
+**2 600-3 500 €** - dodatkowo integracja z systemem rezerwacji: sprawdzanie wolnych terminów, umawianie, przekładanie, przypomnienia. 4-5 tygodni. Tu dochodzi praca po stronie integracji z systemem, którego używa placówka.
+
+Miesięcznie: 150-500 zł zależnie od liczby rozmów i kanałów. [Rozbicie kosztów bieżących](/pl/blog/ile-kosztuje-utrzymanie-agenta-ai) opisałem osobno.
+
+## Co zwraca się najszybciej
+
+Z obserwacji: nie sama rejestracja, tylko połączenie przypomnień z możliwością potwierdzenia jednym kliknięciem i szybkiego przełożenia.
+
+Pacjent, który nie może przyjść, zwykle nie dzwoni, żeby odwołać - po prostu nie przychodzi. Jeśli dostanie wiadomość z przyciskami "potwierdzam" i "przełóż", część z nich przełoży, a zwolniony termin trafi do kogoś z listy oczekujących. Dwa razy odzyskane pieniądze z jednej funkcji.
+
+Druga rzecz, o której placówki myślą rzadziej: pytania wieczorem i w weekend. Rejestracja pracuje 8-16, a ludzie szukają terminu po pracy - i wtedy trafiają do tej przychodni, która odpowiedziała.
+
+## Czego nie kupować
+
+Gotowych "asystentów medycznych" sprzedawanych w abonamencie bez informacji, gdzie przetwarzane są dane i kto jest podmiotem przetwarzającym. Przy danych o zdrowiu to nie formalność - to odpowiedzialność placówki.
+
+Botów obiecujących "wstępną diagnozę" albo "triage" bez certyfikacji jako wyrób medyczny. Takie funkcje mają swoje ramy prawne i nie da się ich obejść regulaminem.
+
+Wdrożeń, w których nikt nie zapytał, z jakiego systemu rezerwacji korzystacie. To jest pierwsze pytanie, bo od niego zależy połowa zakresu prac.
+
+## FAQ
+
+**Czy chatbot AI w gabinecie lekarskim jest zgodny z RODO?**
+Jest, jeśli przetwarzanie odbywa się w EOG, z umowami powierzenia z każdym dostawcą, krótką retencją rozmów i wyłączeniem danych z trenowania modeli. Kluczowe jest też ograniczenie zakresu: bot obsługujący terminy i pytania organizacyjne przetwarza znacznie mniej wrażliwe dane niż taki, który rozmawia o objawach.
+
+**Czy asystent AI może umawiać wizyty?**
+Może i to jest jego najsensowniejsze zastosowanie - sprawdza wolne terminy w Waszym systemie, umawia, przekłada i wysyła potwierdzenie. Warunek techniczny to system rezerwacji z dostępem przez API; przy systemach zamkniętych czasem trzeba pośredniej integracji, co wydłuża wdrożenie o tydzień lub dwa.
+
+**Ile kosztuje chatbot dla przychodni?**
+Wersja odpowiadająca na pytania organizacyjne to 1 800-2 500 €, z pełną integracją rezerwacji 2 600-3 500 €. Miesięczne utrzymanie mieści się zwykle w 150-500 zł, płaconych bezpośrednio dostawcom modelu i hostingu.
+
+**Czy pacjent musi wiedzieć, że rozmawia z botem?**
+Tak i warto to napisać wprost w pierwszej wiadomości. Poza wymogami prawnymi działa to na korzyść placówki: pacjent uprzedzony, że rozmawia z asystentem, inaczej formułuje pytania i nie ma poczucia, że został oszukany, gdy bot czegoś nie rozumie.
+
+**Czy to zabierze pracę rejestracji?**
+Zabierze tę część, która polega na powtarzaniu godzin otwarcia i sprawdzaniu wolnych terminów - w placówkach, z którymi rozmawiałem, to 50-70% ruchu. Rejestracja zyskuje czas na pacjentów przy okienku i na rozmowy, które wymagają człowieka, więc efektem jest zwykle krótsza kolejka, a nie mniejszy zespół.
+
+---
+
+Prowadzicie gabinet albo klinikę i tonecie w telefonach o terminy? [Napiszcie, z jakiego systemu rezerwacji korzystacie](/pl/kontakt) - powiem, co da się zautomatyzować zgodnie z przepisami i ile to zajmie.

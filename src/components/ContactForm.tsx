@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { Button } from "./Button";
+import { trackGoal } from "@/lib/analytics";
 
 const typeKeys = ["website", "ai", "mobile", "other"] as const;
 const budgetKeys = ["under1k", "to3k", "to10k", "over10k", "unknown"] as const;
@@ -32,13 +33,21 @@ export function ContactForm() {
     };
 
     // Client-side validation with specific, friendly messages so users
-    // aren't left guessing why a submit was rejected.
-    if (!payload.name || !payload.description) {
+    // aren't left guessing why a submit was rejected. Only the name and one
+    // way to reach them are required — asking a cold visitor to write a brief
+    // before they've spoken to anyone loses more leads than it qualifies.
+    if (!payload.name) {
       setState("error");
       setError(t("errorRequired"));
       return;
     }
-    if (!isValidEmail(payload.email)) {
+    if (!payload.email && !payload.phone) {
+      setState("error");
+      setError(t("errorContact"));
+      (e.currentTarget.elements.namedItem("email") as HTMLInputElement | null)?.focus();
+      return;
+    }
+    if (payload.email && !isValidEmail(payload.email)) {
       setState("error");
       setError(t("errorEmail"));
       (e.currentTarget.elements.namedItem("email") as HTMLInputElement | null)?.focus();
@@ -57,6 +66,7 @@ export function ContactForm() {
       if (!res.ok || !data.ok) {
         throw new Error(data.error ?? "Send failed");
       }
+      trackGoal("lead_submit", { type: payload.type || "unknown" });
       const query: Record<string, string> = {};
       if (payload.name) query.name = payload.name;
       if (payload.type) query.type = payload.type;
@@ -72,9 +82,10 @@ export function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} className="space-y-5" noValidate>
+      <p className="text-[13.5px] leading-[1.5] text-[color:var(--color-text-3)]">{t("contactHint")}</p>
       <div className="grid gap-5 md:grid-cols-2">
         <Field name="name" label={t("name")} required />
-        <Field name="email" label={t("email")} type="email" required />
+        <Field name="email" label={t("email")} type="email" />
         <Field name="phone" label={t("phone")} type="tel" />
         <Field name="company" label={t("company")} />
         <SelectField
@@ -90,9 +101,8 @@ export function ContactForm() {
       </div>
       <TextAreaField
         name="description"
-        label={t("description")}
+        label={`${t("description")} ${t("optional")}`}
         placeholder={t("descriptionPlaceholder")}
-        required
       />
 
       <div className="space-y-4 pt-2">

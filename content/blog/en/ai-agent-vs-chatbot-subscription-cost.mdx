@@ -1,0 +1,93 @@
+---
+title: "Custom AI agent vs chatbot subscription: the three-year math"
+description: "Subscriptions look cheap in month one and stop being cheap around month eighteen. A side-by-side cost model, plus the cases where the subscription genuinely wins."
+date: "2026-09-08"
+cluster: "ai-agent-vs-subscription"
+keywords:
+  - "AI chatbot subscription vs custom"
+  - "build vs buy AI chatbot"
+  - "chatbot platform cost comparison"
+  - "custom AI agent cost"
+---
+
+Short answer: over three years, a custom agent costs **€3,200-5,600** all-in, while a mid-tier chatbot subscription costs **€5,400-14,400** and leaves you owning nothing. The subscription still wins in two specific situations, which I'll name rather than pretend otherwise.
+
+This is the decision most companies make on the first month's price, which is the one month where the comparison is meaningless.
+
+## The two models
+
+**Subscription platform.** Intercom, Tidio, Chatbase, and a hundred others. You configure inside their builder, pay monthly, and get support, updates and a dashboard. Logic and data live in their product.
+
+**Custom build.** Someone builds the agent on your knowledge base, wires it into your channels and systems, and hands you the code. You pay providers directly for the model and hosting.
+
+## Three-year comparison
+
+Take a typical service business: one website widget, one messenger channel, roughly 1,500 conversations a month, answers from a price list and FAQ, writes leads to a CRM.
+
+| | Subscription | Custom build |
+|---|---|---|
+| Setup | €0-500 | €2,000 |
+| Year 1 | €1,800-4,800 | €480 |
+| Years 2-3 | €3,600-9,600 | €960 |
+| **Three-year total** | **€5,400-14,900** | **€3,440** |
+| You own | nothing | code, data, logic |
+| Leaving costs you | the whole setup | nothing |
+
+The custom running cost is model tokens plus hosting - roughly €40/month at that volume, paid to OpenAI or Google directly.
+
+Two things this table doesn't show. Subscriptions usually price by conversations or seats, so the bill grows as you succeed. And most platforms charge extra for the things you'll want by month three: removing their branding, adding a second channel, connecting your CRM.
+
+## Where the subscription genuinely wins
+
+**You need it live this week.** A platform gets a decent FAQ bot answering by Friday. A custom build is two weeks minimum. If there's a campaign launching, take the platform.
+
+**You have no idea what you need yet.** Spending €150 a month for three months to discover what customers actually ask is a cheap experiment. Then build the thing you now understand, and cancel.
+
+I've told clients to do exactly this. It's a good sequence: rent to learn, build to keep.
+
+## Where the custom build wins
+
+**Your answers come from systems, not a FAQ.** Order status, availability, personalised pricing. Platform builders handle static content well and live data badly.
+
+**You have real volume.** Past a few thousand conversations a month, per-conversation pricing gets expensive fast while token costs stay linear and small.
+
+**Data residency matters.** Legal, medical, financial. You need to know where processing happens and what's retained - available on some enterprise tiers, at enterprise prices.
+
+**You need more than one language done properly.** Multilingual is where platform quality drops off most visibly, and it's rarely fixable from inside the builder.
+
+## The switching cost nobody prices in
+
+The number that surprises people isn't monthly - it's what leaving costs.
+
+Three years of a platform means three years of conversation history, tuned answers and flows inside someone else's product. Export usually gives you a transcript dump, not the logic. Rebuilding elsewhere means starting over.
+
+With a custom build, changing developers means handing over a repository. That's the real difference between the two columns, and it doesn't show up until the day you want out.
+
+## A middle path worth knowing
+
+You don't have to pick a side for everything.
+
+Keep the platform for live chat with humans - that's what those products are genuinely good at, with mobile apps and inbox tooling nobody wants to rebuild. Put the [custom agent](/en/services/ai-agents) on the part that needs your data and your systems, and let it hand off to the platform when a human is needed.
+
+Costs more than either alone in year one, less than the platform's top tier by year two, and each part does what it's good at.
+
+## FAQ
+
+**Is a custom AI chatbot cheaper than a subscription?**
+Over three years, usually yes - roughly €3,400 versus €5,400-14,900 for a comparable subscription tier. In the first three months the subscription is cheaper, which is why the comparison so often gets made at the wrong moment.
+
+**How long does a custom AI agent take to build?**
+One to two weeks for a knowledge-base agent on one channel, three to five weeks with CRM integration and qualification. A subscription platform can be answering questions the same week, which is its real advantage.
+
+**What happens to my custom agent if the developer disappears?**
+Nothing, provided the code is in your repository and the API accounts are in your name - another developer picks it up from the documentation. That's why ownership terms matter more than hourly rate when choosing who builds it.
+
+**Can I start on a platform and move later?**
+Yes, and it's often the smartest sequence: rent for three months to learn what customers ask, then build the agent you now know you need. What doesn't transfer is the flow logic, so treat the platform period as research rather than an investment.
+
+**Do subscription platforms handle my own documents?**
+Most now do, uploading files into their knowledge base. The differences show up in the details - citation of sources, refusal when the answer isn't there, and how they handle documents that contradict each other. Test those three before committing, because they're what separates a useful assistant from a confident one.
+
+---
+
+Want the three-year number for your actual traffic? [Send me your volume and channels](/en/contact) - I'll model both columns honestly, including the case where I tell you to stay on the subscription.

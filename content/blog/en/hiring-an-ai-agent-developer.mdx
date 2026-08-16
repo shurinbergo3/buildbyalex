@@ -1,0 +1,104 @@
+---
+title: "Hiring an AI agent developer: nine questions that separate builders from demo-makers"
+description: "A working demo takes an afternoon. A production agent takes weeks. Nine questions that reveal which one you're buying, plus what the answers should sound like."
+date: "2026-08-25"
+cluster: "hiring-ai-agent-developer"
+keywords:
+  - "hire AI agent developer"
+  - "hire dedicated AI agent developers"
+  - "how to choose AI agent development company"
+  - "questions to ask AI developer"
+---
+
+Short answer: the gap between a demo and a production agent is error handling, evaluation, and knowing when the agent should refuse to answer. Nine questions below surface that gap in a single call. None of them require you to be technical.
+
+Building something impressive with an LLM has never been easier, which is exactly the problem. A convincing demo takes an afternoon. An agent that survives real customers for a year takes weeks and a different skill set.
+
+## 1. What happens when the agent doesn't know?
+
+The only answer worth hearing: it says so and hands off to a human, ideally with the conversation attached.
+
+An agent that improvises when it lacks information will eventually quote a price you don't offer or promise a delivery date you can't meet. Ask to see the refusal path in the demo, not just the happy path. Vendors who haven't built one will describe it in the future tense.
+
+## 2. Who owns the code and the model account?
+
+Repository in your organisation. API account in your name, billed to your card. Copyright assigned in the contract.
+
+If the developer keeps the code, every future change happens at their price, on their schedule. If they keep the API account, you can't see real usage costs and you can't leave. Both are common and both are avoidable by asking upfront.
+
+## 3. How do you test it?
+
+Weak answer: "we tried a lot of questions."
+
+Strong answer: a fixed set of test questions with expected behaviour, run again after every change. Fifty to two hundred cases covering the common path, the ambiguous path, and the ones where the agent must refuse. This is the single clearest signal of production experience, because nobody builds an evaluation set for a demo.
+
+## 4. Which model, and can it be swapped?
+
+Model prices and capabilities change every few months. An agent hardcoded to one provider means every future switch is a rewrite.
+
+The answer you want: the model sits behind a configuration layer, swapping it is a settings change plus a re-run of the test set. Ask which models they've actually shipped with - a developer who has only used one has no basis for choosing.
+
+## 5. What does it cost me per month, and who pays whom?
+
+A developer who can't estimate your running cost hasn't run an agent in production. They should be able to work out roughly what your traffic costs in tokens within a few minutes of hearing your volume.
+
+The expected structure: you pay providers directly, they bill for work. Watch for mandatory retainers that don't describe what happens inside them - I broke the real numbers down in [AI agent maintenance cost](/en/blog/ai-agent-maintenance-cost).
+
+## 6. Where is data processed, and what's retained?
+
+For anything touching EU customers: processing region, a data processing agreement, retention period for transcripts, and confirmation that your data is excluded from model training.
+
+"It's all secure, it's in the cloud" is not an answer. The specifics matter because you, not the developer, are the data controller.
+
+## 7. Can I update the knowledge base myself?
+
+You should be able to. Prices change, services change, opening hours change. If every content update is a billable ticket, you'll stop making them and the agent will slowly start lying to your customers.
+
+Good setups put the knowledge base in a document, a sheet or a simple panel. The code doesn't need to change when your price list does.
+
+## 8. What did you build that failed, and why?
+
+The most revealing question on the list.
+
+Anyone who has shipped several agents has one that underperformed: users didn't adopt it, the process turned out to be different from what the client described, the data was too messy. A developer with only success stories has either shipped very little or isn't being straight with you.
+
+## 9. What would you tell me not to build?
+
+If the answer is "everything you described sounds great," be careful.
+
+Most requests contain at least one piece that's better solved with plain automation at a fraction of the cost. Someone who says "the first three things need an agent, the fourth is a [scheduled workflow](/en/services/automation) for a tenth of the price" is worth more than someone who quotes the whole list.
+
+## What good pricing looks like
+
+A focused agent on your knowledge base, one channel: €1,500-2,500. With CRM integration and qualification: €2,500-4,000. Multi-tool, several channels, admin panel: €4,000-8,000.
+
+Quotes far below that range usually mean a no-code widget with your logo on it, which may be fine - just know that's what you're buying. Quotes far above usually include a discovery phase, an account manager, and a slide deck.
+
+## Freelancer, agency or in-house
+
+**Freelancer or independent developer.** Fastest, cheapest, direct contact with the person building. Risk: one person, one calendar, and a bus factor of one. Mitigate by insisting on your repository and written documentation.
+
+**Agency.** More capacity, formal process, account manager. Costs 2-3x more and the person who impressed you in the sales call is rarely the person writing the code.
+
+**In-house.** Makes sense once AI work is continuous rather than a project. Below that, you're paying a salary for someone who finishes the first agent in six weeks and then maintains it for the rest of the year.
+
+## FAQ
+
+**How much does it cost to hire an AI agent developer?**
+Independent developers in the EU charge €50-90 per hour, agencies €100-200. Fixed-price projects are more common and easier to compare: €1,500-2,500 for a focused agent, €2,500-4,000 with CRM, €4,000-8,000 for multi-tool builds.
+
+**How long does a production AI agent take to build?**
+One to two weeks for a knowledge-base agent on a single channel, three to five weeks with integrations and qualification logic. The most common delay is not development but waiting for the client's documents and access credentials.
+
+**Should I hire someone who specialises in one framework?**
+Framework matters far less than experience with failure modes - handoffs, hallucination control, evaluation, cost management. Someone who has shipped three agents in plain code will serve you better than someone certified in a tool they've only used in tutorials.
+
+**What's a realistic first project?**
+One process, one channel, one clear success metric - usually "the agent handles the questions that eat the most staff time." Everything broader tends to produce something that does five things adequately and nothing well.
+
+**Do I need my own AI model?**
+Almost certainly not. Fine-tuning or self-hosting makes sense at large scale or under strict data-residency rules; for the vast majority of businesses, a commercial model with retrieval over your own documents is cheaper, better and faster to change.
+
+---
+
+Want a straight answer about what your case actually needs? [Book a 30-minute call](/en/contact) - I'll tell you which parts need an agent, which need plain automation, and what each would cost before anyone writes code.

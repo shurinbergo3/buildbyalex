@@ -1,0 +1,79 @@
+---
+title: "Czy voicebot się opłaca: rachunek za minutę i próg zwrotu"
+description: "Ile realnie kosztuje minuta rozmowy z voicebotem, od ilu połączeń zaczyna się zwrot i dlaczego w czterech na pięć przypadków tańszy wariant wystarczy."
+date: "2026-08-25"
+cluster: "voicebot-cost"
+keywords:
+  - "czy voicebot się opłaca"
+  - "voicebot koszt minuty"
+  - "próg opłacalności voicebota"
+  - "voicebot zwrot z inwestycji"
+---
+
+Krótka odpowiedź: wdrożenie voicebota odbierającego połączenia to **2 500-6 000 €**, a minuta rozmowy kosztuje **0,40-1,20 zł** licząc telefonię, rozpoznawanie mowy, model i syntezę. Przy 1 500 połączeniach miesięcznie po 90 sekund rachunek wynosi około 1 200-2 000 zł. Próg opłacalności zaczyna się mniej więcej tam, gdzie rozważasz drugi etat na infolinii.
+
+To nie jest tekst o tym, [czym jest głosowy agent AI i co potrafi](/pl/blog/glosowy-agent-ai) - to rachunek. Voicebot jest najdroższą formą agenta i najczęściej sprzedawaną na wyrost, więc poniżej liczby, na których podejmuje się decyzję.
+
+## Dlaczego głos kosztuje więcej niż czat
+
+W czacie masz jedną operację: model czyta tekst, pisze tekst. W rozmowie telefonicznej masz cztery, w pętli, w czasie rzeczywistym.
+
+Połączenie musi gdzieś wejść (telefonia). Mowa musi zamienić się w tekst (STT). Model musi zrozumieć i odpowiedzieć. Tekst musi zamienić się w mowę i wrócić do słuchawki (TTS). Wszystko to w mniej niż sekundę, bo powyżej tego człowiek w słuchawce zaczyna mówić "halo?".
+
+Każdy z tych czterech kroków ma swój cennik za minutę, a nie za rozmowę. Stąd rachunek liczony inaczej niż przy chatbotach.
+
+## Rozbicie kosztu minuty
+
+| Składnik | Co robi | Koszt minuty |
+|---|---|---|
+| Telefonia (numer + minuty) | Odbiera i prowadzi połączenie | 0,08-0,25 zł |
+| Rozpoznawanie mowy | Zamienia głos klienta na tekst | 0,04-0,10 zł |
+| Model | Rozumie i formułuje odpowiedź | 0,05-0,40 zł |
+| Synteza mowy | Czyta odpowiedź naturalnym głosem | 0,15-0,60 zł |
+
+Największą pozycją jest zwykle synteza. Głos brzmiący jak automat z 2015 roku kosztuje grosze, głos, którego klient nie odróżni od człowieka - kilkanaście razy więcej. To realna decyzja biznesowa, nie techniczna: w serwisie samochodowym nikt nie ma pretensji o syntetyczny głos, w klinice estetycznej owszem.
+
+## Wdrożenie: co składa się na 2 500-6 000 €
+
+Dolna granica to voicebot na jeden scenariusz: odbiera, pyta o sprawę, zbiera dane, wysyła Ci podsumowanie na maila albo do CRM. Dwa-trzy tygodnie pracy.
+
+Górna to voicebot wpięty w Twoje systemy: sprawdza status zamówienia w bazie, umawia termin w kalendarzu, rozpoznaje stałego klienta po numerze, przekazuje połączenie do właściwej osoby, gdy sprawa wykracza poza scenariusz. Pięć-sześć tygodni, bo połowa pracy to obsługa sytuacji nietypowych.
+
+To, co realnie zjada czas przy głosie, a przy czacie nie istnieje: przerwania (klient zaczyna mówić w połowie zdania bota), szumy w tle, akcenty, literowanie nazwisk i numerów, i decyzja, po ilu nieudanych próbach oddać człowiekowi. Ostatnie ustawienie zmienia zadowolenie klientów bardziej niż jakość głosu.
+
+## Kiedy się zwraca, a kiedy nie
+
+Policzmy uczciwie. Etat na infolinii w Polsce to razem z narzutami mniej więcej 6 500-8 500 zł miesięcznie i obsługa 8 godzin dziennie w dni robocze.
+
+Voicebot przy 1 500 połączeniach kosztuje około 1 500 zł miesięcznie plus 4 000 € wdrożenia rozłożone na rok, czyli jakieś 1 400 zł. Razem 2 900 zł, ale za obsługę 24/7, bez urlopu i bez kolejki.
+
+Do tego dochodzi rzecz, której nie widać w tabelce: [nieodebrane połączenia](/pl/blog/nieodebrane-polaczenia-jak-nie-tracic-klientow). W serwisach i usługach nieodebrany telefon to zwykle klient, który dzwoni do następnego z listy. Jeśli tracisz 20% połączeń, a średnie zlecenie ma 800 zł marży, rachunek zamyka się szybciej, niż wynika z porównania z etatem.
+
+Nie zwraca się, gdy: masz mniej niż 300-400 połączeń miesięcznie, Twoje rozmowy są długie i negocjacyjne, albo dzwonią do Ciebie głównie stali klienci, którzy poczują się urażeni automatem. W tych przypadkach lepiej działa [agent tekstowy](/pl/uslugi/agenci-ai) plus porządne oddzwanianie.
+
+## Wariant tańszy, o którym mało kto mówi
+
+Zanim wydasz 4 000 € na voicebota, rozważ przechwytywanie połączeń nieodebranych. Bot nie odbiera wszystkiego - włącza się tylko wtedy, gdy nikt nie podniósł po czterech sygnałach. Bierze temat, numer i termin oddzwonienia, wrzuca do CRM i wysyła Ci powiadomienie.
+
+Kosztuje 1 200-2 000 € zamiast 4 000-6 000, obsługuje 15-20% ruchu zamiast 100%, a odzyskuje dokładnie tę część, która wcześniej znikała bez śladu. W czterech na pięć przypadków, w których ktoś przychodzi do mnie po voicebota, to jest właściwa odpowiedź.
+
+## FAQ
+
+**Czy klient pozna, że rozmawia z botem?**
+Przy dobrej syntezie i szybkiej reakcji nie pozna w pierwszych kilkunastu sekundach, ale przy dłuższej rozmowie zwykle tak. Od 2026 roku unijne przepisy o AI wymagają zresztą, żeby poinformować rozmówcę, że rozmawia z systemem - więc pytanie brzmi nie "czy ukryć", tylko "jak powiedzieć, żeby nie zniechęcić". Krótkie "jestem asystentem głosowym, mogę umówić termin albo połączyć z konsultantem" działa najlepiej.
+
+**Ile kosztuje voicebot przy 500 połączeniach miesięcznie?**
+Przy średniej rozmowie 90 sekund to około 600-900 zł miesięcznie kosztów bieżących. Doliczając wdrożenie rozłożone na rok, wychodzi 1 500-2 000 zł - i przy takim ruchu warto policzyć, czy tańszym rozwiązaniem nie będzie przechwytywanie samych nieodebranych połączeń.
+
+**Czy voicebot działa po polsku i po ukraińsku?**
+Tak, oba języki są dziś obsługiwane dobrze zarówno w rozpoznawaniu, jak i w syntezie. Polski ma jedną specyfikę: literowanie nazwisk i adresów wymaga osobnego dopracowania, bo modele mylą podobnie brzmiące głoski. To kwestia testów na realnych nagraniach, nie limitu technologii.
+
+**Czy mogę zacząć od jednego scenariusza?**
+Tak i tak radzę robić. Jeden scenariusz - najczęściej "umów termin" albo "sprawdź status" - uruchamiam w 2-3 tygodnie i przez miesiąc zbieramy nagrania. Dopiero na nich widać, o co ludzie pytają naprawdę, a nie co wydawało się nam przy planowaniu.
+
+**Co się dzieje, gdy bot nie rozumie?**
+Powinien po dwóch nieudanych próbach przekazać połączenie do człowieka albo obiecać oddzwonienie i od razu utworzyć zadanie w CRM. Voicebot, który zapętla klienta w "przepraszam, nie zrozumiałem", robi Twojej firmie więcej szkody niż brak voicebota.
+
+---
+
+Chcesz sprawdzić, czy w Twoim ruchu to się spina? [Umów 30-minutową rozmowę](/pl/kontakt) - policzymy Twoje połączenia, nieodebrane i marżę na zleceniu, a potem powiem, czy budować voicebota, czy tańszy przechwytywacz.

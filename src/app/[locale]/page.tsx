@@ -11,6 +11,7 @@ import { LegalwinHomeShowcase } from "@/components/home/LegalwinHomeShowcase";
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { ScrollStory } from "@/components/home/ScrollStory";
 import { Pricing } from "@/components/home/Pricing";
+import { QuoteForm } from "@/components/QuoteForm";
 import { FitCheck } from "@/components/home/FitCheck";
 import { Testimonials } from "@/components/home/Testimonials";
 import { FAQ } from "@/components/home/FAQ";
@@ -42,6 +43,7 @@ export default async function HomePage({
       <HowItWorks />
       <ScrollStory />
       <Pricing />
+      <QuoteForm tone="alt" />
       <FitCheck />
       <Testimonials now={now} />
       <FAQ />

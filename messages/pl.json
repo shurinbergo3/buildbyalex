@@ -1,15 +1,15 @@
 {
   "meta": {
     "siteName": "buildbyalex",
-    "defaultTitle": "Tworzenie stron, agentów AI i aplikacji — buildbyalex",
-    "defaultDescription": "Realizacje pod klucz: strony, agenci AI i aplikacje mobilne w 1-3 tygodnie, od pomysłu do startu. Pracuję zdalnie z klientami z całego świata. PL · EN · UA.",
+    "defaultTitle": "Tworzenie stron internetowych i agentów AI - Warszawa | buildbyalex",
+    "defaultDescription": "Strony, agenci AI i aplikacje mobilne pod klucz w 1-3 tygodnie. Warszawa i cała Polska. Strona od 1 200 €, agent AI od 1 500 €. Wycena w 24 h.",
     "ogAlt": "buildbyalex · niezależny developer",
     "ogServices": "Strony · Agenci AI · Aplikacje mobilne · Automatyzacja"
   },
   "nav": {
     "work": "Realizacje",
     "services": "Usługi",
-    "about": "O mnie",
+    "about": "O nas",
     "blog": "Blog",
     "contact": "Kontakt",
     "letsTalk": "Porozmawiajmy",
@@ -48,7 +48,8 @@
         "title": "Boty Telegram",
         "tagline": "Boty i Mini Apps z płatnością w czacie"
       }
-    }
+    },
+    "pricing": "Cennik"
   },
   "footer": {
     "tagline": "Realizacje pod klucz. Trzy tygodnie do startu. Strony, które rankują.",
@@ -71,11 +72,11 @@
     },
     "location": "Warszawa, Polska",
     "rights": "Wszelkie prawa zastrzeżone.",
-    "legal": "Niezależny wykonawca · VAT EU"
+    "legal": "Studio · Warszawa · VAT EU"
   },
   "home": {
     "hero": {
-      "eyebrow": "Tworzenie stron i agenci AI",
+      "eyebrow": "Tworzenie stron i agenci AI · Warszawa",
       "headline": "Tworzenie stron,\nagentów AI i aplikacji",
       "kicker": "Pod klucz w 1-3 tygodnie",
       "subhead": "Projekt, kod, integracje z CRM, komunikatorami i AI, wdrożenie i wsparcie pod klucz. Od pierwszej rozmowy do startu, bez utraconych terminów.",
@@ -87,8 +88,8 @@
       "altLink": "Napisz na Telegramie"
     },
     "pain": {
-      "eyebrow": "Dlaczego ze mną",
-      "headline": "Dlaczego klienci wybierają mnie zamiast agencji.",
+      "eyebrow": "Dlaczego my",
+      "headline": "Dlaczego klienci wybierają nas zamiast agencji.",
       "lead": "Trzy powody, a za każdym stoi projekt, który już działa i przynosi zapytania.",
       "cta": "Porozmawiajmy o projekcie",
       "items": {
@@ -118,8 +119,8 @@
           }
         },
         "seo": {
-          "title": "Uruchamiam, przekazuję i nie uzależniam",
-          "body": "Piszesz bezpośrednio do mnie, bez account managerów i juniorów. Domena, repozytorium i dostępy są na Ciebie, 30 dni wsparcia w cenie.",
+          "title": "Uruchamiamy, przekazujemy i nie uzależniamy",
+          "body": "Piszesz bezpośrednio do programisty, bez account managerów i juniorów. Domena, repozytorium i dostępy są na Ciebie, 30 dni wsparcia w cenie.",
           "tab": "Twój kod",
           "proof": {
             "label": "Działają w tej chwili",
@@ -132,7 +133,7 @@
     "services": {
       "eyebrow": "Usługi",
       "headline": "Strony, AI i aplikacje, które przynoszą klientów.",
-      "subhead": "Wybierz jedną albo połącz wszystkie. Pracuję z founderami, małymi firmami i zespołami marketingu, które potrzebują seniora bez narzutu agencji.",
+      "subhead": "Wybierz jedną albo połącz wszystkie. Pracujemy z founderami, małymi firmami i zespołami marketingu, które potrzebują seniora bez narzutu agencji.",
       "items": {
         "websites": {
           "title": "Strony, które rankują.",
@@ -140,7 +141,7 @@
           "stack": "Next.js · TypeScript · Tailwind · next-intl · Vercel",
           "link": "Dowiedz się więcej",
           "category": "Strony",
-          "price": "800 €",
+          "price": "1 200 €",
           "bullets": [
             "Next.js 15 + React 19",
             "Wielojęzyczność, SEO i GEO wbudowane",
@@ -154,7 +155,7 @@
           "stack": "Gemini · GPT · Claude · Function calling · AmoCRM · Telegram",
           "link": "Dowiedz się więcej",
           "category": "AI i automatyzacja",
-          "price": "500 €",
+          "price": "1 500 €",
           "bullets": [
             "Boty RAG, sprzedażowe i kwalifikacja",
             "Podłączone do CRM i narzędzi",
@@ -188,13 +189,13 @@
         "category": "Sklepy",
         "title": "Sklepy internetowe",
         "body": "Katalog, koszyk i płatności BLIK/Przelewy24 — szybki sklep na Next.js, gotowy pod Google.",
-        "price": "Od €1 500"
+        "price": "Od €1 800"
       },
       "badge": "Najczęściej wybierane",
       "art": {
         "chat1": "Odpowiadam od razu i zbieram zgłoszenie",
         "chat2": "Ile to kosztuje?",
-        "chat3": "Od €600. Przekazuję do CRM",
+        "chat3": "Od €900. Przekazuję do CRM",
         "lead": "Lead w CRM",
         "deal": "Umowa",
         "speed": "0,9 s do pierwszego ekranu",
@@ -219,7 +220,7 @@
         "appRank": "w kategorii",
         "flowChat": "WhatsApp · bot",
         "flowAsk": "Ile to kosztuje?",
-        "flowReply": "Od €600. Zaczynamy?",
+        "flowReply": "Od €900. Zaczynamy?",
         "adsCpl": "za leada",
         "adsCheck": "średni koszyk"
       },
@@ -227,7 +228,7 @@
         "category": "Automatyzacja",
         "title": "Automatyzacja procesów biznesowych",
         "body": "Leady, CRM, powiadomienia, raporty — łączę narzędzia w proces, który działa sam.",
-        "price": "Od €600"
+        "price": "Od €900"
       },
       "telegram": {
         "category": "Telegram",
@@ -513,21 +514,21 @@
         "site": {
           "title": "Strona",
           "from": "od",
-          "price": "800 €",
+          "price": "1 200 €",
           "body": "Strona marketingowa, wielojęzyczna, gotowa pod SEO, wdrożona i zaindeksowana.",
           "examples": "5–15 podstron · Next.js · CMS opcjonalnie"
         },
         "ai": {
           "title": "Agent AI",
           "from": "od",
-          "price": "500 €",
+          "price": "1 500 €",
           "body": "Bot pod jedno zadanie: FAQ, statusy zamówień albo kwalifikacja — na Twoich danych.",
           "examples": "Bot FAQ · RAG · 1 kanał"
         },
         "automation": {
           "title": "Automatyzacja",
           "from": "od",
-          "price": "€600",
+          "price": "€900",
           "body": "Twoje narzędzia połączone w jeden automatyczny proces — bez ręcznego przenoszenia danych.",
           "examples": "Make · n8n · API · CRM · Telegram"
         },
@@ -559,133 +560,133 @@
       "eyebrow": "Szczerze",
       "headline": "Czy do siebie pasujemy.",
       "lead": "Żeby nikt z nas nie tracił godziny na rozmowę, z której i tak nic nie wyjdzie.",
-      "yesTitle": "Biorę projekt, jeśli",
-      "noTitle": "Odpuszczam, jeśli",
+      "yesTitle": "Bierzemy projekt, jeśli",
+      "noTitle": "Odpuszczamy, jeśli",
       "yes": [
         "Jest konkretne zadanie i termin: start, redesign, automatyzacja, aplikacja.",
-        "Budżet od 500 € i decyzję podejmujesz Ty, a nie komitet z pięciu działów.",
-        "Chcesz jedną osobę odpowiedzialną za całość, od projektu po wdrożenie.",
+        "Budżet od 900 € i decyzję podejmujesz Ty, a nie komitet z pięciu działów.",
+        "Chcesz jednego wykonawcę odpowiedzialnego za całość - od projektu po wdrożenie.",
         "Zależy Ci, żeby Cię znajdowali w Google i w wyszukiwarkach AI, a nie tylko na ładny wygląd."
       ],
       "no": [
-        "Szukasz najtańszej oferty. Za 150 € tego nie zrobię i lepiej powiedzieć to od razu.",
-        "Potrzebujesz programisty na etat. Pracuję projektowo, nie na umowę o pracę.",
+        "Szukasz najtańszej oferty. Za 150 € tego nie zrobimy i lepiej powiedzieć to od razu.",
+        "Potrzebujesz programisty na etat. Pracujemy projektowo, nie na umowę o pracę.",
         "Brief brzmi \"zróbcie coś, żeby była sprzedaż\", a produktu i oferty jeszcze nie ma.",
         "Każda poprawka wymaga tygodnia akceptacji. Tempo to połowa wartości takiej współpracy."
       ],
       "ctaTitle": "Brzmi jak Twoja sytuacja?",
-      "ctaBody": "Napisz kilka zdań o zadaniu. Odpowiadam w ciągu godzin i mówię wprost, czy się nadaję.",
+      "ctaBody": "Napisz kilka zdań o zadaniu. Odpowiadamy w ciągu godzin i mówimy wprost, czy się nadajemy.",
       "ctaPrimary": "Opisz projekt",
       "ctaTelegram": "Albo na Telegramie"
     },
     "testimonials": {
       "eyebrow": "Co mówią klienci",
-      "headline": "Zaufali mi founderzy i operatorzy.",
-      "subhead": "Kilka słów od founderów i zespołów, dla których realizowałem projekty.",
+      "headline": "Zaufali nam founderzy i operatorzy.",
+      "subhead": "Kilka słów od founderów i zespołów, dla których realizowaliśmy projekty.",
       "rating": "4,8",
       "count": "opinii",
       "list": [
         {
           "name": "Marek Wójcik",
-          "role": "Założyciel · Stryke Apparel",
+          "role": "Założyciel · marka odzieżowa",
           "date": "2 tygodnie temu",
           "quote": "Sklep ruszył w 11 dni — wielojęzyczny, szybki i już na pierwszej stronie dla trzech głównych fraz.",
           "rating": 5
         },
         {
           "name": "Anna Kovalenko",
-          "role": "Marketing · Lumière Clinic",
+          "role": "Marketing · klinika medycyny estetycznej",
           "date": "miesiąc temu",
           "quote": "Bot na Telegramie prowadzi teraz pierwszą rozmowę z każdym leadem. Handlowiec wchodzi tylko, gdy deal jest gorący.",
           "rating": 5
         },
         {
           "name": "Dmytro Orlov",
-          "role": "Dyrektor operacyjny · Vector Logistics",
+          "role": "Dyrektor operacyjny · firma logistyczna",
           "date": "3 tygodnie temu",
           "quote": "Leady trafiają do CRM z już wypełnionymi polami. Koniec z kopiowaniem z czatów — lejek przesuwa się sam.",
           "rating": 5
         },
         {
           "name": "Katarzyna Nowak",
-          "role": "Właścicielka · Belle Studio",
+          "role": "Właścicielka · salon urody, Warszawa",
           "date": "miesiąc temu",
           "quote": "Aplikacja w App Store i Google Play w trzy tygodnie. Dzięki dokumentacji zespół przejął ją beze mnie.",
           "rating": 5
         },
         {
           "name": "Tomasz Lewandowski",
-          "role": "Dyrektor · Nest Estate",
+          "role": "Dyrektor · biuro nieruchomości",
           "date": "2 miesiące temu",
           "quote": "Postawił nam Google i Meta Ads od zera. Koszt leada spadł o jakąś jedną trzecią w pierwszym miesiącu.",
           "rating": 5
         },
         {
           "name": "Oleh Hrytsenko",
-          "role": "Współzałożyciel · NorthPeak",
+          "role": "Współzałożyciel · startup technologiczny",
           "date": "5 dni temu",
           "quote": "Przebudował stronę i po sześciu tygodniach ChatGPT zaczął nas polecać z nazwy. Nie wiedziałem, że to możliwe.",
           "rating": 5
         },
         {
           "name": "Natalia Boyko",
-          "role": "Head of growth · EduLab",
+          "role": "Head of growth · szkoła online",
           "date": "3 miesiące temu",
           "quote": "Strony zaczęły otwierać się natychmiast. Współczynnik odrzuceń na mobile wyraźnie spadł w kilka tygodni.",
           "rating": 5
         },
         {
           "name": "Piotr Zieliński",
-          "role": "Wspólnik · Lex Partners",
+          "role": "Wspólnik · kancelaria prawna, Warszawa",
           "date": "6 tygodni temu",
           "quote": "Demo w każdy piątek — zero niespodzianek. Dostarczył dokładnie to, co ustaliliśmy, w obiecanym terminie.",
           "rating": 5
         },
         {
           "name": "Michał Kaczmarek",
-          "role": "Właściciel · Forma Fitness",
+          "role": "Właściciel · klub fitness",
           "date": "2 tygodnie temu",
           "quote": "Rozmowa wprost z osobą, która to buduje, to inna liga. Szybkie odpowiedzi, bez głuchego telefonu przez account managerów.",
           "rating": 5
         },
         {
           "name": "Sofia Adamczyk",
-          "role": "Właścicielka · Brew & Bloom",
+          "role": "Właścicielka · kawiarnia, Warszawa",
           "date": "tydzień temu",
           "quote": "Strona rezerwacji, menu i zamówienia online — wszystko ruszyło w dwa tygodnie. Stali klienci zamawiają teraz przez stronę, a nie dzwonią.",
           "rating": 5
         },
         {
           "name": "Wiktor Kowalczyk",
-          "role": "Założyciel · Tablo",
+          "role": "Założyciel · produkt SaaS",
           "date": "miesiąc temu",
           "quote": "Zamienił stos notatek w Notion w działający panel. Sam onboarding zmniejszył liczbę zgłoszeń do supportu o połowę.",
           "rating": 5
         },
         {
           "name": "Iryna Savchenko",
-          "role": "Marketing · Verde Cosmetics",
+          "role": "Marketing · marka kosmetyczna",
           "date": "2 tygodnie temu",
           "quote": "Ostatecznie zrobił świetnie, ale pierwszy termin przesunął się o jakiś tydzień. Trzeba przyznać — uprzedził wcześniej, a dopracowanie było tego warte.",
           "rating": 4
         },
         {
           "name": "Bartosz Nowicki",
-          "role": "CEO · Hauz Interiors",
+          "role": "CEO · studio wnętrz",
           "date": "miesiąc temu",
           "quote": "Stara strona wyglądała jak z 2014. Nowa otwiera się natychmiast i wreszcie mamy zapytania z Google, a nie tylko z polecenia.",
           "rating": 5
         },
         {
           "name": "Kamil Pawlak",
-          "role": "Założyciel · Trek Gear",
+          "role": "Założyciel · sklep outdoor",
           "date": "miesiąc temu",
           "quote": "Efekt jest w porządku i działa stabilnie. Ale szło wolniej niż obiecywał — kilka razy musiałem sam dopominać się o status w gorącym okresie.",
           "rating": 3
         },
         {
           "name": "Olena Tkachenko",
-          "role": "Właścicielka · Mira Jewelry",
+          "role": "Właścicielka · marka biżuterii",
           "date": "3 tygodnie temu",
           "quote": "Przeniósł cały sklep bez utraty ani jednego zamówienia. Zakupy są płynniejsze, a porzuconych koszyków w pierwszym miesiącu wyraźnie ubyło.",
           "rating": 5
@@ -1328,11 +1329,11 @@
         },
         {
           "q": "Pracujesz z polskimi firmami? Mówisz po polsku?",
-          "a": "Tak. Regularnie pracuję z polskimi klientami. Mówię po polsku w pracy, biegle po angielsku, natywnie po rosyjsku i ukraińsku. Umowy podpisujemy pod prawem polskim, faktury z VAT EU."
+          "a": "Tak. Regularnie pracujemy z polskimi klientami. Polski w pracy, biegły angielski, natywny rosyjski i ukraiński. Umowy podpisujemy pod prawem polskim, faktury z VAT EU."
         },
         {
           "q": "Możesz zrobić stronę po ukraińsku dla diaspory?",
-          "a": "Tak. Kilka moich projektów działa równocześnie w PL / EN / UA / RU. Zajmuję się poprawnym routingiem i18n, hreflangami, lokalnym SEO i weryfikacją tłumaczeń z native speakerami."
+          "a": "Tak. Kilka naszych projektów działa równocześnie w PL / EN / UA / RU. Zajmujemy się poprawnym routingiem i18n, hreflangami, lokalnym SEO i weryfikacją tłumaczeń z native speakerami."
         },
         {
           "q": "Co dzieje się po oddaniu projektu?",
@@ -1340,15 +1341,15 @@
         },
         {
           "q": "Ile kosztuje chatbot albo agent AI?",
-          "a": "Agenci AI od 500 € dla skupionego case'u (asystent FAQ, kwalifikator leadów, automatyzacja na jedno narzędzie). Agent sprzedażowy z CRM — od 1 500 €, agent wielonarzędziowy z integracjami — 3 000–8 000 €. Cena ostateczna po 30-minutowej rozmowie."
+          "a": "Agenci AI od 1 500 € dla skupionego case'u (asystent FAQ, kwalifikator leadów, automatyzacja na jedno narzędzie). Agent sprzedażowy z CRM — od 2 500 €, agent wielonarzędziowy z integracjami — 4 500–12 000 €. Cena ostateczna po 30-minutowej rozmowie."
         },
         {
           "q": "Robisz Androida czy tylko iOS?",
-          "a": "Obie platformy — buduję cross-platform z jednego kodu (React Native / Expo) i publikuję w App Store oraz Google Play. Jeśli projekt naprawdę wymaga natywnego kodu, mówię to wprost i wyceniam adekwatnie."
+          "a": "Obie platformy - budujemy cross-platform z jednego kodu (React Native / Expo) i publikujemy w App Store oraz Google Play. Jeśli projekt naprawdę wymaga natywnego kodu, mówimy to wprost i wyceniamy osobno."
         },
         {
           "q": "Czym praca ze mną różni się od agencji?",
-          "a": "Piszesz bezpośrednio do mnie. Bez account managerów, bez juniorów prowadzących projekt podczas gdy senior tylko podpisuje. Osoba, z którą rozmawiasz, pisze kod. Decyzje zajmują minuty, nie tygodnie."
+          "a": "Piszesz bezpośrednio do programisty. Bez account managerów, bez juniorów prowadzących projekt, który podpisuje senior. Osoba, z którą rozmawiasz, pisze kod. Decyzje zajmują minuty, nie tygodnie."
         },
         {
           "q": "Czy zbudujesz stronę, która naprawdę rankuje w Google?",
@@ -1360,7 +1361,7 @@
         },
         {
           "q": "A jeśli będę chciał coś zmienić po starcie?",
-          "a": "Edycje 50 €/h, minimum godzina. Bez wymuszonego abonamentu. Możesz wrócić po pół roku z małą zmianą i zrobię ją — te same warunki, ta sama stawka."
+          "a": "Edycje 50 €/h, minimum godzina. Bez wymuszonego abonamentu. Możesz wrócić po pół roku z małą zmianą i ją zrobimy - te same warunki, ta sama stawka."
         },
         {
           "q": "Pracujecie zdalnie? Skąd są Wasi klienci?",
@@ -1371,7 +1372,7 @@
     "finalCta": {
       "eyebrow": "Zaczynamy",
       "headline": "Masz coś do zbudowania?",
-      "subhead": "Bezpłatna 30-minutowa rozmowa. Zero sprzedażowego pitcha — konkretny dialog o tym, czego potrzebujesz i czy jestem właściwą osobą.",
+      "subhead": "Bezpłatna 30-minutowa rozmowa. Zero sprzedażowego pitcha - konkretny dialog o tym, czego potrzebujesz i czy jesteśmy właściwym studiem.",
       "primaryCta": "Umów bezpłatną konsultację",
       "or": "albo napisz",
       "email": "info@buildbyalex.com",
@@ -1441,18 +1442,18 @@
   "services": {
     "intro": {
       "eyebrow": "Usługi",
-      "headline": "Co robię.",
+      "headline": "Co robimy.",
       "subhead": "Cztery kierunki. Każdy ze stałą ceną od, klarownym procesem i kejsami z liczbami. Wybierz jeden albo połącz."
     },
     "websites": {
       "meta": {
-        "title": "Tworzenie stron internetowych Warszawa | od 800 €",
-        "description": "Tworzymy szybkie strony www w Next.js — wielojęzyczne i SEO-ready. Warszawa, wycena za darmo, realizacja w 2–4 tygodnie. Od 800 €."
+        "title": "Tworzenie stron internetowych Warszawa | od 1 200 €",
+        "description": "Tworzymy szybkie strony www w Next.js — wielojęzyczne i SEO-ready. Warszawa, wycena za darmo, realizacja w 2–4 tygodnie. Od 1 200 €."
       },
       "eyebrow": "Strony internetowe · Warszawa",
       "headline": "Strony internetowe,\nktóre przynoszą zapytania.",
       "lead": "Tworzenie stron internetowych w Warszawie pod klucz: nowoczesny serwis na Next.js, wielojęzyczny i gotowy pod SEO od pierwszego dnia — nie „wizytówka” z 2015 roku.",
-      "from": "Od 800 €",
+      "from": "Od 1 200 €",
       "primaryCta": "Porozmawiajmy o projekcie",
       "hero": {
         "badge": "Gotowy na Google i wyszukiwanie AI",
@@ -1776,7 +1777,7 @@
           {
             "title": "Landing",
             "from": "od",
-            "price": "€400",
+            "price": "€700",
             "market": "4 000–6 000 zł",
             "body": "Jednostronicowa strona pod jeden cel — lead albo sprzedaż.",
             "features": [
@@ -1790,7 +1791,7 @@
           {
             "title": "Wielojęzyczny projekt",
             "from": "od",
-            "price": "€1 000",
+            "price": "€1 500",
             "market": "20 000–40 000 zł",
             "featured": true,
             "body": "Wiele podstron + lokalizacje EN / PL / UA / RU.",
@@ -1806,7 +1807,7 @@
           {
             "title": "Wielostronicowa / sklep",
             "from": "od",
-            "price": "€1 200",
+            "price": "€1 800",
             "market": "10 000–18 000 zł",
             "body": "10–50 podstron albo katalog z koszykiem i płatnościami.",
             "features": [
@@ -1944,7 +1945,7 @@
         "rows": [
           {
             "label": "Cena",
-            "me": "€400-1 500",
+            "me": "€700-2 500",
             "vals": [
               "4 000-40 000 zł",
               "nieprzewidywalna",
@@ -2124,7 +2125,7 @@
         "items": [
           {
             "title": "Landing page",
-            "price": "€400",
+            "price": "€700",
             "time": "1-2 tygodnie",
             "desc": "Jedna strona pod jeden cel: zbierać zapytania z reklam, sprzedać usługę, ogłosić start.",
             "audience": "Dla usług, ekspertów i kampanii reklamowych",
@@ -2136,7 +2137,7 @@
           },
           {
             "title": "Strona firmowa",
-            "price": "€800",
+            "price": "€1 200",
             "time": "2-4 tygodnie",
             "desc": "Wielostronicowy serwis firmy: usługi, realizacje, blog. Główny format do pozycjonowania w Google.",
             "audience": "Dla firm, klinik, studiów, B2B",
@@ -2148,7 +2149,7 @@
           },
           {
             "title": "Sklep internetowy",
-            "price": "€1 200",
+            "price": "€1 800",
             "time": "3-5 tygodni",
             "desc": "Katalog, koszyk, płatności: Stripe, Przelewy24, BLIK. Integracje z dostawą i magazynem.",
             "audience": "Dla biznesu towarowego i marek D2C",
@@ -2162,7 +2163,7 @@
           },
           {
             "title": "Redesign i migracja",
-            "price": "€600",
+            "price": "€900",
             "time": "2-3 tygodnie",
             "desc": "Strona się zestarzała albo muli - przenoszę ją na szybką architekturę bez utraty pozycji w Google.",
             "audience": "Dla stron starszych niż 3-4 lata i wolnego WordPressa",
@@ -2177,13 +2178,13 @@
     },
     "store": {
       "meta": {
-        "title": "Sklep internetowy Warszawa — tworzenie sklepów | od €1500",
-        "description": "Tworzenie sklepu internetowego pod klucz w Warszawie: katalog, koszyk, płatności BLIK/Przelewy24/Stripe, integracja z magazynem i wysyłką. Cena od €1500."
+        "title": "Sklep internetowy Warszawa — tworzenie sklepów | od €1 800",
+        "description": "Tworzenie sklepu internetowego pod klucz w Warszawie: katalog, koszyk, płatności BLIK/Przelewy24/Stripe, integracja z magazynem i wysyłką. Cena od €1 800."
       },
       "eyebrow": "Sklepy internetowe · Warszawa",
       "headline": "Sklepy internetowe w Warszawie,\nktóre sprzedają.",
       "lead": "Tworzenie sklepu internetowego w Warszawie pod klucz: katalog, koszyk i płatności, które nie gubią klienta w drodze do zamówienia. Na Next.js — szybki, wielojęzyczny i gotowy pod Google od pierwszego dnia.",
-      "from": "Od €1 500",
+      "from": "Od €1 800",
       "primaryCta": "Omówmy sklep",
       "hero": {
         "badge": "Gotowy na sprzedaż i Google",
@@ -2363,7 +2364,7 @@
         "items": [
           {
             "q": "Ile kosztuje stworzenie sklepu internetowego w Warszawie?",
-            "a": "Zależy od liczby produktów, integracji i projektu. Prosty sklep na gotowym katalogu — od €1500, sklep z integracją magazynu, CRM i niestandardową logiką — od €4000. Dokładną wycenę ustalam przed startem, bez dopłat godzinowych."
+            "a": "Zależy od liczby produktów, integracji i projektu. Prosty sklep na gotowym katalogu — od €1 800, sklep z integracją magazynu, CRM i niestandardową logiką — od €5 000. Dokładną wycenę ustalam przed startem, bez dopłat godzinowych."
           },
           {
             "q": "W jakim czasie uruchomicie sklep?",
@@ -2420,7 +2421,7 @@
           {
             "title": "Przeniesienie / redesign",
             "from": "od",
-            "price": "€2 000",
+            "price": "€2 500",
             "market": "15 000–30 000 zł",
             "body": "Migracja z WooCommerce, Shopify lub PrestaShop bez utraty pozycji.",
             "features": [
@@ -2434,7 +2435,7 @@
           {
             "title": "Sklep Start",
             "from": "od",
-            "price": "€1 500",
+            "price": "€1 800",
             "market": "10 000–18 000 zł",
             "body": "Gotowy katalog z koszykiem i płatnościami — szybki start sprzedaży.",
             "features": [
@@ -2449,7 +2450,7 @@
           {
             "title": "Sklep dla biznesu",
             "from": "od",
-            "price": "€4 000",
+            "price": "€5 000",
             "market": "25 000–60 000 zł",
             "body": "Integracje magazynu, CRM i wysyłki pod realne procesy.",
             "features": [
@@ -2490,7 +2491,7 @@
         "items": [
           {
             "title": "Sklep na start",
-            "price": "€1 500",
+            "price": "€1 800",
             "time": "2-3 tygodnie",
             "desc": "Katalog do 100 produktów, koszyk i płatności - wszystko, żeby zacząć sprzedawać z własnej domeny.",
             "audience": "Dla pierwszego sklepu i marek D2C",
@@ -2502,7 +2503,7 @@
           },
           {
             "title": "Sklep pod biznes",
-            "price": "€4 000",
+            "price": "€5 000",
             "time": "4-6 tygodni",
             "desc": "Duży katalog, integracje z magazynem, Allegro i księgowością. Sklep jako system, nie witryna.",
             "audience": "Dla działającego handlu i hurtu",
@@ -2514,7 +2515,7 @@
           },
           {
             "title": "Przeniesienie z platformy",
-            "price": "€2 000",
+            "price": "€2 500",
             "time": "2-4 tygodnie",
             "desc": "Przeprowadzka z Shopera, Wixa albo wolnego WooCommerce na szybką architekturę - bez utraty pozycji.",
             "audience": "Dla sklepów, które uderzyły w sufit platformy",
@@ -2596,7 +2597,7 @@
         "rows": [
           {
             "label": "Start",
-            "me": "od €1 500 jednorazowo",
+            "me": "od €1 800 jednorazowo",
             "vals": [
               "70-300 zł/mies. abonament",
               "start za darmo"
@@ -2762,13 +2763,13 @@
     },
     "ai": {
       "meta": {
-        "title": "Agenci AI i chatboty dla firm — wdrożenie | Warszawa",
-        "description": "Tworzymy agentów AI i chatboty dla firm na Twoich danych: integracja z CRM, Telegram, WhatsApp. Automatyzacja sprzedaży i obsługi. Od 500 €."
+        "title": "Agenci AI i chatboty dla firm — wdrożenie od 1 500 € | Warszawa",
+        "description": "Tworzymy agentów AI i chatboty dla firm na Twoich danych: integracja z CRM, Telegram, WhatsApp. Automatyzacja sprzedaży i obsługi. Od 1 500 €."
       },
       "eyebrow": "Agenci AI · Warszawa",
       "headline": "Agenci AI dla firm w Warszawie,\nktórzy zamykają.",
       "lead": "Tworzę agentów AI i chatboty dla firm na Twoich danych: integruję z CRM, Telegramem i WhatsApp, z metrykami i panelem. Nie zabawka — gotowe na produkcję.",
-      "from": "Od 500 €",
+      "from": "Od 1 500 €",
       "primaryCta": "Porozmawiajmy",
       "hero": {
         "badge": "Działa na produkcji",
@@ -2896,7 +2897,7 @@
           {
             "title": "Chatbot / agent FAQ",
             "from": "od",
-            "price": "€500",
+            "price": "€1 500",
             "market": "€2 000–8 000",
             "body": "Wąski bot pod jedno zadanie: FAQ, statusy zamówień albo kwalifikacja — jeden kanał.",
             "features": [
@@ -2910,7 +2911,7 @@
           {
             "title": "Agent sprzedażowy z CRM",
             "from": "od",
-            "price": "€1 500",
+            "price": "€2 500",
             "market": "€8 000–20 000",
             "featured": true,
             "body": "RAG na Twoich danych + integracja z CRM i kwalifikacja leadów. Najczęstszy wybór.",
@@ -2926,7 +2927,7 @@
           {
             "title": "Agent wielonarzędziowy",
             "from": "od",
-            "price": "€3 000",
+            "price": "€4 500",
             "market": "€20 000–60 000",
             "body": "Agent, który działa, a nie tylko odpowiada: wiele narzędzi, integracji i automatyzacji.",
             "features": [
@@ -2962,12 +2963,12 @@
       "formats": {
         "eyebrow": "Formaty",
         "headline": "Jaki agent jest dla Ciebie",
-        "sub": "Trzy typowe scenariusze. Nie wiesz, który Twój - opowiedz na rozmowie, gdzie uciekają Ci klienci. Jeśli wystarczy prosta automatyzacja za €400, powiem to wprost.",
+        "sub": "Trzy typowe scenariusze. Nie wiesz, który Twój - opowiedz na rozmowie, gdzie uciekają Ci klienci. Jeśli wystarczy prosta automatyzacja za €900, powiem to wprost.",
         "priceFrom": "od",
         "items": [
           {
             "title": "Agent czatu na stronę",
-            "price": "€500",
+            "price": "€1 500",
             "time": "1-2 tygodnie",
             "desc": "Odpowiada na pytania o Twoje usługi i ceny, zbiera kontakty, przekazuje Ci zgłoszenia.",
             "audience": "Dla usług, klinik, salonów, studiów",
@@ -2979,7 +2980,7 @@
           },
           {
             "title": "Agent sprzedażowy z CRM",
-            "price": "€1 500",
+            "price": "€2 500",
             "time": "2-3 tygodnie",
             "desc": "Kwalifikuje leada, umawia na usługę, prowadzi kartę w CRM - jak handlowiec, tylko przez całą dobę.",
             "audience": "Dla działów sprzedaży i zapisów klientów",
@@ -2991,7 +2992,7 @@
           },
           {
             "title": "Agent z wieloma narzędziami",
-            "price": "€3 000",
+            "price": "€4 500",
             "time": "3-5 tygodni",
             "desc": "Pracuje z kilkoma systemami naraz: CRM, magazyn, kalendarz, dokumenty. Nie odpowiada, tylko działa.",
             "audience": "Dla firm ze złożonymi procesami",
@@ -3015,7 +3016,7 @@
         "rows": [
           {
             "label": "Start",
-            "me": "€500-3 000 jednorazowo",
+            "me": "€1 500-4 500 jednorazowo",
             "vals": [
               "€0-100",
               "rekrutacja + wdrożenie"
@@ -3168,13 +3169,13 @@
     },
     "automation": {
       "meta": {
-        "title": "Automatyzacja procesów biznesowych Warszawa | od €600",
-        "description": "Automatyzacja procesów biznesowych w Warszawie — łączymy CRM, Telegram, WhatsApp i Google Sheets w jeden workflow. Make, n8n, Zapier. Wdrożenie od 600 €."
+        "title": "Automatyzacja procesów biznesowych Warszawa | od €900",
+        "description": "Automatyzacja procesów biznesowych w Warszawie — łączymy CRM, Telegram, WhatsApp i Google Sheets w jeden workflow. Make, n8n, Zapier. Wdrożenie od 900 €."
       },
       "eyebrow": "Automatyzacja · Warszawa",
       "headline": "Automatyzacja procesów w Warszawie,\nkoniec z ręczną robotą.",
       "lead": "Automatyzacja procesów biznesowych w Warszawie: łączę Twoje narzędzia — CRM, Telegram, WhatsApp, arkusze — w jeden workflow na Make i n8n, który działa sam. Bez kopiuj-wklej i zgubionych leadów.",
-      "from": "Od €600",
+      "from": "Od €900",
       "primaryCta": "Omów swój proces",
       "hero": {
         "badge": "Działa 24/7",
@@ -3204,7 +3205,7 @@
             },
             {
               "s": "out",
-              "t": "Od €600. Przyjmuję zgłoszenie?"
+              "t": "Od €900. Przyjmuję zgłoszenie?"
             },
             {
               "s": "in",
@@ -3378,14 +3379,14 @@
           {
             "title": "Połączenie",
             "from": "od",
-            "price": "€400",
+            "price": "€900",
             "body": "Jeden scenariusz między 2–3 narzędziami — zgłoszenia, powiadomienia i przenoszenie danych bez rąk.",
             "examples": "1 scenariusz · Make / n8n · 2–3 integracje · 3–5 dni"
           },
           {
             "title": "Przepływ",
             "from": "od",
-            "price": "€1 000",
+            "price": "€1 800",
             "body": "Kilka połączonych scenariuszy z CRM i powiadomieniami, z obsługą błędów i logami.",
             "examples": "Kilka scenariuszy · CRM · API · raporty · 1–2 tygodnie",
             "featured": true
@@ -3393,7 +3394,7 @@
           {
             "title": "System",
             "from": "od",
-            "price": "€2 500",
+            "price": "€3 500",
             "body": "Kompleksowa automatyzacja działu pod klucz: dashboardy, monitoring i wsparcie.",
             "examples": "Pełna budowa · dashboardy · monitoring · wsparcie · od 3 tygodni"
           }
@@ -3406,7 +3407,7 @@
         "items": [
           {
             "title": "Rutyna zjada dzień pracy",
-            "body": "Zgłoszenia z maila do CRM ręcznie, faktury pojedynczo, statusy na czatach. Godzina dziennie na kopiuj-wklej to ponad 250 godzin rocznie na pracownika. Przy polskich stawkach - tysiące złotych za pracę, którą scenariusz robi za €400."
+            "body": "Zgłoszenia z maila do CRM ręcznie, faktury pojedynczo, statusy na czatach. Godzina dziennie na kopiuj-wklej to ponad 250 godzin rocznie na pracownika. Przy polskich stawkach - tysiące złotych za pracę, którą scenariusz robi za €900."
           },
           {
             "title": "Czynnik ludzki gubi klientów",
@@ -3426,7 +3427,7 @@
         "items": [
           {
             "title": "Połączenie",
-            "price": "€400",
+            "price": "€900",
             "time": "2-5 dni",
             "desc": "Dwa systemy zaczynają współpracować: zgłoszenie ze strony samo trafia do CRM i na Twój Telegram.",
             "audience": "Na pierwszy krok i sprawdzenie efektu",
@@ -3438,7 +3439,7 @@
           },
           {
             "title": "Przepływ",
-            "price": "€1 000",
+            "price": "€1 800",
             "time": "1-2 tygodnie",
             "desc": "Proces w całości: od zgłoszenia do faktury. Powiadomienia, statusy, dokumenty - bez ręcznych kroków.",
             "audience": "Dla procesów z 3-5 systemami",
@@ -3450,7 +3451,7 @@
           },
           {
             "title": "System",
-            "price": "€2 500",
+            "price": "€3 500",
             "time": "2-4 tygodnie",
             "desc": "Kilka procesów + kroki AI: klasyfikacja maili, szkice odpowiedzi, wyciąganie danych z dokumentów.",
             "audience": "Dla firm, w których rutyna to wąskie gardło",
@@ -3475,7 +3476,7 @@
         "rows": [
           {
             "label": "Start",
-            "me": "€400-2 500 jednorazowo",
+            "me": "€900-3 500 jednorazowo",
             "vals": [
               "od €5 000",
               "abonament + Twoje wieczory",
@@ -6601,16 +6602,152 @@
   },
   "about": {
     "meta": {
-      "title": "O mnie — niezależny developer · buildbyalex",
-      "description": "Strony, agenci AI i aplikacje mobilne. Senior fullstack. Warszawa. 4 języki, 8 lat doświadczenia, bezpośrednie współpracownictwo."
+      "title": "O studiu buildbyalex — tworzenie stron w Warszawie",
+      "description": "Studio web developmentu w Warszawie: strony, agenci AI i aplikacje mobilne. Kto realizuje projekt, żywe wdrożenia z linkami i warunki umowy."
     },
-    "eyebrow": "O mnie",
-    "headline": "Alex.\nDeveloper, który rozumie biznes.",
-    "lead": "W skrócie: buduję produkty, które przynoszą klientom pieniądze. Szczegóły niżej.",
-    "p1": "Jestem Alex — niezależny senior fullstack-developer. Bazuję w Warszawie, pracuję z klientami na całym świecie: Polska, Ukraina, EU, US, czasem dalej.",
-    "p2": "Buduję trzy typy produktów: produkcyjne strony (Next.js, wielojęzyczne, SEO w fundamencie), agenci AI (asystenci RAG, sales-boty, automatyzacje z function calling) i aplikacje mobilne (iOS + Android z jednego kodu w Expo). Wcześniej pracowałem jako fullstack inżynier w firmach produktowych i jako założyciel własnych biznesów — ten miks 'rozumiem kod + rozumiem pieniądze' definiuje, jak prowadzę projekty.",
-    "p3": "Z agencjami klientom bywa źle z jednego powodu: między nimi a osobą piszącą kod jest zwykle pięć warstw. Account, project, product, lead, junior. Decyzje zajmują tygodnie. Pracuję bez tych warstw — piszesz bezpośrednio do mnie, ja koduję sam, odpowiadam w godzinach. Nie dla każdego, ale dla projektów MVP-średni biznes — wyraźnie szybciej i czyściej.",
-    "stackTitle": "Czym pracuję",
+    "chrome": "buildbyalex.com",
+    "live": "Przyjmujemy nowe projekty",
+    "eyebrow": "O studiu · Warszawa",
+    "headline": "Studio, w którym rozmawiasz z osobą piszącą kod",
+    "lead": "buildbyalex to niewielkie studio web developmentu w Warszawie. Robimy strony, agentów AI i aplikacje mobilne dla firm w Polsce i UE. Bez account managerów między Tobą a programistą.",
+    "ctaPrimary": "Omówmy projekt",
+    "ctaSecondary": "Zobacz realizacje",
+    "metrics": [
+      {
+        "v": "7",
+        "l": "projektów na produkcji"
+      },
+      {
+        "v": "4",
+        "l": "języki na stronach: PL, EN, UA, RU"
+      },
+      {
+        "v": "8 lat",
+        "l": "komercyjnego programowania"
+      },
+      {
+        "v": "2-3 tyg",
+        "l": "typowy czas do startu"
+      }
+    ],
+    "who": {
+      "title": "Kto realnie robi Twój projekt",
+      "lead": "Nie ma tu project managerów ani juniorów pracujących pod cudzym podpisem. Trzon to senior fullstack: pisze kod i odpowiada na Twoje wiadomości. Do konkretnych zadań dołączają sprawdzeni specjaliści.",
+      "founder": {
+        "monogram": "A",
+        "name": "Alex",
+        "role": "Założyciel, senior fullstack",
+        "bio": "Osiem lat komercyjnego programowania: firmy produktowe, własne biznesy, projekty na zlecenie. Kod piszę sam, od projektu po wdrożenie. Własne biznesy nauczyły mnie liczyć pieniądze, więc patrzę na zadanie nie tylko od strony kodu."
+      },
+      "crew": {
+        "title": "Kto dołącza do zadania",
+        "items": [
+          {
+            "role": "Design",
+            "body": "Kiedy projekt potrzebuje własnego języka wizualnego, a nie przerobionego szablonu."
+          },
+          {
+            "role": "Teksty i tłumaczenia",
+            "body": "Native speakerzy sprawdzają wersję polską i ukraińską przed startem."
+          },
+          {
+            "role": "Reklama",
+            "body": "Google Ads i Meta Ads, gdy po starcie potrzebny jest płatny ruch."
+          },
+          {
+            "role": "Testy",
+            "body": "Ręczne testy na realnych urządzeniach przed oddaniem większych projektów."
+          }
+        ]
+      }
+    },
+    "proof": {
+      "title": "Projekty, które działają teraz",
+      "lead": "Nie zrzuty ekranu z portfolio. Każdy projekt możesz otworzyć i sprawdzić: szybkość, języki, pozycje w Google.",
+      "note": "Dwa kolejne są objęte NDA: agent sprzedażowy z CRM dla B2B i asystent AI dla działu sprzedaży. Pokazujemy je na rozmowie.",
+      "items": [
+        {
+          "name": "LegalWin",
+          "url": "legalwin.pl",
+          "href": "https://legalwin.pl",
+          "industry": "Prawo imigracyjne · Warszawa",
+          "result": "Top-10 w Google na 15+ fraz komercyjnych bez wydatków na reklamę. Konsultant AI zamyka 80% pierwszego kontaktu.",
+          "key": "legalwin"
+        },
+        {
+          "name": "VisionAir",
+          "url": "visionair.biz.pl",
+          "href": "https://visionair.biz.pl",
+          "industry": "Zdjęcia z drona · Warszawa",
+          "result": "Konwersja na zapytanie wzrosła z 0,8% do 4,2% przy tym samym ruchu. Zgłoszenie trafia na Telegram w 2 sekundy.",
+          "key": "visionair"
+        },
+        {
+          "name": "Baltic Dockyard",
+          "url": "baltic-dockyard.pl",
+          "href": "https://baltic-dockyard.pl",
+          "industry": "Części okrętowe · Warszawa",
+          "result": "Katalog B2B z wielojęzyczną strukturą i zapytaniem o cenę prosto z karty produktu.",
+          "key": "baltic"
+        },
+        {
+          "name": "Body Forge",
+          "url": "App Store · bodyforges.com",
+          "href": "https://apps.apple.com/pl/app/body-forge-ai-fitness-coach/id6761138589",
+          "industry": "Natywna aplikacja iOS · Fitness",
+          "result": "Trener AI od pomysłu do publikacji w App Store, razem ze stroną promocyjną i subskrypcjami.",
+          "key": "bodyforge"
+        }
+      ]
+    },
+    "principles": {
+      "title": "Jak pracujemy",
+      "items": [
+        {
+          "title": "Wycena jest ustalona przed startem",
+          "body": "Zakres, cena i data uruchomienia są w umowie. Jeśli praca urosła z naszej winy, kończymy ją na własny koszt."
+        },
+        {
+          "title": "Demo w każdy piątek",
+          "body": "Widzisz postęp raz w tygodniu i możesz zmienić kierunek, póki nic to nie kosztuje."
+        },
+        {
+          "title": "Kod i dostępy są Twoje",
+          "body": "Domena, repozytorium, hosting i analityka są rejestrowane na Ciebie. Gdy odejdziemy, wszystko dalej działa."
+        },
+        {
+          "title": "Mówimy wprost",
+          "body": "Jeśli strona nie rozwiąże problemu albo budżet nie wystarczy na sensowny efekt, usłyszysz to na pierwszej rozmowie."
+        }
+      ]
+    },
+    "stackTitle": "Na czym pracujemy",
+    "legal": {
+      "title": "Formalności",
+      "rows": [
+        {
+          "k": "Gdzie",
+          "v": "Warszawa, Polska. Pracujemy zdalnie w UE, Wielkiej Brytanii, USA i WNP"
+        },
+        {
+          "k": "Umowa",
+          "v": "Pisemna, po polsku lub angielsku: zakres, harmonogram płatności, terminy, warunki wyjścia"
+        },
+        {
+          "k": "Faktury",
+          "v": "Faktura VAT EU"
+        },
+        {
+          "k": "Prawa do efektu",
+          "v": "Przechodzą na Ciebie po ostatniej płatności: kod, projekt, dostępy"
+        },
+        {
+          "k": "Wsparcie",
+          "v": "30 dni poprawek w cenie, potem godzinowo, bez obowiązkowego abonamentu"
+        }
+      ],
+      "note": "Dane firmy i wzór umowy wysyłamy na prośbę, przed podpisaniem."
+    },
     "stack": {
       "frontend": {
         "title": "Frontend",
@@ -6668,32 +6805,7 @@
           "EAS Build"
         ]
       }
-    },
-    "languagesTitle": "Języki",
-    "languages": [
-      {
-        "lang": "Русский",
-        "level": "natywny"
-      },
-      {
-        "lang": "Українська",
-        "level": "natywny"
-      },
-      {
-        "lang": "English",
-        "level": "B2+, biegły w pracy"
-      },
-      {
-        "lang": "Polski",
-        "level": "B1, rozmowy i kontrakty"
-      }
-    ],
-    "locationTitle": "Lokalizacja",
-    "location": "Warszawa, Polska. Pracuję z klientami na całym świecie w godzinach EU / US-friendly.",
-    "linksTitle": "Gdzie mnie znaleźć",
-    "ctaTitle": "Porozmawiamy?",
-    "ctaBody": "30-minutowa rozmowa, bez zobowiązań. Powiesz, co potrzebujesz, ja powiem szczerze, czy pasuję.",
-    "cta": "Umów rozmowę"
+    }
   },
   "contact": {
     "meta": {
@@ -6703,16 +6815,16 @@
     "eyebrow": "Kontakt",
     "headline": "Opowiedz o projekcie.",
     "lead": "30 minut na rozmowę discovery. 24 godziny później masz stałą wycenę zakresu, ceny i daty startu.",
-    "responseTime": "Odpowiadam w godzinach — zwykle tego samego dnia.",
+    "responseTime": "Odpowiadamy w godzinach - zwykle tego samego dnia.",
     "availability": "Dostępny dla nowych projektów",
     "formTitle": "Opowiedz o projekcie",
-    "formSub": "Im więcej szczegółów, tym dokładniejsza wycena. Odpowiadam osobiście.",
+    "formSub": "Im więcej szczegółów, tym dokładniejsza wycena. Odpowiada osoba, która to zrobi.",
     "steps": {
       "title": "Jak zaczynamy",
       "items": [
         {
           "title": "Odpowiedź w godzinach",
-          "desc": "Piszę tego samego dnia i proponuję termin rozmowy."
+          "desc": "Piszemy tego samego dnia i proponujemy termin rozmowy."
         },
         {
           "title": "Rozmowa discovery",
@@ -6753,7 +6865,10 @@
       "phone": "Telefon (opcjonalnie)",
       "errorEmail": "Sprawdź email — adres wygląda na niekompletny.",
       "errorRequired": "Uzupełnij imię, email i krótki opis.",
-      "formNote": "Bez spamu. Odpowiadam osobiście, zwykle tego samego dnia."
+      "formNote": "Bez spamu. Odpowiadamy osobiście, zwykle tego samego dnia.",
+      "errorContact": "Zostaw e-mail albo telefon - odezwę się tym samym kanałem.",
+      "optional": "(opcjonalnie)",
+      "contactHint": "Wymagane są tylko imię i jeden kontakt. O projekcie opowiesz na rozmowie, jeśli nie masz teraz czasu pisać."
     }
   },
   "notFound": {
@@ -6788,7 +6903,13 @@
     "relatedServiceLabel": "Powiązana usługa",
     "ctaTitle": "Spodobało się? Pogadajmy o twoim projekcie.",
     "ctaBody": "30 minut na rozmowę discovery. Bez sprzedażowego pitcha.",
-    "cta": "Umów rozmowę"
+    "cta": "Umów rozmowę",
+    "offer": {
+      "eyebrow": "Tym się zajmuję",
+      "note": "Stała wycena i data startu w 24 godziny po krótkiej rozmowie. Bez abonamentu.",
+      "quote": "Poproś o wycenę",
+      "details": "O usłudze"
+    }
   },
   "thankYou": {
     "meta": {
@@ -6797,7 +6918,7 @@
     },
     "eyebrow": "Wiadomość odebrana",
     "headline": "Dziękuję!",
-    "lead": "Dostałem twoją wiadomość i odpowiem w godzinach — zwykle tego samego dnia, zawsze przed następnym porankiem roboczym.",
+    "lead": "Dostaliśmy Twoją wiadomość i odpowiemy w godzinach - zwykle tego samego dnia, zawsze przed następnym porankiem roboczym.",
     "back": "Wróć na stronę główną",
     "headlineLead": "Dziękuję,",
     "headlineTail": "!",
@@ -6817,14 +6938,14 @@
     "steps": [
       {
         "title": "Zgłoszenie odebrane",
-        "body": "Jest już u mnie — od razu trafiło do realizacji, nic nie ginie."
+        "body": "Jest już u nas - od razu trafiło do realizacji, nic nie ginie."
       },
       {
         "title": "Analizuję szczegóły",
-        "body": "Przeglądam zadanie i szkicuję pierwsze pomysły na rozwiązanie."
+        "body": "Przeglądamy zadanie i szkicujemy pierwsze pomysły na rozwiązanie."
       },
       {
-        "title": "Odpowiadam osobiście",
+        "title": "Odpowiadamy osobiście",
         "body": "Osobista odpowiedź trafi na Twoją skrzynkę — zwykle w ciągu kilku godzin."
       }
     ],
@@ -6832,6 +6953,135 @@
     "meanwhile": {
       "work": "Zobacz realizacje",
       "services": "Usługi"
+    }
+  },
+  "quote": {
+    "chrome": "buildbyalex.com · wycena",
+    "eyebrow": "Bez rozmowy telefonicznej",
+    "headline": "Wycena w 24 godziny",
+    "lead": "Opisz zadanie w dwóch zdaniach. Odeślemy stałą cenę, terminy i plan prac. Jeśli to nie nasze zadanie, powiemy od razu i podpowiemy, do kogo się zwrócić.",
+    "steps": [
+      "Czytamy zadanie i w razie potrzeby zadajemy dwa-trzy pytania",
+      "Składamy wycenę: zakres, cena, data uruchomienia",
+      "Wysyłamy na maila w ciągu doby. Decyzja należy do Ciebie"
+    ],
+    "fields": {
+      "task": "Zadanie",
+      "taskPlaceholder": "Na przykład: strona dla kliniki w Warszawie po polsku i ukraińsku, z rezerwacją online. Start do października.",
+      "name": "Imię",
+      "email": "Email"
+    },
+    "submit": "Chcę wycenę",
+    "sending": "Wysyłamy…",
+    "note": "Bez newsletterów i telefonów bez pytania. Odpowiedź przychodzi mailem.",
+    "successTitle": "Mamy zadanie",
+    "successBody": "Wycena przyjdzie na maila w ciągu 24 godzin. Jeśli coś będzie niejasne, odezwiemy się wcześniej z pytaniem.",
+    "error": "Coś poszło nie tak. Spróbuj ponownie lub napisz na info@buildbyalex.com",
+    "errorEmail": "Sprawdź adres email - wygląda na niepełny.",
+    "errorRequired": "Uzupełnij zadanie i imię - bez nich nie wycenimy."
+  },
+  "pricing": {
+    "meta": {
+      "title": "Cennik: ile kosztuje strona, sklep, agent AI i automatyzacja",
+      "description": "Realne widełki cen na 2026: strona od 1 200 €, sklep od 1 800 €, agent AI od 1 500 €, automatyzacja od 900 €. Co wchodzi w cenę, co ją podbija i jak wygląda wycena."
+    },
+    "eyebrow": "Cennik",
+    "headline": "Ile to kosztuje. Bez „zapytaj o wycenę”.",
+    "lead": "Widełki, w których realnie kończą się moje projekty, i to, co przesuwa cenę w górę albo w dół. Ostateczną kwotę dostajesz na piśmie po 30-minutowej rozmowie i nie zmienia się ona w trakcie.",
+    "table": {
+      "title": "Wszystko na jednej stronie",
+      "service": "Usługa",
+      "from": "Od",
+      "what": "Co dostajesz"
+    },
+    "formats": {
+      "title": "Formaty i ceny w każdej usłudze",
+      "lead": "Trzy typowe warianty w każdej kategorii. Jeśli nie wiesz, który jest Twój, opisz zadanie - powiem, który wystarczy, także wtedy, gdy wystarczy tańszy.",
+      "more": "Szczegóły usługi"
+    },
+    "factors": {
+      "title": "Co przesuwa cenę",
+      "items": [
+        {
+          "title": "Liczba integracji",
+          "body": "Jedna integracja z CRM przez API to kilka dni. CRM, kalendarz, płatności, kurier i WhatsApp naraz to już osobny projekt, bo każde połączenie potrzebuje własnej obsługi błędów i testów."
+        },
+        {
+          "title": "Stan Twoich materiałów",
+          "body": "Gotowe teksty, zdjęcia i uporządkowany cennik skracają projekt o tydzień. Katalog w trzech różnych plikach, częściowo nieaktualny, to osobna pozycja w wycenie."
+        },
+        {
+          "title": "Liczba języków",
+          "body": "Druga wersja językowa to nie kopia, tylko własne adresy, hreflang i treści pisane od nowa. Zwykle dokładam 20-30% za każdy kolejny język."
+        },
+        {
+          "title": "Cena pomyłki",
+          "body": "Sklep, który przyjmuje płatności, i agent AI odpowiadający w kancelarii wymagają testów, których nie potrzebuje wizytówka. Tam, gdzie błąd kosztuje pieniądze klienta, praca nad odpornością jest realną częścią projektu."
+        },
+        {
+          "title": "Termin",
+          "body": "Standardowy harmonogram jest w cenie. Przyspieszenie kosztem innych projektów to dopłata, o której mówię od razu, zamiast obiecywać niemożliwe."
+        },
+        {
+          "title": "Skala",
+          "body": "Sklep na 50 produktów i sklep na 5 000 to inna architektura, inny hosting i inne wymagania wydajnościowe, choć na ekranie wyglądają podobnie."
+        }
+      ]
+    },
+    "process": {
+      "title": "Jak powstaje wycena",
+      "items": [
+        {
+          "title": "Piszesz, co chcesz zrobić",
+          "body": "Kilka zdań wystarczy. Nie potrzebuję briefu ani specyfikacji - od tego jest rozmowa."
+        },
+        {
+          "title": "30 minut rozmowy",
+          "body": "Cele, zakres, Wasze systemy i to, co jest naprawdę pilne. Mówię też, czego nie warto robić."
+        },
+        {
+          "title": "Wycena w 24 godziny",
+          "body": "Zakres, stała cena i data startu na piśmie. Jedna kwota, bez godzinowych dopłat po drodze."
+        },
+        {
+          "title": "Praca w etapach",
+          "body": "Demo co tydzień. Zakres można zmienić w trakcie, ale zmiana ceny zawsze jest ustalana przed pracą, nie po niej."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Pytania o pieniądze",
+      "items": [
+        {
+          "q": "Dlaczego ceny są w euro?",
+          "a": "Bo rozliczam się z klientami z kilku krajów i euro jest wspólnym mianownikiem. Fakturę wystawiam w złotych po kursie z dnia wystawienia, jeśli tak jest Ci wygodniej - to kwestia jednego zdania w umowie."
+        },
+        {
+          "q": "Czy cena jest stała, czy może wzrosnąć?",
+          "a": "Stała dla ustalonego zakresu i zapisana w umowie przed startem. Rośnie tylko wtedy, gdy sam dołożysz coś do zakresu, a wtedy najpierw dostajesz wycenę tej zmiany i decydujesz, czy wchodzi."
+        },
+        {
+          "q": "Ile trzeba zapłacić z góry?",
+          "a": "Standardowo 40-50% zaliczki na start i reszta przy odbiorze. Przy większych projektach dzielimy to na etapy z płatnością po każdym, żeby ryzyko było rozłożone po obu stronach."
+        },
+        {
+          "q": "Co jest wliczone, a co nie?",
+          "a": "W cenie: projekt, kod, wdrożenie, podstawowe SEO techniczne, przekazanie repozytorium i 30 dni poprawek błędów. Poza ceną: domena i hosting, licencje zewnętrzne, treści i zdjęcia, jeśli mam je tworzyć, oraz budżet reklamowy."
+        },
+        {
+          "q": "Czy jest abonament?",
+          "a": "Nie ma obowiązkowego. Poprawki po starcie liczę 50 €/h z minimum jednej godziny, więc w miesiącu, w którym nic nie robimy, płacisz zero. Stałą opiekę można ustalić osobno, jeśli sam tego chcesz."
+        },
+        {
+          "q": "Dlaczego drożej niż u wykonawcy za 2 000 zł?",
+          "a": "Bo to inny produkt. Za 2 000 zł dostajesz szablon z podmienionym logo, zwykle bez integracji i bez odpowiedzialności za wynik. Moje projekty to własny kod w Twoim repozytorium, mierzalne cele i pisemna data startu. Jeśli szablon wystarczy do Twojego zadania, powiem to wprost na rozmowie."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Policzmy Twój projekt",
+      "body": "Opisz zadanie w kilku zdaniach. W 24 godziny po rozmowie masz zakres, stałą cenę i datę startu.",
+      "button": "Poproś o wycenę"
     }
   }
 }

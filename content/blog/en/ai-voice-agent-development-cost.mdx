@@ -1,0 +1,91 @@
+---
+title: "Is an AI voice agent worth it? Cost per minute and the payback threshold"
+description: "What a minute of voice conversation really costs, how many calls a month it takes to pay back, and why a cheaper option beats a full voice agent most of the time."
+date: "2026-08-20"
+cluster: "voicebot-cost"
+keywords:
+  - "is an AI voice agent worth it"
+  - "AI voice agent cost per minute"
+  - "voice agent payback"
+  - "AI voice agent ROI"
+---
+
+Short answer: building a production voice agent runs **€2,500-6,000**, and each minute of conversation costs **€0.10-0.30** once you add telephony, speech recognition, the model and voice synthesis. At 1,500 calls a month averaging 90 seconds, that's €350-600 monthly. The payback threshold sits roughly where you're considering a second person on the phones.
+
+This isn't a piece about [what a voice agent does](/en/blog/voice-ai-agent-for-calls) - it's the arithmetic. Voice is the most expensive form of AI agent and the one most often sold before it makes sense, so here are the numbers the decision actually turns on.
+
+## Why voice costs more than chat
+
+Chat is one operation: the model reads text, writes text.
+
+A phone call is four operations, in a loop, in real time. The call has to land somewhere (telephony). Speech becomes text (STT). The model understands and replies. Text becomes speech and goes back down the line (TTS). All of it under a second, because past that the human says "hello? are you there?"
+
+Each of those four bills per minute rather than per conversation. That's the whole reason the math looks different.
+
+## Per-minute breakdown
+
+| Component | Job | Per minute |
+|---|---|---|
+| Telephony (number + minutes) | Carries the call | €0.01-0.04 |
+| Speech to text | Turns the caller's voice into text | €0.01-0.03 |
+| Model | Understands and composes the reply | €0.01-0.10 |
+| Voice synthesis | Speaks the reply in a natural voice | €0.04-0.15 |
+
+Synthesis is usually the biggest line. A voice that sounds like a 2015 phone tree costs pennies; a voice a caller can't distinguish from a person costs an order of magnitude more.
+
+That's a business decision, not a technical one. Nobody minds a synthetic voice at a tyre shop. At an aesthetic clinic they very much do.
+
+## What the €2,500-6,000 build covers
+
+The low end is a single-scenario agent: answers, asks what the call is about, collects the details, and drops a summary into your inbox or CRM. Two to three weeks.
+
+The high end is an agent wired into your systems: looks up order status, books into a calendar, recognises returning customers by number, and transfers to a human when the conversation leaves its scope. Five to six weeks, because half the work is handling the situations nobody planned for.
+
+What eats time in voice and doesn't exist in chat: barge-in (the caller talks over the agent mid-sentence), background noise, accents, spelling out names and reference numbers, and deciding how many failed attempts before handing off. That last setting moves customer satisfaction more than voice quality does.
+
+## When it pays back
+
+Run the numbers honestly. A phone-support hire in Western Europe costs €2,800-4,500 a month fully loaded and covers eight hours on weekdays.
+
+A voice agent at 1,500 calls costs around €450 a month, plus a €4,000 build amortised over a year - call it €780 total. For 24/7 coverage, no holidays, no queue.
+
+Then there's the line that doesn't appear in the comparison: [missed calls](/en/blog/ai-intercept-missed-calls). In trades and services, a missed call is usually a customer who dials the next name on the list. If you're losing 20% of calls and an average job carries €200 of margin, the case closes faster than the staffing comparison suggests.
+
+It doesn't pay back when you take fewer than 300-400 calls a month, when your calls are long and negotiated, or when your callers are regulars who'd be insulted by an automated voice. In those cases a [text agent](/en/services/ai-agents) plus disciplined callbacks does more for less.
+
+## The cheaper option most vendors skip
+
+Before you spend €4,000 on full call handling, consider missed-call capture only. The agent doesn't answer everything - it picks up only after four rings when nobody else did. It takes the topic, the number and a callback window, writes it to CRM, and pings you.
+
+That costs €1,200-2,000 instead of €4,000-6,000, covers 15-20% of traffic instead of 100%, and recovers precisely the part that used to vanish without a trace. In four out of five conversations where someone comes to me asking for a voice agent, this is the right answer.
+
+## What to ask a vendor
+
+Which model handles the conversation, and can it be swapped without a rewrite? Voice pricing moves fast, and a hardcoded provider locks in today's rate.
+
+What's the latency target end to end? Above one second the conversation feels broken, and no amount of voice quality fixes it.
+
+What happens on the third failed attempt? "Sorry, I didn't catch that" on repeat does more damage than having no agent at all.
+
+Who owns the phone number and the recordings? Both should be yours, on your accounts.
+
+## FAQ
+
+**How much does an AI voice agent cost to build?**
+A single-scenario agent that answers, qualifies and hands off is €2,500-3,500 and takes two to three weeks. One integrated with your calendar, CRM and order system is €4,000-6,000 over five to six weeks, because most of that work is edge cases rather than the happy path.
+
+**What does a voice agent cost per call?**
+At an average of 90 seconds, roughly €0.15-0.45 per call all-in. Volume matters less than call length: a five-minute call costs three times a ninety-second one, so scoping the agent to short, specific tasks is the main cost control.
+
+**Will callers know it's a bot?**
+For the first fifteen seconds, often not. Over a longer call, usually yes. From 2026 the EU AI Act requires disclosure anyway, so the question isn't whether to hide it but how to say it without losing the caller - a short "I'm a voice assistant, I can book you in or put you through to a person" works best.
+
+**Can a voice agent handle two languages on one number?**
+Yes, and language detection on the first sentence is reliable enough in production. What needs work is the handoff: the human who picks up should see which language the call started in, otherwise you've automated the easy half and broken the hard half.
+
+**How long does deployment take?**
+Two to three weeks for one scenario, five to six for a fully integrated agent. I recommend starting with one scenario and collecting a month of recordings - those recordings show what people actually ask, which is never quite what the planning session assumed.
+
+---
+
+Want to know if the numbers work for your call volume? [Book a 30-minute call](/en/contact) - we'll count your calls, your missed calls and your margin per job, and I'll tell you whether to build a voice agent or the cheaper capture version.

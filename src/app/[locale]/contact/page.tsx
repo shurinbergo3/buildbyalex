@@ -8,6 +8,7 @@ import { ContactCodeRain } from "@/components/ContactCodeRain";
 import { routing, type Locale } from "@/i18n/routing";
 import { buildLocalizedMetadata } from "@/lib/metadata";
 import { getLiveReviewCount } from "@/lib/reviews";
+import { CONTACT_EMAIL, TELEGRAM_URL, PHONE, PHONE_HREF, WHATSAPP_URL, formatPhone } from "@/lib/contacts";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -28,10 +29,17 @@ export async function generateMetadata({
   });
 }
 
-const CHANNELS = [
-  { key: "email", href: "mailto:info@buildbyalex.com", label: "info@buildbyalex.com", external: false },
-  { key: "telegram", href: "https://t.me/sumotry", label: "Telegram @sumotry", external: true },
-] as const;
+type Channel = { key: string; href: string; label: string; external: boolean };
+
+// Phone and WhatsApp only appear once their env vars are set — see lib/contacts.
+// Order matters: in Poland the phone is the first thing a small-business owner
+// looks for, so it leads when it exists.
+const CHANNELS: Channel[] = [
+  ...(PHONE_HREF ? [{ key: "phone", href: PHONE_HREF, label: formatPhone(PHONE), external: false }] : []),
+  ...(WHATSAPP_URL ? [{ key: "whatsapp", href: WHATSAPP_URL, label: "WhatsApp", external: true }] : []),
+  { key: "email", href: `mailto:${CONTACT_EMAIL}`, label: CONTACT_EMAIL, external: false },
+  { key: "telegram", href: TELEGRAM_URL, label: "Telegram @sumotry", external: true },
+];
 
 export default async function ContactPage({
   params,
@@ -164,6 +172,25 @@ function ChannelIcon({ name }: { name: string }) {
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" strokeWidth="1.8" />
         <path d="m4 7 8 6 8-6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+  if (name === "phone") {
+    return (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path
+          d="M6.6 3h2.5l1.6 4-2 1.2a12 12 0 0 0 5.1 5.1l1.2-2 4 1.6v2.5a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.2 2 2 0 0 1 6.6 3z"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  }
+  if (name === "whatsapp") {
+    return (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.1 14.9l-.4-.2-2.5.7.7-2.4-.3-.4A8 8 0 0 1 12 4zm-3.3 4.3c-.2 0-.5 0-.7.4-.3.4-.9 1-.9 2.3s1 2.6 1.1 2.8c.1.2 1.8 3 4.5 4 .6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.6-.3-1.6-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2a7 7 0 0 1-1.3-1.6c-.1-.2 0-.4.1-.5l.4-.5.3-.5v-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5z" />
       </svg>
     );
   }

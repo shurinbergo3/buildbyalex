@@ -1,0 +1,80 @@
+---
+title: "OpenAI, Claude or Gemini for your business agent: how to choose"
+description: "Model choice matters less than most vendors imply and more than nothing. What actually differs in production - cost per conversation, instruction-following, EU data terms."
+date: "2026-09-15"
+cluster: "choosing-ai-model-for-business"
+keywords:
+  - "OpenAI vs Claude vs Gemini for business"
+  - "which AI model for chatbot"
+  - "best LLM for customer support"
+  - "AI model comparison business"
+---
+
+Short answer: for most business agents the model is not the deciding factor - retrieval quality and prompt design move results far more. Where model choice does matter: cost per conversation, how strictly it obeys "don't answer outside these documents," and what the provider's EU data terms say. Build so you can switch, then stop agonising.
+
+I've shipped agents on all three families. What follows is what actually showed up in production, not benchmark tables.
+
+## The thing that matters more than the model
+
+An agent gives a bad answer for one of three reasons: it didn't find the right document, the right document doesn't exist, or the instructions let it improvise.
+
+Only the third is model-dependent, and even there prompt design does most of the work. Teams that switch providers hoping to fix hallucinations usually find the same hallucinations wearing a different accent, because the retrieval was returning the wrong passages the whole time.
+
+So: fix retrieval first. Test with fifty real questions. Only then argue about models.
+
+## Where they genuinely differ
+
+**Cost per conversation.** The widest gap by far. Small models across all three providers cost roughly €0.02-0.05 per conversation; frontier models cost €0.15-0.40. For FAQ-style work the small models are indistinguishable in quality, which makes this a pure margin decision.
+
+**Instruction adherence under pressure.** The behaviour I care about most: when a user pushes ("just give me an estimate, roughly"), does the agent hold the line you set? In my testing Claude models hold constraints slightly more stubbornly, which is an advantage for regulated topics and an annoyance when you want flexibility.
+
+**Structured output reliability.** If the agent must return clean JSON for a CRM, the differences are small now but not zero. All three handle it well with schema enforcement; without it, all three drift.
+
+**Language quality outside English.** For Polish and Ukrainian - relevant to most of my clients - Gemini and GPT-class models have been consistently solid; older or smaller open models still produce translated-sounding text. If you serve multiple languages, test in the weakest one, not in English.
+
+**EU data terms.** All three offer enterprise arrangements with EU processing and exclusion from training. What differs is what's available at which tier and how the paperwork is structured. If you handle health, legal or financial data, this is the question that should drive the choice - not benchmark scores.
+
+## The routing pattern that saves the most money
+
+Cheap model by default. Escalate to the expensive one only when the cheap one's answer is low-confidence or the question is flagged as complex.
+
+In a support agent for a law firm, that routing kept 87% of conversations on the small model. Monthly bill dropped from around €280 to €40 with no measurable drop in answer quality, because the overwhelming majority of questions were "what are your hours" and "how much is a consultation."
+
+This is the single highest-return decision in agent architecture and it takes one branch in code.
+
+## Build it so you can switch
+
+Model prices and capabilities move every few months. An agent hardcoded to one provider means every re-evaluation is a rewrite, so nobody re-evaluates and you quietly pay old prices.
+
+What that looks like in practice: model name in configuration, one adapter around the provider's SDK, and a fixed set of test questions you can re-run against a new model in an afternoon. That test set is what makes switching a decision rather than a leap of faith.
+
+I've moved client agents between providers twice in two years - once for cost, once for data terms. Both times the work was under a day because the seam existed.
+
+## What to ignore
+
+Benchmark leaderboards. They measure things your customers never ask about.
+
+Context window size, mostly. Yes, some models take enormous inputs. No, you shouldn't stuff your whole knowledge base into every request - it costs more, and retrieval accuracy generally gets worse, not better. [Trimming context is a cost control](/en/blog/ai-agent-maintenance-cost), not a limitation to route around.
+
+"We use the latest model" as a selling point. What matters is whether the vendor tested against your questions.
+
+## FAQ
+
+**Which AI model is best for a customer support chatbot?**
+For typical support work - answering from your own documents - a small model from any of the three main providers performs comparably, and the choice comes down to cost and data terms. Frontier models earn their price when questions are ambiguous, multi-step, or in a language where quality drops.
+
+**Does the model choice affect hallucinations?**
+Somewhat, but retrieval quality and instructions matter more. An agent that finds the right passage and is told to answer only from it will behave well across all three families; one with weak retrieval will invent answers regardless of which model you pay for.
+
+**Can I use OpenAI models and stay GDPR compliant?**
+Yes, under enterprise terms with EU processing, a data processing agreement and training exclusion - the same is available from Anthropic and Google. What matters is that your agreement covers the actual endpoint your agent calls, which is worth confirming in writing rather than assuming from a marketing page.
+
+**How much does model choice change my monthly bill?**
+Between a small and a frontier model, typically five to eight times for identical traffic. At 1,500 conversations a month that's the difference between roughly €40 and €280, which is why default-cheap-with-escalation is standard practice in production agents.
+
+**Should I fine-tune a model on my data?**
+Almost never for business agents. Retrieval over your documents is cheaper, updates instantly when your prices change, and lets the agent cite sources. Fine-tuning earns its cost mainly for tone, format consistency at scale, or narrow classification tasks - not for knowing your price list.
+
+---
+
+Building an agent and unsure which stack to commit to? [Book a 30-minute call](/en/contact) - I'll tell you which model fits your data rules and volume, and how to keep the option to change your mind later.

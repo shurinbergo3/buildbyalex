@@ -1,0 +1,101 @@
+---
+title: "AI agent maintenance cost: the bill nobody quotes you"
+description: "Build cost gets quoted, running cost gets discovered. Real monthly numbers for tokens, hosting, integrations and supervision across three live agents."
+date: "2026-08-18"
+cluster: "ai-agent-running-costs"
+keywords:
+  - "AI agent maintenance cost"
+  - "how much does an AI agent cost per month"
+  - "AI agent running costs"
+  - "chatbot monthly cost"
+---
+
+Short answer: a single-process agent runs **€20-60 per month**, an agent with CRM and two channels **€60-150**, and a multi-tool agent handling a few hundred conversations a day **€150-400**. That covers tokens, hosting and the database. Changes are billed separately - I charge €50/hour with no retainer.
+
+Every quote you get will detail the build. Almost none will detail month 7, which is when people quietly switch agents off because "it wasn't worth it."
+
+## The bill has four lines, not one
+
+| Line | What you pay for | Monthly |
+|---|---|---|
+| Model tokens | Every conversation the model processes | €10-220 |
+| Hosting and database | The agent's server, vector store, logs | €0-40 |
+| Channel fees | WhatsApp Business, telephony, CRM API tiers | €0-100 |
+| Supervision and edits | Reading transcripts, fixing answers, new scenarios | €0-150 |
+
+Line one scales with traffic. Line two is nearly flat. Line three depends on where the agent lives. Line four is the only one you fully control - and the one some vendors turn into a mandatory retainer.
+
+## Tokens: where the numbers come from
+
+The model charges for text it reads and text it writes. One conversation is typically 3-8 exchanges, plus whatever context gets pulled from your knowledge base on every question.
+
+A real invoice from an agent I run for a law firm: 1,400 conversations a month, a GPT-4o-mini class model with RAG over 60 documents, roughly 4 exchanges per conversation. That comes to €34. The same traffic on a frontier model would be around €280.
+
+Eight times the cost. The quality difference on "do you take walk-ins on Saturday" is zero.
+
+What I do instead: cheap model by default, expensive model only for queries the cheap one flags as ambiguous. Routing costs one extra branch in the code and cuts the bill by 60-80%.
+
+## Hosting: usually less than people expect
+
+An agent is a small app that waits for a message, asks a model, writes a row. On Vercel or Railway that fits in the free or lowest tier: €0-20 a month.
+
+Cost shows up with the vector database for RAG. Pinecone starts around €70. For a knowledge base of a few thousand chunks, pgvector on the Postgres you already have does the same job for €0-15. Managed vector hosting starts making sense at hundreds of thousands of chunks with sub-100ms requirements.
+
+I once reviewed a quote where an agent serving a 40-page price list had been given dedicated vector infrastructure at €180/month. That's €2,160 a year for something that fits in an existing database.
+
+## Channels: the line nobody warns you about
+
+The agent is cheap. The places it talks are not always.
+
+WhatsApp Business API bills per conversation - in the EU roughly €0.01-0.06 depending on category, so 2,000 conversations lands between €20 and €120. Telegram is free. A website widget is free. Voice is a different league: telephony plus speech-to-text plus synthesis runs €0.10-0.30 per minute.
+
+CRMs usually don't bill for API calls, but check your plan. HubSpot and Bitrix24 have call limits that push you to a higher tier - and then the agent raises your CRM bill instead of its own.
+
+## Supervision: where overpaying happens
+
+This is the line that separates an honest vendor from one building an annuity.
+
+An agent needs attention for the first 4-6 weeks. You read transcripts, catch questions it answered badly, add what's missing to the knowledge base. Then it settles - until you change pricing, add a service, or open a new market.
+
+Realistic effort after that: 1-3 hours a month. If someone proposes a flat €200/month "for agent care," ask what happens in those hours and whether you get a report. The answer is usually vague.
+
+My arrangement is different: [changes at €50/hour, one hour minimum, no mandatory retainer](/en/services/ai-agents). In a month where nothing needs changing, you pay nothing. The knowledge base is a file or a panel you can update yourself - not code.
+
+## Three real examples
+
+**Dental practice, booking agent.** 600 conversations a month, widget plus Messenger, calendar integration. Tokens €18, hosting €0, supervision under an hour. About €25/month. Build paid for itself in month four, counting only appointments booked after 6pm.
+
+**Wholesaler, quote-request agent.** 2,200 conversations, WhatsApp plus website, RAG over 900 catalogue items, writes to CRM. Tokens €62, WhatsApp €80, hosting €12, supervision 2 hours. About €250/month. It takes roughly 50 hours of sales-rep time off the team.
+
+**Logistics company, voice agent for shipment status.** 1,800 calls. Telephony €330, tokens €90, rest €30. About €450/month - and this is the case where you run the numbers twice before starting. They started, because the alternative was a second person on the phones.
+
+## Four things that keep the bill down
+
+**Trim the context.** An agent that stuffs the entire knowledge base into every request instead of the three most relevant chunks burns tokens for nothing. That's an implementation flaw, not physics.
+
+**Cache repeat answers.** If 200 people a month ask about opening hours, the model doesn't need to generate that answer 200 times.
+
+**Set a hard cap.** Monthly API budget with an alert at 80%. Without it, one retry loop or one bot spamming your agent produces a €400 invoice. It happens.
+
+**Keep the knowledge base in one place.** When your pricing lives in three files, the agent starts contradicting itself, you order fixes, and fixes are billable hours.
+
+## FAQ
+
+**Do I have to pay a monthly retainer for an AI agent?**
+Not unless the contract forces one. The technical minimum is tokens and hosting, paid directly to the providers on your own card. A retainer only makes sense if someone genuinely reviews conversations each month and you see a report for it - the code itself runs without anyone watching.
+
+**Who pays for the model tokens, me or the developer?**
+You should, directly to OpenAI, Anthropic or Google, on your own account. Two reasons: you see the real cost instead of a marked-up one, and you keep the agent running if you and the developer part ways. If someone insists on billing API usage through themselves, ask what the margin covers.
+
+**What does an AI agent cost at 100 conversations a month?**
+Tokens land around €3-8 and hosting is usually free at that volume, so the whole bill is under €15. At that scale the real question isn't maintenance cost - it's whether building was worth it at all, since 100 conversations is two hours of human work a week.
+
+**What happens if model prices go up?**
+Model prices have fallen consistently for three years - the same quality costs a fraction of what it did in 2023. If your provider does raise rates, an agent built behind an abstraction layer switches models without rewriting logic. Ask any vendor whether the model is hardcoded or configured.
+
+**Does the agent need a server in my country for GDPR?**
+It needs processing inside the EEA and a data processing agreement, not a server in any specific country. Practically: EU-region hosting, a model endpoint with EU processing, and a retention policy for conversation logs. More on that in [where an AI chatbot stores customer data](/en/blog/where-ai-chatbot-stores-customer-data-gdpr).
+
+---
+
+Want both numbers before you commit - build and monthly? [Book a 30-minute call](/en/contact) and I'll price them against your actual traffic and process, before anyone writes code.

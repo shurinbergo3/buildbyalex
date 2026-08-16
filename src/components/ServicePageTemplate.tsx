@@ -10,6 +10,7 @@ import { FinalCta } from "./FinalCta";
 import { ServiceHero } from "./ServiceHero";
 import { FAQAccordion, type QA } from "./FAQAccordion";
 import { ServicePricing, type PricingTier } from "./ServicePricing";
+import { QuoteForm } from "./QuoteForm";
 import { Testimonials } from "./home/Testimonials";
 import { AiSyncShowcase } from "./AiSyncShowcase";
 import { AdsShowcase } from "./AdsShowcase";
@@ -243,6 +244,9 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
         featuredLabel={data.pricing?.featuredLabel}
         marketLabel={data.pricing?.marketLabel}
       />
+
+      {/* ── Low-friction ask: fixed estimate in 24h, no call needed ── */}
+      <QuoteForm theme={branch === "websites" || branch === "store" ? "web" : branch} branch={branch} />
 
       {/* ── Honest alternatives table ── */}
       <ServiceCompare branch={branch} />

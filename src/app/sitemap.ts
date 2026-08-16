@@ -24,6 +24,8 @@ const staticPaths: (keyof typeof routing.pathnames)[] = [
   "/services/mobile-apps",
   "/services/telegram-bots",
   "/services/advertising",
+  "/pricing",
+  "/about",
   "/work",
   "/blog",
   "/contact",

@@ -193,17 +193,21 @@ export function formatLead(lead: Lead): string {
     `<i>${fmtDate(lead.createdAt)}</i>`,
     ``,
     `<b>Имя:</b> ${escape(lead.name)}`,
-    `<b>Email:</b> ${escape(lead.email)}`,
+    // Email and description are optional since the short form landed — a lead
+    // may arrive with a phone number and nothing else. Skip the empty rows so
+    // the notification doesn't read as broken.
+    lead.email ? `<b>Email:</b> ${escape(lead.email)}` : null,
     lead.phone ? `<b>Телефон:</b> ${escape(lead.phone)}` : null,
     lead.company ? `<b>Компания:</b> ${escape(lead.company)}` : null,
     `<b>Услуга:</b> ${escape(fmtType(lead.type))}`,
     `<b>Бюджет:</b> ${escape(fmtBudget(lead.budget))}`,
     `<b>Язык:</b> ${escape(lead.locale)}`,
-    ``,
-    `<b>Сообщение:</b>`,
+    lead.description ? `` : null,
+    lead.description ? `<b>Сообщение:</b>` : null,
   ]
     .filter((x) => x !== null)
     .join("\n");
+  if (!lead.description) return head;
   return `${head}\n${clampEscaped(escape(lead.description), TG_TEXT_LIMIT - head.length - 64)}`;
 }
 
