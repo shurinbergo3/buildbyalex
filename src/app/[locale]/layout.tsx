@@ -46,8 +46,8 @@ export async function generateMetadata({
   languages["x-default"] = localizedHref(routing.defaultLocale as Locale, "/");
 
   // Search-engine ownership verification. Codes are public (served in HTML);
-  // env vars override the defaults so they can be rotated without a redeploy
-  // (Vercel project → Settings → Environment Variables).
+  // env vars override the defaults so they can be rotated from
+  // Dokploy → Application → Environment without touching the code.
   const googleVerification =
     process.env.GOOGLE_SITE_VERIFICATION ?? "dc8BkoAfPhBbulrUzksvL4TGZ3MOinl-0CAT5YwrlIs";
   const bingVerification =

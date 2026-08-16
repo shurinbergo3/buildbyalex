@@ -12,8 +12,8 @@ Personal site of Alex — independent senior fullstack developer based in Warsaw
 - **next-intl 3.x** for i18n (typed `pathnames`, localized URLs)
 - **next-mdx-remote** for the blog (RSC-rendered MDX)
 - **Motion** for animation (used sparingly)
-- **Vercel Analytics** + **Speed Insights**
-- Deploy target: **Vercel**
+- **Yandex.Metrika** for analytics
+- Deploy target: **self-hosted Docker** (GitHub Actions → ghcr.io → Dokploy)
 
 ## Languages and routing
 
@@ -55,12 +55,17 @@ All required-for-features variables are documented in [`.env.example`](.env.exam
 | Variable | Required for | Notes |
 |---|---|---|
 | `SITE_URL` | Sitemap, OG, canonical URLs | Defaults to `https://buildbyalex.com` |
-| `TELEGRAM_BOT_TOKEN` | Contact form delivery | Lead pipeline (Phase 2 feature) |
-| `TELEGRAM_CHAT_ID` | Contact form delivery | Owner's Telegram chat |
-| `UPSTASH_REDIS_REST_URL` | Contact form rate-limit | **Optional** — form works without it, just no dedupe |
-| `UPSTASH_REDIS_REST_TOKEN` | Contact form rate-limit | **Optional** |
+| `DATA_DIR` | Leads / reviews storage | Set to `/app/data` by the image; mount a volume there or submissions die with the container |
+| `TELEGRAM_BOT_TOKEN` | Lead + review delivery | |
+| `ADMIN_CHAT_ID` | Lead + review delivery | Numeric Telegram ID; the only account the bot answers. `TELEGRAM_CHAT_ID` still works as a legacy alias |
+| `TELEGRAM_WEBHOOK_SECRET` | Telegram bot webhook | Without it `/api/telegram/webhook` rejects everything — fail-closed on purpose |
+| `TRUSTED_PROXY_HOPS` | Rate-limit accuracy | Number of proxies in front of the app. Defaults to `1` (Dokploy's Traefik); behind Cloudflare + Traefik set `2` |
+| `UPSTASH_REDIS_REST_URL` | Shared rate-limit + dedupe | **Optional** — without it the limiter falls back to an in-process counter, which is per-container and resets on redeploy |
+| `UPSTASH_REDIS_REST_TOKEN` | Shared rate-limit + dedupe | **Optional** |
+| `GOOGLE_SITE_VERIFICATION` | Search Console | **Optional** — has a baked-in default |
+| `YANDEX_VERIFICATION` / `BING_SITE_VERIFICATION` | Webmaster tools | **Optional** |
 
-Set these in Vercel → Project → Settings → Environment Variables.
+Set these in Dokploy → Application → Environment.
 
 ## Project structure
 
@@ -174,17 +179,37 @@ export const caseImages = { …, newcase: { src: "…", alt: "…" } };
 2. Add a new pathname in [`src/i18n/routing.ts`](src/i18n/routing.ts) with localized slugs.
 3. Create `src/app/[locale]/services/{branch}/page.tsx` — copy one of the existing ones and change the branch and metadata namespace.
 
-### Deploy to Vercel
+### Deploy
+
+Push to `main` — [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) does the rest:
+
+```
+git push origin main
+  → docker buildx build (Dockerfile, multi-stage, standalone output)
+  → push ghcr.io/shurinbergo3/buildbyalex:latest + :<sha>
+  → GET the Dokploy webhook, which pulls the new image and restarts
+  → submit blog URLs changed in this push to IndexNow
+```
+
+Repository secrets the workflow needs:
+
+| Secret | Purpose |
+|---|---|
+| `DOKPLOY_WEBHOOK` | Redeploy trigger. Without it the image is pushed but the server keeps the old one |
+| `DOCKERHUB_USERNAME` / `DOCKERHUB_TOKEN` | **Optional** — only lifts the anonymous pull rate limit on the buildkit image. The step self-skips when unset |
+
+`GITHUB_TOKEN` is provided automatically and is what authenticates the ghcr.io push.
+
+Two things to keep in sync, both of which have broken the build before:
+
+- **`package-lock.json` must satisfy `npm ci`, not just `npm install`.** A lock with missing transitive entries (this bit us with `@emnapi/*`) installs fine locally and then dies in the image with `Missing: ... from lock file`. After any dependency change run `npm ci` locally — it is the same strict check the build does.
+- **`DATA_DIR` needs a mounted volume.** It defaults to `/app/data` inside the container; without a volume every redeploy wipes stored leads and reviews.
+
+Run the production image locally the same way the server does:
 
 ```bash
-# One-time
-vercel link
-
-# Set env vars in Vercel → Project → Settings → Environment Variables
-# SITE_URL, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID,
-# UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN
-
-vercel --prod
+docker build -t buildbyalex .
+docker run --rm -p 3000:3000 -e SITE_URL=http://localhost:3000 buildbyalex
 ```
 
 After deploy:

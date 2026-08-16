@@ -4,11 +4,10 @@
 FROM node:22-alpine AS deps
 WORKDIR /app
 COPY package.json package-lock.json ./
-# npm ci is strict about the lockfile, and node:22-alpine ships npm 10 while the
-# lockfile is written by npm 11 — npm 10 then reports @emnapi/* and @swc/helpers
-# as "missing from lock file" and refuses to install. Pin the same npm the lock
-# was generated with; bump this together with the lockfile producer.
-RUN npm i -g npm@11.6.2 && npm ci --no-audit --no-fund
+# npm ci is strict — it refuses to install when the lockfile is missing entries
+# package.json implies. Regenerate the lock with `npm install`, never by hand,
+# and check `npm ci` still passes before pushing.
+RUN npm ci --no-audit --no-fund
 
 # --- builder: собираем Next.js ---
 FROM node:22-alpine AS builder

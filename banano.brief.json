@@ -11,8 +11,6 @@
       "@types/node",
       "@types/react",
       "@types/react-dom",
-      "@vercel/analytics",
-      "@vercel/speed-insights",
       "clsx",
       "eslint",
       "eslint-config-next",
