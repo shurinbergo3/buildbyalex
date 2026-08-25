@@ -518,6 +518,13 @@
           "body": "Marketing site, multilingual, SEO-ready, deployed and indexed.",
           "examples": "5–15 pages · Next.js · CMS optional"
         },
+        "store": {
+          "title": "Online store",
+          "from": "from",
+          "price": "€1,800",
+          "body": "A store on your own domain: catalogue, cart, payments and delivery - no marketplace commission.",
+          "examples": "BLIK · Przelewy24 · InPost · CMS"
+        },
         "ai": {
           "title": "AI Agent",
           "from": "from",
@@ -692,146 +699,6 @@
           "rating": 5
         },
         {
-          "name": "Artem Kravchenko",
-          "role": "Auto parts store",
-          "date": "recently",
-          "quote": "Had the guys build an online store for car parts. The big thing for me was search by part numbers, and they set that up properly. They ran a bit over on the timeline, but the site flies, so no hard feelings. Thanks Alex.",
-          "rating": 4
-        },
-        {
-          "name": "Jan Kowalski",
-          "role": "Clothing store",
-          "date": "last week",
-          "quote": "Got my clothing shop site done here. Everything's clean, the design feels modern, and card payments work without any issues. The guys were always reachable and answered questions fast. Recommend.",
-          "rating": 5
-        },
-        {
-          "name": "Emily Taylor",
-          "role": "Coaching",
-          "date": "2 weeks ago",
-          "quote": "I needed a simple landing page for my coaching services. They got it done quick and worked in all my edits along the way. Looks slick and my clients love it.",
-          "rating": 5
-        },
-        {
-          "name": "Dmitry",
-          "role": "Website redesign",
-          "date": "recently",
-          "quote": "Came to them for a redesign of my old site. They made it look amazing, and the mobile version is top tier now. Big props for the easy admin panel too, I can swap photos myself without bugging any developers.",
-          "rating": 5
-        },
-        {
-          "name": "Agnieszka Nowak",
-          "role": "Beauty salon",
-          "date": "last week",
-          "quote": "Great work! The site for my beauty salon came out really clean. Clients keep praising the online booking, they say it's super convenient. Thank you!",
-          "rating": 5
-        },
-        {
-          "name": "Igor V.",
-          "role": "Bakery",
-          "date": "2 weeks ago",
-          "quote": "Needed a Telegram bot to take orders for my bakery. They had it done in a couple of days. The bot calculates delivery by area on its own and sends the receipt. Been running a month with no glitches, my managers can finally breathe.",
-          "rating": 5
-        },
-        {
-          "name": "Tomasz Wisniewski",
-          "role": "Warehouse",
-          "date": "recently",
-          "quote": "Ordered a Telegram bot for our warehouse to send notifications about new stock arrivals. Works exactly as it should, set up fast and didn't cost much.",
-          "rating": 5
-        },
-        {
-          "name": "Sergey",
-          "role": "Food business",
-          "date": "last week",
-          "quote": "The guys built a complex bot with a menu pulled from our database. There were a few image hiccups at the start, but the dev fixed everything within a couple of hours. Right now a third of all our orders come through the bot.",
-          "rating": 4
-        },
-        {
-          "name": "Alex Mercer",
-          "role": "Telegram community",
-          "date": "2 weeks ago",
-          "quote": "Needed a Telegram bot to auto-moderate the chat and welcome new members. Set up in a couple of days, saves me a ton of time now. Five stars.",
-          "rating": 5
-        },
-        {
-          "name": "Mikhail",
-          "role": "Customer support",
-          "date": "recently",
-          "quote": "We rolled out an AI assistant on our site for tech support. Now the AI handles 80% of the simple questions and it took a huge load off the managers. They helped train the bot on our own content. Recommend.",
-          "rating": 5
-        },
-        {
-          "name": "Piotr Zielinski",
-          "role": "Customer service",
-          "date": "last week",
-          "quote": "We wanted to add AI for sorting through customer emails. The buildbyalex crew came up with a great solution, and now the system sorts requests by topic on its own. It honestly made our lives a lot easier.",
-          "rating": 5
-        },
-        {
-          "name": "Sara Jenkins",
-          "role": "Online store",
-          "date": "2 weeks ago",
-          "quote": "We integrated an AI chatbot into our online store. It helps customers pick out products. The guys set it all up and walked us through how to manage it. Excellent service.",
-          "rating": 5
-        },
-        {
-          "name": "Elena K.",
-          "role": "Online store",
-          "date": "recently",
-          "quote": "Reached out to integrate ChatGPT to generate product descriptions. They did it all through the API, and now we fill in product cards in one click. Saved us a ton of money on copywriters.",
-          "rating": 5
-        },
-        {
-          "name": "Anton",
-          "role": "Service business",
-          "date": "last week",
-          "quote": "They connected our site and phone system to Bitrix24. Now leads don't slip through the cracks, everything logs into the database automatically. Thanks for the patience, since we changed the task on the fly three times.",
-          "rating": 4
-        },
-        {
-          "name": "Mateusz Wozniak",
-          "role": "Service business",
-          "date": "2 weeks ago",
-          "quote": "They helped set up HubSpot CRM and linked it with the forms on our site. Data comes through with no delays. Easy to deal with, professional approach.",
-          "rating": 5
-        },
-        {
-          "name": "David L.",
-          "role": "Custom website",
-          "date": "recently",
-          "quote": "I needed to connect a custom-built site to a CRM. It was a tedious job, but the buildbyalex guys nailed it. Everything syncs in real time now. We'll be working with them again.",
-          "rating": 4
-        },
-        {
-          "name": "Olga",
-          "role": "Service business",
-          "date": "last week",
-          "quote": "They pulled all our messengers into a single CRM. Now the managers message clients straight from one window. Setup took a little longer than expected, but support saw it through to the end.",
-          "rating": 4
-        },
-        {
-          "name": "Vladislav",
-          "role": "Fitness club",
-          "date": "2 weeks ago",
-          "quote": "They built an iOS and Android app for our fitness club. Tough project with scheduling and a personal account section. Runs smooth on both phones. They also helped get it into the stores, which was a nice bonus.",
-          "rating": 5
-        },
-        {
-          "name": "Katarzyna Kowalczyk",
-          "role": "Coffee shop",
-          "date": "recently",
-          "quote": "I ordered a loyalty app for my coffee shop. Looks awesome, customers are downloading it and racking up points. Everything went smoothly, I recommend buildbyalex.",
-          "rating": 5
-        },
-        {
-          "name": "John Miller",
-          "role": "Food delivery",
-          "date": "last week",
-          "quote": "They built a food delivery app (MVP version). Everything works, no bugs, and they stayed within budget. They were in touch the whole time and explained things in plain language.",
-          "rating": 5
-        },
-        {
           "name": "Nikita",
           "role": "Services app",
           "date": "2 weeks ago",
@@ -839,129 +706,11 @@
           "rating": 4
         },
         {
-          "name": "Pavel A.",
-          "role": "Long-term client",
-          "date": "recently",
-          "quote": "Been working with Alex for a year now. First a site, then a bot, and now we just set up a CRM. What I like is they don't just code, they actually suggest what makes more sense for the business.",
-          "rating": 5
-        },
-        {
-          "name": "Karolina Lewandowska",
-          "role": "Online store",
-          "date": "last week",
-          "quote": "Awesome team! They did both our site and the integration with our warehouse software. Everything runs perfectly. If you need decent developers, I recommend buildbyalex.",
-          "rating": 5
-        },
-        {
-          "name": "Robert Brown",
-          "role": "Sales platform",
-          "date": "2 weeks ago",
-          "quote": "We ordered a sales platform plus a smart chatbot. The result is great, they actually made it better than what we asked for. Reliable guys.",
-          "rating": 5
-        },
-        {
-          "name": "Maksim",
-          "role": "Service business",
-          "date": "recently",
-          "quote": "Solid outfit. The pricing is fair, no padding the bill. They connected our site to our database, took some fiddling, but in the end it all runs like clockwork. Worth doing business with.",
-          "rating": 4
-        },
-        {
-          "name": "Yulia K.",
-          "role": "Photo studio",
-          "date": "last week",
-          "quote": "They made a great little portfolio site for my photo studio. Simple, clear, and the portfolio loads fast. Special thanks for the design tips.",
-          "rating": 5
-        },
-        {
-          "name": "Marcin Wojcik",
-          "role": "Online store",
-          "date": "2 weeks ago",
-          "quote": "I ordered an integration between my online store and a CRM. Now orders drop straight to the manager and stock on the site updates itself. Really convenient, thanks for the work.",
-          "rating": 5
-        },
-        {
           "name": "Tom Harris",
           "role": "Barbershop",
           "date": "recently",
           "quote": "They built a Telegram bot for booking haircuts at my barbershop. Clients are happy and the reminders show up on time. These devs know what they're doing.",
           "rating": 5
-        },
-        {
-          "name": "Denis",
-          "role": "Service business",
-          "date": "last week",
-          "quote": "We set up AI to handle incoming requests. I had my doubts at first, but the thing actually works and saves the managers time on dumb questions. Respect to the team.",
-          "rating": 4
-        },
-        {
-          "name": "Anna",
-          "role": "Online store",
-          "date": "2 weeks ago",
-          "quote": "I came to them for an iPhone app (online store). Done fast, the design is really nice, and it doesn't lag. They also helped me get through App Store review.",
-          "rating": 5
-        },
-        {
-          "name": "Szymon Kowal",
-          "role": "Corporate website",
-          "date": "recently",
-          "quote": "Great guys. They built a complex corporate site with a ton of pages. Everything runs stable, not a single bug in two months.",
-          "rating": 5
-        },
-        {
-          "name": "Jessica Smith",
-          "role": "Sales department",
-          "date": "last week",
-          "quote": "We needed to get a CRM up and running fast for our sales team. Buildbyalex did it all in a week and trained our staff. Sales went up.",
-          "rating": 5
-        },
-        {
-          "name": "Oleg Popov",
-          "role": "Private club",
-          "date": "2 weeks ago",
-          "quote": "Needed a Telegram bot to send out news to a private club. The guys handled it in a couple of days and it all works like clockwork. The price was a pleasant surprise.",
-          "rating": 5,
-          "publishAt": "2026-06-27"
-        },
-        {
-          "name": "Maria",
-          "role": "Website chatbot",
-          "date": "recently",
-          "quote": "We set up a smart AI bot for our site with them. Customers think they're talking to a live agent. Really cool integration, thank you.",
-          "rating": 5,
-          "publishAt": "2026-06-27"
-        },
-        {
-          "name": "Lukasz Boruc",
-          "role": "Taxi service",
-          "date": "last week",
-          "quote": "I ordered an Android app for a taxi service. It's all great, the geolocation works perfectly, and they hooked up the maps with no problems. I recommend Alex.",
-          "rating": 5,
-          "publishAt": "2026-06-27"
-        },
-        {
-          "name": "Stanislav",
-          "role": "WordPress site",
-          "date": "2 weeks ago",
-          "quote": "They connected our WordPress site to amoCRM. There were some headaches with the old plugins, but the guys rewrote everything and set it up right. The leads are landing where they should now.",
-          "rating": 4,
-          "publishAt": "2026-06-28"
-        },
-        {
-          "name": "Chloe",
-          "role": "Website redesign",
-          "date": "recently",
-          "quote": "We ordered a site redesign and a new payment system added on. The guys did it all without taking the site offline, and I'm really grateful for that.",
-          "rating": 5,
-          "publishAt": "2026-06-28"
-        },
-        {
-          "name": "Artur",
-          "role": "Service business",
-          "date": "last week",
-          "quote": "They built a bot to automatically collect reviews on Telegram. Simple thing, but it boosted customer loyalty. The guys work fast, no unnecessary chit-chat.",
-          "rating": 4,
-          "publishAt": "2026-06-28"
         },
         {
           "name": "Kamil Nowak",
@@ -972,178 +721,10 @@
           "publishAt": "2026-06-29"
         },
         {
-          "name": "Vladimir",
-          "role": "Flower delivery",
-          "date": "recently",
-          "quote": "I came to them for a flower delivery app. They built it for both platforms at once. Everything runs smooth, payments go through, notifications come in. Top notch.",
-          "rating": 5,
-          "publishAt": "2026-06-29"
-        },
-        {
-          "name": "Andrey M.",
-          "role": "Online store",
-          "date": "last week",
-          "quote": "Solid service. They moved our site to a new host and reworked the cart. Did it over the weekend, and by Monday we were back to selling in full swing.",
-          "rating": 4,
-          "publishAt": "2026-06-29"
-        },
-        {
-          "name": "Barbara",
-          "role": "Fitness marathon",
-          "date": "2 weeks ago",
-          "quote": "I ordered a Telegram bot for a fitness marathon. The bot hands out tasks and checks the reports. The girls are thrilled and everything runs automatically. Thanks buildbyalex!",
-          "rating": 5,
-          "publishAt": "2026-06-30"
-        },
-        {
-          "name": "Michael K.",
-          "role": "CRM automation",
-          "date": "recently",
-          "quote": "They helped set up our CRM and automate the emails we send customers after a purchase. The whole process is fully hands-off now. Good karma to the devs.",
-          "rating": 4,
-          "publishAt": "2026-06-30"
-        },
-        {
-          "name": "Egor",
-          "role": "Sales team",
-          "date": "last week",
-          "quote": "We rolled out an AI helper for our managers to help draft replies to clients. Response time was cut in half. Job done excellently.",
-          "rating": 5,
-          "publishAt": "2026-06-30"
-        },
-        {
-          "name": "Alena",
-          "role": "Cosmetics store",
-          "date": "2 weeks ago",
-          "quote": "They built a really beautiful cosmetics online store. Every button is in its place and it loads instantly on phones. It was a pleasure dealing with the guys.",
-          "rating": 5,
-          "publishAt": "2026-07-01"
-        },
-        {
-          "name": "Michał K.",
-          "role": "Barbershop",
-          "date": "recently",
-          "quote": "Alex is a legend! Built a landing page for my barbershop in a week. Clients are already coming in from Google.",
-          "rating": 5,
-          "publishAt": "2026-07-15"
-        },
-        {
-          "name": "Sarah Jenkins",
-          "role": "Online store",
-          "date": "last week",
-          "quote": "The bot runs like clockwork. Thanks for the quick turnaround!",
-          "rating": 5,
-          "publishAt": "2026-07-15"
-        },
-        {
-          "name": "Ivan Petrov",
-          "role": "Site owner",
-          "date": "5 days ago",
-          "quote": "Finally found a developer who doesn't keep stalling. Said two weeks, delivered in twelve days. Recommend.",
-          "rating": 5,
-          "publishAt": "2026-07-15"
-        },
-        {
-          "name": "Mateusz Wójcik",
-          "role": "Local business",
-          "date": "1 week ago",
-          "quote": "Fast, sharp, to the point. The site flies, the design is killer.",
-          "rating": 5,
-          "publishAt": "2026-07-15"
-        },
-        {
-          "name": "David Mueller",
-          "role": "B2B company",
-          "date": "3 days ago",
-          "quote": "We ordered a CRM integration. Everything's set up, leads drop straight into Telegram. Super convenient.",
-          "rating": 5,
-          "publishAt": "2026-07-16"
-        },
-        {
-          "name": "Olga Smirnova",
-          "role": "Service business",
-          "date": "recently",
-          "quote": "Great work! The site loads instantly and SEO is already paying off.",
-          "rating": 4,
-          "publishAt": "2026-07-16"
-        },
-        {
-          "name": "Krzysztof Nowak",
-          "role": "Service business",
-          "date": "last week",
-          "quote": "The AI assistant is simply top-notch. It answers clients faster than I do and saves a ton of time.",
-          "rating": 5,
-          "publishAt": "2026-07-16"
-        },
-        {
-          "name": "Elena Rossi",
-          "role": "Startup",
-          "date": "5 days ago",
-          "quote": "No fluff. You set the task, you get a finished app. The perfect way to work.",
-          "rating": 5,
-          "publishAt": "2026-07-16"
-        },
-        {
-          "name": "Thomas Wright",
-          "role": "Product team",
-          "date": "1 week ago",
-          "quote": "Really liked the approach. Alex suggested a couple of features himself that we hadn't even considered.",
-          "rating": 5,
-          "publishAt": "2026-07-17"
-        },
-        {
-          "name": "Agnieszka Lewandowska",
-          "role": "Online store",
-          "date": "3 days ago",
-          "quote": "We built a store on Next.js. Payments work, everything flies. I'm happy.",
-          "rating": 5,
-          "publishAt": "2026-07-17"
-        },
-        {
-          "name": "Maksim Volkov",
-          "role": "Local business",
-          "date": "recently",
-          "quote": "The Telegram bot collects leads around the clock. It paid for itself in the first week.",
-          "rating": 5,
-          "publishAt": "2026-07-17"
-        },
-        {
-          "name": "Sophie Martin",
-          "role": "Small business",
-          "date": "last week",
-          "quote": "Recommend. A reliable pro who never goes off the radar.",
-          "rating": 4,
-          "publishAt": "2026-07-17"
-        },
-        {
-          "name": "Kacper Kowalski",
-          "role": "Manufacturing",
-          "date": "5 days ago",
-          "quote": "Before this I worked with an agency - nothing but bureaucracy and slipping deadlines. With Alex it's completely different: we hopped on a call, talked it through, and two weeks later the site was live. The difference is huge.",
-          "rating": 5,
-          "publishAt": "2026-07-17"
-        },
-        {
           "name": "Daniel Harris",
           "role": "Startup (iOS)",
           "date": "1 week ago",
           "quote": "We needed an urgent MVP for investors. Alex put together a working iOS app in three weeks. We got the funding and we're still working together.",
-          "rating": 5,
-          "publishAt": "2026-07-18"
-        },
-        {
-          "name": "Anna Sokolova",
-          "role": "Services, Warsaw",
-          "date": "3 days ago",
-          "quote": "The biggest win is SEO from day one. Before that we had a website-builder site that nobody ever saw. Now we're consistently in the top 10 across Warsaw.",
-          "rating": 5,
-          "publishAt": "2026-07-18"
-        },
-        {
-          "name": "Piotr Wiśniewski",
-          "role": "Service business",
-          "date": "recently",
-          "quote": "We were looking for someone to set up an AI agent to reply after hours. Alex's bot doesn't just fire off templates - it actually advises and closes the deal.",
           "rating": 5,
           "publishAt": "2026-07-18"
         },
@@ -1156,14 +737,6 @@
           "publishAt": "2026-07-18"
         },
         {
-          "name": "Dmitry Ivanov",
-          "role": "Client",
-          "date": "5 days ago",
-          "quote": "I really liked that there are no middlemen. No need to explain the task to a manager who then passes it to a developer like a game of telephone. You talk directly to the person doing the work.",
-          "rating": 5,
-          "publishAt": "2026-07-19"
-        },
-        {
           "name": "Tomasz Kamiński",
           "role": "Drone filming",
           "date": "1 week ago",
@@ -1172,58 +745,10 @@
           "publishAt": "2026-07-19"
         },
         {
-          "name": "Emily Davis",
-          "role": "Online store",
-          "date": "3 days ago",
-          "quote": "We built a complex Telegram bot with a storefront and payments. Everything runs without a hitch and clients find it easy.",
-          "rating": 5,
-          "publishAt": "2026-07-19"
-        },
-        {
-          "name": "Jakub Zieliński",
-          "role": "Online sales",
-          "date": "recently",
-          "quote": "Alex doesn't just write code - he understands business goals. The site turned out exactly the way it needed to be for sales, not just a pretty picture.",
-          "rating": 5,
-          "publishAt": "2026-07-19"
-        },
-        {
-          "name": "Maria Kuznetsova",
-          "role": "Small business",
-          "date": "last week",
-          "quote": "A great option for small business. You get senior-level work without the crazy agency price tags.",
-          "rating": 4,
-          "publishAt": "2026-07-19"
-        },
-        {
           "name": "Oliver Schmidt",
           "role": "Automation",
           "date": "5 days ago",
           "quote": "We needed to connect several different services (forms, CRM, email). Alex set it all up through n8n and the automation works flawlessly.",
-          "rating": 5,
-          "publishAt": "2026-07-20"
-        },
-        {
-          "name": "Julia Szymańska",
-          "role": "Online store",
-          "date": "1 week ago",
-          "quote": "We launched an online store with Blik payments. Everything's fast and convenient, and clients aren't complaining.",
-          "rating": 5,
-          "publishAt": "2026-07-20"
-        },
-        {
-          "name": "Adam Dąbrowski",
-          "role": "Service business",
-          "date": "3 days ago",
-          "quote": "I doubted for a long time whether we needed an AI consultant. It seemed like clients wouldn't talk to a bot. Alex convinced me to try it and set up a bot that copies our manager's communication style. The result: 30% of routine questions get handled without a human, and leads are qualified better. Saved us a ton of time and nerves.",
-          "rating": 5,
-          "publishAt": "2026-07-20"
-        },
-        {
-          "name": "Markus Weber",
-          "role": "Fitness startup",
-          "date": "recently",
-          "quote": "We worked with Alex on a fitness app. What won me over: he proposed the architecture himself, picked the right stack and took on absolutely everything - from design to the App Store release. No need to hire a backend dev, a frontend dev and a designer separately. His turnkey format actually works.",
           "rating": 5,
           "publishAt": "2026-07-20"
         },
@@ -1236,68 +761,12 @@
           "publishAt": "2026-07-21"
         },
         {
-          "name": "Maciej Kaczmarek",
-          "role": "Business",
-          "date": "5 days ago",
-          "quote": "My experience with agencies was negative - constant missed deadlines and budget creep. With Alex we agreed on a fixed price and timeline (3 weeks). He delivered exactly on time, without a single extra charge. The site runs fast, the code is clean, and all the integrations (Google Ads, analytics) were set up right away.",
-          "rating": 4,
-          "publishAt": "2026-07-21"
-        },
-        {
           "name": "Sergey Morozov",
           "role": "Sales / CRM",
           "date": "1 week ago",
           "quote": "I came for a sales automation setup. We had chaos with leads scattered across different messengers. Alex pulled it all into one system: leads land in the CRM, the client gets an automatic reply, and after hours the AI bot keeps the conversation going. The processes became transparent and conversion went up.",
           "rating": 5,
           "publishAt": "2026-07-21"
-        },
-        {
-          "name": "Emma Johansson",
-          "role": "Startup",
-          "date": "3 days ago",
-          "quote": "We were launching a startup and needed a landing page and a simple web app for our first users. The budget was tight. Alex proposed the optimal stack (Next.js) that let us stay within budget and still get a great result. The site loads instantly and looks expensive.",
-          "rating": 5,
-          "publishAt": "2026-07-21"
-        },
-        {
-          "name": "Michalina Kozłowska",
-          "role": "Online business",
-          "date": "recently",
-          "quote": "What sets Alex apart is how deeply he gets into the business logic. He doesn't just build layouts - he asks questions: How are we going to guide the user next? What's the goal of this button? In the end the site becomes a sales tool, not just a business card.",
-          "rating": 5,
-          "publishAt": "2026-07-21"
-        },
-        {
-          "name": "John Brooks",
-          "role": "Enterprise client",
-          "date": "last week",
-          "quote": "We did a RAG system integration for the company's internal knowledge base. It was a hard task - lots of data and it wasn't structured. Alex nailed it: now employees can just ask the bot in Telegram and get an accurate answer with a link to the document.",
-          "rating": 5,
-          "publishAt": "2026-07-22"
-        },
-        {
-          "name": "Egor Lebedev",
-          "role": "Founder",
-          "date": "5 days ago",
-          "quote": "I ordered development from scratch. I only had an idea and a rough sense of what I wanted. Alex helped structure it, made prototypes, the design, and launched the project. The whole process was transparent - I always knew what stage we were at.",
-          "rating": 4,
-          "publishAt": "2026-07-22"
-        },
-        {
-          "name": "Patryk Mazur",
-          "role": "Online business",
-          "date": "1 week ago",
-          "quote": "Excellent Next.js expertise. The site came out incredibly fast, Google PageSpeed shows all green. That was critical for us because of the competition in search. Result: 10 out of 10.",
-          "rating": 5,
-          "publishAt": "2026-07-22"
-        },
-        {
-          "name": "Clara Dubois",
-          "role": "Online store",
-          "date": "3 days ago",
-          "quote": "We rolled out an AI manager in Telegram. It works 24/7, answers questions about prices and delivery terms and even helps place an order. We offloaded almost half of our support. Alex set it all up, tested it and taught us how to manage the bot. A really great investment in the business.",
-          "rating": 5,
-          "publishAt": "2026-07-22"
         }
       ],
       "showAll": "Show all {count} reviews",
@@ -6864,7 +6333,7 @@
       "error": "Something went wrong. Please try again or email me directly.",
       "phone": "Phone (optional)",
       "errorEmail": "Check your email — that address looks incomplete.",
-      "errorRequired": "Please fill in your name, email and a short description.",
+      "errorRequired": "Please add your name.",
       "formNote": "No spam. We reply personally, usually the same day.",
       "errorContact": "Leave an email or a phone number - I will reply on the same channel.",
       "optional": "(optional)",

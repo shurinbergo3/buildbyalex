@@ -55,12 +55,6 @@ export const routing = defineRouting({
       pl: "/uslugi/reklama-google-ads",
       ua: "/poslugy/reklama",
     },
-    "/about": {
-      ru: "/o-mne",
-      en: "/about",
-      pl: "/o-mnie",
-      ua: "/pro-mene",
-    },
     "/pricing": {
       ru: "/ceny",
       en: "/pricing",

@@ -4,7 +4,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { cookies } from "next/headers";
 import { routing, type Locale } from "@/i18n/routing";
 import { SITE_URL, localizedHref, htmlLang, ogLocale } from "@/lib/site";
 import { ThemeProvider, type Theme } from "@/components/ThemeProvider";
@@ -26,6 +25,20 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
   display: "swap",
 });
+
+// Theme is applied by the inline bootstrap below, not on the server. Reading the
+// cookie here with `cookies()` opted every page into dynamic rendering, which
+// killed the static build and made the whole site respond with `no-store` —
+// no CDN cache, a full re-render on every crawler hit. The markup ships with the
+// light theme and the script swaps it before first paint.
+const DEFAULT_THEME: Theme = "light";
+
+const THEME_BOOTSTRAP = `try{document.documentElement.dataset.theme=/(?:^|;\\s*)theme=dark(?:;|$)/.test(document.cookie)?"dark":"light"}catch(e){}`;
+
+// Every page is prerendered. A few of them still depend on "now" — reviews
+// gated by `publishAt`, posts gated by their date — so the whole segment
+// re-renders hourly instead of freezing at build time.
+export const revalidate = 3600;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -95,15 +108,16 @@ export default async function LocaleLayout({
   if (!(routing.locales as readonly string[]).includes(locale)) notFound();
   setRequestLocale(locale);
 
-  const themeCookie = (await cookies()).get("theme")?.value;
-  const initialTheme: Theme = themeCookie === "dark" ? "dark" : "light";
   const messages = await getMessages();
 
   return (
-    <html lang={htmlLang(locale as Locale)} data-theme={initialTheme} suppressHydrationWarning>
+    <html lang={htmlLang(locale as Locale)} data-theme={DEFAULT_THEME} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP }} />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <ThemeProvider initialTheme={initialTheme}>
+          <ThemeProvider>
             <SmoothScroll />
             <a
               href="#main"

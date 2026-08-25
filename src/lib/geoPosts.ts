@@ -17,7 +17,7 @@ export type GeoBranch = "websites" | "store" | "ai" | "automation" | "mobile" | 
 /** Which starting-price tier (home.pricing.tiers.*) each branch quotes. */
 export const BRANCH_TIER: Record<GeoBranch, string> = {
   websites: "site",
-  store: "site",
+  store: "store",
   ai: "ai",
   automation: "automation",
   mobile: "mobile",

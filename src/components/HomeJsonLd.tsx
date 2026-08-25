@@ -89,7 +89,7 @@ export async function HomeJsonLd({ locale }: { locale: Locale }) {
         image: `${SITE_URL}${localeSegment(locale)}/opengraph-image`,
         description: t("defaultDescription"),
         email: EMAIL,
-        priceRange: "€900–€12 000+",
+        priceRange: "€300–€15 000+",
         // Warsaw is where the contracts are signed and where every service page
         // points, so the business needs to say so in structured data too — the
         // previous "Worldwide (remote)" left no local signal at all. Locality

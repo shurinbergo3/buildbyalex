@@ -6,7 +6,7 @@ type PathKey = keyof typeof routing.pathnames;
 
 /**
  * Build a Next.js Metadata object with metadataBase, canonical and hreflang
- * already filled in for a logical pathname like "/about" or "/services/ai-agents".
+ * already filled in for a logical pathname like "/pricing" or "/services/ai-agents".
  * Each page can spread additional fields on top.
  */
 export function buildLocalizedMetadata({

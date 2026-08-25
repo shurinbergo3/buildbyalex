@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "motion/react";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
+import { LEAD_NAME_KEY } from "@/lib/leadName";
 
 type TypeKey = "website" | "ai" | "mobile" | "other";
 const TYPE_KEYS: TypeKey[] = ["website", "ai", "mobile", "other"];
@@ -15,15 +16,22 @@ type Step = { title: string; body: string };
    sequence — the signature on-brand payoff that mirrors what Alex builds. */
 type Phase = "sending" | "delivered";
 
-export function ThankYouExperience({
-  name: rawName = "",
-  type: typeParam = "",
-}: {
-  name?: string;
-  type?: string;
-}) {
+export function ThankYouExperience({ type: typeParam = "" }: { type?: string }) {
   const t = useTranslations("thankYou");
   const tForm = useTranslations("contact.form");
+
+  // Handed over by the form in sessionStorage rather than the query string, so
+  // the visitor's name never reaches Metrika, GA4 or an access log. Read in an
+  // effect — reading during render would make SSR and the client disagree.
+  const [rawName, setRawName] = useState("");
+  useEffect(() => {
+    try {
+      const stored = sessionStorage.getItem(LEAD_NAME_KEY);
+      if (stored) setRawName(stored);
+    } catch {
+      /* private mode / storage blocked */
+    }
+  }, []);
 
   const name = rawName.trim() ? rawName.trim().split(/\s+/)[0].slice(0, 28) : "";
   const typeKey = TYPE_KEYS.includes(typeParam as TypeKey)

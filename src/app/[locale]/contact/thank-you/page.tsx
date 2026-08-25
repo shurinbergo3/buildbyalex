@@ -29,11 +29,11 @@ export default async function ThankYouPage({
   searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ name?: string; type?: string }>;
+  searchParams: Promise<{ type?: string }>;
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const { name, type } = await searchParams;
+  const { type } = await searchParams;
 
-  return <ThankYouExperience name={name} type={type} />;
+  return <ThankYouExperience type={type} />;
 }

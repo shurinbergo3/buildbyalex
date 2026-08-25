@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { Button } from "./Button";
 import { trackGoal } from "@/lib/analytics";
+import { LEAD_NAME_KEY } from "@/lib/leadName";
 
 const typeKeys = ["website", "ai", "mobile", "other"] as const;
 const budgetKeys = ["under1k", "to3k", "to10k", "over10k", "unknown"] as const;
@@ -39,6 +40,7 @@ export function ContactForm() {
     if (!payload.name) {
       setState("error");
       setError(t("errorRequired"));
+      (e.currentTarget.elements.namedItem("name") as HTMLInputElement | null)?.focus();
       return;
     }
     if (!payload.email && !payload.phone) {
@@ -67,8 +69,16 @@ export function ContactForm() {
         throw new Error(data.error ?? "Send failed");
       }
       trackGoal("lead_submit", { type: payload.type || "unknown" });
+      // The name is handed over in sessionStorage, not in the query string:
+      // Metrika and GA4 both record the full page URL, so `?name=…` shipped the
+      // visitor's personal data to two analytics vendors, every access log on
+      // the way, and the Referer of anything they clicked next.
+      try {
+        sessionStorage.setItem(LEAD_NAME_KEY, payload.name);
+      } catch {
+        /* private mode — the greeting just falls back to the generic one */
+      }
       const query: Record<string, string> = {};
-      if (payload.name) query.name = payload.name;
       if (payload.type) query.type = payload.type;
       router.push({ pathname: "/contact/thank-you", query });
     } catch (err) {

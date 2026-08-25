@@ -42,6 +42,7 @@ export function Footer() {
               <li><Link href="/services/ai-agents" className="hover:text-[color:var(--color-text)] transition-colors">{t("links.aiAgents")}</Link></li>
               <li><Link href="/services/automation" className="hover:text-[color:var(--color-text)] transition-colors">{t("links.automation")}</Link></li>
               <li><Link href="/services/mobile-apps" className="hover:text-[color:var(--color-text)] transition-colors">{t("links.mobileApps")}</Link></li>
+              <li><Link href="/services/telegram-bots" className="hover:text-[color:var(--color-text)] transition-colors">{nav("servicesMenu.telegram.title")}</Link></li>
               <li><Link href="/services/advertising" className="hover:text-[color:var(--color-text)] transition-colors">{t("links.advertising")}</Link></li>
             </ul>
           </div>

@@ -1,5 +1,5 @@
 import { useTranslations, useMessages, useLocale } from "next-intl";
-import { SITE_URL, localizedHref } from "@/lib/site";
+import { localizedHref } from "@/lib/site";
 import type { Locale } from "@/i18n/routing";
 import { countLiveReviews, type Review } from "@/lib/reviews";
 import { jsonLd } from "@/lib/jsonLd";
@@ -31,6 +31,7 @@ type Shape = {
 // so widening these to `string` breaks the type check.
 const ROWS = [
   { tier: "site", branch: "websites", path: "/services/websites" },
+  { tier: "store", branch: "store", path: "/services/online-store" },
   { tier: "ai", branch: "ai", path: "/services/ai-agents" },
   { tier: "automation", branch: "automation", path: "/services/automation" },
   { tier: "telegram", branch: "telegram", path: "/services/telegram-bots" },
