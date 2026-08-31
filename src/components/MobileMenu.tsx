@@ -8,6 +8,8 @@ import { Button } from "./Button";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 import { Logo } from "./Logo";
 import { SERVICE_KEYS, serviceGlyph, serviceHref } from "./serviceGlyphs";
+import { offerGlyph, offerHref } from "./offerGlyphs";
+import { OFFER_KEYS } from "@/lib/offers";
 
 const topItems = [
   { href: "/work", key: "work" },
@@ -182,6 +184,32 @@ export function MobileMenu() {
                         >
                           <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-[color:var(--c-accent-soft)] text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
                             <span className="h-5 w-5">{serviceGlyph[key]}</span>
+                          </span>
+                          <span className="min-w-0">
+                            <span className="block text-[17px] font-semibold tracking-[-0.011em] text-[color:var(--color-text)]">
+                              {tm(`${key}.title`)}
+                            </span>
+                            <span className="mt-0.5 block text-[12.5px] leading-[1.35] text-[color:var(--color-text-3)]">
+                              {tm(`${key}.tagline`)}
+                            </span>
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                    <li className="pt-3">
+                      <p className="pb-1 pl-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-[color:var(--color-text-3)]">
+                        {tm("offersLabel")}
+                      </p>
+                    </li>
+                    {OFFER_KEYS.map((key) => (
+                      <li key={key}>
+                        <Link
+                          href={offerHref[key]}
+                          onClick={close}
+                          className="flex items-center gap-3.5 py-2.5 pl-1 transition-opacity hover:opacity-70"
+                        >
+                          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-[color:var(--c-accent-soft)] text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
+                            <span className="h-5 w-5">{offerGlyph[key]}</span>
                           </span>
                           <span className="min-w-0">
                             <span className="block text-[17px] font-semibold tracking-[-0.011em] text-[color:var(--color-text)]">

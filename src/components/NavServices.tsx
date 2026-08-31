@@ -6,6 +6,8 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { SERVICE_KEYS, serviceGlyph, serviceHref } from "./serviceGlyphs";
+import { offerGlyph, offerHref } from "./offerGlyphs";
+import { OFFER_KEYS } from "@/lib/offers";
 
 /* Desktop "Услуги" mega-dropdown. Opens on hover (mouse) and on click/Enter
    (keyboard + touch); closes on Escape — returning focus to the trigger —
@@ -113,6 +115,35 @@ export function NavServices() {
                   </span>
                 </Link>
               ))}
+            </div>
+
+            {/* Fixed-price offers — separated because they're bought, not scoped. */}
+            <div className="mt-1.5 border-t border-[color:var(--c-hairline)] pt-2.5">
+              <p className="px-3 pb-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-[color:var(--color-text-3)]">
+                {tm("offersLabel")}
+              </p>
+              <div className="grid grid-cols-2 gap-1">
+                {OFFER_KEYS.map((key) => (
+                  <Link
+                    key={key}
+                    href={offerHref[key]}
+                    onClick={() => setOpen(false)}
+                    className="flex items-start gap-3 rounded-2xl p-3 transition-colors hover:bg-[color:var(--color-bg-alt)]"
+                  >
+                    <span className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-[color:var(--c-accent-soft)] text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
+                      <span className="h-5 w-5">{offerGlyph[key]}</span>
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block text-[14px] font-semibold tracking-[-0.011em] text-[color:var(--color-text)]">
+                        {tm(`${key}.title`)}
+                      </span>
+                      <span className="mt-0.5 block text-[12.5px] leading-[1.4] text-[color:var(--color-text-3)]">
+                        {tm(`${key}.tagline`)}
+                      </span>
+                    </span>
+                  </Link>
+                ))}
+              </div>
             </div>
 
             <div className="mt-1.5 border-t border-[color:var(--c-hairline)] pt-1.5">

@@ -34,6 +34,9 @@ import { SectionAtmosphere } from "./SectionAtmosphere";
 import { StoreAllegroCalc } from "./StoreAllegroCalc";
 import { MobileCaseProof } from "./MobileCaseProof";
 import { MobileCostCalc } from "./MobileCostCalc";
+import { AiAgentCatalog } from "./AiAgentCatalog";
+import { AiIntegrations } from "./AiIntegrations";
+import { AiHandover } from "./AiHandover";
 import { jsonLd } from "@/lib/jsonLd";
 
 type Branch = "websites" | "store" | "ai" | "automation" | "mobile" | "telegram" | "ads";
@@ -197,6 +200,14 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
       {/* ── Formats with prices and timelines ── */}
       {hasFormats && <ServiceFormats branch={branch} />}
 
+      {/* ── Agent catalogue + the systems it plugs into (AI page only) ── */}
+      {branch === "ai" && (
+        <>
+          <AiAgentCatalog />
+          <AiIntegrations />
+        </>
+      )}
+
       {/* ── Payments / delivery / back-office integrations (store only) ── */}
       {branch === "store" && <StoreIntegrations />}
 
@@ -231,6 +242,9 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
 
       {/* ── Contract guarantees ── */}
       <ServiceGuarantees branch={branch} />
+
+      {/* ── What happens if I am not around (AI page only, for now) ── */}
+      {branch === "ai" && <AiHandover />}
 
       {/* ── Process, week by week ── */}
       <ServiceTimeline branch={branch} />

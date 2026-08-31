@@ -47,6 +47,23 @@
       "telegram": {
         "title": "Boty Telegram",
         "tagline": "Boty i Mini Apps z płatnością w czacie"
+      },
+      "offersLabel": "Stała cena",
+      "aiAudit": {
+        "title": "Audyt AI",
+        "tagline": "5 dni, werdykt na piśmie"
+      },
+      "documents": {
+        "title": "Automatyzacja dokumentów",
+        "tagline": "Faktury i zamówienia z maila prosto do ERP"
+      },
+      "aiAct": {
+        "title": "Zgodność z AI Act",
+        "tagline": "Retrofit działającego bota, od 3 500 zł netto"
+      },
+      "aiVisibility": {
+        "title": "Audyt widoczności w AI",
+        "tagline": "Gdzie ChatGPT wymienia Twoją firmę, a gdzie nie"
       }
     },
     "pricing": "Cennik"
@@ -2634,6 +2651,175 @@
             "title": "Jak wdrożyć chatbota AI na stronie"
           }
         ]
+      },
+      "catalog": {
+        "eyebrow": "Katalog agentów",
+        "headline": "Dziewięć agentów, których klienci faktycznie zamawiają",
+        "sub": "To, co wdrażam najczęściej, z realnym terminem i stackiem. Cena dotyczy wdrożenia, bez obowiązkowego abonamentu.",
+        "cols": {
+          "type": "Agent",
+          "does": "Co robi",
+          "price": "Cena",
+          "time": "Termin",
+          "stack": "Stack"
+        },
+        "items": [
+          {
+            "title": "Konsultant na stronie na bazie wiedzy",
+            "does": "Odpowiada na pytania z Twoich dokumentów, cenników i umów z odnośnikiem do źródła, a gdy odpowiedzi w bazie nie ma, mówi wprost, że nie wie.",
+            "price": "od 6 400 zł (1 500 €)",
+            "time": "1-2 tygodnie",
+            "stack": "GPT-4o-mini, pgvector, widget na stronę, Google Sheets",
+            "best": "Usługi i B2B z rozbudowanym FAQ"
+          },
+          {
+            "title": "Kwalifikacja leadów i pierwszy kontakt",
+            "does": "Zadaje trzy, cztery pytania, odsiewa tych, którzy nie pasują, taguje i przesuwa szansę w lejku CRM.",
+            "price": "od 10 700 zł (2 500 €)",
+            "time": "2-3 tygodnie",
+            "stack": "GPT-4o, function calling, HubSpot lub Pipedrive API, Telegram Bot API, n8n",
+            "best": "Działy sprzedaży ze stałym napływem zapytań"
+          },
+          {
+            "title": "Obsługa z przekazaniem do człowieka",
+            "does": "Zamyka powtarzalne zgłoszenia, a trudniejsze oddaje konsultantowi razem ze streszczeniem rozmowy i historią klienta.",
+            "price": "od 8 600 zł (2 000 €)",
+            "time": "1-2 tygodnie",
+            "stack": "Claude Haiku, pgvector, widget na stronę, Slack, e-mail",
+            "best": "Wsparcie bez nocnej zmiany"
+          },
+          {
+            "title": "Umawianie i przekładanie wizyt",
+            "does": "Sprawdza wolne terminy, zapisuje, przekłada i odwołuje wizyty, wysyła przypomnienie dobę i godzinę wcześniej.",
+            "price": "od 9 400 zł (2 200 €)",
+            "time": "2-3 tygodnie",
+            "stack": "GPT-4o-mini, Google Calendar API, Calendly, WhatsApp Business API, n8n",
+            "best": "Gabinety, salony, serwisy"
+          },
+          {
+            "title": "Agent dla sklepu internetowego",
+            "does": "Odpowiada na pytania o produkty, podaje status zamówienia po numerze i prowadzi zwrot aż do zgłoszenia w systemie.",
+            "price": "od 12 000 zł (2 800 €)",
+            "time": "2-3 tygodnie",
+            "stack": "GPT-4o-mini, BaseLinker, WooCommerce lub Shopify API, InPost, Instagram DM",
+            "best": "Sklepy od 300 zamówień miesięcznie"
+          },
+          {
+            "title": "Nieodebrane połączenia i voicebot",
+            "does": "Oddzwania po nieodebranym połączeniu, ustala sprawę, umawia termin i wrzuca transkrypcję do CRM.",
+            "price": "od 12 800 zł (3 000 €)",
+            "time": "3-4 tygodnie",
+            "stack": "Vapi lub Twilio, Deepgram, ElevenLabs, GPT-4o, Google Calendar",
+            "best": "Branże, w których klienci częściej dzwonią, niż piszą"
+          },
+          {
+            "title": "Czytanie maili i dokumentów",
+            "does": "Wyciąga z poczty zamówienia, faktury i dokumenty WZ, rozpoznaje pozycje i kwoty i wprowadza je do systemu księgowego jako wersję roboczą, do akceptacji człowieka.",
+            "price": "od 13 700 zł (3 200 €)",
+            "time": "4-6 tygodni",
+            "stack": "Azure Document Intelligence, GPT-4o, Comarch Optima lub Subiekt nexo, KSeF API, n8n",
+            "best": "Hurt i produkcja"
+          },
+          {
+            "title": "Asystent wewnętrzny dla pracowników",
+            "does": "Szuka odpowiedzi w procedurach, instrukcjach i umowach firmy, zamiast wysyłać pracownika do kolegi z sąsiedniego biurka.",
+            "price": "od 11 100 zł (2 600 €)",
+            "time": "2-3 tygodnie",
+            "stack": "Claude Sonnet, pgvector, Google Drive lub SharePoint, Slack",
+            "best": "Firmy od 20 osób"
+          },
+          {
+            "title": "Wstępny screening kandydatów",
+            "does": "Czyta CV, wyciąga to, o co realnie pyta ogłoszenie, dopytuje kandydata o braki i proponuje termin rozmowy. Nikogo nie punktuje i nikogo nie odrzuca, decyzję podejmuje rekruter.",
+            "price": "od 15 000 zł (3 500 €)",
+            "time": "3-4 tygodnie",
+            "stack": "GPT-4o, pgvector, Google Sheets, Calendly, e-mail",
+            "best": "Rekrutacja masowa i stanowiska liniowe"
+          }
+        ],
+        "note": "Cena obejmuje jeden kanał i dwie, trzy integracje: każda kolejna jest wyceniana osobno, a koszt modeli i telefonii idzie bezpośrednio na Twój rachunek. Termin liczę od dnia, w którym mam dostępy i materiały, a równolegle prowadzę najwyżej dwa projekty."
+      },
+      "integrations": {
+        "eyebrow": "Integracje",
+        "headline": "Z czym agent naprawdę się łączy",
+        "sub": "Lista jest zamknięta: to systemy, z którymi już pracowałem, albo takie z udokumentowanym API, do którego dostęp daje Twoja licencja. Brak Twojego systemu na liście nie oznacza odmowy, ale API sprawdzam przed wyceną.",
+        "groups": [
+          {
+            "title": "Księgowość i ERP w Polsce",
+            "items": [
+              "Comarch Optima",
+              "Comarch ERP XL",
+              "Subiekt GT (Sfera)",
+              "Subiekt nexo (Sfera)",
+              "enova365",
+              "wFirma",
+              "ifirma",
+              "KSeF API"
+            ]
+          },
+          {
+            "title": "CRM i sprzedaż",
+            "items": [
+              "HubSpot",
+              "Pipedrive",
+              "Bitrix24",
+              "Livespace",
+              "Kommo",
+              "Airtable",
+              "Google Sheets"
+            ]
+          },
+          {
+            "title": "Kanały kontaktu",
+            "items": [
+              "Telegram Bot API",
+              "WhatsApp Business API",
+              "Messenger",
+              "Instagram DM",
+              "widget na stronie",
+              "e-mail",
+              "telefon przez Twilio lub Vapi"
+            ]
+          },
+          {
+            "title": "Sklepy, kalendarze i reszta",
+            "items": [
+              "BaseLinker",
+              "Allegro API",
+              "WooCommerce",
+              "Shopify",
+              "PrestaShop",
+              "InPost",
+              "Google Calendar",
+              "Calendly"
+            ]
+          }
+        ],
+        "note": "Jeśli system nie ma API, zostaje automatyzacja przez interfejs: jest krucha i psuje się po każdej aktualizacji, więc wyceniam ją osobno i z zastrzeżeniami, a czasem mówię wprost, że w tym miejscu projekt się kończy."
+      },
+      "handover": {
+        "eyebrow": "Przekazanie projektu",
+        "headline": "Co się stanie, jeśli zniknę",
+        "sub": "Główne ryzyko przy zatrudnieniu jednej osoby zamiast agencji. Odpowiadam, zanim zapytasz.",
+        "items": [
+          {
+            "title": "Kod i prompty w Twoim repozytorium",
+            "body": "Od pierwszego dnia pracuję w Twoim GitHubie lub GitLabie i na Twoich kontach hostingowych. Nic nie zostaje na moim dysku jako zastaw pod ostatnią fakturę: każdy commit widzisz w dniu, w którym powstał. Prompty, schemat bazy i konfiguracje n8n leżą w repozytorium obok kodu."
+          },
+          {
+            "title": "Klucze API i rachunki za modele są Twoje",
+            "body": "Konta OpenAI, Anthropic i Twilio zakładasz na swoją firmę, faktury idą prosto do Ciebie. Nie doliczam marży do tokenów, a zużycie widzisz we własnym billingu, nie w moim raporcie. Dostęp nadajesz mi Ty i Ty go odbierasz, bez pytania mnie o zgodę."
+          },
+          {
+            "title": "Runbook i nagranie przekazania",
+            "body": "Przy odbiorze dostajesz pisemny runbook: jak postawić system, gdzie są logi, co robić przy awarii, jakie zmienne środowiskowe są potrzebne. Do tego nagranie ekranu na 30-40 minut, na którym przechodzę przez całość. Pisane pod programistę, który widzi projekt pierwszy raz."
+          },
+          {
+            "title": "Jeśli jestem niedostępny",
+            "body": "Czasy reakcji są w umowie: w dni robocze do 24 godzin, a przy awarii produkcyjnej do 4 godzin w godzinach pracy, 9-18 czasu warszawskiego. Nie mam dyżuru 24/7 i nie będę obiecywał czegoś, czego jedna osoba nie udźwignie. Jeśli milczę dłużej niż pięć dni roboczych, rozwiązujesz umowę bez kar i beze mnie: nie ma czego przekazywać, kod, konta i dokumentacja są Twoje od pierwszego dnia."
+          }
+        ],
+        "note": "Żaden z tych punktów nie kosztuje dodatkowo i nie wymaga aneksu, tak wygląda moja standardowa umowa."
       }
     },
     "automation": {
@@ -6551,6 +6737,1116 @@
       "title": "Policzmy Twój projekt",
       "body": "Opisz zadanie w kilku zdaniach. W 24 godziny po rozmowie masz zakres, stałą cenę i datę startu.",
       "button": "Poproś o wycenę"
+    },
+    "offersTable": {
+      "title": "Pakiety ze stałą ceną"
+    }
+  },
+  "offers": {
+    "aiAudit": {
+      "meta": {
+        "title": "Audyt AI dla firmy: 5 dni, od 4 900 zł netto",
+        "description": "Płatny audyt AI: mapa procesów według zwrotu, werdykt wykonalności, ocena danych i wycena ze stałą ceną i datą. 5 dni roboczych, od 4 900 zł netto."
+      },
+      "eyebrow": "Audyt AI · 5 dni",
+      "headline": "Płatny audyt AI.\nWerdykt na piśmie w 5 dni.",
+      "lead": "Sprawdzam Twoje procesy i mówię, które z nich zautomatyzujesz z zyskiem, a które nie. Wychodzisz z raportem, wyceną ze stałą ceną i datą oraz rekomendacją go albo no-go.",
+      "from": "od 4 900 zł netto",
+      "primaryCta": "Zamów audyt",
+      "windowLabel": "audyt-ai-raport.pdf",
+      "badge": "Dzień 5 · gotowe",
+      "metrics": [
+        {
+          "v": "5",
+          "l": "dni roboczych do raportu"
+        },
+        {
+          "v": "8,7%",
+          "l": "firm w Polsce używa AI (GUS, 2025)"
+        },
+        {
+          "v": "60 dni",
+          "l": "na odliczenie opłaty od wdrożenia"
+        }
+      ],
+      "glance": {
+        "title": "Raport z audytu AI",
+        "caption": "Przykład raportu",
+        "rows": [
+          {
+            "label": "Ofertowanie z zapytań mailowych",
+            "detail": "52 zapytania tygodniowo, wycena w 2-3 dni",
+            "value": "zwrot 3 mies.",
+            "state": "ok"
+          },
+          {
+            "label": "Pytania o status zamówienia",
+            "detail": "60% z nich się powtarza",
+            "value": "zwrot 7 mies.",
+            "state": "ok"
+          },
+          {
+            "label": "Faktury kosztowe do Comarch ERP XL",
+            "detail": "skany w trzech układach, bez stałej struktury",
+            "value": "dane niegotowe",
+            "state": "warn"
+          },
+          {
+            "label": "Selekcja CV na produkcję",
+            "detail": "system wysokiego ryzyka według AI Act",
+            "value": "nie teraz",
+            "state": "bad"
+          },
+          {
+            "label": "Chatbot na stronie, działa od 2024",
+            "detail": "brak informacji, że to AI, art. 50 obowiązuje od 2 sierpnia 2026",
+            "value": "do poprawki",
+            "state": "warn"
+          }
+        ],
+        "totalLabel": "Wycena etapu 1 (procesy 1 i 2)",
+        "totalValue": "18 300 zł netto",
+        "note": "To jedna strona z przykładowego raportu. Twój ma 12-18 stron i dotyczy Twoich procesów, nie tych."
+      },
+      "pain": {
+        "eyebrow": "Po co to komu",
+        "headline": "Nikt nie powiedział Ci, co właściwie kupujesz",
+        "sub": "Cztery sytuacje, w których audyt kosztuje mniej niż wdrożenie na czuja.",
+        "items": [
+          {
+            "title": "Oferty różnią się dziesięciokrotnie",
+            "body": "Polscy dostawcy publikują widełki od 3 000 do 15 000 zł za konfigurację agenta i od 80 000 do 250 000 zł za takiego, który zapisuje dane do ERP. Bez opisanego zakresu tych ofert po prostu nie da się porównać. Audyt daje Ci zakres, z którym pójdziesz do dowolnego wykonawcy, nie tylko do mnie."
+          },
+          {
+            "title": "Bezpłatna rozmowa kończy się ofertą na kilkanaście tysięcy",
+            "body": "Po godzinnym callu dostajesz wycenę na 8 000-20 000 zł, bo tyle publikują polscy dostawcy za konfigurację agenta z integracjami, i masz zdecydować na podstawie cudzej intuicji. To za duży pierwszy krok dla firmy, która nigdy nie kupowała AI. Audyt kosztuje ułamek tej kwoty i kończy się liczbami zamiast obietnicą."
+          },
+          {
+            "title": "Pilotaże umierają przed produkcją",
+            "body": "Gartner prognozuje, że do końca 2027 roku ponad 40% projektów agentowych zostanie anulowanych, a S&P Global naliczył 42% firm, które w 2025 porzuciły większość inicjatyw AI. Powód prawie zawsze jest ten sam: proces wybrano, zanim ktokolwiek zajrzał w dane. Tutaj dane idą pierwsze."
+          },
+          {
+            "title": "Nie wiesz, czy Twoje dane w ogóle wystarczą",
+            "body": "Wiedza siedzi w skrzynkach, w PDF-ach i w głowach dwóch osób. Model nie odczyta czegoś, czego nikt nigdy nie zapisał w czytelnej formie. Biorę próbki i mówię wprost, ile porządkowania trzeba zrobić przed pierwszym wdrożeniem."
+          }
+        ]
+      },
+      "deliverables": {
+        "eyebrow": "Co dostajesz",
+        "headline": "Sześć rzeczy na piśmie, nie prezentacja",
+        "sub": "Raport ma 12-18 stron i jest napisany tak, żeby dało się go pokazać wykonawcy, zarządowi albo doradcy od dotacji.",
+        "items": [
+          {
+            "title": "Mapa procesów uszeregowana według zwrotu",
+            "body": "Wypisuję procesy, które realnie kandydują do automatyzacji, i układam je od najszybszego zwrotu do najwolniejszego. Przy każdym podaję wolumen, czas obsługi dzisiaj i koszt roczny. Zwykle wychodzi od trzech do ośmiu pozycji."
+          },
+          {
+            "title": "Werdykt wykonalności dla każdego procesu",
+            "body": "Przy każdym procesie piszę, co dzisiejszy model zrobi niezawodnie, co zrobi z błędem wymagającym kontroli, a czego nie zrobi wcale. Podaję też, jaki odsetek przypadków trafi do ręcznego przeglądu. Bez tego rozdziału kupujesz demo."
+          },
+          {
+            "title": "Werdykt o gotowości danych",
+            "body": "Biorę próbki: maile, PDF-y, eksporty z ERP, historię zgłoszeń. Sprawdzam format, kompletność i to, czy istnieje historia, na której da się cokolwiek oprzeć. Wynik jest jeden z trzech: gotowe, do uporządkowania w podanej liczbie dni, brak danych."
+          },
+          {
+            "title": "Wycena wdrożenia ze stałą ceną i datą",
+            "body": "Dla dwóch najwyżej ocenionych procesów dostajesz kwotę netto, zakres i datę oddania. Cena obowiązuje 60 dni. Możesz z nią pójść do innego wykonawcy, bo to Twój dokument, nie mój."
+          },
+          {
+            "title": "Rekomendacja go albo no-go",
+            "body": "Jedna strona z odpowiedzią i uzasadnieniem. Wolno mi napisać, że teraz nie warto, i piszę to, kiedy liczby nie wychodzą albo proces trzeba najpierw uporządkować bez żadnego modelu. Wtedy dostajesz warunki, po spełnieniu których wracamy do tematu."
+          },
+          {
+            "title": "Obowiązki prawne i ścieżki finansowania",
+            "body": "Sprawdzam, co z Twoich pomysłów wpada pod AI Act. Obowiązek informowania, że rozmówcą jest maszyna, działa od 2 sierpnia 2026, a systemy wystawione wcześniej mają czas na oznaczanie treści do 2 grudnia 2026. Do tego lista naborów, z których taki projekt bywa finansowany, i to, czego wniosek wymaga od wykonawcy. To nie jest opinia prawna, tylko lista obowiązków i terminów do potwierdzenia z kancelarią."
+          }
+        ]
+      },
+      "process": {
+        "eyebrow": "Jak to wygląda",
+        "headline": "Pięć dni roboczych, cztery godziny Twojego zespołu",
+        "sub": "Wszystko zdalnie. Start w poniedziałek, raport w piątek do 18:00.",
+        "steps": [
+          {
+            "when": "Dzień 0",
+            "title": "Umowa, NDA i kwestionariusz",
+            "body": "Podpisujemy umowę i NDA, dostajesz kwestionariusz na 20 pytań o wolumeny, systemy i ludzi. Proszę o dostęp tylko do odczytu tam, gdzie ma to sens, albo o zwykłe eksporty. Niczego nie podłączam do produkcji."
+          },
+          {
+            "when": "Dzień 1-2",
+            "title": "Rozmowy z ludźmi, którzy robią tę robotę",
+            "body": "Trzy do pięciu rozmów po 45 minut: handlowiec, osoba z obsługi, ktoś z księgowości albo magazynu. Nie pytam zarządu, jak wygląda proces, tylko tych, którzy go klikają. Prawdziwy koszt zwykle siedzi właśnie tam."
+          },
+          {
+            "when": "Dzień 2-3",
+            "title": "Dane i systemy",
+            "body": "Biorę próbki dokumentów oraz eksporty z ERP albo CRM, liczę wolumeny i sprawdzam, czy API udostępnia to, czego potrzebuje automatyzacja. Comarch, Subiekt, enova, HubSpot, Pipedrive: każdy ma inne ograniczenia i tu one wychodzą."
+          },
+          {
+            "when": "Dzień 4",
+            "title": "Liczby",
+            "body": "Liczę koszt procesu dzisiaj, koszt po wdrożeniu i miesiąc, w którym projekt wychodzi na zero. Do tego koszt utrzymania: API, hosting, godziny na poprawki. Jeżeli zwrot wychodzi później niż po 12 miesiącach, piszę to wprost."
+          },
+          {
+            "when": "Dzień 5",
+            "title": "Raport i 90 minut omówienia",
+            "body": "PDF dostajesz rano, po południu przechodzimy przez niego na spotkaniu i odpowiadam na pytania. Nagranie zostaje u Ciebie. Od tego dnia masz 60 dni na decyzję przy stałej cenie."
+          }
+        ]
+      },
+      "pricing": {
+        "eyebrow": "Warianty i ceny",
+        "caption": "Opłatę odliczam w całości od wdrożenia, jeśli ruszamy w ciągu 60 dni. Jeśli werdykt brzmi, że teraz nie warto, pieniędzy nie zwracam, bo właśnie za tę odpowiedź płacisz.",
+        "bookCta": "Umów audyt",
+        "tiers": [
+          {
+            "title": "Audyt podstawowy",
+            "from": "od",
+            "price": "4 900 zł",
+            "body": "Jedna firma, jeden dział, do trzech procesów. Wariant dla firmy, która nigdy nie kupowała AI i chce jednego porządnego pierwszego kroku. Netto, około 1 150 € przy rozliczeniu w euro.",
+            "features": [
+              "Do 3 procesów w mapie",
+              "3 rozmowy po 45 minut",
+              "Werdykt danych i wykonalności",
+              "Stała wycena jednego wdrożenia",
+              "Raport PDF i 90 minut omówienia",
+              "Opłata odliczana od wdrożenia"
+            ],
+            "examples": "Zwykle: hurtownia, kancelaria, sklep internetowy do 30 osób.",
+            "featured": true
+          },
+          {
+            "title": "Audyt rozszerzony",
+            "from": "od",
+            "price": "8 900 zł",
+            "body": "Kilka działów albo wdrożenie, które już istnieje i nie działa. Najpierw rozbieram to, co macie, potem wyceniam, co dobudować.",
+            "features": [
+              "Do 8 procesów w mapie",
+              "Do 7 rozmów, także z IT",
+              "Rozłożenie na części istniejącego bota lub automatyzacji",
+              "Stałe wyceny dwóch wdrożeń",
+              "Kolejność prac na 12 miesięcy",
+              "Model kosztów tokenów i infrastruktury"
+            ],
+            "examples": "Zwykle: produkcja, sieć salonów, firma po nieudanym pilotażu.",
+            "featured": false
+          },
+          {
+            "title": "Grupa i branże regulowane",
+            "from": "od",
+            "price": "14 900 zł",
+            "body": "Kilka spółek ze wspólnymi procesami albo branża pod nadzorem: medycyna, finanse, HR, sektor publiczny.",
+            "features": [
+              "Procesy w kilku spółkach",
+              "Klasyfikacja ryzyka według AI Act",
+              "Obowiązki wobec KRiBSI od 28 października 2026",
+              "Rejestr systemów AI i plan kompetencji z art. 4",
+              "Wyceny etapami, każda z datą",
+              "Wersja raportu pod wniosek o dofinansowanie"
+            ],
+            "examples": "Zwykle: grupa kapitałowa, przychodnia, firma pożyczkowa.",
+            "featured": false
+          }
+        ]
+      },
+      "notFor": {
+        "title": "Kiedy nie warto go kupować",
+        "sub": "Cztery sytuacje, w których odradzam ten audyt, i mówię to jeszcze przed umową.",
+        "items": [
+          "Firma poniżej pięciu osób bez powtarzalnego procesu: nie ma czego liczyć",
+          "Znasz już jeden konkretny proces i masz na niego budżet",
+          "Potrzebujesz dokumentu do wniosku o dotację, a nie do wdrożenia",
+          "Szukasz szkolenia albo warsztatu dla zespołu, a to nie jest ani jedno, ani drugie"
+        ],
+        "instead": "Jeśli proces jest jeden i już go znasz, zamiast audytu weź od razu"
+      },
+      "faq": {
+        "title": "Pytania o audyt",
+        "items": [
+          {
+            "q": "Ile kosztuje audyt AI i co dokładnie dostaję?",
+            "a": "Audyt kosztuje od 4 900 zł netto i trwa pięć dni roboczych. Dostajesz raport na 12-18 stron: mapę procesów uszeregowaną według zwrotu, werdykt wykonalności dla każdego procesu, ocenę gotowości danych, wycenę wdrożenia ze stałą ceną i datą oraz jednostronicową rekomendację go albo no-go. Do tego 90 minut omówienia na żywo i nagranie tego spotkania."
+          },
+          {
+            "q": "Czy opłata za audyt przepada, jeśli zdecyduję się na wdrożenie?",
+            "a": "Nie, całą kwotę odliczam od wdrożenia, jeśli podpiszemy umowę w ciągu 60 dni od oddania raportu. Przy audycie za 4 900 zł i wdrożeniu za 18 300 zł płacisz więc różnicę. Jeśli wybierzesz innego wykonawcę, raport i tak zostaje Twój i możesz go pokazać dowolnej firmie."
+          },
+          {
+            "q": "Czym audyt różni się od bezpłatnej rozmowy albo od pilotażu?",
+            "a": "Bezpłatna rozmowa daje opinię, audyt daje dokument z liczbami, ceną i datą. To nie jest też pilotaż: przez te pięć dni nie buduję działającego systemu i nie testuję modelu na produkcji. Pilotaż trwa tygodnie, kosztuje kilka razy więcej i bez audytu zwykle testuje niewłaściwy proces."
+          },
+          {
+            "q": "Co jeśli werdykt brzmi, że nie warto tego robić teraz?",
+            "a": "Werdykt no-go dostajesz na piśmie, razem z warunkami, po spełnieniu których warto wrócić do tematu. Taki wynik jest zwyczajny przy rozproszonych danych albo procesie, który zmienia się co miesiąc. Audyt kosztuje wtedy 4 900 zł zamiast 25 000-150 000 zł, ile w Polsce kosztuje pełne wdrożenie, które i tak by nie ruszyło."
+          },
+          {
+            "q": "Ile czasu audyt zabierze mojemu zespołowi?",
+            "a": "Audyt zajmuje Twojemu zespołowi około czterech godzin łącznie. Składają się na to trzy do pięciu rozmów po 45 minut z osobami, które faktycznie wykonują dany proces, oraz przygotowanie próbek dokumentów i eksportów. Zarząd jest potrzebny tylko na starcie i na omówieniu raportu."
+          },
+          {
+            "q": "Czy audyt można sfinansować z dotacji?",
+            "a": "Czasem tak, ale nie zakładaj tego z góry. Nabory takie jak PARP Automatyzacja i robotyzacja w MŚP czy ARP DIG.IT finansują przede wszystkim wdrożenie, a usługi doradcze bywają kosztem kwalifikowanym tylko w części naborów i tylko jako element większego projektu. Raport przygotowuję w formie, którą doradca od dotacji wykorzysta we wniosku, ale kwalifikowalność potwierdza on, nie ja."
+          },
+          {
+            "q": "Czy raport uwzględnia AI Act i polską ustawę o systemach AI?",
+            "a": "Tak, w każdym wariancie. Sprawdzam, czy planowane rozwiązanie wpada pod obowiązek informowania użytkownika, że rozmawia z maszyną, bo ten obowiązek działa od 2 sierpnia 2026, a systemy wystawione wcześniej mają czas na oznaczanie treści generowanych przez AI do 2 grudnia 2026. W wariancie dla grup i branż regulowanych dochodzi klasyfikacja ryzyka oraz uprawnienia KRiBSI, która może prowadzić postępowania i nakładać kary od 28 października 2026. Robię to jako wykonawca, nie jako prawnik: dostajesz listę obowiązków i terminów do potwierdzenia z kancelarią."
+          }
+        ]
+      },
+      "resources": {
+        "eyebrow": "Zanim się odezwiesz",
+        "headline": "Materiały, które odpowiadają na połowę pytań",
+        "items": [
+          {
+            "title": "Jak wdrożyć AI w firmie: plan krok po kroku bez hype'u",
+            "href": "/pl/blog/jak-wdrozyc-ai-w-firmie"
+          },
+          {
+            "title": "Co zautomatyzować w firmie najpierw: 7 procesów do startu",
+            "href": "/pl/blog/co-zautomatyzowac-w-firmie-najpierw"
+          },
+          {
+            "title": "Ile kosztuje strona, sklep, aplikacja i bot w 2026",
+            "href": "/pl/blog/ile-kosztuje-strona-aplikacja-cennik-2026"
+          },
+          {
+            "title": "Dofinansowanie na AI dla firmy: jak je dostać",
+            "href": "/pl/blog/dofinansowanie-na-ai-dla-firmy"
+          }
+        ]
+      },
+      "schema": {
+        "serviceType": "Audyt AI",
+        "price": "4900",
+        "currency": "PLN"
+      }
+    },
+    "documents": {
+      "meta": {
+        "title": "Automatyzacja obiegu faktur i dokumentów - od 12 000 zł",
+        "description": "Faktury, zamówienia i skany z maila trafiają do Optimy, Subiekta albo enova365. Bramka akceptacji, kolejka błędów, KSeF. Stała cena od 12 000 zł netto."
+      },
+      "eyebrow": "Dokumenty i faktury",
+      "headline": "Faktury i zamówienia wpadają\ndo systemu same.",
+      "lead": "Podłączam twoją skrzynkę, skaner i KSeF do systemu księgowego: dokument zostaje odczytany, sprawdzony regułami, zatwierdzony przez człowieka i zapisany. Zostaje ci działający obieg, kolejka błędów i dokumentacja, dzięki której przejmie to dowolny inny programista.",
+      "from": "od 12 000 zł netto",
+      "primaryCta": "Porozmawiajmy o obiegu",
+      "windowLabel": "Panel obiegu dokumentów",
+      "badge": "Działa na produkcji",
+      "metrics": [
+        {
+          "v": "3 tyg.",
+          "l": "do pierwszego obiegu na produkcji"
+        },
+        {
+          "v": "×4",
+          "l": "taniej za dokument - benchmark rynkowy"
+        },
+        {
+          "v": "100%",
+          "l": "dokumentów przechodzi nazwane reguły"
+        }
+      ],
+      "glance": {
+        "title": "Kolejka dokumentów",
+        "caption": "26 sierpnia",
+        "rows": [
+          {
+            "label": "Faktury kosztowe z KSeF",
+            "detail": "pobrane przez API",
+            "value": "182 zaksięgowane",
+            "state": "ok"
+          },
+          {
+            "label": "Skany i PDF spoza KSeF",
+            "detail": "dostawcy zagraniczni, paragony",
+            "value": "38 z 41",
+            "state": "ok"
+          },
+          {
+            "label": "Zamówienia z maila",
+            "detail": "PDF i Excel, dopasowane do kartotek",
+            "value": "61 z 64",
+            "state": "warn"
+          },
+          {
+            "label": "Czeka na akceptację człowieka",
+            "detail": "powyżej 5 000 zł netto albo nowy dostawca",
+            "value": "7 pozycji",
+            "state": "warn"
+          },
+          {
+            "label": "Kolejka błędów",
+            "detail": "brak NIP, konto spoza białej listy VAT",
+            "value": "6 pozycji",
+            "state": "bad"
+          }
+        ],
+        "totalLabel": "Zaksięgowane bez ręcznego przepisywania",
+        "totalValue": "281 z 287",
+        "note": "Typowy dzień hurtowni: 287 dokumentów na wejściu, 6 czeka na człowieka w kolejce błędów, nic nie trafia do ksiąg bez przejścia reguł."
+      },
+      "pain": {
+        "eyebrow": "Gdzie to boli",
+        "headline": "Papier zjada godziny, których nie widać w kosztach",
+        "sub": "Cztery sytuacje, które słyszę od biur rachunkowych i hurtowni najczęściej.",
+        "items": [
+          {
+            "title": "Ktoś przepisuje faktury ręcznie",
+            "body": "W biurze rachunkowym i w hurtowni wygląda to tak samo: człowiek otwiera PDF i przepisuje NIP, kwoty i pozycje do Comarch Optima albo Subiekta. Benchmark rynkowy dla ręcznego obiegu to około 10,9 USD za jedną fakturę wobec 2,8 USD przy automatycznym odczycie. Przy 500 dokumentach miesięcznie różnicę widać w grafiku ludzi, nie tylko w zestawieniu kosztów."
+          },
+          {
+            "title": "Zamówienia przychodzą w dziesięciu formatach",
+            "body": "Jeden klient wysyła PDF, drugi zdjęcie zamówienia, trzeci arkusz Excel, czwarty wypisuje pozycje w treści maila. Handlowiec przepisuje to ręcznie i myli indeksy oraz ilości. Format zmienia się w dniu, w którym dostawca zaktualizuje swój system."
+          },
+          {
+            "title": "KSeF nie zamknął tematu",
+            "body": "KSeF jest już obowiązkowy: od lutego 2026 dla największych podatników i od kwietnia 2026 dla pozostałych czynnych podatników VAT. Ale faktury od zagranicznych kontrahentów, paragony, dokumenty magazynowe i zamówienia do niego nie trafiają i przychodzą tak jak wcześniej. Połowa obiegu zostaje poza rejestrem."
+          },
+          {
+            "title": "Błędy wychodzą przy zamknięciu miesiąca",
+            "body": "Duplikat faktury, konto spoza białej listy VAT, cena inna niż w umowie - wszystko to wypływa ostatniego dnia. Wyjaśnianie ciągnie się mailami, bo nigdzie nie widać, który dokument utknął i dlaczego. Nie ma też śladu, kto co zaakceptował."
+          }
+        ]
+      },
+      "deliverables": {
+        "eyebrow": "Co dostajesz",
+        "headline": "Sześć elementów działającego obiegu",
+        "sub": "Nie prezentacja i nie prototyp. Rzeczy, które zostają u ciebie po odbiorze.",
+        "items": [
+          {
+            "title": "Wejście na dokumenty",
+            "body": "Skrzynka w Google Workspace albo Microsoft 365, folder ze skanera, dysk sieciowy i KSeF API. Załączniki, treść maila i arkusze idą tą samą ścieżką. Każdy dokument dostaje numer i kopię w archiwum, zanim cokolwiek się z nim stanie."
+          },
+          {
+            "title": "Odczyt pól, nie całego tekstu",
+            "body": "Z faktury wyciągam sprzedawcę, NIP, numer, daty, netto, VAT, brutto, numer konta i pozycje. Z zamówienia: kontrahenta, indeksy, ilości i ceny. Model OCR dobieram do rodzaju dokumentu, bo skan z faksu i PDF z systemu to dwa różne zadania."
+          },
+          {
+            "title": "Reguły walidacji",
+            "body": "Duplikat, brak NIP, konto spoza białej listy VAT, cena inna niż w cenniku, ilość większa niż zamówiona. Każda reguła ma nazwę, więc widać, która zatrzymała dokument. Reguły opisuję po polsku w dokumentacji, żeby księgowa mogła je przeczytać bez programisty."
+          },
+          {
+            "title": "Bramka akceptacji",
+            "body": "Wszystko powyżej ustalonego limitu, każdy nowy dostawca i każdy dokument z ostrzeżeniem czeka na człowieka. Akceptujesz w panelu albo w Slacku, jednym kliknięciem, z podglądem oryginału obok odczytanych danych. Bez akceptacji nic nie idzie dalej."
+          },
+          {
+            "title": "Zapis do twojego systemu",
+            "body": "Comarch Optima i ERP XL, Subiekt GT i nexo, enova365, wFirma, ifirma, BaseLinker. Zapis przez API tam, gdzie pozwala na to licencja, a przez plik importu tam, gdzie nie pozwala. Faktury sprzedażowe mogą iść dalej do KSeF przez API."
+          },
+          {
+            "title": "Kolejka błędów i przekazanie",
+            "body": "Ekran z listą dokumentów, które nie przeszły, z powodem i przyciskiem ponowienia. Do tego repozytorium, diagram obiegu, runbook i lista dostępów. Nie musisz mieć mojego numeru, żeby to działało za rok."
+          }
+        ]
+      },
+      "process": {
+        "eyebrow": "Jak to idzie",
+        "headline": "Trzy tygodnie od próbki do produkcji",
+        "sub": "Każdy etap kończy się czymś, co sprawdzisz na własnych dokumentach.",
+        "steps": [
+          {
+            "when": "Tydzień 0",
+            "title": "Próbka i wycena",
+            "body": "Dajesz mi 40-60 prawdziwych dokumentów z ostatniego miesiąca i dostęp do bazy testowej. Sprawdzam, co da się odczytać automatycznie, a co zawsze zostanie ręczne. Wynikiem jest zakres i stała cena, jeszcze przed umową."
+          },
+          {
+            "when": "Tydzień 1",
+            "title": "Odczyt i walidacja",
+            "body": "Buduję wejście: skrzynka w Google Workspace lub Microsoft 365, folder skanera, KSeF API. Dokument rozbieram na pola, sprawdzam NIP i numer konta, porównuję z kartoteką kontrahenta. Skuteczność pokazuję na twoich plikach, nie na wersji demo."
+          },
+          {
+            "when": "Tydzień 2",
+            "title": "Zapis i akceptacja",
+            "body": "Podłączam zapis do Optimy, Subiekta, enova365 albo wFirma, przez API albo plik importu, zależnie od tego, na co pozwala twoja licencja. Nad zapisem staje bramka: kwoty powyżej limitu i nowi dostawcy czekają na kliknięcie człowieka."
+          },
+          {
+            "when": "Tydzień 3",
+            "title": "Produkcja i przekazanie",
+            "body": "Obieg chodzi kilka dni równolegle z procesem ręcznym i porównujemy wyniki na tych samych dokumentach. Potem przełączamy, a ty dostajesz repozytorium, diagram, runbook i wszystkie dostępy. Od tego dnia utrzymujesz to sam albo ze mną."
+          }
+        ]
+      },
+      "pricing": {
+        "eyebrow": "Pakiety i ceny",
+        "caption": "Ceny netto i stałe, ustalane po obejrzeniu twoich prawdziwych dokumentów. Osobno płacisz tylko za OCR i model na własnym koncie: Google Document AI liczy 1,50 USD za 1000 stron, Azure Document Intelligence 10 USD za 1000 stron faktur.",
+        "bookCta": "Bezpłatna rozmowa",
+        "tiers": [
+          {
+            "title": "Jeden obieg",
+            "from": "od",
+            "price": "12 000 zł",
+            "body": "Jeden strumień dokumentów od wejścia do zapisu w systemie księgowym. Najczęściej faktury kosztowe albo zamówienia z maila.",
+            "features": [
+              "Wejście: mail, folder skanera albo KSeF API",
+              "Odczyt PDF, skanów i arkuszy Excel",
+              "Walidacja: NIP, biała lista VAT, duplikaty",
+              "Bramka akceptacji z limitem kwoty",
+              "Zapis do Optimy, Subiekta, enova365 lub wFirma",
+              "Repozytorium, runbook i przekazanie"
+            ],
+            "examples": "Biuro rachunkowe: 300-800 faktur kosztowych miesięcznie."
+          },
+          {
+            "title": "Kilka obiegów i ERP",
+            "from": "od",
+            "price": "24 000 zł",
+            "body": "Dwa do czterech strumieni plus zapis do ERP: dokument, kartoteka kontrahenta, dokument magazynowy i zamówienie.",
+            "features": [
+              "Wszystko z pakietu Jeden obieg",
+              "2-4 strumienie dokumentów",
+              "Zapis do Comarch ERP XL, Subiekt nexo, enova365",
+              "Dopasowanie zamówienie - dostawa - faktura",
+              "Kolejka błędów z ponowieniem i historią",
+              "Wysyłka faktur do KSeF przez API"
+            ],
+            "examples": "Hurtownia: zamówienia z maila, faktury kosztowe i BaseLinker.",
+            "featured": true
+          },
+          {
+            "title": "Opieka po wdrożeniu",
+            "from": "od",
+            "price": "890 zł/mc",
+            "body": "Utrzymanie działającego obiegu: monitoring, poprawki reguł i reakcja na zmiany po stronie dostawców.",
+            "features": [
+              "Monitoring kolejki błędów i alerty",
+              "Poprawki odczytu przy nowych wzorach dokumentów",
+              "Aktualizacje po zmianach w API KSeF i ERP",
+              "Do 3 godzin zmian miesięcznie",
+              "Odpowiedź w jeden dzień roboczy",
+              "Umowa miesięczna, bez okresu wypowiedzenia"
+            ],
+            "examples": "Polscy dostawcy podają za utrzymanie takich wdrożeń od 2 do 40 tys. zł miesięcznie, zależnie od zakresu."
+          }
+        ]
+      },
+      "notFor": {
+        "title": "Kiedy nie warto",
+        "sub": "Wolę powiedzieć to przed umową niż po trzech tygodniach.",
+        "items": [
+          "Masz mniej niż 100 dokumentów miesięcznie. Wbudowany OCR w wFirma albo ifirma wystarczy i kosztuje ułamek tej kwoty.",
+          "Twój system nie ma API ani formatu importu, a producent nie zamierza go otworzyć. Klikania w cudzy interfejs nie sprzedaję jako stabilnego rozwiązania.",
+          "Szukasz kogoś, kto weźmie odpowiedzialność za księgi. Ja dostarczam obieg i kontrole, decyzje księgowe zostają po twojej stronie.",
+          "Potrzebujesz umowy z reakcją 24/7. Pracuję sam, więc uczciwy termin to jeden dzień roboczy."
+        ],
+        "instead": "Jeśli chodzi ci raczej o połączenie sklepu z magazynem i ERP, to osobna usługa:"
+      },
+      "faq": {
+        "title": "Pytania przed startem",
+        "items": [
+          {
+            "q": "Ile kosztuje automatyzacja obiegu dokumentów?",
+            "a": "Jeden obieg kosztuje 12 000 zł netto, kilka obiegów z zapisem do ERP 24 000 zł netto, a opieka po wdrożeniu 890 zł netto miesięcznie. Cena jest stała i ustalam ją po obejrzeniu twoich prawdziwych dokumentów, przed umową. Polskie firmy wdrożeniowe publikują za obieg piszący do ERP widełki 80-250 tys. zł, bo biorą w zakres całą firmę; ja robię jeden proces do końca."
+          },
+          {
+            "q": "Czy to zadziała z Comarch Optima, Subiektem albo enova365?",
+            "a": "Tak, jeśli licencja daje API albo format importu. Comarch Optima i ERP XL, Subiekt GT i nexo, enova365, wFirma, ifirma oraz BaseLinker mają udokumentowane interfejsy i z każdym z nich pracuję. Przed wyceną sprawdzam na twojej instalacji, czy zapis pójdzie przez API, czy przez plik importu, bo to zmienia zakres."
+          },
+          {
+            "q": "KSeF już obowiązuje, po co mi jeszcze odczyt PDF i skanów?",
+            "a": "Bo część kosztów nigdy nie przejdzie przez KSeF. Faktury od zagranicznych dostawców, paragony, dokumenty magazynowe, umowy i zamówienia dalej przychodzą mailem jako PDF, skan albo arkusz. KSeF porządkuje krajowe faktury, a reszta obiegu zostaje na twojej głowie i to ją automatyzuję."
+          },
+          {
+            "q": "Kto odpowiada, jeśli system źle odczyta kwotę?",
+            "a": "Człowiek, bo nic nie trafia do ksiąg bez zatwierdzenia. Każdy dokument przechodzi przez nazwane reguły: NIP, biała lista VAT, duplikat, zgodność z zamówieniem. Wszystko powyżej ustalonego limitu albo od nowego dostawcy czeka na akceptację, a dokumenty, których obieg nie rozumie, trafiają do kolejki błędów z powodem. Każda operacja ma log: kto, kiedy i na jakiej wersji pliku."
+          },
+          {
+            "q": "Ile trwa wdrożenie?",
+            "a": "Trzy tygodnie od przekazania próbki dokumentów do pierwszego dnia na produkcji. Tydzień idzie na odczyt i walidację, tydzień na zapis i bramkę akceptacji, tydzień na bieg równoległy z procesem ręcznym. Przy kilku obiegach i zapisie do ERP to zwykle pięć do sześciu tygodni."
+          },
+          {
+            "q": "Ile to kosztuje w utrzymaniu?",
+            "a": "890 zł netto miesięcznie za opiekę plus twój własny rachunek za OCR i model. Cenniki dostawców są jawne: Google Document AI liczy 1,50 USD za 1000 stron podstawowego OCR, Azure Document Intelligence 10 USD za 1000 stron przy gotowym modelu faktur i 30 USD przy modelu własnym. Przy 500 dokumentach miesięcznie to kilkadziesiąt złotych, a nie kilka tysięcy."
+          },
+          {
+            "q": "Co się stanie, jeśli przestaniemy współpracować?",
+            "a": "Zostajesz z działającym systemem i kompletem dokumentacji. Kod leży w twoim repozytorium, obieg chodzi na twojej infrastrukturze w UE albo na twoim koncie w chmurze, klucze i dostępy są twoje. W przekazaniu dostajesz diagram obiegu, opis reguł walidacji i runbook: co zrobić, gdy dostawca zmieni format pliku albo API przestanie odpowiadać."
+          }
+        ]
+      },
+      "resources": {
+        "eyebrow": "Do poczytania",
+        "headline": "Zanim zamówisz obieg",
+        "items": [
+          {
+            "title": "Automatyzacja fakturowania i zamówień: pełny obieg 2026",
+            "href": "/pl/blog/automatyzacja-fakturowania-i-zamowien"
+          },
+          {
+            "title": "Integracja sklepu z ERP: Subiekt, Comarch, enova",
+            "href": "/pl/blog/integracja-sklepu-z-erp-subiekt-comarch"
+          },
+          {
+            "title": "KSeF 2026 a sklep internetowy: jak przygotować integrację",
+            "href": "/pl/blog/ksef-2026-sklep-internetowy-integracja"
+          },
+          {
+            "title": "Ile kosztuje automatyzacja n8n / Make? Cennik 2026",
+            "href": "/pl/blog/ile-kosztuje-automatyzacja-n8n"
+          }
+        ]
+      },
+      "schema": {
+        "serviceType": "Automatyzacja obiegu dokumentów i faktur",
+        "price": "12000",
+        "currency": "PLN"
+      }
+    },
+    "aiAct": {
+      "meta": {
+        "title": "Zgodność z AI Act dla bota - od 3 500 zł netto",
+        "description": "Chatbot lub voicebot już działa i nie mówi, że jest AI. Wdrażam ujawnienie, logi zgód, przekazanie do konsultanta i rejestr systemów AI. Od 3 500 zł netto."
+      },
+      "eyebrow": "AI Act · wdrożenie",
+      "headline": "Twój bot musi się przyznać.\nWdrażam to w pięć dni.",
+      "lead": "Chatbot albo voicebot już u Ciebie działa, a od 2 sierpnia 2026 musi jasno mówić, że jest maszyną. W pięć dni roboczych zmieniam widget, logi i ścieżkę do konsultanta, a Ty dostajesz rejestr systemów AI i komplet dokumentów na wypadek kontroli.",
+      "from": "od 3 500 zł netto",
+      "primaryCta": "Umów rozmowę",
+      "windowLabel": "ai-act-audyt.pdf",
+      "badge": "7 braków",
+      "metrics": [
+        {
+          "v": "5 dni",
+          "l": "od startu do produkcji"
+        },
+        {
+          "v": "2.12.2026",
+          "l": "termin oznaczania treści AI"
+        },
+        {
+          "v": "12",
+          "l": "punktów kontrolnych"
+        }
+      ],
+      "glance": {
+        "title": "Raport zgodności z AI Act",
+        "caption": "przykład",
+        "rows": [
+          {
+            "label": "Ujawnienie AI przy pierwszej wiadomości",
+            "detail": "widget czatu, nad polem wiadomości",
+            "value": "Brak",
+            "state": "bad"
+          },
+          {
+            "label": "Przekazanie do konsultanta",
+            "detail": "przycisk działa, brak godzin pracy",
+            "value": "Częściowo",
+            "state": "warn"
+          },
+          {
+            "label": "Logi zgód i transkrypcji",
+            "detail": "retencja 90 dni, serwer we Frankfurcie",
+            "value": "OK",
+            "state": "ok"
+          },
+          {
+            "label": "Rejestr systemów AI",
+            "detail": "czat, voicebot, generator opisów produktów",
+            "value": "Brak",
+            "state": "bad"
+          },
+          {
+            "label": "Szkolenie z art. 4",
+            "detail": "14 osób: obsługa klienta i marketing",
+            "value": "Brak",
+            "state": "bad"
+          }
+        ],
+        "totalLabel": "Część zaległa od 2 sierpnia 2026",
+        "totalValue": "7 z 12",
+        "note": "Raport opisuje stan techniczny i dokumentację; wykładnię przepisów potwierdza Twój prawnik."
+      },
+      "pain": {
+        "eyebrow": "Stan na dziś",
+        "headline": "Opinia prawna leży w mailu, bot dalej milczy",
+        "sub": "Kancelarie opisały obowiązek. Potem nikt nie ruszył widgetu ani kodu.",
+        "items": [
+          {
+            "title": "Bot nie mówi, że jest botem",
+            "body": "Art. 50 AI Act działa od 2 sierpnia 2026 i wymaga, żeby człowiek dowiedział się o rozmowie z maszyną przy pierwszej interakcji, jasno i bez szukania. Zdanie w regulaminie albo w stopce sprawy nie załatwia. Komunikat ma stać tam, gdzie zaczyna się rozmowa."
+          },
+          {
+            "title": "Masz memo, nie masz zmiany w produkcie",
+            "body": "Kancelaria opisuje wymóg i wprost zaznacza, że warstwą techniczną się nie zajmuje. W efekcie nikt nie podmienia powitania, nie ustawia logów zgód i nie opisuje eskalacji. Dokument ląduje w katalogu, a system zostaje dokładnie taki sam."
+          },
+          {
+            "title": "Nie ma czego pokazać podczas kontroli",
+            "body": "KRiBSI dostaje uprawnienia kontrolne 28 października 2026 i zapyta, jakie systemy AI działają w firmie i kto za każdy z nich odpowiada. Bez rejestru i bez logów odpowiedź brzmi: nie wiemy. Górne progi kar w rozporządzeniu to 35 mln € albo 7% obrotu za praktyki zakazane i 15 mln € albo 3% za pozostałe naruszenia."
+          },
+          {
+            "title": "Szkolenie zespołu nigdzie nie jest udokumentowane",
+            "body": "Art. 4 o kompetencjach w zakresie AI obowiązuje od 2 lutego 2025 i dotyczy każdej firmy korzystającej z AI, także takiej, która używa wyłącznie ChatGPT w obsłudze klienta. Jednorazowa wiadomość na firmowym czacie programem nie jest. Potrzebny jest materiał dopasowany do ról i dowód, że sesja się odbyła."
+          }
+        ]
+      },
+      "deliverables": {
+        "eyebrow": "Zakres",
+        "headline": "Sześć rzeczy, które zmieniam w systemie",
+        "sub": "Każdą widać albo w samym produkcie, albo w dokumencie, który możesz przedstawić.",
+        "items": [
+          {
+            "title": "Ujawnienie przy pierwszym kontakcie",
+            "body": "Komunikat o AI wchodzi w otwarcie rozmowy: w widgecie czatu nad polem wiadomości, w voicebocie pierwszym zdaniem, zanim padnie pytanie. Zostaje widoczny po odświeżeniu strony i po powrocie do wątku. Gotowe brzmienie dostajesz w czterech językach."
+          },
+          {
+            "title": "Ścieżka do człowieka",
+            "body": "Buduję jawne wyjście z bota: przycisk w widgecie, frazy uruchamiające eskalację i przekazanie z transkrypcją do skrzynki albo na czat konsultanta. Poza godzinami pracy bot zbiera kontakt i podaje realny czas odpowiedzi."
+          },
+          {
+            "title": "Logi zgód i transkrypcji",
+            "body": "Ustawiam, co dokładnie się zapisuje: treść zgody, znacznik czasu, wersję wyświetlonego komunikatu, identyfikator sesji. Okres i miejsce przechowywania są opisane, a eksport na potrzeby kontroli jest przygotowany z góry, nie składasz go ręcznie."
+          },
+          {
+            "title": "Rejestr systemów AI",
+            "body": "Spisuję wszystkie działające systemy: dostawca, model, cel, dane wejściowe, właściciel po Twojej stronie, podstawa prawna. Rejestr dostajesz w arkuszu, który Twój zespół aktualizuje bez mojego udziału."
+          },
+          {
+            "title": "Oznaczanie treści z AI",
+            "body": "Opisy produktów, wpisy blogowe i grafiki z generatora dostają widoczne oznaczenie i metadane w pliku. To ten obowiązek, który dla systemów wprowadzonych do obrotu przed 2 sierpnia 2026 ma termin 2 grudnia 2026."
+          },
+          {
+            "title": "Dokumentacja do art. 4",
+            "body": "Materiał dopasowany do ról: obsługa klienta, marketing, sprzedaż. Sesja online na 60-90 minut, lista obecności i jednostronicowe zasady korzystania z AI. To akurat ten dowód, którego brakuje najczęściej."
+          }
+        ]
+      },
+      "process": {
+        "eyebrow": "Jak wygląda praca",
+        "headline": "Pięć dni roboczych, bez przepisywania bota",
+        "sub": "Potrzebuję dostępu do panelu bota i do strony. Reszta jest po mojej stronie.",
+        "steps": [
+          {
+            "when": "Dzień 1",
+            "title": "Inwentaryzacja",
+            "body": "Spisuję, co realnie działa: widget na stronie, voicebot na infolinii, generator opisów, wtyczki w sklepie. Zbieram dostępy i ustalam, kto po Twojej stronie odpowiada za każdy system."
+          },
+          {
+            "when": "Dzień 2",
+            "title": "Audyt 12 punktów",
+            "body": "Przechodzę listę kontrolną: ujawnienie, miejsce komunikatu, eskalacja, zgody, retencja, oznaczanie treści, rejestr, szkolenie. Dostajesz raport z werdyktem przy każdym punkcie i listą braków."
+          },
+          {
+            "when": "Dzień 3-4",
+            "title": "Wdrożenie",
+            "body": "Zmieniam widget, prompt systemowy, konfigurację logów i gałąź eskalacji. Wszystko idzie najpierw na środowisko testowe, a na produkcję trafia po Twojej akceptacji."
+          },
+          {
+            "when": "Dzień 5",
+            "title": "Dokumenty",
+            "body": "Rejestr systemów AI, polityka retencji, materiał szkoleniowy i jednostronicowe podsumowanie dla prawnika. Pliki zostają u Ciebie w formacie, który da się edytować."
+          },
+          {
+            "when": "Po wdrożeniu",
+            "title": "Sesja i przegląd",
+            "body": "Prowadzę sesję dla zespołu i zostawiam listę obecności. Przed 2 grudnia 2026 robię jeden bezpłatny przegląd, czy nic się nie rozjechało po Twoich zmianach w bocie."
+          }
+        ]
+      },
+      "pricing": {
+        "eyebrow": "Pakiety",
+        "caption": "Ceny netto, płatne po odbiorze raportu; 3 500 zł to około 800 €. To praca inżynierska i dokumentacja, a nie porada prawna: wykładnię przepisów podpisuje Twój prawnik, ja odpowiadam za to, co realnie zmienia się w systemie.",
+        "bookCta": "Bezpłatna rozmowa",
+        "tiers": [
+          {
+            "title": "Jeden bot",
+            "from": "od",
+            "price": "3 500 zł",
+            "body": "Jeden chatbot albo voicebot, jeden język, jeden kanał. Audyt i wdrożenie mieszczą się w jednym tygodniu.",
+            "features": [
+              "Audyt 12 punktów kontrolnych",
+              "Ujawnienie AI w widgecie i w powitaniu",
+              "Działająca ścieżka do konsultanta",
+              "Logi zgód i transkrypcji z retencją",
+              "Raport z werdyktami i listą braków",
+              "Jedna runda poprawek po odbiorze"
+            ],
+            "examples": "Sklep na Shopify z widgetem Tidio, klinika z voicebotem na infolinii.",
+            "featured": false
+          },
+          {
+            "title": "Audyt, rejestr i szkolenie",
+            "from": "od",
+            "price": "5 900 zł",
+            "body": "Pełny komplet dla firmy z jednym botem i kilkoma innymi narzędziami AI w środku. Zamyka i produkt, i dokumentację.",
+            "features": [
+              "Wszystko z pakietu Jeden bot",
+              "Rejestr systemów AI w edytowalnym arkuszu",
+              "Oznaczanie treści generowanych przez AI",
+              "Polityka retencji i opis, gdzie leżą dane",
+              "Sesja z art. 4 online, 60-90 minut",
+              "Podsumowanie na jedną stronę dla prawnika"
+            ],
+            "examples": "Firma z czatem na stronie, generatorem opisów i ChatGPT w obsłudze klienta.",
+            "featured": true
+          },
+          {
+            "title": "Kilka botów lub marek",
+            "from": "od",
+            "price": "9 900 zł",
+            "body": "Do czterech botów, marek albo wersji językowych, z osobnym rejestrem dla każdego podmiotu.",
+            "features": [
+              "Do 4 botów, marek lub wersji językowych",
+              "Rejestr osobno dla każdej spółki",
+              "Eskalacja skonfigurowana kanał po kanale",
+              "Sesje dla dwóch zespołów",
+              "Przegląd kontrolny przed 2 grudnia 2026",
+              "Kontakt ze mną przez 30 dni"
+            ],
+            "examples": "Sieć salonów z botem na stronie, WhatsAppie i Messengerze.",
+            "featured": false
+          }
+        ]
+      },
+      "notFor": {
+        "title": "Kiedy nie warto mnie zatrudniać",
+        "sub": "Cztery sytuacje, w których to zlecenie nic Ci nie da.",
+        "items": [
+          "Potrzebujesz opinii prawnej albo dokumentu do podpisu. Nie jestem prawnikiem i nie robię wykładni przepisów.",
+          "Twój system jest wysokiego ryzyka: scoring kandydatów, ocena zdolności kredytowej, biometria. To inny zakres i inny termin, 2 grudnia 2027.",
+          "Chcesz certyfikat albo plakietkę zgodności z AI Act. Nikt takiej nie wydaje, a udawanie jej tylko pogarsza sytuację.",
+          "Nie masz jeszcze bota. Wtedy to nie retrofit, tylko budowa od zera."
+        ],
+        "instead": "Jeśli chatbota dopiero planujesz, właściwym punktem startu jest strona"
+      },
+      "faq": {
+        "title": "Pytania o AI Act",
+        "items": [
+          {
+            "q": "Czy mój chatbot musi informować, że jest botem?",
+            "a": "Tak. Od 2 sierpnia 2026 art. 50 AI Act wymaga, żeby osoba rozmawiająca z systemem AI dowiedziała się o tym przy pierwszej interakcji, jasno i w przystępny sposób. Obowiązek spoczywa na Tobie jako podmiocie stosującym system, nie na dostawcy widgetu. Miejsce komunikatu liczy się tak samo jak jego treść: ma być tam, gdzie zaczyna się rozmowa."
+          },
+          {
+            "q": "Do kiedy trzeba to zrobić?",
+            "a": "Obowiązek ujawnienia działa już od 2 sierpnia 2026. Systemy wprowadzone do obrotu przed tą datą mają czas do 2 grudnia 2026, żeby uporządkować oznaczanie treści generowanych przez AI. W Polsce dochodzi trzecia data: 28 października 2026, kiedy KRiBSI zyskuje uprawnienia do kontroli, prowadzenia postępowań i nakładania kar."
+          },
+          {
+            "q": "Ile wynoszą kary?",
+            "a": "Do 35 mln € albo 7% światowego obrotu za praktyki zakazane i do 15 mln € albo 3% za pozostałe naruszenia, w tym za obowiązki przejrzystości. Stosuje się kwotę wyższą. Dla małej firmy realnym problemem rzadko jest górny próg, częściej samo postępowanie i czas, który trzeba na nie poświęcić."
+          },
+          {
+            "q": "Kto to kontroluje w Polsce?",
+            "a": "Komisja Rozwoju i Bezpieczeństwa Sztucznej Inteligencji, w skrócie KRiBSI, powołana ustawą o systemach sztucznej inteligencji. Merytoryczna część ustawy weszła w życie 11 sierpnia 2026, a uprawnienia komisji do kontroli, prowadzenia postępowań i nakładania kar zaczynają działać 28 października 2026. Przewodniczącego powołuje się w październiku, a komisja działa od listopada 2026."
+          },
+          {
+            "q": "Korzystam z gotowego chatbota w SaaS. Czy to nie jest problem dostawcy?",
+            "a": "Nie, obowiązek przejrzystości spoczywa na Tobie jako podmiocie stosującym system. W praktyce panel Tidio, Intercomu czy Voiceflow daje wystarczającą kontrolę: powitanie, treść widgetu, eskalację i retencję zmieniam bez dotykania kodu dostawcy. Całość zajmuje pięć dni roboczych i nie wymaga przepisywania bota."
+          },
+          {
+            "q": "Czy naprawdę muszę przeszkolić zespół i to udokumentować?",
+            "a": "Tak. Art. 4 AI Act o kompetencjach w zakresie AI obowiązuje od 2 lutego 2025 i dotyczy każdej organizacji korzystającej z AI, niezależnie od wielkości i klasy ryzyka. Jednorazowy mail ani ogólna ulotka nie wystarczą: potrzebny jest program dopasowany do ról, z materiałem i dowodem, że sesja się odbyła. Naruszenie mieści się w progu do 15 mln € lub 3% obrotu."
+          },
+          {
+            "q": "Czy to jest porada prawna?",
+            "a": "Nie. To inżynieria i dokumentacja: zmieniam produkt, ustawiam logi, spisuję rejestr i przygotowuję materiały dla zespołu. Wykładnię przepisów i końcową ocenę ryzyka podpisuje prawnik, Twój albo polecony przeze mnie. Podsumowanie na jedną stronę jest napisane tak, żeby prawnik przeczytał je w kwadrans."
+          }
+        ]
+      },
+      "resources": {
+        "eyebrow": "Do poczytania",
+        "headline": "Materiały, zanim się odezwiesz",
+        "items": [
+          {
+            "title": "AI Act od 2 sierpnia 2026: co musi robić Twój chatbot",
+            "href": "/pl/blog/ai-act-2026-wymogi-dla-chatbotow"
+          },
+          {
+            "title": "Kiedy bot musi przekazać rozmowę człowiekowi",
+            "href": "/pl/blog/przekazanie-od-bota-do-czlowieka"
+          },
+          {
+            "title": "Gdzie chatbot AI przechowuje dane klientów",
+            "href": "/pl/blog/gdzie-chatbot-ai-przechowuje-dane-klientow"
+          },
+          {
+            "title": "Baner cookies i Consent Mode v2",
+            "href": "/pl/blog/baner-cookies-i-consent-mode-v2"
+          }
+        ]
+      },
+      "schema": {
+        "serviceType": "Zgodność z AI Act dla chatbotów i voicebotów",
+        "price": "3500",
+        "currency": "PLN"
+      }
+    },
+    "aiVisibility": {
+      "meta": {
+        "title": "Audyt widoczności w AI: od 3 900 zł netto, 10 dni",
+        "description": "Sprawdzam, czy ChatGPT, Perplexity, Google AI Overviews i Copilot wymieniają Twoją firmę, kogo polecają zamiast Ciebie i co da się z tym zrobić."
+      },
+      "eyebrow": "Widoczność w AI · audyt",
+      "headline": "Co ChatGPT mówi o Twojej firmie\ni kto jest polecany zamiast Ciebie.",
+      "lead": "Uruchamiam ustalony zestaw 40 pytań zakupowych w ChatGPT, Perplexity, Google AI Overviews i Copilocie, zapisuję surowe odpowiedzi i wymieniam z nazwy firmy, które model poleca zamiast Ciebie. Dostajesz raport i listę poprawek w kolejności, a nie obietnicę pozycji.",
+      "from": "od 3 900 zł netto (~900 €)",
+      "primaryCta": "Umów audyt",
+      "windowLabel": "audyt-widocznosci-ai.pdf",
+      "badge": "Przebieg zakończony",
+      "metrics": [
+        {
+          "v": "4",
+          "l": "silniki w jednym przebiegu"
+        },
+        {
+          "v": "40",
+          "l": "pytań z surowymi odpowiedziami"
+        },
+        {
+          "v": "10",
+          "l": "dni roboczych do raportu"
+        }
+      ],
+      "glance": {
+        "title": "Raport widoczności w AI",
+        "caption": "przykład · sierpień 2026",
+        "rows": [
+          {
+            "label": "ChatGPT z włączonym wyszukiwaniem",
+            "detail": "10 pytań, każde uruchomione 3 razy",
+            "value": "1/10",
+            "state": "bad"
+          },
+          {
+            "label": "Perplexity",
+            "detail": "cytuje dwa katalogi branżowe, Twojej wizytówki nie ma w żadnym",
+            "value": "2/10",
+            "state": "warn"
+          },
+          {
+            "label": "Google AI Overviews",
+            "detail": "odpowiedź pojawiła się przy 7 z 10 pytań",
+            "value": "0/10",
+            "state": "bad"
+          },
+          {
+            "label": "Microsoft Copilot",
+            "detail": "źródła: LinkedIn i jeden ranking z 2024 roku",
+            "value": "0/10",
+            "state": "bad"
+          },
+          {
+            "label": "Kto pojawia się zamiast Ciebie",
+            "detail": "6 firm z nazwy, 4 z nich z tych samych rankingów",
+            "value": "6 firm",
+            "state": "warn"
+          }
+        ],
+        "totalLabel": "Wzmianki marki w 40 odpowiedziach",
+        "totalValue": "3/40",
+        "note": "To przykładowy przebieg, nie klient. Twoje liczby będą inne, a sam pomiar niczego nie zmienia: zmienia to lista poprawek pod spodem."
+      },
+      "pain": {
+        "eyebrow": "Punkt wyjścia",
+        "headline": "Nie wiesz, czy w ogóle istniejesz w odpowiedziach AI",
+        "sub": "Cztery rzeczy, które widzę w prawie każdej firmie, zanim cokolwiek zmierzę.",
+        "items": [
+          {
+            "title": "Ruch spada, a pozycje stoją",
+            "body": "Google pokazuje odpowiedź AI przy 24,17% polskich zapytań (dane Senuto), a tam, gdzie pojawia się AI Overview, klikalność spada o około 34,5% (Ahrefs, 300 tys. fraz). Trzecia pozycja nadal jest trzecia, tylko nikt już w nią nie klika. W analityce widać sam spadek, bez przyczyny."
+          },
+          {
+            "title": "Jedno pytanie w czacie to nie pomiar",
+            "body": "Wpisujesz swoją kategorię raz, widzisz nazwę konkurenta i wyciągasz wniosek. To samo pytanie za godzinę zwróci inny zestaw firm. Bez powtórzeń i bez zapisanych odpowiedzi masz wrażenie, a nie punkt odniesienia do porównania za kwartał."
+          },
+          {
+            "title": "Dla robotów AI połowa strony jest pusta",
+            "body": "Żaden crawler AI nie wykonuje JavaScriptu. GPTBot, OAI-SearchBot, ClaudeBot i PerplexityBot pobierają HTML i na tym kończą, stan na czerwiec 2026. Cennik w zakładce, FAQ w akordeonie i opinie doładowywane po hydracji dla nich po prostu nie istnieją."
+          },
+          {
+            "title": "Cała praca ląduje na własnym blogu",
+            "body": "W badaniu 278 zapytań zakupowych B2B SaaS (lipiec 2026) w 66% przypadków, w których ChatGPT polecił markę, nie zacytował przy tym jej własnej strony. Model brał firmę z cudzych rankingów, wzmianek i wątków. Sama praca na własnej stronie tego nie załatwi."
+          }
+        ]
+      },
+      "deliverables": {
+        "eyebrow": "Co dostajesz",
+        "headline": "Raport, który od razu rozkłada się na zadania",
+        "sub": "Jeden plik plus załącznik z surowymi odpowiedziami czterech silników.",
+        "items": [
+          {
+            "title": "Ustalony zestaw 40 pytań",
+            "body": "Układamy 40 pytań, które Twój klient naprawdę wpisuje: kategoria, miasto, alternatywy dla konkretnego konkurenta, „kto zrobi mi X”. Zestaw zostaje zamrożony, żeby kolejny pomiar był porównywalny z tym."
+          },
+          {
+            "title": "Surowe odpowiedzi w załączniku",
+            "body": "Każda odpowiedź z czterech silników trafia do załącznika z datą i wersją modelu. Nie musisz wierzyć mi na słowo, możesz przeczytać, co model napisał."
+          },
+          {
+            "title": "Lista firm polecanych zamiast Ciebie",
+            "body": "Wymieniam z nazwy każdą firmę, która pojawia się w odpowiedziach na Twoje pytania, i pokazuję, co ją tam wstawiło: ranking, katalog, wątek na forum, wzmianka w prasie branżowej."
+          },
+          {
+            "title": "Werdykt w sprawie renderowania po stronie serwera",
+            "body": "Sprawdzam, co zostaje z Twoich stron w czystym HTML bez JavaScriptu i jak traktowane są boty w robots.txt oraz na firewallu. Ceny, FAQ i opinie, których nie widać, wypisuję osobno, adres po adresie."
+          },
+          {
+            "title": "Lista luk poza Twoją stroną",
+            "body": "Rankingi typu „najlepsze X”, katalogi (Clutch, GoodFirms, DesignRush, katalogi branżowe), platformy z opiniami, wątki na Reddicie oraz zgodność nazwy, opisu i danych rejestrowych firmy we wszystkich profilach."
+          },
+          {
+            "title": "Poprawki w kolejności priorytetu",
+            "body": "Każda pozycja ma oszacowany nakład pracy, wskazanie, kto ją wykonuje, i informację, czy to praca na stronie, czy poza nią. Osobny blok to rzeczy, które odradzam, razem z powodem."
+          }
+        ]
+      },
+      "process": {
+        "eyebrow": "Jak to przebiega",
+        "headline": "Dziesięć dni roboczych, cztery etapy",
+        "sub": "Start w poniedziałek, raport i rozmowa dwa tygodnie później.",
+        "steps": [
+          {
+            "when": "Dzień 1-2",
+            "title": "Zestaw pytań",
+            "body": "Przysyłasz 10-15 fraz, po których klienci Cię szukają, i listę konkurentów. Zamieniam to na 40 pytań i wysyłam do akceptacji. Nic nie rusza bez Twojej zgody."
+          },
+          {
+            "when": "Dzień 3-5",
+            "title": "Przebieg przez cztery silniki",
+            "body": "Każde pytanie idzie trzy razy do ChatGPT, Perplexity, Google AI Overviews i Copilota, za każdym razem z czystej sesji. Odpowiedzi zapisuję w całości, razem z listą źródeł, które silnik podał."
+          },
+          {
+            "when": "Dzień 6-7",
+            "title": "Warstwa techniczna",
+            "body": "Sprawdzam, co zostaje ze stron bez JavaScriptu, jak wygląda dostęp botów w robots.txt i na firewallu oraz czy dane firmy zgadzają się między stroną, profilami i katalogami."
+          },
+          {
+            "when": "Dzień 8-9",
+            "title": "Praca poza stroną",
+            "body": "Szukam rankingów, katalogów i wątków, w których wymieniona jest konkurencja, a Ciebie nie ma. Przy każdym zapisuję, kto decyduje o wpisie i czego wymaga."
+          },
+          {
+            "when": "Dzień 10",
+            "title": "Raport i rozmowa",
+            "body": "Dostajesz plik, załącznik z odpowiedziami i 60 minut rozmowy. Wychodzisz z listą zadań, którą możesz przekazać komukolwiek, nie tylko mnie."
+          }
+        ]
+      },
+      "pricing": {
+        "eyebrow": "Pakiety",
+        "caption": "Nie sprzedaję pozycji ani gwarantowanych cytowań, bo nikt nad nimi nie panuje. Sprzedaję pomiar i listę poprawek.",
+        "bookCta": "Umów audyt",
+        "tiers": [
+          {
+            "title": "Audyt",
+            "from": "od",
+            "price": "3 900 zł",
+            "body": "Jednorazowy pomiar i raport. Poprawki wdrażasz sam albo z własnym zespołem.",
+            "features": [
+              "40 pytań, 4 silniki, 3 przebiegi każde",
+              "Surowe odpowiedzi w załączniku",
+              "Lista firm polecanych zamiast Ciebie",
+              "Werdykt: renderowanie i dostęp botów",
+              "Lista luk poza Twoją stroną",
+              "60 minut rozmowy po raporcie"
+            ],
+            "examples": "Typowo: firma usługowa B2B, jedna strona, jeden rynek.",
+            "featured": false
+          },
+          {
+            "title": "Audyt z wdrożeniem",
+            "from": "od",
+            "price": "6 900 zł",
+            "body": "To samo co wyżej, tylko część techniczną na stronie robię ja.",
+            "features": [
+              "Wszystko z pakietu „Audyt”",
+              "Ceny i FAQ przeniesione do HTML z serwera",
+              "Uporządkowany robots.txt i dostęp botów",
+              "Dane strukturalne pod strony rankingowe",
+              "Jedna nazwa i jedne dane firmy we wszystkich profilach",
+              "Powtórny pomiar po wdrożeniu"
+            ],
+            "examples": "Next.js, WordPress, Shopify. Autorski CMS wyceniam osobno.",
+            "featured": true
+          },
+          {
+            "title": "Pomiar co miesiąc",
+            "from": "od",
+            "price": "1 490 zł/mies.",
+            "body": "Ten sam zestaw pytań co miesiąc i raport z różnicą wobec poprzedniego.",
+            "features": [
+              "Ten sam zamrożony zestaw 40 pytań",
+              "Raport z różnicą miesiąc do miesiąca",
+              "Nowe firmy, które weszły do odpowiedzi",
+              "Zmiany w źródłach cytowanych przez silniki",
+              "Krótka lista zadań na kolejny miesiąc",
+              "Umowa miesięczna, rezygnacja kiedy chcesz"
+            ],
+            "examples": "Ma sens po audycie, a nie zamiast niego.",
+            "featured": false
+          }
+        ]
+      },
+      "notFor": {
+        "title": "Kiedy to zły zakup",
+        "sub": "Cztery sytuacje, w których odradzam zamiast sprzedawać.",
+        "items": [
+          "Chcesz gwarancji, że ChatGPT będzie Cię polecał. Nikt nie sprzedaje tego uczciwie, ja też nie.",
+          "Potrzebujesz efektu w tym miesiącu. Większość pracy jest poza Twoją stroną i idzie w cudzym rytmie redakcyjnym.",
+          "Zależy Ci na llms.txt i odhaczeniu tematu. Nie sprzedaję tego: Ahrefs sprawdził 137 000 stron i w maju 2026 97% plików llms.txt nie dało żadnego ruchu.",
+          "Nie masz strony usługowej z ceną i opisem zakresu. Nie ma jeszcze czego mierzyć, najpierw strona."
+        ],
+        "instead": "Jeśli problemem jest sama strona, a nie widoczność w odpowiedziach AI, zacznij stąd:"
+      },
+      "faq": {
+        "title": "Pytania o widoczność w AI",
+        "items": [
+          {
+            "q": "Gwarantujesz, że ChatGPT zacznie polecać moją firmę?",
+            "a": "Nie i nikt nie może tego zagwarantować. Modele składają odpowiedź ze źródeł, nad którymi ani Ty, ani ja nie panujemy, a sama odpowiedź zmienia się między przebiegami i wersjami modelu. Sprzedaję pomiar, listę firm polecanych zamiast Ciebie i uporządkowaną listę poprawek. Efekt sprawdzamy kolejnym przebiegiem na tym samym zestawie pytań."
+          },
+          {
+            "q": "Po co uruchamiasz to samo pytanie kilka razy?",
+            "a": "Bo pojedyncza odpowiedź nic nie znaczy. To samo pytanie zadane trzy razy potrafi zwrócić trzy różne listy firm, więc liczy się, jak często pojawiasz się w powtórzeniach, a nie to, czy pojawiłeś się raz. Dlatego w raporcie widzisz ułamek w rodzaju 3/40, a nie słowo „widoczny”."
+          },
+          {
+            "q": "Dlaczego większość poprawek dotyczy stron, których nie mam?",
+            "a": "Bo tam zapadają rekomendacje. W badaniu 278 zapytań zakupowych B2B SaaS (lipiec 2026) w 66% przypadków, w których ChatGPT polecił markę, w odpowiedzi nie było cytowania jej własnej strony, a najsilniej z byciem polecanym korelowała obecność w cudzych rankingach, potem wzmianki o marce w sieci i obecność na Reddicie. Praca na własnej stronie usuwa przeszkody techniczne, ale rekomendacji nie kupuje."
+          },
+          {
+            "q": "Czy potrzebuję pliku llms.txt?",
+            "a": "Nie. Ahrefs sprawdził 137 000 stron i w maju 2026 97% plików llms.txt nie przyniosło żadnego ruchu, a Google mówi wprost, że formatu nie wspiera i nie planuje wspierać. Żaden duży dostawca modeli też się do niego nie zobowiązał. Jeśli już go masz, zostaw, ale nie licz tego jako pracy nad widocznością."
+          },
+          {
+            "q": "Mamy stronę w Reakcie, wszystko doczytuje się po załadowaniu. To problem?",
+            "a": "Tak, i całkiem konkretny. Crawlery AI pobierają HTML i nie wykonują JavaScriptu, więc cennik, FAQ i opinie rysowane w przeglądarce dla nich nie istnieją. W audycie dostajesz listę adresów i sekcji, których nie ma w źródle strony, a w pakiecie z wdrożeniem przenoszę je na render po stronie serwera."
+          },
+          {
+            "q": "Ile to kosztuje i czym różnią się pakiety?",
+            "a": "Audyt to 3 900 zł netto jednorazowo, audyt z wdrożeniem części technicznej 6 900 zł netto, a comiesięczny powtórny pomiar 1 490 zł netto miesięcznie. Różnica jest prosta: w pierwszym dostajesz raport i sam decydujesz, co dalej, w drugim poprawki na stronie robię ja, w trzecim pilnujemy, czy coś się rusza. Kwotę ustalamy przed startem."
+          },
+          {
+            "q": "Kiedy zobaczę zmianę w odpowiedziach?",
+            "a": "Uczciwie: z góry nie wiadomo i właśnie dlatego mierzymy ponownie. Poprawki techniczne działają od następnego przejścia crawlera, uporządkowane dane firmy bywają widoczne w rozpoznawaniu marki po miesiącu lub dwóch, a wejście do cudzych rankingów zależy od ich redakcji, nie od nas. Dlatego powtarzam ten sam zestaw pytań i pokazuję różnicę, zamiast podawać termin."
+          }
+        ]
+      },
+      "resources": {
+        "eyebrow": "Do poczytania",
+        "headline": "Jak to działa, bez obietnic",
+        "items": [
+          {
+            "title": "Co ChatGPT mówi o Twojej firmie i jak to zmienić",
+            "href": "/pl/blog/co-chatgpt-mowi-o-twojej-firmie"
+          },
+          {
+            "title": "Jak trafić do odpowiedzi ChatGPT, Gemini i Google AI Overviews",
+            "href": "/pl/blog/jak-trafic-do-odpowiedzi-chatgpt-i-ai-overviews"
+          },
+          {
+            "title": "llms.txt i roboty AI: wpuszczać GPTBota czy blokować",
+            "href": "/pl/blog/llms-txt-i-roboty-ai-gptbot"
+          },
+          {
+            "title": "Ruch z Google spadł, a pozycje te same: co się dzieje",
+            "href": "/pl/blog/ruch-spadl-przez-ai-overviews-co-robic"
+          }
+        ]
+      },
+      "schema": {
+        "serviceType": "Audyt widoczności firmy w wyszukiwarkach AI",
+        "price": "3900",
+        "currency": "PLN"
+      }
     }
   }
 }

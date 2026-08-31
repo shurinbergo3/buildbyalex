@@ -1115,7 +1115,7 @@ export function ServiceHero({ branch, reviewCount }: { branch: Branch; reviewCou
         <HeroWindow theme={branch === "websites" || branch === "store" ? "web" : branch} accent={AMBER} label={branchLabel} live={svc.hero.badge}>
           <div className="relative z-10 grid items-center gap-10 md:grid-cols-12 md:gap-10 lg:gap-14">
             {/* ── copy ── */}
-            <div className="md:col-span-6">
+            <div className="min-w-0 md:col-span-6">
               <p
                 className="text-[12px] font-semibold uppercase tracking-[0.16em]"
                 style={{ color: AMBER, fontFamily: "var(--font-mono), monospace" }}
@@ -1150,7 +1150,7 @@ export function ServiceHero({ branch, reviewCount }: { branch: Branch; reviewCou
               {/* metrics */}
               <div className="mt-8 grid max-w-[480px] grid-cols-3 gap-3 border-t border-white/[0.08] pt-6">
                 {metrics.map((mt, i) => (
-                  <div key={i}>
+                  <div key={i} className="min-w-0">
                     <p
                       className="text-[clamp(20px,1.6vw+12px,26px)] font-semibold leading-none tracking-[-0.03em]"
                       style={{
@@ -1162,7 +1162,7 @@ export function ServiceHero({ branch, reviewCount }: { branch: Branch; reviewCou
                     >
                       {mt.v}
                     </p>
-                    <p className="mt-1.5 text-[10.5px] font-medium uppercase leading-tight tracking-[0.06em] text-white/45">
+                    <p className="mt-1.5 break-words text-[10.5px] font-medium uppercase leading-tight tracking-[0.06em] text-white/45">
                       {mt.l}
                     </p>
                   </div>
@@ -1171,7 +1171,7 @@ export function ServiceHero({ branch, reviewCount }: { branch: Branch; reviewCou
             </div>
 
             {/* ── glance ── */}
-            <div className="md:col-span-6">
+            <div className="min-w-0 md:col-span-6">
               <motion.div
                 className="relative mx-auto w-full max-w-[420px]"
                 animate={reduce ? undefined : { y: [0, -9, 0] }}

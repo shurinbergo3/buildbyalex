@@ -47,6 +47,23 @@
       "telegram": {
         "title": "Telegram bots",
         "tagline": "Bots & Mini Apps with in-chat payments"
+      },
+      "offersLabel": "Fixed price",
+      "aiAudit": {
+        "title": "AI audit",
+        "tagline": "Five days, a written verdict"
+      },
+      "documents": {
+        "title": "Document automation",
+        "tagline": "Invoices and orders from inbox to ERP"
+      },
+      "aiAct": {
+        "title": "AI Act Compliance",
+        "tagline": "Retrofit for a bot already live, from €800"
+      },
+      "aiVisibility": {
+        "title": "AI visibility audit",
+        "tagline": "Where ChatGPT names you and where it does not"
       }
     },
     "pricing": "Pricing"
@@ -2634,6 +2651,175 @@
             "title": "How to add an AI chatbot to your website"
           }
         ]
+      },
+      "catalog": {
+        "eyebrow": "Agent catalogue",
+        "headline": "Nine agents people actually buy",
+        "sub": "What I ship most often, with the real timeline and the real stack. The price is for the build, with no mandatory retainer.",
+        "cols": {
+          "type": "Agent",
+          "does": "What it does",
+          "price": "Price",
+          "time": "Timeline",
+          "stack": "Stack"
+        },
+        "items": [
+          {
+            "title": "Website consultant on your knowledge base",
+            "does": "Answers questions from your documents, price lists and contracts with a link to the source, and says it does not know when the answer is not there.",
+            "price": "from €1,500",
+            "time": "1-2 weeks",
+            "stack": "GPT-4o-mini, pgvector, site widget, Google Sheets",
+            "best": "Services and B2B with a long FAQ"
+          },
+          {
+            "title": "Lead qualification and first touch",
+            "does": "Asks three or four questions, filters out the ones who do not fit, tags the lead and moves the deal along the CRM pipeline.",
+            "price": "from €2,500",
+            "time": "2-3 weeks",
+            "stack": "GPT-4o, function calling, HubSpot or Pipedrive API, Telegram Bot API, n8n",
+            "best": "Sales teams with steady inbound"
+          },
+          {
+            "title": "Support agent with escalation",
+            "does": "Closes repeat tickets and hands the hard ones to a person with a summary of the conversation and the customer history attached.",
+            "price": "from €2,000",
+            "time": "1-2 weeks",
+            "stack": "Claude Haiku, pgvector, site widget, Slack, email",
+            "best": "Support without a night shift"
+          },
+          {
+            "title": "Booking and rescheduling",
+            "does": "Checks free slots, books, moves and cancels appointments, and sends a reminder a day and an hour before.",
+            "price": "from €2,200",
+            "time": "2-3 weeks",
+            "stack": "GPT-4o-mini, Google Calendar API, Calendly, WhatsApp Business API, n8n",
+            "best": "Clinics, salons, service shops"
+          },
+          {
+            "title": "E-commerce agent",
+            "does": "Answers product questions, returns order status by number and walks a return through to a ticket in your system.",
+            "price": "from €2,800",
+            "time": "2-3 weeks",
+            "stack": "GPT-4o-mini, BaseLinker, WooCommerce or Shopify API, InPost, Instagram DM",
+            "best": "Shops from 300 orders a month"
+          },
+          {
+            "title": "Missed calls and voice agent",
+            "does": "Calls back after a missed call, finds out what the caller needs, books a slot and drops the transcript into the CRM.",
+            "price": "from €3,000",
+            "time": "3-4 weeks",
+            "stack": "Vapi or Twilio, Deepgram, ElevenLabs, GPT-4o, Google Calendar",
+            "best": "Businesses that get called more than messaged"
+          },
+          {
+            "title": "Email and document intake",
+            "does": "Pulls orders, invoices and delivery notes out of the mailbox, reads line items and totals and files them into the accounting system as a draft for a person to approve.",
+            "price": "from €3,200",
+            "time": "4-6 weeks",
+            "stack": "Azure Document Intelligence, GPT-4o, Comarch Optima or Subiekt nexo, KSeF API, n8n",
+            "best": "Wholesale and manufacturing"
+          },
+          {
+            "title": "Internal assistant for staff",
+            "does": "Finds the answer inside company procedures, manuals and contracts instead of sending an employee to ask a colleague.",
+            "price": "from €2,600",
+            "time": "2-3 weeks",
+            "stack": "Claude Sonnet, pgvector, Google Drive or SharePoint, Slack",
+            "best": "Companies from 20 people"
+          },
+          {
+            "title": "Recruiting screening",
+            "does": "Reads CVs, pulls out what the vacancy actually asks about, comes back to the candidate for anything missing and offers an interview slot. It scores nobody and rejects nobody, the recruiter decides.",
+            "price": "from €3,500",
+            "time": "3-4 weeks",
+            "stack": "GPT-4o, pgvector, Google Sheets, Calendly, email",
+            "best": "High-volume and frontline hiring"
+          }
+        ],
+        "note": "The price covers one channel and two or three integrations: every further integration is quoted separately, and model and telephony usage is billed straight to you. The clock starts the day I have the access and the content in hand, and I run no more than two projects at a time."
+      },
+      "integrations": {
+        "eyebrow": "Integrations",
+        "headline": "What the agent actually connects to",
+        "sub": "A closed list: systems I have already connected, or ones with a documented API that your own licence opens up. If yours is missing that is not a refusal, but I check the API before quoting.",
+        "groups": [
+          {
+            "title": "Polish accounting and ERP",
+            "items": [
+              "Comarch Optima",
+              "Comarch ERP XL",
+              "Subiekt GT (Sfera)",
+              "Subiekt nexo (Sfera)",
+              "enova365",
+              "wFirma",
+              "ifirma",
+              "KSeF API"
+            ]
+          },
+          {
+            "title": "CRM and sales",
+            "items": [
+              "HubSpot",
+              "Pipedrive",
+              "Bitrix24",
+              "Livespace",
+              "Kommo",
+              "Airtable",
+              "Google Sheets"
+            ]
+          },
+          {
+            "title": "Channels",
+            "items": [
+              "Telegram Bot API",
+              "WhatsApp Business API",
+              "Messenger",
+              "Instagram DM",
+              "site widget",
+              "email",
+              "phone via Twilio or Vapi"
+            ]
+          },
+          {
+            "title": "Shops, calendars and the rest",
+            "items": [
+              "BaseLinker",
+              "Allegro API",
+              "WooCommerce",
+              "Shopify",
+              "PrestaShop",
+              "InPost",
+              "Google Calendar",
+              "Calendly"
+            ]
+          }
+        ],
+        "note": "When a system has no API, what is left is screen automation: it is fragile and breaks with every update, so I quote it separately and with caveats, and sometimes I say plainly that the project stops there."
+      },
+      "handover": {
+        "eyebrow": "Handover",
+        "headline": "What happens if I disappear",
+        "sub": "The main risk of hiring one person instead of an agency. Here is the answer before you ask.",
+        "items": [
+          {
+            "title": "Code and prompts live in your repository",
+            "body": "From day one I work in your GitHub or GitLab and in your hosting accounts. Nothing is parked on my machine as leverage for the final invoice: you see every commit the day it lands. Prompts, the database schema and the n8n configs sit in the repository next to the code."
+          },
+          {
+            "title": "API keys and model accounts are yours",
+            "body": "You open the OpenAI, Anthropic and Twilio accounts under your own company and the invoices go straight to you. I put no markup on tokens, and usage shows up in your billing rather than in my report. You grant my access and you revoke it, without asking me first."
+          },
+          {
+            "title": "A written runbook and a recorded walkthrough",
+            "body": "At handover you get a runbook: how to deploy, where the logs are, what to do when it falls over, which environment variables it needs. Plus a 30 to 40 minute screen recording where I go through the whole system. It is written for a developer who has never seen the project."
+          },
+          {
+            "title": "If I am unavailable",
+            "body": "Response times are in the contract: 24 hours on working days, and 4 hours for a production incident during working hours, 9 to 18 Warsaw time. I do not run a 24/7 rota and will not promise one person can. If I go silent for more than five working days you terminate without penalty and without needing anything from me: there is nothing to hand over, the code, accounts and documentation have been yours since day one."
+          }
+        ],
+        "note": "None of this costs extra or needs an annex, it is what my standard contract already says."
       }
     },
     "automation": {
@@ -6551,6 +6737,1116 @@
       "title": "Let us price your project",
       "body": "Describe the task in a few sentences. Within 24 hours of the call you have scope, a fixed price and a start date.",
       "button": "Request a quote"
+    },
+    "offersTable": {
+      "title": "Fixed-price packages"
+    }
+  },
+  "offers": {
+    "aiAudit": {
+      "meta": {
+        "title": "AI Audit for Business: 5 Days, from €1,150",
+        "description": "A paid AI audit: processes ranked by payback, a data-readiness verdict, and a build quote with a fixed price and a date. Five working days, from €1,150."
+      },
+      "eyebrow": "AI audit · 5 days",
+      "headline": "A paid AI audit.\nA written verdict in five days.",
+      "lead": "I go through your processes and tell you which ones automate at a profit and which do not. You walk away with a report, a quote carrying a fixed price and a date, and a go or no-go recommendation.",
+      "from": "from €1,150",
+      "primaryCta": "Book the audit",
+      "windowLabel": "ai-audit-report.pdf",
+      "badge": "Day 5 · delivered",
+      "metrics": [
+        {
+          "v": "5",
+          "l": "working days to the report"
+        },
+        {
+          "v": "8.7%",
+          "l": "of Polish firms use AI (GUS, 2025)"
+        },
+        {
+          "v": "60 days",
+          "l": "to credit the fee against the build"
+        }
+      ],
+      "glance": {
+        "title": "AI audit report",
+        "caption": "Sample report",
+        "rows": [
+          {
+            "label": "Quoting inbound email RFQs",
+            "detail": "52 requests a week, answered in 2-3 days",
+            "value": "payback 3 mo",
+            "state": "ok"
+          },
+          {
+            "label": "Order status questions",
+            "detail": "60% of them repeat",
+            "value": "payback 7 mo",
+            "state": "ok"
+          },
+          {
+            "label": "Supplier invoices into Comarch ERP XL",
+            "detail": "scans in three layouts, no fixed structure",
+            "value": "data not ready",
+            "state": "warn"
+          },
+          {
+            "label": "CV screening for production hires",
+            "detail": "high-risk system under the AI Act",
+            "value": "not now",
+            "state": "bad"
+          },
+          {
+            "label": "Website chatbot, live since 2024",
+            "detail": "no AI disclosure, Article 50 applies from 2 August 2026",
+            "value": "needs a fix",
+            "state": "warn"
+          }
+        ],
+        "totalLabel": "Stage 1 build (processes 1 and 2)",
+        "totalValue": "€4,250",
+        "note": "This is one page from a sample report. Yours runs 12-18 pages and covers your processes, not these."
+      },
+      "pain": {
+        "eyebrow": "Why this exists",
+        "headline": "Nobody told you what you are actually buying",
+        "sub": "Four situations where the audit costs less than building on a hunch.",
+        "items": [
+          {
+            "title": "Quotes differ by a factor of ten",
+            "body": "Polish suppliers publish 3,000-15,000 zł to configure an agent and 80,000-250,000 zł for one that writes into an ERP. Without a written scope those numbers cannot be compared. The audit hands you a scope you can send to any builder, not only to me."
+          },
+          {
+            "title": "A free call ends in a quote you cannot check",
+            "body": "One hour on a call and you get an 8,000-20,000 zł quote, the band Polish suppliers publish for configuring an agent with integrations, and you approve it on somebody else's intuition. That is too large a first step for a company that has never bought AI. The audit costs a fraction of it and ends in numbers instead of a promise."
+          },
+          {
+            "title": "Pilots die before production",
+            "body": "Gartner expects more than 40% of agentic AI projects to be cancelled by the end of 2027, and S&P Global counted 42% of companies abandoning most AI initiatives in 2025. The reason is almost always the same: the process was picked before anyone looked at the data. Here the data goes first."
+          },
+          {
+            "title": "You do not know whether your data is enough",
+            "body": "The knowledge sits in inboxes, in PDFs and in two people's heads. A model cannot read what nobody ever wrote down in a readable form. I take samples and tell you plainly how much cleanup comes before the first build."
+          }
+        ]
+      },
+      "deliverables": {
+        "eyebrow": "What you get",
+        "headline": "Six things in writing, not a deck",
+        "sub": "The report runs 12-18 pages and is written so you can hand it to a builder, to your board or to a grant adviser.",
+        "items": [
+          {
+            "title": "Processes ranked by payback",
+            "body": "I list the processes that genuinely qualify for automation and order them from fastest payback to slowest. Each one carries its volume, today's handling time and its annual cost. It usually comes to between three and eight entries."
+          },
+          {
+            "title": "A feasibility verdict per process",
+            "body": "For every process I write what today's model does reliably, what it does with errors that need checking, and what it will not do at all. I also give the share of cases that will land in manual review. Skip this chapter and you are buying a demo."
+          },
+          {
+            "title": "A data-readiness verdict",
+            "body": "I take samples: emails, PDFs, ERP exports, ticket history. I check format, completeness and whether there is any history worth building on. The answer is one of three: ready, needs a stated number of days of cleanup, or no usable data."
+          },
+          {
+            "title": "A build quote with a fixed price and a date",
+            "body": "For the two top-ranked processes you get an amount, a scope and a delivery date. The price holds for 60 days. You can take it to another builder, because the document is yours, not mine."
+          },
+          {
+            "title": "A go or no-go recommendation",
+            "body": "One page with the answer and the reasoning. I am allowed to write that this is not worth doing yet, and I do write it when the numbers do not add up or the process needs fixing without any model first. In that case you get the conditions under which it becomes worth revisiting."
+          },
+          {
+            "title": "Legal duties and funding routes",
+            "body": "I check which of your ideas fall under the AI Act. The duty to tell a person they are talking to a machine applies from 2 August 2026, and systems placed on the market earlier have until 2 December 2026 to mark AI-generated content. On top of that, the calls that fund this kind of project and what the application demands from the supplier. This is not legal advice, it is a list of duties and dates to confirm with a lawyer."
+          }
+        ]
+      },
+      "process": {
+        "eyebrow": "How it runs",
+        "headline": "Five working days, four hours of your team",
+        "sub": "Fully remote. We start Monday, the report lands Friday by 18:00 CET.",
+        "steps": [
+          {
+            "when": "Day 0",
+            "title": "Contract, NDA and questionnaire",
+            "body": "We sign the contract and an NDA, and you get a 20-question form about volumes, systems and people. I ask for read-only access where it makes sense, or plain exports. Nothing is connected to production."
+          },
+          {
+            "when": "Day 1-2",
+            "title": "Interviews with the people doing the work",
+            "body": "Three to five conversations of 45 minutes: a salesperson, someone from support, someone from accounting or the warehouse. I do not ask management how the process looks, I ask the people clicking through it. The real cost usually turns up there."
+          },
+          {
+            "when": "Day 2-3",
+            "title": "Data and systems",
+            "body": "I take document samples and exports from your ERP or CRM, count volumes, and check whether the API exposes what an automation would need. Comarch, Subiekt, enova, HubSpot, Pipedrive: each has its own limits, and this is where they show."
+          },
+          {
+            "when": "Day 4",
+            "title": "The numbers",
+            "body": "I cost the process as it runs today, cost it after the build, and name the month it breaks even. Running cost is separate: API, hosting, hours for fixes. If payback lands beyond 12 months, I say so in the report."
+          },
+          {
+            "when": "Day 5",
+            "title": "Report and a 90-minute walkthrough",
+            "body": "The PDF arrives in the morning, we go through it on a call in the afternoon and I answer questions. The recording stays with you. From that day you have 60 days to decide at the quoted price."
+          }
+        ]
+      },
+      "pricing": {
+        "eyebrow": "Tiers and prices",
+        "caption": "The fee is credited in full against the build if we start within 60 days. If the verdict is no-go, I do not refund it, because that answer is exactly what you paid for.",
+        "bookCta": "Book the audit",
+        "tiers": [
+          {
+            "title": "Base audit",
+            "from": "from",
+            "price": "€1,150",
+            "body": "One company, one department, up to three processes. Built for a business that has never bought AI and wants one solid first step. Invoiced in Poland it is 4,900 zł net.",
+            "features": [
+              "Up to 3 processes mapped",
+              "3 interviews of 45 minutes",
+              "Data and feasibility verdict",
+              "Fixed quote for one build",
+              "PDF report and a 90-minute walkthrough",
+              "Fee credited against the build"
+            ],
+            "examples": "Typically: a wholesaler, a law firm, an online store under 30 people.",
+            "featured": true
+          },
+          {
+            "title": "Extended audit",
+            "from": "from",
+            "price": "€2,100",
+            "body": "Several departments, or an implementation that already exists and does not work. I take apart what is running before I price what to add.",
+            "features": [
+              "Up to 8 processes mapped",
+              "Up to 7 interviews, IT included",
+              "Teardown of your existing bot or automation",
+              "Fixed quotes for two builds",
+              "A 12-month sequencing plan",
+              "Token and infrastructure cost model"
+            ],
+            "examples": "Typically: a manufacturer, a retail chain, a company after a failed pilot.",
+            "featured": false
+          },
+          {
+            "title": "Group and regulated audit",
+            "from": "from",
+            "price": "€3,500",
+            "body": "Several legal entities sharing processes, or a supervised sector: healthcare, finance, HR, public bodies.",
+            "features": [
+              "Processes across several entities",
+              "Risk classification under the AI Act",
+              "KRiBSI duties from 28 October 2026",
+              "AI system register and an Article 4 literacy plan",
+              "Staged quotes, each with a date",
+              "Grant-application version of the report"
+            ],
+            "examples": "Typically: a holding group, a clinic, a lending company.",
+            "featured": false
+          }
+        ]
+      },
+      "notFor": {
+        "title": "When not to buy it",
+        "sub": "Four situations where I talk people out of this audit, and I say so before any contract.",
+        "items": [
+          "Fewer than five people and no repeating process: there is nothing to count",
+          "You already know the one process and you have the budget for it",
+          "You need a document for a grant application, not for a build",
+          "You are after training or a workshop for the team, and this is neither"
+        ],
+        "instead": "If there is one process and you already know which, skip the audit and go straight to"
+      },
+      "faq": {
+        "title": "Questions about the audit",
+        "items": [
+          {
+            "q": "What does the AI audit cost and what exactly do I get?",
+            "a": "The audit starts at €1,150 and takes five working days. You get a 12-18 page report: processes ranked by payback, a feasibility verdict for each one, a data-readiness verdict, a build quote with a fixed price and a date, and a one-page go or no-go recommendation. Plus a 90-minute live walkthrough and the recording of it."
+          },
+          {
+            "q": "Do I lose the fee if I go ahead with the build?",
+            "a": "No, the whole fee is credited against the build if we sign within 60 days of the report. At €1,150 for the audit and €4,250 for the build you pay the difference. If you pick a different builder, the report is still yours and you can shop it around."
+          },
+          {
+            "q": "How is this different from a free call or from a pilot?",
+            "a": "A free call gives you an opinion, the audit gives you a document with numbers, a price and a date. It is also not a pilot: in those five days I do not build a working system and I do not run a model against live data. A pilot takes weeks, costs several times more, and without an audit it usually tests the wrong process."
+          },
+          {
+            "q": "What if the verdict is that I should not do this yet?",
+            "a": "A no-go verdict comes in writing, along with the conditions that would make the project worth revisiting. That outcome is normal when data is scattered or the process changes every month. The audit costs €1,150 instead of the €6,000-35,000 a full build runs to, on a system that was never going to run."
+          },
+          {
+            "q": "How much of my team's time does it take?",
+            "a": "The audit takes about four hours of your team's time in total. That is three to five interviews of 45 minutes with the people who actually run the process, plus pulling document samples and exports. Management is only needed at the start and at the report walkthrough."
+          },
+          {
+            "q": "Can the audit be paid for out of a grant?",
+            "a": "Sometimes, but do not plan around it. Calls such as PARP Automatyzacja i robotyzacja w MŚP or ARP DIG.IT fund the implementation above all, and advisory work counts as an eligible cost only in some calls and only inside a larger project. I write the report in a form your grant adviser can use in the application, but eligibility is confirmed by that adviser, not by me."
+          },
+          {
+            "q": "Does the report cover the EU AI Act and the Polish AI act?",
+            "a": "Yes, in every tier. I check whether what you are planning falls under the duty to tell a person they are talking to a machine, which applies from 2 August 2026, while systems placed on the market earlier have until 2 December 2026 to mark AI-generated content. The group and regulated tier adds risk classification and the powers of KRiBSI, the Polish supervisor, which can open proceedings and impose fines from 28 October 2026. I do this as a builder, not as a lawyer: you get a list of duties and dates to confirm with counsel."
+          }
+        ]
+      },
+      "resources": {
+        "eyebrow": "Before you get in touch",
+        "headline": "Reading that answers half the questions",
+        "items": [
+          {
+            "title": "How to implement AI in business: a step-by-step plan",
+            "href": "/en/blog/how-to-implement-ai-in-business"
+          },
+          {
+            "title": "What to automate first: 7 processes to start with",
+            "href": "/en/blog/what-to-automate-first-in-business"
+          },
+          {
+            "title": "What a website, store, app and bot cost in 2026",
+            "href": "/en/blog/how-much-does-development-cost-2026"
+          },
+          {
+            "title": "AI funding and grants for business in Poland",
+            "href": "/en/blog/ai-funding-grants-poland"
+          }
+        ]
+      },
+      "schema": {
+        "serviceType": "AI Audit",
+        "price": "1150",
+        "currency": "EUR"
+      }
+    },
+    "documents": {
+      "meta": {
+        "title": "Invoice and document automation - from €2,800",
+        "description": "Email, PDF and scanned invoices parsed, checked and written into Comarch Optima, Subiekt or enova365. Human approval gate. Fixed price from €2,800."
+      },
+      "eyebrow": "Documents and invoices",
+      "headline": "Invoices and orders reach\nyour system on their own.",
+      "lead": "I connect your inbox, scanner and KSeF to your accounting system: every document is parsed, checked against named rules, approved by a person and posted. You keep a working pipeline, an error queue and a handover pack any other developer can pick up.",
+      "from": "from €2,800 net",
+      "primaryCta": "Talk it through",
+      "windowLabel": "Document flow panel",
+      "badge": "Running in production",
+      "metrics": [
+        {
+          "v": "3 weeks",
+          "l": "to the first flow in production"
+        },
+        {
+          "v": "×4",
+          "l": "cheaper per invoice - market benchmark"
+        },
+        {
+          "v": "100%",
+          "l": "of documents pass named rules"
+        }
+      ],
+      "glance": {
+        "title": "Document queue",
+        "caption": "26 August",
+        "rows": [
+          {
+            "label": "Purchase invoices from KSeF",
+            "detail": "pulled through the API",
+            "value": "182 posted",
+            "state": "ok"
+          },
+          {
+            "label": "Scans and PDFs outside KSeF",
+            "detail": "foreign suppliers, receipts",
+            "value": "38 of 41",
+            "state": "ok"
+          },
+          {
+            "label": "Orders from the inbox",
+            "detail": "PDF and Excel, matched to records",
+            "value": "61 of 64",
+            "state": "warn"
+          },
+          {
+            "label": "Waiting for human approval",
+            "detail": "over €1,200 net or a new supplier",
+            "value": "7 items",
+            "state": "warn"
+          },
+          {
+            "label": "Error queue",
+            "detail": "missing tax ID, account outside the VAT register",
+            "value": "6 items",
+            "state": "bad"
+          }
+        ],
+        "totalLabel": "Posted without manual typing",
+        "totalValue": "281 of 287",
+        "note": "A typical day at a wholesaler: 287 documents in, 6 waiting for a person in the error queue, nothing posted without passing the rules."
+      },
+      "pain": {
+        "eyebrow": "Where it hurts",
+        "headline": "Paperwork eats hours that never show up in the budget",
+        "sub": "Four situations accounting offices and wholesalers describe most often.",
+        "items": [
+          {
+            "title": "Someone retypes invoices by hand",
+            "body": "It looks the same in an accounting office and in a warehouse: someone opens a PDF and retypes the tax ID, the amounts and the line items into Comarch Optima or Subiekt. The market benchmark for manual processing is around 10.9 USD per invoice against 2.8 USD with automated capture. At 500 documents a month that gap shows up in people's calendars, not just in a cost sheet."
+          },
+          {
+            "title": "Orders arrive in ten different formats",
+            "body": "One customer sends a PDF, the next a photo of a delivery note, the third an Excel sheet, the fourth types the line items into the body of the email. A salesperson rekeys all of it and gets product codes and quantities wrong. The format changes the day a supplier upgrades their system."
+          },
+          {
+            "title": "KSeF did not cover everything",
+            "body": "KSeF is already mandatory: since February 2026 for the largest taxpayers and since April 2026 for the remaining VAT payers. Invoices from foreign suppliers, receipts, warehouse documents and orders never enter it and arrive exactly as before. Half the document flow stays outside the register."
+          },
+          {
+            "title": "Errors surface at month-end close",
+            "body": "A duplicated invoice, a bank account outside the VAT register, a price that is not the contracted one: all of it turns up on the last day. The clean-up runs over email because nothing shows which document is stuck and why. There is no record of who approved what either."
+          }
+        ]
+      },
+      "deliverables": {
+        "eyebrow": "What you get",
+        "headline": "Six parts of a working pipeline",
+        "sub": "Not a deck and not a prototype. Things that stay with you after handover.",
+        "items": [
+          {
+            "title": "Document intake",
+            "body": "A mailbox in Google Workspace or Microsoft 365, a scanner folder, a network drive and the KSeF API. Attachments, email bodies and spreadsheets travel the same route. Every document gets an id and an archived copy before anything else happens to it."
+          },
+          {
+            "title": "Field extraction, not full text",
+            "body": "From an invoice I pull the seller, the tax ID, the number, the dates, net, VAT, gross, the bank account and the line items. From an order: the customer, product codes, quantities and prices. The OCR model is picked per document type, because a faxed scan and a system-generated PDF are two different jobs."
+          },
+          {
+            "title": "Validation rules",
+            "body": "Duplicate, missing tax ID, bank account outside the Polish VAT register (biała lista), price off the agreed list, quantity above what was ordered. Each rule has a name, so you can see which one stopped a document. Rules are described in plain language in the docs, so an accountant can read them without a developer."
+          },
+          {
+            "title": "Human approval gate",
+            "body": "Anything above the agreed limit, every new supplier and every document with a warning waits for a person. You approve in the panel or in Slack, in one click, with the original next to the extracted fields. Nothing moves on without that approval."
+          },
+          {
+            "title": "Write-back into your system",
+            "body": "Comarch Optima and ERP XL, Subiekt GT and nexo, enova365, wFirma, ifirma, BaseLinker. Through the API where your licence allows it, through an import file where it does not. Sales invoices can go on to KSeF through its API."
+          },
+          {
+            "title": "Error queue and handover",
+            "body": "A screen listing the documents that failed, with the reason and a retry button. Plus the repository, a flow diagram, a runbook and the list of credentials. You do not need my phone number for this to keep running next year."
+          }
+        ]
+      },
+      "process": {
+        "eyebrow": "How it runs",
+        "headline": "Three weeks from samples to production",
+        "sub": "Every stage ends with something you can check on your own documents.",
+        "steps": [
+          {
+            "when": "Week 0",
+            "title": "Samples and quote",
+            "body": "You give me 40-60 real documents from the last month and access to a test database. I check what can be read automatically and what will always stay manual. The output is a fixed scope and a fixed price, before any contract."
+          },
+          {
+            "when": "Week 1",
+            "title": "Extraction and validation",
+            "body": "I build the intake: a mailbox in Google Workspace or Microsoft 365, the scanner folder, the KSeF API. Documents are split into fields, the tax ID and bank account are checked, and everything is matched against your customer records. I show accuracy on your files, not on a demo."
+          },
+          {
+            "when": "Week 2",
+            "title": "Write-back and approval",
+            "body": "I wire the write-back into Optima, Subiekt, enova365 or wFirma, through the API or an import file depending on what your licence allows. A gate sits above it: amounts over the limit and new suppliers wait for a human click."
+          },
+          {
+            "when": "Week 3",
+            "title": "Production and handover",
+            "body": "The pipeline runs alongside the manual process for a few days and we compare results on the same documents. Then we switch over and you get the repository, the diagram, the runbook and every credential. From that day you can run it yourself or with me."
+          }
+        ]
+      },
+      "pricing": {
+        "eyebrow": "Packages and pricing",
+        "caption": "Fixed net prices, agreed after I look at your real documents; in Poland I invoice in złoty (12,000 zł, 24,000 zł and 890 zł a month). The only separate cost is OCR and model usage on your own account.",
+        "bookCta": "Free scoping call",
+        "tiers": [
+          {
+            "title": "One document flow",
+            "from": "from",
+            "price": "€2,800",
+            "body": "One stream of documents from intake to a posted record in your accounting system. Usually purchase invoices or orders from the inbox.",
+            "features": [
+              "Intake: mailbox, scanner folder or KSeF API",
+              "Parsing of PDFs, scans and Excel sheets",
+              "Checks: tax ID, VAT register, duplicates",
+              "Approval gate with an amount limit",
+              "Write-back to Optima, Subiekt, enova365 or wFirma",
+              "Repository, runbook and handover"
+            ],
+            "examples": "Accounting office: 300-800 purchase invoices a month."
+          },
+          {
+            "title": "Several flows and ERP",
+            "from": "from",
+            "price": "€5,600",
+            "body": "Two to four streams plus write-back into the ERP: the document, the customer record, the warehouse document and the order.",
+            "features": [
+              "Everything in One document flow",
+              "2-4 document streams",
+              "Write-back to Comarch ERP XL, Subiekt nexo, enova365",
+              "Order to delivery to invoice matching",
+              "Error queue with retry and history",
+              "Sending sales invoices to KSeF via API"
+            ],
+            "examples": "Wholesaler: email orders, purchase invoices and BaseLinker.",
+            "featured": true
+          },
+          {
+            "title": "Care after launch",
+            "from": "from",
+            "price": "€210/mo",
+            "body": "Keeping a live pipeline healthy: monitoring, rule fixes and reacting to changes on the vendors' side.",
+            "features": [
+              "Error queue monitoring and alerts",
+              "Parser fixes for new document layouts",
+              "Updates after KSeF and ERP API changes",
+              "Up to 3 hours of changes a month",
+              "Reply within one business day",
+              "Monthly agreement, no notice period"
+            ],
+            "examples": "Polish integrators publish roughly €500-9,000 a month to maintain builds like this, depending on scope."
+          }
+        ]
+      },
+      "notFor": {
+        "title": "When not to buy this",
+        "sub": "I would rather say it before the contract than three weeks in.",
+        "items": [
+          "You handle fewer than 100 documents a month. The OCR built into wFirma or ifirma is enough and costs a fraction of this.",
+          "Your system has no API and no import format, and the vendor has no plans to open one. Clicking around someone else's interface is not something I sell as a stable solution.",
+          "You want someone to take responsibility for the books. I deliver the pipeline and the checks; accounting decisions stay on your side.",
+          "You need a 24/7 response contract. I work alone, so the honest commitment is one business day."
+        ],
+        "instead": "If what you actually need is a store wired to stock and an ERP, that is a separate service:"
+      },
+      "faq": {
+        "title": "Questions before we start",
+        "items": [
+          {
+            "q": "How much does document automation cost?",
+            "a": "One document flow costs €2,800, several flows with ERP write-back cost €5,600, and care after launch is €210 a month. The price is fixed and quoted after I look at your real documents, before any contract. Polish integrators publish bands of roughly €19,000-58,000 for a pipeline that writes into an ERP, because they scope the whole company; I do one process end to end."
+          },
+          {
+            "q": "Will this work with Comarch Optima, Subiekt or enova365?",
+            "a": "Yes, if your licence gives you an API or an import format. Comarch Optima and ERP XL, Subiekt GT and nexo, enova365, wFirma, ifirma and BaseLinker all have documented interfaces and I work with each of them. Before quoting I check on your own installation whether the write-back goes through the API or through an import file, because that changes the scope."
+          },
+          {
+            "q": "KSeF is already mandatory, so why do I still need PDF and scan parsing?",
+            "a": "Because part of your cost documents will never pass through KSeF. Invoices from foreign suppliers, receipts, warehouse documents, contracts and orders still arrive by email as PDFs, scans or spreadsheets. KSeF tidies up domestic invoices; the rest of the flow stays on your desk, and that is the part I automate."
+          },
+          {
+            "q": "Who is responsible if the system reads an amount wrong?",
+            "a": "A person is, because nothing reaches the books without approval. Every document passes named rules: tax ID, VAT register, duplicate, match against the order. Anything above the agreed limit or from a new supplier waits for approval, and documents the pipeline does not understand land in the error queue with a reason attached. Every action is logged: who, when, and against which version of the file."
+          },
+          {
+            "q": "How long does the build take?",
+            "a": "Three weeks from handing over sample documents to the first day in production. One week goes to extraction and validation, one to write-back and the approval gate, one to running in parallel with the manual process. With several flows and ERP write-back it is usually five to six weeks."
+          },
+          {
+            "q": "What does it cost to run?",
+            "a": "€210 a month for care, plus your own bill for OCR and the model. Vendor pricing is public: Google Document AI charges 1.50 USD per 1,000 pages of basic OCR, Azure Document Intelligence charges 10 USD per 1,000 pages on its prebuilt invoice model and 30 USD on a custom one. At 500 documents a month that is single-digit euros, not hundreds."
+          },
+          {
+            "q": "What happens if we stop working together?",
+            "a": "You are left with a working system and full documentation. The code sits in your repository, the pipeline runs on your infrastructure in the EU or in your own cloud account, and the keys and credentials are yours. The handover includes the flow diagram, the validation rules written out, and a runbook: what to do when a supplier changes a file format or an API stops responding."
+          }
+        ]
+      },
+      "resources": {
+        "eyebrow": "Reading",
+        "headline": "Before you order a pipeline",
+        "items": [
+          {
+            "title": "Order and Invoicing Automation: The Full Flow 2026",
+            "href": "/en/blog/order-and-invoicing-automation"
+          },
+          {
+            "title": "How Much Does n8n / Make Automation Cost?",
+            "href": "/en/blog/how-much-does-automation-cost-n8n"
+          },
+          {
+            "title": "KSeF 2026 and Your Online Store: How to Integrate",
+            "href": "/en/blog/ksef-2026-online-store-integration"
+          },
+          {
+            "title": "Make vs n8n vs Zapier: Which to Choose",
+            "href": "/en/blog/make-vs-n8n-vs-zapier"
+          }
+        ]
+      },
+      "schema": {
+        "serviceType": "Document and invoice automation",
+        "price": "2800",
+        "currency": "EUR"
+      }
+    },
+    "aiAct": {
+      "meta": {
+        "title": "AI Act Compliance for Chatbots - from €800",
+        "description": "Your bot is live and never says it is AI. I ship the disclosure, consent logs, human handover and the AI system register in five working days. From €800."
+      },
+      "eyebrow": "AI Act · retrofit",
+      "headline": "Your bot must disclose itself.\nI ship that in five days.",
+      "lead": "Your chatbot or voicebot is already running, and since 2 August 2026 it has to tell people they are talking to a machine. In five working days I change the widget, the logging and the route to a human, and hand you the AI system register plus the paperwork an inspector asks for.",
+      "from": "from €800 (3,500 PLN net)",
+      "primaryCta": "Book a call",
+      "windowLabel": "ai-act-audit.pdf",
+      "badge": "7 gaps found",
+      "metrics": [
+        {
+          "v": "5 days",
+          "l": "kickoff to live"
+        },
+        {
+          "v": "2 Dec 2026",
+          "l": "AI content marking deadline"
+        },
+        {
+          "v": "12",
+          "l": "checkpoints"
+        }
+      ],
+      "glance": {
+        "title": "AI Act compliance report",
+        "caption": "sample",
+        "rows": [
+          {
+            "label": "AI disclosure on first message",
+            "detail": "chat widget, above the input field",
+            "value": "Missing",
+            "state": "bad"
+          },
+          {
+            "label": "Handover to a human",
+            "detail": "button works, no opening hours set",
+            "value": "Partial",
+            "state": "warn"
+          },
+          {
+            "label": "Consent and transcript logs",
+            "detail": "90-day retention, server in Frankfurt",
+            "value": "OK",
+            "state": "ok"
+          },
+          {
+            "label": "AI system register",
+            "detail": "chat, voicebot, product description generator",
+            "value": "Missing",
+            "state": "bad"
+          },
+          {
+            "label": "Article 4 staff briefing",
+            "detail": "14 people across support and marketing",
+            "value": "Missing",
+            "state": "bad"
+          }
+        ],
+        "totalLabel": "Some overdue since 2 August 2026",
+        "totalValue": "7 of 12",
+        "note": "The report covers the technical state and the paperwork; the reading of the law is signed off by your lawyer."
+      },
+      "pain": {
+        "eyebrow": "Where you stand",
+        "headline": "The legal memo sits in your inbox, the bot still says nothing",
+        "sub": "Law firms wrote the requirement down. Nobody touched the widget or the code afterwards.",
+        "items": [
+          {
+            "title": "The bot never says it is a bot",
+            "body": "Article 50 of the AI Act applies from 2 August 2026 and requires that a person is told at the first interaction they are dealing with a machine, clearly and in an accessible way. A line in your terms of service or in the footer does not cover it. The notice belongs where the conversation starts."
+          },
+          {
+            "title": "You have a memo, not a product change",
+            "body": "Law firms describe the duty and state outright that technical implementation is out of scope. So nobody rewrites the greeting, nobody configures consent logging, nobody documents the escalation path. The document goes into a folder and the system stays exactly as it was."
+          },
+          {
+            "title": "Nothing to show during an inspection",
+            "body": "In Poland the KRiBSI commission gets inspection powers on 28 October 2026 and will ask which AI systems run in the company and who owns each one. Without a register and without logs the answer is that you do not know. The regulation's upper penalty bands are up to €35M or 7% of turnover for prohibited practices and up to €15M or 3% for other breaches."
+          },
+          {
+            "title": "No documented training for the team",
+            "body": "Article 4 on AI literacy has applied since 2 February 2025 to every company deploying AI, including a firm that only uses ChatGPT in customer service. A one-off message in your work chat is not a programme. You need role-adapted material and proof that the session happened."
+          }
+        ]
+      },
+      "deliverables": {
+        "eyebrow": "Scope",
+        "headline": "Six things I change in your system",
+        "sub": "Each one is visible either in the product itself or in a document you can hand over.",
+        "items": [
+          {
+            "title": "Disclosure at first contact",
+            "body": "The AI notice goes into the opening of the conversation: in the chat widget above the input field, in the voicebot as the first sentence before any question. It stays visible after a page reload and when someone returns to the thread. You get the wording in four languages."
+          },
+          {
+            "title": "The route to a human",
+            "body": "I build an explicit way out of the bot: a button in the widget, trigger phrases that force escalation, and a handover that carries the transcript into your inbox or agent chat. Outside working hours the bot collects a contact and states a real response time."
+          },
+          {
+            "title": "Consent and transcript logging",
+            "body": "I set what gets stored: the consent text, the timestamp, the version of the disclosure shown, the session id. Retention period and storage location are written down, and the export for an inspection is set up in advance rather than assembled by hand."
+          },
+          {
+            "title": "AI system register",
+            "body": "I list every AI system actually running: vendor, model, purpose, input data, the owner on your side, the legal basis. You get the register as a sheet your own team can keep current without me."
+          },
+          {
+            "title": "Marking AI-generated content",
+            "body": "Product descriptions, blog posts and generated images get a visible label and metadata in the file. This is the specific duty that carries a 2 December 2026 deadline for systems placed on the market before 2 August 2026."
+          },
+          {
+            "title": "Article 4 documentation",
+            "body": "Briefing material adapted per role: support, marketing, sales. A 60-90 minute online session, an attendance list, and a one-page internal policy on using AI. This is the piece of evidence that is missing most often."
+          }
+        ]
+      },
+      "process": {
+        "eyebrow": "How it runs",
+        "headline": "Five working days, no rewrite of the bot",
+        "sub": "I need access to the bot panel and the site. Everything after that is on me.",
+        "steps": [
+          {
+            "when": "Day 1",
+            "title": "Inventory",
+            "body": "I list what is genuinely running: the widget on the site, the voicebot on the phone line, the description generator, the plugins in the shop. I collect access and pin down who owns each system on your side."
+          },
+          {
+            "when": "Day 2",
+            "title": "Audit, 12 checkpoints",
+            "body": "I work through the checklist: disclosure, placement, escalation, consent, retention, content marking, register, staff briefing. You get a report with a verdict on every checkpoint and a list of the gaps."
+          },
+          {
+            "when": "Day 3-4",
+            "title": "Implementation",
+            "body": "I change the widget, the system prompt, the logging configuration and the escalation branch. Everything lands on staging first and moves to production once you sign it off."
+          },
+          {
+            "when": "Day 5",
+            "title": "Documents",
+            "body": "AI system register, retention policy, briefing material and a one-page summary for your lawyer. The files stay with you in an editable format."
+          },
+          {
+            "when": "After go-live",
+            "title": "Session and re-check",
+            "body": "I run the session for your team and leave the attendance list behind. Before 2 December 2026 I do one free re-check to see whether anything drifted after your own edits to the bot."
+          }
+        ]
+      },
+      "pricing": {
+        "eyebrow": "Packages",
+        "caption": "Prices are net and payable once you accept the report. This is engineering and documentation, not legal advice: your lawyer signs off the reading of the law, I own what actually changes in the system.",
+        "bookCta": "Free 30-min call",
+        "tiers": [
+          {
+            "title": "One bot",
+            "from": "from",
+            "price": "€800",
+            "body": "One chatbot or voicebot, one language, one channel. Audit and implementation fit into the same week.",
+            "features": [
+              "Audit against 12 checkpoints",
+              "AI disclosure in the widget and the greeting",
+              "A handover path that actually works",
+              "Consent and transcript logs with retention",
+              "Report with verdicts and the list of gaps",
+              "One round of fixes after handover"
+            ],
+            "examples": "A Shopify shop running a Tidio widget, a clinic with a voicebot on the phone line.",
+            "featured": false
+          },
+          {
+            "title": "Audit, register and briefing",
+            "from": "from",
+            "price": "€1,400",
+            "body": "The full set for a company with one bot and a couple of other AI tools inside. It closes the product and the paperwork in one pass.",
+            "features": [
+              "Everything in the One bot package",
+              "AI system register in an editable sheet",
+              "Marking of AI-generated content",
+              "Retention policy and where the data sits",
+              "Article 4 online session, 60-90 minutes",
+              "One-page summary written for a lawyer"
+            ],
+            "examples": "A company with a site chat, a description generator and ChatGPT in support.",
+            "featured": true
+          },
+          {
+            "title": "Several bots or brands",
+            "from": "from",
+            "price": "€2,300",
+            "body": "Up to four bots, brands or language versions, with a separate register per legal entity.",
+            "features": [
+              "Up to 4 bots, brands or language versions",
+              "A register per company",
+              "Escalation configured channel by channel",
+              "Sessions for two teams",
+              "Control re-check before 2 December 2026",
+              "Chat access to me for 30 days"
+            ],
+            "examples": "A salon chain running a bot on the website, WhatsApp and Messenger.",
+            "featured": false
+          }
+        ]
+      },
+      "notFor": {
+        "title": "When not to hire me",
+        "sub": "Four situations where this engagement gives you nothing.",
+        "items": [
+          "You need a legal opinion or a document to sign. I am not a lawyer and I do not interpret the regulation.",
+          "Your system is high-risk: candidate scoring, credit scoring, biometrics. Different scope and a different deadline, 2 December 2027.",
+          "You want a certificate or an 'AI Act compliant' badge. Nobody issues one, and faking it makes your position worse.",
+          "You have no bot yet. Then this is not a retrofit, it is a build."
+        ],
+        "instead": "If the chatbot is still only a plan, the right place to start is the page on"
+      },
+      "faq": {
+        "title": "Questions about the AI Act",
+        "items": [
+          {
+            "q": "Does my chatbot have to say it is a bot?",
+            "a": "Yes. Since 2 August 2026, Article 50 of the AI Act requires that a person interacting with an AI system is told so at the first interaction, clearly and in an accessible way. The duty sits with you as the deployer, not with the vendor of the widget. Placement matters as much as wording: the notice has to be where the conversation begins."
+          },
+          {
+            "q": "By when does this have to be done?",
+            "a": "The disclosure duty already applies, from 2 August 2026. Systems placed on the market before that date have until 2 December 2026 to bring the marking of AI-generated content into line. In Poland there is a third date: 28 October 2026, when the KRiBSI commission gains the power to inspect, run proceedings and impose fines."
+          },
+          {
+            "q": "What are the penalties?",
+            "a": "Up to €35M or 7% of worldwide turnover for prohibited practices, and up to €15M or 3% for other breaches, transparency duties included. The higher of the two figures applies. For a small company the practical risk is rarely the ceiling, it is the proceeding itself and the time it eats."
+          },
+          {
+            "q": "Who enforces this in Poland?",
+            "a": "Komisja Rozwoju i Bezpieczeństwa Sztucznej Inteligencji, KRiBSI for short, created by the Polish act on artificial intelligence systems. The substantive part of that act entered into force on 11 August 2026, and the commission's powers to inspect, run proceedings and impose fines start on 28 October 2026. The chair is appointed in October and the commission is operational from November 2026."
+          },
+          {
+            "q": "I use an off-the-shelf SaaS chatbot. Is that not the vendor's problem?",
+            "a": "No, the transparency duty falls on you as the deployer. In practice the Tidio, Intercom or Voiceflow panel gives enough control: I change the greeting, the widget copy, the escalation and the retention without touching vendor code. The whole job takes five working days and does not require rewriting the bot."
+          },
+          {
+            "q": "Do I really have to train staff and document it?",
+            "a": "Yes. Article 4 of the AI Act on AI literacy has applied since 2 February 2025 to every organisation using AI, regardless of size or risk class. A single email or a generic handout is not enough: you need a role-adapted programme with material and evidence that the session took place. A breach falls into the band of up to €15M or 3% of turnover."
+          },
+          {
+            "q": "Is this legal advice?",
+            "a": "No. It is engineering and documentation: I change the product, configure the logs, compile the register and prepare the material for your team. The reading of the law and the final risk assessment are signed off by a lawyer, yours or one I can point you to. The one-page summary is written so a lawyer can review it in fifteen minutes."
+          }
+        ]
+      },
+      "resources": {
+        "eyebrow": "Read first",
+        "headline": "Background, before you get in touch",
+        "items": [
+          {
+            "title": "EU AI Act from 2 August 2026: what your chatbot must do",
+            "href": "/en/blog/eu-ai-act-chatbot-requirements-2026"
+          },
+          {
+            "title": "When a bot must hand over to a human",
+            "href": "/en/blog/chatbot-handover-to-human-escalation"
+          },
+          {
+            "title": "Where an AI chatbot stores customer data: a GDPR breakdown",
+            "href": "/en/blog/where-ai-chatbot-stores-customer-data-gdpr"
+          },
+          {
+            "title": "Cookie banners and Consent Mode v2 in Poland",
+            "href": "/en/blog/cookie-banner-consent-mode-v2-poland"
+          }
+        ]
+      },
+      "schema": {
+        "serviceType": "AI Act compliance retrofit for chatbots and voicebots",
+        "price": "800",
+        "currency": "EUR"
+      }
+    },
+    "aiVisibility": {
+      "meta": {
+        "title": "AI Visibility Audit: from €900, 10 working days",
+        "description": "I check whether ChatGPT, Perplexity, Google AI Overviews and Copilot name your company, who they recommend instead, and what you can change."
+      },
+      "eyebrow": "AI visibility · audit",
+      "headline": "What ChatGPT says about your company\nand who it recommends instead.",
+      "lead": "I run a fixed set of 40 buying questions through ChatGPT, Perplexity, Google AI Overviews and Copilot, keep the raw answers, and name every company the models put in front of you. You get a report and a prioritised fix list, not a ranking promise.",
+      "from": "From €900 (3 900 zł net)",
+      "primaryCta": "Book the audit",
+      "windowLabel": "ai-visibility-audit.pdf",
+      "badge": "Run complete",
+      "metrics": [
+        {
+          "v": "4",
+          "l": "engines in one run"
+        },
+        {
+          "v": "40",
+          "l": "questions with raw answers"
+        },
+        {
+          "v": "10",
+          "l": "working days to the report"
+        }
+      ],
+      "glance": {
+        "title": "AI visibility report",
+        "caption": "sample · August 2026",
+        "rows": [
+          {
+            "label": "ChatGPT, search enabled",
+            "detail": "10 questions, each run 3 times",
+            "value": "1/10",
+            "state": "bad"
+          },
+          {
+            "label": "Perplexity",
+            "detail": "cites two industry directories, your listing is in neither",
+            "value": "2/10",
+            "state": "warn"
+          },
+          {
+            "label": "Google AI Overviews",
+            "detail": "an answer appeared on 7 of the 10 questions",
+            "value": "0/10",
+            "state": "bad"
+          },
+          {
+            "label": "Microsoft Copilot",
+            "detail": "sources: LinkedIn and one roundup from 2024",
+            "value": "0/10",
+            "state": "bad"
+          },
+          {
+            "label": "Named instead of you",
+            "detail": "6 companies by name, 4 of them from the same roundups",
+            "value": "6 firms",
+            "state": "warn"
+          }
+        ],
+        "totalLabel": "Brand mentions across 40 answers",
+        "totalValue": "3/40",
+        "note": "A sample run, not a client. Your numbers will differ, and the measurement changes nothing on its own: the fix list under it does."
+      },
+      "pain": {
+        "eyebrow": "Where you start",
+        "headline": "You do not know whether you exist in AI answers",
+        "sub": "Four things I see in almost every business before anything is measured.",
+        "items": [
+          {
+            "title": "Traffic falls, rankings hold",
+            "body": "Where an AI Overview appears, click-through drops by roughly 34.5% (Ahrefs, 300,000 keywords), and overviews now show on around 92% of informational queries. Position three stays position three, it just stops earning clicks. Analytics shows the dip without the reason."
+          },
+          {
+            "title": "One prompt is not a measurement",
+            "body": "You type your category into ChatGPT once, see a competitor, and draw a conclusion. The same prompt an hour later returns a different list. Without repeats and saved answers you have an impression, not a baseline you can compare against next quarter."
+          },
+          {
+            "title": "Half your site is blank to AI crawlers",
+            "body": "No AI crawler executes JavaScript. GPTBot, OAI-SearchBot, ClaudeBot and PerplexityBot fetch the HTML and stop there, as of June 2026. Prices behind a tab, FAQs in an accordion and reviews loaded after hydration simply do not exist for them."
+          },
+          {
+            "title": "All the effort goes into your own blog",
+            "body": "In a study of 278 B2B SaaS buying prompts (July 2026), 66% of the times ChatGPT recommended a brand it cited that brand's own website nowhere in the answer. The recommendation came out of other people's roundups, mentions and threads. On-site work alone cannot buy it."
+          }
+        ]
+      },
+      "deliverables": {
+        "eyebrow": "What you get",
+        "headline": "A report that splits straight into tasks",
+        "sub": "One file plus an appendix with the raw answers from all four engines.",
+        "items": [
+          {
+            "title": "A fixed set of 40 questions",
+            "body": "We build 40 prompts your buyer actually types: the category, the city, alternatives to a named competitor, \"who can build me X\". The set is frozen so the next run is comparable to this one."
+          },
+          {
+            "title": "Raw answers in the appendix",
+            "body": "Every answer from all four engines is saved with its date and the model version used. You do not have to take my word for anything, you can read what the model wrote."
+          },
+          {
+            "title": "The named list of who wins instead",
+            "body": "I list every company that surfaces in answers to your questions and show what put it there: a roundup, a directory, a forum thread, a trade-press mention."
+          },
+          {
+            "title": "A server-side rendering verdict",
+            "body": "I check what survives of your pages in plain HTML with JavaScript off, and how bots are treated in robots.txt and at the firewall. Prices, FAQs and reviews that are invisible get listed separately, URL by URL."
+          },
+          {
+            "title": "The off-site gap list",
+            "body": "Best-of roundups, directories (Clutch, GoodFirms, DesignRush, vertical listings), review platforms, Reddit threads, and whether your company name, description and registration details match across every profile."
+          },
+          {
+            "title": "A prioritised fix list",
+            "body": "Each item carries an effort estimate, who should do it, and whether it sits on your site or off it. A separate block lists what I recommend against, with the reason."
+          }
+        ]
+      },
+      "process": {
+        "eyebrow": "How it runs",
+        "headline": "Ten working days, four stages",
+        "sub": "Start on a Monday, report and call two weeks later.",
+        "steps": [
+          {
+            "when": "Day 1-2",
+            "title": "The prompt set",
+            "body": "You send 10-15 phrases buyers use to find you and a list of competitors. I turn that into 40 questions and send them for sign-off. Nothing runs before you approve the set."
+          },
+          {
+            "when": "Day 3-5",
+            "title": "The run across four engines",
+            "body": "Every question goes three times into ChatGPT, Perplexity, Google AI Overviews and Copilot, from a clean session each time. Answers are stored in full, together with the sources each engine listed."
+          },
+          {
+            "when": "Day 6-7",
+            "title": "The technical pass",
+            "body": "I check what is left of your pages without JavaScript, how bot access looks in robots.txt and at the firewall, and whether your company details agree across the site, your profiles and the directories."
+          },
+          {
+            "when": "Day 8-9",
+            "title": "The off-site pass",
+            "body": "I find the roundups, directories and threads where competitors are named and you are not. For each one I write down who decides on inclusion and what they ask for."
+          },
+          {
+            "when": "Day 10",
+            "title": "Report and call",
+            "body": "You get the file, the appendix of raw answers and 60 minutes on a call. You leave with a task list you can hand to anyone, not only to me."
+          }
+        ]
+      },
+      "pricing": {
+        "eyebrow": "Packages",
+        "caption": "I do not sell positions or guaranteed citations, because nobody controls them. I sell the measurement and the fix list.",
+        "bookCta": "Book the audit",
+        "tiers": [
+          {
+            "title": "Audit",
+            "from": "from",
+            "price": "€900",
+            "body": "One measurement and the report. You or your team apply the fixes.",
+            "features": [
+              "40 questions, 4 engines, 3 runs each",
+              "Raw answers in the appendix",
+              "The named list of who wins instead",
+              "Rendering and bot-access verdict",
+              "The off-site gap list",
+              "60 minutes on a call afterwards"
+            ],
+            "examples": "Typical fit: a B2B service company, one site, one market.",
+            "featured": false
+          },
+          {
+            "title": "Audit with the fixes applied",
+            "from": "from",
+            "price": "€1,600",
+            "body": "Everything above, and I do the technical work on your site myself.",
+            "features": [
+              "Everything in the Audit package",
+              "Prices and FAQs moved into server-rendered HTML",
+              "robots.txt and bot access cleaned up",
+              "Structured data for ranked list pages",
+              "One company name and details across all profiles",
+              "A second measurement after the work lands"
+            ],
+            "examples": "Next.js, WordPress, Shopify. A bespoke CMS is quoted separately.",
+            "featured": true
+          },
+          {
+            "title": "Monthly re-run",
+            "from": "from",
+            "price": "€350/mo",
+            "body": "The same question set every month and a report against the last one.",
+            "features": [
+              "The same frozen set of 40 questions",
+              "Month-on-month difference report",
+              "New companies that entered the answers",
+              "Shifts in the sources each engine cites",
+              "A short task list for the coming month",
+              "Monthly terms, cancel whenever you want"
+            ],
+            "examples": "Worth doing after an audit, not instead of one.",
+            "featured": false
+          }
+        ]
+      },
+      "notFor": {
+        "title": "When this is the wrong purchase",
+        "sub": "Four cases where I talk you out of it instead of selling.",
+        "items": [
+          "You want a guarantee that ChatGPT will recommend you. Nobody sells that honestly, and neither do I.",
+          "You need a result this month. Most of the work sits off your own site and runs on other people's editorial schedules.",
+          "You want llms.txt written and ticked off. I will not sell it: Ahrefs checked 137,000 sites and 97% of llms.txt files got zero traffic in May 2026.",
+          "You have no service page with a price and a scope on it. There is nothing to measure yet, the site comes first."
+        ],
+        "instead": "If the real problem is the site itself rather than your visibility in AI answers, start here:"
+      },
+      "faq": {
+        "title": "Questions about AI visibility",
+        "items": [
+          {
+            "q": "Can you guarantee ChatGPT will start recommending my company?",
+            "a": "No, and nobody can. Models assemble answers from sources neither you nor I control, and the answer shifts between runs and between model versions. What I sell is the measurement, the named list of who gets recommended instead, and an ordered fix list. The effect is checked by re-running the same question set later."
+          },
+          {
+            "q": "Why do you run the same prompt several times?",
+            "a": "Because a single answer means nothing. The same prompt asked three times can return three different lists of companies, so what counts is how often you appear across repeats, not whether you appeared once. That is why the report gives you a fraction like 3/40 rather than the word \"visible\"."
+          },
+          {
+            "q": "Why is most of the fix list about websites I do not own?",
+            "a": "Because that is where recommendations are made. In a study of 278 B2B SaaS buying prompts (July 2026), 66% of ChatGPT's brand recommendations carried no citation of the brand's own site, and the strongest correlate of being recommended was appearing in third-party roundups, followed by branded web mentions and a Reddit presence. On-site work removes technical blockers, but it does not buy the recommendation."
+          },
+          {
+            "q": "Do I need an llms.txt file?",
+            "a": "No. Ahrefs looked at 137,000 sites and found that 97% of llms.txt files received zero traffic in May 2026, and Google has said plainly that it does not support the format and has no plans to. No major model provider has committed to it either. If you already have the file, leave it, but it does not count as visibility work."
+          },
+          {
+            "q": "Our site is React and everything loads after the page does. Does that matter?",
+            "a": "Yes, and the problem is a specific one. AI crawlers fetch the HTML and do not execute JavaScript, so prices, FAQs and reviews painted in the browser do not exist for them. The audit gives you the list of URLs and blocks missing from the page source, and in the package with fixes I move them to server rendering."
+          },
+          {
+            "q": "What does it cost and how do the packages differ?",
+            "a": "The audit is €900 one-off, the audit with the technical fixes applied is €1,600, and the monthly re-run is €350 per month. The difference is simple: the first gives you the report and you decide what to do with it, the second means I do the on-site work, the third tracks whether the picture moves. The number is fixed before we start."
+          },
+          {
+            "q": "When will I see a change in the answers?",
+            "a": "The honest answer is that nobody knows in advance, which is exactly why we re-measure. Technical fixes take effect from the crawler's next pass, tidy company data tends to show up in brand recognition after a month or two, and getting into other people's roundups depends on their editors rather than on us. So I re-run the same questions and show the difference instead of quoting a date."
+          }
+        ]
+      },
+      "resources": {
+        "eyebrow": "Read first",
+        "headline": "How this works, without the promises",
+        "items": [
+          {
+            "title": "What ChatGPT says about your company and how to change it",
+            "href": "/en/blog/what-chatgpt-says-about-your-company"
+          },
+          {
+            "title": "How to get cited by ChatGPT, Gemini and Google AI Overviews",
+            "href": "/en/blog/how-to-get-cited-by-chatgpt-and-ai-overviews"
+          },
+          {
+            "title": "llms.txt and AI crawlers: let GPTBot in or block it",
+            "href": "/en/blog/llms-txt-and-ai-crawlers-gptbot"
+          },
+          {
+            "title": "Google traffic dropped but rankings held: what is happening",
+            "href": "/en/blog/organic-traffic-dropped-ai-overviews"
+          }
+        ]
+      },
+      "schema": {
+        "serviceType": "AI search visibility audit",
+        "price": "900",
+        "currency": "EUR"
+      }
     }
   }
 }

@@ -10,6 +10,7 @@ import { SectionAtmosphere } from "../SectionAtmosphere";
 import { FAQAccordion, type QA } from "../FAQAccordion";
 import { FinalCta } from "../FinalCta";
 import { Link } from "@/i18n/navigation";
+import { OFFER_KEYS, OFFER_PATH } from "@/lib/offers";
 
 /* ════════════════════════════════════════════════════════════════════════════
    PricingPage — one page for the whole "cennik / ile kosztuje" cluster, which
@@ -23,6 +24,7 @@ type Format = { title: string; price: string; time: string; desc: string };
 type Shape = {
   services: Record<string, { formats?: { items: Format[] }; eyebrow: string }>;
   home: { pricing: { tiers: Record<string, { title: string; price: string; body: string; examples?: string }> } };
+  offers: Record<string, { pricing: { tiers: { title: string; price: string; body: string }[] } }>;
 };
 
 // Which service page each summary row points at, and which message branch holds
@@ -147,6 +149,57 @@ export function PricingPage() {
           </Reveal>
           <Reveal delay={100}>
             <p className="mt-5 text-[14px] leading-[1.55] text-[color:var(--color-text-3)]">{tp("caption")}</p>
+          </Reveal>
+
+          {/* Fixed-price offers sit in their own table: they are bought as-is,
+              not scoped, so mixing them into the "from" column above would
+              misread as another open-ended starting price. */}
+          <Reveal delay={140}>
+            <h2 className="t-h3 mb-6 mt-14">{t("offersTable.title")}</h2>
+            <div className="overflow-x-auto rounded-2xl border border-[color:var(--c-hairline)] bg-[color:var(--color-bg-elev)]">
+              <table className="w-full min-w-[540px] border-collapse text-left">
+                <thead>
+                  <tr className="border-b border-[color:var(--c-hairline)]">
+                    <th className="px-5 py-3.5 text-[12px] font-medium uppercase tracking-[0.08em] text-[color:var(--color-text-3)]">
+                      {t("table.service")}
+                    </th>
+                    <th className="px-5 py-3.5 text-[12px] font-medium uppercase tracking-[0.08em] text-[color:var(--color-text-3)]">
+                      {t("table.from")}
+                    </th>
+                    <th className="px-5 py-3.5 text-[12px] font-medium uppercase tracking-[0.08em] text-[color:var(--color-text-3)]">
+                      {t("table.what")}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {OFFER_KEYS.map((key) => {
+                    const tier = messages.offers?.[key]?.pricing?.tiers?.[0];
+                    if (!tier) return null;
+                    return (
+                      <tr
+                        key={key}
+                        className="border-b border-[color:var(--c-hairline)] last:border-0 transition-colors hover:bg-[color:var(--color-bg-alt)]"
+                      >
+                        <td className="px-5 py-4 align-top">
+                          <Link
+                            href={OFFER_PATH[key]}
+                            className="text-[15.5px] font-medium tracking-[-0.011em] text-[color:var(--color-text)] underline decoration-[color:var(--c-hairline)] underline-offset-4 transition-colors hover:decoration-[color:var(--c-accent)]"
+                          >
+                            {tNav(`servicesMenu.${key}.title`)}
+                          </Link>
+                        </td>
+                        <td className="whitespace-nowrap px-5 py-4 align-top font-mono text-[15px] font-semibold tabular-nums text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)]">
+                          {tier.price}
+                        </td>
+                        <td className="px-5 py-4 align-top text-[14.5px] leading-[1.5] text-[color:var(--color-text-2)]">
+                          {tier.body}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
           </Reveal>
         </Container>
       </Section>

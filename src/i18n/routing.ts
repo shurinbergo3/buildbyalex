@@ -55,6 +55,32 @@ export const routing = defineRouting({
       pl: "/uslugi/reklama-google-ads",
       ua: "/poslugy/reklama",
     },
+    // Fixed-price offers (see lib/offers.ts). Same /services segment as the
+    // open-ended services so breadcrumbs and the menu stay one hierarchy.
+    "/services/ai-audit": {
+      ru: "/uslugi/audit-ai",
+      en: "/services/ai-audit",
+      pl: "/uslugi/audyt-ai",
+      ua: "/poslugy/audyt-ai",
+    },
+    "/services/document-automation": {
+      ru: "/uslugi/avtomatizaciya-dokumentov",
+      en: "/services/document-automation",
+      pl: "/uslugi/automatyzacja-dokumentow",
+      ua: "/poslugy/avtomatyzaciya-dokumentiv",
+    },
+    "/services/ai-act-compliance": {
+      ru: "/uslugi/sootvetstvie-ai-act",
+      en: "/services/ai-act-compliance",
+      pl: "/uslugi/zgodnosc-ai-act",
+      ua: "/poslugy/vidpovidnist-ai-act",
+    },
+    "/services/ai-visibility": {
+      ru: "/uslugi/vidimost-v-ai-poiske",
+      en: "/services/ai-visibility",
+      pl: "/uslugi/widocznosc-w-ai",
+      ua: "/poslugy/vydymist-v-ai-poshuku",
+    },
     "/pricing": {
       ru: "/ceny",
       en: "/pricing",

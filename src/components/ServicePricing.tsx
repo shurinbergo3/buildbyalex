@@ -67,7 +67,7 @@ export function ServicePricing({ eyebrow, tiers, bookCta, caption, featuredLabel
                     <span className={`text-[12px] tracking-[0.04em] uppercase ${featured ? "text-white/50" : "text-[color:var(--color-text-3)]"}`}>
                       {tier.from}
                     </span>
-                    <span className={`text-[clamp(36px,3.4vw,52px)] font-semibold tracking-[-0.03em] ${featured ? "text-white" : "text-[color:var(--color-text)]"}`}>
+                    <span className={`whitespace-nowrap text-[clamp(30px,2.9vw,44px)] font-semibold tracking-[-0.03em] ${featured ? "text-white" : "text-[color:var(--color-text)]"}`}>
                       {tier.price}
                     </span>
                   </div>
