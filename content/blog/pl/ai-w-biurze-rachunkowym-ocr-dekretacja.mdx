@@ -1,0 +1,138 @@
+---
+title: "AI w biurze rachunkowym: OCR faktur i wstępna dekretacja"
+description: "KSeF zabrał część dokumentów, reszta dalej idzie przez ręce. Trzy warstwy automatyzacji biura rachunkowego, widełki cenowe i rachunek na 500 dokumentach."
+date: "2026-09-02"
+cluster: "ai-accounting-office"
+keywords:
+  - "automatyzacja biura rachunkowego AI"
+  - "OCR faktur biuro rachunkowe"
+  - "automatyczna dekretacja faktur"
+  - "KSeF 2026 dokumenty spoza KSeF"
+  - "wdrożenie AI w księgowości cennik"
+ogImage: "/og/ai-accounting-office.webp"
+---
+
+Biuro rachunkowe rzadko przegrywa na wiedzy. Przegrywa na przepisywaniu. Faktura przychodzi mailem, ktoś ją otwiera, sprawdza, do którego klienta należy, przepisuje numer, datę i kwoty, wybiera konto, zapisuje, a na koniec miesiąca pisze do klienta, że brakuje trzech dokumentów. Przy pięćdziesięciu klientach to jest etat, którego nikt świadomie nie zaplanował.
+
+Poniżej to, co z tej pracy da się realnie oddać maszynie w 2026 roku, ile to kosztuje i gdzie trzeba się zatrzymać. Piszę jako programista, który takie rzeczy wdraża, nie jako księgowy ani doradca podatkowy: decyzje merytoryczne zostają po Twojej stronie.
+
+## Rynek jest na wcześniejszym etapie, niż myślisz
+
+GUS podaje, że w 2025 roku wykorzystanie technologii AI deklarowało 8,7% firm w Polsce, a 91,3% nie używało jej wcale. Rozwiązanie budowane na zamówienie przez zewnętrznego wykonawcę wskazało tylko 2,1% firm.
+
+Konkurencja w większości nadal przepisuje ręcznie, więc przewaga jest do wzięcia teraz. I nie ma sensu kupować "AI dla księgowości" jako abstrakcji: sensowna jest jedna, mierzalna ścieżka dokumentu, doprowadzona do końca.
+
+## Co zmienia KSeF, a czego nie zmienia
+
+KSeF przykrył jeden strumień: krajowe faktury między podatnikami VAT. Odbiór faktur zakupowych stał się obowiązkowy dla wszystkich podatników od 1 lutego 2026, obowiązek wystawiania rusza etapami od 1 kwietnia 2026. Te dokumenty pobierasz przez API w ustrukturyzowanej postaci i OCR jest tam niepotrzebny. Reszta kosztów klienta dalej przychodzi w formatach, które trzeba odczytać.
+
+| Strumień dokumentów | Czy jest w KSeF | Co robi z tym automat |
+| --- | --- | --- |
+| Krajowe faktury VAT między podatnikami | tak, odbiór od 1 lutego 2026, wystawianie od 1 kwietnia 2026 | pobranie przez API, dane gotowe, bez OCR |
+| Faktury od zagranicznych kontrahentów (SaaS, reklama, usługi z UE) | nie | OCR, rozpoznanie waluty, kursu i mechanizmu odwrotnego obciążenia |
+| Paragony, rachunki, dokumenty na papierze | nie | OCR ze zdjęcia z telefonu klienta |
+| Wyciągi bankowe i zestawienia z bramek płatniczych | nie | parser plików i dopasowanie do dokumentów |
+| Umowy, protokoły, polisy, aneksy | nie | wyciąganie pól i podpięcie pod klienta |
+| Korespondencja z klientem o brakujących dokumentach | nie | automatyczne przypomnienia i lista braków |
+
+KSeF zabrał tę część, którą i tak najłatwiej było zautomatyzować. OCR w biurze nie zniknął, tylko przesunął się na dokumenty zagraniczne, papierowe i okołoksięgowe.
+
+## Warstwa 1: przyjęcie i rozpoznanie dokumentu
+
+Pierwsza warstwa odpowiada na pytanie "co to jest i czyje to jest", zanim człowiek cokolwiek otworzy. Każdy klient dostaje własny kanał wejściowy: dedykowany adres mailowy, folder na dysku albo upload w panelu. Wszystko, co tam wpadnie, przechodzi przez klasyfikator typu dokumentu, a potem przez ekstrakcję pól: sprzedawca, NIP, numer, daty, netto, VAT, brutto, waluta, pozycje.
+
+O sensie całości decyduje walidacja. Suma pozycji musi zgadzać się z brutto, NIP musi mieć poprawną sumę kontrolną, rachunek warto sprawdzić na białej liście, a duplikat po parze numer plus NIP leci od razu na bok. Dokument z niskim poziomem pewności nie idzie dalej, tylko trafia do kolejki do człowieka, z zaznaczonym polem, którego model nie jest pewny.
+
+Koszt samego odczytu zależy od tego, jak liczy dostawca, i różnica jest duża. Gotowe procesory dokumentów biorą 0,10-0,75 USD za dokument, czyli przy tysiącu dokumentów miesięcznie 100-750 USD. Rozliczenie za strony wychodzi znacznie taniej: Azure Document Intelligence liczy 10 USD za 1000 stron w gotowym modelu faktury i 30 USD przy własnej ekstrakcji, Google Document AI 1,50 USD za 1000 stron przy podstawowym OCR, czyli 10-30 USD miesięcznie przy tej samej skali. Prawdziwy koszt siedzi w integracji i w regułach, nie w rozpoznawaniu.
+
+Spina to warstwa orkiestracji, u mnie najczęściej n8n na serwerze biura, żeby dokumenty klientów nie wychodziły do cudzej chmury. Różnice między narzędziami rozbierałem w tekście o tym, [co wybrać: Make, n8n czy Zapier](/pl/blog/make-vs-n8n-vs-zapier).
+
+## Warstwa 2: wstępna dekretacja i reguły per klient
+
+Tu zaczyna się właściwa oszczędność: sam odczyt faktury daje mało, jeśli księgowa i tak musi wybrać konto. Wstępna dekretacja działa na trzech źródłach naraz. Historia: jeśli ten kontrahent u tego klienta przez dwa lata szedł na to samo konto, propozycja jest oczywista. Reguły biura spisane wprost, per klient i per rodzaj kosztu. I dopiero na końcu model językowy, który czyta opis pozycji, gdy kontrahent jest nowy.
+
+Wynik nie jest księgowaniem. To propozycja z uzasadnieniem i poziomem pewności, którą człowiek zatwierdza kliknięciem albo poprawia, a poprawka wraca do reguł. **Automat proponuje, księgowa akceptuje** - to jedyny układ, który da się obronić przed klientem i przed kontrolą.
+
+Dopiero zatwierdzony dokument idzie do systemu księgowego. W Polsce to najczęściej Comarch Optima albo Symfonia i to tu projekty się rozjeżdżają: zapis jest technicznie trudniejszy niż cały OCR razem wzięty. Sam Comarch dokłada zresztą do Optimy i XL agentów sterowanych promptem, więc część tej drogi rynek przejdzie beze mnie.
+
+## Warstwa 3: asystent na dokumentach i raporty
+
+Trzecia warstwa jest ta, którą widzi klient biura, i ta, za którą łatwiej wziąć abonament. Asystent nad zaksięgowanymi dokumentami odpowiada na pytania w stylu "ile w drugim kwartale wyszło na paliwo" albo "pokaż koszty powyżej 5 000 zł bez umowy". Do tego miesięczne zestawienie i, co ratuje najwięcej nerwów, automatyczne przypomnienia o brakach: system wie, czego brakuje względem poprzednich miesięcy, i pisze do klienta sam. Mechanika jest ta sama co przy [przypomnieniach o wizytach](/pl/blog/przypomnienia-o-wizycie-sms-no-show), tylko treść inna.
+
+Wśród wdrożeń opisywanych na polskim rynku ANEGIS podaje uzgadnianie kont w godzinę zamiast trzech dni. To nie są moje wyniki, tylko publicznie opisany przypadek.
+
+## Ile to kosztuje
+
+Poniżej trzy poziomy wdrożenia. Kolumna z widełkami rynkowymi pochodzi z cenników polskich dostawców z 2026 roku, ostatnia to moje własne ceny za [automatyzację dokumentów](/pl/uslugi/automatyzacja-dokumentow).
+
+| Poziom | Wielkość biura | Zakres | Czas wdrożenia | Widełki rynkowe | U mnie |
+| --- | --- | --- | --- | --- | --- |
+| 1. Wejście dokumentów | do 50 klientów | kanały wejściowe, OCR, klasyfikacja, walidacja, kolejka wyjątków | 2-3 tygodnie | 3 000-15 000 zł za setup plus abonament | od 12 000 zł (około 2 800 €) |
+| 2. Dekretacja | 50-100 klientów | poziom 1 plus reguły per klient, propozycja dekretu, zapis po akceptacji | 4-6 tygodni | 20 000-60 000 zł plus 2 000-8 000 zł miesięcznie | wycena po audycie procesu |
+| 3. Pełna integracja | 100+ klientów | zapis i odczyt w systemie księgowym, asystent na dokumentach, raporty dla klientów | 6-10 tygodni | 80 000-250 000 zł za setup plus 8 000-40 000 zł miesięcznie utrzymania | wycena po audycie procesu |
+
+Dwie uwagi. Polscy dostawcy podają całe wdrożenia w przedziale 25 000-150 000 zł netto, a roczne utrzymanie w granicach 15-25% wartości pierwszego wdrożenia; o tej pozycji klienci przy budżetowaniu zapominają. Skok ceny między poziomem 2 a 3 nie bierze się z AI, tylko z zapisu danych w cudzym oprogramowaniu księgowym.
+
+## Rachunek na 500 dokumentach miesięcznie
+
+Poniżej arytmetyka, nie obietnica, i nie są to wyniki żadnego klienta. Biuro z trzema osobami w zespole i 500 dokumentami spoza KSeF miesięcznie.
+
+| Pozycja | Ręcznie | Po wdrożeniu poziomu 1 i 2 |
+| --- | --- | --- |
+| Dokumentów miesięcznie | 500 | 500 |
+| Czas na dokument | 4 minuty (przyjęcie, przepisanie, dekret) | 1 minuta na sprawdzenie propozycji |
+| Dokumenty wymagające pełnej obsługi ręcznej | 500 | około 75 (wyjątki i nowi kontrahenci) |
+| Godziny zespołu w miesiącu | około 33 h | około 12 h |
+| Koszt narzędzi OCR | 0 zł | 20-60 zł miesięcznie |
+
+Zostaje około 21 godzin miesięcznie. Przy koszcie pracodawcy 70 zł za godzinę to jakieś 1 500 zł miesięcznie, czyli wdrożenie za 12 000 zł zwraca się po mniej więcej ośmiu miesiącach. To nie jest spektakularne i nie należy tego sprzedawać jako oszczędność na etatach.
+
+Prawdziwy zwrot jest gdzie indziej. Przy tych samych czterech minutach na dokument 21 godzin to około 300 dokumentów miesięcznie, które biuro może przyjąć bez rekrutacji. Ilu to klientów, zależy od Twojej struktury, a obsługa dokumentów nie jest całą pracą nad klientem, więc traktuj tę liczbę jako sufit. Rekrutacja księgowej i tak kosztuje więcej niż całe wdrożenie. Dla kierunku: benchmarki rynku przetwarzania faktur podają średni koszt obsługi jednej faktury około 10,89 USD i około 2,78 USD u najlepszych, czyli o 74% mniej. To liczby globalne, obejmują też akceptacje i płatności.
+
+## Czego nie automatyzować
+
+Statystyki wdrożeń nie są różowe: polskie zestawienia z 2026 roku mówią, że tylko około 25% inicjatyw AI daje spodziewany zwrot, a 35% firm w Polsce zgłasza brak korzyści albo efekt dużo poniżej oczekiwań. Te projekty przewracają się prawie zawsze w tych samych miejscach.
+
+- **Automatyczne księgowanie bez akceptacji.** Nie robię tego nawet przy 99% pewności. Odpowiedzialność zostaje na biurze, więc podpis też.
+- **Deklaracje i JPK.** Przygotowanie danych tak, kliknięcie "wyślij" nie.
+- **Klasyfikacja podatkowa nietypowych zdarzeń.** Model dobrze rozpoznaje wzorce, źle radzi sobie z wyjątkiem, którego nie było w historii.
+- **Rozmowa z klientem o pieniądzach.** Bot może przypomnieć o dokumentach i zebrać braki. Windykacja i tłumaczenie różnicy w podatku to zadanie człowieka.
+- **Wysyłanie dokumentów klientów do przypadkowych narzędzi.** To dane osobowe i tajemnica zawodowa. Umowa powierzenia, wyłączona retencja po stronie dostawcy modelu i wiedza, gdzie fizycznie to leci, są warunkiem wejścia, nie dodatkiem.
+
+Rzecz, o której biura często nie wiedzą: artykuł 4 AI Act, czyli obowiązek kompetencji AI, obowiązuje od 2 lutego 2025 i dotyczy każdej firmy używającej AI, także biura z jednym narzędziem do OCR. Jednorazowe szkolenie nie wystarczy, potrzebny jest udokumentowany program dopasowany do ról, a kary sięgają 15 mln euro albo 3% obrotu. Do treści programu bierz prawnika, ja dokładam rejestr używanych systemów i modeli.
+
+## Wdrożenie: harmonogram i co przygotować
+
+Poziom 1 zajmuje 2-3 tygodnie, poziom 2 kolejne 4-6 tygodni, i prawie cały ten czas idzie na reguły i wyjątki, nie na kod.
+
+Biuro musi przygotować cztery rzeczy: 200-300 historycznych dokumentów z poprawną dekretacją jako materiał do sprawdzenia trafności, dostęp testowy do systemu księgowego, spisane reguły dla przynajmniej pięciu największych klientów (połowa zwykle siedzi w głowie jednej osoby) i jedną osobę decyzyjną, która odpowiada w ciągu dnia, a nie tygodnia.
+
+Zaczynam zawsze od jednego klienta i jednego strumienia dokumentów, mierzę trafność przez miesiąc, dopiero potem rozszerzam. Ta kolejność wynika z tego samego, co w tekście o tym, [co zautomatyzować w firmie najpierw](/pl/blog/co-zautomatyzowac-w-firmie-najpierw): jeden proces doprowadzony do końca jest wart więcej niż pięć zaczętych.
+
+Jeśli prowadzisz biuro rachunkowe i chcesz sprawdzić, czy u Ciebie to się spina, [napisz do mnie](/pl/kontakt) i podaj trzy liczby: ilu masz klientów, ile dokumentów spoza KSeF wpada miesięcznie i w jakim systemie księgujesz. Odpiszę, który poziom ma sens i czego nie warto ruszać. Szerszy kontekst jest na stronie o [automatyzacji procesów](/pl/uslugi/automatyzacja-procesow).
+
+## FAQ
+
+**Czy po wprowadzeniu KSeF OCR jest jeszcze potrzebny w biurze rachunkowym?**
+Tak. KSeF obejmuje krajowe faktury VAT między podatnikami: odbiór faktur zakupowych jest obowiązkowy dla wszystkich podatników od 1 lutego 2026, wystawianie od 1 kwietnia 2026. Poza systemem zostają faktury zagraniczne, paragony, papier, wyciągi bankowe, umowy i polisy. To nadal spora część dokumentów kosztowych i właśnie ona wymaga OCR i klasyfikacji.
+
+**Ile kosztuje wdrożenie AI w biurze rachunkowym?**
+Zależy od poziomu. Polscy dostawcy publikują w 2026 roku widełki 3 000-15 000 zł za setup prostszych wdrożeń, 20 000-60 000 zł plus 2 000-8 000 zł miesięcznie za rozwiązania z bazą wiedzy oraz 80 000-250 000 zł setup plus 8 000-40 000 zł miesięcznie, gdy system zapisuje dane w systemie księgowym lub ERP. Całe wdrożenia mieszczą się zwykle w 25 000-150 000 zł netto, a roczne utrzymanie to 15-25% wartości wdrożenia. U mnie automatyzacja dokumentów startuje od 12 000 zł, około 2 800 euro.
+
+**Czy AI może samo dekretować faktury?**
+Może przygotować propozycję dekretu z poziomem pewności i uzasadnieniem, ale zapis do ksiąg powinien iść po akceptacji człowieka. Propozycja opiera się na historii dekretacji tego kontrahenta, na regułach biura spisanych per klient i dopiero na końcu na modelu językowym. Każda poprawka wraca do reguł, więc udział dokumentów wymagających ręcznej ingerencji spada z miesiąca na miesiąc.
+
+**Ile godzin wraca przy 500 dokumentach miesięcznie?**
+Przy założeniu 4 minut na dokument obsługiwany ręcznie i 1 minuty na sprawdzenie propozycji 500 dokumentów zajmuje około 12 godzin miesięcznie zamiast 33. Zostaje mniej więcej 21 godzin, czyli przy koszcie 70 zł za godzinę około 1 500 zł miesięcznie, a wdrożenie za 12 000 zł zwraca się po około ośmiu miesiącach. To arytmetyka do podstawienia własnych liczb, a nie wynik konkretnego klienta.
+
+**Czy taka automatyzacja działa z Comarch Optima albo Symfonią?**
+Tak, ale to najdroższy element całości. Odczyt danych jest prosty, zapis wymaga integracji przez API albo importu w formacie akceptowanym przez dany system i to on decyduje o czasie wdrożenia. Comarch dokłada zresztą do Optimy i XL agentów sterowanych promptem, więc część funkcji pojawi się po stronie producenta.
+
+**Czy wolno wrzucać dokumenty klientów do modelu AI?**
+To dane osobowe i informacje objęte tajemnicą zawodową, więc minimum to umowa powierzenia z dostawcą modelu, wyłączona retencja po stronie API i integracji oraz udokumentowana wiedza o tym, gdzie te dane są przetwarzane. W praktyce stawiam warstwę przetwarzania na serwerze biura albo w chmurze w UE. Osobno obowiązuje artykuł 4 AI Act od 2 lutego 2025, z karami do 15 mln euro albo 3% obrotu. Jestem programistą, nie prawnikiem, więc treść szkoleń ustal z prawnikiem.
+
+**Od czego zacząć, jeśli biuro ma 20 klientów?**
+Od jednego klienta z największą liczbą dokumentów spoza KSeF i od samego wejścia dokumentów: dedykowany kanał, OCR, walidacja, kolejka wyjątków. Przy tej skali sens ma poziom 1, czyli 2-3 tygodnie pracy, a nie integracja z systemem księgowym. Trafność mierz miesiąc na realnych dokumentach i dopiero wtedy decyduj o dekretacji.
+
+**Ile trwa wdrożenie i co musi przygotować biuro?**
+Poziom 1 to 2-3 tygodnie, poziom 2 kolejne 4-6 tygodni, pełna integracja z systemem księgowym 6-10 tygodni. Biuro przygotowuje 200-300 historycznych dokumentów z poprawną dekretacją, dostęp testowy do systemu księgowego, spisane reguły dla kilku największych klientów i jedną osobę decyzyjną. Bez spisanych reguł projekt stoi, bo ta wiedza zwykle nie jest nigdzie zapisana.

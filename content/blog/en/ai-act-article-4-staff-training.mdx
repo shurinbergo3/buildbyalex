@@ -1,0 +1,147 @@
+---
+title: "AI Act Article 4: Staff AI Training Is an Obligation, Not Optional"
+description: "Article 4 of the EU AI Act has applied since 2 February 2025 to every company using AI. What to actually train, how to document it, and a register template."
+date: "2026-09-06"
+cluster: "ai-act-staff-training"
+keywords:
+  - "AI Act Article 4 training"
+  - "AI literacy obligation"
+  - "AI Act staff training requirement"
+  - "AI Act compliance small business"
+  - "AI competence register"
+ogImage: "/og/ai-act-staff-training.webp"
+---
+
+The usual reaction when I tell a client that a chatbot rollout also means training people: "but we are not deploying any artificial intelligence, we just have a bot on the site and the office uses ChatGPT". That firm is exactly who Article 4 is about: the widest provision in the AI Act, with no size threshold, no risk class and no carve-out for small firms.
+
+Disclaimer: I am a developer, not a lawyer. I write the engineering side, because I build these systems and see where people trip over them. For a legal audit, hire a law firm.
+
+## Who Article 4 applies to
+
+The regulation names two roles. A **provider** builds the AI system. A **deployer** uses it under its own name. Buy a chatbot, wire a workflow in n8n, switch on Copilot across Microsoft 365 or hand the team ChatGPT seats, and you are the deployer. The duty is yours, not the contractor's or OpenAI's.
+
+The duty itself is short: make sure the people operating AI systems on your behalf have sufficient AI literacy, given their education, experience and the context of use. No topic list, no minimum hours, no state certificate, just an expectation that you can show what you did.
+
+Poland's statistics office GUS reports 8.7% of Polish companies used AI technology in 2025; 91.3% did not. The most common route in was a ready commercial product (6.4%); custom AI from an external partner, 2.1%. That is exactly the case Article 4 covers most tightly: no AI team, a bought tool, pointed at customers. The order of the steps is in [how to implement AI in a business](/en/blog/how-to-implement-ai-in-business).
+
+## Dates, and what you are actually exposed to
+
+Article 4 has applied since 2 February 2025. If you have used AI since last year and trained nobody, you are not early, you are late. What changes now is enforcement: market surveillance starts in August 2026, and Poland adds a national supervisor.
+
+| Date | What happens | Scope |
+| --- | --- | --- |
+| 2 February 2025 | Article 4 starts to apply | AI literacy for every provider and deployer, no size threshold |
+| 2 August 2026 | Enforcement and market surveillance begin | EU-wide duties, including Article 50 transparency |
+| 11 August 2026 | Substantive part of the Polish AI act takes effect | National supervision framework |
+| 28 October 2026 | KRiBSI gains powers to inspect, run proceedings and impose fines; chair appointed in October, commission operational in November | Companies operating in Poland |
+| 2 December 2026 | Machine-readable marking of generated content for systems placed on the market before 2 August 2026 | Chatbots and generative systems deployed earlier |
+
+Exposure: breaches other than prohibited practices sit in the tier of **up to €15 million or 3% of worldwide annual turnover**, whichever is higher. Prohibited practices are a separate tier at €35 million or 7%.
+
+The ceiling is a ceiling, not a forecast. Article 4 bites as part of a bigger case: a complaint about the bot, a leak reported to the regulator, a client's security questionnaire. The question is "who uses this and how do you know they can", and no answer turns a detail into organisational negligence.
+
+## Why a one-off webinar is not enough
+
+The training market answered Article 4 the way it knew how: a webinar over one afternoon, a PDF of rules, an attendance sheet, a certificate. That closes something on paper. But the provision asks for literacy that fits the context, and context changes faster than yearly.
+
+- **Turnover.** The person trained in March leaves in June and the replacement has never seen your rules. Without an onboarding step the register is fiction within a quarter.
+- **Tool changes.** You moved from GPT to Claude, added an assistant in the CRM, someone switched on Gemini in Google Workspace. The training covered a different world.
+- **Generic content.** A session on AI ethics does nothing for a salesperson with an offer-drafting assistant who needs to know which prices the model may not quote alone.
+
+The right shape is boring: a short intake session on hiring, a short update whenever a tool changes, one refresher a year, and a register that shows it. Fewer hours in total than one big workshop, better spread.
+
+## What to train when your AI is a chatbot and an n8n workflow
+
+This part is missing from law-firm material: it means opening the system. Useful training covers your bot: what it knows, where it lies, when a human steps in. When I hand over an [AI agent](/en/services/ai-agents), it fits into two hours and five points:
+
+1. **What this system does.** Which knowledge sources, up to which date, what it cannot see. The bot knows nothing about stock unless it is wired to the warehouse.
+2. **Where the boundaries are.** Which topics go to a human: complaints, returns, non-standard pricing, anything with legal weight, and what the handover looks like.
+3. **How to spot a hallucination.** Three examples from the logs: an invented procedure stated confidently, an invented part number, an invented deadline. People remember the pattern, not the definition.
+4. **What may be pasted in.** A concrete list: no national ID numbers, no ID scans, no customer database, no third-party contract text. The one point I repeat for every role.
+5. **How to report a bad answer.** One channel, one template: what I asked, what it said, why that is wrong.
+
+That last point pays off even without the AI Act: a stream of real production failures, and the system improves.
+
+## A programme for three roles
+
+Article 4 asks for a fit to role and context. In a small company it splits like this.
+
+| Role | What to train | Time | Most common real-world failure |
+| --- | --- | --- | --- |
+| Customer support | Bot boundaries, escalation to a human, spotting hallucinations, the duty to disclose it is AI | 2 hours intake, 30 min per change | Correcting the bot afterwards instead of taking over mid-conversation |
+| Sales | What may be generated, verifying prices and terms before sending, customer data in prompts, CRM trail | 2 hours intake, 30 min per change | Sending a model-generated quote without checking the numbers |
+| Admin and finance | Documents and personal data in AI tools, where servers sit, what reaches the provider, retention | 1.5 hours intake | Pasting a signed contract or a payroll sheet into a public chat |
+| Owner or board | AI system register, provider versus deployer roles, who approves a new tool | 1 hour | Not knowing how many AI tools the team uses |
+
+Sales pays back fastest, because its mistakes cost money immediately. What an agent really takes over there is in [the honest math on an AI agent versus a human manager](/en/blog/ai-agent-vs-human-manager-real-math). In marketing the line runs through labelling and fact-checking, covered in [AI product descriptions and content](/en/blog/ai-for-product-descriptions-and-content).
+
+## The AI competence register: a table you can copy
+
+This is the artefact that matters. Not a certificate, not a slide deck: one table you show when asked. Five columns are enough.
+
+| Role and person | Training scope | Date | Evidence | Delivered by |
+| --- | --- | --- | --- | --- |
+| Customer support, 3 people | Website chatbot: boundaries, escalation, AI disclosure, no personal data pasted | 2026-09-14 | Attendance sheet, 10-question test with scores, recording | System contractor |
+| Sales, 2 people | CRM offer assistant: price verification, customer data in prompts | 2026-09-14 | Attendance sheet, signed acknowledgement of the AI policy | System contractor |
+| Finance, 1 person | AI tools and documents: what may be processed, where servers sit | 2026-09-21 | Attendance sheet, test | Owner |
+| New support hire | AI onboarding: policy plus 20 minutes live with the bot | Hire date | Signed policy in the personnel file | Team lead |
+| Whole team | Update after switching to a newer model | 2027-02-10 | Meeting note, participant list | System contractor |
+
+The evidence column matters more than the scope column: you can always describe a session, you cannot backdate an attendance sheet. Keep a second sheet for the AI systems: name, provider, model, purpose, responsible person, data processed.
+
+## Who is liable when an employee pastes customer data into a public model
+
+The company is. The employee acted within their duties, the tool was there, nobody showed them the rules. This is processing, and the controller is the company, not whoever pressed Ctrl+V.
+
+Poland's data protection authority UODO is direct: every chatbot interaction that exchanges personal data is processing. The deployer needs a legal basis, an information notice, an assessment of the use case before buying, and answers on model training, retention and server location. A data processing agreement is often required too.
+
+Article 4 training and data hygiene are one topic: company accounts instead of personal ones, model training on your data switched off, a clear list of what never leaves the building.
+
+## A one-page AI usage policy
+
+You do not need twenty pages, you need one people will read. The skeleton I give clients:
+
+1. **What AI may be used for.** Draft replies, translations, meeting summaries, first-pass copy.
+2. **What it may not be used for.** Hiring, credit and scoring decisions, staff evaluation, anything sent to a customer unchecked.
+3. **Which tools we use.** A closed list on company accounts; a new tool needs sign-off from a named person.
+4. **What we never paste.** Customer personal data, identity documents, HR and payroll data, NDA contracts, credentials.
+5. **Who checks the output.** A human signs off on anything leaving the company.
+6. **Labelling.** Where we tell a customer they are talking to AI, and how we mark generated content.
+7. **Reporting.** One address, one template, same day.
+8. **Who owns this.** A name, not a department.
+
+That page plus both registers holds up in an inspection or a client's security questionnaire. Half a day if someone knows your systems.
+
+## What this costs
+
+Polish vendors publish their ranges: a typical corporate AI workshop €700-1,900 (3,000-8,000 zł net), a package with prompting basics and exercises €1,200-2,800 (5,000-12,000 zł net), online course access €120-470 (500-2,000 zł), in formats of two days onsite or four remote four-hour sessions.
+
+I do not sell training as a product. It is part of the build and covers the system I wrote: two hours with the team, a one-page handout, the register filled in on the spot. For a bot someone else built, I do an [AI Act retrofit from €800 (3,500 zł)](/en/services/ai-act-compliance): system review, disclosure, policy, registers and team training in one package.
+
+What I do not promise: that paperwork protects you from every consequence. A register will not fix a bot that misleads customers, and a policy does not replace a lawful basis for processing. For a read on where you stand, [get in touch](/en/contact) - I will go through your tools and say what to train and document before 28 October.
+
+## FAQ
+
+**When did AI Act Article 4 come into force?**
+On 2 February 2025. It binds every provider and deployer of AI systems regardless of company size or risk class, and Polish sources call it the broadest-scope provision in the regulation. Enforcement starts in August 2026; in Poland the supervisor KRiBSI gains inspection and fining powers on 28 October 2026.
+
+**Does Article 4 apply to a company that only uses ChatGPT for customer service?**
+Yes. If you use an AI system under your own name you are the deployer, and the AI literacy duty sits with you even for an off-the-shelf tool. Polish sources stress that a one-off session or a generic handout is not enough: a documented, role-adapted programme is expected. Exposure sits in the tier of up to €15 million or 3% of turnover.
+
+**What is the penalty for not training staff on AI?**
+Breaches other than prohibited practices fall in the tier of up to €15 million or 3% of worldwide annual turnover, whichever is higher. Prohibited practices sit higher, at €35 million or 7%. For a small company that ceiling is not a forecast: missing training surfaces as part of a bigger case, such as a complaint about a bot or a client's security questionnaire.
+
+**How do I document AI Act training?**
+One table with five columns is enough: role and person, training scope, date, evidence, who delivered it. Evidence can be an attendance sheet, a test result, a signed acknowledgement of the AI usage policy, or a recording. Keep a second register for the AI systems: name, provider, model, purpose, data processed, owner. Update both at every new hire and tool change.
+
+**How much does AI training for employees cost?**
+Polish vendors publish ranges of €700-1,900 (3,000-8,000 zł net) for a typical workshop, €1,200-2,800 (5,000-12,000 zł net) for a package with exercises and prompting basics, and €120-470 (500-2,000 zł) for online course access. Common formats are two days onsite or four remote four-hour sessions. With me, a compliance clean-up including team training starts at €800 (3,500 zł).
+
+**Who is liable if an employee pastes customer data into a public model?**
+The company is liable as data controller, not the individual employee. Poland's UODO states that any chatbot interaction involving personal data is processing: you need a legal basis, an information notice, an assessment of the use case before you buy, and answers on model training, retention and server location. A data processing agreement is often required too.
+
+**Does the training have to be delivered by an external training company?**
+No. The regulation names no format, no minimum hours, no required trainer and no state certificate. What counts is whether the literacy fits the role, the tool and the context, and whether you can show it. In-house training by someone who knows your systems often beats a generic ethics webinar, as long as it leaves a trace in the register.
+
+**What should I do first if we have nothing in place?**
+Start with an inventory: every AI tool the team actually uses, personal accounts on public chat services included. Then write the one-page AI usage policy, run a two-hour session for the roles that touch those tools, and log it in the competence register. That takes half a day to a day and closes the basic Article 4 exposure.

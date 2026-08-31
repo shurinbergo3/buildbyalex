@@ -1,0 +1,152 @@
+---
+title: "AI agent permissions in CRM and ERP: where to put the approval gate"
+description: "A permission matrix for AI agents: which CRM and ERP actions need human approval, what to log, how many cases go to review, and how to cut the agent off fast."
+date: "2026-09-02"
+cluster: "ai-agent-permissions"
+keywords:
+  - "AI agent permissions"
+  - "AI agent CRM access"
+  - "AI agent write access ERP"
+  - "human in the loop approval gate"
+  - "AI agent audit trail"
+ogImage: "/og/ai-agent-permissions.webp"
+---
+
+The hardest question in an AI agent project is not "which model" or "how much". It is **what this agent may do in our CRM without asking anyone**. While the agent only reads and answers, the risk is small. The day it gets write access, everything changes at once: the price of the build, the scope of testing, and the list of things that can go wrong quietly.
+
+Below is what I put into projects: a permission matrix, rules for the approval gate, the audit trail, and a rollback plan. No governance theory, just fields and numbers.
+
+## The moment the agent stops reading and starts writing
+
+Published Polish price bands show this threshold better than any explanation. In vendor price lists, an agent answering from a knowledge base and an agent writing into a system are two different products.
+
+| Agent scope | Bands published by Polish vendors | Running cost |
+| --- | --- | --- |
+| Simple assistant on an off-the-shelf platform | €700-3,500 (3,000-15,000 zł) | €120-580/mo |
+| Answers from a knowledge base, only reads your systems | €4,600-14,000 (20,000-60,000 zł) | €470-1,900/mo |
+| Reads and writes data in CRM, ERP or a logistics system | €18,500-58,000 (80,000-250,000 zł) | €1,900-9,300/mo |
+
+The jump is not the model. Write access forces someone to design permissions, handle failures, plan how a change gets reverted and collect logs that survive a conversation with an auditor.
+
+If your case is "I want customers to get answers from our documentation", stay in the top rows, which is [chatbot with a knowledge base](/en/blog/ai-chatbot-with-knowledge-base) territory. Write access earns its keep only when someone retypes the same data by hand dozens of times a week.
+
+## The permission matrix: one table the owner signs
+
+Every [AI agent](/en/services/ai-agents) build that touches a live system starts with this document. One page, five columns, signed off before the first line of code.
+
+| Action in CRM or ERP | Risk | Agent permission | Approval gate | What goes to the log |
+| --- | --- | --- | --- | --- |
+| Read a customer record and its history | low | read | no | record id, query, timestamp |
+| Add a note to a case | low | write | no | note text, author "agent" |
+| Create a lead from an email or form | low | write | no | source, fields filled |
+| Move a deal to another pipeline stage | medium | write | yes, above €4,600 (20,000 zł) deal value | old stage, new stage, reason |
+| Email a customer from a company address | medium | write and send | yes, on first contact | full body, recipient, attachments |
+| Draft a quote or proposal | high | draft only | always | version, prices, discount, margin |
+| Change price, discount or payment terms | high | no write, proposal only | always, manual confirmation | proposed value, reasoning |
+| Issue an invoice and file it with the tax system | high | no write | always, a human clicks | full document payload |
+| Change stock levels or reserve goods | high | write within a quantity cap | above the cap | SKU, delta, warehouse |
+| Delete a record, merge counterparties | critical | forbidden | not applicable | the attempt and its rejection |
+| Export a customer list or personal data | critical | forbidden | not applicable | the attempt and its rejection |
+
+Three rules keep this table honest:
+
+- **Default zero.** No permission exists until a row is added. Never the other way round.
+- **One row is one action, not a module.** "Access to the sales module" means nothing. "Move a deal to another stage" means something.
+- **The critical tier stays empty.** Deletion, merging and personal-data export are out of scope. A request for an exception usually means the process needs fixing instead.
+
+## A service account, not an employee login
+
+The most common pilot shortcut: the agent gets a salesperson's login because it is faster. Three problems at once. The agent inherits every permission that person has, including forgotten ones. Record history shows the employee's name, so two months later nobody can tell their edits from the model's. And when that person leaves and the account is disabled, the agent stops mid-day.
+
+The correct version is a separate service account with its own display name, API key, role set and rate limit. In HubSpot, Pipedrive, Zoho or a Comarch-class ERP that is an hour of work. Every record then shows the agent as the author, and revoking access touches nobody on the team.
+
+## The approval gate: what reaches a human, and how fast
+
+An approval gate is not an "are you sure" dialog. It is a process step with a named recipient and a response time. Without those two it turns into a queue nobody reads.
+
+Here is how I build it. The agent prepares the full action, saves it as a draft and sends one message to Slack or email: what it wants to do, on which record, on what basis, plus two buttons. If nobody answers in the agreed window, the action expires and the case moves to the manual list. It never fires on a default yes.
+
+Windows that work in a small company: quotes within 4 working hours, first email to a new customer within 1 hour, above-threshold stage changes by end of day. For an [agent that books appointments](/en/blog/ai-agent-for-booking) the line sits elsewhere: a free slot in normal hours it takes on its own, moving someone else's booking or an out-of-hours slot goes to a human.
+
+## How many cases really go to review
+
+This question decides the budget, not the safety story. Builders running agents in production report that **5-15% of cases need a human**, and that this is a permanent operating cost, not a defect to be engineered away. On top of that sits 100% of high-risk actions, which pass the gate by definition.
+
+The arithmetic for a distribution company handling 400 cases a month:
+
+- exception review: 400 × 10% = 40 cases at 3 minutes, so 2 hours a month
+- quote approvals: 60 quotes × 4 minutes, so 4 hours a month
+- first-contact emails: 80 × 1 minute, roughly 1.5 hours
+
+Just under 8 hours a month for one person, against the dozens of hours of manual data entry it takes off the team. Run this before the build: if it comes out at 40 hours of review, a rule-based automation is the better product.
+
+Reviewing everything equally fails too. Somebody clicking "approve" for the fiftieth time stops reading within a week. The gate belongs where the matrix says "high"; the rest runs on its own and lands in the log.
+
+## Narrowing the blast radius: filters, caps and an allow-list of fields
+
+"Write access to the CRM" is far too broad. I narrow it along four axes, set in configuration rather than in the prompt.
+
+- **By record.** The agent sees only cases in its own queue, not the whole database. Key accounts stay out of reach.
+- **By field.** An allow-list of writable fields, everything else read-only. Tax ID, owner details, contract terms and accounting fields never make the list.
+- **By amount and quantity.** Above €4,600 (20,000 zł) of deal value or a fixed unit cap, the agent can only propose.
+- **By status.** Closed, invoiced and disputed cases are locked entirely.
+
+Those limits belong in the API and the permission model, not in the system prompt: a prompt can be bypassed with one carefully written customer email. OWASP's 2026 agent security work puts prompt injection at the centre of agentic risk and reports attacks up 340% year on year, with documented findings against Slack AI, Microsoft 365 Copilot and GitHub MCP. **What the agent has no right to do in the API must stay impossible regardless of what it reads.**
+
+## The audit trail: what has to survive every agent action
+
+Agents rarely fail loudly. The typical failure is the agent calling the right tool with plausible but wrong parameters, and nobody noticing for a week. OWASP puts mean monitoring coverage across production agent systems at 52%, so close to half of deployed agents are not observed.
+
+The minimum log record for reconstructing an event:
+
+| Field | Example content | Why |
+| --- | --- | --- |
+| Timestamp and session id | 2026-09-02 11:42, session 8f31 | ties the action to a conversation |
+| Who initiated it | customer, employee, schedule | accountability |
+| Tool called and parameters | crm.update_deal, id 4127, stage=won | what actually hit the system |
+| Prompt and model version | v14, gpt-5.1 | reproducibility after a model upgrade |
+| State before and after | stage: was negotiation, now won | rollback |
+| Gate outcome | approved by Mark K., 11:48 | proof of human oversight |
+
+A legal note, with the disclaimer: I am a developer, not a lawyer. A company running an AI system under its own name is a deployer under the EU AI Act, so the obligations sit with it, not only the contractor. Poland now has a national supervisor too: the AI Development and Safety Commission gains powers to inspect, run proceedings and impose fines **from 28 October 2026**. The agent's action log is the only thing you can put on the table there.
+
+## The rollback plan: cutting the agent off in a minute
+
+The part that usually falls out of scope and hurts most when missing. Three levels, tested before launch, not after an incident:
+
+1. **Pause.** One switch stops writes, reads keep running. Available to the owner, not only the contractor.
+2. **Cut-off.** Revoke the service account's API key: seconds in the CRM panel, immediate effect.
+3. **Revert.** A query over the log for the agent's actions in the last N hours, with the pre-change state, restorable in batches. Without it you read record history one row at a time.
+
+Gartner expects over 40% of agentic AI projects to be cancelled by the end of 2027, and reports that 89% of agent pilots never reach production. Many failures look exactly like this: the pilot worked, then it did something stupid, nobody could say quickly what and how many times, so the project was shut down.
+
+## Where to start
+
+The sequence that works: two weeks read-only, then low-risk writes, then one medium-risk action per week. High risk stays behind the gate permanently.
+
+If you do not know which processes are even suitable for agent write access, start with an [AI audit](/en/services/ai-audit) at 4,900 zł (about €1,140): you get the permission matrix and a build quote, sometimes the answer that a plain automation is enough. A sales agent with CRM integration starts at €2,500 with me, a multi-tool agent at €4,500. What that looks like from the business side I covered in [deployments in Gdańsk](/en/blog/ai-agent-for-business-gdansk).
+
+Got a specific CRM or ERP process and want to know where the gate belongs? [Write to me](/en/contact) and we will go through the matrix for it.
+
+## FAQ
+
+**What permissions should an AI agent have in a CRM to start with?**
+Read access plus low-risk writes only: a note on a case, a lead from an email, updated contact details. Moving deals, emailing customers and anything touching price come later, behind an approval gate. Deleting records, merging counterparties and exporting personal data stay switched off permanently.
+
+**Which agent actions must always go through human approval?**
+Anything that changes money or creates an obligation to a customer: quotes, changes to price, discount or payment terms, issuing an invoice and filing it with the tax system, stock changes above a cap. Add the first email to a new customer and any deal change above a value threshold, say €4,600 (20,000 zł). The rest can run automatically as long as it lands in the log.
+
+**How many cases does an agent send to human review?**
+Builders running agents in production report 5-15% of cases as a standing operating cost, regardless of model quality. On top of that, 100% of high-risk actions pass the gate by definition. At 400 cases a month that is 6-8 hours of one person's time. If your calculation lands in the dozens of hours, a rule-based automation is the better answer.
+
+**What has to be logged on every agent action?**
+Six items: timestamp and session id, who initiated the action, the tool called with its parameters, the prompt and model version, the record state before and after, and the gate outcome with the name of the person who approved it. That set is enough to reconstruct an event and revert changes in batches. OWASP puts mean monitoring coverage across production agent systems at 52%, so the default state of the market is a log that is not good enough for this.
+
+**How much does an AI agent with CRM or ERP write access cost?**
+Polish vendors publish €4,600-14,000 (20,000-60,000 zł) for an agent answering from a knowledge base, and €18,500-58,000 (80,000-250,000 zł) setup plus €1,900-9,300 a month for one that reads and writes data in CRM, ERP or logistics. The jump comes from permission design, failure handling and logging, not from the model. With me a sales agent with CRM integration starts at €2,500 and a multi-tool agent at €4,500.
+
+**Is prompt injection a real threat to an agent with systems access?**
+Yes, and that is why limits belong in API permissions rather than in the model's instructions. OWASP's 2026 report puts prompt injection at the centre of agentic risk and reports attacks up 340% year on year, with documented findings against Slack AI, Microsoft 365 Copilot and GitHub MCP. One well-crafted customer email can make an agent attempt something outside its script. If the action is not in the service account's roles, the attempt ends in a rejection and a log entry.
+
+**How fast can an agent be cut off from a system?**
+On three levels. Pausing writes is a single switch that leaves the agent read-only. Revoking the service account's API key takes seconds in the CRM panel and applies immediately. Reverting is a query over the log for the agent's recent actions, with the pre-change state. Test all three before launch, not after an incident.

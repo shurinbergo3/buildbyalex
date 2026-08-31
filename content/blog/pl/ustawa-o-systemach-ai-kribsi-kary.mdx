@@ -1,0 +1,138 @@
+---
+title: "Ustawa o systemach AI: co KRiBSI może zrobić firmie od 28 października"
+description: "Polska ustawa o systemach AI działa od 11 sierpnia 2026, a KRiBSI kontroluje i karze od 28 października. Kalendarz dat, dokumenty i progi kar."
+date: "2026-08-31"
+cluster: "poland-ai-act-kribsi"
+keywords:
+  - "ustawa o systemach sztucznej inteligencji"
+  - "KRiBSI kary"
+  - "kontrola AI Act w firmie"
+  - "polski nadzór nad AI"
+  - "obowiązki firmy AI Act 2026"
+ogImage: "/og/poland-ai-act-kribsi.webp"
+---
+
+Merytoryczna część polskiej ustawy o systemach sztucznej inteligencji weszła w życie 11 sierpnia 2026. To ta ustawa, która wpina unijny AI Act w polski system prawny i powołuje krajowy organ nadzoru: Komisję Rozwoju i Bezpieczeństwa Sztucznej Inteligencji, w skrócie KRiBSI. Ważniejsza data jest jednak dalej. Od 28 października 2026 komisja dostaje uprawnienia kontrolne, może prowadzić postępowania i nakładać kary. Przewodniczący ma zostać powołany w październiku, a komisja ma działać operacyjnie od listopada 2026.
+
+Zastrzeżenie na wstępie: jestem programistą, nie prawnikiem. Poniżej strona inżynierska, czyli co realnie trzeba mieć w systemie i w dokumentach, żeby nie zaczynać przygotowań w dniu, w którym przyjdzie pierwsze pismo. Do sporów i interpretacji brzegowych bierz prawnika od prawa unijnego.
+
+## Unijne rozporządzenie, polska ustawa i jeden nowy organ
+
+AI Act to rozporządzenie, więc obowiązuje w Polsce bezpośrednio i nie wymaga przepisywania na polski. Polska ustawa robi coś innego: wskazuje, kto w kraju pilnuje przestrzegania rozporządzenia, jak wygląda kontrola, jak biegnie postępowanie i kto podpisuje decyzję o karze.
+
+Najbliższa analogia to RODO. Przepisy napisała Unia, ale do firmy puka UODO. Tutaj rolę pukającego dostaje KRiBSI, organ krajowy złożony z przedstawicieli kilku instytucji, opisany przez gov.pl i przez polskie kancelarie jako centralny punkt nadzoru nad AI.
+
+Praktyczny wniosek: **lista obowiązków się nie zmieniła, zmienia się to, że ktoś zaczyna ich pilnować**. Jeśli od sierpnia odkładałeś oznaczenie chatbota, bo i tak nikt tego nie sprawdza, od 28 października ten argument przestaje działać.
+
+## Kalendarz: daty, które warto mieć w jednym miejscu
+
+| Data | Co się dzieje | Kogo dotyczy |
+| --- | --- | --- |
+| 2 lutego 2025 | Obowiązuje art. 4 AI Act: kompetencje AI w zespole | Każda firma, która używa AI, także tylko ChatGPT w obsłudze klienta |
+| 2 sierpnia 2026 | Obowiązują wymogi przejrzystości z art. 50 | Chatboty, voiceboty, treści generowane |
+| 11 sierpnia 2026 | Wchodzi w życie merytoryczna część polskiej ustawy, powstaje KRiBSI | Wszystkie firmy w Polsce |
+| październik 2026 | Powołanie przewodniczącego komisji | - |
+| 28 października 2026 | KRiBSI zyskuje uprawnienia do kontroli, postępowań i kar | Wszystkie firmy w Polsce |
+| listopad 2026 | Komisja działa operacyjnie | - |
+| 2 grudnia 2026 | Koniec okresu przejściowego na maszynowe oznaczanie treści AI dla systemów wprowadzonych przed 2 sierpnia 2026 | Istniejące boty i generatory treści |
+| 2 grudnia 2027 i 2 sierpnia 2028 | Odroczone terminy dla systemów wysokiego ryzyka, po cyfrowym omnibusie Regulation (EU) 2026/1744 | Wąskie kategorie, rzadko mała firma |
+
+Dla zwykłej firmy krytyczne są dwie pozycje z tej tabeli. **28 października** to moment, od którego brak oznaczenia przestaje być teoretycznym ryzykiem. **2 grudnia 2026** to koniec okresu przejściowego dla systemów, które działały u Ciebie przed 2 sierpnia 2026, czyli dla większości widżetów postawionych w 2024 i 2025 roku.
+
+Warto też zapamiętać, czego omnibus nie ruszył. Przesunął terminy wysokiego ryzyka na 2 grudnia 2027 i 2 sierpnia 2028, ale obowiązków przejrzystości z artykułu 50 nie odroczył. Sporo polskich tekstów w sieci nadal to myli.
+
+## Kto podlega: dostawca, wdrażający, importer
+
+Rozporządzenie rozdziela role i to od roli zależy, o co zapyta kontrola.
+
+- **Dostawca** buduje system AI i wprowadza go na rynek pod swoją nazwą. Jeśli sprzedajesz własnego bota innym firmom, jesteś dostawcą.
+- **Wdrażający**, czyli podmiot stosujący, używa systemu we własnym imieniu. To większość czytelników tego tekstu: masz czat na stronie, voicebota na infolinii albo scenariusz w n8n, który odpisuje klientom.
+- **Importer i dystrybutor** wprowadzają na rynek unijny system spoza UE. Rzadko dotyczy małej firmy, ale odsprzedaż cudzego narzędzia pod własną marką potrafi przesunąć Cię wyżej w tym łańcuchu.
+
+Rzecz, którą najczęściej trzeba tłumaczyć na spotkaniach: **odpowiedzialność wdrażającego jest własna i nie da się jej przerzucić na wykonawcę**. Bota robiła agencja, model dostarcza OpenAI albo Anthropic, ale pismo przyjdzie do Ciebie, bo to Twoja firma rozmawia z klientem. Umowa z wykonawcą reguluje rozliczenia między wami, nie zdejmuje obowiązku wobec organu.
+
+## Czego może żądać kontrola i w jakiej formie
+
+Kontrola nie ogląda kodu. Ogląda dokumenty i to, co widzi użytkownik. Poniżej lista, którą przygotowuję klientom przed wdrożeniem, bo po fakcie zbiera się to znacznie dłużej: część zrzutów ekranu już nie istnieje, a osoba, która konfigurowała bota, zdążyła zmienić pracę.
+
+- **Rejestr systemów AI.** Prosta tabela: nazwa systemu, kanał, dostawca modelu, cel użycia, rodzaj przetwarzanych danych, osoba odpowiedzialna, data uruchomienia. Arkusz wystarczy, byle był aktualny.
+- **Dowód oznaczenia.** Zrzuty ekranu widżetu i pierwszej wiadomości bota, transkrypt startu rozmowy głosowej, data wdrożenia oznaczenia.
+- **Ślad szkolenia zespołu.** Art. 4 obowiązuje od lutego 2025. Polskie źródła zgodnie podkreślają, że jednorazowe spotkanie i ogólna ulotka to za mało, potrzebny jest program dopasowany do ról i udokumentowany. Lista obecności plus materiały wystarczą jako punkt wyjścia.
+- **Umowa z dostawcą modelu i opis przepływu danych.** Gdzie stoją serwery, czy dane trafiają do treningu, jak długo są przechowywane. UODO wprost ostrzega, że każda rozmowa bota z danymi osobowymi to przetwarzanie w rozumieniu RODO.
+- **Polityka prywatności ze wzmianką o przetwarzaniu z użyciem AI.**
+- **Logi rozmów** z informacją, kiedy bot przekazał sprawę człowiekowi. To dowód, że ścieżka do konsultanta istnieje naprawdę, a nie tylko w opisie oferty.
+- **Opis oznaczania treści generowanych**, jeśli publikujesz teksty lub grafiki tworzone przez model.
+
+Praktyczna uwaga o formie: to ma być jeden folder, a nie wiedza w głowie osoby, która akurat jest na urlopie. Kiedy sprawdzam istniejące wdrożenia, brakuje zwykle dwóch rzeczy: rejestru i dowodu szkolenia. Sam widżet da się poprawić w kilka godzin.
+
+## Kto może zgłosić Twoją firmę
+
+AI Act daje osobom fizycznym prawo złożenia skargi do organu nadzoru rynku, a polska ustawa wskazuje, że tym organem jest KRiBSI. W praktyce oznacza to trzy realne źródła zgłoszeń: niezadowolony klient, były pracownik i konkurencja.
+
+Nie wiem, jak komisja rozłoży priorytety w pierwszych miesiącach, i nikt tego uczciwie nie wie. Zakładam, że przez pierwszy rok więcej będzie reakcji na zgłoszenia niż kontroli z urzędu, bo tak wyglądał start każdego nowego nadzoru, który pamiętam. To jest moje założenie, nie przepis, i nie warto na nim budować strategii.
+
+Ryzyko wizerunkowe jest bardziej przewidywalne niż kara. Klient, który godzinę pisał z Anną z działu sprzedaży, a potem odkrył, że to model, zwykle opowiada o tym publicznie i robi to szybciej niż jakikolwiek organ.
+
+## Kary: progi z rozporządzenia i to, co realnie decyduje o kwocie
+
+Progi ustala rozporządzenie unijne, a polska ustawa daje KRiBSI narzędzia do ich stosowania.
+
+| Rodzaj naruszenia | Górny próg | Typowy przykład w małej firmie |
+| --- | --- | --- |
+| Praktyki zakazane | do 35 mln euro albo 7% światowego rocznego obrotu | Manipulacyjne techniki, scoring społeczny, praktycznie poza zasięgiem zwykłej firmy |
+| Pozostałe naruszenia, w tym przejrzystość z art. 50 i kompetencje z art. 4 | do 15 mln euro albo 3% światowego rocznego obrotu | Chatbot bez oznaczenia, brak udokumentowanego szkolenia zespołu |
+
+W obu wierszach liczy się kwota wyższa. I tutaj potrzebna jest szczerość: te liczby są górnym pułapem napisanym z myślą o globalnych dostawcach modeli, nie o firmie z pięcioma osobami i widżetem na WordPressie. Organy stosują proporcjonalność, biorą pod uwagę charakter naruszenia, wielkość podmiotu i to, czy firma sama naprawiła problem.
+
+Realne koszty małej firmy to zwykle co innego: czas na postępowanie, korespondencja, wstrzymanie kampanii, czasem konieczność wyłączenia bota do czasu poprawki. Dobrowolne uporządkowanie tematu jest po prostu tańsze niż jakiekolwiek postępowanie, nawet zakończone bez kary.
+
+## Minimalny zestaw dla firmy z chatbotem i kilkoma automatyzacjami
+
+To jest wersja, którą wdrażam u klientów, którzy nie mają działu compliance i nie będą go mieli.
+
+1. **Pierwsza wiadomość bota z oznaczeniem.** Konkretnie: "Odpowiada asystent AI naszej firmy. W każdej chwili mogę przełączyć rozmowę do konsultanta." Nie w stopce, nie szarym drukiem, tylko jako pierwsza rzecz, którą człowiek czyta.
+2. **Stałe oznaczenie w nagłówku widżetu**, żeby po dwudziestu wiadomościach nadal było widać, z kim toczy się rozmowa.
+3. **Bot głosowy mówi to w pierwszym zdaniu**, zanim rozmówca zacznie cokolwiek opowiadać.
+4. **Nazwa bez podszywania się.** "Asystent Ola" jest w porządku, "Ola, opiekun klienta" bez adnotacji nie jest.
+5. **Przycisk lub fraza przełączająca do człowieka**, z logiem każdego takiego przekazania. Jak to poprawnie ustawić w kanale mobilnym, opisałem w tekście o [chatbocie na WhatsApp dla firmy](/pl/blog/chatbot-whatsapp-dla-firmy).
+6. **Rejestr systemów AI** w jednym arkuszu, obejmujący też scenariusze automatyzacji, nie tylko czat. Jeśli agent zapisuje leady do CRM, to też system AI w Twoim rejestrze, o czym pisałem przy okazji [połączenia agenta AI z CRM](/pl/blog/integracja-agenta-ai-z-crm).
+7. **Szkolenie zespołu z listą obecności** i krótką notatką, czego dotyczyło.
+8. **Aktualizacja polityki prywatności** i umowa z dostawcą modelu w tym samym folderze co reszta.
+
+Osiem pozycji, z czego sześć to praca na kilka godzin. Najdłużej trwa punkt szósty, bo wymaga przejścia po wszystkim, co w firmie już działa, a zwykle okazuje się, że działa więcej, niż właściciel pamięta.
+
+## Ile to kosztuje i kiedy nie warto tego kupować
+
+Punkt odniesienia dla skali problemu: GUS podaje, że w 2025 roku 8,7 procent polskich firm deklarowało wykorzystanie technologii AI, a 91,3 procent nie używało jej wcale. Większość rynku dopiero zaczyna, więc większość wdrożeń, które teraz powstają, można od razu zrobić poprawnie, zamiast poprawiać je za rok.
+
+Moje widełki są proste. Doprowadzenie istniejącego bota i dokumentów do zgodności zaczynam od 3 500 zł, pełny audyt tego, co w firmie już działa, wraz z rejestrem i planem poprawek, od 4 900 zł. Nowe wdrożenie [agenta AI](/pl/uslugi/agenci-ai) dostaje oznaczenie, eskalację i logi w standardzie, bez dopłaty za zgodność.
+
+Kiedy nie warto tego kupować: jeśli masz jeden formularz kontaktowy bez AI, jeśli Twój bot to zwykłe drzewko FAQ bez modelu językowego, albo jeśli używasz ChatGPT wyłącznie do pisania notatek wewnętrznych i nic z tego nie wychodzi do klienta. Wtedy zostaje Ci wyłącznie temat kompetencji z artykułu 4, a to godzina pracy, nie projekt.
+
+Jeśli masz działającego bota i nie masz pewności, czy przejdzie kontrolę, [napisz do mnie](/pl/kontakt) i podeślij link. Powiem, co trzeba poprawić, i ile to zajmie. Szerszy opis tego, jak wygląda taka [zgodność z AI Act](/pl/uslugi/zgodnosc-ai-act) od strony wykonawczej, jest na osobnej stronie. Jeśli przy okazji zbierasz porzucone kanały kontaktu, przyda się też tekst o tym, co robić z [nieodebranymi połączeniami](/pl/blog/nieodebrane-polaczenia-jak-nie-tracic-klientow), bo voicebot podlega dokładnie tym samym regułom co czat.
+
+## FAQ
+
+**Czym jest KRiBSI?**
+KRiBSI to Komisja Rozwoju i Bezpieczeństwa Sztucznej Inteligencji, krajowy organ nadzoru powołany polską ustawą o systemach sztucznej inteligencji. Merytoryczna część ustawy weszła w życie 11 sierpnia 2026. Komisja odpowiada za nadzór nad stosowaniem unijnego AI Act w Polsce: prowadzi kontrole, postępowania i nakłada kary. Przewodniczący ma być powołany w październiku 2026, a komisja ma działać operacyjnie od listopada 2026.
+
+**Od kiedy KRiBSI może nałożyć karę?**
+Od 28 października 2026. To data, od której komisja zyskuje uprawnienia kontrolne oraz prawo prowadzenia postępowań i wymierzania kar. Same obowiązki obowiązują wcześniej: wymogi przejrzystości dla chatbotów od 2 sierpnia 2026, obowiązek kompetencji AI w zespole od 2 lutego 2025. Do 28 października nie ma w Polsce organu, który mógłby je egzekwować, potem jest.
+
+**Czy polska ustawa wprowadza nowe obowiązki poza AI Act?**
+Zasadniczo nie. Katalog obowiązków dla firm pochodzi z unijnego rozporządzenia, które i tak obowiązuje bezpośrednio. Polska ustawa wskazuje organ, tryb kontroli, przebieg postępowania i sposób nakładania kar. Dla właściciela firmy zmienia się więc nie lista zadań, tylko realność ich egzekwowania.
+
+**Jakie kary grożą małej firmie za nieoznaczonego chatbota?**
+Brak oznaczenia wpada w kategorię pozostałych naruszeń, dla której rozporządzenie przewiduje do 15 mln euro albo 3 procent światowego rocznego obrotu, w zależności od tego, co jest wyższe. Praktyki zakazane mają wyższy próg, do 35 mln euro albo 7 procent obrotu, ale w małej firmie praktycznie nie występują. Górne progi napisano z myślą o dostawcach modeli, a organy stosują proporcjonalność i biorą pod uwagę wielkość firmy oraz to, czy problem został naprawiony samodzielnie.
+
+**Co trzeba mieć przygotowane na kontrolę?**
+Siedem rzeczy w jednym folderze: rejestr systemów AI, dowody oznaczenia bota w postaci zrzutów ekranu i transkryptów, ślad szkolenia zespołu, umowę z dostawcą modelu wraz z opisem przepływu danych, politykę prywatności ze wzmianką o AI, logi rozmów z momentami przekazania do człowieka oraz opis oznaczania treści generowanych, jeśli je publikujesz. Kontrola patrzy na dokumenty i na to, co widzi użytkownik, a nie na kod.
+
+**Czy mała firma używająca tylko ChatGPT też podlega tym przepisom?**
+Tak, w zakresie artykułu 4 AI Act, czyli kompetencji AI w zespole. Obowiązuje on od 2 lutego 2025 każdą organizację używającą AI, niezależnie od wielkości i klasy ryzyka, a polskie źródła podkreślają, że jednorazowe szkolenie lub ogólna ulotka nie wystarczą, bo potrzebny jest udokumentowany program dopasowany do ról. Jeśli dodatkowo model odpowiada klientom, dochodzą obowiązki przejrzystości z artykułu 50.
+
+**Co oznacza data 2 grudnia 2026?**
+To koniec okresu przejściowego na maszynowe oznaczanie treści generowanych przez AI dla systemów, które trafiły na rynek przed 2 sierpnia 2026. Nowe systemy musiały spełniać ten wymóg od razu, starsze dostały czas do grudnia. Dla polskiej firmy oznacza to, że widżet postawiony w 2024 lub 2025 roku powinien zostać poprawiony przed tą datą, a nie po niej.
+
+**Czy da się to zrobić samemu, bez wykonawcy?**
+Część tak. Rejestr systemów AI, aktualizacja polityki prywatności i notatka ze szkolenia to praca wewnętrzna, którą da się zamknąć w jeden dzień. Techniczna strona zwykle wymaga dostępu do kodu widżetu, konfiguracji bota głosowego i logowania przekazań do człowieka, więc tutaj potrzebny jest ktoś, kto to wdrażał. Rynkowe widełki za doprowadzenie istniejącego wdrożenia do porządku zaczynają się u mnie od 3 500 zł, a pełny audyt z rejestrem i planem poprawek od 4 900 zł.

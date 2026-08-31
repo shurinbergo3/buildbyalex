@@ -1,0 +1,150 @@
+---
+title: "Dlaczego wyceny AI różnią się 30 razy: 6, 40 i 180 tysięcy"
+description: "Trzy oferty na tego samego agenta AI: 6 000, 40 000 i 180 000 zł. Rozbieram każdą po pozycjach, pokazuję widełki rynkowe i pytania, które ucinają różnicę."
+date: "2026-09-09"
+cluster: "ai-quotes-differ"
+keywords:
+  - "dlaczego wyceny ai tak się różnią"
+  - "ile kosztuje agent AI"
+  - "wycena wdrożenia AI"
+  - "cennik agenta AI 2026"
+  - "porównanie ofert na AI"
+ogImage: "/og/ai-quotes-differ.webp"
+---
+
+Weźmy konkretne zadanie: agent czyta firmową skrzynkę z zapytaniami ofertowymi, wyciąga pozycje z PDF-ów i załączników, dopisuje sprawę do CRM i szykuje wstępną wycenę do akceptacji handlowca. Trzydzieści zapytań dziennie, jeden magazyn, jeden system.
+
+Na to samo polski rynek potrafi wystawić 6 000 zł, 40 000 zł i 180 000 zł. Trzydzieści razy różnicy. Poniżej rozbieram, co realnie siedzi w każdej z tych kwot i gdzie przebiega granica między "tanio" a "za tanio".
+
+Zastrzeżenie: te trzy oferty to nie jest konkretny klient, tylko złożenie widełek, które polscy dostawcy publikują otwarcie na swoich stronach. Liczby są cudze, analiza moja.
+
+Rynek jest młody i nikt nie sprzedaje tego samego. GUS podaje, że w 2025 roku 8,7% polskich firm deklarowało korzystanie z technologii AI, a rozwiązanie zbudowane na zamówienie przez firmę zewnętrzną miało tylko 2,1%. Kupujący nie ma z czym porównać, bo kupuje pierwszy raz w życiu.
+
+Po stronie sprzedających jest podobnie. Wyniki wyszukiwania na "wdrożenie AI" zajmują mikroagencje założone w 2024 i 2025 roku, a obok nich stoją duże software house'y ze stawkami korporacyjnymi. Ci pierwsi sprzedają konfigurację narzędzia, ci drudzy projekt informatyczny. Słowo "agent" pada w obu ofertach.
+
+Nikt też nie wycenia tej samej głębokości integracji. Polscy dostawcy publikują widełki, w których agent czytający bazę wiedzy kosztuje 20 000-60 000 zł, a agent, który **zapisuje** dane do CRM, ERP albo systemu logistycznego, startuje od 80 000 zł i sięga 250 000 zł. To ten sam skok, który w Twojej ofercie ukrywa się pod jednym zdaniem "integracja z systemem".
+
+## Co kupujesz za 6 000 zł
+
+Konfigurację gotowych klocków. Zwykle n8n albo Make, szablon agenta z biblioteki, podpięta skrzynka, model przez API i webhook do CRM. Trzy do pięciu dni pracy. W tym przedziale mieści się na przykład [chatbot na WhatsApp dla firmy](/pl/blog/chatbot-whatsapp-dla-firmy), który odpowiada na powtarzalne pytania i nie zapisuje niczego do systemów.
+
+Widełki są realne i publikowane: LessManual podaje 3 000-15 000 zł setupu plus abonament 500-2 500 zł miesięcznie, StormIT i PixelAgency 8 000-20 000 zł konfiguracji plus 200-500 zł miesięcznie na API i infrastrukturę, UXU sprzedaje asystenta na bazie wiedzy od 7 900 zł netto, z każdą dodatkową integracją liczoną osobno. Sześć tysięcy to dolny koniec tego przedziału.
+
+Dostajesz działającą ścieżkę podstawową: agent poradzi sobie z zapytaniem, które wygląda jak te dwa, na których był testowany. Rzadko dostajesz przypadki brzegowe, testy na Twoich danych, logi i kogoś, kto odbierze telefon w listopadzie.
+
+## Co kupujesz za 40 000 zł
+
+Tu zaczyna się praca projektowa. Dzień lub dwa warsztatów nad procesem, mapowanie pól z CRM, obsługa załączników w kilku formatach, testy na kilkuset realnych zapytaniach, poprawki przez dwa tygodnie po starcie i umowa na utrzymanie.
+
+Ten przedział też jest publikowany: agent zintegrowany z CRM wyceniany jest w Polsce na 15 000-45 000 zł, pełne wdrożenia na 25 000-150 000 zł netto, a model "done for you" na 5 000-15 000 zł setupu plus 900-2 200 zł miesięcznie. Czterdzieści tysięcy leży w środku tego rozkładu i dla firmy, która traci na tym procesie realne godziny, to zwykle uczciwa cena.
+
+## Co kupujesz za 180 000 zł
+
+Trzy tygodnie discovery, architekt, dwóch programistów, project manager, własny orkiestrator wieloagentowy, dokumentacja zgodności, środowisko testowe i produkcyjne, SLA. Softwarelogic publikuje dla agentów piszących do ERP widełki 80 000-250 000 zł setupu i 8 000-40 000 zł miesięcznie utrzymania. Sto osiemdziesiąt tysięcy to normalna cena, tylko za inny zakres.
+
+Problem w tym, że część tych pozycji wynika ze struktury dostawcy, a nie z Twojego zadania. Warsztat trwa trzy tygodnie, bo cztery osoby muszą się zsynchronizować. Framework wieloagentowy pojawia się, bo tak wygląda oferta, a nie dlatego, że jedna skrzynka i jeden CRM go potrzebują. Najczęściej powtarzany zarzut praktyków brzmi dokładnie tak: większość projektów agentowych powinna być zwykłą, deterministyczną automatyzacją.
+
+## Te same pozycje w jednej tabeli
+
+Ostatnia kolumna to widełki publikowane przez polskich dostawców. Tam, gdzie rynek nie publikuje nic, wpisuję własną cenę i zaznaczam to wprost.
+
+| Pozycja | Oferta 6 000 zł | Oferta 40 000 zł | Oferta 180 000 zł | Widełki rynkowe w PL |
+| --- | --- | --- | --- | --- |
+| Warsztat i analiza procesu | brak | 1-2 dni | 3 tygodnie, 4 osoby | sprzedawany osobno jako audyt AI |
+| Logika agenta | szablon n8n | pisana pod proces | własny orkiestrator | 3 000-15 000 zł setupu (LessManual) |
+| Czytanie skrzynki i PDF | tak | tak | tak | w każdej ofercie |
+| Zapis do CRM lub ERP | zwykle brak | jeden system | trzy systemy | 80 000-250 000 zł przy ERP (Softwarelogic) |
+| Testy na realnych zapytaniach | brak | 200-500 spraw | pełne środowisko testowe | rzadko wyceniane osobną pozycją |
+| Zgodność z AI Act | brak | wzmianka w umowie | dokumentacja i rejestr | brak widełek, u mnie retrofit od 3 500 zł |
+| Logi i ścieżka audytu | brak | podstawowe | pełny audit trail | zwykle nieujęte w tanich ofertach |
+| Utrzymanie miesięczne | brak | 900-2 200 zł | 8 000-40 000 zł | 15-25% wdrożenia rocznie |
+| Koszt modelu i API | nieujęty | 200-500 zł/mc | osobna umowa | 200-500 zł/mc (Growto, StormIT) |
+
+Różnica nie bierze się z jakości kodu, tylko z trzech pozycji: zapisu do systemów, testów i utrzymania. Reszta jest porównywalna.
+
+## Gdzie naprawdę zaczyna się koszt
+
+Model językowy jest najtańszą częścią tego projektu. Koszt siedzi tam, gdzie agent dotyka cudzych systemów i cudzych danych.
+
+- **Odczyt kontra zapis.** Agent, który czyta CRM, to jedno wywołanie API i godzina pracy. Agent, który do CRM pisze, potrzebuje walidacji, obsługi duplikatów, rollbacku i decyzji, co robi przy konflikcie.
+- **Dane wejściowe.** Zapytania przychodzą jako PDF, skan, zdjęcie z telefonu, tabelka w treści maila i załącznik Excel od kontrahenta z Niemiec. Każdy format to osobna ścieżka i osobne testy.
+- **Sprawy, których agent nie ogarnie.** Część zapytań musi trafić do człowieka. Bez ścieżki eskalacji wrócą do Ciebie jako chaos, a nie jako zadanie w kolejce.
+- **Liczba wywołań modelu.** Jedna sprawa to zwykle nie jeden prompt, tylko kilka do kilkunastu wywołań: klasyfikacja, ekstrakcja, dopasowanie do cennika, kontrola. Ta pozycja potrafi cicho urosnąć w rachunku za API.
+- **Zmiana modelu.** Dostawcy wypuszczają nowe wersje kilka razy w roku i prompt, który działał, zaczyna zachowywać się inaczej. Ktoś to musi wychwycić.
+
+Podobną arytmetykę przy prostszym scenariuszu rozbierałem w tekście o [chatbocie z bazą wiedzy na stronę](/pl/blog/chatbot-ai-z-baza-wiedzy).
+
+## Czego brakuje w taniej ofercie
+
+Nie kodu. Brakuje rzeczy, które widać dopiero w trzecim miesiącu.
+
+Zgodności. Od 2 sierpnia 2026 artykuł 50 AI Act wymaga, żeby człowiek wiedział, że rozmawia z systemem AI, a systemy wprowadzone na rynek wcześniej mają czas do 2 grudnia 2026 na maszynowo czytelne oznaczanie treści generowanych. Od 28 października 2026 polska Komisja Rozwoju i Bezpieczeństwa Sztucznej Inteligencji (KRiBSI) może prowadzić kontrole i nakładać kary. Nie jestem prawnikiem, ale od strony inżynierskiej to konkretne pozycje w zakresie: oznaczenie, rejestr systemów AI, logi rozmów, ścieżka do człowieka. W ofercie za 6 000 zł ich nie ma, a dopisanie ich później kosztuje osobno.
+
+Testów. Agent sprawdzony na dwóch przykładowych mailach zachowuje się inaczej przy dwustu.
+
+Właściciela. To najczęstsza przyczyna, dla której wdrożenie umiera. Gartner prognozuje, że do końca 2027 roku ponad 40% projektów agentowych zostanie anulowanych, a 89% pilotaży nigdy nie dochodzi do produkcji. S&P Global Market Intelligence podaje, że w 2025 roku 42% firm porzuciło większość swoich inicjatyw AI, wobec 17% rok wcześniej. Pozostałe 11% raportuje 171% zwrotu: problemem nie jest technologia, tylko dociągnięcie projektu do końca.
+
+Na marginesie: krążąca liczba "95% wdrożeń AI kończy się porażką" pochodzi z badania MIT o pilotażach generatywnych i mierzy brak efektu w wyniku finansowym, a nie anulowanie projektów agentowych. Warto tych dwóch liczb nie mylić.
+
+## Utrzymanie, którego nie ma w żadnej z trzech wycen
+
+Wycena mówi o dniu uruchomienia. Pieniądze wychodzą przez dwa lata. Poniżej ta sama trójka w horyzoncie 24 miesięcy, liczona po dolnych progach publikowanych stawek.
+
+| Horyzont | Oferta 6 000 zł | Oferta 40 000 zł | Oferta 180 000 zł |
+| --- | --- | --- | --- |
+| Wdrożenie | 6 000 zł | 40 000 zł | 180 000 zł |
+| Model i infrastruktura, 24 mc | ok. 4 800 zł | ok. 4 800 zł | w umowie |
+| Utrzymanie, 24 mc | 0 zł, robisz sam | ok. 21 600 zł | ok. 192 000 zł |
+| Razem po dwóch latach | ok. 10 800 zł | ok. 66 400 zł | ok. 372 000 zł |
+
+Model liczony po 200 zł miesięcznie, utrzymanie po 900 zł przy ofercie średniej i po 8 000 zł przy dużej. Proporcja się nie zmienia: trzydzieści razy na starcie, ponad trzydzieści po dwóch latach. Zmienia się to, kto płaci za utrzymanie taniej oferty, bo płacisz Ty, swoim czasem. Polscy dostawcy przyjmują roczne utrzymanie na poziomie 15-25% wartości pierwszego wdrożenia i tę liczbę warto dopisać do każdej wyceny, w której jej nie ma.
+
+## Siedem pytań, które ucinają różnicę
+
+Zadaj je wszystkim trzem dostawcom tego samego dnia. Rozrzut ofert zwykle spada po nich do dwóch, trzech razy.
+
+1. Agent czyta z CRM czy do niego zapisuje? Przez jakie API i co się dzieje przy błędzie zapisu?
+2. Na ilu realnych sprawach będzie testowany przed startem i kto dostarcza te dane?
+3. Co robi agent, kiedy nie wie? Gdzie trafia sprawa i kto dostaje powiadomienie?
+4. Ile wywołań modelu przypada na jedną sprawę i ile to daje miesięcznie przy moim wolumenie?
+5. Czyje są konta OpenAI, Anthropic i klucze API: moje czy dostawcy?
+6. Co się dzieje przy zmianie wersji modelu i czy poprawki są w cenie utrzymania?
+7. Co dostaję w zakresie AI Act: oznaczenie, rejestr systemów, logi rozmów?
+
+Pytanie piąte jest najbardziej niedoceniane. Jeśli klucze i konta należą do wykonawcy, cena wyjścia z tej współpracy jest znacznie wyższa, niż widać w ofercie.
+
+## Jak sam to wyceniam
+
+Jawnie i po pozycjach. [Agent AI](/pl/uslugi/agenci-ai) startuje u mnie od 1 500 € (około 6 400 zł), agent sprzedażowy z integracją CRM od 2 500 € (10 700 zł), agent działający na kilku narzędziach od 4 500 € (19 400 zł), prosta automatyzacja n8n od 900 € (3 900 zł). Automatyzacja obiegu dokumentów, czyli pełna wersja scenariusza z tego artykułu, od 12 000 zł.
+
+Pracuję sam, nie jako agencja, więc w mojej wycenie nie ma project managera ani trzytygodniowego discovery. Jest za to ta sama głębokość integracji, którą polscy dostawcy wyceniają w przedziale 15 000-45 000 zł.
+
+Kiedy nie warto ode mnie kupować: jeśli proces nie jest opisany, wolumen jest mniejszy niż kilkanaście spraw dziennie albo nikt po Twojej stronie nie odpowiada za wynik, to najpierw potrzebny jest audyt, a nie wdrożenie. [Audyt AI](/pl/uslugi/audyt-ai) kosztuje u mnie od 4 900 zł, trwa około tygodnia i kończy się listą procesów z wyliczoną oszczędnością i widełkami na każdy. Jeśli okaże się, że budować nie ma czego, powiem to wprost.
+
+Masz na biurku dwie albo trzy oferty i nie wiesz, która jest uczciwa? [Napisz do mnie](/pl/kontakt) i prześlij je bez nazw dostawców: powiem, które pozycje są realne i których brakuje. Różnice między typami botów rozbierałem w tekście o tym, [czym jest agent AI](/pl/blog/czym-jest-agent-ai).
+
+## FAQ
+
+**Dlaczego wyceny wdrożenia AI różnią się nawet 30 razy?**
+Bo pod jednym słowem "agent" sprzedawane są trzy różne produkty: konfiguracja gotowego narzędzia, projekt programistyczny pod konkretny proces i wdrożenie korporacyjne z zespołem i dokumentacją. Polscy dostawcy publikują widełki 3 000-15 000 zł za setup na gotowych klockach, 15 000-45 000 zł za agenta zintegrowanego z CRM i 80 000-250 000 zł za agenta zapisującego dane do ERP. Najwięcej różnicy robią trzy pozycje: zapis do systemów, testy na realnych danych i utrzymanie.
+
+**Ile realnie kosztuje agent AI dla małej firmy w Polsce w 2026 roku?**
+Dla jednego wyraźnie opisanego procesu realny przedział to 6 000-45 000 zł jednorazowo plus 200-2 500 zł miesięcznie na model, infrastrukturę i utrzymanie. LessManual podaje 3 000-15 000 zł setupu przy abonamencie 500-2 500 zł, UXU sprzedaje asystenta na bazie wiedzy od 7 900 zł netto. Moja stawka za agenta AI zaczyna się od 1 500 € (około 6 400 zł), a za agenta z integracją CRM od 2 500 € (10 700 zł).
+
+**Czy tania oferta za 6 000 zł to oszustwo?**
+Nie, to inny zakres. Za tę kwotę dostajesz działającą konfigurację gotowych komponentów, przetestowaną na kilku przykładach. Nie dostajesz testów na Twoich danych, obsługi przypadków brzegowych, logów, ścieżki eskalacji do człowieka ani zgodności z AI Act. Jeśli proces jest prosty i sam potrafisz go dopilnować, to sensowny zakup. Jeśli agent ma pisać do systemu, na którym stoi sprzedaż, to za mało.
+
+**Co powinno znaleźć się w każdej wycenie wdrożenia AI?**
+Pięć pozycji wycenionych osobno: analiza procesu, budowa i integracje z podziałem na odczyt i zapis, testy na realnych danych z podaną liczbą spraw, koszt modelu i infrastruktury miesięcznie oraz utrzymanie po starcie. Do tego zapis, czyje są konta i klucze API. Wycena bez rozbicia na pozycje jest nieporównywalna z żadną inną.
+
+**Ile kosztuje utrzymanie agenta AI po wdrożeniu?**
+Polscy dostawcy przyjmują roczne utrzymanie na poziomie 15-25% wartości pierwszego wdrożenia, a w modelu abonamentowym 900-2 200 zł miesięcznie przy prostszych wdrożeniach i 8 000-40 000 zł przy agentach zintegrowanych z ERP. Do tego dochodzi koszt modelu i infrastruktury, zwykle 200-500 zł miesięcznie. Przy wycenie, w której utrzymania nie ma wcale, dopisz sobie te 15-25% rocznie samodzielnie.
+
+**Dlaczego duże software house'y wyceniają to samo kilka razy drożej?**
+Bo wyceniają zespół, nie zadanie. W ofercie za 180 000 zł znaczna część kwoty to koordynacja czterech osób, trzytygodniowe discovery, dokumentacja i SLA. Przy agencie pracującym na jednej skrzynce i jednym CRM większość tych pozycji nie wynika z Twojego procesu. Przy wdrożeniu dotykającym ERP, produkcji i danych osobowych wynika i wtedy ta cena jest uzasadniona.
+
+**Jak porównać dwie oferty, które mają zupełnie inną strukturę?**
+Rozbij obie na te same pozycje: analiza, logika agenta, integracje z podziałem na odczyt i zapis, testy, zgodność, utrzymanie, koszt modelu. Puste pola w jednej z ofert są odpowiedzią. Potem policz koszt na 24 miesiące, a nie na dzień startu: po dolnych progach rynkowych stawek oferta za 40 000 zł kosztuje po dwóch latach około 66 400 zł, a ta za 180 000 zł około 372 000 zł.
+
+**Kiedy nie warto kupować wdrożenia AI w ogóle?**
+Kiedy proces nie jest opisany, wolumen jest zbyt mały, żeby oszczędność pokryła utrzymanie, albo nikt w firmie nie odpowiada za wynik projektu. Gartner prognozuje, że do końca 2027 roku ponad 40% projektów agentowych zostanie anulowanych, a według S&P Global Market Intelligence 42% firm porzuciło większość inicjatyw AI już w 2025 roku. Tańszy pierwszy krok to audyt procesów, po którym często okazuje się, że wystarczy zwykła automatyzacja bez modelu językowego.

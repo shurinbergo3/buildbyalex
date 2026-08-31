@@ -1,0 +1,152 @@
+---
+title: "Uprawnienia agenta AI w CRM i ERP: gdzie postawić bramkę akceptacji"
+description: "Macierz uprawnień dla agenta AI: która akcja w CRM i ERP wymaga akceptacji człowieka, co logować, ile spraw idzie do przeglądu i jak odciąć agenta w minutę."
+date: "2026-09-02"
+cluster: "ai-agent-permissions"
+keywords:
+  - "uprawnienia agenta AI"
+  - "agent AI dostęp do CRM"
+  - "agent AI zapis do ERP"
+  - "bramka akceptacji agenta AI"
+  - "ślad audytowy agenta AI"
+ogImage: "/og/ai-agent-permissions.webp"
+---
+
+Najtrudniejsze pytanie w projekcie z agentem AI nie brzmi „jaki model" ani „ile to kosztuje". Brzmi: **co ten agent może zrobić w naszym CRM bez pytania kogokolwiek**. Dopóki agent tylko czyta i odpowiada, ryzyko jest niewielkie. W dniu, w którym dostaje prawo zapisu, zmienia się wszystko naraz: cena wdrożenia, zakres testów i lista rzeczy, które mogą pójść źle po cichu.
+
+Poniżej to, co realnie wpisuję do projektów: macierz uprawnień, zasady stawiania bramki akceptacji, wymagany ślad audytowy i plan wycofania. Bez teorii o „governance", z konkretnymi polami i liczbami.
+
+## Moment, w którym agent przestaje czytać i zaczyna pisać
+
+Polskie widełki pokazują ten próg lepiej niż jakikolwiek wykład. W cennikach dostawców agent odpowiadający z bazy wiedzy i agent zapisujący dane do systemu to dwa różne światy.
+
+| Zakres agenta | Widełki polskich dostawców | Utrzymanie |
+| --- | --- | --- |
+| Prosty asystent, konfiguracja na gotowej platformie | 3 000-15 000 zł | 500-2 500 zł/mc |
+| Odpowiada z bazy wiedzy, do systemów tylko zagląda | 20 000-60 000 zł | 2 000-8 000 zł/mc |
+| Czyta i zapisuje dane w CRM, ERP lub systemie logistycznym | 80 000-250 000 zł | 8 000-40 000 zł/mc |
+
+Skok z 60 do 80 tysięcy nie bierze się z modelu. Bierze się stąd, że przy zapisie ktoś musi zaprojektować uprawnienia, obsłużyć błędy, przewidzieć wycofanie zmiany i zebrać logi, które przetrwają rozmowę z audytorem.
+
+Jeżeli Twój przypadek to „chcę, żeby klienci dostawali odpowiedzi z naszej dokumentacji", zostań w górnych wierszach tabeli, czyli przy [chatbocie z bazą wiedzy](/pl/blog/chatbot-ai-z-baza-wiedzy). Zapis do systemu ma sens dopiero wtedy, gdy ktoś przepisuje te same dane ręcznie kilkadziesiąt razy w tygodniu.
+
+## Macierz uprawnień: tabela, którą podpisuje właściciel firmy
+
+To jest dokument, od którego zaczynam każde wdrożenie [agenta AI](/pl/uslugi/agenci-ai) z dostępem do systemów. Jedna strona, pięć kolumn, akceptacja na piśmie przed pierwszą linijką kodu.
+
+| Akcja w CRM lub ERP | Ryzyko | Uprawnienie agenta | Bramka akceptacji | Co trafia do logu |
+| --- | --- | --- | --- | --- |
+| Odczyt karty klienta i historii kontaktu | niskie | odczyt | nie | id rekordu, zapytanie, czas |
+| Dodanie notatki do sprawy | niskie | zapis | nie | treść notatki, autor „agent" |
+| Utworzenie leada z maila lub formularza | niskie | zapis | nie | źródło, wypełnione pola |
+| Zmiana etapu w lejku sprzedaży | średnie | zapis | tak, gdy wartość powyżej 20 000 zł | stary etap, nowy etap, powód |
+| Wysyłka maila do klienta z adresu firmowego | średnie | zapis i wysyłka | tak przy pierwszym kontakcie | pełna treść, adresat, załączniki |
+| Przygotowanie oferty lub wyceny | wysokie | zapis wersji roboczej | zawsze | wersja, ceny, rabat, marża |
+| Zmiana ceny, rabatu, warunków płatności | wysokie | brak zapisu, tylko propozycja | zawsze, ręczne zatwierdzenie | proponowana wartość, uzasadnienie |
+| Wystawienie faktury i wysyłka do KSeF | wysokie | brak zapisu | zawsze, klika człowiek | pełny payload dokumentu |
+| Zmiana stanu magazynowego, rezerwacja towaru | wysokie | zapis w ramach limitu ilościowego | powyżej limitu | SKU, różnica, magazyn |
+| Usunięcie rekordu, scalenie kontrahentów | krytyczne | zabronione | nie dotyczy | sama próba i jej odrzucenie |
+| Eksport listy klientów lub danych osobowych | krytyczne | zabronione | nie dotyczy | sama próba i jej odrzucenie |
+
+Trzy zasady, które trzymają tę tabelę w ryzach:
+
+- **Domyślnie zero.** Agent nie ma żadnego uprawnienia, dopóki nie zostanie dopisany wiersz. Nie odwrotnie.
+- **Jeden wiersz to jedna akcja, nie moduł.** „Dostęp do modułu sprzedaży" nic nie znaczy. „Zmiana etapu deala" znaczy.
+- **Kategoria krytyczna zostaje pusta.** Usuwanie, scalanie i eksport danych osobowych nie są w zasięgu agenta w żadnym wariancie. Jeśli ktoś prosi o wyjątek, to znak, że proces trzeba naprawić inaczej.
+
+## Konto techniczne zamiast konta pracownika
+
+Najczęstszy skrót przy pilotażu: agent dostaje login handlowca, bo tak jest szybciej. Trzy problemy naraz. Agent dziedziczy wszystkie uprawnienia tego człowieka, łącznie z tymi, o których nikt nie pamięta. W historii rekordu widać nazwisko pracownika, więc po dwóch miesiącach nikt nie odróżni jego zmian od zmian modelu. A gdy pracownik odchodzi i konto jest wyłączane, agent przestaje działać w środku dnia.
+
+Poprawnie: osobne konto techniczne z własną nazwą widoczną w interfejsie, własnym kluczem API, zestawem ról i limitem zapytań. W Pipedrive, HubSpot, Bitrix czy Comarch ERP XL to godzina konfiguracji. Efekt: w każdym rekordzie widać, że zmianę zrobił agent, a odcięcie dostępu nie dotyka nikogo z zespołu.
+
+## Bramka akceptacji: co trafia do człowieka i w jakim czasie
+
+Bramka akceptacji to nie okienko „czy na pewno". To osobny krok procesu z własnym adresatem i czasem reakcji. Bez tych dwóch rzeczy zamienia się w kolejkę, której nikt nie czyta.
+
+U mnie wygląda to tak. Agent przygotowuje pełną wersję akcji, zapisuje ją jako wersję roboczą i wysyła jedną wiadomość na Slacka albo maila: co chce zrobić, na jakim rekordzie, na jakiej podstawie, plus dwa przyciski. Bez wciągania człowieka do panelu administracyjnego. Jeśli nikt nie odpowie w umówionym czasie, akcja wygasa i sprawa idzie do obsługi ręcznej. Nigdy nie wykonuje się „domyślnie tak".
+
+Czasy, które sprawdzają się w małej firmie: oferta i wycena do 4 godzin roboczych, pierwszy mail do nowego klienta do 1 godziny, zmiana etapu powyżej progu do końca dnia. Przy [agencie do rezerwacji klientów](/pl/blog/agent-ai-do-rezerwacji) granica leży gdzie indziej: wolny termin w standardowych godzinach agent bierze sam, przesunięcie cudzej wizyty czy termin poza grafikiem idzie do człowieka.
+
+## Ile spraw realnie idzie do przeglądu
+
+To pytanie decyduje o budżecie, nie o bezpieczeństwie. Praktycy, którzy utrzymują agentów na produkcji, zgodnie podają, że **5-15% przypadków wymaga człowieka** i że jest to koszt stały, a nie błąd do wyeliminowania. Do tego dochodzi 100% akcji wysokiego ryzyka, bo te idą do akceptacji z definicji.
+
+Policzmy na typowej firmie handlowej, 400 spraw miesięcznie:
+
+- przegląd wyjątków: 400 × 10% = 40 spraw, po 3 minuty, czyli 2 godziny miesięcznie
+- akceptacja ofert: 60 ofert × 4 minuty, czyli 4 godziny miesięcznie
+- akceptacja pierwszych maili: 80 × 1 minuta, czyli około 1,5 godziny
+
+Razem niecałe 8 godzin miesięcznie na jednego człowieka, wobec kilkudziesięciu godzin przepisywania danych, które znikają z grafiku. Ten rachunek warto zrobić przed wdrożeniem: jeśli wychodzi 40 godzin przeglądu, lepiej zbudować automatyzację na twardych regułach.
+
+Przegląd wszystkiego po równo też nie działa. Człowiek, który klika „akceptuj" pięćdziesiąty raz z rzędu, przestaje czytać po tygodniu. Bramka ma stać tam, gdzie w tabeli stoi „wysokie", a reszta ma iść sama i lądować w logu.
+
+## Zawężanie zasięgu: filtry, limity i lista dozwolonych pól
+
+Uprawnienie „zapis do CRM" to za szeroko. Zawężam je czterema wymiarami, wpisanymi w konfigurację, a nie w prompt.
+
+- **Po rekordzie.** Agent widzi tylko sprawy ze swojej kolejki, nie całą bazę. Kartoteka klientów strategicznych zostaje poza zasięgiem.
+- **Po polu.** Lista dozwolonych pól do zapisu, reszta tylko do odczytu. NIP, dane właściciela, warunki umowy i pola księgowe są zawsze poza listą.
+- **Po kwocie i ilości.** Powyżej 20 000 zł wartości deala albo powyżej ustalonej liczby sztuk agent tylko proponuje.
+- **Po statusie.** Sprawy zamknięte, zafakturowane i reklamacyjne są zablokowane w całości.
+
+Limity muszą siedzieć po stronie API i uprawnień systemu, nie w instrukcji dla modelu. Instrukcję da się obejść jednym sprytnie napisanym mailem od klienta. OWASP w raporcie o bezpieczeństwie agentów za 2026 rok stawia prompt injection w centrum ryzyka agentowego i podaje wzrost liczby ataków o 340% rok do roku, z udokumentowanymi przypadkami przeciwko Slack AI, Microsoft 365 Copilot i GitHub MCP. Wniosek: **to, czego agent nie ma prawa zrobić w API, ma być niemożliwe niezależnie od tego, co przeczyta**.
+
+## Ślad audytowy: co musi zostać po każdej akcji agenta
+
+Agenty rzadko padają głośno. Typowa awaria wygląda tak: agent wywołuje właściwe narzędzie z sensownie wyglądającymi, ale błędnymi parametrami, i nikt tego nie widzi przez tydzień. OWASP podaje, że średnie pokrycie monitoringiem systemów agentowych w produkcji to 52%, czyli blisko połowa wdrożonych agentów nie jest obserwowana.
+
+Minimalny rekord w logu, który wystarcza do odtworzenia zdarzenia:
+
+| Pole | Przykładowa zawartość | Po co |
+| --- | --- | --- |
+| Czas i identyfikator sesji | 2026-09-02 11:42, sesja 8f31 | powiązanie akcji z rozmową |
+| Kto zainicjował | klient, pracownik, harmonogram | odpowiedzialność |
+| Wywołane narzędzie i parametry | crm.update_deal, id 4127, stage=won | co dokładnie poszło do systemu |
+| Wersja promptu i modelu | v14, gpt-5.1 | powtarzalność po aktualizacji modelu |
+| Stan przed i po | stage: było negotiation, jest won | wycofanie zmiany |
+| Wynik bramki | zaakceptował Marek K., 11:48 | dowód nadzoru człowieka |
+
+Tu wchodzi część prawna, więc zastrzeżenie: jestem programistą, nie prawnikiem. Firma używająca systemu AI pod własną nazwą jest w rozumieniu AI Act podmiotem stosującym i obowiązki leżą po jej stronie. W Polsce dochodzi krajowy nadzór: Komisja Rozwoju i Bezpieczeństwa Sztucznej Inteligencji uzyskuje uprawnienia do kontroli, postępowań i kar **od 28 października 2026**. Log akcji agenta jest jedyną rzeczą, którą można w takiej rozmowie pokazać.
+
+## Plan wycofania: jak odciąć agenta w minutę
+
+Element, który zwykle wypada z zakresu i najbardziej boli, gdy go brakuje. Trzy poziomy, przetestowane przed startem, nie po incydencie:
+
+1. **Pauza.** Jeden przełącznik zatrzymuje zapisy, odczyt zostaje. Dostępny dla właściciela, nie tylko dla wykonawcy.
+2. **Odcięcie.** Unieważnienie klucza API konta technicznego: kilkanaście sekund w panelu CRM, skutek natychmiastowy.
+3. **Cofnięcie zmian.** Zapytanie po logu o akcje agenta z ostatnich N godzin, ze stanem przed zmianą i przywracaniem paczkami. Bez tego trzeba przeglądać historię rekord po rekordzie.
+
+Gartner szacuje, że ponad 40% projektów agentowych zostanie anulowanych do końca 2027 roku, a 89% pilotaży nie dochodzi do produkcji. Sporo porażek wygląda właśnie tak: pilot działał, potem agent zrobił coś głupiego, nikt nie umiał szybko powiedzieć co i ile razy, więc projekt zamknięto.
+
+## Od czego zacząć
+
+Kolejność, która działa: dwa tygodnie tylko do odczytu, potem zapis w kategoriach niskiego ryzyka, potem po jednej akcji średniego ryzyka co tydzień. Wysokie ryzyko zostaje za bramką na stałe.
+
+Jeśli nie wiesz, które procesy w ogóle nadają się do zapisu przez agenta, zacznij od [audytu AI](/pl/uslugi/audyt-ai) za 4 900 zł: na wyjściu dostajesz macierz uprawnień i wycenę wdrożenia, czasem też odpowiedź, że wystarczy zwykła automatyzacja. Agent sprzedażowy z integracją CRM zaczyna się u mnie od 2 500 € (około 10 750 zł), agent wielonarzędziowy od 4 500 € (około 19 350 zł). Jak to wygląda po stronie firmy, opisałem na przykładzie [wdrożeń w Gdańsku](/pl/blog/agent-ai-dla-firm-gdansk).
+
+Masz konkretny proces w CRM albo ERP i chcesz wiedzieć, gdzie postawić bramkę? [Napisz](/pl/kontakt), przejdziemy przez tabelę uprawnień dla Twojego przypadku.
+
+## FAQ
+
+**Jakie uprawnienia powinien mieć agent AI w CRM na start?**
+Na start tylko odczyt oraz zapis w kategoriach niskiego ryzyka: notatka do sprawy, lead z maila, aktualizacja danych kontaktowych. Zmiana etapu deala, mail do klienta i wszystko, co dotyczy ceny, wchodzi później i za bramką akceptacji. Usuwanie rekordów, scalanie kontrahentów i eksport danych osobowych zostają wyłączone na stałe.
+
+**Które akcje agenta muszą zawsze przechodzić przez akceptację człowieka?**
+Wszystko, co zmienia pieniądze lub zobowiązanie wobec klienta: oferta i wycena, zmiana ceny, rabatu albo warunków płatności, wystawienie faktury i wysyłka do KSeF, zmiana stanu magazynowego powyżej limitu. Do tego pierwszy kontakt mailowy z nowym klientem i zmiana deala powyżej progu wartości, na przykład 20 000 zł. Reszta może iść automatycznie, pod warunkiem że trafia do logu.
+
+**Ile spraw agent kieruje do przeglądu przez człowieka?**
+Praktycy, którzy utrzymują agentów na produkcji, podają 5-15% przypadków jako stały koszt operacyjny, niezależnie od jakości modelu. Do tego dochodzi 100% akcji wysokiego ryzyka, które przechodzą przez bramkę z definicji. Przy 400 sprawach miesięcznie wychodzi zwykle 6-8 godzin pracy jednej osoby. Jeśli wyliczenie daje kilkadziesiąt godzin, lepszym rozwiązaniem jest automatyzacja na twardych regułach.
+
+**Co trzeba logować przy każdej akcji agenta?**
+Sześć elementów: czas i identyfikator sesji, kto zainicjował akcję, wywołane narzędzie z parametrami, wersja promptu i modelu, stan rekordu przed i po zmianie oraz wynik bramki z nazwiskiem osoby zatwierdzającej. Taki zestaw pozwala odtworzyć zdarzenie i cofnąć zmiany paczkami. OWASP podaje, że średnie pokrycie monitoringiem systemów agentowych w produkcji wynosi 52%.
+
+**Ile kosztuje agent AI z zapisem do CRM lub ERP w Polsce?**
+Polscy dostawcy publikują widełki 20 000-60 000 zł za agenta odpowiadającego z bazy wiedzy oraz 80 000-250 000 zł setup przy 8 000-40 000 zł miesięcznie za agenta, który czyta i zapisuje dane w CRM, ERP lub systemie logistycznym. Skok wynika z projektowania uprawnień, obsługi błędów i logowania, a nie z modelu. U mnie agent sprzedażowy z CRM zaczyna się od 2 500 € (około 10 750 zł), agent wielonarzędziowy od 4 500 € (około 19 350 zł).
+
+**Czy prompt injection realnie zagraża agentowi z dostępem do systemów?**
+Tak, i dlatego limity mają siedzieć w uprawnieniach API, a nie w instrukcji dla modelu. OWASP w raporcie za 2026 stawia prompt injection w centrum ryzyka agentowego i podaje wzrost liczby ataków o 340% rok do roku, z udokumentowanymi przypadkami przeciwko Slack AI, Microsoft 365 Copilot i GitHub MCP. Wystarczy mail od klienta z odpowiednio sformułowaną treścią, żeby agent spróbował czegoś spoza scenariusza. Jeśli danej akcji nie ma w rolach konta technicznego, próba kończy się odrzuceniem i wpisem w logu.
+
+**Jak szybko można odciąć agenta od systemu?**
+Na trzech poziomach. Pauza zapisów to jeden przełącznik, po którym agentowi zostaje sam odczyt. Unieważnienie klucza API konta technicznego zajmuje kilkanaście sekund w panelu CRM i działa natychmiast. Cofnięcie zmian to zapytanie po logu o akcje agenta z ostatnich godzin, ze stanem sprzed zmiany. Wszystkie trzy trzeba przetestować przed uruchomieniem.

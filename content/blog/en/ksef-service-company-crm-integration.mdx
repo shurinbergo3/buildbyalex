@@ -1,0 +1,133 @@
+---
+title: "KSeF for Service and B2B Firms: Invoicing That Fires From Your CRM"
+description: "Connect Poland's KSeF e-invoicing to your CRM: the deadline table, the deal-to-KSeF-to-CRM data flow, the fields you need, failure handling and costs."
+date: "2026-09-01"
+cluster: "ksef-service-company-crm"
+keywords:
+  - "KSeF CRM integration"
+  - "KSeF for service companies"
+  - "KSeF API custom system"
+  - "automated invoicing Poland 2026"
+  - "KSeF B2B obligation"
+ogImage: "/og/ksef-service-company-crm.webp"
+---
+
+Since 1 April 2026 every active VAT payer in Poland issues invoices through KSeF, the national e-invoicing system. Almost every guide was written by an accounting software vendor and ends the same way: buy our product. An agency running its own CRM and billing thirty invoices a month as projects close gets no answer to its real question. How do I make the invoice come out of what I already have?
+
+I build integrations and I am not a tax adviser, so what follows is the engineering side: which dates matter, where an invoice originates in a service business, how the flow from CRM to KSeF and back works, and what to do when the government system goes quiet.
+
+## The KSeF timeline, plus the deadline next to it
+
+Most of the confusion comes from mixing two separate obligations: **receiving** cost invoices and **issuing** your own. They started on different dates and cover different groups.
+
+| Obligation | Start date | Who it covers |
+| --- | --- | --- |
+| Receiving cost invoices through KSeF | 1 February 2026 | all taxpayers |
+| Issuing invoices in KSeF | 1 February 2026 | companies with 2024 revenue above PLN 200m |
+| Issuing invoices in KSeF | 1 April 2026 | all other VAT payers |
+| Application for an e-Doręczenia mailbox | by 30 September 2026 | CEIDG firms registered before end-2024 |
+| e-Doręczenia mandatory | 1 October 2026 | CEIDG firms registered before end-2024 |
+
+Both KSeF dates have passed, so this is a process question now, not a deadline question. e-Doręczenia, the official electronic delivery system, is in the same table because it is the same shift elsewhere: documents move into a state system somebody has to open on a schedule. A letter there counts as delivered 14 days after it lands, read or not.
+
+## Receiving cost invoices applies to you even if you issue nothing
+
+Receiving e-invoices through KSeF became mandatory for all taxpayers on 1 February 2026, whether you sell B2B or only to consumers. If you buy hosting, licences, subcontractor work or an office, those invoices land in KSeF, not in your inbox.
+
+That changes the cost side more than the sales side. Invoices used to arrive by email and somebody forwarded them to the accountant. Now they have to be pulled on a schedule, attached to projects, and checked so nothing sits unretrieved. I usually build a small n8n process for it: an hourly pull of new purchase invoices, XML and PDF into company storage, a CRM record with the seller's tax number, amount and due date, and a Slack alert above an agreed threshold. The same pattern shows up in the piece on [CRM integration with Telegram and WhatsApp](/en/blog/crm-telegram-whatsapp-integration).
+
+## Where an invoice really originates in a service company
+
+In an online shop the invoice follows the order and one system decides. In a service company it does not, and that is the whole problem. What I usually find on arrival:
+
+- A salesperson moves a deal to "won", but the card holds no tax number, no address and no line items.
+- The billable amount sits in a timesheet spreadsheet or inside a contract PDF.
+- Once a month somebody retypes it into accounting software or emails a list to the bookkeeper.
+- Retainer invoices go out by hand, on a schedule kept in the owner's head.
+
+KSeF fixes none of that. It moves the point at which the mess becomes visible, because an invoice now formally exists only once the ministry's system accepts it and assigns a number. Before you touch the API you need one place where the invoice data is complete and trustworthy, usually the CRM. Picking that source of truth is half the project, and I went into it in the guide on [where to start with business process automation](/en/blog/business-process-automation-where-to-start).
+
+## The data flow: deal marked won, KSeF, number back in the CRM
+
+This is the pattern I wire into a service business. Every step has named fields and its own failure point.
+
+1. **Trigger.** A deal moves to "won" and a webhook fires to the integration layer. Failure point: the salesperson toggles the status twice and duplicates go out. Fix: an idempotency key on the deal id.
+2. **Data assembly.** From the CRM: tax number, legal name and address, line items, net amount, VAT rate, payment terms, order or contract number. Failure point: an empty field. The integration must not guess, it holds the document and sends a task to the account owner.
+3. **Counterparty validation.** Check the tax number against the Polish taxpayer register and, for EU clients, VIES. Failure point: the client changed details and the CRM holds an address from two years ago.
+4. **Document build.** The data goes into structured XML in the required schema. Failure point: timesheet lines with no unambiguous VAT rate, or descriptions longer than the schema allows.
+5. **Submission.** Authentication, session, document send. Failure point: an expired token and a session that did not renew in the background.
+6. **Confirmation.** KSeF assigns the number and issues the official receipt confirmation. Failure point: the document is accepted but confirmation lands a moment later, so a missing immediate response must not count as an error.
+7. **Write-back to the CRM.** The KSeF number, the status, the acceptance timestamp and links to the XML and PDF go back onto the deal card. Failure point: skipping this, after which nobody knows which invoice is stuck.
+8. **Delivery.** An email to the client with the PDF visualisation, plus an XML bundle for the bookkeeper. Failure point: the client treats the PDF as the invoice, when the legal document is what KSeF holds.
+
+Step seven separates a working integration from a demo: with the number in the CRM, collections, reporting and the accountant conversation happen in one place instead of a government portal.
+
+## What the CRM must hold before you touch the API
+
+Before I write a line of integration code I walk the client through the field list. Without these the document fails validation or goes out wrong.
+
+| CRM field | What it does | What happens without it |
+| --- | --- | --- |
+| Buyer tax number | identifies the recipient | validation fails |
+| Full legal name and address | the buyer block | the invoice goes to a stale entity |
+| Line items with descriptions | the body of the invoice | someone types them by hand every time |
+| VAT rate per line | the tax calculation | a default rate lands where another applies |
+| Payment terms | reminders and collections | overdue invoices go unchased |
+| Contract or order number | ties the invoice to a project | the bookkeeper cannot place the document |
+
+This list weighs more than the choice of tooling. The invoicing code takes days; filling in tax numbers and addresses across the counterparty database runs for weeks, because somebody has to call the clients one by one.
+
+## Invoices that will never reach KSeF
+
+KSeF does not swallow the entire document flow. Outside it sit invoices from foreign contractors, paper documents, scans and PDFs, and the whole pre-rollout archive. For a company billing clients in Germany or the Netherlands that share can beat the domestic one, so document capture does not disappear. It moves to the costs outside KSeF, where the arithmetic is public. Benchmarks put the average cost of processing one invoice at about USD 10.89, while teams with automated capture and matching get to roughly USD 2.78, which is 74% lower. Pretrained document models run USD 0.10-0.75 per document, Azure Document Intelligence charges USD 10 per 1000 pages for its prebuilt invoice model and USD 30 for custom extraction, and Google Document AI USD 1.50 per 1000 pages for basic OCR. Those are market figures, not my prices. At 300 cost invoices a month the capture itself costs a few euros, and the saving is measured in human hours. That is the territory covered by [document automation](/en/services/document-automation).
+
+## When KSeF does not answer: a queue, not a wait
+
+An external system your sales depends on will eventually fail to answer. In code one thing matters: the integration must not lose documents or block the sales team. Minimum architecture:
+
+- The invoice is stored locally with an internal number before anything goes to KSeF.
+- Submission runs through a queue with retries and growing back-off, not synchronously with a CRM click.
+- Every attempt carries an idempotency key, so a retry cannot create a second invoice.
+- Documents in the state "sent, no confirmation" sit on one screen, not in logs.
+- If a document hangs past an agreed window, an alert goes to a named person, not a shared mailbox.
+
+I use the same pattern for every public system. Anything crossing the company boundary goes through a queue and carries a visible status, otherwise the first outage on the government side ends in three days of manual invoicing.
+
+## What this costs and how long it takes
+
+Market ranges are worth separating from mine. Polish vendors publish a wide band for automation projects: PLN 3 000-15 000 for configuration plus a subscription, PLN 8 000-20 000 for configuration with PLN 200-500 a month for API and infrastructure, and PLN 80 000-250 000 for systems writing into the CRM and ERP of a large organisation, with maintenance at 15-25% a year. My own rates:
+
+| Scope | What it includes | Price from | Time |
+| --- | --- | --- | --- |
+| Cost invoice intake | pulling from KSeF, XML and PDF storage, CRM record, alerts | €900 (3 900 zł) | 1-2 weeks |
+| Issuing from the CRM | trigger, tax number validation, XML, submission, number written back | €2 800 (12 000 zł) | 2-4 weeks |
+| Full document flow | the above plus capture of non-KSeF invoices, matching to projects, bundle for the bookkeeper | quoted per case | 4-8 weeks |
+
+These numbers buy the work, not a licence. On top sit your server and any capture outside the system. A broader comparison sits in the guide to [n8n and Make automation pricing](/en/blog/how-much-does-automation-cost-n8n).
+
+When not to buy this: at five identical invoices a month a cheap accounting package handles it for less than any integration. Break-even sits around a few dozen invoices a month, with data spread across several systems and somebody spending more than a working day a month on it.
+
+If you have a CRM and want the invoice to leave it on its own, [write to me](/en/contact) and describe what lives in the CRM and what lives in a spreadsheet. I will tell you what can be wired up in two weeks and what needs the data cleaned first. Wider context sits on the [automation services page](/en/services/automation).
+
+## FAQ
+
+**Does a service company have to integrate its CRM with KSeF, or is accounting software enough?**
+The law requires structured invoices in KSeF, not a CRM integration, and accounting software satisfies that. Integrating the CRM pays off when the invoice data originates there anyway and somebody retypes it today. At a few dozen invoices a month, retyping costs more than the API work.
+
+**When does KSeF become mandatory for my company?**
+Issuing invoices in KSeF has been mandatory since 1 February 2026 for companies with 2024 revenue above PLN 200m, and since 1 April 2026 for all other VAT payers. Receiving cost invoices covered all taxpayers from 1 February 2026. These are two separate obligations, and the receiving one applies even to a company that issues no B2B invoices.
+
+**What happens if KSeF is down when an invoice needs to go out?**
+The document goes into a queue and is resent once the system is back. A correctly built process stores the invoice locally with an internal number, retries with growing back-off and uses an idempotency key so no duplicate appears. The salesperson never waits on a response.
+
+**Do invoices from foreign contractors go through KSeF?**
+No. Documents from contractors outside the Polish system, plus paper invoices, scans and PDFs, stay outside KSeF, so automated capture is still needed. Industry benchmarks put manual processing of one invoice at roughly USD 10.89 and automated capture with matching at about USD 2.78.
+
+**What data does the CRM need before invoices can go out on their own?**
+The minimum is the buyer's tax number, full legal name and address, line items with service descriptions, a VAT rate on every line, payment terms and a contract or order number. Without the tax number and the VAT rate the document fails validation. Without payment terms and a contract number it passes, but nothing can match it to a project. The KSeF number then goes back onto the deal, because it is the only identifier tying your record to the document on the government side.
+
+**How long does it take to connect KSeF to a custom CRM?**
+Cost invoice intake with a CRM record takes 1-2 weeks. Issuing from the CRM, including tax number validation and writing the number back, takes 2-4 weeks. A full flow with capture of non-KSeF documents takes 4-8 weeks. The biggest delay is never the code, it is cleaning up counterparty data.
+
+**How much does a KSeF to CRM integration cost for a service company?**
+With me, cost invoice intake starts at €900 (3 900 zł) and issuing from the CRM with the number written back starts at €2 800 (12 000 zł). Polish vendors publish ranges from PLN 3 000-15 000 for a simple configuration up to PLN 80 000-250 000 for systems writing into a large company's ERP, and maintenance at 15-25% a year.

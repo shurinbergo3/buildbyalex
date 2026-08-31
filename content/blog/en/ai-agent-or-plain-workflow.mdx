@@ -1,0 +1,148 @@
+---
+title: "AI Agent or Plain Workflow: a Six-Question Test Before You Buy"
+description: "Most agent projects should have been deterministic automations. A six-question test, both versions of one process costed side by side, and what to ask a vendor."
+date: "2026-09-03"
+cluster: "agent-or-workflow"
+keywords:
+  - "ai agent vs workflow automation"
+  - "when do you need an ai agent"
+  - "ai agent cost vs automation"
+  - "n8n workflow or llm agent"
+  - "ai agent development cost 2026"
+ogImage: "/og/agent-or-workflow.webp"
+---
+
+The request usually arrives like this: "we need an AI agent to handle our orders". Twenty minutes in, the orders turn out to come from one web form with the same fields every time, and the work is copying them into a spreadsheet and a CRM. That is not a job for a language model. It is a dozen nodes in n8n, built in two days, running a year without one model call.
+
+The question is worth real money. Polish vendors publish agent bands of 3,000-15,000 zł (roughly 700-3,500 €) plus 500-2,500 zł a month, and 15,000-45,000 zł with CRM integration. An agent that reads and writes ERP data is quoted at 80,000-250,000 zł. If a deterministic scenario gets the same result, the gap is tens of thousands a year.
+
+## Two different things sold under one name
+
+There is exactly one real difference: **who decides the next step**.
+
+In a deterministic workflow you decide, at build time. Mail arrives, check the sender, pull the attachment, write to the database, notify sales. If A, branch left, if B, branch right. Every path is drawn and countable.
+
+In an agent, the model decides at run time. It gets a goal and a list of tools, then picks which tool to call, how often, and when the job is done. That buys flexibility and sells away predictability.
+
+A model somewhere in the process does not make it an agent. A node that reads an email and returns one of five fixed categories is still a plain workflow with one smart step, and very often that is the right answer. The n8n template library passed roughly 11,700 community workflows by August 2026, with multi-agent templates doubling in two months to about a quarter of the AI category.
+
+## The six-question test
+
+Answer yes or no, about one specific process, not about the company.
+
+1. **Does the input arrive in an unpredictable shape?** Free text in an email, a supplier PDF, a scan, a call recording, rather than form fields.
+2. **More possible paths than fit on one sheet of paper?** If the diagram fits in twenty branches, you do not need a model.
+3. **Does any step require judging meaning rather than comparing values?** "Is this a complaint or a quote request" is judgement. "Is the amount over 5,000 zł" is not.
+4. **Are exceptions the rule?** If more than 10% of cases fall outside the schema, and differently each time, hard-coded branches grow forever.
+5. **Does the order of steps depend on what the system finds along the way?** It checks the CRM, and only then knows whether to search email or contracts.
+6. **Is the gap between a correct answer and a well-written one worth money?** For a reply to a customer, usually yes. For moving data between systems, no.
+
+| Number of "yes" answers | What to build |
+| --- | --- |
+| 0-1 | Deterministic workflow, no model inside |
+| 2-3 | Workflow with one LLM step exactly where the "yes" landed |
+| 4-6 | An agent, but scoped to one task, not to a whole department |
+
+Most enquiries that reach me with the words "AI agent" score 0-2. That does not mean agents fail. It means the label arrived ahead of the need.
+
+## When the deterministic workflow wins
+
+Four things an agent does not give you by definition.
+
+**Unit cost.** A workflow pays nothing for tokens. A hundred orders a day and ten thousand cost the same on the model line: zero. An agent bill grows with volume, and at scale that is what kills the ROI case.
+
+**Repeatability.** Same input, same output, so you test once. On the same email, a model may pick one tool today and another after a version bump.
+
+**Debugging.** When a workflow breaks, the log shows the node, the input and the error. When an agent breaks, you reconstruct why the model chose what it chose. Ten minutes versus half a day.
+
+**Accountability.** With personal data or accounting documents it is easier to show what the system does when the path is drawn. I covered sequencing in [where to start with business process automation](/en/blog/business-process-automation-where-to-start).
+
+The market data agrees. Gartner forecasts over 40% of agentic AI projects cancelled by the end of 2027, and 89% of agent pilots never reach production. The cause is rarely technical: the architecture was pricier and less predictable than the task required.
+
+## When an agent genuinely makes sense
+
+**Unstructured input.** A shared mailbox of quote requests is the classic case: manufacturing, construction and wholesale get RFQs by email, with a PDF attached, a spreadsheet, sometimes a photo of a drawing. You cannot branch that, you have to read it.
+
+**Judgement instead of a rule.** Qualifying a lead from a long conversation, routing a case by content, writing the result where sales already works, usually [a CRM for a small business](/en/blog/crm-for-small-business-which-to-choose).
+
+**Exceptions as the norm.** Complaints and after-sales, where half the tickets describe something no procedure covers.
+
+Note the ordering in Upwork's survey of small businesses: pilots cluster around decision support (41%) and information retrieval (36%), with autonomous task execution last (30%). Agents that read, classify and route reach production; the ones meant to run a process end to end stall in the pilot.
+
+## The same process, costed both ways
+
+One task: inbound quote requests, from which you extract line items and draft an offer. Left, a web form enforces the structure. Right, an agent reads whatever arrived by email.
+
+| Criterion | Deterministic workflow | Agent on a language model |
+| --- | --- | --- |
+| Build cost with me | from 900 € (about 3,900 zł) per process | from 1,500 € (about 6,400 zł) |
+| Published market band | single automation, below the agent tier | 3,000-15,000 zł, or 15,000-45,000 zł with CRM |
+| Model spend | none | 5-20 calls per task, grows with volume |
+| Monthly cost | hosting and tool seats | Polish price cards quote 500-2,500 zł/mo, some 200-500 zł/mo for API alone |
+| Failure points | one per node, each visible in the log | nodes plus model behaviour, which shifts on updates |
+| Time to diagnose an error | minutes, the log names the node | hours, you reconstruct the decision chain |
+| Repeatability | same input, same output | same input, possibly a different path |
+| Human involvement | only exceptions defined up front | practitioners report 5-15% of cases in review |
+| Annual maintenance | changes when a provider changes its API | Polish vendors budget 15-25% of the build |
+
+The conclusion is not "workflows are better". It is: if you can force structure onto the input, the left column wins on every row. Sometimes the cheapest AI investment is a form.
+
+## The hidden costs of the agent version
+
+Five line items that never appear in the quote, and that people who build agents all mention.
+
+- **Calls per task.** Not one, but 5-20. At three hundred cases a month that is a different bill from the demo calculator.
+- **Human review.** 5-15% of cases land on a person anyway. If the business case assumed zero, it is negative.
+- **Prompt drift on upgrades.** The provider ships a new version, behaviour shifts, you retest and patch. Quarterly, not once.
+- **Integration and auth maintenance.** Tokens expire, APIs change. Polish vendors budget 15-25% of the build a year.
+- **Governance.** Logs, prompt versioning, personal data. Under the AI Act this is a condition of entry.
+
+Do the arithmetic. An agent quoted at 8,000 zł is around 12,000 zł of build under the 1.5x rule, plus 500-2,500 zł a month from the Polish price cards, so 6,000-30,000 zł across the year. Year one lands at 14,000-38,000 zł, not the 8,000 zł on the quote. Global pricing has the same shape: 1,500-5,000 USD to build plus 300-800 USD a month.
+
+## The hybrid version, which is what I build most often
+
+The best effort-to-risk ratio comes from a deterministic scenario with one LLM step inside. The skeleton is rigid: fetch, store, notify, retry on failure. The model gets one narrow job with a closed output: pull five fields from this email, pick a category from this list, draft a reply.
+
+The model does not set the order, so the scenario is testable. The bill is predictable at one call per case. Bad output is caught by validation and the case goes to a person, instead of derailing the rest.
+
+After six months the data shows where the rigidity hurts, and that is the moment to widen it into a real agent. Candidates for a first process are in [what to automate first in your business](/en/blog/what-to-automate-first-in-business).
+
+## How to write this into your RFP
+
+Do not write "we want an AI agent". Describe the process and attach six questions. The answers settle the quote better than any service catalogue.
+
+- Which steps are deterministic, and where does the model decide?
+- How many model calls per task, and who pays for the tokens?
+- What happens on a formally invalid model output? Is there validation and a fallback?
+- What share of cases goes to a human in month one, and how is it measured?
+- What happens on a model version change, and who pays for the retest?
+- What does the log of one case look like when a customer asks why the system did that?
+
+A vendor who answers the first question with "the agent will figure it out" is quoting for something they cannot maintain.
+
+For context, Poland's statistics office reports 8.7% of companies used AI in 2025, and only 2.1% had anything custom-built. Most of this market is before its first deployment, not its tenth, and a first deployment should be boring.
+
+If you are not sure which side your process falls on, an [AI audit](/en/services/ai-audit) puts the answer on paper: a process map, the test result per candidate, both versions costed, and a note on what not to build. It starts at 4,900 zł (about 1,150 €), and the recommendation is often cheaper than what the client came in for. If the answer is already obvious and plain [process automation](/en/services/automation) is enough, I build that from 900 € per process. Either way, [write to me](/en/contact) about one process, not the whole company.
+
+## FAQ
+
+**What is the difference between an AI agent and plain automation?**
+One thing: who decides the order of steps. In automation you design it up front and the system always follows the same path. In an agent, the model gets a goal and a set of tools and decides at run time which to call and when to stop. A model sitting in one step does not make the process an agent.
+
+**When is an AI agent actually worth it?**
+When input arrives in an unpredictable shape (email, PDF, a phone call), when more than 10% of cases are exceptions, and when a step requires judging meaning rather than comparing numbers. Four or more "yes" answers on the six-question test justify an agent. At zero or one, a deterministic workflow does the same job cheaper. Budget 5-20 model calls per task, not one.
+
+**How much does an AI agent cost compared to a workflow?**
+Polish vendors publish 3,000-15,000 zł to build plus 500-2,500 zł a month, 15,000-45,000 zł with CRM integration and 80,000-250,000 zł for an agent that writes into an ERP. Globally a single-purpose agent is 1,500-5,000 USD plus 300-800 USD a month. With me, automation starts at 900 € and an agent at 1,500 €. Add model spend and 15-25% of the build a year for maintenance.
+
+**Why do so many agent projects fail?**
+Gartner forecasts over 40% of agentic AI projects cancelled by the end of 2027, and 89% of agent pilots never reach production. S&P Global Market Intelligence found 42% of companies abandoned most AI initiatives in 2025, against 17% a year earlier. The cause is rarely technical: the architecture was pricier and less predictable than the task needed, and model spend plus the 5-15% of cases going to human review showed up only in the invoice.
+
+**What is the hybrid version and why is it usually enough?**
+It is a rigid scenario with one model step inside: the mechanics are designed by hand, and the model gets a narrow job with a closed output, such as extracting five fields from an email. The cost is predictable, the whole thing is testable, and a bad result is caught by validation. For most small companies this is the right first step; widening it into a real agent makes sense on a few months of real data.
+
+**What should I ask a vendor before signing an agent contract?**
+Six things: which steps are deterministic, how many model calls per task and who pays for tokens, what happens on an invalid output, what share of cases goes to a human in month one, who pays for the retest after a version change, and what one case looks like in the log. "The agent will figure it out" means the vendor has not run such a system in production.
+
+**Should I start with an audit or just build?**
+If you have one obvious process and a clear test result, build it, an audit adds nothing. An audit earns its fee when there are several candidates and you need the order, or when a quote for tens of thousands has landed and you want the scope checked against the task. Most buyers are making this call for the first time, with nothing to compare it against.

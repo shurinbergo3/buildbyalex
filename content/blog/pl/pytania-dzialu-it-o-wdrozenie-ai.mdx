@@ -1,0 +1,129 @@
+---
+title: "12 pytań działu IT o wdrożenie AI i gotowe odpowiedzi"
+description: "Dział IT zadaje zawsze te same pytania: dane, uprawnienia, awaria API, logi, utrzymanie. Zebrałem 12 z nich razem z odpowiedziami, które możesz wkleić w mail."
+date: "2026-09-08"
+cluster: "it-department-questions"
+keywords:
+  - "pytania działu IT o wdrożenie AI"
+  - "wdrożenie AI a bezpieczeństwo danych"
+  - "uprawnienia agenta AI w CRM"
+  - "odbiór techniczny wdrożenia AI"
+  - "kto utrzymuje agenta AI"
+ogImage: "/og/it-department-questions.webp"
+---
+
+Wdrożenie AI rzadko umiera na cenie. Umiera w środę po południu, kiedy właściciel przesyła moją ofertę do działu IT i dostaje odpowiedź w trzech zdaniach: "musimy to sprawdzić pod kątem bezpieczeństwa". Potem jest cisza na dwa tygodnie, a projekt cicho wypada z kwartału.
+
+Nie mam o to pretensji. Człowiek od IT odpowiada za to, żeby dane klientów nie wyciekły i żeby o trzeciej w nocy nie dzwonił telefon. Nowy element w infrastrukturze to dla niego ryzyko, a nie oszczędność godzin w obsłudze. Problem polega na tym, że prawie nikt nie pisze do tej osoby wprost.
+
+Poniżej dwanaście pytań, które słyszę od działów IT i od zewnętrznych firm informatycznych obsługujących polskie spółki. Przy każdym jest odpowiedź w formie, którą można wkleić prosto do maila. Jestem programistą, nie prawnikiem: część regulacyjną opisuję od strony inżynierskiej, do trudnych przypadków bierz prawnika od prawa unijnego.
+
+## Kto naprawdę blokuje wdrożenie
+
+GUS podaje, że w 2025 roku 8,7% firm w Polsce deklarowało wykorzystanie technologii AI, a rozwiązanie budowane na zamówienie przez zewnętrznego wykonawcę miało tylko 2,1%. To znaczy, że dla większości działów IT twój projekt jest pierwszym takim projektem. Nie mają procedury, do której mogliby go podłączyć, więc stosują domyślną: odłożyć.
+
+Druga rzecz, o której warto wiedzieć: rynek dostarcza im argumentów. Gartner prognozuje, że ponad 40% projektów agentowych zostanie anulowanych do końca 2027 roku, a 89% pilotaży nigdy nie dochodzi do produkcji. IT czyta te same nagłówki co ty. Odpowiedzią nie jest entuzjazm, tylko konkret: gdzie stoją dane, kto ma klucze, co się dzieje przy awarii.
+
+## Dwanaście pytań i krótkie odpowiedzi
+
+To jest lista, którą wysyłam razem z ofertą. Jeżeli twój wykonawca nie potrafi odpowiedzieć na te pytania w jednym zdaniu, to zły znak.
+
+| Pytanie IT | O co naprawdę pyta | Krótka odpowiedź |
+| --- | --- | --- |
+| Gdzie trafiają nasze dane? | Lokalizacja przetwarzania | API dostawcy w regionie UE, podpisana umowa powierzenia, wyłączona retencja |
+| Czy nasze dane trenują model? | Wyciek know-how | Nie, tryb zero retention w API i zapis w umowie |
+| Jakie uprawnienia bierzesz w CRM? | Zakres dostępu | Osobne konto serwisowe, tylko wskazane obiekty i pola |
+| Czy agent może coś skasować? | Operacje zapisu | Domyślnie brak operacji usuwania, zapis wyłącznie na uzgodnionych polach |
+| Gdzie leży kod i kto ma dostęp? | Własność systemu | Repozytorium po stronie klienta, mój dostęp na czas prac |
+| Co, gdy padnie API modelu? | Dostępność | Limit czasu, przełączenie na drugiego dostawcę, tryb awaryjny z formularzem |
+| Ile to kosztuje co miesiąc? | Nieprzewidziany OPEX | Tokeny plus hosting, twardy limit wydatków na koncie dostawcy |
+| Jak wygląda logowanie? | Rozliczalność | Log każdego wywołania narzędzia, ustalona retencja, dostęp dla klienta |
+| Co z prompt injection? | Bezpieczeństwo | Zamknięta lista narzędzi, walidacja wyjścia, brak sekretów w prompcie |
+| Kto to utrzyma po odbiorze? | Ryzyko osieroconego systemu | Dokumentacja i runbook, umowa serwisowa albo przekazanie zespołowi |
+| Czy to jest zgodne z AI Act? | Ryzyko kary | Informowanie przy pierwszym kontakcie, rejestr systemów AI, art. 4 |
+| Jak sprawdzimy, że działa? | Kryteria odbioru | Zestaw testów akceptacyjnych z progiem zaliczenia ustalonym przed startem |
+
+Reszta tekstu rozwija te pytania, które w praktyce zajmują najwięcej czasu.
+
+## Gdzie trafiają dane i kto ma do nich dostęp
+
+UODO wypowiadał się w tej sprawie jednoznacznie: każda interakcja z chatbotem, w której przechodzą dane osobowe, jest przetwarzaniem. Podmiot wdrażający musi mieć podstawę prawną, wypełnić obowiązek informacyjny, wiedzieć, czy dane trenują model dostawcy, jak długo są przechowywane i gdzie fizycznie stoją serwery. W wielu przypadkach potrzebna jest umowa powierzenia.
+
+W praktyce sprowadza się to do trzech rzeczy, które pokazuję IT na jednej stronie: podpisana umowa powierzenia z dostawcą modelu, wyłączona retencja po stronie API i po stronie warstwy integracyjnej, oraz schemat architektury z zaznaczeniem, gdzie przetwarzane są dane osobowe.
+
+Jest jeszcze rozróżnienie, które warto znać, zanim IT je wyciągnie. Lokalizacja danych to twierdzenie o miejscu, suwerenność to twierdzenie o jurysdykcji. Dane w regionie europejskim, ale u amerykańskiego operatora chmury, wciąż podlegają amerykańskiemu CLOUD Act. Jeśli firma ma z tym problem, rozwiązaniem jest własna infrastruktura: n8n na własnym VPS kosztuje 20-26 zł miesięcznie (4-6 euro), a model open weight można postawić obok. To droższe w utrzymaniu i wolniejsze we wdrożeniu, ale zdejmuje cały ten wątek z dyskusji.
+
+## Jakie uprawnienia są potrzebne w CRM i ERP
+
+Tu zwykle pada zdanie "on chce dostęp do naszej bazy". Nie chcę. Chcę konta serwisowego z najmniejszym zakresem, który wystarczy do zadania.
+
+| Poziom | Co agent robi | Kiedy wystarczy | Główne ryzyko |
+| --- | --- | --- | --- |
+| Tylko odczyt | Czyta bazę wiedzy, statusy zamówień, dostępne terminy | Bot obsługi klienta, asystent wewnętrzny | Pokazanie danych niewłaściwej osobie |
+| Odczyt i zapis do jednego obiektu | Tworzy lead, dopisuje notatkę do rozmowy | Kwalifikacja leadów, umawianie spotkań | Śmieci w CRM przy błędnej logice |
+| Zapis do wielu systemów | Wystawia dokument, zmienia status w ERP | Automatyzacja zamówień i ofertowania | Błąd rozjeżdża dwa systemy naraz |
+| Operacje nieodwracalne | Usuwa rekordy, wysyła płatności | Prawie nigdy w pierwszym wdrożeniu | Brak drogi powrotnej |
+
+Zasada, którą stosuję: pierwszy poziom domyślnie, drugi po uzgodnieniu, trzeci dopiero gdy pierwsze dwa działają miesiąc bez incydentu. Czwarty poziom zostawiam człowiekowi. Osobno pilnuję, żeby asystent wewnętrzny widział dokładnie tyle, ile widzi pytający: jeśli handlowiec nie ma dostępu do umów zarządu, agent nie może mu ich przeczytać, bo indeks nie zna działów.
+
+## Co się dzieje, gdy model albo API padnie
+
+Odpowiedź "to się nie zdarza" kończy rozmowę z IT natychmiast. Zdarza się, i to regularnie: przeciążenia dostawcy, limity zapytań, zmiana wersji modelu, wygaśnięcie klucza.
+
+Konfiguracja, którą uznaję za minimum: limit czasu na odpowiedź modelu, dwie próby ponowienia z narastającym odstępem, przełączenie na drugiego dostawcę przy dłuższej awarii, a jeśli i to nie zadziała, tryb awaryjny z prostym formularzem kontaktowym i uczciwym komunikatem. Do tego alert na kanał, który ktoś naprawdę czyta, i osobne powiadomienie o przekroczeniu progu kosztów.
+
+Ważniejsze od samego fallbacku jest to, co dzieje się z rozmową w toku. Klient nie może zostać z pustym oknem. Reguły przekazywania rozmowy opisałem osobno w tekście o [przekazaniu rozmowy od bota do człowieka](/pl/blog/przekazanie-od-bota-do-czlowieka) i to jest zwykle pierwszy dokument, który wysyłam do działu IT po tej liście pytań.
+
+## Bezpieczeństwo: prompt injection i monitoring
+
+To pytanie zadają tylko dojrzałe zespoły, ale gdy pada, trzeba mieć odpowiedź. OWASP w raporcie z 2026 roku stawia prompt injection w centrum ryzyka systemów agentowych i podaje wzrost liczby ataków o 340% rok do roku. Ten sam materiał podaje, że średnie pokrycie monitoringiem agentów produkcyjnych wynosi 52%, czyli mniej więcej połowa wdrożonych agentów działa bez nadzoru.
+
+Co z tym robię w praktyce: agent ma zamkniętą listę narzędzi, których może użyć, dane z zewnątrz nigdy nie trafiają do promptu systemowego, wyjście modelu jest walidowane przed wykonaniem akcji, a klucze i sekrety nie występują w kontekście rozmowy. Operacje zapisu mają osobny próg: jeśli agent chce zrobić coś poza swoim zwykłym zakresem, trafia to do akceptacji człowieka.
+
+## Logi, audyt i AI Act
+
+Od 2 sierpnia 2026 obowiązuje artykuł 50 AI Act: użytkownik musi zostać poinformowany, że rozmawia z systemem AI. Dla systemów wprowadzonych na rynek przed tą datą jest okres przejściowy do 2 grudnia 2026 na maszynowe oznaczanie treści generowanych. Kary za naruszenie obowiązków przejrzystości sięgają 15 mln euro albo 3% światowego obrotu.
+
+Do tego dochodzi warstwa polska. Ustawa o systemach sztucznej inteligencji weszła w życie w części merytorycznej 11 sierpnia 2026 i powołała Komisję Rozwoju i Bezpieczeństwa Sztucznej Inteligencji. Jej uprawnienia do kontroli, prowadzenia postępowań i nakładania kar zaczynają działać 28 października 2026. Osobno obowiązuje artykuł 4 AI Act, czyli kompetencje personelu w zakresie AI. Stosuje się go od 2 lutego 2025 i wymaga udokumentowanego, dopasowanego do ról programu, a nie jednorazowego szkolenia.
+
+Dla działu IT przekłada się to na trzy artefakty: rejestr systemów AI w firmie (gdzie, jaki model, jaki dostawca, kto odpowiada), log rozmów i wywołań narzędzi z ustaloną retencją, oraz zapis, kto i kiedy zatwierdził uruchomienie. To są pierwsze dokumenty, o które upomni się kontrola albo klient po incydencie.
+
+## Kto to utrzymuje po odbiorze
+
+Najczęstsza cicha obawa IT brzmi: "zbuduje, weźmie pieniądze, zniknie, a my zostaniemy z czymś, czego nikt nie rozumie". Polscy dostawcy podają utrzymanie na poziomie 15-25% wartości pierwszego wdrożenia rocznie i to jest uczciwy rząd wielkości.
+
+Co oddaję razem z systemem: repozytorium w organizacji klienta, opis architektury, runbook z listą typowych awarii i sposobem ich naprawy, dostęp do wszystkich kont dostawców na firmowe adresy, oraz nagranie z przekazania. Jeśli firma ma własne IT, po takim przekazaniu zwykle radzi sobie sama i zostaje mi rola konsultacji przy zmianach. Jeśli nie ma, umawiamy się na obsługę miesięczną. Praktyczne ograniczenie: modele się zmieniają, więc prompt i testy wymagają przeglądu mniej więcej raz na kwartał, i lepiej to zaplanować niż odkryć przy pierwszej dziwnej odpowiedzi.
+
+## Jak wygląda odbiór techniczny
+
+Odbiór ustalam przed startem, nie po. Wygląda to tak: zestaw kilkudziesięciu realnych zapytań z historii firmy, ustalony próg poprawnych odpowiedzi, lista sytuacji, w których agent musi oddać rozmowę człowiekowi, test zachowania przy wyłączonym API, sprawdzenie logów i uprawnień konta serwisowego, oraz przegląd komunikatu informującego o AI. Dopiero potem podpis.
+
+Ten sam zestaw kryteriów jest podstawą [audytu AI](/pl/uslugi/audyt-ai), który sprzedaję jako osobny krok od 4 900 zł, kiedy firma ma już coś wdrożonego i chce wiedzieć, co w tym nie działa. Przy nowych projektach audyt nie jest potrzebny, bo te punkty są wbudowane w [budowę agenta AI](/pl/uslugi/agenci-ai) od początku.
+
+Jeżeli twój dział IT ma pytania spoza tej listy, [napisz do mnie](/pl/kontakt) i odpowiem na nie pisemnie, zanim jeszcze porozmawiamy o zakresie. Za sam projekt płaci się osobno, ale rozmowa techniczna nic nie kosztuje i zwykle rusza uzgodnienia z miejsca szybciej niż kolejna wersja oferty. Jak taka rozmowa wygląda przy typowym wdrożeniu w średniej firmie, opisałem w materiale o [agencie AI dla firm w Lublinie](/pl/blog/agent-ai-dla-firm-lublin), a stronę kosztową w tekście o [obniżaniu kosztów obsługi klienta](/pl/blog/jak-obnizyc-koszty-obslugi-klienta-ai).
+
+## FAQ
+
+**Jakie pytania zada dział IT przy wdrożeniu AI?**
+Najczęściej dwanaście: gdzie trafiają dane, czy dane trenują model, jakie uprawnienia bierze integracja w CRM, czy agent może usuwać rekordy, gdzie leży kod, co się dzieje przy awarii API, ile wynosi koszt miesięczny, jak wygląda logowanie, co z prompt injection, kto utrzymuje system po odbiorze, czy wdrożenie jest zgodne z AI Act i jak wygląda odbiór techniczny. Wykonawca powinien odpowiedzieć na każde z nich jednym zdaniem i pokazać to na schemacie architektury.
+
+**Jakie uprawnienia w CRM są potrzebne agentowi AI?**
+Osobne konto serwisowe z najmniejszym zakresem wystarczającym do zadania, nie konto administratora i nie konto pracownika. Bot obsługi klienta zwykle potrzebuje wyłącznie odczytu bazy wiedzy i statusów. Agent kwalifikujący leady potrzebuje dodatkowo zapisu do jednego obiektu, na przykład tworzenia leada i notatki. Operacje nieodwracalne, czyli usuwanie rekordów i wysyłanie płatności, zostawia się człowiekowi.
+
+**Co się dzieje, gdy API modelu przestanie działać?**
+System powinien mieć limit czasu na odpowiedź, dwie próby ponowienia, przełączenie na drugiego dostawcę modelu oraz tryb awaryjny z formularzem kontaktowym i uczciwym komunikatem dla klienta. Do tego alert na kanał, który ktoś czyta, i osobne powiadomienie o przekroczeniu progu kosztów. Rozmowa w toku musi zostać przekazana człowiekowi, a nie urwana.
+
+**Czy dane firmy trafiają do trenowania modelu?**
+Przy poprawnej konfiguracji nie. Standard w 2026 roku to trzy elementy razem: podpisana umowa powierzenia z dostawcą modelu, włączony tryb zero retention w API i w warstwie integracyjnej, oraz udokumentowana architektura pokazująca, gdzie przetwarzane są dane osobowe. UODO wskazuje, że podmiot wdrażający musi wiedzieć, czy dane trenują model, jak długo są przechowywane i gdzie stoją serwery.
+
+**Czy dane w regionie UE wystarczą do spełnienia wymogów?**
+Nie zawsze, bo lokalizacja to co innego niż jurysdykcja. Dane trzymane fizycznie w Europie, ale u amerykańskiego operatora chmury, pozostają w zasięgu amerykańskiego CLOUD Act. Firmom, dla których to jest problem, buduję rozwiązanie na ich własnej infrastrukturze: n8n na własnym VPS kosztuje 20-26 zł miesięcznie (4-6 euro), a model open weight stawia się obok. Kosztem jest dłuższe wdrożenie i realna praca utrzymaniowa.
+
+**Ile kosztuje utrzymanie wdrożenia AI po odbiorze?**
+Polscy dostawcy publikują widełki na poziomie 15-25% wartości pierwszego wdrożenia rocznie, do tego dochodzą koszty tokenów i hostingu rozliczane osobno. Za samo API i infrastrukturę przy małej konfiguracji cenniki podają 200-500 zł miesięcznie. Główna pozycja, o której klienci zapominają, to przegląd promptów i testów po zmianie wersji modelu, mniej więcej raz na kwartał.
+
+**Czy wdrożenie AI wymaga zgodności z AI Act?**
+Tak, jeśli system rozmawia z ludźmi lub generuje treści. Artykuł 50 AI Act obowiązuje od 2 sierpnia 2026 i wymaga poinformowania użytkownika, że rozmawia z systemem AI, a systemy wprowadzone przed tą datą mają czas do 2 grudnia 2026 na maszynowe oznaczanie treści generowanych. W Polsce nadzoruje to Komisja Rozwoju i Bezpieczeństwa Sztucznej Inteligencji, której uprawnienia kontrolne i karne działają od 28 października 2026. Kary za naruszenie obowiązków przejrzystości sięgają 15 mln euro albo 3% światowego obrotu.
+
+**Jak wygląda odbiór techniczny agenta AI?**
+Kryteria ustala się przed startem prac. Standardowy zestaw to kilkadziesiąt realnych zapytań z historii firmy z ustalonym progiem poprawnych odpowiedzi, lista sytuacji wymagających przekazania rozmowy człowiekowi, test zachowania przy wyłączonym API, przegląd logów i zakresu uprawnień konta serwisowego oraz sprawdzenie komunikatu informującego o AI. Podpis odbioru następuje po przejściu wszystkich punktów, nie przed.

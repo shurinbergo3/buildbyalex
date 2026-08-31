@@ -1,0 +1,140 @@
+---
+title: "Taking Over an AI Project From Another Developer: What to Save"
+description: "Your contractor stopped replying and the bot runs on accounts you do not own. What to check first, what can be rescued, what a takeover costs."
+date: "2026-09-08"
+cluster: "ai-project-takeover"
+keywords:
+  - "taking over an n8n project"
+  - "developer disappeared automation"
+  - "AI implementation audit"
+  - "inherit AI project from contractor"
+  - "migrate n8n to own account"
+ogImage: "/og/ai-project-takeover.webp"
+---
+
+A Monday morning call: the website bot answers every second visitor, invoices stopped landing in the accounting system, and the person who built it all has not replied in three weeks. Nobody knows whose account n8n runs on, who pays for the OpenAI key, or where the code lives. I get this call often, and it looks nearly the same every time.
+
+Below is the order I work in when this lands on my desk.
+
+## Signs your contractor is not coming back
+
+It is rarely one dramatic break. It is a slide: replies get slower, fixes move to "next week", then silence. Three signals after which I stop waiting.
+
+- **Conversations continue, changes do not ship.** Two weeks of discussion and zero deployed fixes is not a communication problem, it is a capacity problem on the other side.
+- **He asks for new access instead of handing over the old.** When "send me the CRM password" arrives while "move the project to our account" went unanswered for months, the direction is clear.
+- **Nobody in the company can log into the panel.** If the only route to your own automation runs through someone else's laptop, the project is already not yours.
+
+This is not an exception. Gartner forecasts that **more than 40% of agentic AI projects will be cancelled by the end of 2027**, and the same 2026 data puts 89% of AI agent pilots as never reaching production. S&P Global Market Intelligence reports that in 2025, 42% of companies abandoned most of their AI initiatives, up from 17% a year earlier. Statistically, an implementation that suddenly loses its owner is the norm in this field, not bad luck.
+
+Not every disappearance is malice. A solo builder can fall ill, move country, or take a job that eats his evenings. That changes nothing operationally, but it changes the tone of the first email: while he still owns the accounts, a calm request beats a lawyer's threat.
+
+## What you are actually inheriting: accounts, keys, data
+
+People assume you inherit code. In practice code is the smallest problem: an n8n or Make scenario can be rebuilt. Access and data history cannot. This is the list I walk through point by point in the first meeting.
+
+| Part of the implementation | How to check whether you have it | What to do when it is missing |
+| --- | --- | --- |
+| n8n / Make / Zapier account | You log in as owner and can see the billing tab | Request a workspace ownership transfer; with no contact, export the scenarios to JSON from a user seat and rebuild them on a new account |
+| API keys (OpenAI, Anthropic, Google) | The provider console opens on your company domain and invoices go to the company | Create your own organisation account, issue fresh keys, revoke the old ones the same day |
+| Code repository | GitHub or GitLab shows your organisation as the owner of the repo | Ask for a repository transfer; without contact you are left with the code from the production server, usually with no commit history |
+| Server and hosting | The Hetzner, OVH or Vercel invoice carries your company details | Rebuild the environment from scratch on your own account and move the data before the contractor's card expires |
+| Database and vector store | You have the connection string and can take your own dump | Take a dump the moment you regain access, before anyone starts tidying up |
+| Domain and DNS records | The domain sits in your registrar panel, not someone else's | Start the registrar transfer procedure; some country domains require company paperwork |
+| Phone number and WhatsApp Business channel | The number and profile are attached to your own Business Manager | Re-verifying a number takes several days, so start before you switch off the old infrastructure |
+| Prompts and knowledge base | You hold them as files outside the platform, not only pasted into a node | Export prompt text and source documents from the running system while it still runs |
+| Documentation and integration map | There is a README or a Notion page a stranger could follow | This is rebuilt during the inventory; it is a normal part of a takeover |
+
+One rule overrides the rest: **while you hold any working access, copy first and negotiate later**. Exporting scenarios, dumping the database, saving prompts and listing integrations takes two hours and turns an emergency into an ordinary project.
+
+## A one-day inventory
+
+Once access is recovered or rebuilt, I run an inventory. That is one day of work and four lists.
+
+**Every scenario with its last execution date.** n8n shows this in the execution history. Usually fewer than half actually run: some have been failing silently for months, the rest are experiments nobody switched off.
+
+**Every integration and its permission scope.** Each place where the system reaches into the CRM, mailbox, warehouse, payment gateway or marketplace. Service accounts with full admin access to the company inbox are a standard find.
+
+**The monthly cost sheet.** Platform subscription, model tokens, telephony, hosting, third-party APIs. Companies routinely pay for accounts that serve workflows switched off long ago.
+
+**Every place personal data moves through.** What leaves for the model, what gets logged, how long it is kept. Gravitee's 2026 agent security research puts mean monitoring coverage across production agents at 52%, so roughly half of live agents are not observed at all. That is the first thing I fix: without logs you cannot tell whether the system is behaving.
+
+I sell that day as an [AI audit](/en/services/ai-audit), from €1,140 (4,900 PLN), and it ends in a document you can take to any developer, not only to me. The report is yours and portable.
+
+## What gets binned and what survives
+
+The split comes out much the same every time.
+
+**Usually salvageable:** field mappings between systems, prompts and the knowledge base, business logic already encoded in the scenarios, and working API integrations someone has already fought through. Often dozens of hours of someone else's work, and no point repeating it.
+
+**Usually rewritten:** one giant scenario of several dozen nodes with no modules, API keys hardcoded into the source, no error handling or retries, no logging, production data pushed through a test account. Without those, every subsequent change is a coin flip.
+
+Then there is the implementation assembled entirely from templates. The n8n library passed roughly 11,700 community workflows by August 2026, with AI agent templates the majority of new submissions. A template is a fine start, but five of them glued together with no error layer of their own fall apart the first time a provider changes an API. If you are unsure whether you inherited an agent or a plain automation, I unpacked that in the piece on [what an AI agent actually is](/en/blog/what-is-an-ai-agent).
+
+The rule I work by: if fixing a module takes longer than rewriting it, I rewrite it. In a typical takeover that is about a third of the inherited system, and that figure comes from my own projects, not from industry research.
+
+## What a takeover costs and what drives the price
+
+An hour on a takeover costs more than an hour building the same function from scratch: a good share of it goes on understanding someone else's decisions. The whole job is still usually faster, because the processes are already thought through.
+
+| Takeover stage | What it covers | Typical duration | Range |
+| --- | --- | --- | --- |
+| Inventory and report | Four lists, condition assessment, repair plan | 1-2 days | AI audit from €1,140 (4,900 PLN) |
+| Account and key migration | Transfer or rebuild of accounts, fresh keys, old ones revoked | 1-3 days | quoted hourly after the inventory |
+| Stabilising what works | Error handling, retries, alerts, logs | 3-5 days | depends on the number of scenarios |
+| Rewriting a module | A new version of whatever is not worth patching | 1-3 weeks | automation from €900, AI agent from €1,500 |
+| Post-takeover support | Monitoring, fixes, model updates | ongoing | market norm is 15-25% of build value per year |
+
+For comparison, the build-from-scratch bands Polish vendors publish, in złoty: 3,000-15,000 PLN (€700-3,500) for a configuration, 8,000-20,000 PLN plus 200-500 PLN a month for API and infrastructure, and 80,000-250,000 PLN plus 8,000-40,000 PLN a month for an agent that reads and writes CRM, ERP or logistics data. A takeover normally lands below those numbers, because part of the work is already done.
+
+What raises the price: no access at all, which turns the first week into recovery work; undocumented integrations with closed systems; personal data sitting where it should not be; urgency. What lowers it: a working export, repository access, and one person who remembers how the process was meant to run.
+
+## The legal backlog you inherit with the code
+
+Nobody mentions this at handover, and it is real exposure. I am a developer, not a lawyer, so what follows is the engineering side.
+
+Article 50 of the EU AI Act has applied since 2 August 2026: a user must be told at the first interaction that they are talking to an AI system. That duty sits with the company deploying the system under its own name, not with the contractor who built it and vanished. Systems placed on the market before 2 August 2026 have until **2 December 2026** to meet the machine-readable marking requirement for generated content. Penalties for transparency breaches reach €15 million or 3% of worldwide turnover.
+
+If your entity or your customers sit in Poland, there is a national layer. The Polish AI systems act entered into force in its substantive part on 11 August 2026 and created the Commission for the Development and Security of Artificial Intelligence as national supervisor, with powers to inspect, run proceedings and impose fines from **28 October 2026**. An inherited bot with no AI disclosure therefore carries a date in the calendar.
+
+That adds three items to the takeover list: a bot greeting that discloses AI, an internal register of the AI systems in use with model and provider, and a privacy policy saying what data leaves for the model.
+
+## How to stop it happening again
+
+A takeover only pays off if the story cannot repeat. Four things I put into every contract.
+
+- **All accounts owned by the company, the contractor added as a collaborator.** n8n, OpenAI, hosting, repository, domain. Permissions, never ownership. That one decision removes most of the problem.
+- **Keys in one secrets manager** that somebody inside your company can also open. Not in the contractor's personal file.
+- **A README a stranger can follow.** Scenarios, what each does, where the data lives, monthly cost, what to do when it breaks. Half a page is enough.
+- **A rights clause and an exit clause.** Economic rights to code and prompts sit with the client, plus a handover paragraph naming the artefacts and a deadline, whatever ends the engagement.
+
+The fifth item cannot go into a contract, but it weighs as much: one person in the company should understand what the system does. Not code it, just know where to look when it stops. I drew that boundary in the piece on [AI for product descriptions and content](/en/blog/ai-for-product-descriptions-and-content).
+
+It also helps to remember how young this market is. Poland's statistics office GUS reports that in 2025, 8.7% of Polish companies said they used AI technology, and only 2.1% commissioned a custom solution from an external party. On a market this young, checking whether the other side has a handover procedure matters more than the portfolio.
+
+If you have an implementation nobody supports any more, [write to me](/en/contact): I start with an inventory and say plainly what to rescue and what to rewrite, even when the answer is "leave it as it is". If the outcome should be a new system, I build it as an [AI agent](/en/services/ai-agents) on your accounts, with documentation and logs from day one.
+
+## FAQ
+
+**My contractor has gone quiet and the accounts are in his name. Can anything be done?**
+Yes, in most cases. If anyone still has a user-level login, export the scenarios to JSON, take a database dump and save the prompt text before changing anything. Accounts with providers such as OpenAI are simply recreated under the company and fresh keys issued. The hardest items to recover are the domain and a verified WhatsApp Business number, so start those two transfers first.
+
+**How much does it cost to take over an AI project from another developer?**
+It starts with an inventory, which I sell as an AI audit from €1,140 (4,900 PLN) for one to two days plus a report. What follows depends on how many modules survive: rewriting an automation starts at €900 with me, an AI agent at €1,500. For comparison, Polish vendors publish 3,000-15,000 PLN (€700-3,500) for a build-from-scratch configuration, and 80,000-250,000 PLN plus 8,000-40,000 PLN a month for an agent that reads and writes CRM or ERP data. A takeover is usually cheaper because the processes are already defined.
+
+**Is it cheaper to take over the old project or rewrite everything?**
+The rule is simple: if fixing a module takes longer than rewriting it, rewrite it. In a typical takeover about a third of the system gets rewritten and the rest, meaning field mappings, prompts and working integrations, stays. A full rewrite only makes sense when there is no documentation, no logs and no access.
+
+**What exactly should I receive at handover?**
+Ownership of the automation platform and model provider accounts, your own API keys, the repository transferred to your organisation, database access that lets you take your own dump, the domain in your registrar panel, prompts and knowledge base as files, and a short README describing the scenarios and monthly costs. If database access or account ownership is missing, the handover is not finished, whatever the contractor says.
+
+**How long does taking over an n8n implementation take?**
+The inventory alone is one to two days. Account and key migration is one to three days when access exists, and up to two weeks when accounts must be rebuilt and phone numbers re-verified. Stabilising the workflows that run, meaning error handling, alerts and logs, is another three to five days. Rewriting a single module takes one to three weeks.
+
+**If I take over someone else's bot, do I take over AI Act responsibility too?**
+Yes. The Article 50 transparency duties of the EU AI Act, in force since 2 August 2026, sit with whoever deploys the system under its own name, which is your company, not the contractor who built it. Systems running before 2 August 2026 have until 2 December 2026 to meet the machine-readable marking requirement for generated content. In Poland there is a national supervisor on top: the Commission for the Development and Security of Artificial Intelligence gains inspection and fining powers from 28 October 2026.
+
+**How should the contract be written so this does not repeat?**
+Three clauses cover most of it: all accounts and domains belong to the client, with the contractor holding permissions rather than ownership; economic rights to code, prompts and configuration pass to the client on payment; and an exit paragraph listing the artefacts to hand over and a deadline, regardless of why the engagement ends. Add a README kept current with the system, because documentation written after the fact tends never to appear.
+
+**Are abandoned AI implementations actually common?**
+Yes. Gartner forecasts that more than 40% of agentic AI projects will be cancelled by the end of 2027, and 89% of AI agent pilots never reach production. S&P Global Market Intelligence reports that 42% of companies abandoned most of their AI initiatives in 2025, up from 17% the year before. An abandoned project does not mean you picked the wrong contractor, it means the market is early.

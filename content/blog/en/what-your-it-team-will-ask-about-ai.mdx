@@ -1,0 +1,127 @@
+---
+title: "12 Questions Your IT Team Will Ask About AI, With Answers"
+description: "IT asks the same twelve things: where data goes, what CRM permissions you take, what happens when the API dies, who maintains it. Answers you can forward."
+date: "2026-09-08"
+cluster: "it-department-questions"
+keywords:
+  - "questions IT team asks about AI"
+  - "AI implementation security review"
+  - "AI agent CRM permissions"
+  - "AI project technical acceptance"
+  - "who maintains an AI agent"
+ogImage: "/og/it-department-questions.webp"
+---
+
+AI projects rarely die on price. They die on a Wednesday afternoon, when the founder forwards my proposal to whoever runs IT and gets back three lines: "we need to review this from a security standpoint." Then silence, and the project quietly slides out of the quarter.
+
+I do not blame that person. They are accountable for customer data not leaking and for the phone not ringing at three in the morning. A new component in the stack is risk to them, not saved hours in support. Almost nobody writes for that reader.
+
+Below are the twelve questions I get from internal IT teams and from the outsourced IT partners many European SMEs work with, each with an answer you can paste into an email. I am a developer, not a lawyer, so the regulatory parts are the engineering side of the story; take hard cases to an EU law specialist.
+
+## Who is really blocking the project
+
+For most IT teams, your project is the first of its kind they have seen. Upwork's 2026 SMB research found around 41% of leaders piloting agents, while only 17% of organisations have actually deployed one and over 60% plan to within two years. Your project sits in that gap: intent without precedent, and no procedure to plug it into. The default answer to anything without a procedure is "later".
+
+They also read the same headlines you do. Gartner expects over 40% of agentic AI projects to be cancelled by end of 2027 and reports that 89% of agent pilots never reach production. Enthusiasm is not the counter-argument. Specifics are: where data sits, who holds the keys, what breaks first.
+
+## Twelve questions and short answers
+
+This is the list I send with the proposal. If a vendor cannot answer each of these in one sentence, treat that as a signal.
+
+| The question | What IT is really asking | Short answer |
+| --- | --- | --- |
+| Where does our data go? | Processing location | Vendor API in the EU region, signed DPA, retention disabled |
+| Does our data train the model? | Loss of know-how | No, zero-retention mode on the API, written into the contract |
+| What permissions do you take in the CRM? | Scope of access | Separate service account, only the named objects and fields |
+| Can the agent delete anything? | Write operations | No delete operations by default, writes only to agreed fields |
+| Where does the code live? | Ownership | Repository in the client's organisation, my access only while building |
+| What if the model API goes down? | Availability | Timeout, retries, failover to a second provider, form-based fallback |
+| What does it cost per month? | Unplanned OPEX | Tokens plus hosting, hard spend cap set on the provider account |
+| How is it logged? | Accountability | Every tool call logged, agreed retention, client has read access |
+| What about prompt injection? | Security | Closed tool list, output validation, no secrets in the prompt |
+| Who maintains it after handover? | Risk of an orphaned system | Documentation and runbook, support contract or handover to your team |
+| Is this AI Act compliant? | Regulatory exposure | Disclosure at first contact, AI system register, Article 4 literacy |
+| How do we verify it works? | Acceptance criteria | Acceptance test set with a pass threshold agreed before the build |
+
+The rest expands the ones that eat the most time.
+
+## Where the data goes and who can reach it
+
+EU guidance has settled into a repeatable triad: a signed data processing agreement with the model vendor, zero retention on the API and the integration layer, and an architecture diagram showing where EU personal data is processed. Poland's data protection authority puts it plainly: any chatbot exchange carrying personal data is processing, and the deployer must know the legal basis, whether the data trains the vendor's model, how long it is kept and where the servers sit.
+
+One distinction is worth raising before IT raises it. Residency is a claim about location, sovereignty a claim about jurisdiction, and EU-resident data on a US-owned cloud is still reachable under the US CLOUD Act. If that matters, the answer is your own infrastructure: n8n on your own VPS runs at 4-6 euro a month (20-26 zł), open-weight model beside it. Slower to deliver, more work to keep alive, but it removes the argument.
+
+## What permissions the agent needs in CRM and ERP
+
+This is where someone says "he wants access to our database". I do not. I want a service account with the smallest scope that does the job.
+
+| Level | What the agent does | When it is enough | Main risk |
+| --- | --- | --- | --- |
+| Read only | Knowledge base, order status, free slots | Support bot, internal assistant | Showing data to the wrong person |
+| Read plus write to one object | Creates a lead, appends a note | Lead qualification, booking | CRM junk when logic is wrong |
+| Write across systems | Issues a document, changes ERP status | Order and quote automation | One error desynchronises two systems |
+| Irreversible operations | Deletes records, sends payments | Almost never in a first build | No way back |
+
+The rule I work to: level one by default, level two once agreed, level three only after the first two have run a month without incident. Level four stays with a human. An internal assistant must also see exactly what the person asking sees: if a sales rep cannot open board contracts, the agent cannot read them out, because the index knows nothing about your org chart.
+
+## What happens when the model or the API goes down
+
+Answering "that does not happen" ends the conversation immediately. It happens routinely: provider overload, rate limits, a model version change, an expired key.
+
+My minimum: a timeout on the model response, two retries with backoff, failover to a second provider for longer outages, and if that fails too, a fallback mode with a plain contact form and an honest message. Plus an alert into a channel somebody reads, and a spend-threshold notification.
+
+More important than the fallback is the conversation in flight. The customer cannot be left staring at an empty window. Handover rules are in the piece on [handing a conversation from bot to human](/en/blog/chatbot-handover-to-human-escalation), usually the first document I send IT after this list.
+
+## Security: prompt injection and monitoring
+
+Only mature teams ask this one, but when it comes you need an answer. OWASP's 2026 reporting puts prompt injection at the centre of agentic AI risk, records a 340% year-on-year rise in attacks, and puts mean monitoring coverage across production agents at 52%. Half of deployed agents run unwatched.
+
+What I do about it: the agent has a closed list of tools, external content never enters the system prompt, output is validated before any action runs, and keys never appear in the conversation context. Write operations get their own gate, so anything outside the agent's normal scope goes to a human.
+
+## Logs, audit and the AI Act
+
+Article 50 of the EU AI Act has applied since 2 August 2026: a person must be told they are interacting with an AI system. Systems on the market before that date have until 2 December 2026 for machine-readable marking of generated content. Transparency breaches carry up to 15 million euro or 3% of worldwide turnover.
+
+Operating in Poland adds a national layer. The Polish AI systems act took substantive effect on 11 August 2026 and created a supervisor, the Komisja Rozwoju i Bezpieczeństwa Sztucznej Inteligencji, whose powers to inspect and fine start on 28 October 2026. Article 4, on AI literacy of staff, has applied since 2 February 2025 and expects a documented, role-adapted programme, not one training session.
+
+For IT that means three artefacts: a register of AI systems (where, which model, which vendor, who owns it), a log of conversations and tool calls with an agreed retention period, and a record of who approved the go-live. Those are the first documents an inspector or a client asks for after an incident.
+
+## Who maintains it after handover
+
+The quietest IT worry: he builds it, takes the money, disappears, and we are left with something nobody understands. Polish vendors publish maintenance at 15-25% of the first implementation value per year, an honest order of magnitude.
+
+What I hand over: the repository inside the client's own organisation, an architecture description, a runbook listing the failures that actually happen and how to fix them, access to every vendor account on company addresses, and a recording of the handover session. Companies with their own IT usually run it themselves afterwards and keep me for changes; the rest go onto a monthly arrangement. One practical limit: models change, so prompts and tests need a quarterly review. Better planned than discovered through a strange answer.
+
+## What technical acceptance looks like
+
+Acceptance gets defined before the build: several dozen real questions from the company's history, an agreed pass threshold, a list of situations where the agent must hand off to a person, a test with the API switched off, a review of logs and service account scope, and a check of the AI disclosure message. Signature comes after that.
+
+The same checklist is the backbone of the [AI audit](/en/services/ai-audit) I sell as a separate step from 1 150 € (4 900 zł), for companies already running something that want to know what is wrong with it. New projects do not need it: these points are built into [the AI agent work](/en/services/ai-agents) from day one.
+
+If your IT team has questions outside this list, [write to me](/en/contact) and I will answer in writing before we discuss scope. That conversation costs nothing and moves the review along faster than another revision of the proposal. What that looks like on a typical mid-sized deployment is in the piece on [an AI agent for a business in Lublin](/en/blog/ai-agent-for-business-lublin), and the cost side in [cutting customer support costs with AI](/en/blog/reduce-customer-support-costs-ai).
+
+## FAQ
+
+**What questions will the IT department ask about an AI implementation?**
+Usually twelve: where data goes, whether it trains the model, what CRM permissions the integration takes, whether the agent can delete records, where the code lives, what happens when the model API fails, monthly cost, logging, prompt injection, who maintains it after handover, AI Act compliance, and how acceptance works. A vendor should answer each in one sentence and back it with an architecture diagram.
+
+**What CRM permissions does an AI agent need?**
+A separate service account with the smallest scope that does the job, not an admin account and not a staff member's login. A support bot normally needs read access to the knowledge base and order statuses. A lead qualification agent also needs write access to one object, such as a lead and a note. Irreversible operations, deletion and payments, stay with a human.
+
+**What happens if the model API goes down?**
+The system should have a timeout on the model response, two retries, failover to a second model provider, and a fallback mode with a contact form and an honest message. Add an alert into a channel someone reads and a spend-threshold notification. A conversation in flight goes to a person rather than getting cut off.
+
+**Will our company data be used to train the model?**
+Not with a correct configuration. The 2026 standard is three things together: a signed data processing agreement with the model vendor, zero-retention mode on the API and the integration layer, and a documented architecture showing where personal data is processed. Regulators expect the deploying company to know whether data trains the model, how long it is kept and where servers sit.
+
+**Is EU data residency enough for compliance?**
+Not always, because location is not jurisdiction. Data physically held in Europe on a US-owned cloud stays reachable under the US CLOUD Act. Where that is a real concern I build on the client's own infrastructure: n8n on a dedicated VPS at 4-6 euro a month (20-26 zł) with an open-weight model alongside. The cost is longer delivery and real maintenance work.
+
+**How much does maintaining an AI implementation cost after handover?**
+Polish vendors publish maintenance bands of 15-25% of the first implementation value per year, with tokens and hosting billed on top. For API and infrastructure on a small setup the published rate is 200-500 zł a month, roughly 50-120 euro. The line clients forget is the quarterly review of prompts and tests after a model change.
+
+**Does an AI project have to comply with the AI Act?**
+Yes, if the system talks to people or generates content. Article 50 has applied since 2 August 2026 and requires telling the user they are interacting with an AI system; systems on the market before that date have until 2 December 2026 for machine-readable marking of generated content. In Poland the supervisor is the Komisja Rozwoju i Bezpieczeństwa Sztucznej Inteligencji, whose inspection and fining powers start on 28 October 2026. Transparency breaches carry up to 15 million euro or 3% of turnover.
+
+**What does technical acceptance of an AI agent involve?**
+The criteria are set before work starts: several dozen real questions from the company's history with an agreed pass threshold, a list of situations that must trigger handover to a human, a test with the API disabled, a review of logs and service account scope, and a check of the AI disclosure message. Sign-off happens after all of it.

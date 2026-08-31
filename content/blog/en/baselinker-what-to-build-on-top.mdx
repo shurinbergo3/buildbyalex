@@ -1,0 +1,150 @@
+---
+title: "BaseLinker plus custom automation: what to build around it"
+description: "Where BaseLinker automatic actions stop, what belongs in an external workflow and what needs real code. Decision table, API limits and honest price bands."
+date: "2026-09-10"
+cluster: "baselinker-automation"
+keywords:
+  - "baselinker automation"
+  - "baselinker api integration"
+  - "baselinker ai agent"
+  - "ecommerce automation 2026"
+  - "multichannel order automation"
+ogImage: "/og/baselinker-automation.webp"
+---
+
+Most shops that email me about "adding AI" already run BaseLinker. Half the time, the feature they want to pay a few thousand euro for takes twenty minutes to set up in the panel with automatic actions, at no extra cost. So much of this article is about what not to buy.
+
+The rest is about the boundary. BaseLinker handles an order well from the moment it lands to the moment the parcel leaves. It is weaker on what sits around the order: the conversation, the document, the judgement call, the data that is not in BaseLinker at all. That is where code starts.
+
+## What BaseLinker already does for you
+
+Marketplace integrations with Allegro, Amazon and eBay, your own storefront, carriers led by InPost, stock in one place, invoices, an order manager and automatic actions. This is the operating layer of Polish multichannel e-commerce, and rebuilding it wastes money.
+
+An automatic action has a simple shape: event, condition, action. Order paid, change the status. Status changed, create the parcel and send the email. Marketplace order above a set value, tag it. On top of that sits a webhook call, the door to everything outside.
+
+Know the market you are buying in. Poland's statistics office GUS reports that in 2025 only 8.7 percent of Polish companies used AI technology at all, and just 2.1 percent had custom AI built by an outside contractor. Buying a ready-made product was by far the most common route. In practice: **most shops need good configuration, not a software project**, and an honest contractor says so on the first call.
+
+## Where an automatic action ends and a workflow begins
+
+Automatic actions have three hard limits. They keep no memory beyond a single order, they cannot branch on a response from another system, and they do not read natural language. Anything needing customer history, outside data or interpretation of text moves out of the panel.
+
+Here is the table I draw on the first call. The columns are three cost levels: the panel is free, a workflow costs once plus upkeep, code costs the most.
+
+| Task | Automatic action in BaseLinker | External workflow (n8n, Make) | Custom code |
+| --- | --- | --- | --- |
+| Status change after payment | yes | not needed | not needed |
+| Create shipment and label | yes | not needed | not needed |
+| Email or SMS on status change | yes | not needed | not needed |
+| Sales invoice for an order | yes | not needed | not needed |
+| Flag a customer on their third return this quarter | no, no customer history | yes | not needed |
+| One margin report across store and marketplaces | no | yes | at large SKU counts |
+| Answering "where is my parcel" in chat | no | partly, via rigid templates | yes |
+| Qualifying a return from a photo and a description | no | no | yes |
+| Filling descriptions and attributes from a supplier file | no | yes, up to a few hundred SKUs | yes, at thousands |
+| Stock sync with a WMS outside the integration list | no | yes, if the API is stable | yes, once batch reservation appears |
+| Invoicing with your own splitting logic | partly | yes | yes, once an ERP joins |
+
+One rule: **the higher a row sits in this table, the less you should pay for it**. If a quote covers the first four rows, you are paying for configuration, not automation.
+
+## API limits that break scaling
+
+The BaseLinker API is broad, and that is its strength: orders, products, warehouses, shipments, invoices, an event journal. The problem is never the feature list, it is polling speed once the shop grows. Your account has a request cap per token per unit of time, and lists come back in pages. Read the current numbers in the API docs before designing the integration, because they change.
+
+| Constraint | What happens in practice | When it starts to hurt |
+| --- | --- | --- |
+| Request cap per token | 429 responses, the workflow drops events and stays silent | several parallel processes polling every minute |
+| Lists returned in pages | one "fetch orders" is really several calls | from a few hundred orders a day |
+| Polling instead of reacting to an event | delay equals the interval, the customer sees a stale status | when you promise real-time status |
+| The event journal does not reach back forever | an hour of downtime becomes a permanent hole in your data | always, which is why you need re-sync and alerts |
+| One token shared by every process | a heavy report blocks parcel dispatch | from three integrations upward |
+
+The engineering conclusions are boring, which is good. A separate token per process, a queue with retries and backoff, incremental sync from the journal instead of refetching everything, your own copy of orders in a database for reporting. Three hours at the start buys back a weekend in December.
+
+## An agent for order status, returns and stock questions
+
+This is where an AI layer earns its place, because it deals with conversation, and conversation is not what BaseLinker does. The agent sits on chat, email and messengers, works out what is being asked, pulls the order from the API and answers with a fact instead of a template.
+
+Three scenarios that pay back fastest:
+
+- **Order and parcel status.** The customer gives an email or order number, the agent fetches the order, checks the tracking and says where the parcel is. Usually the largest single bucket of repetitive messages.
+- **Returns and complaints.** The agent checks the purchase date, works out the deadline, asks for a photo, opens a ticket and hands back a filled form. Money decisions stay with a human.
+- **Availability and variants.** Size, colour and delivery-date questions, answered from live stock rather than the model's memory.
+
+Polish implementers publish figures around 70 percent of queries closed without a human, plus a case of a shop doing 200 orders a day where a solution costing PLN 2 500 a month is set against PLN 26 000 a month saved. Those are vendor numbers, not my result, and I read them as the top of the range. My own measure is duller: messages that stopped reaching a human, times handling time.
+
+What the agent will not do: grant an exception to your own policy, calm a genuinely angry customer, or invent a product description that does not exist. Thin product pages make an agent look worse, so the order of work is catalogue first, bot second. I keep a separate [ecommerce SEO checklist](/en/blog/ecommerce-seo-checklist-for-online-store) for that, and a piece on [how to increase online store sales](/en/blog/how-to-increase-online-store-sales) for the demand side.
+
+## Documents: invoices, KSeF and return paperwork
+
+If you sell in Poland, the deadlines have passed. Since 1 February 2026 every taxpayer receives purchase invoices through KSeF, and since 1 April 2026 issuing applies to all active VAT payers. BaseLinker issues sales invoices, which closes one half. The other half stays open: costs outside KSeF, meaning foreign supplier invoices, PDFs and scans, plus credit notes and complaint records on returns.
+
+The arithmetic is simple. Market research puts the average cost of processing one invoice at about 10.89 dollars, while setups with automatic data capture come down to roughly 2.78 dollars. At five hundred documents a month the gap exceeds the cost of building the process. Details sit on the [document automation](/en/services/document-automation) page.
+
+The layout I usually build: mailbox and KSeF as two sources, extraction from the document, matching to the BaseLinker order by number and amount, a write into accounting, exceptions pushed to a list a human approves. Exceptions always exist, and a process that pretends otherwise falls over inside a month.
+
+## The bridge to WMS, ERP and your own database
+
+At some point BaseLinker stops being the whole system and becomes one participant. Usually three things arrive together: the warehouse moves to a WMS with scanners, accounting sits in an ERP such as Comarch Optima or XL, and management wants reports the panel does not produce.
+
+Then I build a bridge, not a second system. BaseLinker stays the source of truth for orders and shipments, the WMS for locations and batches, the ERP for money, and a thin layer in the middle owns sync direction and conflicts.
+
+One thing I repeat to everyone: agree on write direction before anybody writes a line of code. Who owns stock, who owns price, who owns customer data. Nine integration failures out of ten are not bugs, they are two systems politely overwriting each other. If you are also rethinking the storefront, there is a separate piece on [WooCommerce, Shopify or headless](/en/blog/woocommerce-vs-shopify-vs-headless).
+
+## What not to build yourself
+
+BaseLinker is moving into AI on its own: a chatbot for returns and complaints sits on its 2027 roadmap. A feature the platform will ship anyway is a bad place for your budget.
+
+- **Price optimisation and marketplace repricing.** Wait. You would compete with a team that sees the whole market's data while you see your own few hundred listings.
+- **Bulk product description generation.** A one-off script for a catalogue migration makes sense. A permanent system almost never does.
+- **Your own order panel.** Almost never. A year of work and permanent upkeep.
+- **A returns chatbot.** Here the window is open. The platform version is dated 2027, it will be generic, and it will not know your policy or your warehouse. If returns are your main support cost, build now and calculate payback through the end of 2027.
+
+The rule: build what follows from your process and your data. Do not build what is a platform feature arriving next year.
+
+## What it costs and when not to start
+
+Polish vendors publish fairly consistent bands. Configuration with a simple workflow runs PLN 8 000 to 20 000 plus PLN 200 to 500 a month for API and infrastructure. A knowledge-base agent runs PLN 20 000 to 60 000 and PLN 2 000 to 8 000 a month. An agent that writes into a CRM, ERP or logistics system starts at PLN 80 000 and reaches 250 000. Annual maintenance is usually taken at 15 to 25 percent of the build cost.
+
+My rates sit lower, because I work alone and fund no sales team.
+
+| Scope | My price | What you get |
+| --- | --- | --- |
+| Automatic actions setup | free, you do it in the panel | the standard BaseLinker scenarios |
+| External workflow | from 900 € (3 900 zł) | one process, alerts, documentation |
+| Customer-facing agent | from 1 500 € (6 500 zł) | chat, API access, escalation to a human |
+| Document automation | from 2 800 € (12 000 zł) | invoices and returns from source to accounting |
+| Maintenance | 15 to 25 percent per year | API changes, monitoring, fixes |
+
+And now the part you will not hear from an agency. Do not start if the shop does around thirty orders a day and nobody is on support full time: automatic actions plus decent templates are enough. Do not start if the process is undocumented, because you will automate the mess and pay twice. Do not start three scenarios at once.
+
+The market numbers are sobering. 2026 industry reviews report that 89 percent of AI agent pilots never reach production, while the surviving 11 percent report a 171 percent return, and Gartner forecasts that over 40 percent of agentic AI projects will be cancelled by the end of 2027. Those are market figures, not mine. The cause is almost always scope: someone orders "an agent for customer service" instead of one scenario with a measurable effect.
+
+The Apilo question comes up often. If it works, migrating just to add automation makes no sense: the layer described here sits on an API and a workflow engine, not on one vendor.
+
+Want to shortcut this? Send me three things: orders per day, your sales channels, and where support time goes. [Write to me](/en/contact) and I will say what to set up yourself, what belongs in a workflow and what is left to write. If you are rebuilding the storefront too, I build [online stores](/en/services/online-store) with this integration layer included.
+
+## FAQ
+
+**Is BaseLinker enough on its own, without extra automation?**
+For most shops up to roughly thirty orders a day, yes. Automatic actions cover status changes, shipment creation, customer notifications and sales invoices, which is the bulk of daily operations. Building on top pays once a customer conversation, a document from outside KSeF, or a system BaseLinker does not know, such as a WMS or ERP, enters the picture.
+
+**What are the BaseLinker API limits and when do they bite?**
+BaseLinker caps requests per token per unit of time and returns lists in pages; current values are in the API documentation. With a few hundred orders a day and several parallel processes you hit 429 responses and start losing events silently. The fix is a separate token per process, a queue with retries, incremental sync from the event journal, and an alert when an integration stays quiet too long.
+
+**How much does an AI agent connected to BaseLinker cost?**
+Polish vendors publish these bands: PLN 8 000 to 20 000 for configuration with a simple workflow, PLN 20 000 to 60 000 for a knowledge-base agent, PLN 80 000 upward once the agent writes into a CRM or ERP. With me a customer-facing agent starts at 1 500 € (6 500 zł) and document automation at 2 800 € (12 000 zł). Add PLN 200 to 500 a month for API and infrastructure, plus maintenance at 15 to 25 percent of the build cost per year.
+
+**Is it worth building a returns chatbot when BaseLinker has one on the roadmap?**
+It depends on timing. The returns and complaints chatbot sits on BaseLinker's roadmap for 2027, so the window is well over a year. If returns are your main support cost, a custom build pays back inside it and also knows your policy, your deadlines and your live stock, which a generic platform feature will not. If you get a handful of return requests a week, wait.
+
+**What about KSeF and multichannel sales?**
+In Poland, since 1 February 2026 all taxpayers receive purchase invoices through KSeF, and since 1 April 2026 issuing applies to all active VAT payers. BaseLinker issues sales invoices, so that side is covered. What remains is the cost side outside KSeF: foreign supplier invoices, PDFs and scans, plus credit notes on returns. Market research puts manual invoice handling at about 10.89 dollars per document against roughly 2.78 dollars with automatic capture.
+
+**n8n or custom code for BaseLinker integrations?**
+n8n or Make are enough when the process is linear, calls are few and you hold no state of your own: reports, notifications, moving data between two systems. Custom code comes in with business logic, thousands of records, your own database, or interpretation of text and images. A sensible common setup is a workflow as orchestrator plus one written service where the hard part happens.
+
+**Should I migrate from Apilo to BaseLinker to automate?**
+Not for that reason. The automation layer runs on an API and an external workflow, and both can be built on either platform. Migrate when you lack a specific integration with a sales channel, a carrier or a warehouse system, or when subscription cost at your volume works out clearly differently.
+
+**How long does an implementation like this take?**
+A simple workflow is a few working days, an agent answering order questions is two to three weeks including testing, and a bridge to a WMS or ERP is one to two months, because most of the time goes into agreeing which system owns which data. I start with one scenario in production, because three at once ends with none working properly.

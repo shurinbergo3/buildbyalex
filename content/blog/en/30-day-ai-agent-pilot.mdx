@@ -1,0 +1,156 @@
+---
+title: "A fixed-price 30-day AI agent pilot: scope, cost and go/no-go"
+description: "What a 30-day AI agent pilot contains: the day-by-day schedule, what is in the price, one measurable success criterion and a written go/no-go rule."
+date: "2026-08-31"
+cluster: "ai-pilot-30-days"
+keywords:
+  - "30 day AI agent pilot"
+  - "AI agent pilot cost"
+  - "AI pilot success criteria"
+  - "AI agent implementation timeline"
+  - "fixed price AI pilot"
+ogImage: "/og/ai-pilot-30-days.webp"
+---
+
+The first question I get from a business owner after any AI conversation is always the same: how long will this take, and what happens if it does not work. The honest answer for both sides is a pilot: one process, thirty days, a fixed price, and one success criterion agreed before we start.
+
+Below is what I run in such a pilot: the day-by-day schedule, the in-the-price list, the go/no-go rule, and what stays with you if the answer turns out to be no. Copy it into your own brief and send it to any developer.
+
+## Why a pilot instead of a company-wide rollout
+
+The numbers for large AI programmes are brutal. Gartner reports that 89% of AI agent pilots never reach production and that over 40% of agentic AI projects will be cancelled by the end of 2027. S&P Global Market Intelligence found that 42% of companies abandoned most of their AI initiatives in 2025, up from 17% the year before, and that the average organisation scrapped 46% of its proofs of concept before production.
+
+One correction, because it comes up in every second meeting. The famous MIT "95% of AI pilots fail" figure covers generative AI pilots broadly, measures failure to show P&L impact rather than cancellation, and is not a Gartner number.
+
+The other side: the 11% of pilots that do reach production report 171% ROI, again per Gartner. The whole game is finding out cheaply which side you are on, and thirty days on one process is the cheapest method I know.
+
+Upwork's Q1 2026 research found 41% of SMB leaders running agent pilots while only 17% of organisations have actually deployed one, and over 60% expect to within two years. Nearly everyone is stuck between pilot and production, which is the gap a narrow, dated, measurable pilot is built to cross.
+
+## Choosing one process you can measure in 30 days
+
+A process is a fit if it meets five conditions at once: it happens at least a dozen times a week, it has a clear start and end, the input data already exists digitally, one person on your side owns it, and an agent's mistake can be reversed without legal consequences.
+
+| Good pilot candidate | Bad pilot candidate |
+| --- | --- |
+| Repeat questions from the web form and WhatsApp | Advisory work where every answer is different |
+| Lead qualification with a write-back to CRM | Price negotiation with a customer |
+| Pulling data out of PDFs and invoices into a sheet | Hiring decisions and CV screening, high-risk under the AI Act |
+| Booking slots in a calendar | Anything requiring a signature or a regulator's approval |
+| Drafting a first-pass quote from an inbound RFQ | A process that changes shape every two weeks |
+
+The rule that works is "one input, one action": the agent reads one thing, does one thing, writes the result in one place. A third "and then also" means it is not a 30-day pilot.
+
+A caveat from the other direction: a large share of these processes does not need an agent at all. If the rule can be written as "if the email contains X, do Y", a deterministic automation is cheaper and generates no token bill. I say this before anyone signs: it is the difference between €900 and €1,500 up front, and between a zero token bill and €12-45 a month.
+
+## The schedule: what exists at the end of each week
+
+This is the skeleton I keep to in every pilot. Days are working days from kick-off.
+
+| Days | What happens | What exists at the end |
+| --- | --- | --- |
+| 1-3 | Kick-off, walk through the process with the person doing it today, access to the inbox and CRM | The process written down step by step, plus a baseline: how long it takes today, how often per week, who does it |
+| 4-7 | Tool and model choice, scenario design, criterion agreed in writing | One signed sentence of criterion and an integration list with real system names |
+| 8-14 | Build the path on test data: prompts, error handling, a log of every operation | The agent passes 20 test cases from the company's own history, visible in a review panel |
+| 15-21 | Connect to real channels in silent mode: the agent drafts, a human approves | A week of human-in-the-loop operation, first quality numbers, a list of cases to fix |
+| 22-28 | Fixes after real traffic, AI disclosure per Article 50 of the AI Act, handover-to-human path, documentation | The agent runs in production, with documentation and a team instruction |
+| 29-30 | Final measurement, repository and credentials handover, go/no-go meeting | A report with the numbers next to the criterion, and a decision: scale, fix, stop |
+
+Week three is the one people try to cut and the one you must not. Human-in-the-loop mode is the only moment where you see the agent on real, dirty data rather than on cases I picked myself.
+
+## One success criterion that cannot be argued around
+
+A criterion needs five parts: a metric, a baseline, a target, a measurement window and the person who reads the result. Drop one and month two becomes a debate about whether it "generally works".
+
+Bad: "the agent should take load off customer support." Good:
+
+> Between days 22 and 30, across all enquiries arriving through the web form and WhatsApp, the agent closes at least 60% of conversations without a human, with zero replies containing a wrong price. Baseline 0%, measured from the agent logs, read by the office manager.
+
+One criterion, not three. With three, something always gets met and the pilot is declared a success while nothing changed. A second need goes in as a guard condition: "and does not worsen first-response time".
+
+Metrics that hold up: share of conversations closed without a human, time from enquiry to first useful reply, leads landing in CRM with a complete data set, documents processed without manual correction. Metrics that do not: satisfaction, "time saved" with no before-measurement, messages sent by the bot. How to measure the first is in the piece on [AI lead qualification](/en/blog/ai-lead-qualification-bot).
+
+## What stays with you at the end, whatever the outcome
+
+This is where a solo developer can promise something an agency structurally cannot, because its model rests on a subscription to its own platform.
+
+- **Code in your repository.** Not on my account, not in my instance. The repo is created under your organisation on day one.
+- **Vendor accounts in your name.** OpenAI or Anthropic, n8n, the vector store, the sending number - all registered to the company, paid from its card. I get access, not ownership.
+- **Documentation in plain language.** Where the keys live, what to do when the agent starts answering strangely, how to switch it off with one toggle.
+- **Logs of every conversation** from the pilot period, in your system, exportable.
+- **A recording of the handover call**, so the knowledge does not sit in one person's head.
+
+Plus what the law requires, because Article 50 of the EU AI Act has applied since 2 August 2026: disclosure at the first interaction that the user is talking to AI, a working path to a human, and an entry in your register of AI systems. I am a developer, not a lawyer, so I do the engineering side and recommend counsel for harder cases. The implementation detail is in the article on the [WhatsApp chatbot for business](/en/blog/whatsapp-chatbot-for-business).
+
+## What is in the price and what is not
+
+A fixed price only works if both sides know where the scope ends.
+
+| In the pilot price | Priced separately |
+| --- | --- |
+| Analysis of one process and the baseline measurement | The second and every further process |
+| Building and connecting the agent to at most three systems | Integration with a system that has no API and needs your vendor's work |
+| Prompts, error handling, logging, a review panel | Data migration and cleaning up the customer database |
+| AI disclosure and the handover-to-human path | Legal opinion, privacy policy, data processing agreement |
+| Two weeks of fixes after go-live | Development after the pilot closes, hourly or as stage two |
+| Documentation and credentials handover | Training the whole team as a workshop format |
+| The go/no-go meeting with a report | Token, SMS, telephony and hosting bills, on your account |
+
+I deliberately leave model bills outside the price and on your side. You see the true unit cost from day one, and if it ran through my invoice I would have an interest in the agent making more calls, not fewer. On a single-process pilot this is usually €12-45 a month, because one agent task is 5 to 20 model calls.
+
+## The go/no-go rule, written before the start
+
+We write it on day four, together with the criterion, not on day thirty. It reads:
+
+> If the criterion is met, we move to stage two at the price quoted alongside the pilot. If the criterion is partly met, I have fourteen days of fixes at no extra charge and we measure again. If the criterion is not met, the pilot ends on day thirty, the code, credentials and documentation stay with the client, and I hand over a written explanation of what was missing: the data, the process or the technology.
+
+I do not refund a pilot that missed its target, and I say so before signing. The work was done, and the finding "this process cannot run on an agent because the data lives in people's heads" saves the budget of a full build, which published price lists start at 25,000 zł net.
+
+The most common cause of a no-go is not technical. It is scattered data, a process that works differently from its description, or nobody on the client side with time to answer questions. That is why week one is diagnostic, and why I sometimes propose fixing the process before building anything.
+
+## What it costs, and what stage two costs
+
+Global pricing for custom agents has converged: an agent built for one job, such as a lead qualifier, runs $1,500-5,000 to build plus $300-800 a month, while a multi-agent workflow with three or more specialised agents runs $5,000-25,000 plus $1,000-3,000 a month. Polish vendors publish 3,000-15,000 zł setup plus 500-2,500 zł monthly, 15,000-45,000 zł for a CRM-integrated agent, and full deployments from 25,000 to 150,000 zł net.
+
+My own rates against that background:
+
+| Scope | What it means in practice | Price |
+| --- | --- | --- |
+| Diagnostic week bought separately | Process and data audit, a map of what can be automated | from €1,150 (4,900 zł) |
+| Automation instead of an agent | A deterministic scenario with no model, rules already clear | from €900 (3,900 zł) |
+| Single-process pilot with an agent | The full 30 days per the schedule above | from €1,500 (6,400 zł) |
+| Pilot with lead qualification and CRM write-back | The agent reads, asks, qualifies, writes into the sales system | from €2,500 (10,700 zł) |
+| Stage two: further processes and channels | Expansion after a go decision, priced off the pilot's real numbers | from €4,500 (19,400 zł) |
+
+Then there is maintenance: the market convention is 15-25% of the first implementation per year, an honest order of magnitude for my work too. Budget separately for the 5-15% of cases that will still need a human eye. An agent handling 100% of enquiries unsupervised does not exist, and anyone selling one is selling a future complaint. A wider cost comparison is in the piece on [how much an AI chatbot or agent costs](/en/blog/how-much-does-an-ai-chatbot-cost).
+
+## When not to buy a pilot
+
+Not if the process happens a few times a month: in 30 days you will not collect a sample worth measuring. Not if nobody on your side has an hour a week for questions. Not if the data exists only on paper or in people's heads, because then the first project is data, not AI. And not if you want one agent that does everything.
+
+If you are unsure which process to pick, start with an [AI audit](/en/services/ai-audit): the same diagnostic week sold on its own, ending with three processes ranked by effect over effort. If you already know the process, the scope is on the [AI agents](/en/services/ai-agents) page. And if you want to know whether your case qualifies, [write to me](/en/contact) with the process in three sentences.
+
+## FAQ
+
+**How much does a 30-day AI agent pilot cost?**
+A single-process pilot starts at €1,500 (6,400 zł), and the version with lead qualification and CRM write-back at €2,500 (10,700 zł). The diagnostic week sold separately is €1,150 (4,900 zł). For comparison, a custom agent built for one job runs $1,500-5,000 plus $300-800 a month. Model, telephony and hosting bills sit outside the price.
+
+**What happens if the pilot misses its success criterion?**
+The go/no-go rule is written before the start. If the criterion is partly met, I have fourteen days of fixes at no extra charge and we measure again. If it is not met, the pilot ends on day thirty and the code, credentials, logs and documentation stay with the client, with a written explanation of what was missing. I do not refund the fee for work delivered, and I say that before signing.
+
+**Why run a pilot instead of a full rollout?**
+Because Gartner reports that 89% of AI agent pilots never reach production and over 40% of agentic AI projects will be cancelled by the end of 2027. S&P Global Market Intelligence found 42% of companies abandoned most AI initiatives in 2025, up from 17% a year earlier. Thirty days on one process is the cheapest way to learn which side of that you are on.
+
+**How do I write a success criterion that cannot be argued around?**
+It needs five parts: a metric, a baseline, a numeric target, a measurement window and the person who reads the result. For example: "between days 22 and 30 the agent closes at least 60% of form and WhatsApp enquiries on its own, with zero wrong prices, baseline 0%." Use one criterion, not three: with three, something always gets met and the pilot is declared a success while nothing changed.
+
+**Do the code and the data stay with my company?**
+Yes, and it is a condition worth putting to any developer. The repository is created under your account on day one, model vendor accounts are registered to the company, conversation logs stay in your system. The developer gets access, not ownership. If the agent only runs on the vendor's platform and nothing remains when you part ways, that is a subscription, not a pilot.
+
+**Which process makes the best first pilot?**
+One that happens at least a dozen times a week, has a clear start and end, holds its input data digitally, has a single owner, and where a mistake can be reversed. The best results come from repeat enquiries, lead qualification, calendar booking and extracting data from documents. Hiring decisions, negotiations and anything requiring a signature are not suitable.
+
+**What are the running costs after the pilot?**
+The market convention is 15-25% of the first implementation per year for maintenance and changes. On top come model bills, since one agent task is 5 to 20 calls, plus channel costs such as SMS, telephony and hosting. Plan for 5-15% of cases needing human review: that is the normal operating mode of every production agent.
+
+**Is 30 days enough for a real implementation?**
+It is enough for one process, not for a company. The pilot deliberately covers one process and at most three integrations, because that is the only scope you can build, run live and measure inside a month. Expansion is a separate stage, quoted after the pilot from real numbers. Published price lists put full deployments at 25,000 to 150,000 zł net.

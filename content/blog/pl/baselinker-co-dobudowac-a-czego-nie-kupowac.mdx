@@ -1,0 +1,150 @@
+---
+title: "BaseLinker i automatyzacje: co dobudować, a czego nie kupować"
+description: "Gdzie kończą się akcje automatyczne w BaseLinkerze, co ma sens jako zewnętrzny workflow, a co trzeba napisać. Tabela decyzyjna, limity API i widełki cen."
+date: "2026-09-10"
+cluster: "baselinker-automation"
+keywords:
+  - "baselinker automatyzacja"
+  - "baselinker api integracja"
+  - "agent ai baselinker"
+  - "baselinker akcje automatyczne"
+  - "automatyzacja e-commerce 2026"
+ogImage: "/og/baselinker-automation.webp"
+---
+
+Większość sklepów, które piszą do mnie o „automatyzacji z AI”, ma już BaseLinkera. W połowie tych rozmów okazuje się, że funkcja, za którą ktoś chce zapłacić kilka tysięcy złotych, ustawia się w panelu w dwadzieścia minut akcjami automatycznymi, w cenie abonamentu. Dlatego ten tekst jest w dużej mierze o tym, czego nie kupować.
+
+Druga część jest o granicy. BaseLinker dobrze prowadzi zamówienie od chwili, gdy wpadnie, do chwili, gdy paczka jedzie do klienta. Znacznie słabiej radzi sobie z tym, co dzieje się obok zamówienia: z rozmową, z dokumentem, z decyzją i z danymi, których w nim nie ma. Tam zaczyna się kod.
+
+## Co BaseLinker naprawdę robi za Ciebie
+
+Integracje z Allegro, Amazonem, eBayem i własnym sklepem, kurierzy z InPostem na czele, stany magazynowe w jednym miejscu, faktury, menedżer zamówień i akcje automatyczne. To jest warstwa operacyjna polskiego multichannel e-commerce i nie ma sensu jej podrabiać.
+
+Akcja automatyczna działa według prostego schematu: zdarzenie, warunek, akcja. Zamówienie opłacone, więc zmień status. Status zmieniony, więc utwórz przesyłkę i wyślij mail. Zamówienie z Allegro powyżej pewnej kwoty, więc oznacz tagiem. Do tego dochodzi wywołanie webhooka, czyli furtka na zewnątrz.
+
+Warto pamiętać, na jakim rynku to się dzieje. GUS podaje, że w 2025 roku wykorzystanie technologii AI deklarowało 8,7 procent firm w Polsce, a AI budowane na zamówienie przez zewnętrznego wykonawcę miało zaledwie 2,1 procent. Dominującym sposobem było kupienie gotowego rozwiązania. Tłumaczenie na praktykę: **większość sklepów potrzebuje dobrej konfiguracji, a nie projektu programistycznego**, i uczciwy wykonawca powinien to powiedzieć na pierwszej rozmowie.
+
+## Gdzie kończy się akcja automatyczna, a zaczyna workflow
+
+Akcje automatyczne mają trzy twarde ograniczenia. Nie mają pamięci poza pojedynczym zamówieniem, nie potrafią rozgałęzić procesu na podstawie odpowiedzi z zewnętrznego systemu i nie rozumieją języka naturalnego. Wszystko, co wymaga historii klienta, danych spoza BaseLinkera albo interpretacji tekstu, wychodzi na zewnątrz.
+
+Poniżej tabela, którą rysuję klientom na pierwszym spotkaniu. Kolumny to trzy poziomy kosztu: panel jest darmowy, workflow kosztuje raz plus utrzymanie, kod kosztuje najwięcej.
+
+| Zadanie | Akcja automatyczna w BaseLinkerze | Zewnętrzny workflow (n8n, Make) | Własny kod |
+| --- | --- | --- | --- |
+| Zmiana statusu po opłaceniu | tak | zbędne | zbędne |
+| Utworzenie przesyłki i etykiety | tak | zbędne | zbędne |
+| Mail lub SMS po zmianie statusu | tak | zbędne | zbędne |
+| Faktura do zamówienia | tak | zbędne | zbędne |
+| Oznaczenie klienta z trzecim zwrotem w kwartale | nie, brak historii klienta | tak | zbędne |
+| Wspólny raport marży ze sklepu i z Allegro | nie | tak | przy dużej liczbie SKU |
+| Odpowiedź na pytanie „gdzie moja paczka” na czacie | nie | częściowo, przez sztywne szablony | tak |
+| Kwalifikacja zwrotu ze zdjęcia i opisu klienta | nie | nie | tak |
+| Uzupełnianie opisów i parametrów z pliku dostawcy | nie | tak, do kilkuset SKU | tak, przy tysiącach |
+| Synchronizacja stanów z WMS spoza listy integracji | nie | tak, przy stabilnym API | tak, gdy dochodzi rezerwacja partii |
+| Faktura do KSeF z własną logiką podziału | częściowo | tak | tak, gdy dochodzi ERP |
+
+Zasada jest jedna: **im wyżej w tej tabeli, tym mniej powinieneś płacić za wdrożenie**. Jeśli oferta obejmuje cztery pierwsze wiersze, płacisz za konfigurację, a nie za automatyzację.
+
+## Limity API, o które rozbija się skalowanie
+
+API BaseLinkera jest szerokie i to jego duża zaleta: zamówienia, produkty, magazyny, przesyłki, faktury, dziennik zdarzeń. Problem pojawia się nie w zakresie funkcji, tylko w tempie odpytywania, kiedy sklep rośnie. Konto ma limit zapytań na token w jednostce czasu, a listy wracają stronami, więc konkretne wartości sprawdź w dokumentacji API, zanim zaprojektujesz integrację. Bywają zmieniane i nie warto ich przepisywać z cudzego bloga.
+
+| Ograniczenie | Co się dzieje w praktyce | Kiedy zaczyna boleć |
+| --- | --- | --- |
+| Limit zapytań na token | odpowiedzi 429, workflow gubi zdarzenia i milczy | kilka równoległych procesów odpytujących co minutę |
+| Listy zwracane stronami | jedno „pobierz zamówienia” to w rzeczywistości kilka wywołań | od kilkuset zamówień dziennie |
+| Odpytywanie zamiast reakcji na zdarzenie | opóźnienie równe interwałowi, klient dostaje status z poślizgiem | gdy obiecujesz status w czasie rzeczywistym |
+| Dziennik zdarzeń nie sięga dowolnie daleko wstecz | godzinna awaria integracji to trwała dziura w danych | zawsze, dlatego potrzebny jest ponowny odczyt i alert |
+| Jeden token dla wszystkich procesów | jeden ciężki raport blokuje wysyłkę paczek | od trzech integracji wzwyż |
+
+Wnioski inżynierskie są nudne i to dobrze. Osobny token na proces, kolejka z ponowieniami i wykładniczym odczekaniem, synchronizacja przyrostowa po dzienniku zamiast pobierania wszystkiego, własna kopia zamówień w bazie na raporty. Trzy godziny pracy przy starcie oszczędzają weekend w grudniu.
+
+## Agent do statusów, zwrotów i pytań o dostępność
+
+To jest miejsce, w którym warstwa AI faktycznie ma sens, bo dotyczy rozmowy, a rozmowy BaseLinker nie obsługuje. Agent siedzi na czacie, na mailu i na komunikatorze, rozpoznaje pytanie, sam sięga do API po zamówienie klienta i odpowiada konkretem zamiast szablonem.
+
+Trzy scenariusze, które zwracają się najszybciej:
+
+- **Status zamówienia i przesyłki.** Klient podaje mail albo numer, agent pobiera zamówienie, sprawdza numer nadania i odpowiada, gdzie jest paczka. To zwykle największa grupa powtarzalnych wiadomości.
+- **Zwrot i reklamacja.** Agent sprawdza datę zakupu, liczy termin, prosi o zdjęcie, tworzy zgłoszenie i zwraca gotowy formularz. Decyzję o pieniądzach zostawiam człowiekowi.
+- **Dostępność i wariant.** Pytania o rozmiar, kolor i termin dostawy, odpowiadane ze stanu magazynowego, a nie z pamięci modelu.
+
+Polskie firmy wdrożeniowe publikują przy takich agentach liczby rzędu 70 procent zapytań zamykanych bez człowieka oraz przykład sklepu z dwustu zamówieniami dziennie, gdzie koszt 2 500 zł miesięcznie zestawia się z 26 000 zł oszczędności. To są liczby dostawców, nie mój wynik, i traktowałbym je jako górną półkę. Sam mierzę prościej: liczba wiadomości, które przestały trafiać do człowieka, razy średni czas obsługi.
+
+Czego agent nie zrobi dobrze: nie podejmie decyzji o wyjątku od regulaminu, nie ugasi wściekłego klienta i nie zastąpi opisu produktu, którego w katalogu nie ma. Jeśli karty produktów są ubogie, agent tylko to unaoczni, a kolejność prac jest wtedy odwrotna: najpierw katalog, potem bot. Mam na to osobną [checklistę SEO dla sklepu internetowego](/pl/blog/seo-dla-sklepu-internetowego-checklista), a o podnoszeniu samej sprzedaży pisałem w tekście o tym, [jak zwiększyć sprzedaż w sklepie internetowym](/pl/blog/jak-zwiekszyc-sprzedaz-w-sklepie-internetowym).
+
+## Dokumenty: faktury, KSeF i papierologia zwrotów
+
+Od 1 lutego 2026 wszyscy podatnicy odbierają faktury zakupowe przez KSeF, a od 1 kwietnia 2026 obowiązek wystawiania objął wszystkich czynnych podatników VAT. BaseLinker wystawia faktury sprzedażowe i to zamyka jedną stronę tematu. Druga zostaje otwarta: koszty spoza KSeF, czyli faktury zagraniczne, PDF-y i skany, oraz korekty i protokoły reklamacyjne przy zwrotach.
+
+Tu arytmetyka jest przyjemnie prosta. Badania rynku podają, że przeciętna organizacja wydaje około 10,89 dolara na obsługę jednej faktury, a wdrożenia z automatycznym przechwytywaniem danych schodzą do około 2,78 dolara. Przy pięciuset dokumentach miesięcznie różnica przekracza koszt zbudowania procesu. Szczegóły są na stronie o [automatyzacji dokumentów](/pl/uslugi/automatyzacja-dokumentow).
+
+Praktyczny układ, który zwykle stawiam: skrzynka mailowa i KSeF jako dwa źródła, wyciąganie danych z dokumentu, dopasowanie do zamówienia w BaseLinkerze po numerze i kwocie, zapis do księgowości, a wyjątki na osobną listę do ręcznego zatwierdzenia. Wyjątki zawsze będą, a proces, który udaje, że ich nie ma, wysypuje się po miesiącu.
+
+## Most do WMS, ERP i własnej bazy
+
+W pewnym momencie BaseLinker przestaje być całym systemem i staje się jednym z uczestników. Zwykle przy trzech rzeczach naraz: magazyn przechodzi na WMS ze skanerami, księgowość siedzi w Comarch Optima albo XL, a zarząd chce raportów, których w panelu nie ma.
+
+Wtedy buduję most, a nie drugi system. BaseLinker zostaje źródłem prawdy o zamówieniach i wysyłkach, WMS o lokalizacjach i partiach, ERP o pieniądzach, a pośrodku stoi warstwa, która pilnuje kierunku synchronizacji i rozwiązuje konflikty.
+
+Jedno powtarzam każdemu: uzgodnij kierunek zapisu, zanim ktokolwiek napisze linijkę kodu. Kto jest właścicielem stanu magazynowego, kto ceny, kto danych klienta. Dziewięć na dziesięć awarii integracji to nie błąd w kodzie, tylko dwa systemy, które grzecznie nadpisują się nawzajem. Jeśli zastanawiasz się też nad samym silnikiem sklepu, jest o tym osobny materiał: [WooCommerce, Shopify czy headless](/pl/blog/woocommerce-shopify-czy-headless).
+
+## Czego nie warto budować samemu
+
+BaseLinker sam idzie w stronę AI: chatbota do obsługi zwrotów i reklamacji ma w roadmapie na 2027 rok. To wyznacza rozsądną granicę zamówień. Funkcja, którą platforma i tak dowiezie w standardzie, jest złym miejscem na Twój budżet.
+
+- **Optymalizacja cen i repricing na Allegro.** Poczekaj. Konkurujesz z zespołem, który widzi dane całego rynku, a Ty widzisz swoje kilkaset ofert.
+- **Masowe generowanie opisów produktów.** Jednorazowy skrypt na migrację katalogu ma sens, stały system prawie nigdy.
+- **Własny panel zamówień.** Prawie nigdy. To rok pracy i wieczne utrzymanie.
+- **Chatbot do zwrotów.** Tu jest okno. Wersja producenta ma termin 2027, będzie ogólna i nie będzie znała Twojego regulaminu ani Twojego magazynu. Jeśli zwroty to Twój główny koszt obsługi, buduj teraz i policz zwrot z inwestycji do końca 2027.
+
+Reguła: buduj to, co wynika z Twojego procesu i Twoich danych. Nie buduj tego, co jest funkcją platformy i pojawi się tam za rok.
+
+## Ile to kosztuje i kiedy nie zaczynać
+
+Polscy dostawcy publikują dość spójne widełki. Konfiguracja i prosty workflow to 8 000 do 20 000 zł plus 200 do 500 zł miesięcznie na API i infrastrukturę. Agent oparty o bazę wiedzy to 20 000 do 60 000 zł i 2 000 do 8 000 zł miesięcznie. Agent, który zapisuje dane do CRM, ERP albo systemu logistycznego, to już 80 000 do 250 000 zł wdrożenia. Utrzymanie roczne przyjmuje się na 15 do 25 procent kosztu wdrożenia.
+
+Moje stawki są niższe, bo pracuję sam i nie utrzymuję działu sprzedaży.
+
+| Zakres | Cena u mnie | Co dostajesz |
+| --- | --- | --- |
+| Konfiguracja akcji automatycznych | 0 zł, zrobisz sam w panelu | podstawowe scenariusze BaseLinkera |
+| Zewnętrzny workflow | od 3 900 zł (900 €) | jeden proces, alerty, dokumentacja |
+| Agent do rozmów z klientem | od 6 500 zł (1 500 €) | czat, dostęp do API, eskalacja do człowieka |
+| Automatyzacja dokumentów | od 12 000 zł | faktury i zwroty od źródła do księgowości |
+| Utrzymanie | 15 do 25 procent rocznie | zmiany w API, monitoring, poprawki |
+
+I teraz część, której nie usłyszysz od agencji. Nie zaczynaj, jeśli sklep robi mniej więcej trzydzieści zamówień dziennie i nikt nie siedzi w obsłudze na pełen etat: przy tej skali akcje automatyczne plus dobre szablony wystarczą. Nie zaczynaj, jeśli proces nie jest opisany, bo zautomatyzujesz bałagan i zapłacisz dwa razy. Nie zaczynaj od trzech scenariuszy naraz.
+
+Liczby dają do myślenia. Zestawienia rynkowe za 2026 rok podają, że 89 procent pilotaży agentów AI nigdy nie trafia na produkcję, a te 11 procent, które przetrwa, raportuje 171 procent zwrotu. Gartner przewiduje, że do końca 2027 anulowanych zostanie ponad 40 procent projektów agentowych. To są dane rynkowe, nie mój wynik. Przyczyną prawie zawsze jest zakres, a nie technologia: ktoś zamawia „agenta do obsługi klienta” zamiast jednego scenariusza z mierzalnym efektem.
+
+Pytanie o Apilo pada często. Jeśli wszystko tam działa, migracja tylko po to, żeby dobudować automatyzację, nie ma sensu: opisana warstwa stoi na API i workflow, a nie na konkretnym dostawcy.
+
+Jeśli chcesz to skrócić, wyślij mi trzy rzeczy: liczbę zamówień dziennie, listę kanałów sprzedaży i to, na co schodzi najwięcej czasu w obsłudze. [Napisz do mnie](/pl/kontakt), a odpiszę, co ustawisz sam w BaseLinkerze, co warto zrobić workflow i co zostaje do napisania. Jeśli przy okazji przebudowujesz front, robię też [sklepy internetowe](/pl/uslugi/sklep-internetowy) razem z tą warstwą integracji.
+
+## FAQ
+
+**Czy BaseLinker wystarczy bez dodatkowych automatyzacji?**
+Dla większości sklepów do mniej więcej trzydziestu zamówień dziennie wystarczy. Akcje automatyczne obsłużą zmiany statusów, tworzenie przesyłek, powiadomienia do klienta i faktury sprzedażowe, czyli gros pracy operacyjnej. Dobudowywanie zaczyna mieć sens, gdy pojawia się rozmowa z klientem, dokument spoza KSeF albo system, którego BaseLinker nie zna, na przykład WMS lub ERP.
+
+**Jakie są limity API BaseLinkera i kiedy zaczynają przeszkadzać?**
+BaseLinker limituje liczbę zapytań na token w jednostce czasu i zwraca listy stronami, a aktualne wartości znajdziesz w dokumentacji API. Przy kilkuset zamówieniach dziennie i kilku równoległych procesach łatwo o odpowiedzi 429 i o ciche gubienie zdarzeń. Standardowe rozwiązanie to osobny token dla każdego procesu, kolejka z ponowieniami, synchronizacja przyrostowa po dzienniku zdarzeń zamiast pobierania wszystkiego oraz alert, gdy integracja milczy dłużej niż zwykle.
+
+**Ile kosztuje agent AI podpięty do BaseLinkera?**
+Polscy dostawcy publikują widełki: 8 000 do 20 000 zł za konfigurację z prostym workflow, 20 000 do 60 000 zł za agenta opartego o bazę wiedzy i od 80 000 zł wzwyż, gdy agent zapisuje dane do CRM lub ERP. U mnie agent do rozmów z klientem startuje od 6 500 zł (1 500 €), a automatyzacja dokumentów od 12 000 zł. Doliczaj 200 do 500 zł miesięcznie na API i infrastrukturę oraz utrzymanie rzędu 15 do 25 procent kosztu wdrożenia rocznie.
+
+**Czy warto budować własny chatbot do zwrotów, skoro BaseLinker go zapowiada?**
+Zależy od terminu. Chatbot do zwrotów i reklamacji jest w roadmapie BaseLinkera dopiero na 2027 rok, więc masz przed sobą okno kilkunastu miesięcy. Jeśli zwroty są głównym kosztem obsługi, własne rozwiązanie zwróci się w tym czasie i dodatkowo będzie znało Twój regulamin, terminy i stany magazynowe, czego wersja platformowa nie zapewni. Jeśli zwroty to kilka zgłoszeń tygodniowo, poczekaj.
+
+**Co z KSeF i fakturami przy sprzedaży wielokanałowej?**
+Od 1 lutego 2026 wszyscy podatnicy odbierają faktury zakupowe przez KSeF, a od 1 kwietnia 2026 obowiązek wystawiania objął wszystkich czynnych podatników VAT. BaseLinker wystawia faktury sprzedażowe, więc ta strona jest zamknięta. Do zautomatyzowania zostaje strona kosztowa spoza KSeF, czyli faktury zagraniczne, PDF-y i skany, oraz korekty przy zwrotach. Badania rynkowe podają koszt obsługi jednej faktury na poziomie około 10,89 dolara ręcznie i około 2,78 dolara przy automatycznym przechwytywaniu danych.
+
+**n8n czy własny kod przy integracjach z BaseLinkerem?**
+n8n albo Make wystarczają, gdy proces jest liniowy, wywołań jest niewiele i nie trzeba trzymać własnego stanu: raporty, powiadomienia, przenoszenie danych między dwoma systemami. Własny kod bierze się wtedy, gdy dochodzi logika biznesowa, praca na tysiącach rekordów, własna baza danych albo interpretacja tekstu i zdjęć. Częsty i sensowny układ to workflow jako orkiestracja plus jedna napisana usługa w miejscu, gdzie dzieje się rzecz trudna.
+
+**Czy migrować z Apilo na BaseLinkera, żeby zrobić automatyzację?**
+Nie z tego powodu. Warstwa automatyzacji stoi na API i zewnętrznym workflow, a te da się zbudować przy obu platformach. Migracja ma sens, gdy brakuje Ci konkretnej integracji z kanałem sprzedaży, kurierem albo magazynem, albo gdy koszt abonamentu przy Twoim wolumenie wychodzi wyraźnie inaczej. Sama chęć podpięcia agenta to za mało.
+
+**Ile trwa wdrożenie takiej automatyzacji?**
+Prosty workflow to kilka dni roboczych, agent odpowiadający na pytania o zamówienia to dwa do trzech tygodni razem z testami, a most do WMS lub ERP to miesiąc lub dwa, bo najwięcej czasu zabiera uzgodnienie, który system jest właścicielem których danych. Zaczynam zawsze od jednego scenariusza na produkcji, bo trzy naraz kończą się tym, że żaden nie działa dobrze.

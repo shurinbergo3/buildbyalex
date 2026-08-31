@@ -1,0 +1,129 @@
+---
+title: "Custom GPT a własny agent AI: czego Custom GPT nigdy nie zrobi"
+description: "Zbudowałeś Custom GPT i utknął w ChatGPT. Pokazuję, gdzie pęka: kanały, odczyt CRM, Actions, ślad audytowy, plus tabela porównania z własnym agentem."
+date: "2026-09-05"
+cluster: "custom-gpt-limits"
+keywords:
+  - "custom gpt czy agent ai różnica"
+  - "ograniczenia custom gpt"
+  - "custom gpt na stronę www"
+  - "własny agent ai dla firmy"
+  - "custom gpt integracja z crm"
+ogImage: "/og/custom-gpt-limits.webp"
+---
+
+Scenariusz powtarza się co kilka tygodni. Ktoś w firmie wchodzi w ChatGPT, klika "utwórz GPT", wrzuca cennik w PDF, trzy szablony maili i instrukcję "jesteś konsultantem naszej firmy". Po godzinie to działa i wygląda imponująco. Po dwóch tygodniach okazuje się, że korzysta z tego wyłącznie autor, a klient na stronie nadal czeka, aż ktoś odpisze.
+
+To nie jest wpadka. Custom GPT to najtańszy sposób, żeby sprawdzić, czy model w ogóle rozumie Twoją branżę i Twoje dokumenty. Problem zaczyna się dokładnie w miejscu, w którym prototyp ma stać się procesem. Poniżej ściany, w które się uderza, w kolejności, w jakiej się je spotyka, i uczciwa odpowiedź na pytanie, kiedy nie warto niczego przebudowywać.
+
+## Dlaczego Custom GPT wygląda na gotowe rozwiązanie
+
+Bo z perspektywy autora nim jest. Wgrywasz pliki, piszesz instrukcję, testujesz w tym samym oknie. Nie ma hostingu, kluczy API, wdrożenia, przeglądu kodu. Pętla poprawek trwa kilkanaście sekund, a efekt od razu brzmi jak ktoś kompetentny.
+
+To też jest zgodne z tym, jak polskie firmy w ogóle kupują AI. GUS podaje, że w 2025 roku wykorzystanie technologii AI deklarowało 8,7% firm w Polsce, a najczęstszym sposobem był zakup gotowego rozwiązania komercyjnego (6,4%); AI budowana na zamówienie przez podmiot zewnętrzny to zaledwie 2,1%. Custom GPT siedzi w tej pierwszej kolumnie i jest jej najtańszym wariantem.
+
+Kłopot polega na tym, że gotowe rozwiązanie kończy się tam, gdzie zaczyna się Twój proces.
+
+## Ściana pierwsza: żyje w ChatGPT i nigdzie indziej
+
+Anglojęzyczne zestawienia ograniczeń Custom GPT z 2026 roku (techhelp.ca, lindy.ai, fayedigital.com) zgodnie wymieniają ten sam punkt na pierwszym miejscu: żeby ktoś skorzystał z Twojego GPT, musi mieć płatne konto ChatGPT i musi znaleźć go w katalogu OpenAI.
+
+Czego z niego nie zrobisz:
+
+- nie wkleisz go jako widżet czatu na stronę,
+- nie podepniesz pod numer WhatsApp Business ani pod Messengera,
+- nie postawisz go na infolinii jako voicebota,
+- nie wpuścisz go do skrzynki biuro@, żeby czytał i odpisywał na zapytania,
+- nie wystawisz go klientowi, który nie chce zakładać kolejnego konta.
+
+Konsekwencja jest handlowa, nie techniczna. **Twój GPT jest dostępny wyłącznie dla ludzi, którzy już płacą OpenAI i sami weszli do ChatGPT.** Klient, który o 22:40 czyta Twoją ofertę na telefonie, do tej grupy nie należy. Ten sam człowiek napisze na WhatsAppie, bo ma go już otwartego.
+
+## Ściana druga: dane aktualne na dzień wgrania pliku
+
+Pliki wiedzy w Custom GPT są statyczne. Zmieniłeś cennik - wgrywasz nowy PDF ręcznie. Zmieniłeś warunki dostawy - to samo. A rzeczy, które w rozmowie handlowej ważą najwięcej, w ogóle w takim pliku nie istnieją: stan magazynu, wolne terminy w kalendarzu, status zamówienia, saldo klienta, historia zgłoszeń.
+
+Zestawienia ograniczeń wskazują to samo: Custom GPT nie czyta w sposób pewny CRM, poczty, kalendarza ani dokumentów w czasie rzeczywistym. Model może dostać dostęp do zewnętrznego API przez Actions, ale to nie to samo co integracja, o czym za chwilę.
+
+W praktyce objaw wygląda niewinnie, a kosztuje realne pieniądze: GPT pewnym tonem podaje cenę z marcowego cennika. Handlowiec dowiaduje się o tym od klienta, który przyszedł z tą ceną na spotkanie.
+
+## Ściana trzecia: Actions działają na demo i milkną w środę
+
+Actions to możliwość wywołania Twojego API ze schematu OpenAPI. Na pokazie wygląda to jak pełna integracja. Potem zaczyna się codzienność.
+
+Trzy rzeczy psują się najczęściej. Po pierwsze, autoryzacja: token wygasa, klucz się rotuje, a użytkownik dostaje tylko komunikat, że coś poszło nie tak. Po drugie, brak ponowień i kolejki: jeśli Twój serwer odpowie po dziesięciu sekundach albo zwróci 500, żądanie po prostu przepada i nikt się o tym nie dowiaduje. Po trzecie, to model decyduje, czy w ogóle wywołać akcję - i przy dłuższej rozmowie potrafi jej nie wywołać, a odpowiedź wymyślić.
+
+Do tego dochodzi bezpieczeństwo. Raporty o bezpieczeństwie agentów z 2026 roku (OWASP, gravitee.io) stawiają prompt injection w centrum ryzyka i podają wzrost liczby ataków o 340% rok do roku przy średnim pokryciu monitoringiem na poziomie 52%, czyli mniej więcej połowa działających agentów nie jest obserwowana. Custom GPT nie da Ci ani logu wywołań, ani limitów po Twojej stronie, ani alertu, że akcja zapisu została wywołana pięćdziesiąt razy w minutę.
+
+Dopóki Actions tylko czytają, ryzyko jest znośne. Kiedy mają zapisywać do CRM, wystawiać dokument albo rezerwować termin, potrzebujesz warstwy, której w Custom GPT nie ma. Rozbierałem to na czynniki pierwsze w tekście o [połączeniu agenta AI z CRM](/pl/blog/integracja-agenta-ai-z-crm).
+
+## Ściana czwarta: zespół, wspólny stan i ślad audytowy
+
+Custom GPT jest z natury jednoosobowy. Każdy pracownik ma własną historię rozmów, do której nikt inny nie ma dostępu. Nie ma wspólnej kolejki zgłoszeń, nie ma przekazania sprawy między osobami, nie ma informacji, że ten sam klient pisał wczoraj do kogoś innego.
+
+Nie ma też eksportu rozmów po stronie firmy. Nie odpowiesz na pytanie, co system powiedział konkretnemu klientowi trzy tygodnie temu, kto to zatwierdził i na jakiej podstawie. Przy AI Act to przestaje być wygodą. Obowiązki przejrzystości z artykułu 50 działają od 2 sierpnia 2026, a systemy wprowadzone na rynek wcześniej mają czas do 2 grudnia 2026 na maszynowe oznaczanie generowanych treści; za naruszenia przewidziano do 15 mln euro albo 3% światowego obrotu. Szczegóły rozbierałem w tekście o [wymogach AI Act wobec chatbotów](/pl/blog/ai-act-2026-wymogi-dla-chatbotow). Do tego dochodzi polski nadzór: KRiBSI zyskuje uprawnienia kontrolne i karne od 28 października 2026.
+
+Nie jestem prawnikiem i zostaję przy stronie inżynierskiej. Ale rejestr użycia AI i log rozmów to rzeczy, które i tak buduje się raz, a bez nich nie odpowiesz na najprostsze pytanie kontrolującego.
+
+## Custom GPT kontra własny agent w ośmiu wymiarach
+
+Ta tabela zamyka większość rozmów szybciej niż godzina tłumaczenia.
+
+| Wymiar | Custom GPT | Własny agent |
+| --- | --- | --- |
+| Kanał wdrożenia | tylko wnętrze ChatGPT | strona, WhatsApp, Telegram, poczta, telefon |
+| Wymagania wobec użytkownika | płatne konto ChatGPT i znalezienie GPT w katalogu | żadne, klient otwiera stronę albo pisze na WhatsAppie |
+| Odczyt CRM na żywo | brak, wiedza z ręcznie wgranych plików | zapytanie do API przy każdej rozmowie |
+| Akcje zapisu | Actions bez ponowień, kolejki i logu | kolejka, ponowienia, obsługa błędów, alerty |
+| Wspólny stan zespołu | brak, każdy ma własną historię | jedna baza rozmów widoczna dla zespołu |
+| Ślad audytowy | brak eksportu po stronie firmy | pełny log rozmów, wywołań i decyzji |
+| Model kosztu | abonament za każdego użytkownika | jednorazowe wdrożenie plus tokeny i hosting |
+| Kto jest właścicielem | OpenAI: konto, katalog, zasady platformy | Ty: kod, prompty, baza, klucze |
+
+Ostatni wiersz jest tym, który najczęściej przesądza. Custom GPT żyje na cudzej platformie i według jej reguł. Zmiana zasad katalogu albo planu cenowego to nie Twoja decyzja.
+
+## Co realnie zmienia przejście na własnego agenta
+
+Zmienia się jedna rzecz i wszystko z niej wynika: agent przestaje być miejscem, do którego trzeba przyjść, a staje się elementem procesu, który idzie do klienta sam. Odbiera wiadomość na stronie o drugiej w nocy, sprawdza wolny termin w kalendarzu, tworzy szansę w CRM, wysyła potwierdzenie i podnosi rękę, gdy nie wie.
+
+Co do budżetu warto patrzeć na jawne widełki. Polscy dostawcy publikują je otwarcie: wdrożenie agenta 3 000-15 000 zł plus 500-2 500 zł miesięcznie (LessManual), asystent na bazie wiedzy 20 000-60 000 zł plus 2 000-8 000 zł miesięcznie, a agent, który zapisuje do CRM lub ERP, 80 000-250 000 zł plus 8 000-40 000 zł miesięcznie w utrzymaniu (softwarelogic). Globalne zestawienia podają dla pojedynczego, wąskiego agenta 1 500-5 000 USD za budowę i 300-800 USD miesięcznie za utrzymanie.
+
+Moje własne stawki, żeby było wiadomo, o jakim przedziale mówię: [agent AI](/pl/uslugi/agenci-ai) od 1 500 € (około 6 400 zł), agent sprzedażowy z podpięciem CRM od 2 500 € (około 10 700 zł), agent wielonarzędziowy od 4 500 € (około 19 400 zł), a zwykła automatyzacja bez agenta od 900 € (około 3 900 zł). Ostatnia pozycja jest tu najważniejsza: sporą część tego, co ludzie próbują wycisnąć z Custom GPT, załatwia zwykły, przewidywalny przepływ w n8n, taniej i bez ryzyka, że model coś sobie dopowie.
+
+Warto też znać statystykę porażek. Gartner podaje, że 89% pilotaży agentowych nigdy nie dociera do produkcji, a ponad 40% projektów agentowych zostanie anulowanych do końca 2027 roku; te, które przetrwały, raportują 171% zwrotu. Wniosek jest prosty i niepopularny: wygrywa jeden wąski proces dowieziony do końca, a nie "asystent do wszystkiego". Rozpisałem tę kolejność w planie [wdrożenia AI w firmie krok po kroku](/pl/blog/jak-wdrozyc-ai-w-firmie).
+
+## Kiedy Custom GPT wystarcza i nie warto nic budować
+
+Są sytuacje, w których przebudowa to strata pieniędzy. Zostaw Custom GPT tak, jak jest, jeśli:
+
+- korzystasz z niego Ty albo dwie osoby w firmie, wewnętrznie, i to wystarcza,
+- praca polega na pisaniu i przerabianiu tekstu według Twojego stylu, bez sięgania do systemów,
+- baza wiedzy zmienia się rzadko, na przykład raz na kwartał,
+- nikt z zewnątrz nie ma z tym kontaktu, więc nie potrzebujesz ani oznaczenia AI, ani logu,
+- wciąż testujesz, czy model w ogóle radzi sobie z Twoją specyfiką.
+
+Ostatni punkt traktuję zupełnie serio i sam z niego korzystam. Tydzień z Custom GPT przed wyceną jest wart więcej niż długi warsztat, bo pokazuje, gdzie model zgaduje. Ale to etap rozpoznania, nie wdrożenie.
+
+Jeśli natomiast rozpoznajesz w tym tekście własną sytuację - GPT jest, działa, tylko nikt go nie używa - najtańszy następny krok to policzenie, co z tego da się dowieźć i za ile. Robię to jako [audyt AI](/pl/uslugi/audyt-ai) od 4 900 zł: przechodzę przez procesy, wskazuję, co powinno zostać zwykłą automatyzacją, co ma sens jako agent, a czego nie warto ruszać, i podaję widełki wdrożenia. Jeśli wolisz zacząć od rozmowy, po prostu [napisz](/pl/kontakt) i opisz, co Twój GPT dziś robi.
+
+## FAQ
+
+**Czym różni się Custom GPT od własnego agenta AI?**
+Custom GPT to konfiguracja modelu wewnątrz ChatGPT: instrukcja plus wgrane pliki, dostępna dla osób z płatnym kontem ChatGPT, które znajdą go w katalogu OpenAI. Własny agent to działający po Twojej stronie serwis, który rozmawia w Twoich kanałach (strona, WhatsApp, poczta, telefon), odpytuje Twoje systemy przez API, zapisuje wyniki i loguje każdą decyzję. Różnica nie leży w jakości odpowiedzi, tylko w kanale dostępu, dostępie do danych na żywo i odpowiedzialności za wynik.
+
+**Czy mogę umieścić Custom GPT na swojej stronie internetowej?**
+Nie. Custom GPT działa wyłącznie w interfejsie ChatGPT i nie da się go osadzić jako widżet czatu na stronie, podpiąć pod WhatsApp Business, Messengera ani pod numer telefonu. Żeby AI odpowiadała na Twojej stronie, potrzebujesz osobnej aplikacji, która korzysta z API modelu. To zwykle najczęstszy powód, dla którego firmy po kilku tygodniach rezygnują z Custom GPT.
+
+**Czy Custom GPT może czytać dane z mojego CRM?**
+W czasie rzeczywistym i w sposób pewny nie. Wiedza w Custom GPT pochodzi z plików wgranych ręcznie i jest aktualna na dzień wgrania. Actions pozwalają wywołać zewnętrzne API, ale bez kolejki, ponowień i logu po Twojej stronie, a o samym wywołaniu decyduje model. Do stanu magazynu, wolnych terminów czy statusu zamówienia potrzebna jest normalna integracja.
+
+**Ile kosztuje przejście z Custom GPT na własnego agenta?**
+Polscy dostawcy publikują widełki 3 000-15 000 zł za wdrożenie plus 500-2 500 zł miesięcznie za utrzymanie, a agent zapisujący dane do CRM lub ERP bywa wyceniany na 80 000-250 000 zł. Moja stawka to od 1 500 € (około 6 400 zł) za agenta AI i od 2 500 € (około 10 700 zł) za agenta sprzedażowego z podpiętym CRM. Jeśli proces jest przewidywalny, tańszym i stabilniejszym rozwiązaniem bywa zwykła automatyzacja od 900 € (około 3 900 zł), bez agenta.
+
+**Czy Custom GPT spełnia wymogi AI Act?**
+Sam fakt korzystania z ChatGPT nie zwalnia z obowiązków, ale w praktyce rozmowa toczy się w interfejsie OpenAI, więc użytkownik wie, że rozmawia z AI. Problem pojawia się, gdy publikujesz treści generowane przez GPT w imieniu firmy albo wystawiasz asystenta klientom we własnych kanałach. Od 2 sierpnia 2026 obowiązują wymogi przejrzystości z artykułu 50, systemy sprzed tej daty mają czas do 2 grudnia 2026 na maszynowe oznaczanie treści, a kary sięgają 15 mln euro lub 3% światowego obrotu. Jestem programistą, nie prawnikiem, więc do trudnych przypadków bierz prawnika od prawa unijnego.
+
+**Kiedy Custom GPT naprawdę wystarcza?**
+Gdy używa go jedna osoba lub mały zespół wewnętrznie, praca polega na przetwarzaniu tekstu, baza wiedzy zmienia się rzadko i nikt z zewnątrz nie ma z tym kontaktu. Świetnie sprawdza się też jako tydzień rozpoznania przed wyceną wdrożenia: pokazuje, gdzie model radzi sobie z Twoją specyfiką, a gdzie zgaduje. Budować warto dopiero wtedy, gdy potrzebujesz cudzych kanałów, danych na żywo albo śladu audytowego.
+
+**Dlaczego mój Custom GPT działa poprawnie tylko na początku rozmowy?**
+Przy długich rozmowach model zaczyna gubić fragmenty instrukcji i częściej pomija wywołanie Actions, wymyślając odpowiedź zamiast pobrać ją z API. W Custom GPT nie masz nad tym kontroli: nie ustawisz twardej reguły, że dana odpowiedź zawsze wymaga zapytania do systemu. We własnym agencie takie wywołanie jest częścią logiki, a nie decyzją modelu, i widać w logu, czy się odbyło.

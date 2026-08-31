@@ -1,0 +1,171 @@
+---
+title: "Jak oznaczyć chatbota zgodnie z AI Act: komunikat, widget i logi"
+description: "Art. 50 AI Act obowiązuje od 2 sierpnia 2026. Gotowe komunikaty PL i EN, miejsce w widgecie, ujawnienie dla voicebota i logi na wypadek kontroli."
+date: "2026-08-31"
+cluster: "ai-act-bot-disclosure-tech"
+keywords:
+  - "jak oznaczyć chatbota AI Act"
+  - "art. 50 AI Act wdrożenie"
+  - "komunikat o AI w chatbocie"
+  - "ujawnienie voicebota AI Act"
+  - "AI Act 2 grudnia 2026"
+ogImage: "/og/ai-act-bot-disclosure-tech.webp"
+---
+
+Od 2 sierpnia 2026 roku obowiązuje art. 50 AI Act i każdy czat na stronie musi mówić człowiekowi, że po drugiej stronie jest maszyna. Prawna część tematu jest już opisana w kilkudziesięciu miejscach. Techniczna nie jest opisana nigdzie. Kancelaria RPMS pisze wprost, że rozporządzenie dotyczy wymogów prawnych, a nie kodu ani specyfikacji interfejsu. Krakowska agencja Hauer Power kończy na zdaniu, że chatbot musi być oznaczony jako AI. Nikt nie publikuje samej treści komunikatu, miejsca w interfejsie ani tego, co zapisać w logu.
+
+Ten tekst wypełnia tę lukę. Zastrzeżenie: jestem programistą, nie prawnikiem. Poniżej warstwa wdrożeniowa, którą wkładam do projektów. Interpretację przypadków brzegowych zostaw prawnikowi od prawa unijnego.
+
+## Czego wymaga art. 50, a czego w nim nie ma
+
+Sedno to jedno zdanie: osoba musi zostać poinformowana, że wchodzi w interakcję z systemem AI, w sposób jasny i rozpoznawalny, najpóźniej przy pierwszym kontakcie. Wyjątek jest jeden i wąski: gdy to oczywiste dla rozsądnie zorientowanego użytkownika. Wytyczne AI Office do art. 50 Komisja zatwierdziła 20 lipca 2026 i one też nie dają wzoru do skopiowania.
+
+Czego w przepisie nie ma, a o co ludzie pytają najczęściej:
+
+- **Nie ma narzuconej treści komunikatu.** Jest kryterium jakościowe: jasno i rozpoznawalnie.
+- **Nie ma obowiązku zbierania zgody.** To nie jest baner cookie, użytkownik niczego nie akceptuje ani nie odklikuje.
+- **Nie ma certyfikatu ani urzędowego znaczka.** Żadna instytucja nie wydaje plakietki "zgodny bot".
+- **Nie ma obowiązku powtarzania.** Bot nie musi przypominać o sobie w każdej wiadomości, ale oznaczenie musi być widoczne przez całą rozmowę.
+
+Ważniejszy jest podział ról. Rozporządzenie rozdziela dostawcę, który tworzy system, od podmiotu stosującego, który używa go pod własną marką. Widget na Twojej stronie robi z Ciebie podmiot stosujący, nawet jeśli bota złożył wykonawca, a model dostarcza OpenAI. **Obowiązek ujawnienia jest po Twojej stronie.**
+
+Skoro wzoru nie ma, zgodność w praktyce wygląda tak: pokazujesz zrzut ekranu i wyciąg z logu. Reszta tego tekstu to instrukcja, jak jedno i drugie ma wyglądać.
+
+## Pięć dat do kalendarza
+
+| Data | Co się dzieje | Kogo dotyczy |
+| --- | --- | --- |
+| 2 lutego 2025 | art. 4, obowiązek kompetencji AI w zespole | każda firma używająca AI |
+| 2 sierpnia 2026 | art. 50, obowiązki przejrzystości | boty uruchomione od tej daty |
+| 11 sierpnia 2026 | polska ustawa o systemach AI, część merytoryczna | firmy działające w Polsce |
+| 28 października 2026 | KRiBSI dostaje uprawnienia do kontroli i kar | firmy działające w Polsce |
+| 2 grudnia 2026 | maszynowe oznaczanie treści generowanych | systemy wprowadzone przed 2 sierpnia 2026 |
+
+Cyfrowy omnibus, czyli rozporządzenie (UE) 2026/1744, które weszło w życie 27 lipca 2026, przesunął terminy wyłącznie dla systemów wysokiego ryzyka, na 2 grudnia 2027 i 2 sierpnia 2028. Artykułu 50 nie ruszył. Polskim organem nadzoru jest Komisja Rozwoju i Bezpieczeństwa Sztucznej Inteligencji: uprawnienia kontrolne i karne dostaje 28 października 2026, operacyjna ma być w listopadzie.
+
+Przy karach jest częsty błąd. Kilka polskich publikacji podaje przy art. 50 kwotę 35 mln euro albo 7% obrotu. **To próg za praktyki zakazane.** Za naruszenie obowiązków przejrzystości limit wynosi do 15 mln euro albo 3% światowego rocznego obrotu, w zależności od tego, co wyższe.
+
+## Gotowy komunikat: wersja polska i angielska
+
+Trzy miejsca, trzy długości. Krótka etykieta, pełne powitanie i osobne zdanie dla kanału głosowego. Poniżej teksty, których używam. Podmień nazwę firmy i możesz je wkleić.
+
+**Etykieta w nagłówku widgetu, PL:** "Asystent AI - odpowiada system, nie człowiek"
+
+**Etykieta w nagłówku widgetu, EN:** "AI assistant - you are chatting with a system, not a person"
+
+**Pierwsza wiadomość, PL:** "Dzień dobry. Jestem asystentem AI firmy [Nazwa]. Odpowiadam automatycznie. Napisz słowo konsultant, a przekażę rozmowę człowiekowi."
+
+**Pierwsza wiadomość, EN:** "Hello. I am [Company]'s AI assistant. My replies are generated automatically. Type the word agent and I will pass you to a person."
+
+**Voicebot, PL:** "Dzień dobry, tu automatyczny asystent firmy [Nazwa]. To rozmowa z systemem AI. W każdej chwili mogę przełączyć do konsultanta."
+
+**Voicebot, EN:** "Hello, this is [Company]'s automated assistant. You are speaking to an AI system. I can transfer you to a person at any time."
+
+**Stopka transkryptu i maila, PL:** "Rozmowę prowadził asystent AI firmy [Nazwa]. Model: [nazwa i wersja]. Transkrypt z dnia [data]."
+
+Trzy sformułowania, które oblewają test rozpoznawalności: "wirtualny doradca", "automatyczny konsultant" i "asystentka Ania" bez ani jednego słowa o AI. Kryterium jest rozpoznawalność dla zwykłego użytkownika, nie kreatywność copywritera. Imię botowi wolno nadać, ale obok imienia musi stać informacja, czym on jest.
+
+## Gdzie to musi się pojawić i co przy tym zalogować
+
+| Miejsce w interfejsie | Co musi tam być | Co zapisujesz w logu |
+| --- | --- | --- |
+| Bąbelek przed otwarciem czatu | słowo AI w etykiecie lub w dymku zachęty | wersja etykiety, np. `label_pl_v3` |
+| Nagłówek okna czatu | stałe oznaczenie widoczne przez całą rozmowę | `disclosure_variant` w rekordzie sesji |
+| Pierwsza wiadomość bota | pełne zdanie z ujawnieniem, przed pytaniem o cokolwiek | `disclosed_at` z dokładnością do sekundy |
+| Formularz przed rozmową | ujawnienie nad polami, nie pod przyciskiem wyślij | `disclosed_at` wcześniejszy niż `form_submitted_at` |
+| Przekazanie do człowieka | wyraźna zmiana: "Rozmawia teraz Marta, konsultantka" | `handover_at` i kto przejął wątek |
+| Transkrypt wysyłany mailem | zdanie w stopce o tym, kto prowadził rozmowę | identyfikator transkryptu i wersja stopki |
+| Voicebot, pierwsze zdanie | ujawnienie w pierwszych pięciu sekundach | offset w nagraniu lub znacznik w transkrypcie |
+| Publikowana treść generowana | widoczne oznaczenie plus metadane maszynowe | identyfikator treści, model, kto zatwierdził |
+
+Kluczowe jest słowo **przed**. Ujawnienie liczy się wtedy, gdy pojawia się zanim użytkownik cokolwiek napisze, a nie w odpowiedzi na jego pierwsze pytanie. W logu widać to jako różnicę dwóch znaczników czasu i to jest jedyny dowód, który da się pokazać pół roku później.
+
+W kanałach bez własnego interfejsu cały ciężar spoczywa na pierwszej wiadomości i na nazwie profilu. Na WhatsAppie nie ma nagłówka widgetu, w którym dałoby się zaparkować etykietę, więc nazwa nadawcy powinna zawierać słowo asystent, a powitanie musi być pełne. Jak taki kanał wygląda od strony wdrożenia, opisywałem w tekście o [chatbocie na WhatsApp dla firmy](/pl/blog/chatbot-whatsapp-dla-firmy).
+
+## Voicebot: ujawnienie w pierwszych sekundach
+
+W głosie nie ma nagłówka, w którym można coś na stałe napisać, więc wszystko zależy od skryptu.
+
+Ujawnienie idzie w pierwszym zdaniu, przed "w czym mogę pomóc". Im lepiej brzmi syntezator, tym mniej można liczyć na wyjątek dotyczący oczywistości. Jeśli bot dzwoni pierwszy, zdanie musi paść przed jakimkolwiek pytaniem, łącznie z "czy rozmawiam z panem Kowalskim".
+
+Osobny przypadek to połączenia przekierowane. Recepcja odbiera po godzinach i przerzuca na bota, albo centrala przełącza na asystenta po trzech sygnałach bez odbioru. Dzwoniący nie wie, że go przełączono, więc **ujawnienie musi zabrzmieć jeszcze raz na początku tego etapu połączenia**. To najczęstsza luka, jaką znajduję w gotowych konfiguracjach.
+
+I jedno rozróżnienie, które warto mieć w skrypcie: zgoda na nagrywanie to obowiązek z RODO, a ujawnienie AI to obowiązek z art. 50. Dwa różne zdania, dwie różne podstawy, nie łącz ich w jedno. Przy rozmowach z rodzicami czy pacjentami dochodzi jeszcze kwestia, kto właściwie dzwoni w czyim imieniu, co opisywałem przy [agencie AI dla szkoły i kursów online](/pl/blog/agent-ai-dla-szkoly-i-kursow-online).
+
+## Oznaczanie treści generowanych: mail, oferta, kreacja
+
+To druga warstwa art. 50, ta z terminem 2 grudnia 2026. Główny ciężar maszynowego znakowania spoczywa na dostawcach systemów generatywnych, ale firma, która publikuje wyjście modelu, ma swoją część roboty.
+
+- **Mail wysyłany przez bota bez człowieka w pętli.** Ujawnienie i tak wynika z pierwszej warstwy: podpis w stopce, że wiadomość przygotował asystent AI.
+- **Oferta PDF składana automatycznie.** Linijka "dokument przygotowany automatycznie, sprawdzony przez Annę Nowak" załatwia sprawę i jednocześnie wskazuje odpowiedzialnego człowieka.
+- **Kreacja reklamowa z generatora obrazów.** Najczęstszy błąd techniczny: narzędzie wstawia metadane C2PA, a eksport przez kompresor albo zmiana formatu je kasuje. Sprawdzaj plik wyjściowy, nie wejściowy.
+- **Zdjęcie produktowe przerobione modelem.** To istotna modyfikacja, więc oznaczenie jest potrzebne, nawet jeśli scena wygląda zwyczajnie.
+
+Zasada, która porządkuje wszystkie przypadki: albo człowiek zatwierdza treść i podpisuje się imieniem, albo treść jest oznaczona jako wygenerowana. Trzeciej opcji nie ma.
+
+## Co trzymać w logach na wypadek kontroli
+
+Rekord sesji, który wystarcza, żeby pokazać zgodność bez grzebania w kodzie:
+
+```
+{
+  "conversation_id": "c_2026_08_31_00417",
+  "channel": "web_widget",
+  "disclosure_variant": "pl_widget_v3",
+  "disclosed_at": "2026-08-31T09:14:02Z",
+  "first_user_message_at": "2026-08-31T09:14:19Z",
+  "model": "gpt-4o",
+  "provider": "OpenAI",
+  "handover_at": "2026-08-31T09:21:40Z",
+  "handover_to": "konsultant_ab",
+  "privacy_policy_version": "2026-08-01",
+  "retention_days": 90
+}
+```
+
+Ten rekord udowadnia cztery rzeczy naraz: że ujawnienie było, że padło przed pierwszą wiadomością użytkownika, w jakim dokładnie brzmieniu, i że wyjście do człowieka faktycznie działa. Teksty ujawnień trzymam w repozytorium, nie w panelu narzędzia, żeby każda zmiana miała commit i datę.
+
+Do tego dwie rzeczy poza logiem. Rejestr systemów AI, czyli zwykła tabela: gdzie używasz AI, jaki model, jaki dostawca, kto odpowiada, kiedy ostatnio sprawdzano komunikat. I polityka retencji, bo UODO przypomina, że każda rozmowa, w której padają dane osobowe, jest przetwarzaniem: trzeba mieć podstawę prawną, wiedzieć, jak długo trzymasz transkrypty i gdzie stoją serwery. Ja trzymam 90 dni pełnych transkryptów i 24 miesiące samych rekordów ujawnienia, bez treści rozmowy. Tam, gdzie bot i tak zapisuje statusy i dokumenty, dorzucenie dwóch pól to kwestia jednego wdrożenia, co pokazywałem przy [agencie AI dla firmy transportowej](/pl/blog/agent-ai-dla-firmy-transportowej).
+
+## Retrofit istniejącego bota: lista poprawek na jedno popołudnie
+
+Boty postawione w 2024 i 2025 roku mają czas do 2 grudnia 2026 na część dotyczącą oznaczania treści generowanych, ale samo ujawnienie w rozmowie obowiązuje już teraz. Kolejność prac, która działa:
+
+1. Dodaj etykietę do nagłówka widgetu i do dymka zachęty. Kilkanaście minut, zwykle jedno pole w konfiguracji.
+2. Przepisz pierwszą wiadomość bota tak, żeby ujawnienie było w pierwszym zdaniu.
+3. Sprawdź formularz przedczatowy: czy prosi o mail zanim cokolwiek powie o AI.
+4. Dodaj `disclosed_at` i `disclosure_variant` do rekordu sesji.
+5. Przejrzyj skrypt voicebota, w tym ścieżki przekierowane i oddzwanianie.
+6. Dorzuć stopkę do transkryptów wysyłanych mailem.
+7. Zaktualizuj politykę prywatności o wzmiankę o przetwarzaniu z użyciem AI i o dostawcy modelu.
+8. Zrób zrzuty ekranu wszystkich miejsc i dołącz je do rejestru z datą.
+
+Jeśli składam [agenta AI](/pl/uslugi/agenci-ai) od zera, to wszystko jest w standardzie i nie kosztuje osobno. Przy istniejącym bocie, którego stawiał ktoś inny, [doprowadzenie bota do zgodności z AI Act](/pl/uslugi/zgodnosc-ai-act) zaczyna się u mnie od 3 500 zł netto (około 800 euro) i mieści się zwykle w jednym dniu roboczym: przegląd wszystkich kanałów, teksty ujawnień, logi, rejestr i zrzuty do dokumentacji. Dla porównania: polscy dostawcy publikują widełki od 499 zł netto miesięcznie za abonament voicebota i od 7 900 zł netto za wdrożenie agenta AI.
+
+Jeśli nie masz pewności, czy Twój bot spełnia nowe zasady, [napisz](/pl/kontakt) i podeślij link. Odpowiem, co konkretnie poprawić i czy da się to zrobić samodzielnie.
+
+## FAQ
+
+**Jaki dokładnie komunikat musi wyświetlić chatbot zgodnie z AI Act?**
+Rozporządzenie nie narzuca treści, wymaga jasnej i rozpoznawalnej informacji najpóźniej przy pierwszym kontakcie. Bezpieczna formuła po polsku to "Dzień dobry. Jestem asystentem AI firmy [Nazwa]. Odpowiadam automatycznie" plus stała etykieta "Asystent AI" w nagłówku widgetu. Po angielsku odpowiednikiem jest "I am [Company]'s AI assistant. My replies are generated automatically". Nazwa własna bota jest dozwolona, o ile obok niej stoi informacja, że to system AI.
+
+**Czy ujawnienie w polityce prywatności albo w stopce strony wystarczy?**
+Nie. Informacja ma dotrzeć do użytkownika w momencie pierwszego kontaktu z systemem, czyli w interfejsie czatu, a nie w dokumencie, do którego trzeba dojść linkiem. Polityka prywatności jest potrzebna z innego powodu, bo opisuje przetwarzanie danych, ale nie zastępuje ujawnienia w rozmowie. Kryterium brzmi: zwykły użytkownik ma się dowiedzieć bez szukania.
+
+**Do kiedy trzeba poprawić bota, który działa od dawna?**
+Obowiązek informowania o rozmowie z AI działa od 2 sierpnia 2026 i nie ma dla niego okresu przejściowego. Osobny termin 2 grudnia 2026 dotyczy maszynowego oznaczania treści generowanych przez systemy wprowadzone do obrotu przed 2 sierpnia 2026. W praktyce oznacza to, że komunikat w czacie trzeba mieć już teraz, a warstwę znakowania treści można domknąć do grudnia.
+
+**Jakie są kary za brak oznaczenia chatbota?**
+Za naruszenie obowiązków przejrzystości z art. 50 rozporządzenie przewiduje do 15 mln euro albo 3% światowego rocznego obrotu, w zależności od tego, co wyższe. Wyższy próg, 35 mln euro albo 7% obrotu, dotyczy praktyk zakazanych, a nie nieoznaczonego chatbota, choć bywa mylnie przypisywany art. 50. W Polsce kary nakłada Komisja Rozwoju i Bezpieczeństwa Sztucznej Inteligencji, która uprawnienia w tym zakresie ma od 28 października 2026.
+
+**Czy voicebot musi się ujawnić, jeśli brzmi jak nagranie?**
+Tak, i to w pierwszym zdaniu rozmowy, zanim padnie pytanie o powód kontaktu. Im naturalniej brzmi głos, tym mniej można liczyć na wyjątek dotyczący sytuacji oczywistych. Osobno trzeba obsłużyć połączenia przekierowane, na przykład gdy recepcja przerzuca dzwoniącego na bota po godzinach: ujawnienie musi zabrzmieć ponownie na początku tej części rozmowy. Zgoda na nagrywanie to odrębny obowiązek z RODO i powinna być osobnym zdaniem.
+
+**Co zapisywać w logach, żeby udowodnić zgodność podczas kontroli?**
+Minimum to identyfikator rozmowy, kanał, wersja użytego komunikatu, znacznik czasu jego wyświetlenia, znacznik pierwszej wiadomości użytkownika, model i dostawca oraz moment przekazania rozmowy człowiekowi. Różnica między czasem ujawnienia a czasem pierwszej wiadomości użytkownika jest dowodem, że informacja padła przed rozmową, a nie po niej. Teksty komunikatów warto wersjonować w repozytorium, żeby każda zmiana miała datę.
+
+**Kto w Polsce kontroluje przestrzeganie AI Act?**
+Komisja Rozwoju i Bezpieczeństwa Sztucznej Inteligencji, utworzona na podstawie ustawy o systemach sztucznej inteligencji, której część merytoryczna weszła w życie 11 sierpnia 2026. Uprawnienia do kontroli, prowadzenia postępowań i nakładania kar komisja uzyskuje 28 października 2026, a pełną operacyjność ma osiągnąć w listopadzie 2026. Wątki związane z danymi osobowymi w rozmowach z botem pozostają w gestii UODO.
+
+**Ile kosztuje doprowadzenie istniejącego chatbota do zgodności?**
+U mnie taki retrofit zaczyna się od 3 500 zł netto, czyli około 800 euro, i mieści się zwykle w jednym dniu roboczym dla bota działającego w dwóch, trzech kanałach. Zakres to teksty ujawnień we wszystkich punktach styku, pola w logach, rejestr systemów AI, aktualizacja polityki prywatności i zrzuty ekranu do dokumentacji. Przy nowym wdrożeniu ta warstwa wchodzi w cenę projektu i nie jest osobną pozycją.

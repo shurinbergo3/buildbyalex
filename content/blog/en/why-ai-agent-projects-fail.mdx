@@ -1,0 +1,122 @@
+---
+title: "The 89% problem: why AI agent pilots never reach production"
+description: "Gartner: 89% of agent pilots never ship. Where those numbers really come from, the eight reasons projects stall, and the same scope done in three weeks."
+date: "2026-09-03"
+cluster: "ai-projects-fail-reasons"
+keywords:
+  - "why AI agent projects fail"
+  - "AI pilot never reaches production"
+  - "failed AI implementation"
+  - "AI project ROI"
+  - "AI audit after failed project"
+ogImage: "/og/ai-projects-fail-reasons.webp"
+---
+
+AI projects rarely blow up. They go quiet. The demo impressed everyone, the pilot started in September, in November the person who owned it changed jobs, in January the API key expired and nobody noticed. Officially the project did not fail. It stopped existing, and nobody can say whether it paid for itself.
+
+I write this as the developer who keeps inheriting other people's stalled projects. Below are eight reasons they go nowhere, and the same scope cut narrow. I start with the numbers, because they circulate mangled and budgets get set on them.
+
+## The numbers everyone quotes, and what they actually measure
+
+Almost every conversation about AI failure rests on the same handful of statistics, cited with no provenance. Each measures something different.
+
+| Number | Who publishes it | What it actually measures |
+| --- | --- | --- |
+| 89% of agent pilots never reach production | Gartner | pilots stopped before production; survivors report 171% ROI |
+| Over 40% of agentic AI projects cancelled by end of 2027 | Gartner | a forecast, not the current state |
+| 95% of AI pilots "fail" | MIT, State of AI in Business | generative AI broadly, not agents; no measurable P&L impact, not cancellation |
+| 42% of companies abandoned most AI initiatives in 2025 | S&P Global Market Intelligence | up from 17% in 2024; the average firm scrapped 46% of PoCs before production |
+| 78% of tech leaders run an agent pilot, under 15% scaled one org-wide | industry surveys 2026 | the gap between piloting and deploying |
+| Around 25% of AI initiatives deliver the expected return, 35% of firms report no benefit | Polish market reports 2026 | self-reported outcome after deployment |
+
+The MIT 95% gets mangled most. **It is not a Gartner figure, it is not about agents, and it does not mean 95% of projects were cancelled.** The study asked whether a generative AI pilot produced a visible effect on profit and loss. A project used daily that saves people time but never landed as its own line in the accounts counts as a failure under that method. That is a different category from "the project was killed".
+
+The market is earlier than the headlines suggest. Poland's statistics office GUS reports 8.7% of Polish companies used AI in 2025, and 2.1% had it custom-built by an outside supplier. Most European SMEs are not recovering from a third failed project. They are starting their first.
+
+## Reason 1: nobody wrote down what "working" means
+
+The most common line in a scope document is "the agent should answer customer questions". That describes an activity, not a criterion. Three months later nobody can say whether it paid off, and the review is two people comparing impressions.
+
+A criterion looks different: the agent closes 60% of form enquiries without a human, and median time to first reply drops below three minutes in business hours. Plus one baseline measured before launch. Without it, any result can be told as a win and as a disaster.
+
+Simple rule: if you cannot name the number the project should move, and cannot measure it today, do not buy the build. Buy a week of work on measuring it.
+
+## Reason 2: the data lives in email and spreadsheets
+
+An agent is only as good as the source it reads. If product knowledge sits in three versions of a price list on a shared drive, in email threads and in one support person's head, the model answers confidently from a stale file. A housekeeping problem, not a model one.
+
+A 2026 MLOps Community study of 143 enterprise RAG deployments found 73% hit at least one critical failure in the first production quarter, and 41% of those went undetected by standard evaluation suites. A separate enterprise-search survey found employees succeed on the first attempt only about 10% of the time. An agent built on that mess inherits all of it, just faster and in a more confident voice.
+
+The first step is boring and contains no AI: one source of truth per topic, with an update date and an owner. If personal data is involved, add the question of where it physically goes, covered in the piece on [where an AI chatbot stores customer data](/en/blog/where-ai-chatbot-stores-customer-data-gdpr).
+
+## Reason 3: integrating with the systems you already run
+
+A pilot usually lives next to the business: a copy of the data, a separate window, no writes back. Production starts where the agent has to enter your CRM, ERP or order system and change something. That is when the API turns out to be limited, permissions have to be requested, and the ERP integrator has a slot next quarter.
+
+This is the most expensive stage and the most underestimated. Polish vendors publish the bands: a knowledge-base agent at 20 000-60 000 zł (4 700-14 000 €) plus 2 000-8 000 zł a month, and one that reads and writes data in a CRM, ERP or logistics system at 80 000-250 000 zł (18 500-58 000 €) plus 8 000-40 000 zł a month to run. Smaller builds start around 3 000-15 000 zł of configuration plus a subscription.
+
+Integration rarely has to be complete on day one. One write operation into one system is enough to stop it being a demo. The sales side is in the piece on [connecting an AI agent to your CRM](/en/blog/ai-agent-crm-integration).
+
+## Reasons 4, 5 and 6: no owner, no tests, no maintenance budget
+
+These three travel together, and they kill projects that were technically fine.
+
+**No owner.** An agent needs one person inside the company who reads its conversations weekly and can say "we do not answer that". If the owner is "the department", there is no owner, and the project dies at the first staffing change.
+
+**No tests.** A set of 30-50 real questions from company history with the correct answer written down, run after every prompt and model change. Without it nobody notices that a model upgrade changed how the agent calculates discounts. OWASP's 2026 report puts mean monitoring coverage across production agents at 52%, so roughly every second deployed agent runs unwatched.
+
+**No maintenance budget.** The market convention is 15-25% of the first build per year. On top sit the lines nobody mentions at signature: 5-20 model calls per task, quarterly integration and auth fixes, prompt drift on model upgrades, 5-15% of cases needing a human, plus audit logs, prompt versioning and personal-data handling. A project without that line is not cheaper. It just has a shorter life.
+
+## Reasons 7 and 8: full autonomy where an approval gate was enough
+
+Reason seven is autonomy bought too early: an agent that sends the quote itself, issues the credit note or changes order status looks great in a demo and is unacceptable in a company with no history of trusting it. One wrong price sent to thirty customers closes the project that day.
+
+An approval gate solves this for free: the agent prepares, a human approves with one click, everything lands in a log. After two months the data shows which case types the agent never got wrong, and those go through automatically. The same logic governs handover, where autonomy is most visible to the customer - rules in the piece on [when a bot must hand over to a human](/en/blog/chatbot-handover-to-human-escalation).
+
+Reason eight is awkward for my own trade: a lot of agent projects should have been plain deterministic automations. If the rule reads "if the email contains an order number, look it up and reply with the status template", an LLM agent adds cost, uncertainty and a new attack surface rather than value. Same with agents that click through interfaces: published scores look decent (87% on WebVoyager for OpenAI's computer-use model, 82.3% on OSWorld for Claude Opus 4.7) but they break predictably on enterprise UIs. I bring a model in where unstructured text has to be read, or a judgement call has to be made that no rule can describe.
+
+## The same project done narrow: three weeks
+
+This is the scope that ships instead of a pilot that tries everything at once. One process, one criterion, one approval gate.
+
+| Week | What gets built | Exit criterion |
+| --- | --- | --- |
+| 1 | One process picked, current state measured, one knowledge source with owner and date | A baseline: cases a month, minutes each |
+| 2 | Agent on a narrow scope, one write integration, approval gate, conversation log | 30-50 test questions pass with no factual error |
+| 3 | Live traffic with a human approving, weekly conversation review | Baseline comparison and a decision: expand, narrow or stop |
+
+Week three matters most, because it contains a real "stop" option. A project with no room for that decision has no way to end, so it ends in silence.
+
+The budget side is small: my AI agent starts at 1 500 € (about 6 500 zł), a sales agent wired into a CRM at 2 500 € (about 10 700 zł). That is less than one quarter of a stalled deployment that still bills you for licences every month.
+
+## When it is not worth reviving
+
+Not every stalled project should be rescued. If the process handles a dozen cases a month, if the data would need six months of collecting first, or if nobody will take it on, shelve it. Better said upfront than after the invoice.
+
+If you have a stalled deployment and cannot tell whether to finish, rewrite or scrap it, that is what an [AI audit](/en/services/ai-audit) at 1 140 € (4 900 zł) is for: what was actually built, where the data sits, what it costs to keep running and what can be reused. The output is a list of decisions with costs, not a slide deck. If there is no project yet, I build [AI agents](/en/services/ai-agents) narrow from the start. Either way, [write to me](/en/contact) with a short note on what stalled and where.
+
+## FAQ
+
+**Why do most AI projects fail?**
+Usually not the technology: no written success criterion, no owner inside the company, no maintenance budget. Gartner reports 89% of agent pilots never reach production, and S&P Global Market Intelligence found 42% of companies abandoned most AI initiatives in 2025, up from 17% a year earlier. Projects stall at integration with real systems, or die quietly after the person who ran them leaves.
+
+**Is it true that 95% of AI projects fail?**
+That figure comes from the MIT State of AI in Business report and is routinely mangled. It covers generative AI pilots broadly rather than agents, and measures the absence of visible P&L impact, not cancellation. It is also not a Gartner number. A project used daily that never became its own line in the accounts counts as a failure there.
+
+**How can I tell early that an AI project is going nowhere?**
+Three signals show up early: no single number the project is meant to move, no one person accountable for what the agent says, and an agent still running on a copy of the data instead of writing into a company system. Add the absence of a test set with correct answers. If none of those are closed after six weeks, it usually will not reach production.
+
+**What does it cost to rescue an abandoned AI project?**
+It starts with an audit: mine is 1 140 € (4 900 zł) for a review of what was built, where the data sits, what running it costs and what can be reused. After that it depends on whether the logic and integrations survive. Polish vendors publish 3 000-15 000 zł for configuring a simpler agent and 80 000-250 000 zł for one writing into a CRM or ERP, so narrowing the scope is usually the better call.
+
+**How long should a first AI agent deployment take?**
+Three weeks on a single process: one week to measure the current state and tidy one knowledge source, one week for the agent with a single integration and an approval gate, one week on live traffic. It ends with a decision against the baseline: expand, narrow or stop. Six-month plans with no checkpoint are the same population that never reaches production.
+
+**Does an AI agent have to be fully autonomous?**
+No, and at the start it should not be. The safe pattern is an agent that prepares the reply, quote or system entry while a human approves it with one click, with the operation logged. After two months the data shows which case types produced no errors, and those can run automatically. Full autonomy in week one is the most common reason a project gets shut down after one loud mistake.
+
+**What if all our company knowledge is in email and spreadsheets?**
+Fix one source of truth per topic first, with an owner and an update date, then build the agent. The 2026 MLOps Community study of 143 RAG deployments found 73% hit a critical failure in the first production quarter and 41% went undetected by standard tests. Tidying one knowledge area takes days and is cheaper than papering over it with a model.
+
+**Should we build a plain automation instead of an agent?**
+Very often, yes. If the rule can be stated outright, for example "find the order number in the email and reply with the status template", a deterministic automation is cheaper, predictable and adds no token cost or attack surface. A good share of failed agent projects were good automations bought in the wrong shape.

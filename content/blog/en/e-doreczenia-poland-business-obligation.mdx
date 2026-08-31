@@ -1,0 +1,139 @@
+---
+title: "e-Doreczenia Poland: what companies must set up before 1 October 2026"
+description: "From 1 October 2026 an e-Doreczenia mailbox is mandatory for CEIDG-registered companies. Deadlines, the 14-day delivery fiction, and how to wire it into alerts."
+date: "2026-08-31"
+cluster: "e-doreczenia-business-2026"
+keywords:
+  - "e-Doreczenia obligation 2026"
+  - "e-Doreczenia CEIDG deadline"
+  - "Poland electronic delivery address"
+  - "delivery fiction 14 days Poland"
+  - "e-Doreczenia notifications integration"
+ogImage: "/og/e-doreczenia-business-2026.webp"
+---
+
+A month from now, on 1 October 2026, e-Doreczenia becomes mandatory for companies registered in CEIDG before the end of 2024. Gazeta Prawna and Polish accounting portals such as ifirma and fakturowo put the application deadline at 30 September 2026.
+
+e-Doreczenia is Poland's official electronic delivery system: instead of a registered letter, the tax office, ZUS, a court or a bailiff drops a document into an electronic mailbox tied to your company. Almost every guide online stops at how to file the application. That is the easy part. The hard part starts the day after activation: a new channel now carries tax decisions and payment orders, and nobody has it in their daily routine. I am a developer, not a lawyer, so what follows is the operational side.
+
+## Who is covered, and by when
+
+The short version in a table. The dates come from Gazeta Prawna and the Polish accounting portals covering this wave of the obligation.
+
+| Item | Date | What it means |
+| --- | --- | --- |
+| Companies registered in CEIDG before the end of 2024 | 1 October 2026 | an electronic delivery address becomes mandatory |
+| Application for the address and mailbox | by 30 September 2026 | the last day to file on time |
+| No reaction to a letter in the mailbox | 14 days | delivery fiction: the letter counts as delivered |
+| KSeF, receiving purchase e-invoices | from 1 February 2026 | official inbox number two in the same year |
+| KSeF, issuing for all remaining VAT payers | from 1 April 2026 | invoices and official letters arrive in two separate channels |
+
+Companies registered later, KRS entities and regulated professions were pulled in by earlier waves. If you are not sure which group you are in, check your registry entry: the start date depends on where and when the business was registered, not on its size.
+
+## Delivery fiction: why silence costs money
+
+This is the one rule worth memorising. **A letter you never open counts as delivered 14 days after it lands in the mailbox.** From that day the clocks start: for an appeal, for payment, for supplying missing documents.
+
+Paper had accidental safeguards: the postman came, a neighbour signed, a yellow slip hung on the door. An electronic mailbox makes no noise. A tax decision and a newsletter look identical in it, and if the notification goes to an address nobody reads, two weeks pass without a single signal.
+
+Sole traders and micro-companies are the most exposed, because the owner is also the salesperson and the legal department. A trip, a busy season, a week of flu, and the deadline is gone. The risk is not that the authority is hostile, but that the system works exactly as designed while you were not looking.
+
+## Six steps from application to a working alert
+
+This is the order I walk clients through. The first four steps are paperwork; steps five and six decide whether the mailbox actually works.
+
+1. **Check whether you already have an address.** Some CEIDG entry changes created an electronic delivery address earlier. Companies regularly file a second application when all they needed was to activate what they already had.
+2. **File the application for an electronic delivery address.** It goes through biznes.gov.pl or the mObywatel app, signed with a trusted profile, an e-ID or a qualified signature. The form is short and pulls most data from your registry entry.
+3. **Name the mailbox administrator by first and last name.** Not "the office", not "accounting". One responsible person plus one deputy, because holidays exist.
+4. **Activate the mailbox.** An application is not a working address. Until you click activation nothing arrives, while you believe the matter is closed.
+5. **Point notifications at an address somebody reads daily.** Not office@ with four hundred unread messages. The owner's inbox, or an alias that fans out to two people.
+6. **Wire the notification into the channel you actually work in.** Slack, Telegram, a task in the CRM with a due date. This is the only step that turns e-Doreczenia from another browser tab into something that reminds you by itself.
+
+Steps 1 to 4 take about an hour and you can do them yourself. Steps 5 and 6 are [process automation](/en/services/automation), and this is where most companies stop, because the obligation is formally satisfied.
+
+## Who in the company actually reads the mailbox
+
+Before any technology, four questions need an answer. Put them in one paragraph of an internal procedure so they do not live in one person's head.
+
+- Who checks the mailbox and how often. My minimum is once every working day.
+- Who covers them during holidays, and who remembers that.
+- What happens to a letter in the first 48 hours: who reads it, who decides, who replies.
+- Where the copy goes for the accountant and for a lawyer if one is needed.
+
+This looks trivial until a letter with a seven-day deadline arrives on Friday afternoon. I keep the procedure to one page, because nobody reads a longer one.
+
+## Notifications outside the government panel
+
+Here is the part I build. The principle is simple: **the official mailbox is a source, not a workplace.** People work where they already work.
+
+The minimum setup relies only on the email notification the system sends.
+
+- the notification lands on a dedicated alias,
+- n8n or Make picks it up and extracts the sender and the arrival date,
+- a message goes to a Slack channel or a Telegram group with one sentence: who sent it, when it arrived, by when someone has to react,
+- in parallel a task is created in the CRM or task tracker with a due date of arrival plus 10 days, which leaves a four-day buffer before the delivery fiction,
+- if nobody closes the task within two days, the scenario pings the deputy.
+
+The buffer matters most. A due date set on day fourteen protects nothing, because on the deadline itself there is no time left for anything except panic.
+
+A stronger version connects directly to the mailbox interface where your configuration and operator allow it. Not every account grants that access immediately, so my fallback is always the email notification: uglier, but it works everywhere. On how an agent gets real access to company systems instead of just a chat window, I wrote about [connecting an AI agent to your systems through MCP](/en/blog/mcp-connect-ai-agent-to-your-systems).
+
+Extend the same mechanism to every other channel that carries a deadline. If quote requests or customer tickets also sit unread for two days, build it once for all inbound channels, the way I described in the article on [CRM, Telegram and WhatsApp integration](/en/blog/crm-telegram-whatsapp-integration).
+
+## Archiving and proof of delivery
+
+The mailbox is not an archive. Treat it like a physical letterbox: things arrive, you collect them, you move them somewhere of your own.
+
+For every letter I store the PDF, the delivery evidence, the arrival and collection dates, the sender and the case reference. File names by date and sender, for example `2026-10-05_tax-office-warsaw_decision.pdf`, because a year later nobody remembers what was in "scan_final_2.pdf". The folder lives on Google Drive, SharePoint or S3, with access for the accountant.
+
+Two reasons to do this from the first letter. In a dispute, dates count and recollections do not. And your accounting office will ask for these documents anyway, so forwarding them one by one over WhatsApp costs more hours per year than building the folder once.
+
+It is worth pricing manual document handling in general. Parseur's benchmark puts the average cost of processing one invoice at about 10.89 USD, dropping to 2.78 USD with automated capture and matching. Official letters are rarer, but the cost of an error is higher, so the arithmetic lands in a similar place.
+
+## You missed 30 September. Now what
+
+File the application anyway. The obligation does not expire because the deadline passed. Until the mailbox is active, part of your correspondence still arrives on paper, but do not treat that as a plan: an authority may start using the new channel sooner than you expect.
+
+In parallel, check whether an address was created automatically at some earlier point, and assign a responsible person before the mailbox goes live. The scenario worse than a late application is an active mailbox nobody remembers.
+
+## What it costs
+
+The mailbox itself carries no implementation cost. Cost appears where you want the information to reach you on its own and to be documented. My own bands, not a market average.
+
+| Option | What it covers | Price |
+| --- | --- | --- |
+| Panel plus email notification | application, activation, one responsible person, a line in the procedure | free, you do it yourself |
+| Alerts in your working channel | n8n scenario: email to Slack or Telegram, CRM task with a buffer, escalation | from 900 EUR (3 900 zł) |
+| Full document flow | the above plus letter classification, archive with delivery evidence, deadlines, accountant access | from 2 800 EUR (12 000 zł) |
+
+When not to buy the middle option: if the company is one person who opens the mailbox daily anyway, a calendar reminder and a folder on a drive are enough. Automation starts paying off when a letter has to pass through more than one head, or when the owner is out of the office for days at a time. I covered what fits inside simpler n8n and Make scenarios in a [separate piece on process automation](/en/blog/business-automation-rzeszow).
+
+For scale, GUS reports that 8.7 percent of Polish companies used AI technology in 2025 and 91.3 percent did not. Automation levels in Polish micro-companies are low, so competing on who reacts to a letter or an enquiry first is realistic and cheap to win.
+
+If you want official letters landing where you already work, plus an archive you do not assemble by hand, that is what I do under [document automation](/en/services/document-automation). A notification scenario takes a few days; a full document flow two to three weeks. [Write to me](/en/contact) describing what you use now, and I will tell you whether an hour of configuration is enough or there is genuinely something to automate.
+
+## FAQ
+
+**When does e-Doreczenia become mandatory for CEIDG companies?**
+From 1 October 2026 for businesses registered in CEIDG before the end of 2024. The deadline for filing the application for an electronic delivery address is 30 September 2026. These dates come from Gazeta Prawna and the Polish accounting portals covering this wave. Companies registered later, KRS entities and regulated professions were covered by earlier waves.
+
+**What is delivery fiction and when does it kick in?**
+It is the rule that a letter counts as delivered 14 days after it arrives in the mailbox, even if nobody opened it. From that moment the deadlines for appeals, payments and supplementary documents start running. It applies to tax decisions and payment orders too, so two weeks of silence can cost real money.
+
+**Is filing the application enough to have a working mailbox?**
+No. After filing you still have to activate the mailbox and name an administrator, meaning one specific responsible person. Until activation the address does not receive anything. This is the most common mistake: the company believes the matter is settled because the application went out in August.
+
+**How do I get alerts about a new letter outside the government panel?**
+The system sends an email notification to the address you designate, and that is enough to start from. A simple n8n or Make scenario then forwards that notification into a Slack channel or Telegram group and creates a task with a due date of arrival plus 10 days. Those four days of buffer before the 14-day limit are the difference between a calm reply and a scramble.
+
+**What does it cost to wire e-Doreczenia into company systems?**
+Registering and activating the mailbox costs nothing beyond an hour of work. A notification scenario with a CRM task and escalation starts at 900 EUR (3 900 zł) with me, and a full document flow with classification, archive and delivery evidence from 2 800 EUR (12 000 zł). Those are my bands, not a market average.
+
+**What if I did not file by 30 September 2026?**
+File anyway, because the obligation does not disappear with the deadline. Until the mailbox is active some correspondence will still arrive by traditional post, but that is not a plan to rely on. At the same time, check whether a delivery address was already created automatically during an earlier change to your CEIDG entry.
+
+**Does e-Doreczenia have anything to do with KSeF?**
+They are two separate systems with two separate calendars that land in the same year. KSeF covers receiving purchase invoices from 1 February 2026 and issuing for the remaining VAT payers from 1 April 2026. e-Doreczenia covers official correspondence. For a company that means two new channels to check daily, which is exactly the moment to set up notifications once and for both.
+
+**Who inside the company should own the mailbox?**
+One named person plus a deputy for holidays and sick leave. A mailbox attached to a shared address like office@ belongs to nobody in practice. The procedure should record four things: who checks and how often, who covers them, what happens to a letter within 48 hours, and where the copy goes for the accountant.

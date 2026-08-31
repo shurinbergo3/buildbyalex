@@ -1,0 +1,138 @@
+---
+title: "Poland's AI Act: what the new supervisor KRiBSI can do to you"
+description: "Poland's AI act took effect on 11 August 2026 and KRiBSI can inspect and fine from 28 October. The dated timeline, the documents, the penalty tiers."
+date: "2026-08-31"
+cluster: "poland-ai-act-kribsi"
+keywords:
+  - "Poland AI act KRiBSI"
+  - "Polish AI supervisory authority"
+  - "AI Act enforcement Poland"
+  - "AI Act fines 2026"
+  - "AI Act compliance checklist"
+ogImage: "/og/poland-ai-act-kribsi.webp"
+---
+
+The substantive part of Poland's national AI act came into force on 11 August 2026. It plugs the EU AI Act into the Polish legal system and creates a national supervisor: the Komisja Rozwoju i Bezpieczeństwa Sztucznej Inteligencji, KRiBSI. The date that matters more is still ahead: from 28 October 2026 the commission can inspect, run proceedings and impose fines. Its chair is due in October, the commission operational from November 2026.
+
+One disclaimer: I am a developer, not a lawyer. What follows is the engineering side: what has to exist in the system and in the folder so you are not starting preparations the day the first letter arrives. For disputes and edge cases, get an EU lawyer.
+
+I am based in Warsaw. If your company is registered in Poland, or sells into Poland with a bot on the site, KRiBSI is your supervisor.
+
+## The EU regulation, the Polish law, and one new authority
+
+The AI Act is a regulation, so it applies in Poland directly, with no national rewrite. The Polish act names who enforces it here, how an inspection works, and who signs the penalty decision.
+
+The closest analogy is GDPR: Brussels wrote the rules, the national authority knocks on the door. Here that is KRiBSI, a body drawn from several institutions and named by gov.pl as the central point of AI supervision.
+
+The practical takeaway: **the obligations have not changed, only that someone now enforces them**. If you have been putting off labelling your chatbot because nobody checks, that argument expires on 28 October.
+
+## The timeline in one table
+
+| Date | What happens | Who it affects |
+| --- | --- | --- |
+| 2 February 2025 | Article 4 AI Act applies: AI literacy in the team | Every company using AI, including one that only uses ChatGPT in support |
+| 2 August 2026 | Article 50 transparency duties apply | Chatbots, voicebots, generated content |
+| 11 August 2026 | Substantive part of the Polish act in force, KRiBSI created | Every company in Poland |
+| October 2026 | Chair of the commission appointed | - |
+| 28 October 2026 | KRiBSI gains inspection, proceedings and penalty powers | Every company in Poland |
+| November 2026 | Commission operational | - |
+| 2 December 2026 | Grace period ends for machine-readable marking of AI content on systems placed on the market before 2 August 2026 | Existing bots and content generators |
+| 2 December 2027 and 2 August 2028 | Deferred deadlines for high-risk systems after the digital omnibus, Regulation (EU) 2026/1744 | Narrow categories, rarely a small company |
+
+Two rows matter for an ordinary business. **28 October** is when a missing disclosure stops being theoretical. **2 December 2026** ends the transition for systems already running before 2 August 2026, which covers most widgets installed in 2024 and 2025. The omnibus deferred the high-risk deadlines, not the Article 50 transparency duties, and a lot of published commentary still gets that wrong.
+
+## Who is on the hook: provider, deployer, importer
+
+The regulation splits roles, and your role decides what an inspection asks for.
+
+- **Provider** builds the AI system and puts it on the market under its own name. Sell your own bot to other companies and you are a provider.
+- **Deployer** uses someone else's system under its own authority. That is most readers here: a chat widget, a voicebot on the phone line, an n8n scenario that replies to customers.
+- **Importer and distributor** place a non-EU system on the EU market. Rare for a small company, though reselling someone else's tool under your own brand can move you up the chain.
+
+The part I explain on most kickoff calls: **the deployer's responsibility is its own and cannot be pushed onto the contractor**. An agency built the bot and OpenAI or Anthropic supplies the model, but the letter arrives at your company, because your company is talking to the customer. Your contract with the developer settles money, not your duty to the authority.
+
+## What an inspection asks for, and in what form
+
+An inspection does not read your code. It reads documents and what the user sees. Here is the list I assemble before a deployment goes live, because afterwards half the screenshots are gone and whoever configured the bot has changed jobs.
+
+- **A register of AI systems.** A plain table: system name, channel, model provider, purpose, data processed, person responsible, go-live date. A spreadsheet is fine if it is current.
+- **Evidence of disclosure.** Screenshots of the widget and the bot's first message, a transcript of how a voice call opens, the date the disclosure went live.
+- **A trace of staff training.** Article 4 has applied since February 2025, and Polish sources stress that a one-off meeting or generic handout is not enough: a documented, role-adapted programme is required. An attendance list plus materials is a workable start.
+- **The model provider agreement and a data flow description.** Where the servers sit, whether data trains the provider's model, how long it is retained. The Polish data protection authority has warned that every bot conversation involving personal data is processing under GDPR.
+- **A privacy policy that mentions AI processing.**
+- **Conversation logs** showing when the bot handed a case to a human, the proof that the escalation path exists in reality and not only in the sales deck.
+- **A description of how generated content is marked**, if you publish text or images from a model.
+
+A note on form: one folder, not knowledge in the head of whoever is on holiday. When I review existing deployments, two things are usually missing: the register and the training evidence. The widget itself is a few hours.
+
+## Who can report you
+
+The AI Act gives individuals the right to complain to the market surveillance authority, and the Polish act says that authority is KRiBSI. Three realistic sources: an unhappy customer, a former employee, a competitor.
+
+How the commission will set priorities in its first months, I do not know. My assumption is that year one runs on complaints more than on sweeps, because that is how every new supervisor I remember started. That is an expectation, not a rule.
+
+Reputational risk is more predictable than the fine. A customer who spent an hour writing to "Anna from sales" and then worked out it was a model usually posts about it, faster than any authority moves.
+
+## Penalties: the tiers and what actually sets the number
+
+The tiers come from the EU regulation; the Polish act gives KRiBSI the tools to apply them.
+
+| Type of breach | Upper limit | Typical small-company example |
+| --- | --- | --- |
+| Prohibited practices | up to EUR 35m or 7% of worldwide annual turnover | Manipulative techniques, social scoring, effectively out of reach for a normal business |
+| Other breaches, including Article 50 transparency and Article 4 literacy | up to EUR 15m or 3% of worldwide annual turnover | An unlabelled chatbot, no documented staff training |
+
+In both rows the higher figure applies. These are ceilings written with global model providers in mind, not a five-person firm with a WordPress widget. Authorities apply proportionality: the nature of the breach, the size of the entity, whether the company fixed it itself.
+
+The real cost to a small company sits elsewhere: time on the proceedings, correspondence, a paused campaign, sometimes switching the bot off until it is fixed. Fixing it voluntarily is cheaper than any proceeding, even one that ends without a fine.
+
+## The minimum set for a company with a chatbot and a few automations
+
+This is the version I ship for clients with no compliance department.
+
+1. **A first bot message with the disclosure.** Concretely: "You are chatting with our AI assistant. I can hand you over to a human at any point." Not in the footer, not in grey print: the first thing a person reads.
+2. **A permanent label in the widget header**, so twenty messages later it is still clear who is answering.
+3. **The voicebot says it in the first sentence**, before the caller starts explaining anything.
+4. **A name that does not impersonate.** "Assistant Ola" is fine, "Ola, account manager" without a label is not.
+5. **A button or phrase that reaches a human**, with every handover logged. Setting that up in a messaging channel is covered in the [WhatsApp chatbot for business](/en/blog/whatsapp-chatbot-for-business) piece.
+6. **A register of AI systems** in one spreadsheet, covering automation scenarios too, not just the chat. If an agent writes leads into your CRM, it belongs there, as in [connecting an AI agent to your CRM](/en/blog/ai-agent-crm-integration).
+7. **Staff training with an attendance list** and a short note on what it covered.
+8. **An updated privacy policy** and the model provider agreement, in the same folder as the rest.
+
+Eight items, six of them a few hours of work. Number six takes longest: it means walking through everything already running, and there is usually more than the owner remembers.
+
+## What it costs and when not to buy it
+
+For scale: GUS, the Polish statistics office, reports 8.7% of Polish companies used AI technology in 2025 and 91.3% did not. Most deployments being built now can be done right the first time instead of retrofitted a year later.
+
+My own bands are simple. Bringing an existing bot and its paperwork into compliance starts at 800 € (3 500 zł). A full audit of what already runs, with the register and a fix list, starts at 1 150 € (4 900 zł). A new [AI agent build](/en/services/ai-agents) ships with disclosure, escalation and logging as standard, no compliance surcharge.
+
+When not to buy it: a contact form with no AI, a scripted FAQ tree with no language model, or ChatGPT used only for internal notes. Then only the Article 4 literacy duty applies, and that is an hour of work, not a project.
+
+If you have a live bot and are not sure it survives an inspection, [send me the link](/en/contact) and I will tell you what needs fixing and how long it takes. The delivery side of [AI Act compliance](/en/services/ai-act-compliance) sits on its own page, and if you are cleaning up abandoned channels too, read the piece on [missed calls](/en/blog/ai-intercept-missed-calls): a voicebot falls under the same rules as a chat widget.
+
+## FAQ
+
+**What is KRiBSI?**
+KRiBSI is the Komisja Rozwoju i Bezpieczeństwa Sztucznej Inteligencji, the national AI supervisor created by Poland's act on AI systems, whose substantive part came into force on 11 August 2026. It oversees the EU AI Act in Poland: inspections, proceedings, fines. Its chair is due in October 2026, the commission operational from November 2026.
+
+**From what date can KRiBSI impose a fine?**
+From 28 October 2026, when the commission gains inspection powers and the right to run proceedings and impose penalties. The obligations started earlier: transparency duties for chatbots on 2 August 2026, the AI literacy duty on 2 February 2025. Until 28 October no Polish body can enforce them; after that date one can.
+
+**Does the Polish act add obligations beyond the EU AI Act?**
+Essentially no. The obligations come from the EU regulation, which applies directly anyway. The Polish act designates the authority, the inspection procedure and how penalties are imposed. For a business owner, what changes is not the task list but whether anyone enforces it.
+
+**What fine does a small company face for an unlabelled chatbot?**
+A missing disclosure falls into the "other breaches" tier: up to EUR 15m or 3% of worldwide annual turnover, whichever is higher. Prohibited practices carry the higher tier, up to EUR 35m or 7%, but they do not occur in a small business. Those ceilings were written with model providers in mind, and authorities apply proportionality, weighing company size and whether the problem was fixed voluntarily.
+
+**What do I need ready for an inspection?**
+Seven things in one folder: a register of AI systems, disclosure evidence as screenshots and transcripts, a trace of staff training, the model provider agreement with a data flow description, a privacy policy that mentions AI, conversation logs showing handovers to a human, and a description of how you mark generated content. An inspection looks at documents and at what the user sees, never at code.
+
+**Does a small company that only uses ChatGPT fall under these rules?**
+Yes, for Article 4 of the AI Act, the AI literacy duty. It has applied since 2 February 2025 to every organisation using AI, whatever its size or risk class, and Polish sources stress that a one-off training or a generic handout is not enough: a documented, role-adapted programme is required. If the model answers customers, Article 50 applies on top.
+
+**What does the 2 December 2026 date mean?**
+It is the end of the grace period for machine-readable marking of AI-generated content on systems placed on the market before 2 August 2026. New systems had to comply immediately, older ones got until December. For a Polish company, a widget installed in 2024 or 2025 should be fixed before that date, not after.
+
+**Can I do this myself without a developer?**
+Partly. The register, the privacy policy update and the training note are internal work you can close in a day. The technical side needs the widget code, the voicebot configuration and the handover logging, so it needs whoever built it. My bands start at 800 € (3 500 zł) to bring an existing deployment up to standard, and 1 150 € (4 900 zł) for a full audit with the register and a fix list.

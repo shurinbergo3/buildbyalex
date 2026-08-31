@@ -1,0 +1,162 @@
+---
+title: "Labelling a chatbot under the EU AI Act: text, placement and logs"
+description: "Article 50 has applied since 2 August 2026. Copy-ready disclosure lines in English and Polish, where they go in the widget, the voicebot script and what to log."
+date: "2026-08-31"
+cluster: "ai-act-bot-disclosure-tech"
+keywords:
+  - "AI Act chatbot disclosure"
+  - "Article 50 AI Act implementation"
+  - "chatbot AI disclosure wording"
+  - "voicebot AI Act compliance"
+  - "AI Act 2 December 2026 deadline"
+ogImage: "/og/ai-act-bot-disclosure-tech.webp"
+---
+
+Article 50 of the EU AI Act has applied since 2 August 2026, and every chat on a European website now has to tell the visitor there is a machine on the other side. The legal side has been written up dozens of times. The implementation side has not. The law firm RPMS says plainly that the regulation covers legal requirements, not code or UI specifications, and Hauer Power, a Kraków dev shop, stops at the sentence that chatbots must be marked as AI. Nobody publishes the string, the position in the interface, or the log record.
+
+This is that missing piece. Disclaimer: I am a developer, not a lawyer. What follows is the engineering layer I ship in projects; take edge cases to an EU law specialist.
+
+## What Article 50 asks for, and what it does not
+
+The core is one sentence: a person must be informed that they are interacting with an AI system, clearly and distinguishably, at the latest on first interaction. There is one narrow exception, for cases obvious to a reasonably well-informed user. The Commission approved the AI Office guidelines on Article 50 on 20 July 2026, and they hand you no template either.
+
+What the rule does not contain:
+
+- **No prescribed wording.** The test is qualitative: clear and distinguishable.
+- **No consent requirement.** This is not a cookie banner; nobody clicks accept.
+- **No certificate.** No authority issues a compliant bot badge.
+- **No obligation to repeat it in every message,** though the label has to stay visible for the whole conversation.
+
+The role split matters more than any of that. The regulation separates the provider, who builds the system, from the deployer, who runs it under their own brand. A widget on your site makes you the deployer, even if a contractor built the bot and OpenAI supplies the model. **The disclosure duty is yours.** With no template to copy, compliance means showing a screenshot and a log extract. The rest of this article is how both should look.
+
+## Five dates worth keeping
+
+| Date | What happens | Who it applies to |
+| --- | --- | --- |
+| 2 February 2025 | Article 4, AI literacy duty for staff | any company deploying AI |
+| 2 August 2026 | Article 50 transparency duties | bots launched from this date |
+| 11 August 2026 | Polish AI systems act, substantive part | companies operating in Poland |
+| 28 October 2026 | KRiBSI gains inspection and fining powers | companies operating in Poland |
+| 2 December 2026 | machine-readable marking of generated content | systems placed on the market before 2 August 2026 |
+
+The Digital Omnibus, Regulation (EU) 2026/1744 in force since 27 July 2026, moved deadlines only for high-risk systems, to 2 December 2027 and 2 August 2028. Article 50 it left alone. National supervisors come online on their own schedules: in Poland the Komisja Rozwoju i Bezpieczeństwa Sztucznej Inteligencji gains inspection and fining powers on 28 October 2026.
+
+One number gets misquoted constantly: several write-ups attach 35 million euro or 7% of turnover to Article 50. **That is the tier for prohibited practices.** Breaching transparency duties carries up to 15 million euro or 3% of worldwide turnover, whichever is higher.
+
+## The disclosure text, English and Polish
+
+Three places, three lengths. Swap the company name and paste.
+
+**Widget header, EN:** "AI assistant - you are chatting with a system, not a person"
+
+**Widget header, PL:** "Asystent AI - odpowiada system, nie człowiek"
+
+**First message, EN:** "Hello. I am [Company]'s AI assistant. My replies are generated automatically. Type the word agent and I will pass you to a person."
+
+**First message, PL:** "Dzień dobry. Jestem asystentem AI firmy [Nazwa]. Odpowiadam automatycznie. Napisz słowo konsultant, a przekażę rozmowę człowiekowi."
+
+**Voicebot, EN:** "Hello, this is [Company]'s automated assistant. You are speaking to an AI system. I can transfer you to a person at any time."
+
+**Transcript and email footer, EN:** "This conversation was handled by [Company]'s AI assistant. Model: [name and version]. Transcript from [date]."
+
+Three phrasings that fail the distinguishability test: "virtual advisor", "automated consultant" and "Anna from customer care" with no mention of AI anywhere. The test is whether an ordinary visitor recognises what they are talking to. A bot may have a name, but the name needs the label next to it.
+
+## Where it has to appear and what to log alongside it
+
+| Place in the interface | What must be there | What you log |
+| --- | --- | --- |
+| Launcher bubble before the chat opens | the word AI in the label or the teaser | label version, e.g. `label_en_v3` |
+| Chat window header | a persistent label visible for the whole session | `disclosure_variant` on the session record |
+| Bot's first message | a full disclosure sentence, before asking anything | `disclosed_at` to the second |
+| Pre-chat form | disclosure above the fields, not under the send button | `disclosed_at` earlier than `form_submitted_at` |
+| Handover to a human | an explicit switch: "Marta, a consultant, is taking over" | `handover_at` and who picked it up |
+| Transcript sent by email | a footer line naming who ran the conversation | transcript id and footer version |
+| Voicebot, opening line | disclosure within the first five seconds | offset in the recording or a transcript marker |
+| Published generated content | visible label plus machine-readable metadata | content id, model, who approved it |
+
+The load-bearing word is **before**. A disclosure counts when it appears before the user writes anything, not as a reply to their first question. In the log that is the gap between two timestamps, the only evidence you can still produce six months later.
+
+In channels without an interface of your own, the first message and the profile name carry everything. WhatsApp has no widget header to park a label in, so the sender name should contain the word assistant, as in my piece on the [WhatsApp chatbot for business](/en/blog/whatsapp-chatbot-for-business).
+
+## Voice: disclosure in the first five seconds
+
+Voice has no header, so everything rides on the script. The disclosure goes in the opening sentence, before "how can I help". The more natural the synthesis, the less you can lean on the obviousness exception. If the bot dials out, the line comes before any question at all, including "am I speaking to Mr Kowalski".
+
+Transferred calls are their own case. Reception pushes the caller to the bot after hours, or the PBX routes to the assistant after three rings with no answer. The caller does not know they were moved, so **the disclosure has to be repeated at the start of that leg**. It is the most common gap in off-the-shelf configurations.
+
+Keep two things separate in the script: recording consent is a GDPR duty, AI disclosure is an Article 50 duty. Two sentences, two legal bases. Where the caller speaks on someone else's behalf, a parent about a child for instance, there is a third layer, covered in my piece on the [AI agent for schools and online courses](/en/blog/ai-agent-for-schools-and-online-courses).
+
+## Marking generated content: email, quote, ad creative
+
+This is the second layer of Article 50, the one with the 2 December 2026 date. The heavy lifting sits with providers of generative systems, but a company publishing model output has its share.
+
+- **Email sent by a bot with no human in the loop.** A footer line saying an AI assistant wrote it.
+- **A PDF quote assembled automatically.** One line, "prepared automatically, checked by Anna Nowak", handles the labelling and names a responsible human.
+- **Ad creative from an image generator.** The common technical failure: the tool writes C2PA metadata and your export pipeline strips it. Check the output file, not the input.
+- **A product photo relit or restaged by a model.** A material modification, so it needs a label even when the scene looks ordinary.
+
+The rule that resolves every case: either a human approves the content and signs their name to it, or the content carries a label. There is no third option.
+
+## What to keep in the logs for an inspection
+
+A session record that demonstrates compliance without opening the codebase:
+
+```
+{
+  "conversation_id": "c_2026_08_31_00417",
+  "channel": "web_widget",
+  "disclosure_variant": "en_widget_v3",
+  "disclosed_at": "2026-08-31T09:14:02Z",
+  "first_user_message_at": "2026-08-31T09:14:19Z",
+  "model": "gpt-4o",
+  "provider": "OpenAI",
+  "handover_at": "2026-08-31T09:21:40Z",
+  "handover_to": "agent_ab",
+  "privacy_policy_version": "2026-08-01",
+  "retention_days": 90
+}
+```
+
+That record proves four things at once: the disclosure happened, it happened before the user's first message, in exactly which wording, and the route to a human works. I keep disclosure strings in the repository rather than in a vendor dashboard, so every change carries a date.
+
+Two more things live outside the log. A register of AI systems, a plain table: where you use AI, which model, which provider, who owns it, when the wording was last reviewed. And a retention policy, because any conversation containing personal data is processing under GDPR, with a legal basis and a known server location behind it. I keep 90 days of full transcripts and 24 months of disclosure records with no conversation content. Where the bot already logs statuses and documents, adding two fields is a single deployment, as in the setup I described for an [AI agent in transport and logistics](/en/blog/ai-agent-for-transport-and-logistics).
+
+## Retrofitting an existing bot: the afternoon checklist
+
+Bots built in 2024 and 2025 have until 2 December 2026 for the content-marking layer, but the in-conversation disclosure applies now. The order of work that goes fastest:
+
+1. Add the label to the widget header and the teaser bubble. Usually one config field.
+2. Rewrite the first message so the disclosure sits in the first sentence.
+3. Check the pre-chat form: does it ask for an email before it mentions AI.
+4. Add `disclosed_at` and `disclosure_variant` to the session record.
+5. Review the voicebot script, including transferred and outbound legs.
+6. Add the footer to transcripts sent by email.
+7. Update the privacy policy with AI processing and the model provider.
+8. Screenshot every touchpoint and file it in the register, dated.
+
+When I build an [AI agent](/en/services/ai-agents) from scratch, all of this is standard and not a line item. For an existing bot somebody else built, an [AI Act compliance retrofit](/en/services/ai-act-compliance) starts at 800 € (3 500 zł net) and usually fits in one working day: a pass over every channel, the disclosure strings, the log fields, the register and the screenshots. For context, Polish vendors publish list prices from roughly 115 € (499 zł net) a month for a voicebot subscription and from about 1 850 € (7 900 zł net) for an AI agent deployment.
+
+If you are not sure whether your bot clears the new rules, [send me the link](/en/contact) and I will tell you what needs changing.
+
+## FAQ
+
+**What exactly must a chatbot say to comply with the EU AI Act?**
+The regulation prescribes no wording, only that the information be clear, distinguishable and delivered at the latest on first interaction. A safe English formulation is "Hello. I am [Company]'s AI assistant. My replies are generated automatically", plus a persistent "AI assistant" label in the widget header. A bot may have a human name as long as the AI label sits next to it, but wording like "virtual advisor" alone does not clear the test.
+
+**Is a mention in the privacy policy or site footer enough?**
+No. The information has to reach the user at the moment of first contact, which means inside the chat interface, not in a document reachable via a link. The privacy policy is still needed, because it describes data processing, but it does not replace in-conversation disclosure. The working test is whether an ordinary visitor learns it without going looking.
+
+**By when does an older chatbot have to be fixed?**
+The duty to disclose that a user is talking to AI has applied since 2 August 2026, with no transition period. The separate 2 December 2026 deadline covers machine-readable marking of generated content by systems placed on the market before 2 August 2026. In practice the chat disclosure has to be live now, the content-marking layer by December.
+
+**What are the fines for an unlabelled chatbot?**
+Breaching the Article 50 transparency duties carries up to 15 million euro or 3% of worldwide annual turnover, whichever is higher. The higher tier of 35 million euro or 7% applies to prohibited practices, not to an unlabelled chatbot, though it is often misattributed to Article 50. In Poland the supervising commission gains its inspection and fining powers on 28 October 2026.
+
+**Does a voicebot have to disclose if it sounds obviously synthetic?**
+Yes, and in the opening sentence, before any question about the reason for the call. The more natural the voice, the less you can rely on the exception for obvious cases. Transferred calls need separate handling: if reception routes the caller to the bot after hours, the disclosure repeats at the start of that leg. Recording consent is a separate GDPR duty in its own sentence.
+
+**What should be logged to prove compliance during an inspection?**
+At minimum: conversation id, channel, the disclosure variant used, the timestamp it was shown, the timestamp of the user's first message, model and provider, and the moment the conversation moved to a human. The gap between those two timestamps is the evidence that the notice came before the conversation rather than after it.
+
+**How much does bringing an existing chatbot into compliance cost?**
+My retrofit starts at 800 € (3 500 zł net) and usually fits into one working day for a bot running in two or three channels. It covers the disclosure wording at every touchpoint, the log fields, the register of AI systems, the privacy policy update and the screenshots. On a new build it is part of the project price.

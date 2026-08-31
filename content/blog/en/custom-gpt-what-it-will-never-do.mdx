@@ -1,0 +1,127 @@
+---
+title: "Custom GPT vs a Real AI Agent: What a Custom GPT Will Never Do"
+description: "You built a Custom GPT and it went nowhere. Here is where it breaks: channels, live CRM reads, Actions, audit trail, plus an eight-point comparison table."
+date: "2026-09-05"
+cluster: "custom-gpt-limits"
+keywords:
+  - "custom gpt vs ai agent"
+  - "custom gpt limitations"
+  - "custom gpt on website"
+  - "custom gpt crm integration"
+  - "build ai agent for business"
+ogImage: "/og/custom-gpt-limits.webp"
+---
+
+The same story arrives in my inbox every few weeks. Someone opens ChatGPT, clicks "create a GPT", uploads the price list as a PDF, three email templates and an instruction saying "you are a consultant at our company". An hour later it works and it looks impressive. Two weeks later only its author uses it, and customers on the website are still waiting for a reply.
+
+That is not a failure. A Custom GPT is the cheapest way to find out whether the model understands your industry and your documents at all. The trouble starts where a prototype has to become a process. Below are the walls, in the order you hit them, plus an honest answer on when not to rebuild anything.
+
+## Why a Custom GPT looks like a finished product
+
+Because from the builder's seat it is one. You upload files, write an instruction, test in the same window. No hosting, no API keys, no deploy, no code review. The edit loop takes fifteen seconds and the output sounds like a competent colleague.
+
+It also matches how small companies buy AI. Poland's statistics office GUS reports that 8.7% of Polish companies said they used AI technology in 2025; the most common route was buying a ready commercial product (6.4%), while AI custom-built by an external party accounted for 2.1%. A Custom GPT sits in that first column as its cheapest variant, and a ready product ends where your process begins.
+
+## Wall one: it lives inside ChatGPT and nowhere else
+
+The 2026 teardowns of Custom GPT limits (techhelp.ca, lindy.ai, fayedigital.com) all put the same item first: to use your GPT, someone needs a paid ChatGPT account and has to find it in OpenAI's directory.
+
+What you cannot do with it:
+
+- embed it as a chat widget on your website,
+- connect it to WhatsApp Business or Messenger,
+- put it on your phone line as a voice agent,
+- let it read and answer the shared inbox,
+- hand it to a customer who will not open yet another account.
+
+The consequence is commercial, not technical. **Your GPT is available only to people who already pay OpenAI and already opened ChatGPT.** The prospect reading your offer on a phone at 22:40 is not one of them, and will message you on WhatsApp instead, because it is already open.
+
+## Wall two: knowledge that was current on upload day
+
+Knowledge files in a Custom GPT are static. Change the price list and you upload a new PDF by hand; change delivery terms and you do it again. And what carries the most weight in a sales conversation is not in that file at all: stock levels, free calendar slots, order status, account balance, ticket history.
+
+The published limitation lists agree: a Custom GPT cannot reliably read CRM, email, calendar or documents in real time. Actions can hand it an external API, but that is not an integration, which is the next wall.
+
+The symptom looks harmless and costs money: the GPT quotes a price off the March list in a confident tone, and the rep hears about it from a customer who brought that price to a meeting.
+
+## Wall three: Actions demo on Monday and go quiet on Wednesday
+
+Actions let the model call your API from an OpenAPI schema. In a demo it looks like a real integration. Then week two starts.
+
+Three things break most often. Authentication: the token expires, the key rotates, and the user sees only a message saying something went wrong. No retries, no queue: if your server answers after ten seconds or returns a 500, the request disappears and nobody is told. And the model decides whether to call the action, so in a long conversation it skips the call and invents the answer.
+
+Security sits on top of that. The 2026 agent security reporting (OWASP, gravitee.io) puts prompt injection at the centre of agentic risk, citing a 340% year-on-year rise in attacks and mean monitoring coverage across production agents of 52%, so roughly half of deployed agents run unwatched. A Custom GPT gives you no call log, no rate limits on your side, and no alert when a write action fires fifty times in a minute.
+
+While Actions only read, the risk is tolerable. Once they write to CRM, issue a document or book a slot, you need a layer a Custom GPT does not have. I took that apart in the piece on [connecting an AI agent to your CRM](/en/blog/ai-agent-crm-integration).
+
+## Wall four: no shared state, no queue, no audit trail
+
+A Custom GPT is single-player by design. Every employee has a private history, so there is no shared ticket queue, no handover, no signal that the same customer wrote to a colleague yesterday.
+
+There is also no company-side export. You cannot say what the system told a specific customer three weeks ago, who approved it, or on what basis. Under the EU AI Act that stops being a convenience question. Article 50 transparency duties have applied since 2 August 2026, systems on the market before that date have until 2 December 2026 for machine-readable marking of generated content, and breaches carry up to EUR 15m or 3% of worldwide turnover. I covered that in the article on [what your chatbot must do under the AI Act](/en/blog/eu-ai-act-chatbot-requirements-2026).
+
+I am a developer, not a lawyer, so I stick to the engineering side. An AI usage register and a conversation log are built once, and without them you cannot answer the simplest question a regulator asks.
+
+## Custom GPT vs a custom agent across eight dimensions
+
+This table ends the conversation faster than an hour of explaining.
+
+| Dimension | Custom GPT | Custom agent |
+| --- | --- | --- |
+| Deployment channel | inside ChatGPT only | website, WhatsApp, Telegram, email, phone |
+| What the user needs | paid ChatGPT account, finds the GPT in the directory | nothing, they open your page or send a message |
+| Live CRM reads | none, knowledge from manually uploaded files | API call on every conversation |
+| Write actions | Actions with no retries, queue or log | queue, retries, error handling, alerts |
+| Shared team state | none, each person has their own history | one conversation store the team can see |
+| Audit trail | no company-side export | full log of messages, calls and decisions |
+| Cost model | subscription per user | one-off build plus tokens and hosting |
+| Who owns it | OpenAI: account, directory, platform rules | you: code, prompts, database, keys |
+
+The last row usually decides it. A Custom GPT lives on someone else's platform under someone else's rules, and a change to the directory policy or the pricing tiers is not yours to make.
+
+## What moving to your own agent actually changes
+
+One thing changes and the rest follows: the agent stops being a place people visit and becomes part of a process that reaches the customer on its own. It picks up a message on the site at two in the morning, checks a free calendar slot, creates a deal in the CRM, sends a confirmation, and raises its hand when it does not know.
+
+On budget, look at the published ranges. Polish vendors quote them openly: PLN 3,000-15,000 to build plus PLN 500-2,500 a month (LessManual), and PLN 80,000-250,000 plus PLN 8,000-40,000 a month for an agent that writes into CRM or ERP (softwarelogic). Global roundups put a single narrow agent at USD 1,500-5,000 to build plus USD 300-800 a month.
+
+My own rates, so you know the bracket I work in: [an AI agent](/en/services/ai-agents) from EUR 1,500, a sales agent with CRM wired in from EUR 2,500, a multi-tool agent from EUR 4,500, and a plain automation with no agent at all from EUR 900. That last line matters most: much of what people try to squeeze out of a Custom GPT is served better by a predictable n8n workflow, cheaper and with no risk of the model filling a gap on its own.
+
+The failure statistics are worth knowing. Gartner reports that 89% of agent pilots never reach production and over 40% of agentic AI projects will be cancelled by the end of 2027; the survivors report 171% ROI. The unpopular conclusion: one narrow process shipped end to end wins, an "assistant for everything" does not. I laid out that order in the [step-by-step plan for implementing AI in a business](/en/blog/how-to-implement-ai-in-business).
+
+## When a Custom GPT is genuinely enough
+
+Sometimes a rebuild is a waste of money. Leave your Custom GPT alone if:
+
+- you or two colleagues use it internally and that covers the need,
+- the work is writing and reshaping text in your style, with no reach into systems,
+- the knowledge base changes once a quarter, not once a week,
+- nobody outside the company touches it, so you need neither AI disclosure nor a log,
+- you are still testing whether the model copes with your specifics.
+
+I use that last point myself. A week with a Custom GPT before quoting beats a long workshop, because it shows exactly where the model guesses. That is reconnaissance, not a deployment.
+
+If you recognise your own situation here - the GPT exists, it works, nobody uses it - the cheapest next step is working out what can be shipped and for how much. I do that as an [AI audit](/en/services/ai-audit) from EUR 1,150 (PLN 4,900): I walk the processes, say what should stay a plain automation, what needs an agent, what is not worth touching, and give you build ranges. If you would rather start with a conversation, [get in touch](/en/contact) and say what your GPT does today.
+
+## FAQ
+
+**What is the difference between a Custom GPT and a custom AI agent?**
+A Custom GPT is a configuration of the model inside ChatGPT: an instruction plus uploaded files, reachable only by people with a paid ChatGPT account who find it in OpenAI's directory. A custom agent runs on your side, talks in your channels (website, WhatsApp, email, phone), queries your systems through APIs, writes results back and logs every decision. The difference is not answer quality; it is the channel, live data and who carries responsibility.
+
+**Can I put a Custom GPT on my website?**
+No. A Custom GPT works only in the ChatGPT interface: it cannot be embedded as a chat widget, connected to WhatsApp Business or Messenger, or attached to a phone number. To have AI answer on your own site you need a separate application built on the model API. That is the most common reason companies abandon a Custom GPT after a few weeks.
+
+**Can a Custom GPT read data from my CRM?**
+Not reliably and not in real time. Its knowledge comes from files uploaded by hand and is current as of the upload date. Actions can call an external API, but with no queue, no retries and no log on your side, and the model decides whether to call at all. Stock levels, free slots and order status need a normal integration.
+
+**How much does it cost to move from a Custom GPT to a custom agent?**
+Polish vendors publish PLN 3,000-15,000 to build plus PLN 500-2,500 a month, and PLN 80,000-250,000 for an agent that writes into CRM or ERP. Global roundups put a single narrow agent at USD 1,500-5,000 plus USD 300-800 a month. My own rate is from EUR 1,500 for an AI agent and from EUR 2,500 for a sales agent with the CRM wired in; if the process is predictable, a plain automation from EUR 900 is cheaper and more stable.
+
+**Does a Custom GPT satisfy the EU AI Act?**
+Using ChatGPT does not remove your obligations, though inside OpenAI's interface the user already knows they are talking to AI. The problem starts when you publish GPT-generated content in your company's name or put an assistant in front of customers in your own channels. Article 50 transparency duties have applied since 2 August 2026, systems on the market before that date have until 2 December 2026 for machine-readable marking, and penalties reach EUR 15m or 3% of worldwide turnover. I am a developer, not a lawyer, so take hard cases to an EU law specialist.
+
+**When is a Custom GPT genuinely enough?**
+When one person or a small team uses it internally, the work is text processing, the knowledge base changes rarely, and nobody outside the company interacts with it. It also works as a week of reconnaissance before quoting a build: it shows where the model handles your specifics and where it guesses. Build only when you need other channels, live data or an audit trail.
+
+**Why does my Custom GPT behave correctly only at the start of a conversation?**
+In long conversations the model loses parts of the instruction and skips Actions calls, inventing an answer instead of fetching it from the API. Inside a Custom GPT you cannot set a hard rule that a given answer always requires a system lookup. In your own agent that call is part of the logic, not a decision the model makes, and the log shows whether it happened.

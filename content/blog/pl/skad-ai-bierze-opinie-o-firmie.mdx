@@ -1,0 +1,141 @@
+---
+title: "Skąd AI bierze opinie o firmie: katalogi, opinie i cudze listy"
+description: "Modele wymieniają firmy, których stron nigdy nie zacytowały. Pokazuję, skąd biorą opinie o firmie: katalogi, recenzje i cudze rankingi, oraz co z tym robić."
+date: "2026-09-07"
+cluster: "directories-reviews-ai"
+keywords:
+  - "katalogi i opinie a rekomendacje AI"
+  - "widoczność firmy w ChatGPT"
+  - "Clutch ChatGPT 2026"
+  - "wzmianki o marce a AI"
+  - "GEO dla firm usługowych"
+ogImage: "/og/directories-reviews-ai.webp"
+---
+
+Wpisz w ChatGPT „kto wdroży agenta AI w polskiej firmie” i dostaniesz listę pięciu nazw. Twojej tam nie ma, chociaż masz stronę, blog i poprawne dane strukturalne. To nie jest usterka modelu i nie naprawisz tego kolejnym artykułem u siebie.
+
+Analiza 23 387 cytowań przy zapytaniach o marki pokazuje, z czego powstaje taka odpowiedź: 57% opierało się na opiniach i dowodach społecznych, 17% na katalogach, a własne strony komercyjne firm dały 12%. Własna domena to jedna ósma tego materiału.
+
+Zastrzeżenie na wstępie. To obszar, w którym sprzedaje się pewność, a dowodów jest mało. Przegląd 45 badań GEO z lat 2023-2026 opublikowany na arXiv nie znalazł ani jednej techniki z trwałym, potwierdzonym międzyplatformowo efektem przyczynowym. Mocniej potwierdzone jest tylko jedno: obecność wydobywalnych dowodów w treści, czyli statystyk, porównań, cen i dat. Hasło „GEO podnosi widoczność o 40%” ten sam przegląd rozbiera na czynniki pierwsze: to względne maksimum jednej metryki w symulatorze z pięcioma dokumentami.
+
+## Cytowanie to jedno, polecanie to drugie
+
+W badaniu 278 promptów z rynku B2B SaaS (3 508 cytowań, 2 845 unikalnych stron, rynki US i UK, lipiec 2026) **66% rekomendacji marki nastąpiło bez ani jednego cytowania jej strony**. Model wymieniał firmę z nazwy, a pod odpowiedzią nie było do niej żadnego odnośnika.
+
+To dwa różne mechanizmy i warto je rozdzielić raz na zawsze:
+
+- **Cytowanie** to linki pod odpowiedzią. Wygrywa je konkretna strona, która akurat pasuje do zapytania i daje się wydobyć.
+- **Polecanie** to zdanie „warto zapytać firmę X”. Powstaje z tego, co model wie o rynku: z cudzych rankingów, opinii, wzmianek i katalogów.
+
+Własną stroną domykasz pierwszy mechanizm. Drugi rozgrywa się na cudzych domenach, więc dopóki tam Cię nie ma, możesz publikować co tydzień i nadal nie trafiać na listę.
+
+## Co realnie waży w rekomendacji
+
+Od razu uczciwie: to korelacje, nie przyczynowość. Kolejność mimo to jest pouczająca.
+
+- obecność w cudzych listach „najlepszych”: r = +0,64
+- wzmianki o marce w sieci, także bez linku: r = +0,58
+- obecność na Reddicie: r = +0,57
+- liczba opinii na G2: r = +0,39
+
+Ta ostatnia liczba jest niewygodna dla każdego, kto cały budżet wydaje na recenzje w jednym serwisie. Osobne dane idą w tę samą stronę: wzmianki o marce korelują z cytowaniem w AI Overviews na poziomie 0,664, podczas gdy klasyczne linki zwrotne na 0,218. W analizie 153 425 cytowań z maja 2026 **76,95% cytowanych adresów było poza pierwszą dziesiątką Google**, czyli poza obszarem, o który walczy typowe pozycjonowanie.
+
+Format też waży. Wix Studio AI Search Lab przeanalizowało 75 000 odpowiedzi AI i ponad milion cytowań (marzec 2026): listy rankingowe zebrały 21,9% wszystkich cytowań i 40% cytowań komercyjnych, artykuły 16,7%, strony produktowe 13,7%. Od 71% do 86% cytowanych list to numerowane zestawienia typu „10 najlepszych” z tabelą i podanymi kryteriami wyboru.
+
+I rzecz, która porządkuje myślenie o platformach opiniowych: w badaniu B2B strony G2, Clutch czy Capterra dostały **1,6% cytowań**. Nie są cytowane. Są czytane wcześniej i wpływają na to, co model mówi.
+
+## Katalogi i platformy: gdzie warto być
+
+Kolumna „jak wpływa” jest ważniejsza od kolumny „koszt”: połowa tych profili nie kosztuje nic poza czasem.
+
+| Platforma | Dla kogo | Jak wpływa | Koszt wejścia | Czas na uzupełnienie |
+| --- | --- | --- | --- | --- |
+| Google Business Profile | firma z adresem lub obszarem obsługi | polecanie w odpowiedziach lokalnych; sygnały GBP to ok. 32% kontrolowalnej wagi w lokalnym rankingu | 0 zł | 2-3 h plus zdjęcia |
+| Clutch | usługi B2B: IT, marketing, wdrożenia | weryfikowane opinie plus aplikacja marketplace wewnątrz ChatGPT od 12 maja 2026 | profil 0 zł, pakiety płatne | 3-4 h plus zbieranie opinii |
+| DesignRush | agencje i studia | redakcyjne listy „Best X”, które same bywają cytowane w Perplexity i AI Overviews | profil 0 zł, wyróżnienie płatne | 2 h |
+| GoodFirms | software house'y i wykonawcy | potwierdzenie opinii z drugiego źródła, gdy model porównuje dostawców | 0 zł | 2 h |
+| G2, Capterra | produkty i SaaS | najsłabsza z badanych korelacji z rekomendacją (r = +0,39) | 0 zł | 2 h |
+| Wikidata | każda firma z jakimkolwiek śladem w sieci | encja bez progu istotności; rozpoznawanie podmiotu zmienia się w 30-60 dni | 0 zł | 1-2 h |
+| experts.n8n.io | wykonawcy automatyzacji n8n | katalog partnerski; program zamknięty z listą oczekujących od połowy 2025 | 0 zł | 30 min na zgłoszenie |
+| Reddit | tematy techniczne i produktowe | r = +0,57 przy rekomendacji; 2,4% cytowań ChatGPT, a u Perplexity ok. 31% cytowań to serwisy społecznościowe | 0 zł, ale kosztuje reputację przy spamie | miesiące obecności |
+| LinkedIn, profil firmy | wszyscy | 0,39% cytowań ChatGPT, za to stałe źródło spójnych danych o firmie | 0 zł | 1 h |
+
+Polskie katalogi ogólne w rodzaju Aleo, Panoramy Firm czy Oferteo zostawiam na koniec. Domykają spójność danych rejestrowych, ale nie widziałem badania, które przypisywałoby im wagę w odpowiedziach modeli. To porządki, nie kanał. Firmie z obszarem obsługi najwięcej daje sam Google Business Profile z opiniami; opisałem to w tekście o tym, [jak firma remontowo-budowlana pozyskuje klientów bez kupowania leadów](/pl/blog/jak-pozyskac-klientow-firma-remontowo-budowlana).
+
+## Clutch w ChatGPT: co się zmieniło w maju 2026
+
+12 maja 2026 Clutch uruchomił aplikację marketplace działającą wewnątrz ChatGPT. Praktyczna zmiana jest taka, że katalog przestał być odznaką na stronie, a stał się kanałem dystrybucji: użytkownik, który pyta o wykonawcę, może dostać krótką listę zbudowaną z danych Clutcha bez opuszczania czatu.
+
+Uczciwe zastrzeżenie: pamiętaj o tych 1,6% cytowań stron opiniowych. Wartość nie bierze się z kliknięcia w profil, tylko z tego, że Twoje dane są w zbiorze, z którego powstaje lista.
+
+Co musi być na profilu: zakres usług nazwany słowami klienta, minimalny budżet projektu, stawka godzinowa, branże i opinie z konkretami zamiast pochwał. Jeśli jesteś jednoosobową firmą, wpisz uczciwie jedną osobę. Formularze tych katalogów są skrojone pod agencje i kuszą, żeby dopisać sobie zespół, a to najkrótsza droga do rozmowy, w której klient oczekuje sztabu ludzi.
+
+## Profil i strona, które da się zacytować
+
+Wydobywalny dowód to jedyne, co ma w badaniach mocne poparcie: liczby, ceny w złotych, daty, porównania i źródło. Zdania „realizujemy projekty w atrakcyjnych cenach” nie zacytuje nikt. Zdanie „audyt widoczności w AI od 3 900 zł, termin 2 tygodnie” zacytować można.
+
+Druga rzecz jest kontrintuicyjna dla każdego, kto sprzedaje: **strony wymieniające sześć i więcej marek miały średnio 2,13 cytowania wobec 1,21 dla stron, które nie wymieniają żadnej**. Uczciwe porównanie z Tidio, Intercomem, Make, Zapierem, n8n czy Voiceflow działa na Twoją korzyść: model wciąga Cię do tego samego kontekstu co rozpoznawalne nazwy. Milczenie o konkurencji jest dziś kosztem.
+
+Trzecia: świeżość. Mediana wieku strony cytowanej przez ChatGPT to 3,9 miesiąca, a 69,7% cytowanych stron opublikowano w ciągu ostatnich dwunastu miesięcy. Data aktualizacji ma być widoczna, a cennik z 2024 roku szkodzi bardziej, niż pomaga.
+
+Czwarta jest techniczna i najczęściej zaniedbana. Roboty AI nie wykonują JavaScriptu: na czerwiec 2026 nie robią tego ani GPTBot, ani ClaudeBot, ani PerplexityBot. Jeśli tabela cen albo sekcja FAQ dociąga się po hydratacji, dla nich nie istnieje. Sprawdzam to zawsze, przejmując cudzą [stronę firmową](/pl/uslugi/strony-internetowe).
+
+## Jedna tożsamość we wszystkich miejscach
+
+Model łączy wzmianki w jeden podmiot po nazwie, opisie i danych kontaktowych. Jedna nazwa w KRS, druga na stronie, trzecia na Clutchu i zamiast jednego rozpoznawalnego bytu masz trzy słabe.
+
+Robię to zawsze tak samo: ta sama pełna nazwa i ten sam jednozdaniowy opis wszędzie, ten sam adres i telefon w tym samym formacie, sameAs w danych strukturalnych wskazujące na wszystkie profile, encja w Wikidata. Wikidata nie ma progu istotności, a zmianę w rozpoznawaniu podmiotu przez modele widać zwykle po 30-60 dniach od utworzenia wpisu.
+
+Same dane strukturalne traktuję jak instalację, nie jak dźwignię. Ok. 71% stron cytowanych przez ChatGPT ma znaczniki, ale eksperyment Ahrefs na 1 885 stronach po dodaniu JSON-LD dał -4,6% w AI Overviews, +2,4% w AI Mode i +2,2% w ChatGPT, czyli statystycznie nic. Szerzej pisałem o tym w tekście o tym, [co ze Schema.org nadal działa, a co po cichu przestało](/pl/blog/dane-strukturalne-schema-org-dla-ai).
+
+## Jak trafić do cudzej listy bez płacenia za miejsce
+
+Skoro cudze rankingi mają najwyższą korelację z byciem polecanym, warto tę pracę wykonać ręcznie.
+
+1. Zapytaj ChatGPT, Perplexity i Google AI Mode o swoją usługę i swoje miasto. Wypisz każdą listę, z której model korzysta.
+2. Sprawdź, czy autor przyjmuje zgłoszenia. Sporo takich zestawień prowadzi jedna osoba i odświeża je co kwartał.
+3. Wyślij krótką wiadomość z faktami, nie z ofertą: co robisz, dla kogo, od jakich kwot, trzy realizacje z liczbami, kontakt. Autor listy potrzebuje gotowego wiersza tabeli.
+4. Opublikuj własne zestawienie i wymień w nim konkurencję. To treść, która sama bywa cytowana, i powód, dla którego ktoś wymieni Ciebie.
+
+Płatne wyróżnienia w takich rankingach istnieją i mechanicznie działają, ale to czynsz, nie majątek. Przestajesz płacić, znikasz.
+
+## Czego nie robić
+
+Trzy skróty, które kosztują więcej, niż dają.
+
+**Sztuczna aktywność na Reddicie.** W I kwartale 2026 automaty Reddita usuwały około 25 000 spamerskich wpisów dziennie, a ekspozycja na taką treść spadła o mniej więcej 20% rok do roku. Dla firmy występującej pod nazwiskiem to ryzyko nieproporcjonalne do zysku.
+
+**Liczenie na llms.txt.** Badanie Ahrefs na 137 000 witryn pokazało, że 97% plików llms.txt nie odnotowało w maju 2026 żadnego ruchu, a żaden duży dostawca modeli nie zadeklarował wsparcia. Plik kosztuje pięć minut, więc może być, ale nie jest strategią.
+
+**Kupowanie opinii.** Weryfikowane platformy wychwytują to coraz sprawniej, a jedna cofnięta recenzja psuje profil skuteczniej, niż dziesięć dodanych go buduje.
+
+## Przegląd raz w miesiącu
+
+Godzina miesięcznie wystarczy. Zadaję pięć tych samych pytań w ChatGPT, Perplexity i Google AI Mode: „kto robi X w Warszawie”, „najlepsze firmy od X w Polsce”, „X czy Y, co wybrać”, „ile kosztuje X”, „alternatywy dla [konkurent]”. Zapisuję, kto został wymieniony, jakie źródła model pokazał i czy pojawiła się nowa lista, do której warto się dopisać.
+
+Dwie kotwice, żeby nie przesadzić z oczekiwaniami. Google AI Mode działa w Polsce od 8 października 2025, według Senuto odpowiedź AI pojawia się przy 24,17% polskich zapytań, a tam gdzie się pojawia, klikalność spada o około 34,5% (badanie Ahrefs na 300 000 słów kluczowych). Z drugiej strony w badaniu ok. 350 000 lokalizacji ChatGPT polecił 1,2% z nich, Gemini 11%, a Perplexity 7,4%, przy 35,9% obecności w lokalnym pakiecie Google. Lista polecanych jest krótka, więc realistyczny cel to jedna wąska kategoria, a nie „być wszędzie”.
+
+Jeśli chcesz zobaczyć to na papierze, robię [audyt widoczności w AI](/pl/uslugi/widocznosc-w-ai) od 3 900 zł: te same prompty w trzech systemach, spis źródeł, z których korzystają, lista katalogów i cudzych zestawień do uzupełnienia w kolejności według wpływu, do tego sprawdzenie, co z Twojej strony widzą roboty AI. Jeśli wolisz zrobić to sam, tabela wyżej wystarczy na pierwszy kwartał, a w razie pytań [napisz](/pl/kontakt). Jak to układa się zaraz po starcie, pisałem w tekście o [pierwszych 90 dniach po uruchomieniu strony](/pl/blog/pierwsze-90-dni-po-starcie-strony).
+
+## FAQ
+
+**Dlaczego ChatGPT poleca firmę, ale nie linkuje do jej strony?**
+Bo cytowanie i polecanie to dwa różne mechanizmy. W badaniu 278 promptów B2B z lipca 2026 (3 508 cytowań, 2 845 stron) 66% rekomendacji marki nastąpiło bez ani jednego cytowania jej witryny. Nazwa firmy pochodzi z tego, co model wie z cudzych rankingów, wzmianek i katalogów, a linki pod odpowiedzią z bieżącego wyszukiwania.
+
+**Które katalogi mają sens dla polskiej firmy usługowej B2B?**
+W pierwszej kolejności Google Business Profile, Clutch i DesignRush, potem GoodFirms i encja w Wikidata. G2 i Capterra mają sens tylko wtedy, gdy sprzedajesz produkt, a nie usługę: korelacja liczby opinii na G2 z byciem polecanym wyniosła r = +0,39, czyli najmniej z badanych sygnałów. Polskie katalogi ogólne porządkują dane firmowe, ale nie ma badań przypisujących im wpływ na odpowiedzi modeli.
+
+**Co dała aplikacja Clutcha w ChatGPT?**
+Clutch uruchomił aplikację marketplace wewnątrz ChatGPT 12 maja 2026, więc pytający o wykonawcę może dostać listę z danych Clutcha bez wychodzenia z czatu. Kompletny profil z opiniami, widełkami budżetu i branżami staje się kanałem pozyskania, a nie odznaką na stronie. Same strony platform opiniowych zebrały w badaniu B2B tylko 1,6% cytowań: wpływ idzie przez rekomendację, nie przez link.
+
+**Czy warto zbierać opinie, skoro platformy opiniowe prawie nie są cytowane?**
+Tak, ale z innego powodu, niż się zwykle sądzi. Opinie i dowody społeczne stały za 57% odpowiedzi w analizie 23 387 cytowań przy zapytaniach o marki, katalogi za 17%, a własne strony komercyjne za 12%. Modele czytają je jako materiał do oceny firmy, nawet jeśli nie pokazują odnośnika. Sensowny cel to kilkanaście konkretnych opinii na dwóch platformach zamiast setki na jednej.
+
+**Ile kosztuje uporządkowanie tego wszystkiego?**
+Same wpisy do katalogów kosztują tylko czas: od 13 do 17 godzin na komplet profili z tabeli w tym artykule. Płatne są dopiero pakiety wyróżnień na Clutchu i DesignRush oraz miejsca sponsorowane w cudzych rankingach. U mnie audyt widoczności w AI z planem działania zaczyna się od 3 900 zł, czyli około 900 euro, i zawiera pomiar stanu wyjściowego.
+
+**Czy dane strukturalne pomagają w rekomendacjach AI?**
+Są warunkiem higieny, nie dźwignią. Około 71% stron cytowanych przez ChatGPT ma znaczniki, ale eksperyment Ahrefs na 1 885 stronach po dodaniu JSON-LD dał -4,6% cytowań w AI Overviews, +2,4% w AI Mode i +2,2% w ChatGPT, czyli wynik nieodróżnialny od zera. Zrób je raz poprawnie i przenieś wysiłek poza własną stronę.
+
+**Czy Reddit jest wart zachodu dla polskiej firmy?**
+Zależy, komu sprzedajesz. Obecność na Reddicie korelowała z byciem polecanym na poziomie r = +0,57, ale to tylko 2,4% cytowań ChatGPT, za to u Perplexity serwisy społecznościowe dają ok. 31% cytowań. Dla firmy sprzedającej w Polsce to kanał drugorzędny, a sztuczna aktywność jest ryzykowna: w I kwartale 2026 automaty Reddita usuwały około 25 000 spamerskich wpisów dziennie.

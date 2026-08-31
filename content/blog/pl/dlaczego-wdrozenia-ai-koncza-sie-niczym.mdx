@@ -1,0 +1,122 @@
+---
+title: "Nieudane wdrożenie AI w firmie: osiem powodów z realnych projektów"
+description: "Gartner: 89% pilotaży agentowych nie dochodzi do produkcji. Skąd naprawdę biorą się te liczby, osiem powodów porażki i ten sam zakres zrobiony w trzy tygodnie."
+date: "2026-09-03"
+cluster: "ai-projects-fail-reasons"
+keywords:
+  - "nieudane wdrożenie AI w firmie"
+  - "dlaczego projekty AI się nie udają"
+  - "pilotaż AI produkcja"
+  - "agent AI wdrożenie problemy"
+  - "audyt AI po nieudanym projekcie"
+ogImage: "/og/ai-projects-fail-reasons.webp"
+---
+
+Wdrożenie AI rzadko wybucha. Zwykle po prostu cichnie. Demo robiło wrażenie, pilotaż ruszył we wrześniu, w listopadzie osoba, która go pilnowała, zmieniła pracę, w styczniu wygasł klucz API i nikt tego nie zauważył. Formalnie projekt nie upadł. Przestał istnieć, a nikt w firmie nie potrafi powiedzieć, czy się opłacił.
+
+Piszę to jako wykonawca, do którego coraz częściej trafiają cudze zatrzymane projekty. Poniżej osiem powodów, przez które kończą się niczym, i to, jak wyglądałby ten sam zakres zrobiony wąsko. Zaczynam od liczb, bo krążą po sieci w przekręconej formie, a część decyzji zapada właśnie na ich podstawie.
+
+## Liczby, które krążą po sieci, i co naprawdę mierzą
+
+Prawie każda rozmowa o porażkach AI opiera się na kilku tych samych statystykach, cytowanych bez rodowodu. Każda z nich mierzy co innego.
+
+| Liczba | Kto ją podaje | Co dokładnie mierzy |
+| --- | --- | --- |
+| 89% pilotaży agentowych nie dochodzi do produkcji | Gartner | odsetek pilotaży zatrzymanych przed produkcją; te, które przechodzą, raportują 171% ROI |
+| Ponad 40% projektów agentowych zostanie anulowanych do końca 2027 | Gartner | prognoza na przyszłość, nie stan dzisiejszy |
+| 95% pilotaży AI „nie działa” | MIT, State of AI in Business | generatywna AI ogólnie, nie agenci; brak mierzalnego wpływu na wynik finansowy, a nie anulowanie projektu |
+| 42% firm porzuciło większość inicjatyw AI w 2025 | S&P Global Market Intelligence | wzrost z 17% w 2024; średnio 46% PoC kasowanych przed produkcją |
+| 78% liderów technologicznych ma pilotaż agentowy, poniżej 15% wdrożyło go w całej organizacji | branżowe badania rynku 2026 | dystans między pilotażem a skalą |
+| Około 25% inicjatyw AI daje oczekiwany zwrot, 35% firm zgłasza brak korzyści albo wyniki dużo poniżej oczekiwań | polskie zestawienia rynkowe 2026 | subiektywna ocena efektu po wdrożeniu |
+
+Najczęściej przekręca się te 95% z MIT. **To nie jest liczba Gartnera, nie dotyczy agentów i nie znaczy, że 95% projektów anulowano.** Badanie sprawdzało, czy pilotaż generatywnej AI dał widoczny wpływ na wynik finansowy firmy. Projekt używany codziennie, który oszczędza ludziom czas, ale nie przełożył się na osobną pozycję w rachunku wyników, w tej metodologii ląduje po stronie porażek. To zupełnie inna kategoria niż „zabito projekt”.
+
+W Polsce ten rynek jest jeszcze młodszy. GUS podaje, że w 2025 roku 8,7% firm w Polsce deklarowało wykorzystanie technologii AI, a AI zbudowaną na zamówienie przez podmiot zewnętrzny miało 2,1%. Nieudanych wdrożeń jest u nas statystycznie mniej niż w globalnych nagłówkach, tyle że każde boli mocniej: dla firmy jest pierwsze i zwykle ostatnie na kilka lat.
+
+## Powód 1: nikt nie zapisał, co znaczy „działa”
+
+Najczęstszy zapis w zakresie prac brzmi: „agent ma odpowiadać na pytania klientów”. To opis czynności, nie kryterium. Na jego podstawie nie da się po trzech miesiącach powiedzieć, czy projekt się opłacił, więc rozmowa o efekcie kończy się na wrażeniach dwóch osób, które pamiętają różne rzeczy.
+
+Kryterium wygląda inaczej: agent zamyka 60% zapytań z formularza bez udziału człowieka, a mediana czasu pierwszej odpowiedzi spada poniżej trzech minut w godzinach pracy. Do tego jedna liczba bazowa, zmierzona przed startem. Bez punktu odniesienia każdy wynik da się opowiedzieć jako sukces i jako klapę.
+
+Prosta zasada: jeśli nie umiesz podać liczby, którą projekt ma ruszyć, i nie umiesz zmierzyć jej dzisiaj, nie kupuj jeszcze wdrożenia. Kup tydzień pracy nad tym, żeby ją zmierzyć.
+
+## Powód 2: dane siedzą w mailach i w Excelu
+
+Agent jest tak dobry, jak źródło, z którego czyta. Jeśli wiedza o produktach mieszka w trzech wersjach cennika na dysku, w wątkach mailowych i w głowie jednej osoby z działu obsługi, model będzie odpowiadał pewnym tonem na podstawie nieaktualnego pliku. To nie jest problem modelu, tylko problem porządku.
+
+Liczby to potwierdzają. Badanie MLOps Community z 2026 roku objęło 143 wdrożenia RAG w firmach: 73% zaliczyło co najmniej jedną krytyczną awarię w pierwszym kwartale produkcji, a 41% tych awarii nie wykryły standardowe zestawy testów. Osobne badanie wyszukiwarek wewnętrznych pokazuje, że pracownik znajduje to, czego szuka, za pierwszym razem w około 10% przypadków. Agent postawiony na tym samym bałaganie dziedziczy go w całości, tylko szybciej i pewniejszym głosem.
+
+Pierwszy krok jest nudny i nie ma w nim AI: jedno źródło prawdy na jeden temat, z datą aktualizacji i właścicielem. Jeżeli w grę wchodzą dane osobowe klientów, dochodzi jeszcze pytanie, gdzie one fizycznie trafiają - rozbierałem to w tekście o tym, [gdzie chatbot AI przechowuje dane klientów](/pl/blog/gdzie-chatbot-ai-przechowuje-dane-klientow).
+
+## Powód 3: integracja z tym, co już stoi w firmie
+
+Pilotaż zwykle żyje obok systemów. Działa na kopii danych, w osobnym oknie, bez zapisu z powrotem. Produkcja zaczyna się dokładnie tam, gdzie agent musi wejść do Comarch Optima, Subiekta, BaseLinkera albo firmowego CRM-u i coś w nim zmienić. Wtedy okazuje się, że API jest ograniczone, uprawnienia trzeba wyprosić, a integrator, który wdrażał ERP, ma wolny termin za kwartał.
+
+To jest zwykle najdroższy etap i najczęściej niedoszacowany. Polscy dostawcy publikują widełki, które dobrze pokazują skalę: agent na bazie wiedzy 20 000-60 000 zł plus 2 000-8 000 zł miesięcznie, a agent, który realnie czyta i zapisuje dane w CRM, ERP albo systemie logistycznym, 80 000-250 000 zł wdrożenia i 8 000-40 000 zł miesięcznie utrzymania. Widełki dla mniejszych wdrożeń zaczynają się od 3 000-15 000 zł konfiguracji plus abonament.
+
+Dobra wiadomość jest taka, że integracja rzadko musi być pełna od razu. Jedna operacja zapisu w jednym systemie wystarcza, żeby projekt przestał być demem. Jak to wygląda po stronie sprzedaży, opisałem w materiale o [połączeniu agenta AI z CRM](/pl/blog/integracja-agenta-ai-z-crm).
+
+## Powody 4, 5 i 6: właściciel, testy, utrzymanie
+
+Ta trójka zawsze idzie razem i to ona najczęściej wykańcza projekty, które technicznie były w porządku.
+
+**Brak właściciela.** Agent musi mieć jedną osobę po stronie firmy, która czyta jego rozmowy raz w tygodniu i ma prawo powiedzieć „na to nie odpowiadamy”. Jeśli właścicielem jest „dział”, to znaczy, że nie ma go wcale. Projekt bez właściciela umiera przy pierwszej zmianie kadrowej.
+
+**Brak testów.** Zestaw 30-50 realnych pytań z historii firmy, z zapisaną poprawną odpowiedzią, przepuszczany po każdej zmianie promptu i po każdej zmianie modelu. Bez tego nikt nie zauważy, że po aktualizacji modelu agent zaczął inaczej liczyć rabaty. Raport OWASP z 2026 roku podaje, że średnie pokrycie monitoringiem agentów produkcyjnych wynosi 52%, czyli mniej więcej co drugi działa bez nadzoru.
+
+**Brak budżetu na utrzymanie.** Rynek przyjmuje, że roczne utrzymanie to 15-25% wartości pierwszego wdrożenia. Do tego dochodzą pozycje, o których rzadko mówi się przy podpisaniu: 5-20 wywołań modelu na jedno zadanie, kwartalne poprawki integracji i autoryzacji, dryf promptów przy zmianie wersji modelu, 5-15% spraw wymagających człowieka i osobno logi, wersjonowanie promptów oraz obsługa danych osobowych. Projekt bez tej pozycji w budżecie nie jest tańszy, tylko krócej żyje.
+
+## Powody 7 i 8: pełna autonomia tam, gdzie wystarczała bramka akceptacji
+
+Siódmy powód to autonomia kupiona za wcześnie. Agent, który sam wysyła ofertę do klienta, sam wystawia korektę albo sam zmienia status zamówienia, jest efektowny na demie i nieakceptowalny w firmie, która nie ma historii zaufania do tego narzędzia. Wystarczy jeden błąd cenowy wysłany do trzydziestu klientów, żeby projekt zamknięto tego samego dnia.
+
+Bramka akceptacji rozwiązuje to za darmo: agent przygotowuje, człowiek zatwierdza jednym kliknięciem, wszystko ląduje w logu. Po dwóch miesiącach widać z danych, w których typach spraw agent nie pomylił się ani razu, i dopiero te przepuszcza się automatycznie. To samo dotyczy przekazywania rozmów, gdzie granica autonomii jest najbardziej widoczna dla klienta - zasady opisałem w tekście o [przekazaniu rozmowy od bota do człowieka](/pl/blog/przekazanie-od-bota-do-czlowieka).
+
+Ósmy powód jest niewygodny dla mojej branży: sporo projektów agentowych powinno być zwykłą, deterministyczną automatyzacją. Jeśli reguła daje się zapisać jako „jeśli w mailu jest numer zamówienia, znajdź je i odpowiedz szablonem”, to agent LLM dokłada tu koszt, niepewność i nową powierzchnię ataku, a nie wartość. To samo dotyczy agentów klikających po interfejsach: publikowane wyniki wyglądają nieźle (87% na WebVoyager dla modelu OpenAI, 82,3% na OSWorld dla Claude Opus 4.7), ale w praktyce takie agenty działają na popularnych stronach i przewidywalnie sypią się na firmowych interfejsach. Model wpuszczam tam, gdzie trzeba zrozumieć nieustrukturyzowany tekst albo podjąć decyzję, której nie da się opisać regułą.
+
+## Ten sam projekt zrobiony wąsko: trzy tygodnie
+
+Tak wygląda zakres, który realnie dowozi, zamiast pilotażu na wszystko naraz. Jeden proces, jedno kryterium, jedna bramka akceptacji.
+
+| Tydzień | Co powstaje | Kryterium wyjścia |
+| --- | --- | --- |
+| 1 | Wybór jednego procesu, pomiar stanu obecnego, jedno źródło wiedzy z właścicielem i datą | Znana liczba bazowa: ile spraw miesięcznie, ile minut na sprawę |
+| 2 | Agent na wąskim zakresie, jedna integracja zapisu, bramka akceptacji, log rozmów | Zestaw 30-50 pytań testowych przechodzi bez błędu merytorycznego |
+| 3 | Praca na realnym ruchu z człowiekiem zatwierdzającym, tygodniowy przegląd rozmów | Porównanie z liczbą bazową i decyzja: rozszerzać, zawęzić czy zatrzymać |
+
+Trzeci tydzień jest najważniejszy, bo zawiera realną opcję „zatrzymać”. Projekt, w którym nie ma miejsca na taką decyzję, nie ma też sposobu, żeby się skończyć - dlatego kończy się ciszą.
+
+Budżetowo to nie jest duży wydatek: mój agent AI startuje od 6 500 zł (1 500 €), agent sprzedażowy zintegrowany z CRM od 10 700 zł (2 500 €). Mniej niż jeden kwartał zawieszonego wdrożenia, które nikomu nie służy, a wciąż generuje faktury za licencje.
+
+## Kiedy nie warto tego reanimować
+
+Nie każdy zatrzymany projekt trzeba ratować. Jeśli proces obsługuje kilkanaście spraw miesięcznie, jeśli dane trzeba by najpierw zbierać przez pół roku albo jeśli w firmie nie ma nikogo, kto weźmie to na siebie, uczciwa odpowiedź brzmi: odłóż to i wróć, gdy zmieni się któryś z tych warunków. Wolę to powiedzieć na starcie niż po fakturze.
+
+Jeśli natomiast masz zatrzymane wdrożenie i nie wiesz, czy dokończyć, przepisać czy skasować, od tego jest [audyt AI](/pl/uslugi/audyt-ai) od 4 900 zł: przeglądam, co faktycznie zostało zbudowane, gdzie stoją dane, ile kosztuje utrzymanie i co da się uratować, a wynikiem jest lista decyzji z kosztami, a nie prezentacja. Jeśli projektu jeszcze nie ma, buduję [agentów AI](/pl/uslugi/agenci-ai) od razu w wąskim zakresie, z kryterium i bramką akceptacji. W obu przypadkach [napisz krótko](/pl/kontakt), co się zatrzymało i na czym, a odpowiem, czy to w ogóle warte pieniędzy.
+
+## FAQ
+
+**Dlaczego większość wdrożeń AI kończy się niczym?**
+Najczęściej nie z powodu technologii, tylko braku zapisanego kryterium sukcesu, właściciela po stronie firmy i budżetu na utrzymanie. Gartner podaje, że 89% pilotaży agentowych nie dochodzi do produkcji, a S&P Global Market Intelligence, że 42% firm porzuciło większość inicjatyw AI w 2025 roku wobec 17% rok wcześniej. W praktyce projekt zatrzymuje się na etapie integracji z realnymi systemami albo cicho umiera po odejściu osoby, która go pilnowała.
+
+**Czy prawdą jest, że 95% projektów AI upada?**
+Ta liczba pochodzi z raportu MIT State of AI in Business i jest regularnie przekręcana. Dotyczy pilotaży generatywnej AI ogólnie, nie agentów, i mierzy brak widocznego wpływu na wynik finansowy, a nie anulowanie projektu. Nie jest to też liczba Gartnera, choć bywa mu przypisywana. Projekt używany codziennie, który nie przełożył się na osobną pozycję w rachunku wyników, w tej metodologii liczy się jako porażka.
+
+**Po czym poznać, że projekt AI zmierza donikąd?**
+Sygnały są trzy i widać je wcześnie: nie ma jednej liczby, którą projekt ma poprawić, nie ma jednej osoby odpowiedzialnej za treść odpowiedzi, a agent nadal pracuje na kopii danych zamiast zapisywać cokolwiek do systemu firmy. Do tego brak zestawu testowych pytań z poprawnymi odpowiedziami. Jeśli po sześciu tygodniach żaden z tych punktów nie jest domknięty, projekt zwykle nie dojdzie do produkcji.
+
+**Ile kosztuje uratowanie porzuconego wdrożenia AI?**
+Zaczyna się od audytu: u mnie 4 900 zł za przegląd tego, co zbudowano, gdzie są dane, jakie są koszty utrzymania i co da się wykorzystać ponownie. Dalej zależy od tego, czy zostaje logika i integracje, czy trzeba pisać od nowa. Dla porównania polscy dostawcy publikują widełki 3 000-15 000 zł za konfigurację prostszego agenta i 80 000-250 000 zł za agenta zapisującego dane w CRM lub ERP, więc częściej opłaca się zawęzić zakres niż dokończyć pierwotny.
+
+**Ile powinno trwać pierwsze wdrożenie agenta AI?**
+Trzy tygodnie na jeden proces: tydzień na pomiar stanu obecnego i uporządkowanie źródła wiedzy, tydzień na agenta z jedną integracją i bramką akceptacji, tydzień na pracę na realnym ruchu. Na końcu musi zapaść decyzja porównana z liczbą bazową: rozszerzać, zawęzić albo zatrzymać. Projekty rozpisane na sześć miesięcy bez punktu kontrolnego to ta sama grupa, która nie dochodzi do produkcji.
+
+**Czy agent AI musi działać w pełni autonomicznie?**
+Nie i na starcie nie powinien. Bezpieczny układ to agent, który przygotowuje odpowiedź, ofertę albo wpis w systemie, a człowiek zatwierdza to jednym kliknięciem, przy pełnym logu operacji. Po dwóch miesiącach z danych widać, w których typach spraw nie było ani jednego błędu, i te można puścić automatycznie. Pełna autonomia kupiona w pierwszym tygodniu to najczęstsza przyczyna nagłego zamknięcia projektu po jednym głośnym błędzie.
+
+**Co zrobić, jeśli firmowa wiedza jest tylko w mailach i Excelu?**
+Najpierw jedno źródło prawdy na jeden temat, z właścicielem i datą aktualizacji, dopiero potem agent. Badanie MLOps Community z 2026 roku na 143 wdrożeniach RAG pokazało, że 73% zaliczyło krytyczną awarię w pierwszym kwartale produkcji, a 41% tych awarii nie wykryły standardowe testy. Uporządkowanie jednego obszaru wiedzy zajmuje zwykle kilka dni i jest tańsze niż jakakolwiek próba obejścia tego modelem.
+
+**Czy warto zamiast agenta zrobić zwykłą automatyzację?**
+Bardzo często tak. Jeśli regułę da się zapisać wprost, na przykład „znajdź numer zamówienia w mailu i odpowiedz szablonem ze statusem”, deterministyczna automatyzacja jest tańsza, przewidywalna i nie generuje kosztu tokenów ani nowej powierzchni ataku. Model warto wpuszczać tam, gdzie trzeba zrozumieć nieustrukturyzowany tekst albo podjąć decyzję, której nie sposób opisać regułą. Sporo nieudanych projektów agentowych to dobre automatyzacje kupione w złej formie.

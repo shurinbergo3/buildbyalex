@@ -1,0 +1,155 @@
+---
+title: "Agent AI czy zwykły workflow? Test sześciu pytań przed wyceną"
+description: "Większość projektów agentowych powinna być zwykłą automatyzacją. Test sześciu pytań, tabela kosztów obu wersji i pozycje, o które trzeba zapytać wykonawcę."
+date: "2026-09-03"
+cluster: "agent-or-workflow"
+keywords:
+  - "agent ai czy automatyzacja n8n"
+  - "kiedy agent ai ma sens"
+  - "koszt agenta ai a workflow"
+  - "automatyzacja procesu czy model językowy"
+  - "wdrożenie agenta ai cena"
+ogImage: "/og/agent-or-workflow.webp"
+---
+
+Zapytania brzmią zwykle tak: "potrzebujemy agenta AI do obsługi zamówień". Po dwudziestu minutach rozmowy okazuje się, że zamówienia przychodzą z jednego formularza, zawsze z tymi samymi polami, a robota polega na przepisaniu ich do arkusza i do CRM. To nie jest zadanie dla modelu językowego. To kilkanaście węzłów w n8n, które postawi się w dwa dni i które będzie chodzić rok bez ani jednego wywołania modelu.
+
+Pytanie jest warte konkretnych pieniędzy. Polscy dostawcy publikują za agenta widełki 3 000-15 000 zł wdrożenia plus 500-2 500 zł miesięcznie, a przy agencie zintegrowanym z CRM 15 000-45 000 zł. Agent, który czyta i zapisuje dane w ERP, wyceniany jest już na 80 000-250 000 zł. Jeśli ten sam efekt daje deterministyczny scenariusz, różnica idzie w dziesiątki tysięcy złotych rocznie. Poniżej test, który robię na pierwszym spotkaniu, i liczby, które za nim stoją.
+
+## Dwie różne rzeczy sprzedawane pod jedną nazwą
+
+Jedyna prawdziwa różnica jest taka: **kto decyduje o następnym kroku**.
+
+W deterministycznym workflow kolejność ustalasz ty, na etapie budowy. Przyszedł mail, sprawdź nadawcę, wyciągnij załącznik, zapisz do bazy, powiadom handlowca. Jeśli warunek A, to gałąź w lewo, jeśli B, w prawo. Wszystkie ścieżki są narysowane i dają się policzyć.
+
+W agencie kolejność ustala model w trakcie działania. Dostaje cel, listę narzędzi i sam wybiera, po które sięgnąć, ile razy i kiedy uznać, że skończył. To daje elastyczność i to samo odbiera przewidywalność.
+
+Sama obecność modelu w procesie nie robi z niego agenta. Węzeł, który czyta maila i zwraca jedną z pięciu kategorii z listy, to nadal zwykły workflow z jednym inteligentnym krokiem. I bardzo często dokładnie to jest właściwą odpowiedzią na zapytanie klienta.
+
+Widać, gdzie dryfuje budżet: biblioteka szablonów n8n przekroczyła w sierpniu 2026 około 11 700 pozycji, a szablony wieloagentowe podwoiły się w dwa miesiące i stanowią już mniej więcej czwartą część kategorii AI.
+
+## Test na sześć pytań
+
+Odpowiadaj tak albo nie, o konkretnym procesie, nie o firmie w ogóle.
+
+1. **Czy wejście przychodzi w nieprzewidywalnej formie?** Swobodny tekst maila, PDF od kontrahenta, skan, nagranie rozmowy, a nie pola formularza.
+2. **Czy liczba możliwych ścieżek jest większa, niż da się wypisać na jednej kartce?** Jeśli potrafisz naszkicować diagram i mieści się w dwudziestu gałęziach, model nie jest potrzebny.
+3. **Czy któryś krok wymaga oceny sensu treści, a nie porównania wartości?** "Czy to reklamacja, czy zapytanie ofertowe" to ocena sensu. "Czy kwota przekracza 5 000 zł" nie jest.
+4. **Czy wyjątki są regułą?** Jeśli ponad 10% spraw nie mieści się w schemacie i za każdym razem inaczej, sztywne rozgałęzienia będą rosły w nieskończoność.
+5. **Czy kolejność kroków zależy od tego, co system znajdzie po drodze?** Sprawdzi w CRM, dopiero potem wie, czy szukać w mailach, czy w umowach.
+6. **Czy różnica między odpowiedzią poprawną a dobrze napisaną jest warta pieniędzy?** Przy odpowiedzi do klienta zwykle tak. Przy przepisaniu danych między systemami nie ma żadnego znaczenia.
+
+| Liczba odpowiedzi "tak" | Co budować |
+| --- | --- |
+| 0-1 | Deterministyczny workflow, bez modelu w środku |
+| 2-3 | Workflow z jednym krokiem LLM w miejscu, gdzie pada "tak" |
+| 4-6 | Agent, ale zawężony do jednego zadania, nie do całego działu |
+
+Większość zapytań, które trafiają do mnie z hasłem "agent AI", kończy się wynikiem 0-2. To nie znaczy, że agenci nie działają. Znaczy, że nazwa wyprzedziła potrzebę.
+
+## Kiedy deterministyczny workflow wygrywa
+
+Cztery rzeczy, których agent nie daje z definicji.
+
+**Koszt jednostkowy.** Workflow nie płaci za tokeny. Sto zamówień dziennie i dziesięć tysięcy zamówień dziennie kosztują w rachunku za model dokładnie tyle samo, czyli zero. Rachunek za agenta rośnie liniowo z ruchem, a przy dużym wolumenie to jest ta pozycja, która psuje ROI.
+
+**Powtarzalność.** To samo wejście daje to samo wyjście, więc test robi się raz. Model przy tym samym mailu może dziś wybrać jedno narzędzie, a po aktualizacji wersji inne.
+
+**Debugowanie.** Kiedy pada workflow, log pokazuje węzeł, dane wejściowe i błąd. Kiedy pada agent, masz łańcuch wywołań i trzeba odtworzyć, dlaczego model zdecydował tak, a nie inaczej. Realnie to różnica między dziesięcioma minutami a połową dnia.
+
+**Rozliczalność.** Przy danych osobowych i dokumentach księgowych łatwiej wykazać, co system robi, gdy ścieżka jest narysowana. Szerzej o kolejności prac pisałem w tekście o tym, [od czego zacząć automatyzację procesów](/pl/blog/automatyzacja-procesow-od-czego-zaczac).
+
+Statystyka jest po tej samej stronie. Gartner prognozuje, że do końca 2027 ponad 40% projektów agentowych zostanie zamkniętych, a 89% pilotaży agentowych nigdy nie wchodzi na produkcję. S&P Global Market Intelligence podaje, że w 2025 roku 42% firm porzuciło większość inicjatyw AI, wobec 17% rok wcześniej. Powód rzadko jest technologiczny: budowano rzecz droższą i mniej przewidywalną, niż wymagało zadanie.
+
+## Kiedy agent naprawdę ma sens
+
+Są procesy, w których sztywny scenariusz nie ma szans, i wtedy agent zwraca się szybko.
+
+**Nieustrukturyzowane wejście.** Skrzynka z zapytaniami ofertowymi to klasyk polskiego rynku: produkcja, budowlanka i hurt dostają RFQ mailem, w załączniku PDF, arkusz, czasem zdjęcie rysunku. Tego nie da się rozgałęzić, to trzeba zrozumieć.
+
+**Decyzja zamiast reguły.** Kwalifikacja leada z długiej rozmowy, przypisanie sprawy do działu na podstawie treści i zapis wyniku tam, gdzie pracuje handlowiec, czyli zwykle w [CRM dla małej firmy](/pl/blog/jaki-crm-dla-malej-firmy).
+
+**Wyjątki jako codzienność.** Reklamacje i obsługa posprzedażowa, gdzie połowa zgłoszeń to sytuacja nieopisana w procedurze.
+
+Warto zobaczyć, czego rynek naprawdę używa. W badaniu Upwork wśród małych firm pilotaże najczęściej dotyczą wsparcia decyzji (41%) i wyszukiwania informacji (36%), a autonomiczne wykonywanie zadań zamyka listę (30%). Agent, który czyta, klasyfikuje i przekazuje dalej, wchodzi do produkcji. Ten, który ma prowadzić proces sam od początku do końca, utyka w pilotażu.
+
+## Ten sam proces w dwóch wersjach
+
+Jedno zadanie: przychodzące zapytania ofertowe, z których trzeba wyciągnąć pozycje i przygotować szkic oferty. Po lewej wersja z formularzem, który wymusza strukturę. Po prawej agent czytający to, co przyszło mailem.
+
+| Kryterium | Workflow deterministyczny | Agent na modelu językowym |
+| --- | --- | --- |
+| Koszt budowy u mnie | od 900 € (około 3 900 zł) za proces | od 1 500 € (około 6 400 zł) |
+| Widełki rynkowe w Polsce | pojedyncza automatyzacja, poniżej progu agentowego | 3 000-15 000 zł, z integracją CRM 15 000-45 000 zł |
+| Opłata za model | brak | 5-20 wywołań na jedno zadanie, rośnie z wolumenem |
+| Koszt miesięczny | hosting i konta w narzędziach | polskie cenniki podają 500-2 500 zł/mc, część dostawców 200-500 zł/mc za samo API |
+| Punkty awarii | tyle, ile węzłów, każdy widoczny w logu | węzły plus zachowanie modelu, które zmienia się przy aktualizacji |
+| Czas diagnozy typowego błędu | minuty, log wskazuje węzeł | godziny, trzeba odtworzyć łańcuch decyzji |
+| Powtarzalność | to samo wejście, to samo wyjście | to samo wejście, możliwa inna ścieżka |
+| Udział człowieka | tylko wyjątki zdefiniowane z góry | praktycy podają 5-15% spraw do przeglądu |
+| Utrzymanie roczne | zmiany, gdy dostawca zmieni API | polscy dostawcy liczą 15-25% wartości wdrożenia |
+
+Wniosek nie brzmi "workflow jest lepszy". Brzmi: jeśli da się wymusić strukturę na wejściu, lewa kolumna jest tańsza w każdym wierszu. Czasem najtańszą inwestycją w AI jest formularz.
+
+## Ukryte koszty wersji agentowej
+
+Pięć pozycji, których nie ma w ofercie, a które budujący agentów wymieniają zgodnie.
+
+- **Liczba wywołań na zadanie.** Nie jedno, tylko 5-20. Przy trzystu sprawach miesięcznie to inna skala rachunku niż zakładał kalkulator z demo.
+- **Przegląd ludzki.** 5-15% spraw i tak trafia do człowieka. Jeśli w biznesplanie było 0%, wynik będzie ujemny.
+- **Dryf promptu przy zmianie modelu.** Dostawca podnosi wersję, zachowanie się przesuwa, trzeba przetestować i poprawić. To praca kwartalna, nie jednorazowa.
+- **Utrzymanie integracji i autoryzacji.** Tokeny wygasają, API się zmieniają. Polskie firmy liczą na to 15-25% wartości wdrożenia rocznie i to jest uczciwa liczba.
+- **Governance.** Logi, wersjonowanie promptów, obsługa danych osobowych. Przy AI Act to warunek wejścia, nie opcja.
+
+Policz to na kartce. Agent wyceniony na 8 000 zł to przy regule półtora raza jakieś 12 000 zł samego wdrożenia. Doliczasz 500-2 500 zł miesięcznie z polskich cenników, czyli 6 000-30 000 zł w skali roku. Pierwszy rok wychodzi na 14 000-38 000 zł, a nie na 8 000 zł z oferty. Globalne cenniki mają tę samą strukturę: agent jednozadaniowy to 1 500-5 000 USD budowy plus 300-800 USD miesięcznie.
+
+## Wersja hybrydowa, czyli to, co buduję najczęściej
+
+Najlepszy stosunek efektu do ryzyka daje deterministyczny scenariusz z jednym krokiem LLM w środku. Szkielet jest sztywny: pobierz, zapisz, powiadom, ponów przy błędzie. Model dostaje jedno wąskie zadanie z zamkniętym wyjściem: wyciągnij z tego maila pięć pól, wybierz jedną kategorię z listy, napisz szkic odpowiedzi.
+
+Trzy praktyczne zalety. Model nie decyduje o kolejności, więc scenariusz jest testowalny. Rachunek jest przewidywalny, bo wywołanie przypada jedno na sprawę. A gdy model zwróci nonsens, walidacja to wyłapie i sprawa idzie do człowieka, zamiast wysypać resztę procesu.
+
+Po pół roku widać z danych, gdzie sztywność faktycznie boli, i dopiero to jest moment na rozszerzenie do prawdziwego agenta. Kandydatów na pierwszy proces wypisałem w materiale o tym, [co zautomatyzować w firmie najpierw](/pl/blog/co-zautomatyzowac-w-firmie-najpierw).
+
+## Jak zapisać to w zapytaniu ofertowym
+
+Nie pisz "chcemy agenta AI". Opisz proces i dołóż sześć pytań do wykonawcy. Odpowiedzi rozstrzygają wycenę lepiej niż katalog usług.
+
+- Które kroki są deterministyczne, a w których decyduje model?
+- Ile wywołań modelu przypada na jedno zadanie i kto płaci za tokeny?
+- Co się dzieje, gdy model zwróci wynik niepoprawny formalnie? Czy jest walidacja i ścieżka awaryjna?
+- Jaki procent spraw idzie do człowieka w pierwszym miesiącu i jak to mierzycie?
+- Co się dzieje przy zmianie wersji modelu i kto płaci za retest?
+- Jak wygląda log jednej sprawy, gdy trzeba wyjaśnić klientowi, dlaczego system zrobił to, co zrobił?
+
+Wykonawca, który na pierwsze pytanie odpowiada "agent sam sobie poradzi", wycenia coś, czego nie będzie umiał utrzymać.
+
+GUS podaje, że w 2025 roku 8,7% polskich firm deklarowało korzystanie z technologii AI, a rozwiązanie zbudowane na zamówienie przez zewnętrzną firmę miało zaledwie 2,1%. Większość rynku jest przed pierwszym wdrożeniem, nie przed dziesiątym. Pierwsze wdrożenie powinno być nudne i działać.
+
+Jeśli nie masz pewności, po której stronie leży twój proces, [audyt AI](/pl/uslugi/audyt-ai) daje odpowiedź na papierze: mapa procesu, wynik testu dla każdego kandydata, wycena obu wariantów i rekomendacja, czego nie robić. Kosztuje od 4 900 zł, a rekomendacja bywa tańsza niż to, po co klient przyszedł. Jeśli wynik jest już oczywisty i wystarczy zwykła [automatyzacja procesów](/pl/uslugi/automatyzacja-procesow), robię ją od 900 € za proces, zwykle w dwa do trzech tygodni. Tak czy inaczej, [napisz do mnie](/pl/kontakt) z opisem jednego konkretnego procesu, nie całej firmy.
+
+## FAQ
+
+**Czym różni się agent AI od zwykłej automatyzacji?**
+Różnica jest jedna: kto ustala kolejność kroków. W automatyzacji projektujesz ją z góry i system zawsze idzie tą samą ścieżką. W agencie model dostaje cel i listę narzędzi, po czym sam decyduje w trakcie działania, po które sięgnąć i kiedy skończyć. Obecność modelu w jednym kroku nie robi jeszcze z procesu agenta.
+
+**Kiedy agent AI naprawdę się opłaca?**
+Gdy wejście przychodzi w nieprzewidywalnej formie (mail, PDF, rozmowa), gdy ponad 10% spraw to wyjątki i gdy jakiś krok wymaga oceny sensu treści, a nie porównania liczb. Jeśli w teście sześciu pytań masz cztery odpowiedzi "tak" i więcej, agent ma sens. Przy zerze albo jednym "tak" deterministyczny workflow zrobi to samo taniej i przewidywalniej.
+
+**Ile kosztuje agent AI, a ile zwykły workflow w Polsce?**
+Polscy dostawcy publikują za agenta 3 000-15 000 zł wdrożenia plus 500-2 500 zł miesięcznie, a przy integracji z CRM 15 000-45 000 zł. Agent zapisujący dane w ERP wyceniany jest na 80 000-250 000 zł. U mnie automatyzacja procesu zaczyna się od 900 € (około 3 900 zł), a agent od 1 500 € (około 6 400 zł). Do każdej wyceny agentowej doliczaj koszt modelu i utrzymanie na poziomie 15-25% wdrożenia rocznie, bo tyle liczy rynek.
+
+**Dlaczego tyle projektów agentowych upada?**
+Gartner prognozuje, że do końca 2027 ponad 40% projektów agentowych zostanie zamkniętych, a 89% pilotaży nigdy nie wchodzi do produkcji. S&P Global Market Intelligence podaje, że w 2025 roku 42% firm porzuciło większość inicjatyw AI, wobec 17% rok wcześniej. Najczęstsza przyczyna nie jest techniczna: wybrano architekturę droższą i mniej przewidywalną, niż wymagało zadanie, a koszt modelu i przeglądu ludzkiego pojawił się dopiero w rachunku.
+
+**Czym jest wersja hybrydowa i dlaczego zwykle wystarcza?**
+To sztywny scenariusz z jednym krokiem modelu w środku: mechanika jest zaprojektowana, a model dostaje wąskie zadanie z zamkniętym wyjściem, na przykład wyciągnięcie pięciu pól z maila albo wybór kategorii z listy. Koszt jest przewidywalny, całość da się przetestować, a błędny wynik wyłapuje walidacja. Dla większości małych firm to właściwy pierwszy krok, a rozbudowa do pełnego agenta ma sens dopiero na danych z kilku miesięcy.
+
+**Ile wywołań modelu zużywa agent na jedno zadanie?**
+Praktycy budujący agentów podają 5-20 wywołań na zadanie, nie jedno. Do tego 5-15% spraw i tak trafia do przeglądu przez człowieka. Tych dwóch pozycji najczęściej brakuje w kalkulacji zwrotu, a przy kilkuset sprawach miesięcznie potrafią odwrócić wynik.
+
+**O co zapytać wykonawcę przed podpisaniem umowy na agenta?**
+O sześć rzeczy: które kroki są deterministyczne, ile wywołań modelu przypada na zadanie i kto płaci za tokeny, co się dzieje przy niepoprawnym wyniku modelu, jaki procent spraw idzie do człowieka w pierwszym miesiącu, kto płaci za retest po zmianie wersji modelu oraz jak wygląda log pojedynczej sprawy. Odpowiedź "agent sam sobie poradzi" jest sygnałem, że wykonawca nie utrzymywał jeszcze takiego systemu w produkcji.
+
+**Czy warto zacząć od audytu, czy od razu budować?**
+Jeśli masz jeden oczywisty proces i wynik testu jest jednoznaczny, buduj od razu, audyt niczego nie doda. Audyt ma sens, gdy kandydatów jest kilka i trzeba wybrać kolejność albo gdy ktoś przysłał wycenę na kilkadziesiąt tysięcy i chcesz sprawdzić, czy zakres odpowiada zadaniu. GUS podaje, że technologii AI używało w 2025 roku 8,7% polskich firm, więc większość rynku podejmuje tę decyzję pierwszy raz.

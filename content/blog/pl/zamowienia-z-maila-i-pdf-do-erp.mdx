@@ -1,0 +1,163 @@
+---
+title: "Zamówienia z maila i PDF prosto do ERP: agent AI dla hurtowni"
+description: "Pipeline, który czyta zamówienia z maila, PDF i Excela, mapuje indeksy klienta na SKU i wystawia dokument w Subiekcie. Dziewięć kroków, koszty i kiedy odpuścić."
+date: "2026-09-01"
+cluster: "ai-order-intake-wholesale"
+keywords:
+  - "automatyzacja zamówień hurtownia ai"
+  - "zamówienia z maila do ERP"
+  - "parsowanie PDF zamówienia"
+  - "agent AI Subiekt integracja"
+  - "mapowanie indeksów klienta na SKU"
+ogImage: "/og/ai-order-intake-wholesale.webp"
+---
+
+Hurtownia przyjmuje zamówienia tak samo jak w 2012 roku: mailem. W treści wiadomości, w załączonym PDF, w Excelu z szablonem klienta, czasem na zdjęciu kartki zrobionym przez przedstawiciela. Ktoś to otwiera, przepisuje do Subiekta, sprawdza stany, rezerwuje, wystawia fakturę, drukuje etykietę. Osiem razy dziennie albo osiemdziesiąt.
+
+To jeden z najlepiej policzalnych procesów, jakie da się oddać agentowi, i jeden z tych, w których najłatwiej się przejechać. Poniżej pipeline krok po kroku i najtrudniejszy element: mapowanie indeksów klienta na Twoje SKU.
+
+## Dlaczego akurat teraz
+
+Zbiegły się dwie rzeczy. KSeF: odbieranie e-faktur zakupowych jest obowiązkowe dla wszystkich podatników od 1 lutego 2026, a wystawianie rusza od 1 kwietnia 2026 dla pozostałych podatników VAT. Warstwę fakturowania i tak trzeba było ruszyć, więc integracja z ERP przestała być projektem "kiedyś".
+
+Druga: adopcja AI w Polsce nadal jest niska. GUS podaje, że w 2025 roku 8,7% polskich firm deklarowało wykorzystanie technologii AI, a rozwiązanie budowane na zamówienie przez firmę zewnętrzną miało tylko 2,1%. Wśród agentów jest nieco lepiej: cytowane w polskich materiałach 17% firm wdrażających dedykowane agenty przy 13% średniej globalnej. Konkurencja obok Ciebie nadal przepisuje zamówienia ręcznie.
+
+## Jak dziś wygląda przyjęcie zamówienia
+
+Typowy przebieg w hurtowni z kilkunastoosobowym biurem: skrzynka zbiorcza, jedna osoba dzieli maile na zamówienia, zapytania i reklamacje, druga przepisuje pozycje, trzecia dzwoni, bo klient napisał "beczka 20 l, ta co zawsze". Wąskie gardło nie jest tam, gdzie wszyscy myślą. Przepisanie dwudziestu pozycji to kilkanaście minut. Godziny zjada rozstrzyganie niejasności: czy "op." to karton czy sztuka, czy indeks 4471-B klienta to Twój SKU 10024471, czy cena idzie z cennika kontrahenta czy z promocji. Automatyzacja, która tego nie rozwiązuje, tylko przenosi problem.
+
+W bliźniaczym procesie, czyli ofertowaniu, polscy dostawcy deklarują skrócenie wyceny z 2-5 dni do 2-4 godzin. To ich liczby, nie moje.
+
+## Pipeline: dziewięć kroków od maila do etykiety
+
+1. **Odbiór.** Skrzynka `zamowienia@` przez IMAP albo Microsoft Graph, każda wiadomość z własnym identyfikatorem w kolejce.
+2. **Klasyfikacja.** Zamówienie, zapytanie ofertowe, reklamacja, potwierdzenie przelewu, spam. Model plus reguły na nadawcy.
+3. **Ekstrakcja pozycji.** Treść maila, PDF, XLS, zdjęcie: OCR dla skanów, model językowy do tabeli pozycji, ilości i jednostek.
+4. **Identyfikacja kontrahenta.** Po NIP, domenie nadawcy, historii zamówień. Bez pewnego dopasowania nie ma po co iść dalej: na nim wiszą cena i warunki.
+5. **Mapowanie na SKU.** Indeks klienta, nazwa handlowa, EAN, opis słowny. Najtrudniejszy krok, osobna sekcja niżej.
+6. **Stan i cena.** Odpytanie ERP o dostępność, cennik kontrahenta, rabaty, minimum logistyczne.
+7. **Dokument w ERP.** Zamówienie od klienta i rezerwacja w Subiekcie, Comarchu albo Symfonii. Tu agent przestaje czytać, a zaczyna pisać.
+8. **Domknięcie.** Potwierdzenie z pozycjami i terminem, faktura w obiegu KSeF, etykieta InPost, SMS z numerem przesyłki.
+9. **Ślad.** Rekord w CRM, log ścieżki decyzji i kolejka wyjątków.
+
+Te same etapy z czasami. To nie wynik konkretnego klienta, tylko liczby, na których buduję wycenę, dla zamówienia na kilkanaście pozycji.
+
+| Etap | Ręcznie | Z agentem | Co się tu psuje |
+| --- | --- | --- | --- |
+| Segregacja skrzynki | 1-2 min | 0 | Klient wysyła zamówienie na maila handlowca, nie na skrzynkę zbiorczą |
+| Odczyt pozycji z PDF lub zdjęcia | 5-15 min | 10-40 s | Skan pod kątem, pieczątka na tabeli, dwie kolumny ilości |
+| Identyfikacja kontrahenta | 1 min | 1 s | Zamówienie z prywatnego Gmaila, oddział bez własnego NIP |
+| Mapowanie indeksów na SKU | 5-20 min | 2-10 s | Indeks klienta, literówka, zamiennik, wycofany towar |
+| Sprawdzenie stanu i cennika | 2-5 min | 1-2 s | Rezerwacje innych handlowców, promocja nieujęta w cenniku |
+| Wprowadzenie dokumentu do ERP | 5-10 min | 3-5 s | Blokada licencji, zajęty numer dokumentu, pole obowiązkowe |
+| Potwierdzenie do klienta | 2-3 min | natychmiast | Braki częściowe, które wymagają decyzji handlowca |
+| Faktura i etykieta | 3-5 min | 5-10 s | Adres dostawy inny niż na fakturze, paczkomat nieaktywny |
+| Rekord w CRM | 1-2 min | 0 | Duplikaty kontaktów |
+
+Około 25-60 minut pracy człowieka schodzi do minuty maszyny plus obsługa wyjątków. Wyjątki to cała gra.
+
+## Mapowanie indeksów klienta na SKU: tu projekty umierają
+
+Ekstrakcja tekstu z PDF to problem rozwiązany. Prawdziwa robota zaczyna się, gdy trzeba zdecydować, że "FOL STR 500 czarna 23mic" to pozycja 10024471 z kartoteki, i wziąć za tę decyzję odpowiedzialność.
+
+| Przypadek brzegowy | Co przysyła klient | Co masz w kartotece | Jak to rozwiązuję |
+| --- | --- | --- | --- |
+| Własny indeks klienta | `4471-B` | `10024471` | Tabela aliasów per kontrahent, budowana z historii jego zamówień |
+| Nazwa handlowa z literówką | `folia strech 500` | `Folia stretch 500 mm` | Dopasowanie rozmyte plus embeddingi na nazwach, próg podobieństwa |
+| Jednostka | `2 kartony` | Kartoteka w sztukach, 6 szt./karton | Słownik przeliczników na poziomie towaru, nigdy globalny |
+| Wariant | `uchwyt 40 cm` | Cztery długości, w tym 40 i 400 mm | Wymuszony wybór wariantu, brak zgadywania |
+| EAN zamiast indeksu | `5901234567890` | Pole EAN puste w części kartoteki | Uzupełnienie kartoteki przed startem, inaczej trafność spada |
+| Towar wycofany | `stara nazwa` | Zamiennik pod nowym SKU | Mapa następców, ale propozycja zamiennika idzie do człowieka |
+| Ilość opisana słownie | `zgrzewka i pół` | Sztuki | Do kolejki wyjątków, bez wyjątków |
+
+Ta tabela aliasów jest realnym aktywem: po trzech miesiącach pokrywa większość ruchu i to ona, a nie model, odpowiada za trafność. Dlatego wdrożenie zaczyna się nie od kodu, tylko od przejechania kilkuset historycznych zamówień.
+
+## Czego agent nie rozumie: próg pewności i kolejka do człowieka
+
+Agent, który zawsze coś wybierze, jest gorszy od braku agenta. Zamówienie z podmienionym wariantem kosztuje więcej niż nieprzetworzone, bo wychodzi dopiero przy odbiorze u klienta.
+
+Dlatego każda pozycja dostaje ocenę pewności i trzy drogi. Powyżej progu wysokiego wchodzi automatycznie. W paśmie środkowym wchodzi, ale dokument czeka na jedno kliknięcie handlowca. Poniżej trafia do kolejki wyjątków z podświetlonym fragmentem oryginału i trzema propozycjami z kartoteki.
+
+Praktycy budujący agenty podają, że 5-15% przypadków i tak wymaga przeglądu człowieka. Planuję pod ten przedział i mówię o nim przy wycenie. Automat blokuję też tam, gdzie błąd jest drogi: nowy kontrahent, zamówienie powyżej ustalonej kwoty, towar z ujemnym stanem.
+
+Ta sama logika progów działa w obsłudze klienta i tam najłatwiej się jej nauczyć - rozbierałem to w tekście o tym, [jak obniżyć koszty obsługi klienta dzięki AI](/pl/blog/jak-obnizyc-koszty-obslugi-klienta-ai).
+
+## Integracje: Subiekt, Comarch, Symfonia, BaseLinker
+
+Warstwa czytania jest wszędzie taka sama. Różnica jest w zapisie i to ona decyduje o terminie wdrożenia.
+
+- **Subiekt GT** - zapis przez Sferę. Stabilnie, ale wymaga maszyny z licencją i szeregowej kolejki, bo równoległe zapisy biją się o numerację.
+- **Subiekt nexo** - nowsze API, wygodniejsze, choć ceny i rabaty trzeba czytać tam, gdzie liczy je system, a nie odtwarzać po swojemu.
+- **Comarch ERP Optima i XL** - przez API producenta. Comarch sam osadza agenty sterowane promptem w Optimie i XL, więc część klientów ma ścieżkę przetartą wewnętrznie.
+- **Symfonia** - najczęściej pliki wymiany i baza, wolniej, ale przewidywalnie.
+- **BaseLinker** - przy sprzedaży przez Allegro i sklep zwykle najkrótsza droga do zamówień i etykiet, bez dotykania ERP.
+- **Własna baza** - najprostszy przypadek, o ile ktoś potrafi opisać reguły cenowe.
+
+Fakturowanie wpinam w istniejący obieg KSeF, nie buduję drugiego. Całość składam najczęściej jako [automatyzację dokumentów](/pl/uslugi/automatyzacja-dokumentow), a warstwę decyzyjną nad nią jako [agenta AI](/pl/uslugi/agenci-ai).
+
+## Ile to kosztuje
+
+Najpierw rynek, potem moje stawki. Polscy dostawcy publikują widełki, a te różnią się o rząd wielkości zależnie od tego, czy agent tylko czyta, czy też zapisuje do systemu.
+
+| Wariant | Wdrożenie | Utrzymanie miesięczne |
+| --- | --- | --- |
+| Agent czytający bazę wiedzy (widełki rynkowe) | 20 000-60 000 zł | 2 000-8 000 zł |
+| Agent czytający i zapisujący do CRM, ERP lub logistyki (widełki rynkowe) | 80 000-250 000 zł | 8 000-40 000 zł |
+| Konfiguracja agenta u polskiego dostawcy | 8 000-20 000 zł | 200-500 zł za API i infrastrukturę |
+| Prosty parser jednego formatu maila u mnie | od 3 900 zł (900 €) | 200-500 zł infrastruktury i API |
+| Pełny pipeline zamówień do ERP u mnie | od 12 000 zł | zwykle 500-1 500 zł |
+| Agent z własną logiką decyzyjną i zapisem do CRM u mnie | od 10 750 zł (2 500 €) | zależnie od wolumenu |
+
+Jeszcze niżej są gotowe konfiguracje: inny polski dostawca podaje 3 000-15 000 zł za setup plus abonament.
+
+Do tego koszty jednostkowe. Google Document AI liczy 1,50 USD za 1 000 stron podstawowego OCR, Azure Document Intelligence 10 USD za 1 000 stron modelem gotowym do faktur i 30 USD przy ekstrakcji własnej, a gotowe procesory dokumentów 0,10-0,75 USD za dokument. Przy tysiącu zamówień miesięcznie to kilkadziesiąt dolarów OCR plus wywołania modelu.
+
+Po stronie oszczędności: publikowane benchmarki przetwarzania faktur mówią o około 10,89 USD obsługi jednej faktury w przeciętnej organizacji i 2,78 USD u najlepszych, czyli 74% mniej. To dane o fakturach i amerykańskie, ale różnica między przepisywaniem a zatwierdzaniem jest tego samego rzędu.
+
+Utrzymanie roczne to w tej branży zwykle 15-25% wartości pierwszego wdrożenia. Kto podaje mniej, nie liczy przeglądu integracji po aktualizacji ERP.
+
+## Kiedy tego nie robić
+
+Trzy sytuacje, w których odradzam.
+
+**Mało zamówień.** Poniżej mniej więcej 10-15 zamówień mailowych dziennie oszczędność czasu nie spina się z kosztem utrzymania integracji. Lepiej wtedy zrobić samo parsowanie do arkusza i zostawić wprowadzanie człowiekowi.
+
+**Chaos w kartotece towarowej.** Puste EAN-y, duplikaty, trzy wpisy tego samego towaru, jednostki w nazwie. Agent to odziedziczy i będzie się mylił w sposób trudny do wytłumaczenia. Porządek w kartotece jest warunkiem, nie efektem ubocznym.
+
+**Brak właściciela procesu.** Ktoś musi codziennie przeglądać kolejkę wyjątków i decydować. Bez takiej osoby projekt kończy się jak większość: polskie zestawienia mówią, że tylko około 25% inicjatyw AI przynosi oczekiwany zwrot, a 35% firm raportuje brak korzyści albo wyniki znacznie poniżej oczekiwań. Pokrewną przyczynę opisałem w tekście o tym, [dlaczego chatbot AI nie przynosi zapytań](/pl/blog/dlaczego-chatbot-ai-nie-przynosi-leadow).
+
+## Jak zmierzyć efekt w pierwszym miesiącu
+
+Cztery liczby, zbierane od pierwszego dnia, zanim agent cokolwiek zapisze do ERP.
+
+- **Udział zamówień domkniętych bez człowieka.** Realny cel pierwszego miesiąca to 50-70%, nie 95%.
+- **Trafność mapowania SKU** na próbce ręcznie sprawdzonych zamówień. Jedyna metryka, która mówi, czy system działa.
+- **Czas od wpłynięcia maila do rezerwacji towaru.** Klient odczuwa to, a nie zaoszczędzone roboczogodziny.
+- **Liczba pozycji w kolejce wyjątków i powód.** Powody grupują się szybko i po dwóch tygodniach pokazują, co dopisać do mapy aliasów.
+
+Pierwszy tydzień prowadzę w trybie cienia: agent czyta i proponuje, ale nie zapisuje. Porównanie z tym, co wprowadził człowiek, jest tańsze niż korekta faktur. Metodykę liczenia zwrotu rozpisałem w materiale o tym, [ile naprawdę oszczędza chatbot AI w obsłudze](/pl/blog/chatbot-ai-oszczednosci-roi).
+
+Chcesz sprawdzić, czy Twój ruch mailowy nadaje się do automatyzacji? [Napisz](/pl/kontakt) i podeślij kilkanaście zamówień z ostatniego miesiąca. Z takiej próbki w jeden dzień widać, ile pozycji da się domknąć automatycznie, a ile zawsze trafi do człowieka. To też uczciwa podstawa wyceny, bo trudność siedzi w kartotece, nie w modelu.
+
+## FAQ
+
+**Czy agent poradzi sobie z zamówieniem w postaci skanu lub zdjęcia?**
+Tak, o ile skan jest czytelny. Warstwa OCR czyta obraz, model wyciąga tabelę pozycji. Koszt jest niski: Google Document AI liczy 1,50 USD za 1 000 stron podstawowego OCR, a Azure Document Intelligence 10 USD za 1 000 stron modelem gotowym do faktur. Problemem nie jest odczyt, tylko dopasowanie nazw do Twojej kartoteki, i tam idzie większość pracy wdrożeniowej.
+
+**Ile kosztuje wdrożenie automatyzacji zamówień w hurtowni?**
+Polscy dostawcy publikują widełki 20 000-60 000 zł za agenta, który tylko czyta dane, i 80 000-250 000 zł plus 8 000-40 000 zł miesięcznie za agenta zapisującego do ERP, CRM lub logistyki. Prostsze konfiguracje to 8 000-20 000 zł konfiguracji plus 200-500 zł miesięcznie za API i infrastrukturę, u innego dostawcy 3 000-15 000 zł setupu plus abonament. U mnie pełny pipeline zamówień do ERP zaczyna się od 12 000 zł, a parser jednego formatu maila od 900 € (około 3 900 zł).
+
+**Z jakimi polskimi systemami da się to zintegrować?**
+Subiekt GT przez Sferę, Subiekt nexo przez API, Comarch ERP Optima i XL przez API producenta, Symfonia przez pliki wymiany i bazę, a przy sprzedaży wielokanałowej BaseLinker. Fakturowanie wpina się w istniejący obieg KSeF, przesyłki w InPost lub innego kuriera. Zapis do ERP jest zawsze trudniejszy i droższy niż odczyt, przez numerację, licencje i blokady.
+
+**Jak agent rozpoznaje, że indeks klienta to mój SKU?**
+Przez tabelę aliasów budowaną per kontrahent z jego historycznych zamówień, dopasowanie rozmyte nazw, EAN i słownik przeliczników jednostek. Model podpowiada, ale decyzja opiera się na danych z Twojej kartoteki. Dlatego wdrożenie zaczyna się od kilkuset archiwalnych zamówień, zanim powstanie automat.
+
+**Co się dzieje z zamówieniem, którego agent nie zrozumiał?**
+Trafia do kolejki wyjątków z podświetlonym fragmentem oryginału i propozycjami z kartoteki, a człowiek domyka je jednym kliknięciem. Praktycy budujący agenty podają, że 5-15% przypadków i tak wymaga przeglądu człowieka, i pod ten przedział planuje się obsadę. Automat blokuję też przy nowym kontrahencie bez historii, zamówieniach powyżej ustalonej kwoty i towarze z ujemnym stanem.
+
+**Kiedy taka automatyzacja się nie opłaca?**
+Poniżej mniej więcej 10-15 zamówień mailowych dziennie, przy bałaganie w kartotece i bez osoby odpowiedzialnej za codzienny przegląd wyjątków. Polskie zestawienia pokazują, że tylko około 25% inicjatyw AI przynosi oczekiwany zwrot, a 35% firm raportuje brak korzyści, i najczęstszą przyczyną jest brak właściciela procesu, a nie technologia.
+
+**Ile trwa uruchomienie i jak szybko widać efekt?**
+Prosty parser do arkusza to kilka dni, pełny pipeline z zapisem do ERP zwykle kilka tygodni, z czego większość idzie na mapowanie kartoteki i testy na archiwalnych zamówieniach. Pierwszy tydzień prowadzę w trybie cienia: agent proponuje, człowiek wprowadza. Realny cel na pierwszy miesiąc to 50-70% zamówień domkniętych bez człowieka.

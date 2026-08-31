@@ -1,0 +1,132 @@
+---
+title: "Agent AI z danymi w UE: architektura, DPA i zero retention"
+description: "Rezydencja danych to lokalizacja, suwerenność to jurysdykcja. Cztery architektury agenta AI: gdzie leżą dane, co daje zero retention i ile to kosztuje."
+date: "2026-09-04"
+cluster: "ai-data-in-eu"
+keywords:
+  - "agent AI dane w UE"
+  - "hosting agenta AI RODO"
+  - "zero data retention API"
+  - "umowa powierzenia dostawca modelu AI"
+  - "model open-weight na własnym serwerze"
+ogImage: "/og/ai-data-in-eu.webp"
+---
+
+Pytanie, które kończy większość rozmów o agencie AI w polskiej firmie, nie dotyczy ceny. Brzmi: gdzie pojadą dane naszych klientów i kto może do nich zajrzeć. UODO zadaje je w praktyce tak samo, tylko w formie listy obowiązków po stronie wdrażającego.
+
+Rozbieram to po inżyniersku: cztery możliwe architektury, co każda realnie daje, w którym miejscu kończy się obietnica "hostingu w UE" i ile każda z nich kosztuje przy tym samym ruchu.
+
+Zastrzeżenie na wstępie: jestem programistą, nie prawnikiem. Poniżej strona techniczna i to, co da się zapisać w konfiguracji oraz w umowie. Interpretacje prawne zostawiam prawnikowi od RODO.
+
+## Rezydencja danych to lokalizacja, suwerenność to jurysdykcja
+
+Rezydencja mówi, w którym budynku leżą bajty. Suwerenność mówi, czyje prawo może po nie sięgnąć. To dwie różne rzeczy i większość ofert "dane w UE" opisuje wyłącznie tę pierwszą.
+
+Branżowe przewodniki po rezydencji danych w UE sprowadzają różnicę do jednego zdania: **dane w europejskim regionie, ale na chmurze amerykańskiego właściciela, nadal pozostają w zasięgu amerykańskiego CLOUD Act**. Frankfurt w nazwie regionu nie zmienia tego, kto jest adresatem nakazu.
+
+Te same opracowania układają wymagania w powtarzalną trójkę, którą trzeba mieć w komplecie: podpisana umowa powierzenia z dostawcą modelu, zero retention ustawione po stronie API i po stronie warstwy integracyjnej, oraz udokumentowana architektura pokazująca, gdzie przetwarzane są dane osobowe z UE. Brak jednego elementu unieważnia dwa pozostałe w rozmowie z kontrolującym.
+
+## Cztery architektury obok siebie
+
+Cztery realne warianty, między którymi wybierasz. Trzeci i czwarty to jedyne, w których słowo "suwerenność" ma pokrycie.
+
+| Architektura | Gdzie leżą dane | Czyja jurysdykcja | Umowa powierzenia | Czy trenuje model | Koszt miesięczny |
+| --- | --- | --- | --- | --- | --- |
+| Gotowy SaaS z USA | serwery dostawcy w USA | USA | wzorzec dostawcy, bez negocjacji | zależy od planu, często tak | subskrypcja, amerykański rynek gotowych asystentów podaje 25-300 $ |
+| Własna aplikacja + API modelu z zero retention | aplikacja u Ciebie, treść zapytań przetwarzana w USA | USA dla warstwy modelu | tak, podpisujesz sam | nie przy dostępie przez API | VPS w Hetznerze 4-6 € (17-26 zł) plus zapytania do modelu |
+| Aplikacja i dane w chmurze UE, endpoint modelu w UE | UE | UE, o ile operator jest europejski | tak, z lokalizacją przetwarzania | nie | hosting UE plus zapytania, utrzymanie od 700 zł netto według cennika UXU |
+| Model open-weight na własnym serwerze | Twój serwer w UE | PL i UE | nie z dostawcą modelu, tak z hostingodawcą | nie, model stoi u Ciebie | serwer z GPU plus utrzymanie, najdroższa opcja |
+
+Środkowe dwa warianty różnią się jedną rzeczą, która w rozmowie o RODO waży najwięcej: w drugim treść rozmowy klienta i tak przechodzi przez infrastrukturę spoza EOG, tylko bez zapisu. W trzecim nie przechodzi.
+
+## Zero data retention: co to naprawdę wyłącza
+
+Zero retention po stronie API oznacza, że dostawca nie zapisuje treści zapytań i odpowiedzi po obsłużeniu żądania, w tym w standardowym buforze na potrzeby monitoringu nadużyć. To realna zmiana i warto ją włączyć zawsze.
+
+Czego nie wyłącza:
+
+- **Nie zmienia jurysdykcji.** Dane wciąż są przetwarzane, tylko krócej.
+- **Nie dotyczy Twoich własnych logów.** n8n domyślnie zapisuje pełne dane wykonania każdego workflow, razem z treścią zapytania. To najczęstsze przypadkowe składowisko danych osobowych, jakie widuję u klientów.
+- **Nie dotyczy narzędzi obok.** CRM, system zgłoszeń, monitoring błędów, analityka. Prompt z numerem PESEL potrafi wylądować w raporcie o wyjątku szybciej, niż ktokolwiek to zauważy.
+
+Dlatego zero retention ustawia się w dwóch miejscach: w kluczu API i w warstwie integracyjnej. W praktyce oznacza to wyłączenie zapisu udanych wykonań, ustawienie automatycznego przycinania historii, filtrowanie treści zapytań w monitoringu błędów i osobną decyzję, co trafia do transkryptu rozmowy, a co tylko do podsumowania.
+
+## Umowa powierzenia z dostawcą modelu: co musi w niej być
+
+Bezpłatne konto ChatGPT albo Claude w przeglądarce, na którym pracownik wkleja dane klienta, to nie jest architektura. To wyciek, który już trwa. Umowa powierzenia dotyczy dostępu przez API albo planu firmowego i powinna wprost odpowiadać na sześć pytań.
+
+- Przedmiot, czas i cel przetwarzania oraz kategorie danych i osób, których dotyczą.
+- Zakaz wykorzystania treści do trenowania i ulepszania modeli.
+- Okres retencji, docelowo zerowy, i termin usunięcia danych po zakończeniu współpracy.
+- Lista podprocesorów wraz z obowiązkiem informowania o zmianach.
+- Lokalizacja przetwarzania oraz podstawa transferu poza EOG, jeśli transfer występuje.
+- Zgłaszanie naruszeń w określonym terminie i prawo do audytu lub do raportu z audytu.
+
+Ten sam komplet podpisujesz z hostingodawcą, jeśli aplikacja stoi w chmurze. Przy modelu na własnym serwerze zostaje tylko ta druga umowa, co jest jednym z powodów, dla których regulowane branże ją wybierają.
+
+## Cztery pytania, które zada kontrola
+
+UODO w ostrzeżeniach dotyczących wdrożeń AI stawia sprawę prosto: każda interakcja z chatbotem, w której wymieniane są dane osobowe, jest przetwarzaniem w rozumieniu RODO. Wdrażający ma ustalić podstawę prawną, spełnić obowiązek informacyjny i przeanalizować konkretny przypadek użycia **przed zakupem**, a nie po wdrożeniu. Ma też wiedzieć, czy dane trenują model dostawcy, jak długo są przechowywane i gdzie fizycznie stoją serwery. W wielu przypadkach potrzebna jest umowa powierzenia.
+
+To są cztery pytania, na które musisz umieć odpowiedzieć z pamięci: podstawa prawna, trenowanie, retencja, lokalizacja. Jeśli na którekolwiek odpowiadasz "chyba tak", masz lukę w dokumentacji, a nie w technologii.
+
+Do tego dochodzi warstwa AI Act. Obowiązek poinformowania człowieka, że rozmawia z maszyną, obowiązuje od 2 sierpnia 2026 i nie ma tu okresu przejściowego. Data 2 grudnia 2026 dotyczy czegoś węższego: oznaczania treści generowanych przez AI w systemach, które trafiły na rynek przed 2 sierpnia 2026. Kary za naruszenie obowiązków przejrzystości sięgają 15 mln euro albo 3% światowego obrotu. Polski nadzorca, Komisja Rozwoju i Bezpieczeństwa Sztucznej Inteligencji, dostaje uprawnienia do kontroli i nakładania kar 28 października 2026. Uporządkowanie istniejącego bota pod te wymogi to u mnie osobna, mała usługa: [zgodność z AI Act](/pl/uslugi/zgodnosc-ai-act) od 3 500 zł.
+
+## Model open-weight na własnym serwerze: kiedy to jedyna odpowiedź
+
+Cztery sytuacje, w których nie ma sensu udawać, że wystarczy zero retention:
+
+- dane szczególnych kategorii, przede wszystkim zdrowotne;
+- tajemnica zawodowa: kancelaria, doradca podatkowy, biegły rewident;
+- umowy z klientami korporacyjnymi, które wprost zakazują transferu danych poza EOG;
+- sektor finansowy z własną polityką bezpieczeństwa, która nie przewiduje wyjątków.
+
+Polskie agencje sprzedają self-hosted n8n na infrastrukturze klienta dokładnie tym branżom: medycynie, finansom i kancelariom. Dostawcy voicebotów w Polsce reklamują serwery w UE, szyfrowanie i zapis "rozmowy nie są używane do trenowania modeli" jako główny wyróżnik. Popyt jest realny, więc nie muszę tłumaczyć, po co to komu.
+
+Uczciwie o kosztach po drugiej stronie. Model open-weight jest słabszy w trudnym rozumowaniu i w językach innych niż angielski, więc scenariusze trzeba pisać ciaśniej. Dochodzi utrzymanie: kopie zapasowe, aktualizacje, monitoring i odpowiedź na pytanie, kto odbiera telefon w sobotę o 22. Wszystkie polskie poradniki powtarzają decyzję "chmura czy własny serwer", a prawie żaden nie liczy tego rachunku do końca. Jeśli nie masz nikogo od infrastruktury, wariant trzeci z tabeli będzie dla Ciebie tańszy i spokojniejszy niż czwarty.
+
+## Ile to kosztuje przy tym samym ruchu
+
+Poniżej to, co publikuje rynek, plus moje własne widełki na budowę. Trzy pierwsze wiersze zakładają ten sam wolumen rozmów, czwarty dokłada sprzęt.
+
+| Wariant | Wdrożenie | Miesięcznie | Kiedy ma sens |
+| --- | --- | --- | --- |
+| Gotowy SaaS z USA | zwykle brak | 25-300 $ według cenników amerykańskich asystentów | mała firma, brak danych wrażliwych, standardowe FAQ |
+| Własny agent na API z zero retention | u mnie od 6 400 zł (1 500 €) | VPS 4-6 € plus zapytania do modelu, utrzymanie od 700 zł netto (cennik UXU) | większość firm handlowych i usługowych |
+| To samo z hostingiem i endpointem w UE | ten sam zakres, kilka dni więcej na konfigurację | jak wyżej, hosting UE zwykle nieco droższy | firmy, które mają w umowach klauzule o EOG |
+| Open-weight na własnym serwerze | pakiet Enterprise z self-hostingiem w Tantorze kosztuje 20 000 zł netto | serwer z GPU, monitoring, utrzymanie | ochrona zdrowia, kancelarie, finanse |
+
+Dwie uwagi do tej tabeli. Po pierwsze, licencje narzędzi rozlicza się osobno i Tantor podaje za nie 50-300 zł miesięcznie, więc nie wliczaj ich w cenę wdrożenia. Po drugie, przejście z wariantu drugiego na trzeci jest tanie, jeśli od początku trzymasz konfigurację modelu w jednym miejscu w kodzie. Przejście na czwarty tanie nie jest nigdy, więc tę decyzję podejmuje się przed pierwszą linijką.
+
+## Jak układam to w projektach
+
+Kiedy buduję [agenta AI](/pl/uslugi/agenci-ai), architektura danych jest częścią wyceny, a nie dodatkiem. Domyślnie: klucz API z zero retention, aplikacja i baza w regionie UE, wyłączony zapis pełnych wykonań w warstwie automatyzacji, maskowanie danych kontaktowych w logach i jedna strona dokumentacji z rysunkiem, kto co przetwarza. Ta jedna strona jest tym, co potem wkleja się do rejestru czynności przetwarzania.
+
+Przy integracji z systemem sprzedażowym pilnuję, żeby dane osobowe zostawały w CRM, a do modelu szedł tylko kontekst potrzebny do odpowiedzi. Jak to wygląda technicznie, opisałem w tekście o [połączeniu agenta AI z CRM](/pl/blog/integracja-agenta-ai-z-crm). W hotelarstwie ten sam wzorzec dotyczy danych rezerwacyjnych, o czym pisałem przy okazji [agenta dla hotelu i apartamentów](/pl/blog/agent-ai-dla-hotelu-i-apartamentow).
+
+Czego nie obiecam: że dane nigdy nie opuszczą Polski, jeśli budżet zakłada gotowy model z chmury. Da się zrobić tak, że nie są przechowywane i nie służą do trenowania, oraz że wiesz dokładnie, co i dokąd wychodzi. To jest różnica między "mam nadzieję" a "mam to zapisane".
+
+Jeśli chcesz sprawdzić, którą architekturę wybrać przy Twoich danych, [napisz do mnie](/pl/kontakt) i opisz, jakie dane wchodzą do rozmowy. Odeślę porównanie dwóch wariantów z kosztem i listą dokumentów. Jeśli dopiero zaczynasz temat, zacznij od podstaw w tekście o tym, [czym jest agent AI](/pl/blog/czym-jest-agent-ai).
+
+## FAQ
+
+**Czy dane w regionie europejskim amerykańskiej chmury są bezpieczne w rozumieniu RODO?**
+Są zlokalizowane w UE, ale nie są poza zasięgiem prawa amerykańskiego. Przewodniki po rezydencji danych w UE opisują to jako różnicę między rezydencją a suwerennością: rezydencja to twierdzenie o lokalizacji, suwerenność to twierdzenie o jurysdykcji, a dane w UE na chmurze amerykańskiego właściciela nadal podlegają CLOUD Act. Jeśli Twoje umowy z klientami mówią o jurysdykcji, a nie tylko o lokalizacji, potrzebujesz europejskiego operatora albo własnego serwera.
+
+**Co dokładnie daje zero data retention w API?**
+Dostawca nie przechowuje treści zapytań i odpowiedzi po obsłużeniu żądania, więc nie powstaje kopia rozmowy po jego stronie. Nie zmienia to jednak jurysdykcji przetwarzania ani nie dotyczy Twoich własnych logów. Zalecenia dotyczące rezydencji danych w UE wymagają ustawienia zero retention równolegle w API i w warstwie integracyjnej, bo n8n, CRM i monitoring błędów zapisują treść zapytań domyślnie.
+
+**Czy potrzebuję umowy powierzenia z dostawcą modelu?**
+W większości przypadków tak. UODO wskazuje, że każda interakcja z chatbotem, w której wymieniane są dane osobowe, jest przetwarzaniem, wdrażający musi ustalić podstawę prawną i przeanalizować przypadek użycia przed zakupem, a w wielu sytuacjach konieczna jest umowa powierzenia. Powinna określać zakaz trenowania na Twoich danych, okres retencji, listę podprocesorów, lokalizację przetwarzania i termin zgłaszania naruszeń.
+
+**Czy dane z API trenują model?**
+Przy dostępie przez API dostawcy modeli deklarują, że treść zapytań nie służy do trenowania, i to jest zapis, który powinien znaleźć się w umowie powierzenia. Inaczej wygląda to na darmowych i konsumenckich kontach czatowych, gdzie ustawienia bywają domyślnie odwrotne. Największe ryzyko w firmach nie leży w architekturze, tylko w pracownikach wklejających dane klientów do prywatnych kont.
+
+**Kiedy naprawdę potrzebny jest model open-weight na własnym serwerze?**
+Gdy przetwarzasz dane szczególnych kategorii, jesteś związany tajemnicą zawodową, masz w umowach zakaz transferu poza EOG albo działasz w finansach z własną polityką bezpieczeństwa. Polskie agencje wdrażają self-hosted rozwiązania dokładnie w medycynie, finansach i kancelariach. W pozostałych przypadkach dobrze skonfigurowane API z zero retention i hostingiem w UE daje ten sam efekt taniej: samo self-hostowane wdrożenie w cenniku Tantora to 20 000 zł netto.
+
+**Ile kosztuje agent AI z danymi w UE?**
+U mnie budowa agenta zaczyna się od 6 400 zł (1 500 €), a miesięcznie dochodzi hosting i koszt zapytań do modelu: VPS pod warstwę automatyzacji w Hetznerze to 4-6 €, a UXU podaje utrzymanie agenta od 700 zł netto plus zużycie modelu. Licencje narzędzi rozlicza się osobno, u Tantora 50-300 zł miesięcznie. Wariant z modelem na własnym serwerze jest wyraźnie droższy, bo dochodzi maszyna z GPU i utrzymanie.
+
+**Co trzeba zrobić z botem do 2 grudnia 2026?**
+Oznaczyć treści generowane przez AI w systemie, który trafił na rynek przed 2 sierpnia 2026: to jest dokładnie ten termin. Sam obowiązek jasnego poinformowania użytkownika, że rozmawia z systemem AI, działa już od 2 sierpnia 2026 i okresu przejściowego nie ma. Kary za naruszenie obowiązków przejrzystości sięgają 15 mln euro albo 3% światowego rocznego obrotu. Polska Komisja Rozwoju i Bezpieczeństwa Sztucznej Inteligencji zyskuje uprawnienia kontrolne i możliwość nakładania kar od 28 października 2026.

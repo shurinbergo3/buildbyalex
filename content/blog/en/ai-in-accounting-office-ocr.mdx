@@ -1,0 +1,129 @@
+---
+title: "AI in an Accounting Practice: Invoice OCR and Auto-Coding"
+description: "E-invoicing took one stream, the rest still goes through human hands. Three layers of automation for an accounting firm, price bands and the real math."
+date: "2026-09-02"
+cluster: "ai-accounting-office"
+keywords:
+  - "AI for accounting firms"
+  - "invoice OCR accounting practice"
+  - "automated invoice coding"
+  - "KSeF 2026 documents outside the system"
+  - "accounting automation cost"
+ogImage: "/og/ai-accounting-office.webp"
+---
+
+An accounting practice rarely loses on knowledge. It loses on retyping. An invoice arrives by email, someone opens it, works out whose it is, retypes the number, date and amounts, picks an account, saves it, and at month end writes to the client that three documents are missing. At fifty clients that is a full-time job nobody budgeted for.
+
+This is what you can realistically hand to a machine in 2026, what it costs and where to stop. I write as a developer who builds these systems, not an accountant: the professional judgement stays with you.
+
+## Most of the market has not started yet
+
+Poland's statistics office GUS reports that 8.7% of Polish companies said they used AI in 2025, 91.3% did not use it at all, and only 2.1% had a solution built to order by an external supplier. Most of your competitors are still retyping. There is no point buying "AI for accounting" as an abstraction: what works is one measurable document path, taken to the end.
+
+## What e-invoicing changed and what it did not
+
+In Poland, KSeF covered one stream: domestic VAT invoices between taxpayers. Receiving purchase invoices became mandatory for all taxpayers from 1 February 2026, issuing rolls out from 1 April 2026. They arrive through an API in structured form and need no OCR. Everything else your client spends money on still comes in formats somebody has to read. Outside Poland, drop your own e-invoicing mandate into the first row; the rest of the table holds.
+
+| Document stream | Covered by KSeF | What the automation does |
+| --- | --- | --- |
+| Domestic VAT invoices between taxpayers | yes, receiving from 1 Feb 2026, issuing from 1 Apr 2026 | pulled through the API, data ready, no OCR |
+| Foreign supplier invoices (SaaS, ads, EU services) | no | OCR plus currency, FX rate, reverse charge |
+| Receipts and anything on paper | no | OCR from a phone photo |
+| Bank statements and gateway settlements | no | file parser and matching |
+| Contracts, policies, annexes | no | field extraction, filed under the client |
+| Chasing missing documents | no | automatic reminders and a gap list |
+
+The mandate took away the part that was easiest to automate anyway. OCR moved to foreign, paper and adjacent documents.
+
+## Layer 1: intake and document recognition
+
+The first layer answers "what is this and whose is it" before a human opens anything. Every client gets an intake channel: an email address, a drive folder or a portal upload. Anything landing there goes through a document-type classifier, then field extraction: supplier, tax ID, number, dates, net, VAT, gross, currency, line items.
+
+Validation decides whether the whole thing is worth doing. Line items must sum to the gross, the tax ID must pass its checksum, the bank account is worth checking against the official whitelist, and a duplicate on number plus tax ID goes aside. Low-confidence documents land in a review queue with the uncertain field flagged.
+
+The cost of reading depends on how the vendor meters it, and the gap is wide. Pretrained document processors run at $0.10-0.75 per document, so a thousand documents a month is $100-750. Page-metered services are far cheaper: Azure Document Intelligence charges $10 per 1,000 pages for the prebuilt invoice model and $30 for custom extraction, Google Document AI $1.50 per 1,000 pages for basic OCR, so $10-30 a month at the same volume. The real cost sits in integration and rules, not reading.
+
+Orchestration ties it together, usually n8n on the practice's own server, so client documents never leave for someone else's cloud. I compared the options in the piece on [Make, n8n or Zapier](/en/blog/make-vs-n8n-vs-zapier).
+
+## Layer 2: pre-coding and per-client rules
+
+The real saving starts here: reading an invoice buys little if the accountant still has to decide which account it goes to. Pre-coding runs on three sources at once. History: if this supplier has gone to the same account for two years, the suggestion is obvious. The practice's own rules, written per client and per cost type. And only last, a language model reading the line description when the supplier is new.
+
+The output is not a posting. It is a suggestion with a reason and a confidence score, which a human accepts with one click or corrects, and the correction feeds back into the rules. **The machine proposes, the accountant accepts.** That is the only arrangement you can defend to a client or an inspector.
+
+Only an approved document goes into the ledger system, usually Comarch Optima or Symfonia in Poland, and this is where projects fall apart: writing into an accounting system is technically harder than the entire OCR stack.
+
+## Layer 3: an assistant over the documents
+
+The third layer is the one the practice's clients see, and the easiest to put on a monthly fee. An assistant over the posted documents answers questions like "how much went on fuel in Q2" or "show every cost over 5,000 zł with no contract on file". Add monthly summaries and, the thing that saves the most nerves, automated chasing: the system knows what is missing against previous months and writes to the client itself. Same mechanics as [appointment reminders that cut no-shows](/en/blog/appointment-reminders-cut-no-shows), different content. Among deployments published on the Polish market, ANEGIS reports reconciling accounts in an hour instead of three days - not my result, a publicly described case.
+
+## What it costs
+
+Three tiers. The market column comes from price lists Polish vendors published in 2026, the last is my own rate for [document automation](/en/services/document-automation).
+
+| Tier | Practice size | Scope | Time to deploy | Market band | My rate |
+| --- | --- | --- | --- | --- | --- |
+| 1. Intake | up to 50 clients | intake channels, OCR, classification, validation, exceptions | 2-3 weeks | 700-3,500 € (3,000-15,000 zł) setup plus subscription | from 2,800 € (12,000 zł) |
+| 2. Pre-coding | 50-100 clients | per-client rules, coding suggestions, write on approval | 4-6 weeks | 4,700-14,000 € setup plus 460-1,900 €/month | quoted after an audit |
+| 3. Full integration | 100+ clients | read and write in the ledger, document assistant, client reports | 6-10 weeks | 19,000-58,000 € setup plus 1,900-9,300 €/month | quoted after an audit |
+
+One line clients miss when budgeting: Polish vendors put annual maintenance at 15-25% of the first implementation. And the jump from tier 2 to tier 3 is not about AI, it is about writing into somebody else's accounting software.
+
+## The math on 500 documents a month
+
+Arithmetic, not a promise, and not any client's result. A practice with three people and 500 documents a month arriving outside the e-invoicing system.
+
+| Line | Manual | After tiers 1 and 2 |
+| --- | --- | --- |
+| Documents per month | 500 | 500 |
+| Time per document | 4 minutes (intake, retyping, coding) | 1 minute to check the suggestion |
+| Documents needing full manual handling | 500 | about 75 (exceptions and new suppliers) |
+| Team hours per month | about 33 h | about 12 h |
+| OCR tooling cost | 0 | $5-15 a month |
+
+That leaves roughly 21 hours a month. At an employer cost of 16 € per hour that is about 350 € a month, so a 2,800 € build pays back in cash in about eight months. Not spectacular, and nobody should sell it as headcount savings.
+
+The real return sits elsewhere. At four minutes per document, 21 hours is roughly 300 more documents a month the practice can absorb without hiring. How many clients that is depends on your mix, and document handling is not all of client work, so treat it as a ceiling. Hiring an accountant still costs more than the entire build. For direction: invoice-processing benchmarks put the average cost of one invoice at about $10.89, and $2.78 for best-in-class operations with automated capture and matching, 74% lower. Global numbers, including approvals and payments.
+
+## What not to automate
+
+The deployment statistics are not pretty: Polish 2026 summaries say only around 25% of AI initiatives deliver the expected return, and 35% of Polish firms report no benefit or results far below expectations. Projects fall over in the same few places.
+
+- **Posting without approval.** Not even at 99% confidence. The liability stays with the practice, so the signature does too.
+- **Filings and returns.** Preparing the data, yes. Clicking send, no.
+- **Tax treatment of unusual events.** Models are good at patterns and bad at the exception that was never in the history.
+- **Money conversations with the client.** A bot can chase documents. Collections and explaining a tax difference are a human job.
+- **Sending client documents into random tools.** This is personal data and professional confidentiality. A processing agreement, retention switched off at the model provider, and knowing where the data physically sits are entry conditions.
+
+One thing practices often miss: Article 4 of the AI Act, the AI literacy obligation, has applied since 2 February 2025 and covers every company deploying AI, including a practice with a single OCR tool. A one-off session is not enough; a documented, role-adapted programme is required, and penalties here reach 15 million euro or 3% of turnover. Take the programme to a lawyer, I supply the register of systems and models.
+
+## Deployment: timeline and what you prepare
+
+Tier 1 takes 2-3 weeks, tier 2 another 4-6, almost all of it on rules and exceptions, not code. The practice prepares four things: 200-300 historical documents with correct coding, which is what I measure accuracy against; test access to the ledger system; written rules for the five biggest clients, half of which usually live in one person's head; and one decision-maker who answers within a day.
+
+I always start with one client and one document stream, measure accuracy for a month, then expand. Same logic as in the piece on [what to automate first](/en/blog/what-to-automate-first-in-business): one process finished beats five started.
+
+If you run an accounting practice and want to know whether the numbers work, [get in touch](/en/contact) with three figures: your client count, how many documents a month arrive outside the e-invoicing system, and which ledger software you post in. I will tell you which tier makes sense and what is not worth touching. Wider context is on the page about [business process automation](/en/services/automation).
+
+## FAQ
+
+**Is invoice OCR still needed now that e-invoicing is mandatory?**
+Yes. Poland's KSeF covers domestic VAT invoices between taxpayers: receiving purchase invoices has been mandatory for all taxpayers since 1 February 2026, issuing rolls out from 1 April 2026. Outside it you still have foreign supplier invoices, receipts, paper, bank statements, contracts and policies - a large share of cost documents, and exactly the share needing OCR and classification.
+
+**What does AI automation cost for an accounting firm?**
+It depends on the tier. Polish vendors publish 2026 bands of 3,000-15,000 zł (about 700-3,500 €) setup for simpler builds, 20,000-60,000 zł plus 2,000-8,000 zł a month for knowledge-base solutions, and 80,000-250,000 zł setup plus 8,000-40,000 zł a month once the system writes into an ERP or ledger. Full deployments land at 25,000-150,000 zł net (roughly 5,800-35,000 €), maintenance at 15-25% of the build a year. My document automation starts at 2,800 € (12,000 zł).
+
+**Can AI code invoices on its own?**
+It can produce a coding suggestion with a confidence score and a reason, but the posting should follow human approval. The suggestion draws on the coding history for that supplier, on the practice's written per-client rules, and only last on a language model. Every correction feeds back into the rules, so the share needing manual handling falls month by month.
+
+**How many hours come back at 500 documents a month?**
+Assuming 4 minutes per manually handled document and 1 minute to check a suggestion, 500 documents take about 12 hours a month instead of 33. That leaves roughly 21 hours, about 350 € a month at an employer cost of 16 € per hour, so a 2,800 € build pays back in around eight months. Arithmetic to substitute your own numbers into, not one client's result.
+
+**Does this work with Comarch Optima or Symfonia?**
+Yes, and it is the most expensive part of the job. Reading data is simple; writing it back needs an API integration or an import in the format that system accepts, and that drives the timeline. Comarch is also adding prompt-driven agents to Optima and XL, so some of this will arrive from the vendor.
+
+**Are you allowed to push client documents into an AI model?**
+These are personal data and professional confidentiality, so the minimum is a processing agreement with the model provider, retention switched off at both the API and the integration layer, and documented knowledge of where the data is processed. In practice the processing layer sits on the practice's own server or in EU-hosted cloud. Article 4 of the AI Act has separately required AI literacy since 2 February 2025, with penalties reaching 15 million euro or 3% of turnover. I am a developer, not a lawyer, so agree training content with one.
+
+**How long does it take and what does the practice prepare?**
+Tier 1 is 2-3 weeks, tier 2 another 4-6, a full ledger integration 6-10. The practice supplies 200-300 historical documents with correct coding, test access to the ledger system, written rules for its biggest clients and one decision-maker who answers within a day. Without written rules the project stalls, because that knowledge is usually nowhere on paper.

@@ -1,0 +1,146 @@
+---
+title: "Jak sprawdzić, czy agent AI, za którego zapłaciłeś, nadal działa"
+description: "Agent nie pada, tylko cicho zaczyna odpowiadać źle. Zestaw testowy, tabela kryteriów odbioru do umowy, procedura shadow mode i metryki na produkcji."
+date: "2026-09-05"
+cluster: "ai-agent-testing-monitoring"
+keywords:
+  - "testowanie agenta AI"
+  - "monitoring agenta AI"
+  - "ewaluacja agenta AI"
+  - "kryteria odbioru agenta AI"
+  - "utrzymanie agenta AI koszt"
+ogImage: "/og/ai-agent-testing-monitoring.webp"
+---
+
+Agent AI prawie nigdy nie przestaje działać w sposób, który widać. Nie wyskakuje błąd 500, widżet się otwiera, bot odpowiada uprzejmie i szybko. Tylko od trzech tygodni podaje ceny z poprzedniego cennika, a połowa leadów nie dociera do CRM, bo ktoś przemianował jedno pole w formularzu.
+
+Awaria agenta wygląda jak normalna praca. Poniżej: ewaluacja kontra monitoring, zestaw testowy, kryteria odbioru do umowy, metryki produkcyjne i koszt utrzymania.
+
+## Awaria agenta wygląda jak zwykła praca
+
+Społeczność MLOps opublikowała w 2026 roku badanie 143 firmowych wdrożeń RAG, czyli agentów odpowiadających na podstawie firmowej bazy wiedzy. **73% z nich zaliczyło co najmniej jedną krytyczną awarię w pierwszym kwartale produkcji, a 41% tych awarii nie wykryły standardowe zestawy ewaluacyjne.**
+
+Druga liczba jest ważniejsza. Firmy miały testy, testy przechodziły, a system i tak podawał ludziom złe odpowiedzi. Agent psuje się inaczej niż zwykły software: nie rzuca wyjątku, tylko wywołuje właściwe narzędzie ze złymi parametrami. Zapisuje lead do CRM z pustym numerem telefonu. Odpowiada na pytanie o cenę, cytując dokument sprzed roku, bo nowy PDF wgrano do innego folderu.
+
+Tło jest podobnie trzeźwe: tylko około 25% inicjatyw AI przynosi w Polsce oczekiwany zwrot, 35% firm mówi o braku korzyści, a Gartner szacuje, że 89% pilotów agentowych nigdy nie trafia na produkcję. Część z tego to złe pomysły. Spora część to dobre wdrożenia, których nikt nie pilnował po odbiorze.
+
+## Ewaluacja mówi, czy może działać. Monitoring, czy działa teraz
+
+Ten podział rozwiązuje większość nieporozumień między klientem a wykonawcą.
+
+**Ewaluacja** to zestaw pytań z góry znanymi dobrymi odpowiedziami, puszczany na żądanie. Odpowiada na pytanie: czy ta wersja agenta radzi sobie z tym, co potrafimy sobie wyobrazić. Robi się ją przed wdrożeniem i po każdej zmianie promptu, bazy wiedzy albo modelu.
+
+**Monitoring** to patrzenie na prawdziwy ruch: co agent faktycznie odpowiada dzisiaj, ile razy wywołał narzędzie, ile spraw skończyło się przekazaniem do człowieka. Odpowiada na pytanie: czy nadal działa na tym, czego nikt sobie nie wyobraził.
+
+Potrzebne są oba. Zestaw testowy nigdy nie zawiera pytania, którego klient jeszcze nie zadał, a monitoring nie powie, czy nowa wersja promptu jest lepsza od starej, dopóki nie wypuścisz jej na ludzi. Skala niedopatrzenia jest policzona: raport OWASP z 2026 roku podaje, że średnie pokrycie monitoringiem systemów agentowych na produkcji wynosi 52%. Co drugi działający agent nie jest obserwowany przez nikogo.
+
+## Zestaw testowy: 50 realnych przypadków zebranych przed startem
+
+To jedyna rzecz, którą klient musi zrobić sam. Zestaw testowy to plik z prawdziwymi pytaniami i wzorcowymi odpowiedziami. Wykonawca go nie napisze, bo napisze pytania, na które jego agent umie odpowiedzieć. Jak go zebrać w dwa wieczory:
+
+- Weź ostatnie 200 rozmów z czatu, skrzynki albo z infolinii. Nie wybieraj ładnych, weź po kolei.
+- Wybierz 50: około 30 typowych, 10 brzegowych (nietypowy przypadek, dwa pytania naraz, klient pisze po angielsku), 5 takich, gdzie agent ma odmówić lub przekazać do człowieka, i 5 złośliwych (próba wyciągnięcia rabatu, pytanie o dane innego klienta, wklejona instrukcja "zignoruj poprzednie polecenia").
+- Do każdego dopisz jednym zdaniem, co jest poprawną odpowiedzią i skąd pochodzi. To zajmuje najwięcej czasu i w tym jest wartość.
+- Zamroź plik. Zestaw testowy zmienia się raz na kwartał, a nie przy okazji poprawiania agenta.
+
+Pięćdziesiąt to nie liczba z badań, tylko praktyczne minimum: mniej i wynik skacze przy każdym uruchomieniu, więcej i nikt tego ręcznie nie oceni. Jak taki projekt przebiega od początku, opisałem w tekście o tym, [jak wdrożyć chatbota AI na stronę krok po kroku](/pl/blog/chatbot-ai-na-strone-jak-wdrozyc).
+
+## Kryteria odbioru, które powinny być w umowie
+
+Najczęstszy zapis w umowach na [agenta AI](/pl/uslugi/agenci-ai) brzmi "agent odpowiada na pytania klientów". Tego nie da się odebrać ani zakwestionować. Poniżej tabela, którą wkładam do zakresu prac: każdy wiersz da się sprawdzić w jedno popołudnie i każdy ma wskazanego człowieka.
+
+| Metryka | Jak mierzona | Próg akceptacji | Kto sprawdza |
+| --- | --- | --- | --- |
+| Trafność odpowiedzi | 50 przypadków z zestawu testowego, ocena ręczna: dobra / do poprawy / błędna | min. 90% ocen "dobra", zero błędnych w kategorii cen i zobowiązań | osoba merytoryczna po stronie klienta |
+| Zmyślone fakty | każda odpowiedź z liczbą, ceną lub terminem porównana ze źródłem | 0 na 50 przypadków | klient, nie wykonawca |
+| Poprawność wywołań narzędzi | log wywołań: czy do CRM trafiły te pola, które podał klient | 100% zgodności pól na 20 przypadkach zapisujących dane | wykonawca, log udostępniony klientowi |
+| Eskalacja do człowieka | scenariusze, w których agent ma się poddać: reklamacja, groźba, wprost prośba o człowieka | 100% przekazań, kontakt z człowiekiem poniżej 2 minut w godzinach pracy | klient, na żywo |
+| Czas odpowiedzi | mediana i 95 percentyl z logów z tygodnia | mediana poniżej 4 sekund, p95 poniżej 12 sekund | automatycznie, raport |
+| Koszt zadania | opłaty za model i API podzielone przez liczbę zamkniętych spraw | ustalona kwota za sprawę, uzgodniona przed startem | wykonawca, raport miesięczny |
+| Oznaczenie AI | pierwsza wiadomość w każdym kanale, podpis w widżecie, pierwsze zdanie rozmowy głosowej | informacja o AI przy pierwszym kontakcie, w każdym kanale | klient |
+
+Ostatni wiersz nie jest kosmetyką. Od 2 sierpnia 2026 obowiązek informowania rozmówcy, że rozmawia z systemem AI, wynika z artykułu 50 unijnego AI Act, a odpowiada za to firma, która używa agenta pod własną nazwą.
+
+Poza tabelą zostają dwa zapisy: kto ma dostęp do logów (klient musi mieć) i co się dzieje, gdy próg nie zostanie osiągnięty (poprawki w cenie wdrożenia, z terminem).
+
+## Shadow mode: dwa tygodnie równolegle z człowiekiem
+
+Shadow mode to uruchomienie agenta na prawdziwym ruchu bez wypuszczania go do klientów. Agent widzi zapytanie i przygotowuje odpowiedź, człowiek nadal odpowiada sam. Nikt nie ryzykuje, a dane są prawdziwe. Procedura, którą stosuję:
+
+1. **Dzień 0.** Agent podpięty do prawdziwego kanału w trybie tylko do odczytu. Każde zapytanie trafia też do niego, jego odpowiedź ląduje w osobnym wątku na Slacku albo w arkuszu. Klient nie widzi nic.
+2. **Dni 1-10.** Osoba, która i tak obsługuje ten kanał, oznacza propozycje agenta jednym kliknięciem: wysłałbym / poprawiłbym / nie wysłałbym nigdy. To dodaje jakieś 10 sekund na sprawę.
+3. **Dzień 5.** Pierwszy przegląd. Wszystkie "nie wysłałbym nigdy" trafiają do zestawu testowego jako nowe przypadki. Poprawki tylko na ich podstawie.
+4. **Dni 11-14.** Bez zmian w konfiguracji. To jest pomiar, nie strojenie. Zmiana promptu w ostatnim tygodniu unieważnia wynik.
+5. **Odbiór.** Liczysz odsetek "wysłałbym" z ostatnich czterech dni. Poniżej 85% agent nie wychodzi do klientów, tylko wraca do poprawek.
+6. **Start z hamulcem.** Pierwszy tydzień produkcyjny: jeden kanał, godziny pracy, widoczny przycisk przejścia do człowieka, dzienny przegląd rozmów.
+
+Przy ruchu poniżej 20 spraw dziennie potrzeba trzech lub czterech tygodni. Przy agencie głosowym nie da się dzwonić równolegle, więc puszcza się przez niego transkrypcje nagrań, co opisałem przy okazji [głosowego agenta AI](/pl/blog/glosowy-agent-ai).
+
+## Co mierzyć, kiedy agent już rozmawia z klientami
+
+Cztery liczby na jednym ekranie, oglądane raz w tygodniu, wyłapują większość problemów, zanim zrobi się z tego historia z klientem.
+
+- **Skuteczność zamknięcia.** Odsetek spraw zamkniętych bez człowieka. Znaczy kierunek, nie poziom: spadek o 10 punktów tydzień do tygodnia oznacza, że zmieniły się dane, model albo pytania klientów.
+- **Eskalacje z podziałem na powody.** Osobno "klient poprosił o człowieka", osobno "agent nie wiedział", osobno "agent się pomylił i człowiek to naprawiał". Ostatnia kategoria jest jedyną, która naprawdę boli.
+- **Koszt zadania.** Opłaty za model i API podzielone przez liczbę zamkniętych spraw. Ta liczba pozwala rozmawiać o wdrożeniu w kategoriach zwrotu, a nie wiary. Arytmetykę oszczędności rozpisałem w tekście o tym, [ile realnie oszczędza chatbot AI w obsłudze](/pl/blog/chatbot-ai-oszczednosci-roi).
+- **Opóźnienie, mediana i p95.** Rosnąca mediana zwykle oznacza, że dostawca zmienił coś po swojej stronie. Rosnący ogon p95 oznacza, że któreś narzędzie zaczęło się zawieszać.
+
+Do tego nawyk, który zastępuje połowę narzędzi: **co poniedziałek ktoś czyta dziesięć losowych rozmów z zeszłego tygodnia.** Nie najgorszych, nie zgłoszonych, tylko losowych. Wyłapuje to, czego żadna metryka nie pokaże.
+
+## Co psuje się samo, bez niczyjej winy
+
+Agent to nie jest projekt, który się kończy. Otoczenie pod nim się rusza, nawet jeśli nikt niczego nie dotyka.
+
+| Co się zmienia | Co widzi klient | Sygnał w danych |
+| --- | --- | --- |
+| Dostawca wycofuje wersję modelu | odpowiedzi robią się dłuższe i mniej konkretne | skok długości odpowiedzi i kosztu zadania w tym samym tygodniu |
+| Zmiana w API CRM albo w formularzu | agent "działa", ale rekordy nie powstają | spadek udanych wywołań narzędzia przy stałym ruchu |
+| Nowy cennik wgrany w inne miejsce | bot podaje stare ceny | rośnie odsetek rozmów poprawianych przez człowieka |
+| Prompt rozrósł się po kolejnych poprawkach | agent gubi wcześniejsze reguły | spadek trafności na starych przypadkach z zestawu testowego |
+| Sezonowa zmiana pytań | więcej "nie wiem" | wzrost eskalacji z powodem "agent nie wiedział" |
+| Wstrzyknięcie polecenia w treści z zewnątrz | agent wykonuje instrukcję z cudzego maila albo PDF-a | nietypowe wywołania narzędzi poza wzorcem godzinowym |
+
+Ostatni wiersz rośnie najszybciej: OWASP w raporcie za 2026 rok podaje wzrost liczby ataków przez wstrzyknięcie polecenia o 340% rok do roku. Agent, który czyta treści z zewnątrz, nie powinien mieć prawa zapisu bez potwierdzenia człowieka. Najtańsze zabezpieczenie przed całą tą tabelą kosztuje nic: uruchamiaj zestaw testowy po każdej zmianie i raz w miesiącu bez powodu.
+
+## Ile kosztuje utrzymanie i co powinien zawierać abonament
+
+Polscy dostawcy publikują utrzymanie w okolicach 15-25% wartości wdrożenia rocznie albo abonamenty 500-2 500 zł miesięcznie, z opłatami za model i API rzędu 200-500 zł miesięcznie liczonymi osobno. Firmy anglojęzyczne podają 15-30% ceny budowy rocznie. To cudze cenniki, nie moje.
+
+Abonament ma sens, jeśli zawiera rzeczy z tego tekstu, a nie samo "wsparcie":
+
+- comiesięczne uruchomienie zestawu testowego z raportem i porównaniem z poprzednim miesiącem,
+- cztery metryki produkcyjne w jednym miejscu, dostępne dla klienta bez proszenia,
+- reakcja na zmianę wersji modelu po stronie dostawcy, łącznie z przetestowaniem nowej,
+- poprawki promptu i bazy wiedzy w ustalonym limicie godzin,
+- kwartalne dorzucenie do zestawu testowego nowych przypadków z prawdziwych rozmów.
+
+Kiedy nie warto go kupować: gdy agent obsługuje kilkanaście spraw miesięcznie, gdy odpowiada wyłącznie z zamkniętego dokumentu albo gdy nie ma prawa zapisu do żadnego systemu. Wtedy wystarczy przegląd raz na kwartał, i mówię to klientom wprost.
+
+## Jeśli agent już u Ciebie działa
+
+Najszybszy test zajmuje jedno popołudnie. Zbierz 20 prawdziwych pytań z ostatniego miesiąca, zadaj je agentowi, sprawdź odpowiedzi ze źródłem i policz, ile trafiło do CRM. Jeśli wynik jest gorszy niż w dniu odbioru, masz odpowiedź.
+
+Jeżeli wolisz, żeby zrobił to ktoś z zewnątrz i na piśmie, tym jest [audyt AI](/pl/uslugi/audyt-ai) u mnie: zestaw testowy na Twoich danych, przegląd logów, tabela kryteriów odbioru wypełniona wynikami i lista poprawek według kosztu. Cena od 4 900 zł, a przy wdrożeniu ode mnie to część zakresu. Napisz na [stronie kontaktu](/pl/kontakt), co masz uruchomione, a odpowiem, czy jest tu co audytować.
+
+## FAQ
+
+**Jak sprawdzić, czy agent AI nadal działa poprawnie?**
+Weź 20-50 prawdziwych pytań klientów z ostatniego miesiąca, zadaj je agentowi i porównaj odpowiedzi ze źródłem: cennikiem, regulaminem, kartą produktu. Osobno sprawdź, czy dane trafiły do CRM z kompletem pól, bo agent potrafi odpowiedzieć poprawnie i zapisać śmieci. Ten sam zestaw pytań uruchamiany co miesiąc pokazuje kierunek, a jednorazowy test tylko stan na dziś. Progiem alarmowym jest spadek trafności o więcej niż 10 punktów procentowych względem dnia odbioru.
+
+**Czym różni się ewaluacja od monitoringu agenta AI?**
+Ewaluacja sprawdza, czy agent może działać: puszczasz przez niego zestaw pytań z góry znanymi dobrymi odpowiedziami i liczysz trafienia. Monitoring sprawdza, czy działa teraz: patrzysz na prawdziwy ruch, na wywołania narzędzi, eskalacje, koszt i czas odpowiedzi. Ewaluacja wyłapuje regresję po zmianie promptu lub modelu, monitoring wyłapuje to, czego nikt nie przewidział przy pisaniu testów. Potrzebne są oba, bo pokrywają rozłączne rodzaje błędów.
+
+**Co powinno znaleźć się w kryteriach odbioru agenta AI w umowie?**
+Każde kryterium potrzebuje czterech elementów: metryki, sposobu pomiaru, progu liczbowego i osoby, która sprawdza. Minimalny zestaw to trafność odpowiedzi na zamrożonym zbiorze testowym, zero zmyślonych liczb i cen, zgodność pól zapisywanych do CRM, stuprocentowa eskalacja w zdefiniowanych scenariuszach, mediana i p95 czasu odpowiedzi, koszt na zamkniętą sprawę oraz oznaczenie AI w każdym kanale. Do tego dostęp klienta do logów i zapis o tym, co się dzieje, gdy próg nie zostanie osiągnięty.
+
+**Czym jest shadow mode i ile powinien trwać?**
+Shadow mode to uruchomienie agenta na prawdziwym ruchu bez pokazywania jego odpowiedzi klientom: agent przygotowuje odpowiedź, człowiek nadal odpowiada sam, a propozycje agenta są oceniane jednym kliknięciem. Standardowo dwa tygodnie, przy ruchu poniżej 20 spraw dziennie trzy lub cztery, żeby zebrać sensowną próbkę. W ostatnim tygodniu nie zmienia się konfiguracji, bo to jest pomiar, a nie strojenie. Rozsądny próg wypuszczenia do klientów to co najmniej 85% odpowiedzi ocenionych jako "wysłałbym to bez poprawek".
+
+**Ile kosztuje utrzymanie agenta AI po wdrożeniu?**
+Polscy dostawcy publikują 15-25% wartości wdrożenia rocznie albo abonamenty 500-2 500 zł miesięcznie, a opłaty za model i API, zwykle 200-500 zł miesięcznie, liczone są osobno. Firmy anglojęzyczne podają 15-30% ceny budowy rocznie. Abonament ma sens, gdy zawiera comiesięczne uruchomienie zestawu testowego, dostęp klienta do metryk, reakcję na zmianę wersji modelu i limit godzin na poprawki.
+
+**Dlaczego agent przestaje działać, choć nikt nic nie zmieniał?**
+Bo zmienia się otoczenie. Dostawca wycofuje wersję modelu i odpowiedzi robią się dłuższe oraz mniej konkretne, ktoś przemianuje pole w formularzu i agent przestaje zapisywać leady, nowy cennik ląduje w innym folderze i bot podaje stare ceny. Badanie 143 firmowych wdrożeń RAG opublikowane przez społeczność MLOps w 2026 roku pokazało, że 73% z nich zaliczyło krytyczną awarię w pierwszym kwartale produkcji, a 41% tych awarii nie wykryły standardowe zestawy ewaluacyjne.
+
+**Czy trzeba kupować narzędzie do monitoringu agentów?**
+Przy jednym agencie w małej firmie zwykle nie. Cztery liczby raz w tygodniu, czyli skuteczność zamknięcia, eskalacje z podziałem na powody, koszt zadania oraz mediana i p95 czasu odpowiedzi, mieszczą się w arkuszu podpiętym do logów. Płatne narzędzia w rodzaju LangSmith czy Arize Phoenix zaczynają się opłacać przy kilku agentach i zespole, który musi widzieć to samo.

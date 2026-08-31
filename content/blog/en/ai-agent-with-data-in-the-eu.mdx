@@ -1,0 +1,132 @@
+---
+title: "AI agents with data in the EU: residency, DPAs, zero retention"
+description: "Residency is a location claim, sovereignty is a jurisdiction claim. Four AI agent architectures: where the data sits, what zero retention does, and cost."
+date: "2026-09-04"
+cluster: "ai-data-in-eu"
+keywords:
+  - "AI agent data in the EU"
+  - "EU data residency AI GDPR"
+  - "zero data retention API"
+  - "DPA with LLM vendor"
+  - "self-hosted open-weight model"
+ogImage: "/og/ai-data-in-eu.webp"
+---
+
+The question that ends most AI agent conversations in an EU company is not price. It is: where does our customer data go, and who can reach it. Regulators ask the same thing, phrased as a list of duties for whoever deploys the system.
+
+Here is the engineering answer: four architectures, what each buys you, where "hosted in the EU" stops being true, and what each costs at the same volume.
+
+One caveat: I am a developer, not a lawyer. Below is the technical side, what goes in a config file and a contract. Legal interpretation belongs to a data protection lawyer.
+
+## Residency is a location claim, sovereignty is a jurisdiction claim
+
+Residency tells you which building the bytes are in. Sovereignty tells you whose law can reach them. Those are different questions, and most "your data stays in the EU" pitches only answer the first.
+
+EU data residency guidance has settled on one sentence for the difference: **data in an EU region on a US-owned cloud is still reachable under the US CLOUD Act**. Frankfurt in the region name does not change who receives the order.
+
+The same guidance packages the requirements into a repeatable triad you need in full: a signed DPA with the model vendor, zero retention configured on both the API and the integration layer, and a documented architecture showing where EU personal data is processed. Miss one and the other two stop being an argument in an audit.
+
+## Four architectures side by side
+
+The third and fourth are the only rows where the word "sovereignty" has anything behind it.
+
+| Architecture | Where data sits | Whose jurisdiction | DPA needed | Trains the model | Monthly cost |
+| --- | --- | --- | --- | --- | --- |
+| Off-the-shelf US SaaS | vendor servers in the US | US | vendor template, no negotiation | depends on plan, often yes | subscription, US assistant vendors list $25-300 |
+| Your app + model API with zero retention | app is yours, prompt content processed in the US | US for the model layer | yes, you sign it yourself | no on API access | a Hetzner VPS at €4-6 plus model usage |
+| App and data in an EU cloud, EU model endpoint | EU | EU if the operator is European | yes, with processing location named | no | EU hosting plus usage, UXU lists maintenance from 700 zł net |
+| Open-weight model on your own server | your server in the EU | your own member state | not with a model vendor, yes with the host | no, the model runs on your box | GPU server plus operations, the most expensive line |
+
+The middle two differ on what weighs most in a GDPR conversation: in row two the customer's words still travel outside the EEA, just without being stored. In row three they do not travel at all.
+
+## Zero data retention: what it actually turns off
+
+Zero retention on the API means the vendor does not keep prompts and completions after the request is served, including the standard abuse-monitoring buffer. Worth switching on every time.
+
+What it does not do:
+
+- **It does not change jurisdiction.** The data is still processed there, just for less time.
+- **It does not touch your own logs.** n8n stores full execution data for every workflow run by default, prompt content included. That is the most common accidental store of personal data I find in existing setups.
+- **It does not touch the tools next door.** CRM, helpdesk, error monitoring, analytics. A prompt with a passport number lands in an exception report faster than anyone notices.
+
+So zero retention gets configured twice: on the API key and in the integration layer. In practice, no saving of successful executions, automatic pruning of history, prompt scrubbing in the error tracker, and a separate decision on what goes into a stored transcript rather than only a summary.
+
+## The DPA with your model vendor: what has to be in it
+
+A free browser account where an employee pastes client data is not an architecture. It is a leak with a start date. A DPA covers API access or a business plan and should answer six questions directly.
+
+- Subject, duration and purpose of processing, plus the categories of data and data subjects.
+- A ban on using your content to train or improve models.
+- The retention period, ideally zero, and a deletion deadline once the contract ends.
+- A list of sub-processors and an obligation to notify you of changes.
+- The processing location and the legal basis for any transfer outside the EEA.
+- Breach notification within a stated deadline, and an audit right or an audit report.
+
+You sign the same set with your hosting provider if the app runs in a cloud. With a model on your own server only that second contract remains, one reason regulated sectors keep choosing it.
+
+## The four questions an inspection will ask
+
+Poland's data protection authority has been blunt about AI rollouts: every chatbot exchange involving personal data is processing under GDPR. The deployer must establish a legal basis, meet the information duty and analyse the specific use case **before buying**, not after go-live. It must also know whether the data trains the vendor's model, how long it is retained and where the servers physically sit. A DPA is required in many cases.
+
+Four questions you should answer from memory: legal basis, training, retention, location. If any answer starts with "I think so", the gap is in your documentation, not your technology.
+
+Then the AI Act layer. The duty to tell a person they are talking to a machine has applied since 2 August 2026, with no transition period. The 2 December 2026 date covers something narrower: marking AI-generated content in systems placed on the market before 2 August 2026. Breaching the transparency duties carries fines up to €15m or 3% of worldwide turnover. Bringing an existing bot in line is a small separate job on my side: [AI Act compliance](/en/services/ai-act-compliance) from 3,500 zł (about €810).
+
+## An open-weight model on your own server: when it is the only answer
+
+Four situations where zero retention is not enough on its own:
+
+- special categories of data, health records above all;
+- professional secrecy: law firms, tax advisers, auditors;
+- corporate contracts that explicitly forbid transferring data outside the EEA;
+- financial services with a security policy that has no exception clause.
+
+Polish agencies sell self-hosted n8n on the client's own infrastructure to exactly those sectors: medicine, finance and law firms. Polish voicebot vendors advertise EU-hosted servers, encryption and "conversations are not used for model training" as their main differentiator.
+
+Now the honest side. An open-weight model is weaker at hard reasoning and at languages other than English, so scenarios have to be written more tightly. Then comes operations: backups, updates, monitoring, and who picks up the phone at 10pm on a Saturday. Almost no guide finishes that arithmetic. With nobody on infrastructure, row three is cheaper and calmer than row four.
+
+## What each option costs at the same traffic volume
+
+Published market numbers plus my own build ranges. The first three rows assume the same conversation volume, the fourth adds hardware.
+
+| Option | Build | Monthly | When it fits |
+| --- | --- | --- | --- |
+| Off-the-shelf US SaaS | usually none | $25-300 per US assistant pricing pages | small company, no sensitive data, standard FAQ |
+| Your own agent on an API with zero retention | from €1,500 (about 6,400 zł) with me | VPS €4-6 plus model usage, maintenance from 700 zł net at UXU rates | most retail and service businesses |
+| The same with EU hosting and an EU endpoint | same scope, a few extra days of setup | as above, EU hosting usually a bit pricier | companies with EEA clauses in client contracts |
+| Open-weight on your own server | Tantor prices its self-hosted Enterprise tier at 20,000 zł net | GPU server, monitoring, operations | healthcare, law firms, finance |
+
+Two notes. Tool licences are billed separately, 50-300 zł a month at Tantor's rates, so do not fold them into the build price. Moving from row two to row three is cheap if the model configuration lives in one place in the code from day one. Moving to row four never is, so decide that before the first line.
+
+## How I set this up in projects
+
+When I build an [AI agent](/en/services/ai-agents), the data architecture is part of the quote, not an extra. Defaults: an API key with zero retention, app and database in an EU region, full execution logging off in the automation layer, contact details masked in logs, and one page of documentation with a diagram of who processes what. That page is what you later paste into your record of processing activities.
+
+When the agent talks to a sales system, personal data stays inside the CRM and the model gets only the context it needs to answer. The technical shape of that is in the piece on [connecting an AI agent to your CRM](/en/blog/ai-agent-crm-integration). In hospitality the same pattern covers booking data, as in the [AI agent for hotels and apartments](/en/blog/ai-agent-for-hotels-and-apartments).
+
+What I will not promise: that data never leaves your country while the budget assumes a hosted frontier model. What is achievable is that it is not stored, not used for training, and that you know exactly what goes where.
+
+To work out which architecture fits your data, [write to me](/en/contact) and describe what enters the conversation. I will send back a comparison of two options with costs and the list of documents. If you are earlier than that, start with [what an AI agent is](/en/blog/what-is-an-ai-agent).
+
+## FAQ
+
+**Is data in the EU region of a US cloud safe under GDPR?**
+It sits in the EU, but it is not outside the reach of US law. EU data residency guidance frames this as residency versus sovereignty: residency is a location claim, sovereignty is a jurisdiction claim, and EU-resident data on a US-owned cloud stays reachable under the US CLOUD Act. If your client contracts talk about jurisdiction rather than location, you need a European operator or your own server.
+
+**What does zero data retention on an API actually give me?**
+The vendor does not keep prompt and completion content after the request is served, so no copy of the conversation exists on their side. It does not change the jurisdiction of processing and does not cover your own logs. EU data residency guidance requires zero retention on the API and the integration layer in parallel, because n8n, your CRM and your error tracker store prompt content by default.
+
+**Do I need a DPA with the model vendor?**
+In most cases yes. Poland's data protection authority states that every chatbot exchange involving personal data is processing, that the deployer must establish a legal basis and analyse the use case before purchase, and that a DPA is needed in many situations. It should cover the training ban, the retention period, the sub-processor list, the processing location and the breach notification deadline.
+
+**Does API data train the model?**
+On API access, model vendors state that prompt content is not used for training, and that statement belongs in your DPA as a contractual term. Consumer chat accounts often work the other way by default. The biggest real risk is not the architecture, it is staff pasting client data into personal accounts.
+
+**When do I genuinely need an open-weight model on my own server?**
+When you process special categories of data, are bound by professional secrecy, have contractual bans on transfers outside the EEA, or work in finance under a security policy with no exceptions. Polish agencies deploy self-hosted setups in exactly those sectors: medicine, finance and law firms. Otherwise an API with zero retention and EU hosting gets the same outcome for less: the self-hosted tier alone is 20,000 zł net on Tantor's price list.
+
+**What does an AI agent with EU data residency cost?**
+With me a build starts at €1,500 (about 6,400 zł), plus monthly hosting and model usage: a VPS for the automation layer runs €4-6 at Hetzner, and UXU lists agent maintenance from 700 zł net plus model consumption. Tool licences run 50-300 zł a month at Tantor's rates, billed separately. The own-server variant is clearly dearer because a GPU machine and its operations come on top.
+
+**What has to be done to an existing bot by 2 December 2026?**
+Mark the AI-generated content, if the system was placed on the market before 2 August 2026: that is what the December date covers. The duty to tell the user clearly that they are interacting with an AI system has applied since 2 August 2026 with no transition period. Breaching the transparency duties carries fines up to €15m or 3% of worldwide annual turnover. In Poland the national AI supervisory commission gains inspection and fining powers on 28 October 2026.

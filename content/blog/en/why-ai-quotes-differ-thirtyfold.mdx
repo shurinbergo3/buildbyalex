@@ -1,0 +1,147 @@
+---
+title: "Why AI Quotes Differ 30x: The Same Agent at €1,400 and €42,000"
+description: "Three quotes for one AI agent: €1,400, €9,300 and €42,000. I break each down line by line, show published market ranges and the questions that close the gap."
+date: "2026-09-09"
+cluster: "ai-quotes-differ"
+keywords:
+  - "why AI quotes differ so much"
+  - "AI agent development cost"
+  - "AI implementation quote comparison"
+  - "how much does an AI agent cost 2026"
+  - "AI project pricing 2026"
+ogImage: "/og/ai-quotes-differ.webp"
+---
+
+Take one concrete job: an agent that reads the company inbox for incoming RFQs, pulls line items out of PDFs, files the case in the CRM and drafts a preliminary quote for a salesperson to approve. Thirty requests a day, one warehouse, one system.
+
+For that same job the market will hand you €1,400, €9,300 and €42,000. Thirty times apart. Below I take each number apart and show where the line runs between cheap and too cheap.
+
+One disclaimer: these three quotes are not a specific client. They are assembled from price bands vendors publish openly on their own sites. The numbers are theirs, the breakdown is mine.
+
+The market is young and nobody sells the same thing twice. GUS, the Polish statistics office, reports 8.7% of Polish companies used AI in 2025, and only 2.1% had it custom built by an outside party. Most buyers have nothing to compare against.
+
+The supply side is just as fragmented. English-language cost pages quote $10K to $450K+ for AI agent development. Polish vendors publish PLN 3,000-15,000 for a setup on off-the-shelf blocks. Both call the product an "agent".
+
+Then there is integration depth, which nobody prices the same way. Published Polish bands put a knowledge-base agent at PLN 20,000-60,000 (€4,700-14,000) and an agent that **writes** into a CRM, ERP or logistics system at PLN 80,000-250,000 (€19,000-58,000). That is the jump hiding in your quote under one line reading "system integration".
+
+## What you buy for €1,400
+
+Configuration of ready-made blocks: n8n or Make, an agent template from the library, the mailbox connected, a model over API and a webhook into the CRM. Three to five days of work.
+
+The band is real and published: LessManual quotes PLN 3,000-15,000 setup plus PLN 500-2,500 a month, StormIT and PixelAgency PLN 8,000-20,000 for configuration plus PLN 200-500 a month for API and infrastructure, UXU sells a knowledge-base assistant from PLN 7,900 net with every extra integration priced separately. Global sources land in the same place: $1,500-5,000 to build a single-purpose agent, $300-800 a month to run it.
+
+You get a working happy path: the agent handles a request that looks like the two it was tested on. What you rarely get is edge cases, tests on your own data, logs, and someone who answers the phone in November. A [WhatsApp chatbot for business](/en/blog/whatsapp-chatbot-for-business) that writes nothing into your systems sits in this band.
+
+## What you buy for €9,300
+
+This is where project work starts. A day or two of process workshops, mapping CRM fields, attachments in several formats, tests on a few hundred real requests, two weeks of fixes after launch and a maintenance contract.
+
+That band is published too: a CRM-integrated agent is quoted in Poland at PLN 15,000-45,000 (€3,500-10,500), full deployments at PLN 25,000-150,000 net, and the done-for-you model at PLN 5,000-15,000 setup plus PLN 900-2,200 a month. Nine thousand euro sits mid-distribution, and for a company losing real hours to this process it is usually a fair price.
+
+## What you buy for €42,000
+
+Three weeks of discovery, an architect, two developers, a project manager, a custom multi-agent orchestrator, compliance documentation, staging and production, an SLA. Softwarelogic publishes PLN 80,000-250,000 setup and PLN 8,000-40,000 a month in maintenance for agents that write into an ERP. Forty-two thousand euro is a normal price for a different scope.
+
+Some of those line items come from the vendor's structure, not your job. Discovery takes three weeks because four people have to sync. The multi-agent framework appears because that is what the offering looks like, not because one mailbox and one CRM need it. The most repeated criticism among practitioners is exactly this: most agent projects should have been plain deterministic automations.
+
+## The same line items in one table
+
+The last column is the range vendors publish. Where the market publishes nothing, I put my own price and say so.
+
+| Line item | €1,400 quote | €9,300 quote | €42,000 quote | Published market range |
+| --- | --- | --- | --- | --- |
+| Process workshop and analysis | none | 1-2 days | 3 weeks, 4 people | sold separately as an AI audit |
+| Agent logic | n8n template | written for your process | custom orchestrator | PLN 3,000-15,000 setup (LessManual) |
+| Reading the inbox and PDFs | yes | yes | yes | in every quote |
+| Writing into CRM or ERP | usually none | one system | three systems | PLN 80,000-250,000 for ERP (Softwarelogic) |
+| Tests on real requests | none | 200-500 cases | full staging environment | rarely priced as its own line |
+| EU AI Act compliance | none | a clause in the contract | documentation and register | no published range, mine from PLN 3,500 |
+| Logs and audit trail | none | basic | full audit trail | usually absent from cheap quotes |
+| Monthly maintenance | none | PLN 900-2,200 | PLN 8,000-40,000 | 15-30% of build price per year |
+| Model and API cost | not included | PLN 200-500/mo | separate contract | $150-15,000/mo depending on volume |
+
+The difference is not code quality. It comes from three rows: writing into systems, testing, and maintenance. The rest is comparable.
+
+## Where the cost really starts
+
+The language model is the cheapest part of this project. The cost sits where the agent touches somebody else's systems and data.
+
+- **Read versus write.** An agent that reads the CRM is one API call and an hour of work. An agent that writes into it needs validation, duplicate handling, rollback and a rule for conflicts.
+- **Input data.** RFQs arrive as PDFs, scans, phone photos, a table pasted into the email body and an Excel attachment from a supplier abroad. Every format is a separate path and separate tests.
+- **The cases the agent cannot handle.** Some requests have to reach a human. With no escalation path in the quote, they come back to you as chaos rather than a queued task.
+- **Model calls per case.** One case is rarely one prompt. Usually several to a dozen calls: classification, extraction, price-list matching, a check. This is the line that quietly grows on the API bill.
+- **Model upgrades.** Providers ship new versions several times a year and a prompt that worked starts behaving differently. Somebody has to catch it.
+
+I ran through similar arithmetic for a simpler scenario in the piece on an [AI chatbot with a knowledge base](/en/blog/ai-chatbot-with-knowledge-base).
+
+## What the cheap quote is missing
+
+Not code. The things that only show up in month three.
+
+Compliance. Article 50 of the EU AI Act has applied since 2 August 2026: a person must be told they are dealing with an AI system. Systems placed on the market before that date have until 2 December 2026 for machine-readable marking of AI-generated content. In Poland the national supervisor, KRiBSI, can inspect and fine from 28 October 2026. I am a developer, not a lawyer, but on the engineering side these are concrete line items: the disclosure, an AI systems register, conversation logs, a path to a human. The €1,400 quote has none of them, and adding them later is billed separately.
+
+Testing. An agent verified on two sample emails behaves differently on two hundred.
+
+An owner for the project. This is the most common reason implementations die. Gartner forecasts that over 40% of agentic AI projects will be cancelled by the end of 2027, and reports 89% of agent pilots never reach production. S&P Global Market Intelligence found 42% of companies abandoned most of their AI initiatives in 2025, up from 17% a year earlier. The surviving 11% report 171% ROI: the problem is not the technology but finishing the job.
+
+One number to separate out: the "95% of AI projects fail" figure comes from an MIT study of broad generative pilots and measures absence of P&L impact, not cancelled agent projects. Worth keeping the two apart when someone waves them at you.
+
+## The maintenance none of the three quotes shows
+
+A quote talks about launch day. The money leaves over two years. Here is the same trio over 24 months at the low end of published rates: the model at PLN 200 a month, maintenance at PLN 900 a month for the mid quote and PLN 8,000 for the large one.
+
+| Horizon | €1,400 quote | €9,300 quote | €42,000 quote |
+| --- | --- | --- | --- |
+| Build | €1,400 | €9,300 | €42,000 |
+| Model and infrastructure, 24 months | approx. €1,100 | approx. €1,100 | inside the contract |
+| Maintenance, 24 months | €0, you do it | approx. €5,000 | approx. €44,600 |
+| Total after two years | approx. €2,500 | approx. €15,400 | approx. €86,600 |
+
+The ratio does not move: thirty times at the start, more than thirty after two years. What changes is who maintains the cheap option, and that is you, in hours. Polish vendors assume annual maintenance at 15-25% of the first implementation; English-language sources say 15-30%. Add that number to any quote that leaves it out.
+
+## Seven questions that close the gap
+
+Send them to all three vendors on the same day. The spread usually drops to two or three times.
+
+1. Does the agent read from the CRM or write into it? Through which API, and what happens when a write fails?
+2. How many real cases will it be tested on before launch, and who supplies that data?
+3. What does the agent do when it does not know? Where does the case go and who gets notified?
+4. How many model calls per case, and what does that add up to monthly at my volume?
+5. Whose OpenAI and Anthropic accounts and API keys are these, mine or yours?
+6. What happens on a model version change, and are those fixes inside the maintenance fee?
+7. What do I get on the EU AI Act: the disclosure, the AI systems register, conversation logs?
+
+Question five is the most underrated. If the keys and accounts belong to the vendor, the cost of leaving is far higher than the quote suggests.
+
+## How I price it myself
+
+Openly and by line item. An [AI agent](/en/services/ai-agents) starts at €1,500, a sales agent with CRM integration at €2,500, an agent across several tools at €4,500, a plain n8n automation at €900. Document-flow automation, the full version of the scenario in this article, starts at PLN 12,000 (about €2,800).
+
+I am one developer, not an agency, so there is no project manager and no three-week discovery in my quote. There is the same integration depth Polish vendors price at PLN 15,000-45,000.
+
+When you should not buy from me: if the process is not written down, the volume is under a dozen cases a day, or nobody on your side owns the outcome, you need an audit first, not a build. An [AI audit](/en/services/ai-audit) costs from PLN 4,900 (about €1,150), takes about a week and ends with a list of processes, the saving on each and a price range for each. If nothing is worth building, I say so.
+
+Got two or three quotes on your desk and no idea which is honest? [Write to me](/en/contact), strip the vendor names, and I will say which line items are real and which are missing. If you are earlier than that, I unpacked the categories in [what an AI agent is](/en/blog/what-is-an-ai-agent).
+
+## FAQ
+
+**Why do AI implementation quotes differ by as much as 30 times?**
+Because one word, "agent", covers three different products: configuring an off-the-shelf tool, a development project built around your process, and an enterprise rollout with a team and documentation. Published ranges bear this out: PLN 3,000-15,000 for a setup on ready blocks, PLN 15,000-45,000 for a CRM-integrated agent, PLN 80,000-250,000 for an agent writing into an ERP. Three line items drive most of the gap: writing into systems, testing on real data, and maintenance.
+
+**How much does an AI agent actually cost a small business in 2026?**
+For one clearly described process the realistic band is €1,400-10,500 one-off plus €50-600 a month for the model, infrastructure and maintenance. Global sources put a single-purpose custom agent at $1,500-5,000 to build and $300-800 a month to run. My own agent price starts at €1,500, and a sales agent with CRM integration at €2,500.
+
+**Is a €1,400 quote a scam?**
+No, it is a different scope. That money buys a working configuration of ready-made components tested on a few examples. It does not buy tests on your data, edge-case handling, logs, an escalation path to a human, or AI Act compliance. If the process is simple and you can supervise it, it is a sensible purchase. If the agent will write into the system your sales run on, it is not.
+
+**What should every AI implementation quote contain?**
+Five items priced separately: process analysis, build and integrations split into read and write, testing on real data with the number of cases stated, monthly model and infrastructure cost, and post-launch maintenance. Plus a line saying whose accounts and API keys these are. A quote with no line-item breakdown cannot be compared to any other.
+
+**How much does it cost to maintain an AI agent after launch?**
+Polish vendors assume annual maintenance at 15-25% of the first implementation, English-language sources say 15-30%. In subscription form that is PLN 900-2,200 a month for simpler deployments and PLN 8,000-40,000 for ERP-integrated agents, plus the model and infrastructure itself at $150 to several thousand a month depending on volume. If a quote omits maintenance, add 15-25% a year to it yourself.
+
+**How do I compare two quotes with completely different structures?**
+Break both into the same line items: analysis, agent logic, integrations split into read and write, testing, compliance, maintenance, model cost. The empty cells are your answer. Then price both over 24 months rather than launch day: at the low end of published rates the €9,300 quote costs about €15,400 after two years and the €42,000 one about €86,600.
+
+**When should you not buy an AI implementation at all?**
+When the process is not documented, the volume is too small for the saving to cover maintenance, or nobody in the company owns the outcome. Gartner forecasts that over 40% of agentic AI projects will be cancelled by the end of 2027, and S&P Global found 42% of companies abandoned most AI initiatives already in 2025. The cheaper first step is a process audit, which often shows a plain automation without a language model is enough.

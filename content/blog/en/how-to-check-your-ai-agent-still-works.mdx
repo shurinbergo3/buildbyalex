@@ -1,0 +1,143 @@
+---
+title: "How to Tell If the AI Agent You Paid For Is Still Working"
+description: "Agents do not crash, they quietly start answering wrong. A test set, an acceptance table for your contract, a shadow mode procedure and four metrics to watch."
+date: "2026-09-05"
+cluster: "ai-agent-testing-monitoring"
+keywords:
+  - "AI agent testing"
+  - "AI agent monitoring"
+  - "AI agent evaluation"
+  - "AI agent acceptance criteria"
+  - "AI agent maintenance cost"
+ogImage: "/og/ai-agent-testing-monitoring.webp"
+---
+
+An AI agent almost never fails visibly. No 500 error, the widget opens, the bot answers politely and fast. It has just been quoting last quarter's prices for three weeks, and half the leads never reach the CRM because somebody renamed a form field.
+
+A broken agent looks like a working one. Below: evaluation versus monitoring, the test set, acceptance criteria for the contract, production metrics, maintenance cost.
+
+## A broken agent looks like normal work
+
+In 2026 the MLOps Community studied 143 enterprise RAG deployments, agents answering from a company knowledge base. **73% hit at least one critical failure in their first quarter in production, and 41% of those failures went undetected by standard evaluation suites.**
+
+The second number matters more. These companies had tests, the tests passed, and the system still gave people wrong answers. Agents break differently: they do not throw an exception, they call the right tool with wrong parameters. They write the lead into the CRM with an empty phone number. They quote last year's pricing document, because the new PDF went to another folder.
+
+The wider picture is as sober: Gartner estimates 89% of agent pilots never reach production, and S&P Global Market Intelligence found 42% of companies abandoned most AI initiatives in 2025, up from 17% in 2024. Much of that is decent builds nobody watched.
+
+## Evaluation says it can work. Monitoring says it is working
+
+This split settles most arguments between buyer and builder.
+
+**Evaluation** is a fixed set of questions with known good answers, run on demand. It answers: does this version handle what we can imagine. Run it before launch and after every change to the prompt, knowledge base or model.
+
+**Monitoring** watches real traffic: what the agent replies today, how often it called a tool, how many cases ended in a handover. It answers: is it still working on what nobody imagined.
+
+You need both. A test set never contains the question a customer has not asked yet, and monitoring cannot tell you whether a new prompt beats the old one until you ship it. OWASP's 2026 report puts mean monitoring coverage across production agents at 52%: every second running agent is watched by nobody.
+
+## The test set: 50 real cases collected before launch
+
+This is the one thing the buyer must do personally. A test set is a file of real questions with reference answers. The builder cannot write it: he will write questions his agent already answers. How to collect it in two evenings:
+
+- Take the last 200 conversations from chat, the inbox or the phone line, in order, not the nice ones.
+- Select 50: about 30 typical, 10 edge cases (an unusual request, two questions at once, a customer writing in another language), 5 where the agent must refuse or hand over, 5 hostile (fishing for a discount, asking about another customer's data, a pasted "ignore previous instructions").
+- For each, write one line on the correct answer and its source. That takes the most time, and that is the value.
+- Freeze the file. A test set changes once a quarter, not while somebody tweaks the agent.
+
+Fifty is a working minimum, not a research number: fewer and the score jumps every run, more and nobody grades it by hand. How such a project runs is in my walkthrough on [adding an AI chatbot to a website](/en/blog/how-to-add-ai-chatbot-to-website).
+
+## Acceptance criteria that belong in the contract
+
+The most common line in an [AI agent](/en/services/ai-agents) contract reads "the agent answers customer questions". You cannot accept that, nor dispute it. Here is the table I put into the scope of work: every row is checkable in an afternoon and names its checker.
+
+| Metric | How it is measured | Acceptance threshold | Who checks |
+| --- | --- | --- | --- |
+| Answer accuracy | 50 frozen test cases graded by hand: good / needs edit / wrong | 90% "good", zero wrong on prices and commitments | client's subject expert |
+| Invented facts | every answer with a number, price or date checked against source | 0 out of 50 cases | the client, not the builder |
+| Tool call correctness | call logs: did the CRM get the fields the customer gave | 100% field match on 20 write cases | builder, logs shared |
+| Handover to a human | scripted cases where the agent must give up: complaint, threat, request for a person | 100% handover, human within 2 minutes | the client, live |
+| Response time | median and 95th percentile from a week of logs | median under 4 seconds, p95 under 12 seconds | automated report |
+| Cost per task | model and API spend divided by closed cases | an agreed amount per case, fixed before launch | builder, monthly |
+| AI disclosure | first message in every channel, widget label, opening line of a call | disclosure at first contact, every channel | the client |
+
+The last row is not cosmetic. Since 2 August 2026, Article 50 of the EU AI Act requires that a person be told they are interacting with an AI system, and the duty sits with the company deploying the agent under its own name. Two clauses sit outside the table: who can read the logs (the client must) and what a missed threshold triggers, which is fixes inside the build price.
+
+## Shadow mode: two weeks running next to a human
+
+Shadow mode runs the agent on real traffic without letting it reach customers. It drafts an answer, a human still replies. No risk, real data. The procedure I use:
+
+1. **Day 0.** The agent joins the real channel read-only. Every request also goes to it, its draft landing in a Slack thread or a spreadsheet. The customer sees nothing.
+2. **Days 1-10.** Whoever handles that channel grades each draft with one click: would send / would edit / would never send. About 10 seconds per case.
+3. **Day 5.** First review. Every "would never send" becomes a new test case, and fixes come from those only.
+4. **Days 11-14.** No configuration changes. This is measurement, not tuning: editing the prompt now invalidates the result.
+5. **Sign-off.** Count the share of "would send" over the last four days. Below 85% it goes back for fixes.
+6. **Launch with a handbrake.** First production week: one channel, business hours, a visible button to reach a human, a daily read of transcripts.
+
+Below 20 cases a day you need three or four weeks for a meaningful sample. A voice agent cannot run two calls in parallel, so there you replay recorded transcripts through it, as in my piece on [voice AI agents for calls](/en/blog/voice-ai-agent-for-calls).
+
+## What to measure once the agent talks to customers
+
+Four numbers on one screen, read weekly, catch most problems before they become a customer story.
+
+- **Containment rate.** Cases closed without a human. Direction matters, not level: a 10 point drop week over week means the data, the model or the questions changed.
+- **Escalations, split by reason.** Keep "asked for a person", "agent did not know" and "agent got it wrong and a human cleaned up" apart. Only the last really hurts.
+- **Cost per task.** Model and API spend divided by closed cases. It lets you discuss the build in returns, not belief; the arithmetic is in my breakdown of [what an AI chatbot saves in support](/en/blog/ai-chatbot-savings-roi).
+- **Latency, median and p95.** A rising median usually means the provider changed something. A growing p95 tail means a tool started hanging.
+
+One habit replaces half the tooling: **every Monday somebody reads ten random conversations from the previous week.** Not the worst, not the reported. It surfaces what metrics hide.
+
+## What breaks on its own, with nobody at fault
+
+An agent is not a project that ends. The ground under it moves even when nobody touches it.
+
+| What changes | What the customer sees | Signal in the data |
+| --- | --- | --- |
+| The provider retires a model version | answers get longer and vaguer | answer length and cost per task jump the same week |
+| A CRM API or a form field changes | the agent "works" but records stop appearing | successful tool calls drop, traffic flat |
+| A new price list uploaded elsewhere | the bot quotes old prices | more conversations corrected by a human |
+| The prompt has grown through patches | the agent forgets earlier rules | accuracy falls on old test set cases |
+| Seasonal shift in what people ask | more "I do not know" | escalations tagged "agent did not know" go up |
+| Injected instructions in external content | the agent obeys an order from someone else's email or PDF | unusual tool calls outside the hourly pattern |
+
+That last row grows fastest: OWASP's 2026 report records a 340% year over year rise in prompt injection attacks. An agent that reads external content should not have write access without a human confirming it. The cheapest defence against the whole table is free: run the test set after every change and once a month anyway.
+
+## What maintenance costs and what a retainer should contain
+
+Polish vendors publish maintenance at 15-25% of build value per year, or retainers of 120-580 € (500-2 500 zł) a month, with model and API spend of 45-115 € (200-500 zł) billed separately. English shops quote 15-30% of build price per year. Those are other people's price cards, not mine.
+
+A retainer earns its money when it contains this article rather than the word "support":
+
+- a monthly test set run with a report and a comparison against last month,
+- the four production metrics in one place, visible without asking,
+- a response when the provider changes the model version, including testing it,
+- prompt and knowledge base fixes within an agreed hour budget,
+- a quarterly top-up of the test set from real conversations.
+
+When not to buy one: a dozen cases a month, answers only from a closed document, or no write access anywhere. A quarterly review is enough, and I say so plainly.
+
+## If your agent is already live
+
+The fastest check takes an afternoon. Collect 20 real questions from the last month, put them to the agent, verify each answer against its source, count how many reached the CRM complete. If that is worse than on sign-off day, you have your answer.
+
+If you would rather have it done from outside and in writing, that is my [AI audit](/en/services/ai-audit): a test set on your data, a log review, the acceptance table filled in with real results, a fix list ordered by cost. It starts at 1 150 € (4 900 zł), and when I build the agent it is part of the scope. Tell me on the [contact page](/en/contact) what you run and I will say whether it is worth auditing.
+
+## FAQ
+**How do I check whether my AI agent is still working correctly?**
+Take 20-50 real customer questions from the last month, put them to the agent, and compare each answer with its source: price list, terms, product page. Separately check the data reached the CRM with every field, because an agent can answer correctly and still write garbage. The alarm threshold is an accuracy drop over 10 percentage points against sign-off day.
+
+**What is the difference between evaluation and monitoring for AI agents?**
+Evaluation checks whether the agent can work: you run a fixed set of questions with known good answers and count the hits. Monitoring checks whether it works right now: real traffic, tool calls, escalations, cost, response time. Evaluation catches regressions after a prompt or model change; monitoring catches what nobody anticipated when the tests were written.
+
+**What acceptance criteria should be in an AI agent contract?**
+Every criterion needs four parts: a metric, a measurement method, a numeric threshold and a named checker. The minimum set is answer accuracy on a frozen test set, zero invented numbers or prices, correct CRM field writes, 100% handover in defined scenarios, median and p95 response time, cost per closed case, AI disclosure in every channel. Add client log access and a missed-threshold clause.
+
+**What is shadow mode and how long should it run?**
+Shadow mode runs the agent on real traffic without showing its answers to customers: it drafts a reply, a human still sends their own, each draft graded with one click. Two weeks is standard, three or four below 20 cases a day. In the final week you change nothing, because that part is measurement, not tuning. A sensible bar for going live is 85% of drafts graded "I would send this unedited".
+
+**How much does it cost to maintain an AI agent after launch?**
+Polish vendors publish 15-25% of build value per year, or retainers of 120-580 € (500-2 500 zł) a month, with model and API spend of 45-115 € (200-500 zł) billed separately. English shops quote a similar 15-30% per year. A retainer earns it when it includes a monthly test set run, client access to metrics, a response to model changes and an agreed hour budget.
+
+**Why does an agent stop working when nobody changed anything?**
+Because the environment changes. The provider retires a model version and answers get vaguer, somebody renames a form field and leads stop being written, a new price list lands elsewhere and the bot quotes old numbers. The MLOps Community's 2026 study of 143 enterprise RAG deployments found 73% hit a critical failure in their first quarter in production, 41% of them missed by standard evaluation suites.
+
+**Do I need to buy an agent monitoring tool?**
+With one agent in a small company, usually not. Four numbers once a week - containment rate, escalations by reason, cost per task, median plus p95 latency - fit in a spreadsheet wired to your logs. Paid tools such as LangSmith or Arize Phoenix pay off with several agents and a team needing one view. Reading ten random conversations every Monday matters more.

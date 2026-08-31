@@ -1,0 +1,133 @@
+---
+title: "AI for property managers: maintenance requests without the calls"
+description: "How one agent collects requests from phone, email and WhatsApp, triages them, dispatches the contractor and chases the deadline. SLA table and cost per unit."
+date: "2026-09-09"
+cluster: "ai-property-management"
+keywords:
+  - "AI for property managers"
+  - "maintenance request automation"
+  - "property management AI agent"
+  - "maintenance triage software"
+  - "AI ticketing for building management"
+ogImage: "/og/ai-property-management.webp"
+---
+
+A manager running five hundred units does not struggle with hard cases. Those are a few percent of the week. The week goes to repetition: the same call about a leaking basement pipe, the same balance request, the same meter reading question, across three channels at once. That is the shape of work you can automate safely: high volume, narrow vocabulary, clear escalation rules.
+
+Below is how the agent works inside, what it closes itself, what it must never touch, and what it costs per unit.
+
+One disclaimer: I am a developer, not a lawyer or a licensed property manager. Inspection deadlines and the scope of your duties come from your contract and local building law. My side is making sure no date or request gets lost.
+
+## Three questions that eat the day
+
+Break a month of requests into categories and inbound falls into three baskets.
+
+**Status.** "I reported this two weeks ago, what is happening?" No decision required, one field read from the register. The office answers this several times a day because the resident has nowhere to check.
+
+**Administrative.** Balance, meeting date, bank details, a change in the number of occupants. The data sits in the accounting system, invisible outside the office.
+
+**Maintenance.** Real work, but a large slice of it is retyping a phone description into the register, categorising it and forwarding it. Retyping is not a manager's job.
+
+I will not quote a percentage of tickets a bot closes unaided: I have no verified data, and vendor-site numbers cannot be checked. Here is the category split instead, so you can count how much of your volume closes automatically.
+
+## Five inbound channels, one register
+
+A typical building takes requests through the office phone, the out-of-hours line, email, a web form and the caretaker's WhatsApp, plus a residents' Facebook group the office hears about last.
+
+Step one has nothing to do with AI: every channel lands in one register with one case number. Without that there is nothing to measure.
+
+Only then does the AI layer sit on top: it reads a message in plain language, ties it to a unit, assigns a category, decides whether to answer or dispatch. A voice agent picks up around the clock into the same register. Published platform rates, with model, speech synthesis and telephony added, land around $0.05-0.25 per minute, so a night line is no longer a budget question.
+
+## Triage: category, SLA, recipient
+
+A document worth writing even if you never buy an agent. Every row answers three questions: how fast, to whom, may a machine close it.
+
+| Request type | Response SLA | Who gets the job | Bot closes it |
+| --- | --- | --- | --- |
+| Emergency: flooding, no water, gas smell, power loss in common areas | 30 min, 24/7 | emergency contractor, SMS to manager | no, it logs and escalates |
+| Lift: person trapped | immediately | lift company, by phone not email | no, the call goes straight to a human |
+| Routine fault: intercom, lighting, dripping fitting in common areas | job raised same business day | contractor for that category | yes, after completion is confirmed |
+| Administrative: balance, bank details, meeting date | 15 minutes | nobody, the data is in the system | yes |
+| Meter reading, change in number of occupants | 1 business day | building accounting | yes, if the reading is in range |
+| Neighbour complaint, noise, mess in the stairwell | 2 business days | the manager, a human | no |
+| Formal: resolutions, billing disputes, documents | 7 days | manager and accounting | no |
+| Out of scope: developer warranty, private flat interior | immediately | nobody | yes, with a redirect |
+
+Anything touching health or neighbour conflict stays out of the automation, even when the model would handle the language fine. The last row is bigger than people think: managers deflect matters that were never theirs.
+
+## Dispatch and chasing the deadline
+
+Classification is easy. The hard part comes after, and it decides whether the system saves time or becomes one more place to check.
+
+The agent sends the contractor a complete job: case number, address, floor, the description stripped of emotion, photos, the contact who lets the crew in, the deadline from the category. Then it chases. No acknowledgement within a day means a reminder; no completion by the deadline means the manager is notified, not a quiet row in a spreadsheet.
+
+Closing works one way only: the contractor replies that it is done, the agent asks the resident whether the fault is actually gone, and only that answer closes the ticket. The automated question catches jobs ticked off but not done.
+
+Balances and events are read and written through the API of the system you already run. How that exchange works I broke down in [connecting an AI agent to your CRM](/en/blog/ai-agent-crm-integration).
+
+## Inspections and the dates nobody remembers in July
+
+The second layer that pays for itself is the compliance calendar: building inspections, chimney and gas checks, lift inspections, insurance renewals, service contracts, meeting dates. Nothing difficult, all of it awkward: each date comes once a year and one person remembers.
+
+The configuration is the same for every deadline: a reminder 30 days out, a repeat at 14 days, an alert to the manager at 3 days, and if the report is not filed on the day itself, the case becomes top priority. Reports live in one place, so a change of manager does not become archaeology in an old mailbox. This is usually the first part to pay back: one missed statutory inspection can cost more than a year of subscription.
+
+## Resident data: minimisation and the AI Act
+
+A maintenance request is personal data: name, unit address, phone number, sometimes health, when someone explains why they need hot water badly. Only what classification and the job sheet require goes to the model: the unit number and the fault description are enough. The ID number and the balance have no business in a prompt.
+
+The European standard has settled into three parts: a data processing agreement with the model vendor, retention switched off on the API and the integration layer, a documented architecture showing where data is processed. Data held in Europe on a US-owned cloud still falls under US jurisdiction.
+
+Then the layer around the bot. AI Act transparency obligations have applied since 2 August 2026 and were not deferred: at first contact the resident must know they are dealing with an AI system. The 2 December 2026 date is narrower and covers marking generated content on systems already on the market before 2 August. Transparency breaches carry fines up to €15m or 3% of worldwide turnover. Enforcement is national: in Poland the AI supervisory commission can inspect and fine from 28 October 2026. One sentence in the greeting and a label in the widget settle it.
+
+## What it costs per unit
+
+Polish vendors publish their bands openly, so I anchor to those. A simple agent is quoted at PLN 3,000-15,000 (roughly €700-3,500) plus PLN 500-2,500 a month. A knowledge-base agent runs PLN 20,000-60,000 (€4,700-14,000) plus PLN 2,000-8,000 a month. An agent writing into a CRM or ERP starts around PLN 80,000 (€18,600); annual maintenance runs 15-25% of the build.
+
+My rates: an AI agent from €1,500 (about PLN 6,400), a multi-tool agent with integrations and a voice channel from €4,500 (about PLN 19,400), an [AI audit](/en/services/ai-audit) before the build from PLN 4,900 (about €1,140). The sensible model is a one-off build plus a subscription scaled to portfolio size. The levels below are my own indicative bands, not a market average.
+
+| Portfolio | Requests per month (assumption for the math) | Subscription | Cost per unit |
+| --- | --- | --- | --- |
+| 200 units | about 120 | €140 | €0.70 |
+| 500 units | about 300 | €280 | €0.56 |
+| 1,200 units | about 700 | €580 | €0.48 |
+
+The middle column is an assumption for the arithmetic, not market research: substitute numbers from your own register. The result is robust to it, because the subscription scales with units, not tickets. At five hundred units that is €0.56 per unit a month, against a service charge counted in tens of euros.
+
+Work out the other side yourself: hours a week your office spends retyping requests and answering status questions. Under five, stop reading.
+
+## When not to buy this
+
+Three situations where I talk people out of it.
+
+- **A small portfolio with one manager.** Below roughly a hundred and fifty units the phone beats any system and you know everyone by name. A shared inbox and a spreadsheet of case numbers will do.
+- **No register at all.** If requests live in the caretaker's head and in text messages, the agent has nothing to read and nowhere to write. A month of a proper register first, automation second. The reverse order is why most of these projects die, and I wrote about it in [how to implement AI in business](/en/blog/how-to-implement-ai-in-business).
+- **Expecting it to resolve conflicts.** Neighbour complaints, billing disputes and general meetings are the manager's job. Automation logs them and chases the deadline; it does not settle them.
+
+Keep the failure numbers in view. Gartner expects over 40% of agentic AI projects to be cancelled by the end of 2027, and 89% of agent pilots never reach production, while the surviving 11% report a 171% return. That argues for narrow scope, not against building: one building, one category, a measurable result after a month. Why such deployments underdeliver I collected in [why your AI chatbot gets no leads](/en/blog/why-your-ai-chatbot-gets-no-leads).
+
+## Where to start
+
+Write the category table with SLAs, funnel the channels into one place, connect the agent to the easiest category, measure a month. I build these as [AI agents](/en/services/ai-agents) for a specific process, not a generic site widget. To check whether your volume justifies it, [get in touch](/en/contact) with two numbers: units managed and requests a month.
+
+## FAQ
+
+**Can an AI agent close a maintenance request on its own?**
+It closes administrative cases itself: a balance query, a meeting date, a ticket status, because it reads data and makes no decision. A routine fault closes only after the contractor confirms completion and the resident confirms the problem is gone. Emergencies and neighbour conflicts are never closed automatically: the agent logs them and hands them to a human.
+
+**How much does AI for maintenance requests cost?**
+Polish vendors publish PLN 3,000-15,000 (about €700-3,500) for a simple agent plus PLN 500-2,500 a month; a knowledge-base agent is PLN 20,000-60,000 plus PLN 2,000-8,000 monthly. My own rates are an AI agent from €1,500 (about PLN 6,400) and a multi-tool agent with a voice channel from €4,500 (about PLN 19,400). On five hundred units with a €280 subscription that is €0.56 per unit.
+
+**What portfolio size makes this worth it?**
+The practical threshold is around two hundred units, or five hours a week spent retyping requests and answering status questions. Below that the phone beats any system and a shared inbox plus a spreadsheet of case numbers will do. Above it the arithmetic closes on its own, because the subscription scales with units, not tickets.
+
+**I already run property management software, do I have to replace it?**
+No. The agent is a layer on top of what you already run, connected through an API or a shared mailbox to your accounting system. Replacing the platform is a separate, expensive project that adds nothing an integration does not. A first version covering one category takes two to three weeks.
+
+**Do I have to tell residents they are talking to AI?**
+Yes. AI Act transparency obligations have applied since 2 August 2026: a person must know at the first interaction that they are dealing with an AI system. The 2 December 2026 date is narrower and covers marking generated content on systems already on the market before 2 August. Transparency breaches carry fines up to €15m or 3% of worldwide turnover, enforced nationally: in Poland the AI supervisory commission can inspect and fine from 28 October 2026.
+
+**Is this compatible with GDPR?**
+Yes, provided you minimise: the model sees the unit number and the fault description, not the ID number, the balance or the full resident file. The standard set is a data processing agreement with the model vendor, retention disabled on the API and the integration layer, a documented processing architecture. Data held in Europe on a US-owned cloud still falls under US jurisdiction: residency and sovereignty are different claims.
+
+**Will the voice bot work for elderly residents?**
+The voice agent answers around the clock into the same register as the form and the mailbox, and the script always hands over to a human on the first request and on any emergency signal. Published platform rates, with model, speech synthesis and telephony added, sit around $0.05-0.25 per minute. If your buildings have many elderly residents, start with email and the form, add voice later.

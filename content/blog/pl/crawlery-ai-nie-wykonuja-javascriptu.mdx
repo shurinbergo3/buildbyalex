@@ -1,0 +1,155 @@
+---
+title: "Crawlery AI nie wykonują JavaScriptu - i nie widzą twojej strony"
+description: "GPTBot, ClaudeBot i PerplexityBot pobierają HTML i nie uruchamiają skryptów. Co przez to znika z cennika i FAQ, jak to sprawdzić w 10 minut i co naprawić."
+date: "2026-09-06"
+cluster: "ai-crawlers-javascript"
+keywords:
+  - "crawlery AI JavaScript"
+  - "renderowanie strony dla botów AI"
+  - "GPTBot renderowanie JavaScript"
+  - "SSR Next.js widoczność w AI"
+  - "dlaczego ChatGPT nie widzi mojej strony"
+ogImage: "/og/ai-crawlers-javascript.webp"
+---
+
+Wpisujesz w ChatGPT nazwę swojej firmy i dostajesz opis konkurencji albo trzy zdania z profilu, którego nie ruszałeś od dwóch lat. Strona działa, jest w Google, ma cennik, opinie i rozbudowane FAQ. Tylko że bot nie ogląda strony tak jak człowiek. Pobiera plik HTML i kończy pracę. Jeśli cennik dorysowuje się dopiero po kliknięciu w zakładkę, a FAQ po rozwinięciu akordeonu, dla bota tego po prostu nie ma.
+
+To nie jest problem teoretyczny. Google uruchomił AI Mode w Polsce i po polsku 8 października 2025, Senuto podaje, że odpowiedź AI pojawia się przy 24,17% polskich zapytań w Google, a z ChatGPT korzysta w Polsce ponad 10 milionów osób. Ahrefs na próbie 300 tysięcy słów kluczowych policzył, że tam, gdzie wyświetla się AI Overview, CTR spada o około 34,5%. Rozbierałem ten mechanizm osobno w tekście o tym, [dlaczego ruch z Google spadł przy tych samych pozycjach](/pl/blog/ruch-spadl-przez-ai-overviews-co-robic). Tutaj chodzi o warstwę niżej: czy bot w ogóle ma co przeczytać.
+
+## Które boty faktycznie czytają twoją stronę
+
+Stan na czerwiec 2026: żaden z głównych crawlerów AI nie wykonuje JavaScriptu. Wyjątkiem jest Google, bo Gemini i AI Mode korzystają z tej samej usługi renderowania co Googlebot.
+
+| User-agent w logach | Właściciel | Wykonuje JavaScript | Po co przychodzi |
+| --- | --- | --- | --- |
+| GPTBot | OpenAI | nie | zbiera dane do trenowania modeli |
+| OAI-SearchBot | OpenAI | nie | buduje indeks wyszukiwania ChatGPT |
+| ChatGPT-User | OpenAI | nie | pobiera stronę na żywo, gdy użytkownik o coś pyta |
+| ClaudeBot | Anthropic | nie | zbiera dane do trenowania |
+| Claude-SearchBot | Anthropic | nie | wyszukiwanie na potrzeby odpowiedzi |
+| PerplexityBot | Perplexity | nie | indeks Perplexity |
+| Meta-ExternalAgent | Meta | nie | crawl dla systemów Meta |
+| Bytespider | ByteDance | nie | crawl dla systemów ByteDance |
+| Googlebot (Gemini, AI Mode) | Google | tak | dziedziczy usługę renderowania Googlebota |
+
+Ta tabela to lista fraz do `grep` po logach serwera. Zanim zaczniesz cokolwiek naprawiać, sprawdź, czy te boty w ogóle do ciebie przychodzą i na które adresy.
+
+## Dlaczego bot pobiera plik JS i go nie uruchamia
+
+Vercel w badaniu ruchu crawlerów pokazał rzecz, która myli wiele osób patrzących w logi: **GPTBot pobiera pliki JavaScript w około 11,5% żądań, ClaudeBot w około 23,8%**. Pobiera - i nic z nimi nie robi. Plik ląduje w zbiorze danych jako tekst, nie jako kod do wykonania.
+
+Chodzi o koszt. Pobranie pliku to jedno żądanie HTTP. Uruchomienie go to headless Chrome, własny silnik JS, czekanie na hydratację, timeouty i pamięć. Google budował ten pipeline latami, bo musiał: bez tego połowa internetu byłaby dla niego pusta. Crawlery AI zbierają dane w skali, w której renderowanie każdej strony byłoby wielokrotnie droższe niż sam crawl, a do trenowania modelu tekst z pierwszej odpowiedzi serwera zwykle wystarcza.
+
+Liczy się więc tylko to, co serwer odda na pierwsze żądanie; wszystko, co przeglądarka dokłada po hydratacji, jest poza zasięgiem.
+
+## Co znika najczęściej
+
+Rzeczy, które w audytach widzę regularnie. Kolumna po prawej to to, co zostaje w HTML.
+
+| Element strony | Typowa implementacja | Co dostaje bot |
+| --- | --- | --- |
+| Cennik z przełącznikiem miesiąc/rok | stan komponentu, kwoty z API | pusty kontener, zero kwot |
+| FAQ w akordeonie montowanym po kliknięciu | biblioteka UI, treść w JS | same nagłówki pytań albo nic |
+| Opinie z widgetu Google lub Trustpilot | zewnętrzny skrypt, iframe | nic |
+| Lista usług pobierana z CMS w `useEffect` | fetch po stronie klienta | pusta sekcja |
+| Katalog z filtrami i routingiem klienckim | SPA | pojedynczy pusty `<div id="root">` |
+| Kalkulator kosztu, konfigurator | całość w JS | nagłówek i nic więcej |
+
+Jest tu niuans, który ratuje sporo projektów. **Akordeon zbudowany na CSS albo na znaczniku `details` jest widoczny dla bota**, bo treść siedzi w HTML i jest tylko schowana wizualnie. Problemem jest wyłącznie akordeon, który montuje zawartość dopiero w momencie kliknięcia. To samo z zakładkami: jeśli wszystkie panele są w HTML, a przełącznik tylko zmienia klasę, wszystko jest w porządku. Nie musisz likwidować interakcji, musisz zmienić moment, w którym powstaje treść.
+
+## Sprawdzenie w dziesięć minut, bez żadnego narzędzia SEO
+
+Trzy testy, kolejność ma znaczenie.
+
+**1. Podgląd źródła, nie DevTools.** W przeglądarce Ctrl+U, potem Ctrl+F i szukasz konkretnej liczby z cennika albo pierwszego zdania odpowiedzi z FAQ. Zakładka Elements w DevTools pokazuje DOM już po wykonaniu JS, więc do tego testu się nie nadaje. To najczęstszy błąd przy samodzielnym sprawdzaniu.
+
+**2. curl z user-agentem bota.** Najbliższe temu, co widzi crawler:
+
+```bash
+curl -sA "GPTBot/1.2 (+https://openai.com/gptbot)" https://twojafirma.pl/cennik > cennik.html
+wc -c cennik.html
+grep -c "1 900" cennik.html
+```
+
+Jeśli plik ma dwa kilobajty, a `grep` po kwocie zwraca zero, cennika dla ChatGPT nie ma. Powtórz ten sam test na stronie głównej, na stronie usługi i na jednym wpisie blogowym.
+
+**3. Wyłączony JavaScript.** W ustawieniach przeglądarki blokujesz JS dla swojej domeny i przechodzisz ścieżkę klienta. To pokazuje nie tylko braki treści, ale też nawigację, która przestaje działać, bo linki są obsługiwane skryptem zamiast znacznikiem `a href`.
+
+Do tego jedna komenda na logach serwera:
+
+```bash
+grep -icE "GPTBot|OAI-SearchBot|ClaudeBot|PerplexityBot" access.log
+```
+
+## SSR, SSG i ISR: co realnie wystarczy
+
+Dla botów AI nie ma znaczenia, którą technikę wybierzesz. Znaczenie ma jedno: czy treść jest w odpowiedzi serwera.
+
+- **SSG, czyli generowanie przy buildzie.** Dla strony firmowej, oferty, cennika i bloga to opcja domyślna i najtańsza w utrzymaniu. HTML jest gotowy, bot dostaje wszystko od razu, hosting kosztuje grosze.
+- **ISR, czyli regeneracja co jakiś czas.** Sensowne, gdy treść pochodzi z CMS i zmienia się co kilka dni. Bot zawsze dostaje gotowy HTML, a redakcja nie czeka na deploy.
+- **SSR przy każdym żądaniu.** Potrzebne przy treści personalizowanej albo mocno zmiennej, na przykład dostępności terminów. Działa dla botów, ale kosztuje więcej czasu odpowiedzi, a boty AI ustawiają timeouty krótko.
+- **Renderowanie po stronie klienta.** Zostaw je dla panelu użytkownika, koszyka, czatu i wszystkiego za logowaniem. Tam bot i tak nie wejdzie, więc nie ma czego optymalizować.
+
+Zasada, którą stosuję: wszystko, co ma być cytowane w odpowiedzi AI - kwoty, terminy, definicje, warunki - musi wyjść z serwera. Reszta może być interaktywna do woli.
+
+## Widoczny HTML kontra JSON-LD
+
+Częsta reakcja na taki audyt brzmi: dodamy schema i będzie z głowy. Nie będzie.
+
+Dane są dość jednoznaczne. SE Ranking podaje, że około 71% stron cytowanych przez ChatGPT i około 65% cytowanych przez Google AI Mode ma jakieś dane strukturalne. Ale eksperyment Ahrefs, w którym śledzono **1 885 stron po dodaniu JSON-LD**, dał zmianę cytowań na poziomie -4,6% dla AI Overviews, +2,4% dla AI Mode i +2,2% dla ChatGPT. Wszystkie te wartości są statystycznie nie do odróżnienia od zera. Google mówi wprost, że do AI Overviews i AI Mode nie jest potrzebna żadna specjalna schema.
+
+Wniosek nie brzmi "wyrzuć JSON-LD". Schema to infrastruktura: tania, warto ją mieć, pomaga systemom rozumieć strukturę. Ale to nie jest dźwignia i nie zastąpi treści w widocznym HTML. Jeśli kwota 3 900 zł jest w JSON-LD, a na stronie renderuje ją JavaScript, model dostaje sygnał bez kontekstu.
+
+Podobnie z plikiem `llms.txt`. Ahrefs przeanalizował 137 000 witryn i stwierdził, że **97% plików llms.txt nie zanotowało w maju 2026 żadnego ruchu**. Google mówi, że tego nie obsługuje i nie planuje. Plik kosztuje pięć minut, więc niech sobie leży, ale nie jest odpowiedzią na problem opisany w tym tekście.
+
+## Poprawki po kolei: Next.js, Nuxt, Astro
+
+**Next.js, App Router.** Domyślnie komponenty są serwerowe i wszystko jest dobrze, dopóki ktoś nie doda `'use client'` na górze całej strony. Wtedy całe poddrzewo staje się interaktywne. Trzy rzeczy do sprawdzenia: `dynamic(..., { ssr: false })` na komponentach z treścią, pobieranie danych w `useEffect` zamiast na serwerze, i biblioteki UI, które montują panele zakładek dopiero po interakcji. Wzorzec docelowy: dane pobiera komponent serwerowy i przekazuje je jako props do małego klienckiego kawałka, który odpowiada wyłącznie za klikanie.
+
+**Nuxt 3.** Sprawdź, czy `ssr` nie jest ustawione na `false` w konfiguracji, bo to jednym przełącznikiem zamienia projekt w SPA. Dane pobieraj przez `useFetch` albo `useAsyncData`, nie w `onMounted`. Każdy `<ClientOnly>` traktuj jak deklarację "tej treści bot nie zobaczy" i zostawiaj w środku tylko widgety.
+
+**Astro.** Tu domyślnie jest dobrze, bo do przeglądarki nie leci żaden JS. Uważaj na dwie rzeczy: dyrektywę `client:only`, która całkowicie pomija render na serwerze, oraz wyspy pobierające dane z API po stronie klienta.
+
+Osobna kategoria to strony na WordPressie, Webflow czy Wixie. Tam HTML zwykle jest kompletny i tego problemu nie ma - warto tylko sprawdzić widgety opinii i sekcje doklejane wtyczkami. Jeśli dopiero planujesz [budowę strony](/pl/uslugi/strony-internetowe), to pytanie o renderowanie należy zadać wykonawcy przed podpisaniem umowy, obok pytań z listy w tekście o tym, [jak wybrać wykonawcę strony www](/pl/blog/jak-wybrac-wykonawce-strony-www).
+
+## Kiedy to strata czasu
+
+Szczerze: przepisywanie strony na SSR nie zawsze jest priorytetem.
+
+Nie ma sensu, jeśli twój HTML już zawiera treść, a problem leży gdzie indziej. W badaniu 278 promptów B2B z lipca 2026 (position.digital) **66% rekomendacji marek padło bez cytowania strony tej marki w ogóle** - model polecał firmę na podstawie wzmianek w cudzych zestawieniach i dyskusjach. Ta sama praca pokazuje, że mediana wieku strony cytowanej przez ChatGPT to 3,9 miesiąca. Jeśli masz poprawny HTML, ale nikt o tobie nigdzie nie pisze i ostatni wpis jest sprzed dwóch lat, renderowanie nic nie zmieni.
+
+Nie ma też sensu, jeśli strona jest za logowaniem, jest wewnętrznym narzędziem albo świadomie blokujesz boty AI w `robots.txt`. I nie ma sensu wtedy, gdy strona ma pięćdziesiąt odsłon miesięcznie, bo naprawiasz dystrybucję treści, której nikt nie szuka.
+
+Naprawa jest natomiast tania, jeśli projekt stoi na Next.js, Nuxt albo Astro. Zwykle jeden dzień pracy: przeniesienie pobierania danych na serwer, wyrzucenie dwóch, trzech `ssr: false` i przebudowa akordeonu tak, żeby treść była w HTML, a JS tylko ją rozwijał.
+
+## Co z tym zrobić
+
+Zacznij od testu z `curl`. Zajmuje dziesięć minut i odpowiada na pytanie, czy w ogóle masz ten problem. Jeśli okaże się, że cennik i FAQ nie istnieją w HTML, masz konkretną, skończoną listę zadań dla siebie albo dla wykonawcy.
+
+Jeśli wolisz, żeby ktoś to przeszedł za ciebie, robię [audyt widoczności w wyszukiwarkach AI](/pl/uslugi/widocznosc-w-ai) od 3 900 zł: przechodzę stronę user-agentami botów, pokazuję co dokładnie znika, sprawdzam logi pod kątem tego, które boty przychodzą i na jakie adresy, i oddaję listę poprawek uporządkowaną według kosztu wdrożenia. Jeśli chcesz tylko wiedzieć, czy to twój przypadek, [napisz](/pl/kontakt) i podaj adres strony - odpowiedź "jest problem / nie ma problemu" zajmuje mi kilka minut. Przy świeżo uruchomionej stronie warto połączyć to z listą z tekstu o [pierwszych 90 dniach po starcie](/pl/blog/pierwsze-90-dni-po-starcie-strony), bo obie rzeczy robi się w tym samym tygodniu.
+
+## FAQ
+
+**Czy crawlery AI wykonują JavaScript?**
+Nie. Na czerwiec 2026 żaden z głównych crawlerów AI - GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-SearchBot, PerplexityBot, Meta-ExternalAgent ani Bytespider - nie uruchamia JavaScriptu. Czytają wyłącznie HTML zwrócony przez serwer w odpowiedzi na pierwsze żądanie. Jedyny wyjątek to Google: Gemini i AI Mode korzystają z usługi renderowania Googlebota, więc widzą stronę po wykonaniu skryptów.
+
+**Skoro GPTBot pobiera pliki JavaScript, to chyba je czyta?**
+Pobiera, ale nie wykonuje. Badanie ruchu crawlerów przeprowadzone przez Vercel pokazało, że GPTBot pobiera pliki JS w około 11,5% żądań, a ClaudeBot w około 23,8%. Plik trafia do zbioru danych jako tekst źródłowy, a nie jako kod, który buduje stronę. Treść generowana przez ten kod nigdy nie powstaje.
+
+**Jak sprawdzić, co bot widzi na mojej stronie?**
+Najprościej otworzyć podgląd źródła strony skrótem Ctrl+U i poszukać w nim konkretnej kwoty z cennika lub zdania z FAQ. Zakładka Elements w DevTools nie nadaje się do tego testu, bo pokazuje stronę już po wykonaniu skryptów. Dokładniejsza wersja to `curl -sA "GPTBot/1.2" https://twojastrona.pl/cennik` i przeszukanie wyniku. Trzeci test to wyłączenie JavaScriptu w przeglądarce i przejście ścieżki klienta.
+
+**Czy JSON-LD i schema rozwiążą problem?**
+Nie. Eksperyment Ahrefs na 1 885 stronach, którym dodano JSON-LD, dał zmianę cytowań o -4,6% w AI Overviews, +2,4% w AI Mode i +2,2% w ChatGPT, czyli wartości statystycznie nie do odróżnienia od zera. Google mówi wprost, że do AI Overviews i AI Mode nie jest potrzebna żadna specjalna schema. Dane strukturalne warto mieć jako infrastrukturę, ale nie zastąpią treści w widocznym HTML.
+
+**Czy muszę przepisywać całą stronę na SSR?**
+Zwykle nie. Wystarczy, żeby z serwera wychodziła treść, która ma być cytowana: kwoty, warunki, odpowiedzi z FAQ, opisy usług. Interaktywne elementy typu koszyk, czat czy panel klienta mogą pozostać po stronie przeglądarki, bo boty i tak tam nie wchodzą. W projektach na Next.js, Nuxt albo Astro poprawka to zwykle jeden dzień pracy, a nie przebudowa.
+
+**Czy zakładki i akordeony trzeba całkiem usunąć?**
+Nie, wystarczy zmienić moment, w którym powstaje treść. Akordeon zbudowany na CSS albo na znaczniku `details` jest widoczny dla botów, bo tekst jest w HTML i tylko schowany wizualnie. Problem dotyczy wyłącznie komponentów, które montują zawartość dopiero po kliknięciu użytkownika. Ta sama zasada dotyczy zakładek: renderuj wszystkie panele, a skryptem przełączaj tylko widoczność.
+
+**Czy plik llms.txt pomoże botom AI zrozumieć stronę?**
+W praktyce nie. Ahrefs przeanalizował 137 000 witryn i stwierdził, że 97% plików llms.txt nie zanotowało w maju 2026 żadnego ruchu, a żądania do tego adresu są w danych o ruchu botów statystycznie pomijalne. Google publicznie mówi, że tego formatu nie obsługuje i nie planuje. Plik można dodać, bo kosztuje kilka minut, ale nie zastąpi treści dostępnej w HTML.
+
+**Ile kosztuje naprawa i od czego zacząć?**
+Zacznij od bezpłatnego testu: `curl` z user-agentem bota na trzech najważniejszych adresach. Jeśli treść jest w HTML, problemu nie masz. Jeśli nie ma, poprawka w projekcie na Next.js, Nuxt lub Astro to zwykle jeden dzień pracy programisty. Pełny audyt widoczności w wyszukiwarkach AI, z przejściem strony user-agentami botów, analizą logów i uporządkowaną listą poprawek, robię od 3 900 zł.

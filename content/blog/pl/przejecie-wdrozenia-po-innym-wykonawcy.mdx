@@ -1,0 +1,142 @@
+---
+title: "Przejęcie wdrożenia AI i n8n po innym wykonawcy: co da się uratować"
+description: "Wykonawca przestał odpowiadać, a bot i automatyzacje stoją na jego kontach. Co sprawdzić w pierwszej dobie, co realnie da się przejąć, ile kosztuje przejęcie."
+date: "2026-09-08"
+cluster: "ai-project-takeover"
+keywords:
+  - "przejęcie wdrożenia n8n po wykonawcy"
+  - "wykonawca zniknął automatyzacja"
+  - "audyt wdrożenia AI"
+  - "przejęcie projektu po programiście"
+  - "migracja n8n na własne konto"
+ogImage: "/og/ai-project-takeover.webp"
+---
+
+Telefon w poniedziałek rano: bot na stronie odpowiada co drugiej osobie, faktury przestały wpadać do systemu, a człowiek, który to wszystko postawił, nie odbiera od trzech tygodni. W firmie nikt nie wie, na czyim koncie stoi n8n, kto płaci za klucz OpenAI i gdzie leży kod. To jedno z częstszych zleceń, jakie dostaję, i prawie zawsze wygląda tak samo.
+
+Poniżej kolejność, w której to rozbieram, razem z cenami.
+
+## Sygnały, że wykonawca już nie wróci
+
+Rzadko jest to jedno dramatyczne zerwanie. Zwykle jest to powolne osuwanie się: odpowiedzi coraz rzadsze, poprawki "w przyszłym tygodniu", potem cisza. Trzy sygnały, po których przestaję czekać:
+
+- **Zmiany nie wchodzą, a rozmowy trwają.** Dwa tygodnie ustaleń i zero wdrożonych poprawek to nie problem komunikacyjny, tylko brak czasu po drugiej stronie.
+- **Prosi o nowe dostępy zamiast oddać stare.** Kiedy pada pytanie "podeślij mi hasło do CRM", a od miesięcy nie ma odpowiedzi na "przenieś projekt na nasze konto", kierunek jest jasny.
+- **Nikt w firmie nie potrafi wejść do panelu.** Jeśli jedyna droga do własnej automatyzacji prowadzi przez cudzy laptop, projekt formalnie już nie jest Twój.
+
+To nie jest wyjątek. Gartner prognozuje, że **ponad 40% projektów agentowych zostanie zamkniętych do końca 2027 roku**, a według tych samych danych 89% pilotaży agentów AI nigdy nie dochodzi do produkcji. S&P Global Market Intelligence podaje z kolei, że w 2025 roku 42% firm porzuciło większość swoich inicjatyw AI, wobec 17% rok wcześniej. Statystycznie wdrożenie, które nagle zostaje bez opiekuna, jest w tej branży normą, a nie pechem.
+
+Druga strona medalu: nie każde zniknięcie jest złośliwością. Solo wykonawca może mieć chorobę, przeprowadzkę albo etat, który zjadł mu wieczory. To nic nie zmienia w Twojej sytuacji operacyjnej, ale zmienia ton pierwszego maila. Spokojna prośba o eksport i przekazanie kont działa lepiej niż groźba prawnika, zwłaszcza gdy on nadal jest jedynym właścicielem konta.
+
+## Co naprawdę przejmujesz: konta, klucze, dane
+
+Ludzie myślą, że przejmuje się kod. W praktyce kod jest najmniejszym problemem, bo scenariusz n8n czy Make da się odtworzyć. Przejmujesz dostępy i historię danych, a tego już się nie odtworzy.
+
+To jest lista, którą przechodzę punkt po punkcie na pierwszym spotkaniu.
+
+| Element wdrożenia | Jak sprawdzić, czy go masz | Co robić, gdy brakuje |
+| --- | --- | --- |
+| Konto n8n / Make / Zapier | Logujesz się jako właściciel i widzisz zakładkę billingu | Poproś o transfer własności workspace, a jeśli brak kontaktu, eksportuj scenariusze do JSON z konta użytkownika i odtwórz je na nowym koncie |
+| Klucze API (OpenAI, Anthropic, Google) | Panel dostawcy otwiera się na Twoją firmową domenę, faktura idzie na firmę | Załóż własne konto organizacji, wygeneruj nowe klucze, stare unieważnij tego samego dnia |
+| Repozytorium kodu | GitHub lub GitLab pokazuje Twoją organizację jako właściciela repo | Poproś o transfer repozytorium; przy braku kontaktu zostaje kod z serwera produkcyjnego, zwykle bez historii commitów |
+| Serwer i hosting | Faktura z Hetznera, OVH czy Vercela na dane firmy | Odtwórz środowisko od zera na własnym koncie i przenieś dane, zanim wygaśnie karta wykonawcy |
+| Baza danych i baza wektorowa | Masz connection string i potrafisz zrobić własny dump | Zrób zrzut natychmiast po odzyskaniu dostępu, zanim ktokolwiek zacznie sprzątać |
+| Domena i rekordy DNS | Domena w Twoim panelu rejestratora, nie w cudzym | Uruchom procedurę transferu u rejestratora; przy domenach .pl potrzebny bywa dokument firmowy |
+| Numer telefonu i kanał WhatsApp Business | Numer i profil są przypisane do Twojego Business Managera | Weryfikacja numeru od nowa trwa kilka dni, więc zacznij zanim wyłączysz starą infrastrukturę |
+| Prompty i baza wiedzy | Masz je jako pliki poza platformą, nie tylko wklejone w node | Wyeksportuj treść promptów i dokumentów z działającego systemu, póki działa |
+| Dokumentacja i opis integracji | Istnieje plik README albo Notion, z którego ktoś obcy zrozumie przepływ | Odtwarza się przy inwentaryzacji, to normalna część przejęcia |
+
+Jedna zasada nadrzędna: **dopóki masz jakikolwiek działający dostęp, kopiuj, nie negocjuj**. Eksport scenariuszy, dump bazy, zrzut promptów i lista integracji zajmują dwie godziny i zamieniają sytuację awaryjną w zwykły projekt.
+
+## Inwentaryzacja w jeden dzień
+
+Kiedy dostępy są odzyskane albo odtworzone, robię inwentaryzację. To jeden dzień pracy i cztery listy.
+
+**Lista scenariuszy z datą ostatniego uruchomienia.** W n8n widać to od razu w historii wykonań. Zwykle okazuje się, że realnie chodzi mniej niż połowa: część wywala się po cichu od miesięcy, a reszta to eksperymenty, których nikt nie wyłączył.
+
+**Lista integracji i uprawnień.** Każde miejsce, gdzie system wchodzi do CRM, poczty, magazynu, bramki płatniczej albo Allegro. Przy okazji sprawdzam zakres uprawnień: konta serwisowe z pełnym dostępem administracyjnym do skrzynki firmowej to standardowe znalezisko.
+
+**Rachunek kosztów miesięcznych.** Subskrypcja platformy, tokeny modelu, telefonia, hosting, zewnętrzne API. Bywa, że firma płaci za konta obsługujące scenariusze wyłączone dawno temu.
+
+**Lista miejsc, gdzie krążą dane osobowe.** Co wychodzi do modelu, co jest logowane, jak długo trzymane. Raport z badania Gravitee o bezpieczeństwie agentów podaje, że średnie pokrycie monitoringiem w produkcyjnych wdrożeniach agentowych wynosi 52%, czyli około połowa działających agentów nie jest w ogóle obserwowana. Po przejęciu to pierwsza rzecz do naprawienia, bo bez logów nie wiesz nawet, czy system działa poprawnie.
+
+Ten dzień pracy sprzedaję jako [audyt AI](/pl/uslugi/audyt-ai), od 4 900 zł, i kończy się dokumentem, z którym możesz iść do dowolnego wykonawcy, nie tylko do mnie. To celowo tak działa: raport z inwentaryzacji jest Twój i przenośny.
+
+## Co idzie do kosza, a co da się uratować
+
+Podział wychodzi za każdym razem podobny.
+
+**Ratuje się zwykle:** mapowania pól między systemami, prompty i bazę wiedzy, logikę biznesową rozpisaną w scenariuszach, gotowe integracje z API, które ktoś już przemęczył. To jest realna wartość i często kilkadziesiąt godzin cudzej pracy, których nie ma sensu powtarzać.
+
+**Do przepisania idzie:** jeden gigantyczny scenariusz na kilkadziesiąt nodów bez podziału na moduły, klucze API wpisane na sztywno w kod, brak obsługi błędów i ponawiania, brak jakiegokolwiek logowania, dane produkcyjne przepuszczane przez konto testowe. Te rzeczy nie są kwestią gustu. Bez nich każda kolejna zmiana to loteria.
+
+Osobny przypadek to wdrożenia poskładane wyłącznie z gotowych szablonów. Biblioteka n8n przekroczyła w sierpniu 2026 roku około 11 700 społecznościowych workflowów i szablony agentowe stanowią większość nowych zgłoszeń. Szablon to dobry start, ale sklejony z pięciu szablonów system bez własnej warstwy błędów rozpada się przy pierwszej zmianie API po stronie dostawcy. Jeśli w ogóle zastanawiasz się, czy Twoje wdrożenie jest agentem, czy zwykłą automatyzacją, rozbierałem tę różnicę w tekście o tym, [czym jest agent AI](/pl/blog/czym-jest-agent-ai) i kiedy naprawdę się przydaje.
+
+Zasada, którą się kieruję: jeśli poprawienie modułu zajmuje więcej czasu niż napisanie go od nowa, piszę od nowa. Przy przejęciach wychodzi na to zwykle jakaś jedna trzecia zastanego systemu, ale to liczba z moich projektów, a nie branżowa średnia.
+
+## Ile kosztuje przejęcie i od czego zależy
+
+Godzina pracy przy przejęciu jest droższa niż przy budowie tej samej funkcji od zera, bo spora część czasu idzie na zrozumienie cudzych decyzji. Za to całość bywa szybsza, bo procesy są już przemyślane, a firma wie, czego chce.
+
+| Etap przejęcia | Co obejmuje | Typowy czas | Widełki |
+| --- | --- | --- | --- |
+| Inwentaryzacja i raport | Cztery listy, ocena stanu, plan naprawy | 1-2 dni | audyt AI od 4 900 zł |
+| Migracja kont i kluczy | Transfer lub odtworzenie kont, nowe klucze, unieważnienie starych | 1-3 dni | wyceniane godzinowo po inwentaryzacji |
+| Stabilizacja tego, co działa | Obsługa błędów, ponawianie, alerty, logi | 3-5 dni | zależy od liczby scenariuszy |
+| Przepisanie modułu od nowa | Nowa wersja tego, czego nie opłaca się łatać | 1-3 tygodnie | automatyzacja od 3 900 zł (900 €), agent AI od 6 500 zł (1 500 €) |
+| Opieka po przejęciu | Monitoring, poprawki, aktualizacje modeli | stała | rynkowo 15-25% wartości wdrożenia rocznie |
+
+Dla porównania widełki, które polscy dostawcy publikują za budowę od zera: 3 000-15 000 zł za konfigurację, 8 000-20 000 zł plus 200-500 zł miesięcznie za API i infrastrukturę, agent na bazie wiedzy 20 000-60 000 zł plus 2 000-8 000 zł miesięcznie, a agent czytający i zapisujący dane w CRM, ERP albo w logistyce 80 000-250 000 zł wdrożenia plus 8 000-40 000 zł miesięcznie. Przejęcie zwykle mieści się poniżej tych liczb, bo część roboty jest już zrobiona.
+
+Co realnie podnosi cenę: brak jakichkolwiek dostępów (wtedy pierwszy tydzień to samo odzyskiwanie), integracje z systemami zamkniętymi bez dokumentacji, dane osobowe w miejscach, gdzie ich być nie powinno, i pilność. Co obniża: działający eksport scenariuszy, dostęp do repozytorium i ktoś w firmie, kto pamięta, jak proces miał wyglądać.
+
+## Zaległości prawne, które przejmujesz razem z kodem
+
+O tym nikt nie mówi przy przekazaniu, a to jest realne ryzyko. Zastrzegam od razu: jestem programistą, nie prawnikiem, więc opisuję stronę inżynierską.
+
+Od 2 sierpnia 2026 obowiązuje artykuł 50 unijnego AI Act: użytkownik musi zostać poinformowany przy pierwszym kontakcie, że rozmawia z systemem AI. Obowiązek leży na firmie, która używa systemu pod własnym szyldem, a nie na wykonawcy, który go zbudował i zniknął. Systemy wprowadzone na rynek przed 2 sierpnia 2026 mają czas do **2 grudnia 2026** na spełnienie wymogu maszynowego oznaczania treści generowanych. Kary za naruszenie wymogów przejrzystości sięgają 15 mln euro albo 3% światowego obrotu.
+
+Do tego dochodzi polski poziom. Ustawa o systemach sztucznej inteligencji weszła w życie w części merytorycznej 11 sierpnia 2026 i powołała Komisję Rozwoju i Bezpieczeństwa Sztucznej Inteligencji jako krajowy nadzór. Jej uprawnienia do kontroli, prowadzenia postępowań i nakładania kar zaczynają działać **28 października 2026**. Odziedziczony bot bez oznaczenia AI ma więc konkretną datę w kalendarzu.
+
+Praktycznie oznacza to trzy pozycje na liście przejęcia: powitanie bota z informacją o AI, wewnętrzny rejestr używanych systemów AI z modelem i dostawcą, oraz aktualizacja polityki prywatności o to, jakie dane wychodzą do modelu.
+
+## Jak zabezpieczyć się przed powtórką
+
+Przejęcie ma sens tylko wtedy, gdy po nim nie da się powtórzyć tej samej historii. Cztery rzeczy, które wpisuję do każdej umowy i konfiguruję na starcie.
+
+- **Wszystkie konta na firmę, wykonawca jako współpracownik.** n8n, OpenAI, hosting, repozytorium, domena. Wykonawca dostaje uprawnienia, nigdy własność. Ta jedna decyzja znosi większość problemu.
+- **Klucze w jednym menedżerze sekretów**, do którego dostęp ma też ktoś z Twojej firmy. Nie w prywatnym pliku wykonawcy.
+- **README, który czyta obcy człowiek.** Lista scenariuszy, co robi każdy, gdzie leżą dane, jakie są koszty miesięczne, co zrobić przy awarii. Pół strony wystarczy.
+- **Zapis o prawach i o wyjściu.** Prawa majątkowe do kodu i promptów po stronie zamawiającego, plus punkt o przekazaniu: eksport, dokumentacja i transfer kont w ciągu ustalonego terminu, niezależnie od powodu zakończenia współpracy.
+
+Piątego punktu nie zapiszesz w umowie, ale waży tyle samo: jedna osoba w firmie powinna rozumieć, co system robi. Nie musi umieć kodować. Ma wiedzieć, gdzie zajrzeć, gdy przestanie działać, i czym to się różni od zwykłego generatora tekstów. Ten podział opisywałem przy okazji tekstu o [AI do opisów produktów i treści](/pl/blog/ai-do-opisow-produktow-i-tresci), gdzie granica między narzędziem a procesem jest szczególnie widoczna.
+
+Do tego dochodzi wiek rynku. GUS podaje, że w 2025 roku 8,7% polskich firm deklarowało wykorzystanie technologii AI, a tylko 2,1% zamawiało rozwiązanie budowane na zamówienie przez zewnętrzny podmiot. Na tak młodym rynku sprawdzenie, czy druga strona ma procedurę przekazania, jest ważniejsze niż portfolio.
+
+Jeśli masz wdrożenie, które przestało być obsługiwane, [napisz do mnie](/pl/kontakt): zaczynam od inwentaryzacji i mówię wprost, co ratować, a co przepisać, nawet jeśli wniosek brzmi "zostawcie to jak jest". Jeżeli wynik ma być nowym systemem, buduję go jako [agenta AI](/pl/uslugi/agenci-ai) od razu na Waszych kontach, z dokumentacją i logami od pierwszego dnia.
+
+## FAQ
+
+**Wykonawca nie odpowiada i konta są na niego. Czy da się cokolwiek zrobić?**
+Tak, w większości przypadków. Jeśli ktoś w firmie ma jakikolwiek dostęp użytkownika, wyeksportuj scenariusze do JSON, zrób dump bazy i zapisz treść promptów, zanim cokolwiek zmienisz. Konta u dostawców takich jak OpenAI zakłada się od nowa na firmę i wystawia świeże klucze. Najtrudniej odzyskać domenę i zweryfikowany numer WhatsApp Business, dlatego te dwa transfery uruchamia się jako pierwsze.
+
+**Ile kosztuje przejęcie wdrożenia AI po innym wykonawcy?**
+Zaczyna się od inwentaryzacji, u mnie audyt AI od 4 900 zł za jeden do dwóch dni pracy i raport. Dalszy koszt zależy od tego, ile modułów da się uratować: przepisanie automatyzacji od zera to u mnie od 3 900 zł (900 €), agent AI od 6 500 zł (1 500 €). Dla porównania polscy dostawcy publikują za budowę od zera 3 000-15 000 zł za samą konfigurację, a za agenta czytającego i zapisującego dane w CRM lub ERP 80 000-250 000 zł wdrożenia plus 8 000-40 000 zł miesięcznie. Przejęcie jest zwykle tańsze niż budowa od nowa, bo procesy są już opisane.
+
+**Czy taniej jest przejąć stary projekt, czy napisać wszystko od nowa?**
+Zależy od jakości zastanego kodu, ale reguła jest prosta: jeśli naprawa modułu zajmuje więcej czasu niż napisanie go od nowa, piszę od nowa. Przy typowym przejęciu do przepisania idzie jakaś jedna trzecia systemu, a reszta, czyli mapowania pól, prompty i działające integracje, zostaje. Całkowite przepisanie ma sens tylko wtedy, gdy nie ma żadnej dokumentacji, żadnych logów i żadnych dostępów.
+
+**Co dokładnie powinienem dostać przy przekazaniu projektu?**
+Własność kont na platformach automatyzacji i u dostawców modeli, własne klucze API, repozytorium kodu przeniesione na organizację firmy, dostęp do bazy danych z możliwością zrobienia własnego dumpu, domenę w Twoim panelu rejestratora, prompty i bazę wiedzy jako pliki oraz krótki README z opisem scenariuszy i kosztów miesięcznych. Jeśli brakuje choćby dostępu do bazy albo kont, przekazanie nie jest zakończone, niezależnie od tego, co mówi wykonawca.
+
+**Jak długo trwa przejęcie wdrożenia n8n?**
+Sama inwentaryzacja to jeden do dwóch dni. Migracja kont i kluczy zwykle jeden do trzech dni, jeśli dostępy są, oraz do dwóch tygodni, gdy trzeba odtwarzać konta i weryfikować numery telefonu od nowa. Stabilizacja działających scenariuszy, czyli obsługa błędów, alerty i logi, to kolejne trzy do pięciu dni. Przepisanie pojedynczego modułu od nowa to jeden do trzech tygodni.
+
+**Czy przejmując cudzego bota, przejmuję też odpowiedzialność za AI Act?**
+Tak. Obowiązki przejrzystości z artykułu 50 unijnego AI Act, obowiązujące od 2 sierpnia 2026, leżą na podmiocie, który stosuje system pod własną nazwą, czyli na Twojej firmie, a nie na wykonawcy, który go zbudował. Systemy działające przed 2 sierpnia 2026 mają czas do 2 grudnia 2026 na spełnienie wymogu maszynowego oznaczania treści generowanych. W Polsce dochodzi krajowy nadzór: Komisja Rozwoju i Bezpieczeństwa Sztucznej Inteligencji zyskuje uprawnienia kontrolne i możliwość nakładania kar od 28 października 2026.
+
+**Jak zapisać umowę, żeby to się nie powtórzyło?**
+Trzy zapisy załatwiają większość problemu: wszystkie konta i domeny należą do zamawiającego, a wykonawca ma na nich uprawnienia zamiast własności; prawa majątkowe do kodu, promptów i konfiguracji przechodzą na zamawiającego z chwilą zapłaty; oraz punkt o zakończeniu współpracy, który wymienia konkretne artefakty do przekazania i termin, niezależnie od powodu rozstania. Do tego README aktualizowany razem z systemem, bo dokumentacja pisana po fakcie zwykle nie powstaje.
+
+**Czy porzucone wdrożenia AI to częsty problem?**
+Tak, i dane to potwierdzają. Gartner prognozuje, że ponad 40% projektów agentowych zostanie zamkniętych do końca 2027 roku, a 89% pilotaży agentów AI nigdy nie dociera do produkcji. S&P Global Market Intelligence podaje, że w 2025 roku 42% firm porzuciło większość swoich inicjatyw AI, wobec 17% rok wcześniej. Porzucony projekt nie oznacza więc, że wybrałeś złego wykonawcę, tylko że rynek jest wczesny i trzeba to uwzględnić w umowie.

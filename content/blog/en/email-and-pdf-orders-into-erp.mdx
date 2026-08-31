@@ -1,0 +1,155 @@
+---
+title: "Wholesale Order Intake: Turning Emailed PDFs Into ERP Orders"
+description: "The pipeline that reads orders from email, PDF and Excel, maps customer part numbers to your SKUs and writes them into your ERP. Nine steps, costs, limits."
+date: "2026-09-01"
+cluster: "ai-order-intake-wholesale"
+keywords:
+  - "wholesale order automation AI"
+  - "email orders into ERP"
+  - "PDF order parsing"
+  - "AI agent ERP integration"
+  - "customer part number to SKU mapping"
+ogImage: "/og/ai-order-intake-wholesale.webp"
+---
+
+Wholesalers take orders the way they did in 2012: by email. In the message body, in an attached PDF, in a spreadsheet on the customer's template, sometimes as a phone photo of a handwritten sheet. Someone opens it, retypes it into the ERP, checks stock, reserves, invoices, prints a label. Eight times a day, or eighty.
+
+It is one of the most measurable processes you can hand to an agent, and one of the easiest to get wrong. The step that decides it is not the parsing but the SKU mapping.
+
+## Why this is a 2026 problem
+
+Two things landed at once. In Poland, where I build most of these, KSeF made receiving purchase e-invoices mandatory for all taxpayers from 1 February 2026, with issuing from 1 April 2026 for the remaining VAT payers. The invoicing layer had to be touched anyway, so ERP integration stopped being a someday project.
+
+The second is how early the market is. GUS reports 8.7% of Polish companies used AI in 2025, and only 2.1% had anything custom built by an outside supplier. Agents fare slightly better: Polish sources quote 17% of firms deploying dedicated agents against a 13% global average. The competitor down the road still retypes orders by hand.
+
+## What order intake looks like today
+
+In a wholesaler with a dozen back-office staff: a shared mailbox, one person splitting mail into orders, quotes and complaints, a second retyping lines, a third on the phone because the customer wrote "the 20 l drum, the usual one". Retyping twenty lines takes fifteen minutes; the hours go on ambiguity. Does "pack" mean the case or a single unit? Is code 4471-B your SKU 10024471? Contract price or this month's promotion? Automation that skips that only moves the problem. In the twin process, quoting, Polish suppliers report a drop from 2-5 days to 2-4 hours - their numbers, not mine.
+
+## The pipeline: nine steps from email to shipping label
+
+1. **Ingest.** An `orders@` mailbox over IMAP or Microsoft Graph, every message queued with its own id.
+2. **Classification.** Order, quote request, complaint, payment confirmation, spam. Model plus sender rules.
+3. **Line extraction.** Email body, PDF, XLS, photo: OCR for scans, a language model for the line table, quantities and units.
+4. **Customer identification.** By VAT number, sender domain, order history. Without a confident match there is no point going on: pricing hangs on it.
+5. **SKU mapping.** Customer part number, trade name, EAN, free text. The hardest step, its own section below.
+6. **Stock and price.** Availability, the customer's price list, discounts and minimum order quantity, read from the ERP.
+7. **The ERP document.** Sales order and stock reservation in Subiekt, Comarch or Symfonia. Here the agent stops reading and starts writing.
+8. **Closing the loop.** Confirmation with lines and lead time, invoice through the existing KSeF flow, a courier label, an SMS with tracking.
+9. **The trail.** A CRM record, a decision log, an exception queue.
+
+The same steps with times. Not one client's measured result, just the numbers I scope with, for a fifteen- to twenty-line order.
+
+| Step | Manual | With an agent | What breaks here |
+| --- | --- | --- | --- |
+| Sorting the mailbox | 1-2 min | 0 | Customer emails a rep, not the shared box |
+| Reading lines from a PDF or photo | 5-15 min | 10-40 s | Skewed scan, stamp over the table, two quantity columns |
+| Customer identification | 1 min | 1 s | Personal Gmail, a branch with no VAT number |
+| Mapping part numbers to SKUs | 5-20 min | 2-10 s | Customer codes, typos, substitutes, dead items |
+| Stock and price check | 2-5 min | 1-2 s | Other reps' reservations, a promotion off the list |
+| Writing the ERP document | 5-10 min | 3-5 s | License lock, taken document number, mandatory field |
+| Confirmation to the customer | 2-3 min | instant | Partial availability needs a human call |
+| Invoice and label | 3-5 min | 5-10 s | Delivery address differs from billing, dead locker |
+| CRM record | 1-2 min | 0 | Duplicate contacts |
+
+Roughly 25-60 minutes of human work per order collapses into a minute of machine time plus exceptions. The exceptions are the whole game.
+
+## Mapping customer part numbers to SKUs: where these projects die
+
+Pulling text out of a PDF is solved. The real work starts when something has to decide that "STR FILM 500 black 23mic" is item 10024471, and own the decision.
+
+| Edge case | What the customer sends | What your catalogue holds | How I handle it |
+| --- | --- | --- | --- |
+| Customer's own code | `4471-B` | `10024471` | Alias table per customer, from order history |
+| Trade name with a typo | `strech film 500` | `Stretch film 500 mm` | Fuzzy matching plus name embeddings, similarity threshold |
+| Unit of measure | `2 cases` | Pieces, 6 pcs per case | Conversion dictionary per item, never global |
+| Variant | `40 cm handle` | Four lengths, 40 and 400 mm among them | Forced choice, no guessing |
+| EAN instead of a code | `5901234567890` | EAN empty across part of the catalogue | Fill the catalogue before go-live |
+| Discontinued item | `old name` | Successor under a new SKU | Successor map, substitute goes to a human |
+| Quantity in words | `a case and a half` | Pieces | Exception queue, no exceptions |
+
+That alias table is the real asset: after three months it covers most of the traffic, and it, not the model, drives accuracy. So a build starts with several hundred historical orders, not with code.
+
+## What the agent does not understand: confidence thresholds and the human queue
+
+An agent that always picks something is worse than no agent. An order entered with the wrong variant costs more than one never processed, because it surfaces at the customer's goods-in door.
+
+So every line gets a confidence score and three routes. Above the high threshold it goes in on its own. In the middle band it goes in, but the document waits for one click from a rep. Below it, the line lands in the exception queue with the original snippet highlighted and three candidates.
+
+Builders who ship agents report that 5-15% of cases still need human review. I plan for that band and say so during scoping, and block the automatic path where a mistake is expensive: a new customer, an order above an agreed value, negative stock. The same threshold logic runs in support, the cheapest place to learn it - I went through that in [how to cut customer support costs with an AI agent](/en/blog/reduce-customer-support-costs-ai).
+
+## Integrations: Subiekt, Comarch, Symfonia, BaseLinker
+
+The reading layer is identical everywhere. The difference is in writing, and it sets the timeline.
+
+- **Subiekt GT** - writes through Sfera. Stable, but needs a licensed machine and a serialised queue: parallel writes fight over numbering.
+- **Subiekt nexo** - newer API, but prices must be read where the system calculates them, not recomputed on your side.
+- **Comarch ERP Optima and XL** - the vendor API. Comarch is itself embedding prompt-driven agents into both.
+- **Symfonia** - usually exchange files and the database. Slower, but predictable.
+- **BaseLinker** - for marketplace sellers, the shortest route to orders and labels without touching the ERP.
+- **Your own database** - easiest, if the pricing rules can be written down.
+
+Invoicing plugs into the KSeF flow that already exists. I usually deliver this as [document automation](/en/services/document-automation), with the decision layer on top as an [AI agent](/en/services/ai-agents).
+
+## What it costs
+
+Market first, my rates second. Polish bands differ by an order of magnitude depending on whether the agent reads or also writes.
+
+| Option | Build | Monthly |
+| --- | --- | --- |
+| Agent reading a knowledge base (market band) | 4,600-14,000 € (20,000-60,000 zł) | 450-1,850 € |
+| Agent reading and writing CRM, ERP or logistics (market) | 18,500-58,000 € (80,000-250,000 zł) | 1,850-9,300 € |
+| Configuration at a Polish vendor | 1,850-4,650 € (8,000-20,000 zł) | 45-115 € (200-500 zł) |
+| Parser for one email format, by me | from 900 € (3,900 zł) | 50-120 € infrastructure and API |
+| Full order pipeline into the ERP, by me | from 2,800 € (12,000 zł) | usually 120-350 € |
+| Agent with decision logic and CRM writes, by me | from 2,500 € (10,750 zł) | by volume |
+
+One Polish vendor quotes 3,000-15,000 zł for setup plus a subscription instead.
+
+Then the per-unit costs. Google Document AI charges $1.50 per 1,000 pages of basic OCR, Azure Document Intelligence $10 per 1,000 with the prebuilt invoice model and $30 for custom extraction, pretrained processors $0.10-0.75 per document. A thousand orders a month is a few dozen dollars of OCR plus model calls.
+
+On the savings side, published invoice benchmarks put the average organisation at $10.89 per invoice and best-in-class at $2.78, 74% lower. That is US invoice data, but the gap between retyping and approving is the same order. Annual maintenance runs 15-25% of the first build; anyone quoting less is not counting the integration review after an ERP upgrade.
+
+## When not to do this
+
+**Low order volume.** Below roughly 10-15 emailed orders a day, the time saved does not cover keeping the integration alive. Parse into a spreadsheet and leave data entry to a human.
+
+**A messy item catalogue.** Empty EANs, duplicates, three records for one product, units buried in the name. The agent inherits it and will be wrong in ways nobody can explain. A clean catalogue is a precondition, not a side effect.
+
+**No process owner.** Somebody has to open the exception queue every day and decide. Without that person the project ends the way most do: Polish market reviews put only about 25% of AI initiatives at the expected return, with 35% of firms reporting no benefit at all. A related failure is in [why your AI chatbot gets no leads](/en/blog/why-your-ai-chatbot-gets-no-leads).
+
+## How to measure it in the first month
+
+Four numbers, from day one, before the agent writes anything into the ERP.
+
+- **Share of orders closed without a human.** A realistic first-month target is 50-70%, not 95%.
+- **SKU mapping accuracy** on a sample of checked orders. The only metric that says whether it works.
+- **Time from email to stock reservation.** What the customer feels, not hours saved internally.
+- **Exception queue volume and reasons.** They cluster fast and after two weeks show what to add to the alias map.
+
+Run the first week in shadow mode and compare against what the human entered; it is cheaper than correcting invoices later. The return arithmetic is in [how much an AI chatbot actually saves in support](/en/blog/ai-chatbot-savings-roi).
+
+Want to know whether your mail traffic is a candidate? [Get in touch](/en/contact) and send a dozen real orders from last month. A day with that sample shows how many lines close automatically and how many always need a person. It is also the honest basis for a quote: the difficulty lives in your catalogue, not the model.
+
+## FAQ
+
+**Can an agent handle an order sent as a scan or a photo?**
+Yes, if the scan is legible. An OCR layer reads the image and a model extracts the line table. Google Document AI charges $1.50 per 1,000 pages of basic OCR, Azure Document Intelligence $10 per 1,000 with its prebuilt invoice model. Reading is not the problem; matching names against your catalogue is.
+
+**How much does wholesale order automation cost?**
+Polish suppliers publish bands of 20,000-60,000 zł (4,600-14,000 €) for an agent that only reads, and 80,000-250,000 zł (18,500-58,000 €) plus 8,000-40,000 zł a month for one that writes into an ERP, CRM or logistics system. Simpler configuration goes for 8,000-20,000 zł plus 200-500 zł a month for API and infrastructure. With me a full pipeline starts at 2,800 € (12,000 zł), a single-format parser at 900 €.
+
+**Which ERP systems can this connect to?**
+Subiekt GT through Sfera, Subiekt nexo through its API, Comarch ERP Optima and XL through the vendor API, Symfonia through exchange files and the database, BaseLinker for multichannel sellers. Invoicing plugs into the existing KSeF flow. Writing into an ERP is always harder and dearer than reading: numbering, licences, record locks.
+
+**How does the agent know that a customer part number is my SKU?**
+Through an alias table built per customer from their order history, fuzzy name matching, EAN lookups and a unit conversion dictionary. The model suggests; the decision rests on your catalogue data. That is why a build starts with several hundred archived orders.
+
+**What happens to an order the agent does not understand?**
+It goes to an exception queue with the original snippet highlighted and candidates from the catalogue, and a human closes it with one click. Builders shipping agents report 5-15% of cases still needing human review, so staffing is planned for that band. I also block the automatic path for new customers, orders above an agreed value and negative stock.
+
+**When is this automation not worth it?**
+Below roughly 10-15 emailed orders a day, with a disorganised catalogue, or with nobody reviewing exceptions daily. Polish market reviews show only about 25% of AI initiatives delivering the expected return and 35% of firms reporting no benefit. The usual cause is the missing process owner, not the technology.
+
+**How long does it take to build, and when do results show?**
+A parser into a spreadsheet takes days; a full pipeline that writes into an ERP takes weeks, most of it catalogue mapping and tests on archived orders. The first week runs in shadow mode: the agent proposes, a human enters. A realistic first-month target is 50-70% of orders closed without a human.

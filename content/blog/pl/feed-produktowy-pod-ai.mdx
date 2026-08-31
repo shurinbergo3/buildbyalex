@@ -1,0 +1,157 @@
+---
+title: "Feed produktowy pod AI: dane, po których model wybiera twój sklep"
+description: "OpenAI wygasiło zakupy w czacie 5 marca 2026, a ruch z AI w Shopify urósł 8x rok do roku. Pokazuję, jakie dane w feedzie decydują, czy model pokaże twój sklep."
+date: "2026-09-07"
+cluster: "product-feed-for-ai"
+keywords:
+  - "feed produktowy pod AI"
+  - "sklep internetowy w wyszukiwaniu AI"
+  - "atrybuty feedu produktowego"
+  - "widoczność sklepu w ChatGPT"
+  - "dane produktowe dla modeli AI"
+ogImage: "/og/product-feed-for-ai.webp"
+---
+
+5 marca 2026 OpenAI wygasiło Instant Checkout, czyli zakupy domykane bez wychodzenia z czatu. Funkcja przeżyła około pięciu miesięcy. W pierwszym miesiącu spróbowało jej 8% dorosłych użytkowników ChatGPT w USA, zintegrowało się mniej więcej tuzin sklepów na Shopify, a Walmart zmierzył, że zakup domykany w czacie konwertuje około 3x gorzej niż przejście na walmart.com i zakup tam. Zamiast tego OpenAI zaczęło przekierowywać transakcje do zewnętrznych aplikacji.
+
+W tym samym czasie strona odkrywania urosła. Shopify w danych za pierwszy kwartał 2026 podaje ruch z AI wyższy około 8x rok do roku, zamówienia z wyszukiwania napędzanego AI wyższe około 13x i kanały AI przyprowadzające nowych kupujących prawie 2x częściej niż pozostałe. Nosto podaje, że 72% kupujących oczekuje pomocy agentów zakupowych przy zakupie.
+
+Te dwie liczby razem układają się w jeden model zachowania: **klient znajduje produkt w czacie, a płaci u ciebie**. Koszyk został na twojej stronie, a przed koszykiem stanął feed produktowy. O tym jest ten tekst: co konkretnie musi być w danych, żeby model miał czym się posłużyć.
+
+## Co się zmieniło: kasa w czacie padła, odkrywanie urosło
+
+Branża szykowała się na protokoły płatnicze wewnątrz asystentów. Okazało się, że ludzie nie chcą podawać karty w oknie czatu, a sklepy nie chcą oddawać relacji z klientem. Została część, która działa: model zbiera informacje o produktach, składa z nich krótką listę i podaje link.
+
+To zmienia przedmiot rywalizacji. Nie chodzi o integrację z płatnościami, tylko o obecność na tej krótkiej liście. A lista powstaje z danych, które model może odczytać, porównać i zacytować bez ryzyka, że poda nieaktualną cenę. Produkt bez pewnej ceny i pewnej dostępności model po prostu pomija, bo pomyłka kosztuje go zaufanie użytkownika.
+
+W Polsce to nie jest już scenariusz na przyszły rok. Google uruchomiło AI Mode w Polsce i po polsku 8 października 2025. Senuto podaje, że odpowiedź AI pojawia się przy 24,17% polskich zapytań w Google. Z ChatGPT korzysta ponad 10 milionów osób w Polsce. Tam, gdzie wyświetla się AI Overview, Ahrefs w badaniu na 300 tysiącach słów kluczowych zmierzył spadek CTR o około 34,5%.
+
+## Czym jest feed pod AI i skąd model bierze dane
+
+Nie ma jednego „feedu dla ChatGPT”. Są trzy źródła i każde robi co innego.
+
+**Plik feedu.** XML w standardzie RSS 2.0 albo CSV/TSV, pod jednym stałym URL, generowany automatycznie. To kanoniczna wersja katalogu. Ten sam plik konsumuje Google Merchant Center, porównywarki i partnerzy, więc jeżeli robisz go raz, robisz go pod wszystkich.
+
+**Dane strukturalne na karcie.** JSON-LD typu `Product` z blokiem `offers`: `price`, `priceCurrency`, `availability`, `gtin`, `sku`, `brand`. Bez tego karta jest dla maszyny tekstem, a nie ofertą.
+
+**Zwykły HTML karty produktu**, renderowany po stronie serwera. Tu bywa najwięcej niespodzianek. Crawlery AI nie wykonują JavaScriptu: GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-SearchBot, PerplexityBot ani Meta-ExternalAgent nie uruchamiają skryptów. Vercel w swoim badaniu crawlerów policzył, że GPTBot pobiera pliki JS w około 11,5% żądań, a ClaudeBot w około 23,8%, ale żaden z nich ich nie wykonuje. Wyjątkiem jest Gemini i Google AI Mode, które korzystają z renderowania Googlebota.
+
+Praktyczny wniosek jest brutalny: jeśli cena i stan magazynowy pojawiają się na karcie dopiero po hydracji Reacta albo po kliknięciu w zakładkę, dla ChatGPT twój produkt nie ma ceny. Sprawdza się to w minutę przez `curl` i `view-source`, bez żadnego narzędzia.
+
+## Atrybuty feedu: co jest wymagane, a co realnie decyduje
+
+Poniżej zestaw, który wkładam do każdego sklepu. Kolumna „odświeżanie” to nie teoria, tylko harmonogram, który wpisuję w cronie.
+
+| Atrybut | Status | Format wartości | Jak często odświeżać |
+| --- | --- | --- | --- |
+| `id` | wymagany | stały SKU, nie zmienia się przy edycji karty | przy zmianie katalogu |
+| `title` | wymagany | marka + model + kluczowy parametr, do 150 znaków | przy zmianie karty |
+| `description` | wymagany | do 5 000 znaków, zalecane 500-1000, czysty tekst bez HTML | przy zmianie karty |
+| `link` | wymagany | pełny URL kanoniczny, https, bez parametrów sesji | przy zmianie katalogu |
+| `image_link` | wymagany | URL obrazu, zalecane od 800 px po dłuższym boku | przy zmianie karty |
+| `availability` | wymagany | `in_stock`, `out_of_stock`, `preorder`, `backorder` | co godzinę |
+| `price` | wymagany | `199.00 PLN`, cena brutto, kropka jako separator | co godzinę |
+| `sale_price` + `sale_price_effective_date` | opcjonalny, realnie kluczowy | cena promocyjna i zakres dat w ISO 8601 | co godzinę |
+| `gtin` lub `mpn` + `brand` | opcjonalny formalnie, decydujący przy dopasowaniu | GTIN 8, 12, 13 lub 14 cyfr, bez spacji | przy zmianie katalogu |
+| `item_group_id` + `color`, `size`, `material` | wymagany przy wariantach | ten sam `item_group_id` dla całej rodziny | przy zmianie katalogu |
+| `shipping` + czas dostawy | opcjonalny, mocno wpływa na wybór | kraj, koszt, okno w dniach roboczych | przy zmianie cennika wysyłki |
+| `product_type` i kategoria sklepowa | opcjonalny | pełna ścieżka kategorii z twojego menu | przy zmianie katalogu |
+| `condition` | opcjonalny | `new`, `refurbished`, `used` | rzadko |
+| `identifier_exists` | opcjonalny | `no` tylko dla produktów własnych bez GTIN | rzadko |
+
+Wymagane atrybuty decydują o tym, czy produkt w ogóle wejdzie do indeksu. O tym, czy zostanie wybrany, decydują cztery inne rzeczy.
+
+**Dostępność i cena z aktualnym znacznikiem czasu.** To jedyne dwa pola, które zmieniają się w ciągu dnia. Feed odświeżany raz na dobę oznacza, że przez większość doby podajesz nieprawdę o własnym magazynie.
+
+**GTIN.** Kod kreskowy jest kluczem, po którym model łączy twoją ofertę z tym samym produktem u konkurencji, z recenzjami i z opisami producenta. Bez GTIN twój produkt jest osobnym bytem bez kontekstu, więc trudniej go polecić.
+
+**Warianty spięte przez `item_group_id`.** Bez tego rozmiar 42 i rozmiar 44 to dwa niepowiązane produkty, a model nie umie odpowiedzieć na pytanie „czy jest w moim rozmiarze”.
+
+**Koszt i czas dostawy.** Przy pytaniu „gdzie kupię to na jutro” to jest kryterium rozstrzygające, a jednocześnie pole, którego prawie nikt nie wypełnia.
+
+## Opis dla człowieka, dane dla maszyny
+
+Częsty błąd: sklep bierze marketingowy opis z karty i wrzuca go do `description` w feedzie. Model dostaje trzy akapity o pasji założycieli i zero parametrów.
+
+Rozdzielam to. Na karcie zostaje tekst dla człowieka. Do feedu idzie opis, który zaczyna się od tego, czym produkt jest, dla kogo i jakie ma parametry, a dopiero potem opowiada. Pierwsze dwa zdania to część, którą model najczęściej wykorzystuje.
+
+Osobno pilnuję, żeby konkretne dane były w polach, a nie zaszyte w prozie. Zapis „Materiał: bawełna organiczna 220 g/m2” jako osobny atrybut jest użyteczny. To samo w zdaniu w środku opisu wymaga od modelu zgadywania. Analogiczna zasada dotyczy kategorii i filtrów w sklepie, rozpisałem to w checkliście [SEO dla sklepu internetowego](/pl/blog/seo-dla-sklepu-internetowego-checklista).
+
+## Skąd wziąć feed: WooCommerce, Shopify, Shoper, BaseLinker
+
+| Platforma | Czym generuję feed | Na co uważać |
+| --- | --- | --- |
+| WooCommerce | wtyczka do feedów albo własny endpoint na WP REST API | ceny z podatkiem i bez, wariacje produktów, cache strony podający stary plik |
+| Shopify | natywny kanał zakupowy plus metafields na brakujące atrybuty | multi-currency i ceny w feedzie, limity częstotliwości aktualizacji |
+| Shoper, PrestaShop | wbudowany eksport XML z panelu | kodowanie pliku, mapowanie kategorii, warianty jako osobne produkty |
+| BaseLinker | katalog produktów jako jedno źródło prawdy dla wszystkich kanałów | stany z kilku magazynów, mapowanie atrybutów na kanały sprzedaży |
+| Sklep na Next.js lub Medusa | endpoint `/feed.xml` prosto z bazy | generowanie po stronie serwera, nie po hydracji; ETag i cache |
+
+W polskim e-commerce BaseLinker jest w praktyce warstwą operacyjną nad wszystkim innym: to tam siedzi realny stan magazynowy i to on powinien być źródłem dla feedu, a nie panel sklepu. Jeżeli sklep dopiero powstaje, wpinam generowanie feedu od razu we [wdrożenie sklepu internetowego](/pl/uslugi/sklep-internetowy), bo dorabianie tego rok później zawsze kosztuje więcej.
+
+Hurtownia ma tu osobny problem: ceny są indywidualne per kontrahent, a katalog często siedzi za logowaniem. Do publicznego feedu idzie wtedy cena katalogowa albo nic, a model widzi pustą kartę. Rozwiązuję to tak, że publiczna warstwa katalogu ma cenę widełkową i informację „cena po zalogowaniu”, a właściwy cennik zostaje w panelu B2B. Resztę różnic takiego sklepu opisałem w tekście o [sklepie B2B dla hurtowni](/pl/blog/sklep-b2b-dla-hurtowni).
+
+## Jak zmierzyć ruch i zamówienia z AI w GA4
+
+Modele nie dodają parametrów UTM, więc ruch przychodzi jako referral z hosta asystenta. Wystarczy to poukładać raz.
+
+- W GA4 wchodzę w Administrację, Wyświetlanie danych, Grupy kanałów i tworzę własną grupę „AI”.
+- Warunek: źródło pasuje do wyrażenia regularnego `chatgpt\.com|chat\.openai\.com|perplexity\.ai|claude\.ai|gemini\.google\.com|copilot\.microsoft\.com`.
+- Dodaję raport z wymiarem „strona docelowa”, bo ruch z AI prawie zawsze ląduje bezpośrednio na karcie produktu, a nie na stronie głównej.
+- Ten sam wzorzec ustawiam w filtrze logów serwera, żeby osobno widzieć wizyty crawlerów i osobno wizyty ludzi z linku podanego przez model.
+
+Jedno ograniczenie, o którym warto wiedzieć od razu: ruch z Google AI Mode raportuje się jako `google / organic` i nie da się go czysto oddzielić od zwykłych wyników. Kto obiecuje pełny rozdział tych dwóch kanałów, obiecuje coś, czego GA4 dziś nie umie.
+
+## Czego nie robić
+
+**Rozjazd ceny między feedem a kartą.** Najczęstsza przyczyna wypadnięcia produktu z poleceń. Cena w feedzie musi być tą, którą klient zobaczy po kliknięciu, razem z podatkiem.
+
+**Sztuczne stany magazynowe.** Ustawianie wszystkiego na `in_stock`, bo „przecież zamówimy u dostawcy”, psuje dokładnie ten sygnał, na którym modelowi zależy najbardziej.
+
+**Feed generowany raz w tygodniu.** Przy zmiennych cenach to jest gorsze niż brak feedu, bo systematycznie wprowadza w błąd.
+
+**Traktowanie llms.txt jako rozwiązania.** Ahrefs przebadał 137 tysięcy stron i 97% plików llms.txt nie dostało w maju 2026 żadnego ruchu. Google publicznie nie wspiera tego formatu. Plik można mieć, ale nie zastąpi danych produktowych.
+
+**Liczenie, że sam schema załatwi sprawę.** SE Ranking podaje, że około 71% stron cytowanych przez ChatGPT ma dane strukturalne, ale eksperyment Ahrefs na 1 885 stronach po dodaniu JSON-LD dał zmiany nieodróżnialne od zera: cytowania w AI Overviews -4,6%, w AI Mode +2,4%, w ChatGPT +2,2%. Schema to infrastruktura, a nie dźwignia. Robisz go, bo bez niego jest gorzej, nie dlatego, że sam coś podniesie.
+
+**Blokowanie crawlerów AI w robots.txt „na wszelki wypadek”.** Jeżeli chcesz, żeby model polecał twój sklep, musi go najpierw przeczytać. To decyzja biznesowa, ale trzeba ją podjąć świadomie.
+
+## Ile to kosztuje po stronie sklepu
+
+Zakres pracy zależy od tego, gdzie stoi sklep i jak wygląda dziś katalog.
+
+- **Sklep na gotowej platformie, katalog w porządku.** Konfiguracja feedu, uzupełnienie GTIN i wariantów, JSON-LD na karcie, cron co godzinę: zwykle 1-2 dni robocze.
+- **Sklep custom albo headless.** Własny endpoint feedu, render danych po stronie serwera, monitoring rozjazdu ceny między feedem a kartą: 3-5 dni.
+- **Katalog do poskładania.** Jeżeli brakuje GTIN, warianty są rozjechane, a opisy trzeba przepisać, to jest osobny projekt i jego koszt zależy od liczby SKU, nie od technologii.
+
+Mój [audyt widoczności w AI](/pl/uslugi/widocznosc-w-ai) zaczyna się od 3 900 zł i obejmuje sprawdzenie, co crawlery faktycznie widzą na kartach, kompletność feedu i konfigurację pomiaru. Nowy sklep to koszt od 7 700 zł (1 800 €), z feedem wpiętym od pierwszego dnia.
+
+Czego nie obiecuję: że po wdrożeniu model zacznie polecać twój sklep. Akademicki przegląd 45 badań nad GEO z lat 2023-2026 stwierdza wprost, że żadna z badanych technik nie ma stabilnego, potwierdzonego wpływu na widoczność w różnych systemach, a popularna liczba „GEO podnosi widoczność o 40%” jest w tym przeglądzie obalona jako wynik z symulatora. To, co ten sam przegląd ocenia jako dobrze potwierdzone, to obecność sprawdzalnych danych: cen, dat, parametrów, porównań. Feed jest dokładnie takim materiałem i to jedyna uczciwa podstawa tej pracy.
+
+Jeżeli chcesz wiedzieć, co dziś widzą crawlery na twoich kartach produktu, [napisz](/pl/kontakt) i podeślij adres sklepu. Odpiszę, co jest do poprawy i czy w ogóle warto. Szerszy kontekst tego, jak zmieniły się zakupy w asystentach, opisałem w tekście o [zakupach w ChatGPT i agentic commerce](/pl/blog/zakupy-w-chatgpt-agentic-commerce).
+
+## FAQ
+
+**Czy istnieje osobny feed produktowy dla ChatGPT?**
+Nie ma osobnego formatu. Modele korzystają z tych samych danych, które publikujesz w standardowym feedzie produktowym XML lub CSV, z danych strukturalnych JSON-LD typu Product na karcie oraz z treści HTML strony renderowanej po stronie serwera. Jeden dobrze zrobiony feed obsługuje Google Merchant Center, porównywarki i asystentów AI naraz.
+
+**Jak często trzeba odświeżać feed produktowy?**
+Cenę i dostępność co godzinę, resztę atrybutów przy zmianie katalogu. Feed generowany raz na dobę oznacza, że przez większość doby podajesz nieaktualny stan magazynu, a rozjazd między feedem a kartą produktu jest najczęstszą przyczyną, dla której produkt przestaje być pokazywany. Przy stabilnym asortymencie i niezmiennych cenach dobowe odświeżanie wystarczy.
+
+**Czy modele AI widzą ceny renderowane JavaScriptem?**
+Nie. Według danych z 2026 roku GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-SearchBot, PerplexityBot ani Meta-ExternalAgent nie wykonują JavaScriptu. Vercel policzył, że GPTBot pobiera pliki JS w około 11,5% żądań, a ClaudeBot w około 23,8%, ale żaden ich nie uruchamia. Wyjątkiem jest Gemini i Google AI Mode korzystające z renderowania Googlebota. Jeżeli cena pojawia się dopiero po hydracji, dla ChatGPT jej nie ma.
+
+**Czy warto jeszcze robić integrację z zakupami wewnątrz czatu?**
+OpenAI wygasiło Instant Checkout 5 marca 2026 po około pięciu miesiącach. W pierwszym miesiącu spróbowało go 8% dorosłych użytkowników ChatGPT w USA, zintegrowało się mniej więcej tuzin sklepów na Shopify, a Walmart zmierzył około 3x gorszą konwersję zakupu w czacie niż po przejściu na własny sklep. Sensowniejsze jest dziś inwestowanie w dane produktowe i we własny koszyk.
+
+**Które atrybuty feedu najbardziej wpływają na to, czy model poleci produkt?**
+Aktualna cena, aktualna dostępność, GTIN oraz warianty spięte wspólnym `item_group_id`. Cena i dostępność decydują o tym, czy model w ogóle zaryzykuje polecenie. GTIN łączy twoją ofertę z tym samym produktem w innych źródłach i z recenzjami. Warianty pozwalają odpowiedzieć na pytanie o rozmiar lub kolor. Koszt i czas dostawy rozstrzygają przy zapytaniach z terminem.
+
+**Jak zmierzyć w GA4 ruch z ChatGPT i Perplexity?**
+W GA4 tworzysz własną grupę kanałów z warunkiem na źródło pasujące do wyrażenia `chatgpt\.com|chat\.openai\.com|perplexity\.ai|claude\.ai|gemini\.google\.com|copilot\.microsoft\.com`, bo modele nie dodają parametrów UTM. Warto dołożyć wymiar strony docelowej, bo ruch z AI trafia zwykle wprost na kartę produktu. Ruchu z Google AI Mode nie da się oddzielić: raportuje się jako google / organic.
+
+**Ile kosztuje przygotowanie feedu produktowego pod AI?**
+Na gotowej platformie z uporządkowanym katalogiem to zwykle 1-2 dni pracy, przy sklepie custom lub headless 3-5 dni. Mój audyt widoczności w AI, obejmujący sprawdzenie kart, kompletności feedu i pomiaru, startuje od 3 900 zł. Jeżeli w katalogu brakuje GTIN i wariantów, koszt zależy od liczby SKU do uzupełnienia, a nie od technologii sklepu.
+
+**Czy blokować crawlery AI w robots.txt?**
+To decyzja biznesowa, nie techniczna. Zablokowanie GPTBota i pozostałych chroni treść przed wykorzystaniem w treningu, ale jednocześnie usuwa sklep z odpowiedzi asystentów. Skoro Shopify raportuje za pierwszy kwartał 2026 ruch z AI wyższy około 8x rok do roku, dla sklepu blokada oznacza rezygnację z rosnącego kanału odkrywania. Blokuj świadomie albo nie blokuj wcale.

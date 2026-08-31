@@ -1,0 +1,157 @@
+---
+title: "Product feed for AI shopping: the data that decides your store"
+description: "OpenAI killed in-chat checkout on 5 March 2026, while Shopify reports AI traffic up 8x year over year. The data that decides whether a model shows your store."
+date: "2026-09-07"
+cluster: "product-feed-for-ai"
+keywords:
+  - "product feed for AI shopping"
+  - "AI search visibility for ecommerce"
+  - "product feed attributes"
+  - "get your store cited by ChatGPT"
+  - "structured product data for LLMs"
+ogImage: "/og/product-feed-for-ai.webp"
+---
+
+On 5 March 2026 OpenAI shut down Instant Checkout, the flow that let people finish a purchase without leaving the chat. It lasted about five months. In its first month only 8% of adult US ChatGPT users tried it, roughly a dozen Shopify merchants integrated, and Walmart measured in-chat checkout converting about 3x worse than sending the shopper to walmart.com to buy there. OpenAI now routes purchases to third-party apps instead.
+
+Discovery went the other way. Shopify's Q1 2026 numbers show AI-driven traffic up about 8x year over year, orders from AI-powered search up about 13x, and AI channels producing new buyers at nearly 2x the rate of other channels. Nosto reports that 72% of shoppers expect AI shopping agents to help them buy.
+
+Put together, those two facts describe one behaviour: **the customer finds the product in a chat and pays on your site**. The checkout stayed where it was. What moved is the layer in front of it: your product data. This post is about what has to be in that data.
+
+## What changed: in-chat checkout died, AI discovery compounded
+
+The industry spent the run-up to 2026 preparing for payment protocols inside assistants. It turned out shoppers do not want to type card details into a chat window, and merchants do not want to hand over the customer relationship. What survived is the part that works: the model gathers product information, builds a short list and hands over a link.
+
+That changes what you compete for: not a payments integration, but a place on that short list. The list is built from data the model can read, compare and repeat without risking a wrong price. A product with an uncertain price or stock gets skipped, because a wrong price costs the assistant user trust.
+
+This is not a next-year scenario in Europe either. Google shipped AI Mode in Poland and in Polish on 8 October 2025 as part of a roughly 50-country rollout. Senuto measures an AI answer appearing on 24.17% of Polish Google queries. Where an AI Overview shows up, Ahrefs measured click-through dropping about 34.5% across 300,000 keywords.
+
+## What an AI-ready feed actually is
+
+There is no single "ChatGPT feed". There are three sources and they do different jobs.
+
+**The feed file.** XML in RSS 2.0 format, or CSV/TSV, served from one stable URL and generated automatically. This is the canonical version of your catalogue. The same file feeds Google Merchant Center, comparison engines and marketplace partners, so you build it once for everyone.
+
+**Structured data on the product page.** JSON-LD `Product` with an `offers` block: `price`, `priceCurrency`, `availability`, `gtin`, `sku`, `brand`. Without it, the page is text to a machine, not an offer.
+
+**Plain server-rendered HTML.** This is where most stores get caught. AI crawlers do not execute JavaScript: GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-SearchBot, PerplexityBot and Meta-ExternalAgent all skip it. Vercel's crawler study found GPTBot requesting JS files in about 11.5% of requests and ClaudeBot in about 23.8%, but neither runs them. The exception is Gemini and Google AI Mode, which inherit Googlebot's rendering service.
+
+The practical consequence is blunt. If your price and stock only appear after React hydrates, or after someone clicks a tab, then as far as ChatGPT is concerned your product has no price. You can check it in a minute with `curl` and view-source, no tooling required.
+
+## Feed attributes: what is required, what actually decides
+
+This is the set I put into every store. The refresh column is not theory, it is the schedule I put into cron.
+
+| Attribute | Status | Value format | Refresh |
+| --- | --- | --- | --- |
+| `id` | required | stable SKU, never changes when the page is edited | on catalogue change |
+| `title` | required | brand + model + key spec, up to 150 characters | on product change |
+| `description` | required | up to 5,000 characters, 500-1,000 recommended, plain text, no HTML | on product change |
+| `link` | required | full canonical https URL, no session parameters | on catalogue change |
+| `image_link` | required | image URL, 800 px or more on the long edge recommended | on product change |
+| `availability` | required | `in_stock`, `out_of_stock`, `preorder`, `backorder` | hourly |
+| `price` | required | `199.00 EUR`, VAT included, dot as decimal separator | hourly |
+| `sale_price` + `sale_price_effective_date` | optional, in practice critical | sale price plus an ISO 8601 date range | hourly |
+| `gtin` or `mpn` + `brand` | formally optional, decisive for matching | GTIN of 8, 12, 13 or 14 digits, no spaces | on catalogue change |
+| `item_group_id` + `color`, `size`, `material` | required for variants | same `item_group_id` across the family | on catalogue change |
+| `shipping` + delivery window | optional, heavily weighted | country, cost, window in working days | when shipping rates change |
+| `product_type` and store category | optional | full category path from your own menu | on catalogue change |
+| `condition` | optional | `new`, `refurbished`, `used` | rarely |
+| `identifier_exists` | optional | `no` only for own-brand products with no GTIN | rarely |
+
+Required attributes decide whether the product gets indexed at all. Whether it gets picked comes down to four other things.
+
+**Live price and live availability.** These are the only two fields that change during the day. A feed regenerated once a day means you are misstating your own stock for most of that day.
+
+**GTIN.** The barcode is the key that links your offer to the same product elsewhere, to reviews and to manufacturer specs. Without a GTIN your product is an isolated entity with no context, which makes it harder to recommend.
+
+**Variants tied by `item_group_id`.** Without it, size 42 and size 44 are two unrelated products, and the model cannot answer "do you have it in my size".
+
+**Shipping cost and delivery time.** For "where can I get this by Friday" this is the deciding criterion, and it is the field almost nobody fills in.
+
+## Copy for humans, data for machines
+
+A common mistake: the store takes the marketing copy off the product page and drops it into `description`. The model gets three paragraphs about the founders' passion and zero specifications.
+
+I split them. The page keeps the copy written for people. The feed gets a description that opens with what the product is, who it is for and what its specs are, and only then tells a story. The first two sentences are the part a model reuses most often.
+
+Separately, I make sure concrete facts sit in fields rather than buried in prose. "Material: organic cotton, 220 g/m2" as an attribute is usable. The same sentence in the middle of a paragraph forces the model to guess. The same logic applies to categories and filters across the catalogue, which I covered in the [ecommerce SEO checklist](/en/blog/ecommerce-seo-checklist-for-online-store).
+
+## Where the feed comes from: WooCommerce, Shopify, PrestaShop, BaseLinker
+
+| Platform | How I generate the feed | What to watch |
+| --- | --- | --- |
+| WooCommerce | a feed plugin or a custom endpoint on the WP REST API | net vs gross prices, product variations, page cache serving a stale file |
+| Shopify | the native shopping channel plus metafields for missing attributes | multi-currency pricing in the feed, update frequency limits |
+| PrestaShop, Shoper | built-in XML export from the admin panel | file encoding, category mapping, variants exported as separate products |
+| BaseLinker | the product catalogue as a single source of truth for every channel | stock across several warehouses, attribute mapping per sales channel |
+| Custom Next.js or Medusa store | a `/feed.xml` endpoint straight from the database | generate server-side, not after hydration; ETag and cache headers |
+
+If you sell across several channels in Central Europe, BaseLinker is usually the operational layer that holds real stock, and it should be the source for the feed rather than the shop admin. When a store is being built from scratch, I wire feed generation into the [online store build](/en/services/online-store) from day one, because bolting it on a year later always costs more.
+
+Wholesale has its own version of this: prices are negotiated per account and the catalogue sits behind a login, so the public feed carries a list price or nothing. I keep a public layer with a price range and a "price after login" note, and leave the real price list in the B2B panel. The rest of what changes there is in the piece on the [B2B online store for wholesale](/en/blog/b2b-online-store-for-wholesale).
+
+## Measuring AI traffic and orders in GA4
+
+Models do not add UTM parameters, so the traffic arrives as a referral from the assistant's host. You set this up once.
+
+- In GA4 go to Admin, Data display, Channel groups and create a custom group called "AI".
+- Condition: source matches the regex `chatgpt\.com|chat\.openai\.com|perplexity\.ai|claude\.ai|gemini\.google\.com|copilot\.microsoft\.com`.
+- Add a report with the landing page dimension, because AI referrals almost always land straight on a product page rather than the homepage.
+- Apply the same pattern to your server log filter, so you can separate crawler visits from humans arriving via a model's link.
+
+One limitation worth knowing up front: traffic from Google AI Mode is reported as `google / organic` and cannot be cleanly separated from ordinary organic. Anyone promising a full split between those two channels is promising something GA4 does not do today.
+
+## What not to do
+
+**Price drift between the feed and the page.** The single most common reason a product stops being recommended. The feed price has to be the price the shopper sees after clicking, tax included.
+
+**Fake stock levels.** Setting everything to `in_stock` because "we can order it from the supplier" damages exactly the signal the model weighs most.
+
+**A feed generated once a week.** With moving prices that is worse than no feed, because it misleads systematically.
+
+**Treating llms.txt as the answer.** Ahrefs looked at 137,000 sites and found 97% of llms.txt files received zero traffic in May 2026. Google has said publicly it does not support the format. You can ship the file, but it will not stand in for product data.
+
+**Expecting schema alone to move anything.** SE Ranking reports that around 71% of ChatGPT-cited pages carry structured data, but an Ahrefs experiment on 1,885 pages found that adding JSON-LD produced changes indistinguishable from zero: AI Overviews citations -4.6%, AI Mode +2.4%, ChatGPT +2.2%. Schema is infrastructure, not a lever. You ship it because its absence hurts, not because its presence lifts.
+
+**Blocking AI crawlers in robots.txt "just in case".** If you want a model to recommend your store, it has to read it first. That is a business decision, but make it deliberately.
+
+## Cost and timeline on the store side
+
+Scope depends on where the store runs and what shape the catalogue is in.
+
+- **Hosted platform, catalogue in good shape.** Feed configuration, filling in GTINs and variants, JSON-LD on the product page, hourly cron: usually 1-2 working days.
+- **Custom or headless store.** Own feed endpoint, server-side rendering of the price block, monitoring for drift between feed and page: 3-5 days.
+- **Catalogue that needs rebuilding.** Missing GTINs, broken variant groups, descriptions to rewrite: that is a separate project, and its cost scales with SKU count, not with technology.
+
+My [AI visibility audit](/en/services/ai-visibility) starts at €900 (3,900 zł) and covers what crawlers actually see on your product pages, how complete the feed is and whether measurement is set up. A new store starts at €1,800 (about 7,700 zł), with the feed wired in from the first day.
+
+What I will not promise: that a model starts recommending your store afterwards. An academic survey of 45 GEO studies from 2023 to 2026 states plainly that none of the reviewed techniques shows a stable, cross-platform causal effect on discoverability, and it debunks the widely quoted "GEO lifts visibility 40%" figure as a simulator result. What the same survey grades as well supported is extractable evidence: prices, dates, specifications, comparisons. A product feed is exactly that kind of material, and it is the only honest basis for this work.
+
+If you want to know what crawlers currently see on your product pages, [send me the store URL](/en/contact) and I will tell you what is broken and whether it is worth fixing. For the wider picture of how buying inside assistants changed, I wrote it up in the piece on [shopping inside ChatGPT and agentic commerce](/en/blog/agentic-commerce-chatgpt-shopping-store).
+
+## FAQ
+
+**Is there a separate product feed format for ChatGPT?**
+No. Models use the same data you already publish: a standard XML or CSV product feed, JSON-LD Product structured data on the page, and the server-rendered HTML of the product page itself. One well-built feed serves Google Merchant Center, comparison engines and AI assistants at the same time.
+
+**How often should a product feed be refreshed?**
+Price and availability hourly, everything else when the catalogue changes. A feed regenerated once a day means you are publishing stale stock for most of the day, and drift between the feed and the product page is the most common reason a product stops being shown. If your assortment and prices are stable, daily is enough.
+
+**Can AI models see prices rendered by JavaScript?**
+No. As of 2026, GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-SearchBot, PerplexityBot and Meta-ExternalAgent do not execute JavaScript. Vercel measured GPTBot fetching JS files in about 11.5% of requests and ClaudeBot in about 23.8%, but neither runs them. Gemini and Google AI Mode are the exception, since they inherit Googlebot's rendering. If your price only appears after hydration, ChatGPT does not see it.
+
+**Is it still worth integrating in-chat checkout?**
+OpenAI discontinued Instant Checkout on 5 March 2026 after roughly five months. In month one only 8% of adult US ChatGPT users tried it, about a dozen Shopify merchants integrated, and Walmart measured in-chat checkout converting roughly 3x worse than sending shoppers to its own site. Investing in product data and your own checkout is the better bet today.
+
+**Which feed attributes matter most for getting recommended?**
+Live price, live availability, GTIN, and variants grouped by `item_group_id`. Price and availability decide whether a model will risk recommending the product at all. GTIN links your offer to the same product in other sources and to reviews. Variant grouping lets the model answer questions about size or colour. Shipping cost and delivery time decide deadline-driven queries.
+
+**How do I track ChatGPT and Perplexity traffic in GA4?**
+Create a custom channel group in GA4 with a source condition matching `chatgpt\.com|chat\.openai\.com|perplexity\.ai|claude\.ai|gemini\.google\.com|copilot\.microsoft\.com`, because models do not attach UTM parameters. Add the landing page dimension, since AI referrals usually arrive directly on a product page. Google AI Mode traffic cannot be separated: it reports as google / organic.
+
+**What does preparing a product feed for AI cost?**
+On a hosted platform with a tidy catalogue it is usually 1-2 days of work; on a custom or headless store, 3-5 days. My AI visibility audit, covering product pages, feed completeness and measurement, starts at €900 (3,900 zł). If GTINs and variant groups are missing, the cost scales with the number of SKUs to fix rather than with the platform.
+
+**Should I block AI crawlers in robots.txt?**
+That is a commercial decision, not a technical one. Blocking GPTBot and the rest protects your content from being used in training, but it also removes your store from assistant answers. Given that Shopify reported AI-driven traffic up about 8x year over year in Q1 2026, blocking means opting out of a growing discovery channel. Block deliberately or not at all.

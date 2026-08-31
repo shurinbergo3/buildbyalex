@@ -1,0 +1,136 @@
+---
+title: "AI dla zarządcy nieruchomości: zgłoszenia usterek bez telefonu"
+description: "Jak agent zbiera zgłoszenia z telefonu, maila i WhatsAppa, klasyfikuje je, wysyła zlecenie do serwisu i pilnuje terminu. Tabela SLA i koszt na lokal."
+date: "2026-09-09"
+cluster: "ai-property-management"
+keywords:
+  - "AI dla zarządcy nieruchomości"
+  - "zgłoszenia usterek wspólnota mieszkaniowa"
+  - "automatyzacja zarządzania nieruchomościami"
+  - "agent AI zgłoszenia serwisowe"
+  - "system zgłoszeń dla wspólnoty"
+ogImage: "/og/ai-property-management.webp"
+---
+
+Zarządca z portfelem pięciuset lokali nie ma problemu z trudnymi sprawami. Trudne sprawy to kilka procent tygodnia. Resztę zjada powtarzalność: ten sam telefon o cieknącej rurze w piwnicy, ta sama prośba o saldo, ta sama informacja o wymianie wodomierzy, powtórzona sto razy w trzech kanałach naraz.
+
+To dokładnie ten kształt pracy, który daje się zautomatyzować bez ryzyka: wysoki wolumen, wąski słownik, jasne reguły przekazania dalej. Rozpisuję, jak taki agent działa od środka, co zamyka sam, czego nie wolno mu tknąć i ile kosztuje w przeliczeniu na lokal.
+
+Zastrzeżenie: jestem programistą, nie prawnikiem ani licencjonowanym zarządcą. Terminy przeglądów i zakres obowiązków bierzesz z umowy i z prawa budowlanego. Ja odpowiadam za to, żeby żadna data i żadne zgłoszenie nie zginęły po drodze.
+
+## Trzy pytania, które zjadają dzień
+
+Rozbierz miesiąc zgłoszeń na kategorie, a większość wejść wpadnie do trzech koszyków.
+
+**Status.** "Zgłaszałem dwa tygodnie temu, co się dzieje?" To nie wymaga decyzji, tylko odczytu jednego pola w rejestrze. Biuro odpowiada na to po kilka razy dziennie, bo mieszkaniec nie ma gdzie sprawdzić sam.
+
+**Sprawy administracyjne.** Saldo, termin zebrania, numer konta, zaświadczenie do banku, zmiana liczby osób w lokalu. Dane są w systemie księgowym, tylko nikt poza biurem ich nie widzi.
+
+**Zgłoszenia usterek.** Tu jest realna praca, ale spory jej kawałek to opis, który trzeba przepisać z telefonu do rejestru, skategoryzować i wysłać do właściwej firmy serwisowej. Przepisywanie nie jest pracą zarządcy.
+
+Nie podam procentu zgłoszeń, które bot zamknie bez człowieka: zweryfikowanych danych na to nie mam, a liczby ze stron dostawców są niesprawdzalne. Zamiast tego dostajesz podział na kategorie i sam policzysz, ile Twojego wolumenu wpada do wierszy zamykanych automatycznie.
+
+## Pięć kanałów wejścia, jeden rejestr
+
+Typowa wspólnota przyjmuje zgłoszenia przez telefon do biura, telefon awaryjny po godzinach, maila, formularz na stronie i WhatsAppa administratora. Dochodzą kartki w skrzynce i wpisy na grupie na Facebooku, o których biuro dowiaduje się ostatnie.
+
+Pierwszy krok wdrożenia nie ma nic wspólnego z AI: wszystkie kanały mają lądować w jednym rejestrze z jednym numerem sprawy. Bez tego nie ma czego mierzyć, a agent nie ma gdzie zapisać wyniku.
+
+Dopiero na tym osadza się warstwa AI i robi cztery rzeczy: rozumie wiadomość napisaną ludzkim językiem, dopina ją do konkretnego lokalu, nadaje kategorię i decyduje, czy odpowiada sama, czy wysyła zlecenie dalej. Bot głosowy odbiera telefon całą dobę i pisze do tego samego rejestru. Publikowane stawki platform głosowych po doliczeniu modelu, syntezy mowy i telefonii mieszczą się w okolicach 0,05-0,25 USD za minutę, więc nocny dyżur przestał być pozycją do dyskusji.
+
+## Triaż: kategoria, SLA, adresat
+
+To serce systemu i dokument, który warto mieć spisany, nawet jeśli nigdy nie kupisz agenta. Każdy wiersz odpowiada na trzy pytania: jak szybko, do kogo, czy maszyna zamyka to sama.
+
+| Typ zgłoszenia | SLA reakcji | Kto dostaje zlecenie | Bot zamyka sam |
+| --- | --- | --- | --- |
+| Awaria pilna: zalanie, brak wody, gaz, brak prądu w częściach wspólnych | do 30 min, całą dobę | pogotowie techniczne, SMS do zarządcy | nie, tylko rejestruje i eskaluje |
+| Winda: uwięziony człowiek | natychmiast | firma dźwigowa, telefon nie mail | nie, połączenie idzie od razu do człowieka |
+| Usterka zwykła: domofon, oświetlenie, cieknąca armatura w częściach wspólnych | zlecenie w tym samym dniu roboczym | firma serwisowa właściwa dla kategorii | tak, po potwierdzeniu wykonania |
+| Sprawa administracyjna: saldo, numer konta, termin zebrania | do 15 minut | nikt, dane są w systemie | tak |
+| Odczyt licznika, zmiana liczby osób w lokalu | do 1 dnia roboczego | księgowość wspólnoty | tak, jeśli odczyt mieści się w zakresie |
+| Skarga na sąsiada, hałas, porządek na klatce | do 2 dni roboczych | zarządca, człowiek | nie |
+| Sprawa formalna: uchwała, reklamacja rozliczenia, dokumenty | do 7 dni | zarządca i księgowość | nie |
+| Poza zakresem: gwarancja dewelopera, sprawa lokalu prywatnego | od razu | nikt | tak, z odesłaniem pod właściwy adres |
+
+Dwie rzeczy ważą tu najwięcej. Kategorie dotykające zdrowia i konfliktów między mieszkańcami nigdy nie idą do automatu, nawet jeśli model poradziłby sobie językowo. A ostatni wiersz bywa większy, niż się wydaje: zarządca odbija sprawy, które do niego nie należą.
+
+## Zlecenie do serwisu i pilnowanie terminu
+
+Klasyfikacja jest łatwa. Trudne jest to, co po niej: tu system albo zaczyna oszczędzać czas, albo staje się kolejnym miejscem do zaglądania.
+
+Agent wysyła do serwisu gotowe zlecenie: numer sprawy, adres, piętro, opis oczyszczony z emocji, zdjęcia, kontakt do osoby, która wpuści ekipę, i termin z kategorii. Potem pilnuje odpowiedzi: brak potwierdzenia w dobę to ponaglenie, brak wykonania w terminie to powiadomienie zarządcy, a nie cichy wiersz w tabeli.
+
+Zamknięcie działa w jedną stronę: serwis odpisuje, że zrobione, agent pyta mieszkańca jednym zdaniem, czy usterka zniknęła, i dopiero ta odpowiedź zamyka ticket. Automatyczne pytanie wyłapuje tu zlecenia odhaczone, a nie wykonane.
+
+Salda i zdarzenia agent czyta i zapisuje przez API systemu księgowego albo pakietu w rodzaju Comarch Optima. Jak wygląda taka dwustronna wymiana od strony technicznej, rozbierałem w tekście o [połączeniu agenta AI z CRM](/pl/blog/integracja-agenta-ai-z-crm).
+
+## Przeglądy i terminy, o których nikt nie pamięta w lipcu
+
+Druga warstwa, która sama się opłaca, to kalendarz obowiązków: przeglądy roczne i pięcioletnie, kominiarskie, gazowe, przeglądy wind, ubezpieczenia, umowy serwisowe, terminy zebrań. Nic trudnego, tylko niewygodne: termin zapada raz w roku i pamięta o nim jedna osoba.
+
+Konfiguracja jest ta sama dla każdego terminu: przypomnienie 30 dni przed, ponowienie 14 dni przed, alert do zarządcy 3 dni przed, a jeśli w dniu terminu protokołu nie ma w repozytorium, sprawa dostaje najwyższy priorytet. Protokoły leżą w jednym miejscu, żeby przy kontroli albo zmianie zarządcy nie odtwarzać ich z maili.
+
+To najtańsza część systemu i zwykle pierwsza, która się zwraca: jeden przegapiony przegląd ustawowy potrafi kosztować więcej niż rok abonamentu.
+
+## Dane mieszkańców: minimalizacja i obowiązki z AI Act
+
+Zgłoszenie usterki to dane osobowe: imię, adres lokalu, telefon, czasem zdrowie, jeśli ktoś tłumaczy, dlaczego musi mieć ciepłą wodę. Do modelu trafia tylko to, co potrzebne do klasyfikacji i do napisania zlecenia: numer lokalu i opis usterki wystarczą, PESEL i saldo nie mają czego szukać w promptcie.
+
+Standard, który się w Europie ustabilizował, ma trzy elementy: umowa powierzenia z dostawcą modelu, wyłączona retencja po stronie API i warstwy integracyjnej, opisana architektura przetwarzania. Do tego różnica, o którą ludzie się potykają: dane trzymane w Europie na amerykańskiej chmurze wciąż podlegają amerykańskiej jurysdykcji.
+
+Dochodzi warstwa wokół samego bota. Obowiązki przejrzystości z AI Act obowiązują od 2 sierpnia 2026 i nie zostały przesunięte: mieszkaniec musi przy pierwszym kontakcie wiedzieć, że pisze albo rozmawia z systemem AI. Okres przejściowy do 2 grudnia 2026 dotyczy węższej sprawy, czyli oznaczania treści generowanych przez systemy obecne na rynku przed 2 sierpnia. Kary za naruszenie obowiązków przejrzystości sięgają 15 mln euro albo 3% światowego obrotu. W Polsce kontrole i kary w tym zakresie prowadzi Komisja Rozwoju i Bezpieczeństwa Sztucznej Inteligencji od 28 października 2026. Jedno zdanie w powitaniu bota i podpis w widżecie załatwiają temat, ale trzeba je tam faktycznie wpisać.
+
+## Ile to kosztuje w przeliczeniu na lokal
+
+Polscy dostawcy publikują widełki otwarcie, więc odnoszę się do nich zamiast wymyślać własne. Wdrożenie prostego agenta wyceniane jest na 3 000-15 000 zł plus 500-2 500 zł miesięcznie. Agent czytający bazę wiedzy to 20 000-60 000 zł i 2 000-8 000 zł miesięcznie. Agent zapisujący dane do CRM albo ERP startuje w ofertach większych software house'ów od 80 000 zł, a utrzymanie roczne przyjmuje się zwykle na 15-25% kosztu wdrożenia.
+
+Moje stawki: agent AI od 1 500 € (około 6 400 zł), agent wielonarzędziowy z integracjami i kanałem głosowym od 4 500 € (około 19 400 zł), [audyt AI](/pl/uslugi/audyt-ai) przed wdrożeniem od 4 900 zł. Dla zarządcy sensowny model to wdrożenie jednorazowo plus abonament liczony od wielkości portfela. Poniżej moje orientacyjne poziomy, nie średnia rynkowa.
+
+| Portfel | Zgłoszenia miesięcznie (założenie do rachunku) | Abonament | Koszt na lokal |
+| --- | --- | --- | --- |
+| 200 lokali | około 120 | 600 zł | 3,00 zł |
+| 500 lokali | około 300 | 1 200 zł | 2,40 zł |
+| 1 200 lokali | około 700 | 2 500 zł | 2,08 zł |
+
+Wolumen w środkowej kolumnie to założenie do arytmetyki, a nie badanie rynku: podstaw liczby ze swojego rejestru. Rachunek jest na nie odporny, bo abonament liczy się od lokali, nie od zgłoszeń. Przy pięciuset lokalach wychodzi 2,40 zł na lokal miesięcznie, przy zaliczce liczonej w setkach złotych.
+
+Drugą stronę policz sam: ile godzin tygodniowo biuro spędza na przepisywaniu zgłoszeń i odpowiadaniu na pytania o status. Jeśli wyjdzie mniej niż pięć, dalej nie czytaj.
+
+## Kiedy nie warto tego kupować
+
+Trzy sytuacje, w których odradzam wdrożenie.
+
+- **Mały portfel z jednym zarządcą.** Poniżej mniej więcej stu pięćdziesięciu lokali telefon jest szybszy od każdego systemu, a Ty i tak znasz wszystkich po imieniu. Wystarczy wspólna skrzynka i arkusz z numerami spraw.
+- **Brak jakiegokolwiek rejestru.** Jeśli zgłoszenia żyją w głowie administratora i w SMS-ach, agent nie ma czego czytać ani gdzie pisać. Najpierw miesiąc porządnego rejestru, potem automatyzacja. Kolejność odwrotna to najczęstszy powód, dla którego takie projekty umierają, i piszę o tym szerzej w tekście o tym, [jak wdrożyć AI w firmie](/pl/blog/jak-wdrozyc-ai-w-firmie).
+- **Oczekiwanie, że system załatwi konflikty.** Skargi na sąsiadów, spory o rozliczenia i zebrania to praca zarządcy. Automat je opisze i przypilnuje terminu, ale nie rozwiąże za Ciebie.
+
+Warto też pamiętać o liczbach, które polskie badania powtarzają od roku: około 25% inicjatyw AI daje oczekiwany zwrot, a 35% firm deklaruje brak efektu albo efekt znacznie poniżej oczekiwań. To argument nie za rezygnacją, tylko za wąskim zakresem: jeden budynek, jedna kategoria zgłoszeń, mierzalny wynik po miesiącu. Typowe powody, dla których takie wdrożenia nie dowożą, zebrałem w tekście o tym, [dlaczego chatbot AI nie przynosi zapytań](/pl/blog/dlaczego-chatbot-ai-nie-przynosi-leadow).
+
+## Od czego zacząć
+
+Kolejność jest prosta: spisz tabelę kategorii z SLA, zbierz kanały w jedno miejsce, podłącz agenta do najprostszej kategorii i zmierz miesiąc. Buduję takie systemy jako [agenty AI](/pl/uslugi/agenci-ai) pod konkretny proces, nie jako uniwersalny widżet na stronę. Jeśli chcesz sprawdzić, czy Twój wolumen się do tego nadaje, [napisz](/pl/kontakt) i podaj dwie liczby: ile lokali obsługujesz i ile zgłoszeń miesięcznie przechodzi przez biuro.
+
+## FAQ
+
+**Czy agent AI może sam zamknąć zgłoszenie usterki?**
+Sam zamyka sprawy administracyjne: pytanie o saldo, termin zebrania albo status zgłoszenia, bo odczytuje dane z systemu i nie podejmuje decyzji. Zwykłą usterkę zamyka dopiero po potwierdzeniu wykonania przez firmę serwisową i po odpowiedzi mieszkańca, że problem zniknął. Awarii pilnych i konfliktów sąsiedzkich nie zamyka nigdy: rejestruje je i natychmiast przekazuje człowiekowi.
+
+**Ile kosztuje wdrożenie AI do obsługi zgłoszeń we wspólnocie?**
+Polscy dostawcy publikują widełki 3 000-15 000 zł za wdrożenie prostego agenta plus 500-2 500 zł miesięcznie, a agent czytający bazę wiedzy to już 20 000-60 000 zł i 2 000-8 000 zł miesięcznie. Moje stawki to agent AI od 1 500 € (około 6 400 zł) i agent wielonarzędziowy z kanałem głosowym od 4 500 € (około 19 400 zł). Przy portfelu pięciuset lokali i abonamencie 1 200 zł miesięcznie wychodzi 2,40 zł na lokal.
+
+**Od jakiej wielkości portfela to się opłaca?**
+Praktyczny próg to około dwustu lokali albo pięć godzin tygodniowo, które biuro spędza na przepisywaniu zgłoszeń i odpowiadaniu na pytania o status. Poniżej tego progu telefon jest szybszy od systemu i wystarczy wspólna skrzynka plus arkusz z numerami spraw. Powyżej rachunek zaczyna się domykać sam, bo abonament liczy się od liczby lokali, a nie od liczby zgłoszeń.
+
+**Czy muszę informować mieszkańca, że rozmawia z AI?**
+Tak. Obowiązki przejrzystości z AI Act obowiązują od 2 sierpnia 2026 i wymagają, żeby człowiek przy pierwszym kontakcie wiedział, że ma do czynienia z systemem AI. Termin 2 grudnia 2026 dotyczy węższej sprawy: oznaczania treści generowanych przez systemy obecne na rynku przed 2 sierpnia. Kary za naruszenie obowiązków przejrzystości sięgają 15 mln euro albo 3% światowego obrotu. W Polsce kontrole i kary w tym zakresie prowadzi Komisja Rozwoju i Bezpieczeństwa Sztucznej Inteligencji od 28 października 2026.
+
+**Czy da się to pogodzić z RODO?**
+Da się, pod warunkiem minimalizacji: do modelu trafia numer lokalu i opis usterki, a nie PESEL, saldo czy pełna kartoteka mieszkańca. Standardowy zestaw to umowa powierzenia z dostawcą modelu, wyłączona retencja po stronie API i warstwy integracyjnej oraz opisana architektura przetwarzania. Dane trzymane w Europie na chmurze amerykańskiego dostawcy nadal podlegają amerykańskiej jurysdykcji: rezydencja i suwerenność to dwie różne rzeczy.
+
+**Czy bot odbierze telefon od starszego mieszkańca?**
+Bot głosowy odbiera całą dobę i zapisuje zgłoszenie do tego samego rejestru, co formularz i mail, ale w scenariuszu zawsze jest jawne przejście do człowieka na pierwsze żądanie i przy każdym sygnale awarii pilnej. Publikowane stawki platform głosowych po doliczeniu modelu, syntezy mowy i telefonii mieszczą się w okolicach 0,05-0,25 USD za minutę, więc nocny dyżur jest tani. Jeśli wspólnota ma dużą grupę starszych mieszkańców, zaczynaj od maila i formularza, a kanał głosowy dokładaj później.
+
+**Mam już program do zarządzania nieruchomościami, czy trzeba go wymieniać?**
+Nie. Agent jest warstwą nad tym, co masz, i łączy się przez API albo przez skrzynkę mailową z systemem księgowym wspólnoty czy pakietem w rodzaju Comarch Optima. Wymiana systemu to osobny, kosztowny projekt, a przy obsłudze zgłoszeń nie daje nic, czego nie daje integracja. Pierwsza wersja na jednej kategorii zgłoszeń zajmuje zwykle dwa do trzech tygodni.
+
