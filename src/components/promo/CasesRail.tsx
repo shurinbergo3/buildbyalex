@@ -14,8 +14,10 @@ export type RailCase = {
   image: { src: string; alt: string };
 };
 
-/* Apple "highlights" rail: native horizontal scroll with snap, so touch and
-   trackpads feel right, plus paddles for mouse users. */
+/* Apple "highlights" rail. Touch keeps native scroll with snap. Wheels and
+   trackpads are routed per gesture: a sideways swipe moves the rail and only
+   the rail, a vertical one goes to Lenis and the page. Deciding per event let
+   every diagonal tick of a swipe scroll the page and stall the rail. */
 export function CasesRail({
   items,
   cta,
@@ -44,6 +46,53 @@ export function CasesRail({
     return () => window.removeEventListener("resize", measure);
   }, []);
 
+  useEffect(() => {
+    const el = railRef.current;
+    if (!el) return;
+    let axis: "x" | "y" = "y";
+    let last = -Infinity;
+    let settle = 0;
+
+    // once a swipe runs out, ease onto the nearest card like the touch snap does
+    const snap = () => {
+      const pad = parseFloat(getComputedStyle(el).paddingLeft) || 0;
+      const origin = el.getBoundingClientRect().left;
+      let target = el.scrollLeft;
+      let best = Infinity;
+      for (const card of el.querySelectorAll<HTMLElement>(".pv-case")) {
+        const x = el.scrollLeft + card.getBoundingClientRect().left - origin - pad;
+        if (Math.abs(x - el.scrollLeft) < best) {
+          best = Math.abs(x - el.scrollLeft);
+          target = x;
+        }
+      }
+      el.scrollTo({ left: target, behavior: "smooth" });
+    };
+
+    const onWheel = (e: WheelEvent) => {
+      const unit = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? el.clientWidth : 1;
+      const dx = e.deltaX * unit;
+      const dy = e.deltaY * unit;
+      // a new gesture takes its axis from its first tick; a clearly vertical
+      // move inside a sideways one hands it back to the page
+      if (e.timeStamp - last > 120) axis = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
+      else if (axis === "x" && Math.abs(dy) > Math.abs(dx) * 3 && Math.abs(dy) > 12) axis = "y";
+      last = e.timeStamp;
+      if (axis === "y") return;
+      e.preventDefault();
+      e.stopPropagation();
+      el.scrollLeft += dx;
+      window.clearTimeout(settle);
+      settle = window.setTimeout(snap, 160);
+    };
+
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => {
+      el.removeEventListener("wheel", onWheel);
+      window.clearTimeout(settle);
+    };
+  }, []);
+
   const step = (dir: 1 | -1) => {
     const el = railRef.current;
     if (!el) return;
@@ -54,9 +103,7 @@ export function CasesRail({
 
   return (
     <>
-      {/* Sideways swipes stay native, vertical wheel still goes to Lenis: a
-          wheel-level prevent would trap the page scroll under the cursor. */}
-      <div ref={railRef} className="pv-rail" onScroll={measure} data-lenis-prevent-horizontal="">
+      <div ref={railRef} className="pv-rail" onScroll={measure}>
         {items.map((item, i) => (
           <Link
             key={item.slug}

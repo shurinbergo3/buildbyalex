@@ -1,12 +1,13 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { useMessages, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { caseImages, caseKeyToSlug, caseSlugs, type CaseKey } from "@/lib/cases";
-import { serviceHref, type ServiceKey } from "@/components/serviceGlyphs";
+import { serviceGlyph, serviceHref, type ServiceKey } from "@/components/serviceGlyphs";
 import { isReviewLive } from "@/lib/reviews";
 import { TELEGRAM_URL } from "@/lib/contacts";
 import { jsonLd } from "@/lib/jsonLd";
 import { CasesRail, type RailCase } from "./CasesRail";
+import { SpotlightGrid } from "./SpotlightGrid";
 
 /* Everything after the film: the same content as the home page (cases,
    services and prices, process, fit, reviews, FAQ), set in the film's
@@ -123,41 +124,59 @@ export function PromoServices() {
           }
         />
 
-        <div className="pv-services">
-          {SERVICES.map(({ key, service, featured }) => (
+        <SpotlightGrid className="pv-services pv-spot">
+          {SERVICES.map(({ key, service, featured }, i) => (
             <Link
               key={key}
               href={serviceHref[service]}
               className={`pv-svc${featured ? " pv-svc--featured" : ""}`}
+              style={{ "--i": i } as CSSProperties}
             >
-              {featured && <span className="pv-svc-badge">{t("featured")}</span>}
+              <span className="pv-svc-top">
+                <span className="pv-svc-icon">{serviceGlyph[service]}</span>
+                {featured && <span className="pv-svc-badge">{t("featured")}</span>}
+              </span>
               <span className="pv-svc-title">{tp(`tiers.${key}.title`)}</span>
               <span className="pv-svc-price">
                 <small>{tp(`tiers.${key}.from`)}</small>
                 {tp(`tiers.${key}.price`)}
               </span>
               <span className="pv-svc-body">{tp(`tiers.${key}.body`)}</span>
-              <span className="pv-svc-examples">{tp(`tiers.${key}.examples`)}</span>
-              <span className="pv-svc-more">{t("more")} →</span>
+              <span className="pv-svc-tags">
+                {tp(`tiers.${key}.examples`)
+                  .split(/\s*·\s*/)
+                  .map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+              </span>
+              <span className="pv-svc-more">
+                {t("more")} <i aria-hidden="true">→</i>
+              </span>
             </Link>
           ))}
-          <Link href="/contact" className="pv-svc pv-svc--custom">
+          <Link
+            href="/contact"
+            className="pv-svc pv-svc--custom"
+            style={{ "--i": SERVICES.length } as CSSProperties}
+          >
             <span className="pv-svc-title">{t("customTitle")}</span>
             <span className="pv-svc-body">{t("customBody")}</span>
-            <span className="pv-svc-more">{t("customCta")} →</span>
+            <span className="pv-svc-more">
+              {t("customCta")} <i aria-hidden="true">→</i>
+            </span>
           </Link>
-        </div>
+        </SpotlightGrid>
 
         <div className="pv-offers">
           <p className="pv-offers-title">{t("offers")}</p>
-          <div className="pv-offers-grid">
-            {OFFERS.map((o) => (
-              <Link key={o.key} href={o.href} className="pv-offer">
+          <SpotlightGrid className="pv-offers-grid pv-spot">
+            {OFFERS.map((o, i) => (
+              <Link key={o.key} href={o.href} className="pv-offer" style={{ "--i": i } as CSSProperties}>
                 <b>{tn(`${o.key}.title`)}</b>
                 <span>{tn(`${o.key}.tagline`)}</span>
               </Link>
             ))}
-          </div>
+          </SpotlightGrid>
         </div>
 
         <p className="pv-caption">{tp("caption")}</p>
