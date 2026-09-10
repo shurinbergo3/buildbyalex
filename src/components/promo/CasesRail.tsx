@@ -49,47 +49,55 @@ export function CasesRail({
   useEffect(() => {
     const el = railRef.current;
     if (!el) return;
-    let axis: "x" | "y" = "y";
+    let axis: "x" | "y" | null = null;
     let last = -Infinity;
-    let settle = 0;
-
-    // once a swipe runs out, ease onto the nearest card like the touch snap does
-    const snap = () => {
-      const pad = parseFloat(getComputedStyle(el).paddingLeft) || 0;
-      const origin = el.getBoundingClientRect().left;
-      let target = el.scrollLeft;
-      let best = Infinity;
-      for (const card of el.querySelectorAll<HTMLElement>(".pv-case")) {
-        const x = el.scrollLeft + card.getBoundingClientRect().left - origin - pad;
-        if (Math.abs(x - el.scrollLeft) < best) {
-          best = Math.abs(x - el.scrollLeft);
-          target = x;
-        }
-      }
-      el.scrollTo({ left: target, behavior: "smooth" });
-    };
+    let travelX = 0;
+    let travelY = 0;
+    let pendingX = 0;
+    let swipeEnd = 0;
 
     const onWheel = (e: WheelEvent) => {
+      if (e.ctrlKey) return; // pinch-zoom stays the browser's
       const unit = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? el.clientWidth : 1;
       const dx = e.deltaX * unit;
       const dy = e.deltaY * unit;
-      // a new gesture takes its axis from its first tick; a clearly vertical
-      // move inside a sideways one hands it back to the page
-      if (e.timeStamp - last > 120) axis = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
-      else if (axis === "x" && Math.abs(dy) > Math.abs(dx) * 3 && Math.abs(dy) > 12) axis = "y";
-      last = e.timeStamp;
-      if (axis === "y") return;
+      // The rail never scrolls natively: sideways moves are applied here and
+      // the page belongs to Lenis. A native nudge in between was the stutter.
       e.preventDefault();
+
+      if (e.timeStamp - last > 100) {
+        axis = null;
+        travelX = travelY = pendingX = 0;
+      }
+      last = e.timeStamp;
+
+      let move = dx;
+      if (axis === null) {
+        travelX += Math.abs(dx);
+        travelY += Math.abs(dy);
+        pendingX += dx;
+        // A few pixels of travel before picking a side, and a tie goes to the
+        // page: a vertical swipe rarely starts perfectly straight.
+        if (travelX + travelY < 6) return;
+        axis = travelX > travelY * 1.6 ? "x" : "y";
+        move = pendingX;
+      } else if (axis === "x" && Math.abs(dy) > Math.abs(dx) * 2 && Math.abs(dy) > 4) {
+        axis = "y";
+      }
+      if (axis === "y") return;
+
       e.stopPropagation();
-      el.scrollLeft += dx;
-      window.clearTimeout(settle);
-      settle = window.setTimeout(snap, 160);
+      el.scrollLeft += move;
+      // no hover transitions on the cards gliding under the cursor
+      el.dataset.swiping = "";
+      window.clearTimeout(swipeEnd);
+      swipeEnd = window.setTimeout(() => delete el.dataset.swiping, 160);
     };
 
     el.addEventListener("wheel", onWheel, { passive: false });
     return () => {
       el.removeEventListener("wheel", onWheel);
-      window.clearTimeout(settle);
+      window.clearTimeout(swipeEnd);
     };
   }, []);
 

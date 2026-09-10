@@ -1646,12 +1646,20 @@ html:has(.promo-root) .locale-menu {
 .pv-rail::-webkit-scrollbar {
   display: none;
 }
-/* Wheels and trackpads move the rail from CasesRail, which eases onto the
-   nearest card itself; CSS snap would yank it back after every tick. */
+/* Wheels and trackpads move the rail from CasesRail and it stops where the
+   swipe ends; CSS snap would yank it back after every tick or pull a short
+   swipe back to where it started. */
 @media (hover: hover) and (pointer: fine) {
   .pv-rail {
     scroll-snap-type: none;
   }
+}
+/* While the page or the rail is moving under the cursor, the cards don't
+   react to it: every card passing under the pointer used to start its hover
+   zoom, a full repaint of a large image in the middle of the scroll. */
+.lenis-scrolling .pv-case,
+.pv-rail[data-swiping] .pv-case {
+  pointer-events: none;
 }
 .pv-case {
   position: relative;
