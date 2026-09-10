@@ -38,8 +38,10 @@ export function Header() {
       data-scrolled={scrolled ? "" : undefined}
       className="site-header fixed inset-x-0 top-0 z-40 h-[var(--header-h)]"
     >
-      <div className="mx-auto flex h-full max-w-[1280px] items-center justify-between px-5 md:px-8">
-        <Link href="/" aria-label="buildbyalex — home" className="-ml-1 p-1">
+      {/* From md up the nav gets its own middle column, so it sits on the page's
+          centre axis however wide the logo and the buttons on the right are. */}
+      <div className="mx-auto flex h-full max-w-[1280px] items-center justify-between px-5 md:grid md:grid-cols-[1fr_auto_1fr] md:px-8">
+        <Link href="/" aria-label="buildbyalex — home" className="-ml-1 p-1 md:justify-self-start">
           <Logo size={23} />
         </Link>
 
@@ -73,7 +75,7 @@ export function Header() {
           </ul>
         </nav>
 
-        <div className="hidden md:flex items-center gap-2">
+        <div className="hidden md:flex items-center gap-2 md:justify-self-end">
           <LocaleSwitcher />
           <Button href="/contact" size="md">
             {t("letsTalk")}

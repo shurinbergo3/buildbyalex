@@ -283,17 +283,25 @@ html:has(.promo-root) .locale-menu {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(62% 58% at 50% 42%, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.55) 52%, rgba(0, 0, 0, 0.12) 86%),
+    radial-gradient(62% 58% at 50% 47%, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.55) 52%, rgba(0, 0, 0, 0.12) 86%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 32%);
 }
 .pf-hero-title .pf-line {
   display: block;
 }
+/* The opening block is centred in the band between the header and the scroll
+   hint, so it has as much air above as below; on a short screen that can't
+   fit it, it starts from the top instead of sliding under the header. */
 .pf-hero {
   position: absolute;
   left: 50%;
-  top: calc(var(--header-h) + 5.5svh);
+  top: var(--header-h);
+  bottom: 96px;
   translate: -50% 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: safe center;
   width: min(1000px, 88vw);
   text-align: center;
 }
