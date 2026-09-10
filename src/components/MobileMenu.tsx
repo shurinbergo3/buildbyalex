@@ -118,7 +118,7 @@ export function MobileMenu() {
           ref={dialogRef}
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-[60] flex flex-col bg-[color:var(--color-bg)]"
+          className="fixed inset-0 z-[60] flex flex-col bg-[color:var(--color-bg)]/85 backdrop-blur-2xl backdrop-saturate-150"
         >
           <div className="flex h-[var(--header-h)] items-center justify-between px-5">
             <Link href="/" onClick={close} aria-label="buildbyalex — home">

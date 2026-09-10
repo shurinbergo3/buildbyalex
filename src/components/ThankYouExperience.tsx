@@ -173,11 +173,11 @@ export function ThankYouExperience({ type: typeParam = "" }: { type?: string }) 
         {/* What happens next */}
         <div className="mx-auto mt-20 max-w-[760px] text-left">
           <h2 className="text-center t-h3">{t("stepsTitle")}</h2>
-          <ol className="mt-8 grid gap-px overflow-hidden rounded-[var(--r-xl)] border border-[color:var(--c-hairline)] bg-[color:var(--c-hairline)] sm:grid-cols-3">
+          <ol className="mt-8 grid divide-y divide-[color:var(--c-hairline)] overflow-hidden rounded-[var(--r-xl)] border border-[color:var(--c-hairline)] bg-[color:var(--color-bg-elev)] sm:grid-cols-3 sm:divide-x sm:divide-y-0">
             {steps.map((step, i) => (
               <li
                 key={i}
-                className="flex flex-col gap-3 bg-[color:var(--color-bg-elev)] p-6"
+                className="flex flex-col gap-3 p-6"
               >
                 <span
                   className={

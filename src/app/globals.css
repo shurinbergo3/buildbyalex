@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* The site is dark-only: `dark:` utilities follow the theme attribute on
+   <html>, which is always "dark", not the visitor's OS setting. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 /* ───────────────────────── DESIGN TOKENS ─────────────────────────
    Apple-grade restraint. One warm amber accent. Geist throughout.
    Tokens drive everything — never hardcode colors or sizes in components.
@@ -107,25 +111,61 @@
 
 /* ───────────────────── DARK ───────────────────── */
 [data-theme="dark"] {
-  --c-bg:       #0A0A0A;
-  --c-bg-alt:   #131314;
-  --c-bg-elev:  #18181B;
-  --c-text:     #F5F5F5;
+  --c-bg:       #050506;
+  /* Sections and cards are glass: translucent over the ambient light on
+     <body> instead of flat grey slabs. */
+  --c-bg-alt:   rgba(255, 255, 255, 0.03);
+  --c-bg-elev:  rgba(255, 255, 255, 0.05);
+  --c-text:     #F5F5F7;
   --c-text-2:   #A1A1A6;
-  --c-text-3:   #6E6E73;
-  --c-divider:  #2A2A2D;
-  --c-hairline: rgba(255, 255, 255, 0.08);
+  --c-text-3:   #7A7A80;
+  --c-divider:  rgba(255, 255, 255, 0.1);
+  --c-hairline: rgba(255, 255, 255, 0.09);
 
   --c-accent:       #FF7A2D;
   --c-accent-hover: #FF8E4D;
   --c-accent-soft:  rgba(255, 122, 45, 0.12);
   --c-accent-ink:   #FFB386;
 
-  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 28px rgba(0, 0, 0, 0.5);
-  --shadow-card-hover: 0 1px 2px rgba(0, 0, 0, 0.5), 0 16px 44px rgba(0, 0, 0, 0.6);
+  --glass-fill:   rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.16);
+
+  --shadow-card: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 24px 60px -32px rgba(0, 0, 0, 0.85);
+  --shadow-card-hover: inset 0 1px 0 rgba(255, 255, 255, 0.09), 0 30px 70px -30px rgba(0, 0, 0, 0.9);
 
   color-scheme: dark;
 }
+
+/* Ambient light behind the whole site. Fixed, so the page scrolls over it
+   and the glass surfaces catch a little of it on the way. */
+[data-theme="dark"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60vw 42vw at 8% -8%, rgba(255, 122, 45, 0.1), transparent 70%),
+    radial-gradient(46vw 36vw at 100% 42%, rgba(96, 126, 255, 0.05), transparent 70%),
+    radial-gradient(56vw 44vw at 26% 110%, rgba(255, 122, 45, 0.06), transparent 70%);
+}
+
+/* Header glass. The blur sits on a pseudo-element: a backdrop-filter on the
+   header itself would make it the backdrop root for the dropdowns inside it,
+   and their own blur would stop seeing the page. */
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(5, 5, 6, 0.72);
+  border-bottom: 1px solid var(--c-hairline);
+  -webkit-backdrop-filter: blur(22px) saturate(1.8);
+  backdrop-filter: blur(22px) saturate(1.8);
+  opacity: 0;
+  transition: opacity 300ms var(--ease-apple);
+}
+.site-header[data-scrolled]::before { opacity: 1; }
 
 /* ── Header over dark hero (light-mode only): force light tokens so logo
    and icon buttons are visible against the always-dark hero surface.      */
@@ -135,30 +175,18 @@ header[data-light-header="true"] {
   --c-hairline:    rgba(255, 255, 255, 0.18);
   --color-bg-alt:  rgba(255, 255, 255, 0.08);
 }
-/* The "Услуги" mega-dropdown lives inside the header, so it would inherit the
-   white-on-dark tokens above and render its titles white on its own light
-   panel. It's a standalone elevated surface — give it back the theme tokens. */
-#nav-services-menu {
-  color: var(--c-text);
-  --color-text:   var(--c-text);
-  --color-bg-alt: var(--c-bg-alt);
-  --c-hairline:   rgba(10, 10, 10, 0.08);
-}
-[data-theme="dark"] #nav-services-menu {
-  --c-hairline:   rgba(255, 255, 255, 0.08);
-}
-/* Same story for the language dropdown: it's an elevated panel inside the
-   header, so on the home hero it inherited the white-on-dark tokens and
-   rendered every option white-on-white (only the active accent-colored one
-   stayed readable). Restore the theme tokens. */
+/* The "Услуги" mega-dropdown and the language menu are panels of their own:
+   they get their own tokens instead of the header's, and a frosted glass
+   dense enough to read over any page. */
+#nav-services-menu,
 .locale-menu {
   color: var(--c-text);
   --color-text:   var(--c-text);
-  --color-bg-alt: var(--c-bg-alt);
-  --c-hairline:   rgba(10, 10, 10, 0.08);
-}
-[data-theme="dark"] .locale-menu {
-  --c-hairline:   rgba(255, 255, 255, 0.08);
+  --color-bg-alt: rgba(255, 255, 255, 0.07);
+  --c-hairline:   rgba(255, 255, 255, 0.12);
+  background: rgba(16, 16, 20, 0.84);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  backdrop-filter: blur(24px) saturate(1.6);
 }
 
 /* ───────────────────── RESET ───────────────────── */
@@ -215,6 +243,9 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
 .reveal[data-visible="true"] {
   opacity: 1;
   transform: none;
+  /* A standing will-change: opacity makes the wrapper a backdrop root, and
+     glass inside it (the contact form) would stop blurring the page. */
+  will-change: auto;
 }
 
 /* ───────────────────── HERO — scroll-driven morph ─────────────────────
@@ -2208,8 +2239,8 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
   background: radial-gradient(circle, rgba(255, 122, 45, 0.18), transparent 68%);
 }
 
-/* The form panel — a solid island the rain runs behind, never through.
-   Opaque on purpose: nothing competes with the fields. */
+/* The form panel is frosted glass: the rain runs behind it as a soft haze
+   and never through the fields. */
 .contact-panel {
   position: relative;
   overflow: hidden;
@@ -2224,10 +2255,13 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
 }
 
 [data-theme="dark"] .contact-panel {
-  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(12, 12, 15, 0.7);
+  border-color: rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: blur(22px) saturate(1.4);
+  backdrop-filter: blur(22px) saturate(1.4);
   box-shadow:
     0 40px 80px -36px rgba(0, 0, 0, 0.75),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 /* Fields sit a shade off the panel so they read as inputs, not holes. */
@@ -2290,11 +2324,16 @@ img, svg, video { display: block; max-width: 100%; height: auto; }
   }
 }
 
-/* In dark mode the ink card would be #0A0A0A on a #0A0A0A page — the tier that
-   should stand out disappears. Lift it a step and give it a warm hairline. */
+/* The featured tier on a dark page: amber-lit glass instead of an ink slab,
+   so it stands apart from the other cards. */
 [data-theme="dark"] .pricing-card[data-tone="ink"] {
-  background: color-mix(in srgb, var(--c-accent) 5%, #141416);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c-accent) 22%, transparent);
+  background:
+    radial-gradient(120% 70% at 50% 0%, rgba(255, 122, 45, 0.15), transparent 62%),
+    rgba(255, 255, 255, 0.04);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 122, 45, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 40px 90px -50px rgba(255, 122, 45, 0.4);
 }
 
 @media (prefers-reduced-motion: reduce) {

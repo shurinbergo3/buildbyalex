@@ -323,7 +323,7 @@ export function LegalwinScrollStory() {
                       <span className="h-[3px] w-[3px] rounded-full bg-white/30 ring-1 ring-white/10" />
                     </div>
                     {/* Screen */}
-                    <div ref={screenRef} className="relative aspect-[16/10] overflow-hidden rounded-[11px] bg-white">
+                    <div ref={screenRef} className="relative aspect-[16/10] overflow-hidden rounded-[11px] bg-[#202124]">
                     <div
                       className="absolute left-0 top-0 origin-top-left"
                       style={{ width: designW, height: (designW * 10) / 16, transform: `scale(${screenScale})` }}
@@ -390,18 +390,18 @@ function GoogleScreen({
   showResults: boolean;
 }) {
   return (
-    <div className="flex h-full flex-col bg-white">
-      <BrowserChrome url="google.com/search" light />
+    <div className="flex h-full flex-col bg-[#202124]">
+      <BrowserChrome url="google.com/search" />
       <div className="min-h-0 flex-1 overflow-hidden px-4 pt-3 sm:px-6">
         {/* Search row */}
         <div className="flex items-center gap-3 sm:gap-5">
           <GoogleLogo />
-          <div className="flex min-h-[38px] flex-1 items-center gap-2 rounded-full border border-[#dfe1e5] px-4 py-1 shadow-[0_1px_6px_rgba(32,33,36,0.08)]">
-            <span className="min-w-0 flex-1 break-words text-[14px] leading-[1.3] text-[#202124]">
+          <div className="flex min-h-[38px] flex-1 items-center gap-2 rounded-full border border-[#5f6368] bg-[#303134] px-4 py-1">
+            <span className="min-w-0 flex-1 break-words text-[14px] leading-[1.3] text-[#e8eaed]">
               {typed || query.slice(0, 0)}
-              <span className="ml-0.5 inline-block h-[14px] w-[1.5px] -mb-[2px] animate-pulse bg-[#202124] align-middle" />
+              <span className="ml-0.5 inline-block h-[14px] w-[1.5px] -mb-[2px] animate-pulse bg-[#e8eaed] align-middle" />
             </span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="shrink-0 text-[#4285f4]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="shrink-0 text-[#8ab4f8]">
               <circle cx="11" cy="11" r="6" stroke="currentColor" strokeWidth="2.2" />
               <path d="m20 20-3.5-3.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
             </svg>
@@ -409,10 +409,10 @@ function GoogleScreen({
         </div>
 
         {/* Tabs */}
-        <div className="mt-2.5 flex items-center gap-5 border-b border-[#ebebeb] text-[12px] text-[#5f6368]">
-          <span className="relative py-2 text-[#1a73e8]">
+        <div className="mt-2.5 flex items-center gap-5 border-b border-[#3c4043] text-[12px] text-[#9aa0a6]">
+          <span className="relative py-2 text-[#8ab4f8]">
             All
-            <span className="absolute inset-x-0 -bottom-px h-[3px] rounded-t bg-[#1a73e8]" />
+            <span className="absolute inset-x-0 -bottom-px h-[3px] rounded-t bg-[#8ab4f8]" />
           </span>
           {["Images", "News", "Maps", "Videos"].map((l) => (
             <span key={l} className="py-2">
@@ -422,7 +422,7 @@ function GoogleScreen({
         </div>
 
         {/* Results */}
-        <p className="mt-2.5 text-[10.5px] text-[#70757a]">{count}</p>
+        <p className="mt-2.5 text-[10.5px] text-[#9aa0a6]">{count}</p>
         <div className="relative mt-2 grid">
           {/* ghost reserves height so the screen never jumps */}
           <ol aria-hidden className="invisible space-y-3.5 [grid-area:1/1]">
@@ -465,30 +465,30 @@ function SerpResult({ item, highlight, delay = 0 }: { item: ResultItem; highligh
           aria-hidden
           className="pointer-events-none absolute -inset-2 -z-0 rounded-lg"
           style={{
-            background: "linear-gradient(135deg, rgba(255,107,26,0.10) 0%, rgba(255,107,26,0.03) 100%)",
-            boxShadow: "0 0 0 1px rgba(255,107,26,0.22)",
+            background: "linear-gradient(135deg, rgba(255,122,45,0.12) 0%, rgba(255,122,45,0.03) 100%)",
+            boxShadow: "0 0 0 1px rgba(255,122,45,0.32)",
           }}
         />
       )}
       <div className="relative">
-        <div className="flex items-center gap-2 text-[11px] text-[#202124]">
-          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#f1f3f4] text-[9px] font-semibold text-[#5f6368]">
+        <div className="flex items-center gap-2 text-[11px] text-[#dadce0]">
+          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#303134] text-[9px] font-semibold text-[#bdc1c6]">
             {item.site.charAt(0).toUpperCase()}
           </span>
           <span className="flex flex-col leading-tight">
             <span className="font-medium">{item.site}</span>
-            <span className="text-[10px] text-[#5f6368]">{item.breadcrumb}</span>
+            <span className="text-[10px] text-[#9aa0a6]">{item.breadcrumb}</span>
           </span>
           {highlight && (
-            <span className="ml-1 inline-flex items-center rounded-full bg-[#ff6b1a]/10 px-1.5 py-0.5 text-[9px] font-medium uppercase tracking-wider text-[#c44a00]">
+            <span className="ml-1 inline-flex items-center rounded-full bg-[#ff7a2d]/15 px-1.5 py-0.5 text-[9px] font-medium uppercase tracking-wider text-[#ffb386]">
               #1
             </span>
           )}
         </div>
-        <h4 className="mt-0.5 text-[14px] leading-[1.3] text-[#1a0dab]">{item.title}</h4>
-        <p className="mt-0.5 line-clamp-2 text-[12px] leading-[1.45] text-[#4d5156]">{item.snippet}</p>
+        <h4 className="mt-0.5 text-[14px] leading-[1.3] text-[#8ab4f8]">{item.title}</h4>
+        <p className="mt-0.5 line-clamp-2 text-[12px] leading-[1.45] text-[#bdc1c6]">{item.snippet}</p>
         {item.rating && (
-          <p className="mt-0.5 flex items-center gap-1 text-[11px] text-[#70757a]">
+          <p className="mt-0.5 flex items-center gap-1 text-[11px] text-[#9aa0a6]">
             <span className="text-[#fbbc05]">★★★★★</span>
             <span>{item.rating}</span>
           </p>
@@ -736,22 +736,15 @@ function WebsiteScreen({ site, showChat }: { site: SiteData; showChat: boolean }
 
 /* ───────────────────────── SHARED BITS ───────────────────────── */
 
-function BrowserChrome({ url, light }: { url: string; light?: boolean }) {
+function BrowserChrome({ url }: { url: string }) {
   return (
-    <div
-      className={`flex items-center gap-3 border-b px-4 py-2.5 ${light ? "border-black/5" : "border-white/5"}`}
-      style={{ background: light ? "#f1f3f4" : "#171717" }}
-    >
+    <div className="flex items-center gap-3 border-b border-white/5 px-4 py-2.5" style={{ background: "#171717" }}>
       <div className="flex gap-1.5">
         <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f56]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#27c93f]" />
       </div>
-      <div
-        className={`mx-auto flex max-w-[300px] flex-1 items-center justify-center gap-2 rounded-full px-3 py-1 text-[11px] ${
-          light ? "bg-white text-[#5f6368]" : "bg-black/40 text-white/60"
-        }`}
-      >
+      <div className="mx-auto flex max-w-[300px] flex-1 items-center justify-center gap-2 rounded-full bg-black/40 px-3 py-1 text-[11px] text-white/60">
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none">
           <path
             d="M12 1a5 5 0 0 0-5 5v3H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V11a2 2 0 0 0-2-2h-2V6a5 5 0 0 0-5-5zm-3 8V6a3 3 0 1 1 6 0v3H9z"

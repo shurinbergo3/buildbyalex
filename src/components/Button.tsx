@@ -14,7 +14,7 @@ const variants: Record<Variant, string> = {
   secondary:
     "bg-[color:var(--color-text)] text-[color:var(--color-bg)] hover:opacity-90 active:translate-y-[1px]",
   ghost:
-    "border border-[color:var(--c-hairline)] bg-transparent text-[color:var(--color-text)] hover:bg-[color:var(--color-bg-alt)] active:translate-y-[1px]",
+    "border border-[color:var(--glass-border)] bg-[color:var(--glass-fill)] text-[color:var(--color-text)] backdrop-blur-md hover:bg-white/10 active:translate-y-[1px]",
   link:
     "p-0 rounded-none text-[color:var(--c-accent-ink)] dark:text-[color:var(--c-accent)] hover:underline underline-offset-4",
 };

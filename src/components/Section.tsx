@@ -3,10 +3,13 @@ import { cn } from "@/lib/utils";
 type Tone = "default" | "alt" | "ink";
 type Pad = "default" | "tight" | "loose";
 
+// Default sections stay see-through so the page's ambient light runs through
+// them; alt ones add a faint glass lift that fades out at the edges, so the
+// page reads as one surface instead of stacked bands.
 const toneClass: Record<Tone, string> = {
-  default: "bg-[color:var(--color-bg)]",
-  alt: "bg-[color:var(--color-bg-alt)]",
-  ink: "bg-[#0A0A0A] text-[#F5F5F5]",
+  default: "",
+  alt: "bg-[linear-gradient(180deg,transparent,var(--color-bg-alt)_12rem,var(--color-bg-alt)_calc(100%_-_12rem),transparent)]",
+  ink: "bg-black/40 text-[#F5F5F5]",
 };
 
 const padClass: Record<Pad, string> = {

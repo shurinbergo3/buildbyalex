@@ -5,7 +5,6 @@ import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { Logo } from "./Logo";
 import { Button } from "./Button";
-import { ThemeToggle } from "./ThemeToggle";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 import { MobileMenu } from "./MobileMenu";
 import { NavServices } from "./NavServices";
@@ -36,13 +35,8 @@ export function Header() {
   return (
     <header
       data-light-header={!scrolled && isHome ? "true" : undefined}
-      className={cn(
-        "fixed inset-x-0 top-0 z-40 transition-[backdrop-filter,background-color,border-color] duration-300",
-        "h-[var(--header-h)]",
-        scrolled
-          ? "bg-[color:var(--color-bg)]/80 backdrop-saturate-150 backdrop-blur-xl border-b border-[color:var(--c-hairline)]"
-          : "bg-transparent border-b border-transparent",
-      )}
+      data-scrolled={scrolled ? "" : undefined}
+      className="site-header fixed inset-x-0 top-0 z-40 h-[var(--header-h)]"
     >
       <div className="mx-auto flex h-full max-w-[1280px] items-center justify-between px-5 md:px-8">
         <Link href="/" aria-label="buildbyalex — home" className="-ml-1 p-1">
@@ -81,14 +75,12 @@ export function Header() {
 
         <div className="hidden md:flex items-center gap-2">
           <LocaleSwitcher />
-          <ThemeToggle />
           <Button href="/contact" size="md">
             {t("letsTalk")}
           </Button>
         </div>
 
         <div className="flex md:hidden items-center gap-1.5">
-          <ThemeToggle />
           <MobileMenu />
         </div>
       </div>

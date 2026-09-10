@@ -187,7 +187,11 @@ export function Testimonials({ now: serverNow }: { now: number }) {
         <div className="relative mt-10 md:mt-12">
           {/* Phones swipe through the reviews instead of scrolling past six
               stacked cards; from md up it's the same grid as before. */}
-          <div className="reviews-rail -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 md:mx-0 md:grid md:grid-cols-2 md:gap-5 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-3">
+          <div
+            className={`reviews-rail -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 md:mx-0 md:grid md:grid-cols-2 md:gap-5 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-3 ${
+              hasMore && !expanded ? "md:[mask-image:linear-gradient(to_bottom,#000_calc(100%_-_8rem),transparent)]" : ""
+            }`}
+          >
             {visible.map((r, i) => (
               <Reveal
                 key={r.name}
@@ -231,14 +235,6 @@ export function Testimonials({ now: serverNow }: { now: number }) {
               </motion.div>
             )}
           </AnimatePresence>
-
-          {/* Fade veil over the last collapsed row */}
-          {hasMore && !expanded && (
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[color:var(--color-bg-alt)] to-transparent"
-            />
-          )}
         </div>
 
         {hasMore && (

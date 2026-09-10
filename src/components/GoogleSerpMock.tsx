@@ -74,17 +74,17 @@ export function GoogleSerpMock({
 
   return (
     <div
-      className="relative mx-auto w-full max-w-[860px] overflow-hidden rounded-2xl shadow-[0_30px_80px_-20px_rgba(20,30,50,0.35),0_0_0_1px_rgba(0,0,0,0.06)]"
-      style={{ background: "#ffffff", ...(maxWidth ? { maxWidth } : null) }}
+      className="relative mx-auto w-full max-w-[860px] overflow-hidden rounded-2xl shadow-[0_30px_80px_-24px_rgba(0,0,0,0.7),0_0_0_1px_rgba(255,255,255,0.08)]"
+      style={{ background: "#202124", ...(maxWidth ? { maxWidth } : null) }}
     >
       {/* Browser frame */}
-      <div className="flex items-center gap-3 border-b border-black/5 px-4 py-3" style={{ background: "#f1f3f4" }}>
+      <div className="flex items-center gap-3 border-b border-white/5 px-4 py-3" style={{ background: "#2b2c2f" }}>
         <div className="flex gap-1.5">
           <span className="h-3 w-3 rounded-full bg-[#ff5f56]" />
           <span className="h-3 w-3 rounded-full bg-[#ffbd2e]" />
           <span className="h-3 w-3 rounded-full bg-[#27c93f]" />
         </div>
-        <div className="mx-auto flex max-w-[420px] flex-1 items-center gap-2 rounded-full bg-white px-3 py-1 text-[12px] text-[#5f6368]">
+        <div className="mx-auto flex max-w-[420px] flex-1 items-center gap-2 rounded-full bg-[#1b1c1e] px-3 py-1 text-[12px] text-[#9aa0a6]">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
             <path
               d="M12 1a5 5 0 0 0-5 5v3H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V11a2 2 0 0 0-2-2h-2V6a5 5 0 0 0-5-5zm-3 8V6a3 3 0 1 1 6 0v3H9z"
@@ -100,17 +100,17 @@ export function GoogleSerpMock({
       <div className="flex items-center gap-3 px-4 pt-3 pb-2.5 sm:gap-6 sm:px-6 sm:pt-4">
         <GoogleLogo />
         <div className="relative flex-1">
-          <div className="flex min-h-[42px] items-center gap-3 rounded-full border border-[#dfe1e5] px-5 py-1.5 shadow-[0_1px_6px_rgba(32,33,36,0.08)]">
-            <span className="min-w-0 flex-1 break-words text-[16px] leading-[1.3] text-[#202124]">
+          <div className="flex min-h-[42px] items-center gap-3 rounded-full border border-[#5f6368] bg-[#303134] px-5 py-1.5">
+            <span className="min-w-0 flex-1 break-words text-[16px] leading-[1.3] text-[#e8eaed]">
               {typed}
-              <span className="ml-0.5 inline-block h-[16px] w-[1.5px] -mb-[2px] animate-pulse bg-[#202124] align-middle" />
+              <span className="ml-0.5 inline-block h-[16px] w-[1.5px] -mb-[2px] animate-pulse bg-[#e8eaed] align-middle" />
             </span>
-            <button className="shrink-0 text-[#4285f4]" aria-label="Search by voice">
+            <button className="shrink-0 text-[#8ab4f8]" aria-label="Search by voice">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2z" />
               </svg>
             </button>
-            <button className="shrink-0 text-[#4285f4]" aria-label="Search">
+            <button className="shrink-0 text-[#8ab4f8]" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                 <circle cx="11" cy="11" r="6" stroke="currentColor" strokeWidth="2.2" />
                 <path d="m20 20-3.5-3.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
@@ -121,7 +121,7 @@ export function GoogleSerpMock({
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-4 overflow-x-auto border-b border-[#ebebeb] px-4 text-[13px] text-[#5f6368] sm:gap-6 sm:px-6">
+      <div className="flex items-center gap-4 overflow-x-auto border-b border-[#3c4043] px-4 text-[13px] text-[#9aa0a6] sm:gap-6 sm:px-6">
         <Tab label="All" active />
         <Tab label="Images" />
         <Tab label="News" />
@@ -134,7 +134,7 @@ export function GoogleSerpMock({
           the box is always sized to the tallest result set. The live results overlay
           the same cell, so the box never grows or shrinks between queries (no page jump). */}
       <div className="px-4 py-3 pb-4 sm:px-6">
-        <p className="text-[12.5px] text-[#70757a]">{block.count}</p>
+        <p className="text-[12.5px] text-[#9aa0a6]">{block.count}</p>
 
         <div className="relative mt-3 grid">
           {queries.map((qb) => (
@@ -168,15 +168,15 @@ export function GoogleSerpMock({
         </div>
 
         {/* Related searches — fills the page bottom, authentic Google block */}
-        <div className="mt-5 border-t border-[#ebebeb] pt-4">
-          <p className="text-[14px] font-medium text-[#202124]">{related}</p>
+        <div className="mt-5 border-t border-[#3c4043] pt-4">
+          <p className="text-[14px] font-medium text-[#e8eaed]">{related}</p>
           <div className="mt-2.5 grid grid-cols-1 gap-2 sm:grid-cols-2">
             {relatedQueries.map((rq, i) => (
               <div
                 key={i}
-                className="flex items-center gap-3 rounded-full bg-[#f1f3f4] px-4 py-2 text-[13px] text-[#202124]"
+                className="flex items-center gap-3 rounded-full bg-[#303134] px-4 py-2 text-[13px] text-[#e8eaed]"
               >
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" className="shrink-0 text-[#5f6368]">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" className="shrink-0 text-[#9aa0a6]">
                   <circle cx="11" cy="11" r="6" stroke="currentColor" strokeWidth="2" />
                   <path d="m20 20-3.5-3.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                 </svg>
@@ -215,34 +215,34 @@ function Result({
           transition={{ delay: 0.25, duration: 0.5 }}
           style={{
             background:
-              "linear-gradient(135deg, rgba(255,107,26,0.08) 0%, rgba(255,107,26,0.02) 100%)",
-            boxShadow: "0 0 0 1px rgba(255,107,26,0.20)",
+              "linear-gradient(135deg, rgba(255,122,45,0.12) 0%, rgba(255,122,45,0.03) 100%)",
+            boxShadow: "0 0 0 1px rgba(255,122,45,0.32)",
           }}
         />
       )}
       <div className="relative">
-        <div className="flex items-center gap-2 text-[12.5px] text-[#202124]">
-          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#f1f3f4] text-[10px] font-semibold text-[#5f6368]">
+        <div className="flex items-center gap-2 text-[12.5px] text-[#dadce0]">
+          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#303134] text-[10px] font-semibold text-[#bdc1c6]">
             {item.site.charAt(0).toUpperCase()}
           </span>
           <span className="flex flex-col leading-tight">
             <span className="font-medium">{item.site}</span>
-            <span className="text-[11.5px] text-[#5f6368]">{item.breadcrumb}</span>
+            <span className="text-[11.5px] text-[#9aa0a6]">{item.breadcrumb}</span>
           </span>
           {highlight && (
-            <span className="ml-1 inline-flex items-center gap-1 rounded-full bg-[#ff6b1a]/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-[#c44a00]">
+            <span className="ml-1 inline-flex items-center gap-1 rounded-full bg-[#ff7a2d]/15 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-[#ffb386]">
               #1
             </span>
           )}
         </div>
-        <h3 className="mt-1 text-[16px] leading-[1.3] text-[#1a0dab] hover:underline sm:text-[18px]">
+        <h3 className="mt-1 text-[16px] leading-[1.3] text-[#8ab4f8] hover:underline sm:text-[18px]">
           {item.title}
         </h3>
-        <p className="mt-1 text-[13px] leading-[1.5] text-[#4d5156] sm:text-[14px]">
+        <p className="mt-1 text-[13px] leading-[1.5] text-[#bdc1c6] sm:text-[14px]">
           {item.snippet}
         </p>
         {item.rating && (
-          <p className="mt-1 flex items-center gap-1 text-[13px] text-[#70757a]">
+          <p className="mt-1 flex items-center gap-1 text-[13px] text-[#9aa0a6]">
             <span className="text-[#fbbc05]">★★★★★</span>
             <span>{item.rating}</span>
           </p>
@@ -256,12 +256,12 @@ function Tab({ label, active }: { label: string; active?: boolean }) {
   return (
     <div
       className={`relative py-2.5 ${
-        active ? "text-[#1a73e8]" : "text-[#5f6368]"
+        active ? "text-[#8ab4f8]" : "text-[#9aa0a6]"
       }`}
     >
       {label}
       {active && (
-        <span className="absolute inset-x-0 -bottom-px h-[3px] rounded-t bg-[#1a73e8]" />
+        <span className="absolute inset-x-0 -bottom-px h-[3px] rounded-t bg-[#8ab4f8]" />
       )}
     </div>
   );

@@ -6,7 +6,6 @@ import { getMessages, getTranslations, setRequestLocale } from "next-intl/server
 import { notFound } from "next/navigation";
 import { routing, type Locale } from "@/i18n/routing";
 import { SITE_URL, localizedHref, htmlLang, ogLocale } from "@/lib/site";
-import { ThemeProvider, type Theme } from "@/components/ThemeProvider";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileStickyCTA } from "@/components/MobileStickyCTA";
@@ -25,15 +24,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
   display: "swap",
 });
-
-// Theme is applied by the inline bootstrap below, not on the server. Reading the
-// cookie here with `cookies()` opted every page into dynamic rendering, which
-// killed the static build and made the whole site respond with `no-store` —
-// no CDN cache, a full re-render on every crawler hit. The markup ships with the
-// light theme and the script swaps it before first paint.
-const DEFAULT_THEME: Theme = "light";
-
-const THEME_BOOTSTRAP = `try{document.documentElement.dataset.theme=/(?:^|;\\s*)theme=dark(?:;|$)/.test(document.cookie)?"dark":"light"}catch(e){}`;
 
 // Every page is prerendered. A few of them still depend on "now" — reviews
 // gated by `publishAt`, posts gated by their date — so the whole segment
@@ -111,29 +101,25 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={htmlLang(locale as Locale)} data-theme={DEFAULT_THEME} suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP }} />
-      </head>
+    // The site has a single dark theme, so it ships in the markup as is.
+    <html lang={htmlLang(locale as Locale)} data-theme="dark" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <ThemeProvider>
-            <SmoothScroll />
-            <a
-              href="#main"
-              className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-[color:var(--color-text)] focus:px-4 focus:py-2 focus:text-[color:var(--color-bg)]"
-            >
-              Skip to content
-            </a>
-            <Header />
-            <main id="main" className="pt-[var(--header-h)]">
-              {children}
-            </main>
-            <Footer />
-            <MobileStickyCTA />
-            <YandexMetrika />
-            <GoogleAnalytics />
-          </ThemeProvider>
+          <SmoothScroll />
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-[color:var(--color-text)] focus:px-4 focus:py-2 focus:text-[color:var(--color-bg)]"
+          >
+            Skip to content
+          </a>
+          <Header />
+          <main id="main" className="pt-[var(--header-h)]">
+            {children}
+          </main>
+          <Footer />
+          <MobileStickyCTA />
+          <YandexMetrika />
+          <GoogleAnalytics />
         </NextIntlClientProvider>
       </body>
     </html>

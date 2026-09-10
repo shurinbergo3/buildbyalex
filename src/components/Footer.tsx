@@ -11,7 +11,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative isolate overflow-hidden border-t border-[color:var(--c-hairline)] bg-[color:var(--color-bg)] pt-16 pb-28 md:pt-20 md:pb-36">
+    <footer className="relative isolate overflow-hidden border-t border-[color:var(--c-hairline)] pt-16 pb-28 md:pt-20 md:pb-36">
       <Container className="relative z-10">
         <div className="grid grid-cols-2 gap-y-12 md:grid-cols-12 md:gap-y-0">
           <div className="col-span-2 md:col-span-3">

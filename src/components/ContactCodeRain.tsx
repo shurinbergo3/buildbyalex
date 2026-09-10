@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useTheme } from "./ThemeProvider";
 
 /**
  * Falling-code backdrop for /contact.
@@ -27,6 +26,7 @@ const TAPES = [
 ];
 
 const FRAME_MS = 45;
+const PALETTE = { ink: "236, 236, 240", head: "255, 138, 61", tail: 0.28, glow: 0.85, plate: 0.085 };
 
 // Narrow screens get a finer grain — same density, less visual weight behind
 // the copy that now runs full width.
@@ -53,9 +53,6 @@ const pick = <T,>(arr: readonly T[]) => arr[Math.floor(Math.random() * arr.lengt
 export function ContactCodeRain() {
   const rainRef = useRef<HTMLCanvasElement | null>(null);
   const plateRef = useRef<HTMLCanvasElement | null>(null);
-  const { theme } = useTheme();
-  const themeRef = useRef(theme);
-  themeRef.current = theme;
 
   useEffect(() => {
     const rain = rainRef.current;
@@ -74,11 +71,6 @@ export function ContactCodeRain() {
     let last = 0;
     let onScreen = true;
     let m = metrics(1440);
-
-    const palette = () =>
-      themeRef.current === "dark"
-        ? { ink: "236, 236, 240", head: "255, 138, 61", tail: 0.28, glow: 0.85, plate: 0.085 }
-        : { ink: "26, 26, 30", head: "255, 96, 10", tail: 0.25, glow: 0.8, plate: 0.068 };
 
     const spawn = (x: number, seeded: boolean): Column => {
       const rows = Math.ceil(h / m.cellH);
@@ -106,7 +98,7 @@ export function ContactCodeRain() {
     // Torn-off horizontal snippets sitting behind the rain, drawn once per
     // layout. This is what makes the backdrop read as code rather than glyphs.
     const drawPlate = () => {
-      const pal = palette();
+      const pal = PALETTE;
       pctx.clearRect(0, 0, w, h);
       const gap = m.cellH * m.plateGap;
       const rows = Math.floor(h / gap) + 1;
@@ -155,7 +147,7 @@ export function ContactCodeRain() {
       return true;
     };
 
-    const drawColumn = (c: Column, pal: ReturnType<typeof palette>) => {
+    const drawColumn = (c: Column, pal: typeof PALETTE) => {
       for (let i = 0; i < c.tail; i++) {
         const row = c.head - i;
         if (row < 0) continue;
@@ -185,7 +177,7 @@ export function ContactCodeRain() {
     };
 
     const paint = (dt: number) => {
-      const pal = palette();
+      const pal = PALETTE;
       const rows = Math.ceil(h / m.cellH);
       ctx.clearRect(0, 0, w, h);
       for (const c of cols) {
@@ -225,7 +217,7 @@ export function ContactCodeRain() {
 
     const freeze = () => {
       stop();
-      const pal = palette();
+      const pal = PALETTE;
       ctx.clearRect(0, 0, w, h);
       for (const c of cols) drawColumn(c, pal);
     };
@@ -266,7 +258,7 @@ export function ContactCodeRain() {
       document.removeEventListener("visibilitychange", onVisibility);
       motion.removeEventListener("change", reset);
     };
-  }, [theme]);
+  }, []);
 
   return (
     <div className="contact-rain" aria-hidden="true">

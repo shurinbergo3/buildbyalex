@@ -124,7 +124,7 @@ export function BalticDockyardShowcase() {
                   className="group relative flex flex-col rounded-[20px] border border-[color:var(--c-hairline)] bg-[color:var(--color-bg-elev)] p-5 shadow-[var(--shadow-card)] transition-colors"
                 >
                   <span
-                    className="grid h-11 w-11 place-items-center rounded-[13px] text-[color:var(--color-bg-elev)]"
+                    className="grid h-11 w-11 place-items-center rounded-[13px] text-[color:var(--color-bg)]"
                     style={{ background: ACCENT }}
                   >
                     <span className="h-[22px] w-[22px]">{ICONS[i]}</span>
