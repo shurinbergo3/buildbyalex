@@ -23,8 +23,9 @@ export function MobileStickyCTA() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Don't shadow the contact form's own CTA.
-  if (pathname === "/contact") return null;
+  // Don't shadow the contact form's own CTA. The promo film carries its own
+  // copy along the bottom edge on phones, so the bar would sit on top of it.
+  if (pathname === "/contact" || pathname === "/promo") return null;
 
   return (
     <div

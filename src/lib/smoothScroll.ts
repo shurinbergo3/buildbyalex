@@ -25,3 +25,9 @@ export function resumePageScroll() {
   depth -= 1;
   if (depth === 0) instance.start();
 }
+
+/** Glide to an absolute scroll position, through Lenis when it is running. */
+export function scrollToY(y: number) {
+  if (instance) instance.scrollTo(y, { duration: 1.4 });
+  else window.scrollTo({ top: y, behavior: "smooth" });
+}

@@ -20,7 +20,9 @@ const CSP = [
   "object-src 'none'",
   "frame-ancestors 'self'",
   "form-action 'self'",
-  "upgrade-insecure-requests",
+  // Production only: on plain http://localhost Safari upgrades every asset
+  // request to https, the dev server can't answer them and pages load bare.
+  ...(process.env.NODE_ENV === "production" ? ["upgrade-insecure-requests"] : []),
 ].join("; ");
 
 const SECURITY_HEADERS = [
