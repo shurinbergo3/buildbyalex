@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 
 /* Persistent "Поговорим" button pinned to the bottom of the viewport on mobile.
@@ -12,6 +12,7 @@ import { Link, usePathname } from "@/i18n/navigation";
 export function MobileStickyCTA() {
   const t = useTranslations("nav");
   const pathname = usePathname();
+  const locale = useLocale();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -23,9 +24,10 @@ export function MobileStickyCTA() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Don't shadow the contact form's own CTA. The promo film carries its own
-  // copy along the bottom edge on phones, so the bar would sit on top of it.
-  if (pathname === "/contact" || pathname === "/promo") return null;
+  // Don't shadow the contact form's own CTA. The Russian home runs the film,
+  // which carries its own copy along the bottom edge on phones, so the bar
+  // would sit on top of it.
+  if (pathname === "/contact" || (pathname === "/" && locale === "ru")) return null;
 
   return (
     <div

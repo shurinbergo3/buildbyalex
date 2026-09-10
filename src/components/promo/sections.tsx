@@ -5,6 +5,7 @@ import { caseImages, caseKeyToSlug, caseSlugs, type CaseKey } from "@/lib/cases"
 import { serviceHref, type ServiceKey } from "@/components/serviceGlyphs";
 import { isReviewLive } from "@/lib/reviews";
 import { TELEGRAM_URL } from "@/lib/contacts";
+import { jsonLd } from "@/lib/jsonLd";
 import { CasesRail, type RailCase } from "./CasesRail";
 
 /* Everything after the film: the same content as the home page (cases,
@@ -314,8 +315,19 @@ export function PromoReviews({ now, reviewCount }: { now: number; reviewCount: n
 export function PromoFaq() {
   const t = useTranslations("home.faq");
   const items = t.raw("items") as { q: string; a: string }[];
+  // the same FAQPage data the classic FAQ block publishes
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
   return (
     <section className="pv" id="faq">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(schema) }} />
       <div className="pv-wrap pv-faq">
         <div>
           <p className="pv-eyebrow">{t("eyebrow")}</p>

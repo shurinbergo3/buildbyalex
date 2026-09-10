@@ -101,8 +101,6 @@ export const routing = defineRouting({
     },
     "/blog": "/blog",
     "/blog/[slug]": "/blog/[slug]",
-    // Test run of the Apple-style home page; only the ru page renders.
-    "/promo": "/promo",
     "/contact": {
       ru: "/kontakty",
       en: "/contact",

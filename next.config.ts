@@ -57,6 +57,8 @@ const nextConfig: NextConfig = {
         destination: `https://${SITE_HOST}/:path*`,
         permanent: true,
       },
+      // The film version was tested at /promo before it became the home page.
+      { source: "/promo", destination: "/", permanent: true },
     ];
   },
   async headers() {
