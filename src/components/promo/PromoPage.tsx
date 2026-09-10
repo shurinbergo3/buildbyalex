@@ -36,7 +36,7 @@ export function PromoPage({ reviewCount, now }: { reviewCount: number; now: numb
         }}
         nav={NAV.map((id) => ({ id, label: t(`nav.${id}`) }))}
         navLabel={t("nav.label")}
-        clockLabels={{ night: t("clock.night"), morning: t("clock.morning") }}
+        clockLabels={{ night: t("clock.night"), morning: t("clock.morning"), now: t("clock.now") }}
       />
       <PromoWork />
       <PromoServices />

@@ -3,11 +3,13 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { TELEGRAM_URL } from "@/lib/contacts";
 import { AppleMark, ChatGptLogo, GoogleG, TelegramMark } from "@/components/CaseHeroKit";
+import { WarsawTime } from "./WarsawTime";
 
 /* The HTML half of each film chapter. Everything here is static markup: the
    engine only moves `--p` (chapter progress) on the layer, and each element
    decides in CSS when it enters (--in) and leaves (--out). Positions inside
-   `.pf-frame` are fractions of the clip's own 16:9 frame (--x, --y, --w). */
+   `.pf-frame` are fractions of the clip's own 16:9 frame (--x, --y, --w),
+   measured on the last frame of each clip, where the camera comes to rest. */
 
 const sv = (vars: Record<string, string | number>) => vars as CSSProperties;
 
@@ -21,6 +23,22 @@ function Stars({ size = 12, color }: { size?: number; color: string }) {
           <path d="M8 1.3l1.9 4.1 4.5.5-3.4 3.1.9 4.4L8 11.4 4.1 13.4l.9-4.4L1.6 5.9l4.5-.5L8 1.3z" />
         </svg>
       ))}
+    </span>
+  );
+}
+
+/* Bitrix24-style mark for the CRM scene: the blue clock tile and the wordmark. */
+function BitrixMark({ brand }: { brand: string }) {
+  return (
+    <span className="pf-bx-mark">
+      <svg viewBox="0 0 24 24" width="1.4em" height="1.4em" aria-hidden="true">
+        <circle cx="12" cy="12" r="11" fill="#2FC6F6" />
+        <path d="M12 6.4V12l3.7 2.3" stroke="#fff" strokeWidth="2.3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+      <span>
+        {brand}
+        <b>24</b>
+      </span>
     </span>
   );
 }
@@ -129,8 +147,18 @@ export function HeroLayer({ reviewCount }: { reviewCount: number }) {
   );
 }
 
+/* the five glass result slabs under the chosen card, top to bottom */
+const RESULT_SLABS = [
+  { x: 0.3925, y: 0.572, w: 0.215, h: 3.4 },
+  { x: 0.381, y: 0.611, w: 0.238, h: 3.9 },
+  { x: 0.3675, y: 0.663, w: 0.265, h: 4.8 },
+  { x: 0.35, y: 0.726, w: 0.3, h: 5.7 },
+  { x: 0.325, y: 0.806, w: 0.35, h: 8.3 },
+];
+
 export function SearchLayer() {
   const t = useTranslations("promo.search");
+  const results = t.raw("results") as string[];
   return (
     <>
       <Copy ns="promo.search" slug="legalwin" />
@@ -140,6 +168,35 @@ export function SearchLayer() {
           style={sv({ "--x": 0.305, "--y": 0.5, "--w": 0.42, "--in": 0.005, "--out": 0.2, "--d": 0.03, "--rise": "0px" })}
         >
           <span className="pf-query-text">{t("serp.query")}</span>
+        </div>
+
+        {results.map((r, i) => (
+          <div
+            key={r}
+            className="pf-at pf-result pf-in"
+            style={sv({
+              "--x": RESULT_SLABS[i].x,
+              "--y": RESULT_SLABS[i].y,
+              "--w": RESULT_SLABS[i].w,
+              "--hh": `${RESULT_SLABS[i].h}%`,
+              "--fs": 0.62 + i * 0.1,
+              "--in": 0.53 + i * 0.025,
+              "--out": 0.985,
+              "--rise": "0px",
+            })}
+          >
+            <span>{r}</span>
+          </div>
+        ))}
+
+        {/* the chosen card is tilted in the frame, so its label is too */}
+        <div
+          className="pf-at pf-hit pf-in"
+          style={sv({ "--x": 0.39, "--y": 0.418, "--w": 0.22, "--hh": "10.6%", "--in": 0.52, "--out": 0.985, "--rise": "0px", rotate: "-7.9deg" })}
+        >
+          <span className="pf-hit-url">{t("hit.url")}</span>
+          <span className="pf-hit-title">{t("hit.title")}</span>
+          <span className="pf-hit-rating">{t("hit.rating")}</span>
         </div>
 
         <div
@@ -213,15 +270,73 @@ export function SiteLayer() {
   );
 }
 
+/* The six glass speech bubbles around the phone, in the order the
+   conversation reads: amber ones are the client, clear ones the agent. */
+const BUBBLES = [
+  { x: 0.1425, y: 0.353, w: 0.16, h: 17.6, client: true },
+  { x: 0.294, y: 0.237, w: 0.096, h: 11.1 },
+  { x: 0.609, y: 0.133, w: 0.142, h: 16.5 },
+  { x: 0.625, y: 0.55, w: 0.111, h: 12.6, client: true },
+  { x: 0.711, y: 0.35, w: 0.1215, h: 13.9 },
+  { x: 0.294, y: 0.583, w: 0.09, h: 10.4 },
+];
+
 export function AgentLayer() {
   const t = useTranslations("promo.agent");
   const messages = t.raw("chat.messages") as { from: "client" | "bot"; text: string }[];
+  const bubbles = t.raw("bubbles") as string[];
+  const mini = t.raw("mini") as string[];
   return (
     <>
       <Copy ns="promo.agent" slug="legalwin" />
       <div className="pf-box pf-frame">
+        {bubbles.map((text, i) => (
+          <div
+            key={text}
+            className="pf-at pf-bubble pf-only-d pf-in"
+            data-client={BUBBLES[i].client ? "" : undefined}
+            style={sv({
+              "--x": BUBBLES[i].x,
+              "--y": BUBBLES[i].y,
+              "--w": BUBBLES[i].w,
+              "--hh": `${BUBBLES[i].h}%`,
+              "--in": 0.42 + i * 0.06,
+              "--out": 0.985,
+              "--rise": "6px",
+            })}
+          >
+            {text}
+          </div>
+        ))}
+
+        {/* the same conversation, running on the phone itself */}
         <div
-          className="pf-at pf-at--card pf-glass pf-chat pf-in pf-in--zoom"
+          className="pf-at pf-mini pf-only-d pf-in"
+          style={sv({ "--x": 0.43, "--y": 0.203, "--w": 0.14, "--hh": "56.4%", "--in": 0.4, "--out": 0.985, "--rise": "0px", "--d": 0.08 })}
+        >
+          <div className="pf-mini-head">
+            <span className="pf-avatar">M</span>
+            <span>
+              <span className="pf-mini-name">{t("chat.name")}</span>
+              <span className="pf-mini-status">{t("chat.status")}</span>
+            </span>
+          </div>
+          <div className="pf-mini-body">
+            {mini.map((text, i) => (
+              <p
+                key={text}
+                className={`pf-mini-msg pf-mini-msg--${i % 2 ? "bot" : "client"} pf-in`}
+                style={sv({ "--in": 0.44 + i * 0.08, "--out": 2, "--d": 0.03, "--rise": "4px" })}
+              >
+                {text}
+              </p>
+            ))}
+          </div>
+          <div className="pf-mini-input">{t("chat.input")}</div>
+        </div>
+
+        <div
+          className="pf-at pf-at--card pf-glass pf-chat pf-only-m pf-in pf-in--zoom"
           style={sv({ "--x": 0.625, "--y": 0.1, "--w": 0.335, "--in": 0.4, "--out": 0.985 })}
         >
           <div className="pf-chat-head">
@@ -250,19 +365,93 @@ export function AgentLayer() {
   );
 }
 
+/* The glass kanban board read as a Bitrix24 pipeline: the header slot of each
+   column, the first card in it, and the glowing card that just arrived. */
+const BX_HEADS = [
+  { x: 0.172, y: 0.198, w: 0.123, h: 6.6 },
+  { x: 0.328, y: 0.209, w: 0.112, h: 6.3 },
+  { x: 0.472, y: 0.222, w: 0.104, h: 5.6 },
+  { x: 0.606, y: 0.233, w: 0.099, h: 5.8 },
+  { x: 0.734, y: 0.247, w: 0.096, h: 5.3 },
+];
+const BX_CARDS = [
+  { x: 0.172, y: 0.283, w: 0.056, h: 6.1 },
+  { x: 0.328, y: 0.294, w: 0.052, h: 6.1 },
+  { x: 0.473, y: 0.302, w: 0.047, h: 5.9 },
+  { x: 0.6075, y: 0.311, w: 0.0455, h: 5.6 },
+  { x: 0.734, y: 0.317, w: 0.046, h: 5.5 },
+];
+const BX_COLORS = ["#39A8EF", "#2FC6F6", "#FFA900", "#FF7A2D", "#9DCF00"];
+const BX_COUNTS = [9, 7, 4, 5, 3];
+
 export function CrmLayer() {
   const t = useTranslations("promo.crm");
   const fields = t.raw("card.fields") as { k: string; v: string }[];
   const stages = t.raw("card.stages") as string[];
+  const bxStages = t.raw("bx.stages") as string[];
+  const deals = t.raw("bx.deals") as { n: string; v: string }[];
   return (
     <>
       <Copy ns="promo.crm" slug="crm-bot" />
       <div className="pf-box pf-frame">
         <div
-          className="pf-at pf-at--card pf-glass pf-deal pf-in pf-in--zoom"
-          style={sv({ "--x": 0.575, "--y": 0.28, "--w": 0.34, "--in": 0.46, "--out": 0.985 })}
+          className="pf-at pf-bx-logo pf-only-d pf-in"
+          style={sv({ "--x": 0.318, "--y": 0.1, "--w": 0.4, "--in": 0.46, "--out": 0.985 })}
         >
-          <div className="pf-deal-board">{t("card.board")}</div>
+          <BitrixMark brand={t("bx.brand")} />
+          <span>{t("bx.board")}</span>
+        </div>
+
+        {bxStages.map((stage, i) => (
+          <div
+            key={stage}
+            className="pf-at pf-bx-head pf-only-d pf-in"
+            style={sv({
+              "--x": BX_HEADS[i].x,
+              "--y": BX_HEADS[i].y,
+              "--w": BX_HEADS[i].w,
+              "--hh": `${BX_HEADS[i].h}%`,
+              "--c": BX_COLORS[i],
+              "--in": 0.47 + i * 0.02,
+              "--out": 0.985,
+              "--rise": "0px",
+            })}
+          >
+            <span>{stage}</span>
+            <em>{BX_COUNTS[i]}</em>
+          </div>
+        ))}
+
+        {deals.map((deal, i) => (
+          <div
+            key={deal.n}
+            className="pf-at pf-bx-card pf-only-d pf-in"
+            data-hot={i === deals.length - 1 ? "" : undefined}
+            style={sv({
+              "--x": BX_CARDS[i].x,
+              "--y": BX_CARDS[i].y,
+              "--w": BX_CARDS[i].w,
+              "--hh": `${BX_CARDS[i].h}%`,
+              "--in": 0.52 + i * 0.02,
+              "--out": 0.985,
+              "--rise": "0px",
+            })}
+          >
+            <b>{deal.n}</b>
+            <span>{deal.v}</span>
+          </div>
+        ))}
+
+        <div
+          className="pf-at pf-at--card pf-glass pf-deal pf-in pf-in--zoom"
+          style={sv({ "--x": 0.595, "--y": 0.5, "--w": 0.3, "--in": 0.56, "--out": 0.985 })}
+        >
+          <div className="pf-deal-board">
+            <BitrixMark brand={t("bx.brand")} />
+            <span>
+              {t("bx.deal")} · {t("card.board")}
+            </span>
+          </div>
           <div className="pf-deal-top">
             <span className="pf-avatar">ОП</span>
             <div>
@@ -274,7 +463,7 @@ export function CrmLayer() {
           <div className="pf-steps">
             {stages.map((s, i) => (
               <span key={s} className="pf-step">
-                <i style={sv({ "--in": i < 3 ? 0.5 + i * 0.08 : 9 })} />
+                <i style={sv({ "--in": i < 3 ? 0.6 + i * 0.07 : 9 })} />
               </span>
             ))}
           </div>
@@ -288,7 +477,7 @@ export function CrmLayer() {
               <div
                 key={f.k}
                 className="pf-field pf-in"
-                style={sv({ "--in": 0.52 + i * 0.06, "--out": 2, "--d": 0.03, "--rise": "8px" })}
+                style={sv({ "--in": 0.62 + i * 0.05, "--out": 2, "--d": 0.03, "--rise": "8px" })}
               >
                 <span>{f.k}</span>
                 <i />
@@ -307,6 +496,29 @@ export function CrmLayer() {
 }
 
 const NODE_X = [0.168, 0.334, 0.5, 0.667, 0.833];
+const TILE_X = [0.1075, 0.274, 0.44, 0.606, 0.7725];
+
+/* what happens at each step of the chain: form, pipeline, mail, calendar, Telegram */
+const TILE_ICONS: ReactNode[] = [
+  <g key="form">
+    <rect x="5" y="3.5" width="14" height="17" rx="2.6" />
+    <path d="M9 8.5h6M9 12h6M9 15.5h3.5" />
+  </g>,
+  <g key="crm">
+    <rect x="3.5" y="4.5" width="4.6" height="15" rx="1.4" />
+    <rect x="9.7" y="4.5" width="4.6" height="10.5" rx="1.4" />
+    <rect x="15.9" y="4.5" width="4.6" height="6.5" rx="1.4" />
+  </g>,
+  <g key="mail">
+    <rect x="3" y="5.5" width="18" height="13" rx="2.6" />
+    <path d="m3.6 7.2 8.4 6 8.4-6" />
+  </g>,
+  <g key="calendar">
+    <rect x="3.5" y="5" width="17" height="15" rx="2.6" />
+    <path d="M3.5 10h17M8 3v4M16 3v4M9 14.5l2 2 4-4" />
+  </g>,
+  <path key="telegram" d="M20.5 4.5 3.5 11.2l6 2.1 1.9 6.2 3.2-3.9 4.6 3.4 1.3-14.5ZM9.5 13.3l7.9-5.6" />,
+];
 
 export function AutoLayer() {
   const t = useTranslations("promo.auto");
@@ -322,6 +534,26 @@ export function AutoLayer() {
             style={sv({ "--x": NODE_X[i] - 0.06, "--y": 0.39, "--w": 0.12, "--in": i === 3 ? 0.62 : 0.74, "--out": 2, "--d": 0.05, "--rise": "0px" })}
             aria-hidden="true"
           />
+        ))}
+        {TILE_ICONS.map((icon, i) => (
+          <div
+            key={i}
+            className="pf-at pf-tile-icon pf-in"
+            style={sv({
+              "--x": TILE_X[i],
+              "--y": 0.391,
+              "--w": 0.12,
+              "--hh": "21.8%",
+              "--in": i < 3 ? 0.48 + i * 0.05 : i === 3 ? 0.64 : 0.76,
+              "--out": 2,
+              "--rise": "0px",
+            })}
+            aria-hidden="true"
+          >
+            <svg viewBox="0 0 24 24" width="38%" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              {icon}
+            </svg>
+          </div>
         ))}
         {nodes.map((node, i) => (
           <div
@@ -409,6 +641,11 @@ export function MorningLayer() {
   );
   return (
     <>
+      <div
+        className="pf-morning-shade pf-in"
+        style={sv({ "--in": 0.24, "--out": 2, "--d": 0.12, "--rise": "0px" })}
+        aria-hidden="true"
+      />
       <Copy ns="promo.morning" from={0.3} to={2}>
         <div className="pf-morning-cta pf-in" style={sv({ "--in": 0.4, "--out": 2 })}>
           <Link href="/contact" className="pf-btn pf-btn--primary">
@@ -424,12 +661,24 @@ export function MorningLayer() {
         </p>
       </Copy>
       <div className="pf-box pf-frame">
+        {/* the phone shows the real time in Warsaw, whenever the page is opened */}
         <div
           className="pf-at pf-lock pf-only-d pf-in"
           style={sv({ "--x": 0.4425, "--y": 0.274, "--w": 0.115, "--hh": "45.3%", "--in": 0.46, "--out": 2, "--d": 0.08, "--rise": "0px" })}
         >
-          <span className="pf-lock-time">09:00</span>
+          <span className="pf-lock-date">
+            <WarsawTime fallback="" date />
+          </span>
+          <span className="pf-lock-time">
+            <WarsawTime fallback="09:00" />
+          </span>
           <div className="pf-notice">{notice}</div>
+        </div>
+        <div
+          className="pf-at pf-glass pf-notice pf-notice--float pf-only-d pf-in pf-in--zoom"
+          style={sv({ "--x": 0.6, "--y": 0.3, "--w": 0.25, "--in": 0.5, "--out": 2 })}
+        >
+          {notice}
         </div>
         <div
           className="pf-at pf-at--card pf-at--top pf-glass pf-notice pf-only-m pf-in"

@@ -179,6 +179,7 @@ html:has(.promo-root) .locale-menu {
 }
 /* the board, the tile chain and the rings run wide, so their copy stays narrow */
 @media (min-width: 768px) {
+  .pf-layer--agent .pf-copy,
   .pf-layer--crm .pf-copy,
   .pf-layer--auto .pf-copy,
   .pf-layer--app .pf-copy {
@@ -569,6 +570,227 @@ html:has(.promo-root) .locale-menu {
   display: inline-flex;
   gap: 1px;
 }
+
+/* lower search results, lying on the glass slabs */
+.pf-result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-size: clamp(8px, calc(var(--fs, 0.8) * 1cqw), 14px);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.66);
+  white-space: nowrap;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.55);
+}
+.pf-result span {
+  display: inline-block;
+  /* foreshortened, like the top of the slab it lies on */
+  scale: 1 0.84;
+}
+/* the chosen result, printed on the glowing card */
+.pf-hit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.28em;
+  padding: 0 1.2em;
+  font-size: clamp(9px, 0.95cqw, 15px);
+  line-height: 1.15;
+  color: #3a1704;
+}
+.pf-hit-url {
+  font-size: 0.74em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+.pf-hit-title {
+  font-size: 1.14em;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.pf-hit-rating {
+  font-size: 0.82em;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+/* the conversation, written into the glass bubbles */
+.pf-bubble {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6% 4%;
+  text-align: center;
+  font-size: clamp(9.5px, 0.9cqw, 15px);
+  font-weight: 500;
+  line-height: 1.22;
+  color: #fff;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+  text-wrap: balance;
+}
+.pf-bubble[data-client] {
+  font-weight: 600;
+  color: #3a1704;
+  text-shadow: none;
+}
+
+/* the same chat, small, on the phone's own screen */
+.pf-mini {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 18% 7% 7%;
+  border-radius: 12% / 5.4%;
+  font-size: clamp(7px, 0.55cqw, 10px);
+  line-height: 1.3;
+  color: #fff;
+}
+.pf-mini-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  padding-bottom: 0.8em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.pf-mini-head .pf-avatar {
+  width: 2.3em;
+  height: 2.3em;
+  font-size: 0.95em;
+}
+.pf-mini-name {
+  display: block;
+  font-weight: 600;
+}
+.pf-mini-status {
+  display: block;
+  font-size: 0.85em;
+  color: #5fd394;
+}
+.pf-mini-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55em;
+  margin-top: auto;
+  padding-top: 0.8em;
+}
+.pf-mini-msg {
+  max-width: 84%;
+  padding: 0.5em 0.75em;
+  border-radius: 1em;
+}
+.pf-mini-msg--bot {
+  align-self: flex-start;
+  border-bottom-left-radius: 0.3em;
+  background: rgba(255, 255, 255, 0.13);
+}
+.pf-mini-msg--client {
+  align-self: flex-end;
+  border-bottom-right-radius: 0.3em;
+  background: linear-gradient(135deg, #ff8a3d, #e5650f);
+}
+.pf-mini-input {
+  margin-top: 0.8em;
+  padding: 0.55em 0.85em;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* the kanban board read as Bitrix24 */
+.pf-bx-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  text-transform: none;
+  color: #fff;
+}
+.pf-bx-mark b {
+  font-weight: 800;
+  color: #2fc6f6;
+}
+.pf-bx-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+  font-size: clamp(11px, 1.05cqw, 17px);
+  color: rgba(255, 255, 255, 0.55);
+  white-space: nowrap;
+}
+.pf-bx-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4em;
+  overflow: hidden;
+  padding: 0 0.7em;
+  border-radius: 0.5em;
+  border-top: 3px solid var(--c);
+  background: color-mix(in srgb, var(--c) 20%, rgba(10, 12, 16, 0.6));
+  font-size: clamp(8px, 0.78cqw, 13px);
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+}
+.pf-bx-head em {
+  font-style: normal;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+}
+.pf-bx-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0 0.6em;
+  font-size: clamp(7px, 0.6cqw, 11px);
+  line-height: 1.22;
+  color: rgba(255, 255, 255, 0.78);
+  white-space: nowrap;
+}
+.pf-bx-card b {
+  font-weight: 600;
+  color: #fff;
+}
+.pf-bx-card[data-hot],
+.pf-bx-card[data-hot] b {
+  color: #2a1003;
+}
+
+/* icons inside the automation tiles */
+.pf-tile-icon {
+  display: grid;
+  place-items: center;
+  color: #4a2206;
+}
+.pf-tile-icon svg {
+  filter: drop-shadow(0 1px 0 rgba(255, 225, 190, 0.5));
+}
+
+/* the morning scene is bright: keep the copy on a dark side */
+.pf-morning-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.86) 0%, rgba(0, 0, 0, 0.62) 28%, rgba(0, 0, 0, 0.18) 50%, rgba(0, 0, 0, 0) 62%);
+}
+.pf-layer--morning .pf-copy {
+  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.55);
+}
+.pf-lock-date {
+  font-size: 1.05em;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.82);
+}
+.pf-notice.pf-notice--float {
+  width: auto;
+  margin-top: 0;
+  padding: 1em 1.1em;
+}
 .pf-store-sub svg {
   display: inline-block;
   width: 1em;
@@ -712,11 +934,13 @@ html:has(.promo-root) .locale-menu {
   padding: 1.05em 1.15em 1.1em;
 }
 .pf-deal-board {
-  font-size: 0.72em;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.45);
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  font-size: 0.8em;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
 }
 .pf-deal-top {
   display: flex;
@@ -1026,11 +1250,15 @@ html:has(.promo-root) .locale-menu {
   height: 1px;
   background: currentColor;
 }
-.pf-stage:not([data-morning]) [data-when="morning"],
-.pf-stage[data-morning] [data-when="night"] {
+.pf-clock-note [data-when] {
   display: none;
 }
-.pf-stage[data-morning] .pf-clock-note {
+.pf-stage:not([data-morning]):not([data-now]) [data-when="night"],
+.pf-stage[data-morning]:not([data-now]) [data-when="morning"],
+.pf-stage[data-now] [data-when="now"] {
+  display: inline;
+}
+.pf-stage:is([data-morning], [data-now]) .pf-clock-note {
   color: rgba(255, 200, 150, 0.85);
 }
 
@@ -1178,6 +1406,7 @@ html:has(.promo-root) .locale-menu {
   }
 
   .pf-copy,
+  .pf-layer--agent .pf-copy,
   .pf-layer--crm .pf-copy,
   .pf-layer--auto .pf-copy,
   .pf-layer--app .pf-copy {

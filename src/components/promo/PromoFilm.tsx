@@ -43,6 +43,13 @@ const PHONE_LAYOUT = "(max-width: 767px), (max-width: 1100px) and (orientation: 
 /** Share of a clip over which the previous chapter's last frame fades out. */
 const SEAM = 0.06;
 const CLOCKS = CHAPTERS.map((c) => c.clock.map(clockToSeconds) as [number, number]);
+const WARSAW = new Intl.DateTimeFormat("en-GB", {
+  timeZone: "Europe/Warsaw",
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+  hourCycle: "h23",
+});
 
 export function PromoFilm({
   layers,
@@ -53,7 +60,7 @@ export function PromoFilm({
   layers: Record<ChapterId, ReactNode>;
   nav: { id: ChapterId; label: string }[];
   navLabel: string;
-  clockLabels: { night: string; morning: string };
+  clockLabels: { night: string; morning: string; now: string };
 }) {
   const sectionRef = useRef<HTMLElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
@@ -99,8 +106,22 @@ export function PromoFilm({
     let lastFill = -1;
     let lastSeam = -1;
     let morning = false;
+    let nowOn = false;
+    let liveSecs = 0;
+    let liveAt = -1e9;
     let raf = 0;
     let alive = true;
+
+    // Seconds since midnight in Warsaw, re-read a couple of times a second.
+    const warsawNow = () => {
+      const t = performance.now();
+      if (t - liveAt > 400) {
+        liveAt = t;
+        const [h, m, s] = WARSAW.format(new Date()).split(":").map(Number);
+        liveSecs = h * 3600 + m * 60 + s;
+      }
+      return liveSecs;
+    };
 
     const stills = (i: number) => {
       clipRefs.current[i]?.querySelectorAll<HTMLImageElement>("img[data-edge]").forEach((img) => {
@@ -257,7 +278,15 @@ export function PromoFilm({
         stage.style.setProperty("--seam", String(seam));
       }
 
-      const [c0, c1] = CLOCKS[idx];
+      // The film ends in the present: the last chapter lands on the real time
+      // in Warsaw and keeps ticking there.
+      const last = idx === n - 1;
+      const [c0, storyEnd] = CLOCKS[idx];
+      let c1 = storyEnd;
+      if (last) {
+        c1 = warsawNow();
+        if (c1 < c0) c1 += 86400;
+      }
       const secs = c0 + (c1 - c0) * clip.current;
       const label = formatClock(secs);
       if (label !== lastClock && clockRef.current) {
@@ -268,6 +297,11 @@ export function PromoFilm({
       if (isMorning !== morning) {
         morning = isMorning;
         stage.toggleAttribute("data-morning", morning);
+      }
+      const isNow = last && clip.current > 0.9;
+      if (isNow !== nowOn) {
+        nowOn = isNow;
+        stage.toggleAttribute("data-now", isNow);
       }
     };
 
@@ -437,6 +471,7 @@ export function PromoFilm({
           <span className="pf-clock-note">
             <span data-when="night">{clockLabels.night}</span>
             <span data-when="morning">{clockLabels.morning}</span>
+            <span data-when="now">{clockLabels.now}</span>
           </span>
         </div>
 
