@@ -169,6 +169,13 @@ export function SearchLayer() {
         >
           <span className="pf-query-text">{t("serp.query")}</span>
         </div>
+        {/* once the camera settles the bar sits higher and smaller; the query stays in it */}
+        <div
+          className="pf-at pf-query pf-query--rest pf-only-d pf-in"
+          style={sv({ "--x": 0.342, "--y": 0.212, "--w": 0.33, "--in": 0.4, "--out": 0.985, "--d": 0.05, "--rise": "0px" })}
+        >
+          {t("serp.query")}
+        </div>
 
         {results.map((r, i) => (
           <div
@@ -366,7 +373,8 @@ export function AgentLayer() {
 }
 
 /* The glass kanban board read as a Bitrix24 pipeline: the header slot of each
-   column, the first card in it, and the glowing card that just arrived. */
+   column and the first card in it. Tonight's lead waits in "Звонок", the stage
+   the deal card shows; the glowing card at the end is a paid deal. */
 const BX_HEADS = [
   { x: 0.172, y: 0.198, w: 0.123, h: 6.6 },
   { x: 0.328, y: 0.209, w: 0.112, h: 6.3 },
@@ -426,6 +434,7 @@ export function CrmLayer() {
           <div
             key={deal.n}
             className="pf-at pf-bx-card pf-only-d pf-in"
+            data-new={i === 2 ? "" : undefined}
             data-hot={i === deals.length - 1 ? "" : undefined}
             style={sv({
               "--x": BX_CARDS[i].x,
@@ -628,7 +637,7 @@ export function AppLayer() {
 
 export function MorningLayer() {
   const t = useTranslations("promo.morning");
-  const notice = (
+  const head = (
     <>
       <div className="pf-notice-head">
         <TelegramMark />
@@ -636,6 +645,11 @@ export function MorningLayer() {
         <time>{t("notice.time")}</time>
       </div>
       <p className="pf-notice-title">{t("notice.title")}</p>
+    </>
+  );
+  const notice = (
+    <>
+      {head}
       <p className="pf-notice-text">{t("notice.text")}</p>
     </>
   );
@@ -672,7 +686,8 @@ export function MorningLayer() {
           <span className="pf-lock-time">
             <WarsawTime fallback="09:00" />
           </span>
-          <div className="pf-notice">{notice}</div>
+          {/* the phone keeps the short version; the card next to it reads in full */}
+          <div className="pf-notice">{head}</div>
         </div>
         <div
           className="pf-at pf-glass pf-notice pf-notice--float pf-only-d pf-in pf-in--zoom"

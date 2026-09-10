@@ -489,6 +489,12 @@ html:has(.promo-root) .locale-menu {
   white-space: nowrap;
   vertical-align: bottom;
 }
+.pf-query--rest {
+  overflow: hidden;
+  font-size: clamp(12px, 1.36cqw, 20px);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 
 .pf-serp {
   padding: 1em 1.05em 1.1em;
@@ -618,14 +624,16 @@ html:has(.promo-root) .locale-menu {
   opacity: 0.8;
 }
 
-/* the conversation, written into the glass bubbles */
+/* The conversation, written into the glass bubbles. Padding stays in em:
+   a percentage would be taken from the whole frame's width, not the bubble's,
+   and squeeze the text to one word a line. */
 .pf-bubble {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 6% 4%;
+  padding: 0 0.9em 0.3em;
   text-align: center;
-  font-size: clamp(9.5px, 0.9cqw, 15px);
+  font-size: clamp(9.5px, 1cqw, 15px);
   font-weight: 500;
   line-height: 1.22;
   color: #fff;
@@ -643,9 +651,10 @@ html:has(.promo-root) .locale-menu {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding: 18% 7% 7%;
+  /* frame units, same reason as the bubbles; the top clears the notch */
+  padding: 3cqw 0.8cqw 0.9cqw;
   border-radius: 12% / 5.4%;
-  font-size: clamp(7px, 0.55cqw, 10px);
+  font-size: clamp(7px, 0.64cqw, 10px);
   line-height: 1.3;
   color: #fff;
 }
@@ -718,8 +727,8 @@ html:has(.promo-root) .locale-menu {
   display: flex;
   align-items: center;
   gap: 0.8em;
-  font-size: clamp(11px, 1.05cqw, 17px);
-  color: rgba(255, 255, 255, 0.55);
+  font-size: clamp(12px, 1.2cqw, 19px);
+  color: rgba(255, 255, 255, 0.66);
   white-space: nowrap;
 }
 .pf-bx-head {
@@ -748,7 +757,7 @@ html:has(.promo-root) .locale-menu {
   justify-content: center;
   overflow: hidden;
   padding: 0 0.6em;
-  font-size: clamp(7px, 0.6cqw, 11px);
+  font-size: clamp(7px, 0.66cqw, 11px);
   line-height: 1.22;
   color: rgba(255, 255, 255, 0.78);
   white-space: nowrap;
@@ -756,6 +765,9 @@ html:has(.promo-root) .locale-menu {
 .pf-bx-card b {
   font-weight: 600;
   color: #fff;
+}
+.pf-bx-card[data-new] b {
+  color: #ffb07a;
 }
 .pf-bx-card[data-hot],
 .pf-bx-card[data-hot] b {
