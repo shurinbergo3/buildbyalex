@@ -595,8 +595,33 @@ export function AutoLayer() {
   );
 }
 
+/* The phone runs the visitor's own app, not a portfolio screenshot: a small
+   inbox that takes bookings. Drawn in HTML so the copy stays crisp and
+   translatable instead of being baked into a picture. */
+const APP_TABS: ReactNode[] = [
+  <g key="inbox">
+    <path d="M3.5 13.5h4l1.3 2.4h6.4l1.3-2.4h4" />
+    <path d="M3.5 13.5 6 5.9A2.2 2.2 0 0 1 8.1 4.4h7.8A2.2 2.2 0 0 1 18 5.9l2.5 7.6v3.3a2.4 2.4 0 0 1-2.4 2.4H5.9a2.4 2.4 0 0 1-2.4-2.4z" />
+  </g>,
+  <g key="calendar">
+    <rect x="3.6" y="5" width="16.8" height="14.6" rx="3" />
+    <path d="M3.6 9.6h16.8M8.2 3.4v3.4M15.8 3.4v3.4" />
+  </g>,
+  <g key="clients">
+    <circle cx="9.4" cy="9" r="3.4" />
+    <path d="M3.8 19.4c0-3 2.5-4.8 5.6-4.8s5.6 1.8 5.6 4.8" />
+    <path d="M16.5 8.2a3 3 0 0 1 0 5.6M18.2 19.4c0-2-.6-3.4-1.7-4.3" />
+  </g>,
+  <g key="profile">
+    <circle cx="12" cy="8.4" r="3.6" />
+    <path d="M5 19.6c0-3.4 3.1-5.2 7-5.2s7 1.8 7 5.2" />
+  </g>,
+];
+
 export function AppLayer() {
   const t = useTranslations("promo.app");
+  const rows = t.raw("screen.rows") as { time: string; name: string; note: string }[];
+  const tabs = t.raw("screen.tabs") as string[];
   return (
     <>
       <Copy ns="promo.app" slug="body-forge" />
@@ -605,20 +630,61 @@ export function AppLayer() {
           className="pf-at pf-screen pf-in"
           style={sv({ "--x": 0.4165, "--y": 0.162, "--w": 0.1675, "--hh": "66.2%", "--in": 0.44, "--out": 0.985, "--d": 0.08, "--rise": "0px" })}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/cases/bodyforge-app-poster.webp" alt="" loading="lazy" decoding="async" />
+          <div className="pf-app">
+            <div className="pf-app-bar">
+              <span>{t("screen.time")}</span>
+              <span className="pf-app-signal" aria-hidden="true">
+                <i />
+                <i />
+                <i />
+              </span>
+            </div>
+            <div className="pf-app-head">
+              <span className="pf-app-title">{t("screen.title")}</span>
+              <span className="pf-app-count">{t("screen.count")}</span>
+            </div>
+            <div className="pf-app-card">
+              <span className="pf-app-badge">{t("screen.badge")}</span>
+              <span className="pf-app-name">{t("screen.name")}</span>
+              <span className="pf-app-topic">{t("screen.topic")}</span>
+              <span className="pf-app-slot">{t("screen.slot")}</span>
+              <span className="pf-app-actions">
+                <b>{t("screen.accept")}</b>
+                <i>{t("screen.call")}</i>
+              </span>
+            </div>
+            <span className="pf-app-next">{t("screen.next")}</span>
+            <div className="pf-app-rows">
+              {rows.map((r) => (
+                <span key={r.time} className="pf-app-row">
+                  <b>{r.time}</b>
+                  <span>
+                    <em>{r.name}</em>
+                    {r.note}
+                  </span>
+                </span>
+              ))}
+            </div>
+            <div className="pf-app-tabs">
+              {tabs.map((label, i) => (
+                <span key={label} data-on={i === 0 ? "" : undefined}>
+                  <svg viewBox="0 0 24 24" width="1.5em" height="1.5em" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                    {APP_TABS[i]}
+                  </svg>
+                  {label}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
         <div
           className="pf-at pf-at--card pf-at--low pf-glass pf-store pf-in pf-in--zoom"
-          style={sv({ "--x": 0.655, "--y": 0.36, "--w": 0.28, "--in": 0.56, "--out": 0.985 })}
+          style={sv({ "--x": 0.645, "--y": 0.36, "--w": 0.305, "--in": 0.56, "--out": 0.985 })}
         >
           <span className="pf-store-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="60%" height="60%" fill="currentColor">
-              <rect x="1.5" y="9" width="3" height="6" rx="1" />
-              <rect x="4.5" y="6.5" width="3.2" height="11" rx="1.2" />
-              <rect x="7.7" y="11" width="8.6" height="2" rx="1" />
-              <rect x="16.3" y="6.5" width="3.2" height="11" rx="1.2" />
-              <rect x="19.5" y="9" width="3" height="6" rx="1" />
+            <svg viewBox="0 0 24 24" width="58%" height="58%" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M3.5 13.5h4l1.3 2.4h6.4l1.3-2.4h4" />
+              <path d="M3.5 13.5 6 5.9A2.2 2.2 0 0 1 8.1 4.4h7.8A2.2 2.2 0 0 1 18 5.9l2.5 7.6v3.3a2.4 2.4 0 0 1-2.4 2.4H5.9a2.4 2.4 0 0 1-2.4-2.4z" />
             </svg>
           </span>
           <div>
