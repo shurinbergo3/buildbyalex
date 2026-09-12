@@ -7848,5 +7848,329 @@
         "currency": "EUR"
       }
     }
+  },
+  "promo": {
+    "nav": {
+      "label": "Chapters",
+      "search": "Search",
+      "site": "Website",
+      "agent": "AI agent",
+      "crm": "CRM",
+      "auto": "Automation",
+      "app": "App",
+      "morning": "Morning"
+    },
+    "clock": {
+      "night": "Warsaw, night",
+      "morning": "Warsaw, morning",
+      "now": "Warsaw, now"
+    },
+    "hero": {
+      "eyebrow": "Websites · AI agents · automation · apps",
+      "time": "02:14.",
+      "title": "Someone is looking for your service.",
+      "accent": "You are asleep. The system is working.",
+      "sub": "A site Google finds and ChatGPT recommends. An AI agent that answers in a second. A funnel that drops the lead straight into your CRM.",
+      "primary": "Book a free call",
+      "secondary": "How it works",
+      "altLabel": "Not a fan of calls?",
+      "altLink": "Message me on Telegram",
+      "scroll": "Scroll: one night in the life of your business"
+    },
+    "search": {
+      "kicker": "02:14 · Search",
+      "title": "Found on Google. <em>Named by ChatGPT.</em>",
+      "body": "The client does not know your name. They type “residence permit lawyer Warsaw” into Google or ask ChatGPT. SEO, schema and GEO are built into every site, so the answer points at <b>you</b>.",
+      "serp": {
+        "query": "residence permit lawyer warsaw",
+        "url": "legalwin.pl › karta-pobytu",
+        "title": "Residence permit in Warsaw, handled end to end · LegalWin",
+        "snippet": "Consultations in English, Russian and Ukrainian, document prep and support until the decision. Fixed prices.",
+        "rating": "4.9 · 312 reviews",
+        "rank": "Rank 1"
+      },
+      "gpt": {
+        "question": "Who can help with a residence permit in Warsaw?",
+        "answer": "LegalWin comes up most often: 4.9 from 312 reviews, consultations in English, Russian and Ukrainian, prices listed right on the site.",
+        "source": "legalwin.pl"
+      },
+      "proof": {
+        "value": "15+",
+        "label": "commercial queries in the Google top 10, on 0 € of ad spend",
+        "link": "LegalWin case"
+      },
+      "results": [
+        "Lawyer directory · 4.1 ★",
+        "Forum: where do I get a residence permit?",
+        "Service aggregator · ad",
+        "Law firm · from 3 000 zł",
+        "Legalisation blog · 2019"
+      ],
+      "hit": {
+        "url": "legalwin.pl · rank 1",
+        "title": "Residence permit in Warsaw",
+        "rating": "★ 4.9 · 312 reviews"
+      }
+    },
+    "site": {
+      "kicker": "02:15 · Website",
+      "title": "Opens in 0.7 seconds. <em>And sells.</em>",
+      "body": "One click and the answer is there: prices, cases, reviews and a button to write. Design, code and copy for your audience, in four languages.",
+      "layers": [
+        "Design for your clients",
+        "Next.js 15 and React 19",
+        "SEO, schema, hreflang",
+        "RU · EN · PL · UA",
+        "Forms and an AI assistant",
+        "PageSpeed 98"
+      ],
+      "proof": {
+        "value": "×5",
+        "label": "leads from the same traffic: conversion went from 0.8% to 4.2%",
+        "link": "VisionAir case"
+      }
+    },
+    "agent": {
+      "kicker": "02:16 · AI agent",
+      "title": "An answer in 0.4 seconds. <em>At two in the morning.</em>",
+      "body": "The AI assistant knows your services, prices and the questions people always ask. It pins down the task, takes the contact and keeps the client from drifting to a competitor. No days off, in four languages.",
+      "chat": {
+        "name": "Mila",
+        "role": "LegalWin assistant",
+        "status": "online",
+        "typing": "typing…",
+        "input": "Message",
+        "messages": [
+          {
+            "from": "client",
+            "text": "Hi! How much does a residence permit cost?"
+          },
+          {
+            "from": "bot",
+            "text": "Hi! From 1 200 zł end to end. Which visa are you on right now?"
+          },
+          {
+            "from": "client",
+            "text": "Work visa, until December"
+          },
+          {
+            "from": "bot",
+            "text": "That works. Leave your number: a lawyer calls in the morning and tells you which documents to collect."
+          },
+          {
+            "from": "client",
+            "text": "+48 512 ··· ···"
+          },
+          {
+            "from": "bot",
+            "text": "Booked. Call tomorrow at 10:00 ✓"
+          }
+        ]
+      },
+      "proof": {
+        "value": "80%",
+        "label": "of first contacts the bot closes. You call back a warm client",
+        "link": "LegalWin case"
+      },
+      "bubbles": [
+        "How much is a permit?",
+        "From 1 200 zł",
+        "Which visa are you on?",
+        "Work visa, until December",
+        "Booked for 10:00 ✓",
+        "A lawyer will call"
+      ],
+      "mini": [
+        "How much is it?",
+        "From 1 200 zł. Which visa?",
+        "Work visa",
+        "Booked for 10:00 ✓"
+      ]
+    },
+    "crm": {
+      "kicker": "02:17 · Pipeline",
+      "title": "The lead files <em>itself into the CRM.</em>",
+      "body": "Name, phone, the question and the source land in the deal card. Nobody copies chats by hand, and no night lead goes missing.",
+      "card": {
+        "board": "Sales pipeline",
+        "name": "Oksana P.",
+        "topic": "Residence permit",
+        "amount": "1 200 zł",
+        "fields": [
+          {
+            "k": "Source",
+            "v": "ChatGPT → site"
+          },
+          {
+            "k": "Channel",
+            "v": "AI assistant"
+          },
+          {
+            "k": "Phone",
+            "v": "+48 512 ··· ···"
+          },
+          {
+            "k": "Visa",
+            "v": "work, until December"
+          }
+        ],
+        "status": "Qualified",
+        "stages": [
+          "New",
+          "Qualification",
+          "Call booked",
+          "Contract",
+          "Payment"
+        ],
+        "auto": "Filled in automatically"
+      },
+      "proof": {
+        "value": "+31%",
+        "label": "more leads reach the sale, qualification in 8 minutes instead of 40",
+        "link": "CRM Bot case"
+      },
+      "bx": {
+        "brand": "Bitrix",
+        "board": "Sales pipeline",
+        "stages": [
+          "New",
+          "Qualification",
+          "Call",
+          "Contract",
+          "Payment"
+        ],
+        "deals": [
+          {
+            "n": "Anna K.",
+            "v": "900 zł"
+          },
+          {
+            "n": "Olga S.",
+            "v": "2 100 zł"
+          },
+          {
+            "n": "Oksana P.",
+            "v": "1 200 zł"
+          },
+          {
+            "n": "Nino G.",
+            "v": "1 100 zł"
+          },
+          {
+            "n": "Marek W.",
+            "v": "2 400 zł"
+          }
+        ],
+        "deal": "Deal"
+      }
+    },
+    "auto": {
+      "kicker": "02:17 · Automation",
+      "title": "After that it <em>runs itself.</em>",
+      "body": "The client gets an email with the document list, the call lands in the calendar, the manager gets a task for the morning. CRM, mail, messengers and billing work as one system.",
+      "nodes": [
+        "Lead",
+        "CRM",
+        "Client email",
+        "Calendar",
+        "Telegram"
+      ],
+      "stack": "n8n · Make · API · webhooks",
+      "proof": {
+        "value": "210 h",
+        "label": "a month the AI sales manager hands back to the owner. That is 1.3 employees",
+        "link": "AI manager case"
+      }
+    },
+    "app": {
+      "kicker": "08:12 · App",
+      "title": "By morning the client is <em>already in your app.</em>",
+      "body": "Booking, payments, push notifications and a personal account. iOS and Android from one codebase, published to the App Store and Google Play.",
+      "store": {
+        "label": "Your app",
+        "name": "Bookings and requests",
+        "sub": "App Store and Google Play",
+        "get": "Install"
+      },
+      "screen": {
+        "time": "9:41",
+        "title": "Requests",
+        "count": "6 new today",
+        "badge": "New request",
+        "name": "Oksana P.",
+        "topic": "Residence permit · consultation",
+        "slot": "Today, 10:00",
+        "accept": "Accept",
+        "call": "Call",
+        "next": "Next in the schedule",
+        "rows": [
+          {
+            "time": "11:30",
+            "name": "Marek W.",
+            "note": "Visa extension"
+          },
+          {
+            "time": "14:00",
+            "name": "Anna K.",
+            "note": "Documents · paid"
+          },
+          {
+            "time": "16:20",
+            "name": "Piotr S.",
+            "note": "First consultation"
+          }
+        ],
+        "tabs": [
+          "Requests",
+          "Calendar",
+          "Clients",
+          "Profile"
+        ]
+      },
+      "proof": {
+        "value": "~10 s",
+        "label": "for a personal AI review of a workout in Body Forge",
+        "link": "Body Forge case"
+      }
+    },
+    "morning": {
+      "kicker": "Now · you are awake",
+      "title": "The client is already <em>waiting for your call.</em>",
+      "body": "While you slept the site found the client, the AI agent answered, the CRM opened a deal and the email went out by itself. We build that system end to end in 1-3 weeks.",
+      "notice": {
+        "app": "Requests",
+        "time": "now",
+        "title": "New request · Oksana P.",
+        "text": "Residence permit, work visa until December. Qualified, call at 10:00."
+      },
+      "primary": "Discuss my project",
+      "secondary": "Message on Telegram",
+      "note": "30 minutes on the call, an estimate in 24 hours, no sales pitch"
+    },
+    "work": {
+      "eyebrow": "Work",
+      "title": "Seven launches. <em>Real numbers.</em>",
+      "sub": "Every project runs in production and brings in leads right now.",
+      "cta": "See the case",
+      "all": "All work",
+      "prev": "Previous case",
+      "next": "Next case"
+    },
+    "services": {
+      "eyebrow": "Services and prices",
+      "title": "Where do we <em>start?</em>",
+      "sub": "Take one part of the system or build the whole thing. The final price is fixed after a 30-minute call.",
+      "featured": "Most asked",
+      "offers": "Fixed price",
+      "more": "See details",
+      "all": "All prices",
+      "customTitle": "Your task is not on the list?",
+      "customBody": "Write a couple of lines. You get a straight answer on whether we take it and what it costs.",
+      "customCta": "Discuss the task"
+    },
+    "reviews": {
+      "eyebrow": "Reviews",
+      "outOf": "out of 5"
+    }
   }
 }

@@ -7848,5 +7848,329 @@
         "currency": "PLN"
       }
     }
+  },
+  "promo": {
+    "nav": {
+      "label": "Rozdziały",
+      "search": "Wyszukiwarka",
+      "site": "Strona",
+      "agent": "Agent AI",
+      "crm": "CRM",
+      "auto": "Automatyzacja",
+      "app": "Aplikacja",
+      "morning": "Rano"
+    },
+    "clock": {
+      "night": "Warszawa, noc",
+      "morning": "Warszawa, rano",
+      "now": "Warszawa, teraz"
+    },
+    "hero": {
+      "eyebrow": "Strony · agenci AI · automatyzacja · aplikacje",
+      "time": "02:14.",
+      "title": "Ktoś szuka twoich usług.",
+      "accent": "Ty śpisz. System pracuje.",
+      "sub": "Strona, którą znajduje Google i poleca ChatGPT. Agent AI, który odpowiada w sekundę. Lejek, który sam wrzuca zgłoszenie do CRM.",
+      "primary": "Bezpłatna konsultacja",
+      "secondary": "Jak to działa",
+      "altLabel": "Nie lubisz rozmów?",
+      "altLink": "Napisz na Telegramie",
+      "scroll": "Przewijaj: jedna noc z życia twojej firmy"
+    },
+    "search": {
+      "kicker": "02:14 · Wyszukiwarka",
+      "title": "Znajdą w Google. <em>Poleci ChatGPT.</em>",
+      "body": "Klient nie zna twojej nazwy. Wpisuje w Google «prawnik karta pobytu Warszawa» albo pyta ChatGPT. SEO, dane strukturalne i GEO są w każdej stronie, więc w odpowiedzi jesteś <b>ty</b>.",
+      "serp": {
+        "query": "prawnik karta pobytu warszawa",
+        "url": "legalwin.pl › karta-pobytu",
+        "title": "Karta pobytu w Warszawie pod klucz · LegalWin",
+        "snippet": "Konsultacje po polsku, rosyjsku i ukraińsku, przygotowanie dokumentów i prowadzenie do decyzji. Stałe ceny.",
+        "rating": "4,9 · 312 opinii",
+        "rank": "1. miejsce"
+      },
+      "gpt": {
+        "question": "Kto pomoże z kartą pobytu w Warszawie?",
+        "answer": "Najczęściej polecany jest LegalWin: ocena 4,9 z 312 opinii, konsultacje po polsku, rosyjsku i ukraińsku, ceny podane na stronie.",
+        "source": "legalwin.pl"
+      },
+      "proof": {
+        "value": "15+",
+        "label": "zapytań komercyjnych w top 10 Google, przy 0 € na reklamę",
+        "link": "Case LegalWin"
+      },
+      "results": [
+        "Katalog prawników · 4,1 ★",
+        "Forum: gdzie wyrobić kartę pobytu?",
+        "Agregator usług · reklama",
+        "Kancelaria · od 3 000 zł",
+        "Blog o legalizacji · 2019"
+      ],
+      "hit": {
+        "url": "legalwin.pl · 1. miejsce",
+        "title": "Karta pobytu w Warszawie",
+        "rating": "★ 4,9 · 312 opinii"
+      }
+    },
+    "site": {
+      "kicker": "02:15 · Strona",
+      "title": "Otwiera się w 0,7 sekundy. <em>I sprzedaje.</em>",
+      "body": "Klient klika i od razu widzi odpowiedź: ceny, realizacje, opinie i przycisk «Napisz». Projekt, kod i teksty pod twoich odbiorców, w czterech językach.",
+      "layers": [
+        "Projekt pod twoich klientów",
+        "Next.js 15 i React 19",
+        "SEO, dane strukturalne, hreflang",
+        "RU · EN · PL · UA",
+        "Formularze i konsultant AI",
+        "PageSpeed 98"
+      ],
+      "proof": {
+        "value": "×5",
+        "label": "zgłoszeń z tego samego ruchu: konwersja z 0,8% do 4,2%",
+        "link": "Case VisionAir"
+      }
+    },
+    "agent": {
+      "kicker": "02:16 · Agent AI",
+      "title": "Odpowiedź w 0,4 sekundy. <em>O drugiej w nocy.</em>",
+      "body": "Konsultant AI zna twoje usługi, ceny i częste pytania. Dopytuje o zadanie, bierze kontakt i nie wypuszcza klienta do konkurencji. Bez wolnych dni, w czterech językach.",
+      "chat": {
+        "name": "Mila",
+        "role": "konsultantka LegalWin",
+        "status": "online",
+        "typing": "pisze…",
+        "input": "Wiadomość",
+        "messages": [
+          {
+            "from": "client",
+            "text": "Dzień dobry! Ile kosztuje karta pobytu?"
+          },
+          {
+            "from": "bot",
+            "text": "Dzień dobry! Pod klucz od 1 200 zł. Jaka wiza jest teraz aktualna?"
+          },
+          {
+            "from": "client",
+            "text": "Pracująca, do grudnia"
+          },
+          {
+            "from": "bot",
+            "text": "Zdążymy. Proszę zostawić numer: prawnik oddzwoni rano i powie, jakie dokumenty zebrać."
+          },
+          {
+            "from": "client",
+            "text": "+48 512 ··· ···"
+          },
+          {
+            "from": "bot",
+            "text": "Zapisane. Rozmowa jutro o 10:00 ✓"
+          }
+        ]
+      },
+      "proof": {
+        "value": "80%",
+        "label": "pierwszych kontaktów zamyka bot. Oddzwaniasz już do ciepłego klienta",
+        "link": "Case LegalWin"
+      },
+      "bubbles": [
+        "Ile kosztuje karta pobytu?",
+        "Od 1 200 zł",
+        "Jaka wiza teraz?",
+        "Pracująca, do grudnia",
+        "Zapisane na 10:00 ✓",
+        "Prawnik oddzwoni"
+      ],
+      "mini": [
+        "Ile to kosztuje?",
+        "Od 1 200 zł. Jaka wiza?",
+        "Pracująca",
+        "Zapisane na 10:00 ✓"
+      ]
+    },
+    "crm": {
+      "kicker": "02:17 · Lejek",
+      "title": "Zgłoszenie samo <em>trafia do CRM.</em>",
+      "body": "Imię, telefon, treść pytania i źródło lądują w karcie szansy. Nikt nie przepisuje rozmów z komunikatorów i żadne nocne zgłoszenie nie ginie.",
+      "card": {
+        "board": "Lejek sprzedaży",
+        "name": "Oksana P.",
+        "topic": "Karta pobytu",
+        "amount": "1 200 zł",
+        "fields": [
+          {
+            "k": "Źródło",
+            "v": "ChatGPT → strona"
+          },
+          {
+            "k": "Kanał",
+            "v": "Konsultant AI"
+          },
+          {
+            "k": "Telefon",
+            "v": "+48 512 ··· ···"
+          },
+          {
+            "k": "Wiza",
+            "v": "pracująca, do grudnia"
+          }
+        ],
+        "status": "Zakwalifikowana",
+        "stages": [
+          "Nowa",
+          "Kwalifikacja",
+          "Rozmowa umówiona",
+          "Umowa",
+          "Płatność"
+        ],
+        "auto": "Wypełnione automatycznie"
+      },
+      "proof": {
+        "value": "+31%",
+        "label": "leadów dochodzi do sprzedaży, kwalifikacja w 8 minut zamiast 40",
+        "link": "Case CRM Bot"
+      },
+      "bx": {
+        "brand": "Bitrix",
+        "board": "Lejek sprzedaży",
+        "stages": [
+          "Nowa",
+          "Kwalifikacja",
+          "Rozmowa",
+          "Umowa",
+          "Płatność"
+        ],
+        "deals": [
+          {
+            "n": "Anna K.",
+            "v": "900 zł"
+          },
+          {
+            "n": "Olga S.",
+            "v": "2 100 zł"
+          },
+          {
+            "n": "Oksana P.",
+            "v": "1 200 zł"
+          },
+          {
+            "n": "Nino G.",
+            "v": "1 100 zł"
+          },
+          {
+            "n": "Marek W.",
+            "v": "2 400 zł"
+          }
+        ],
+        "deal": "Szansa"
+      }
+    },
+    "auto": {
+      "kicker": "02:17 · Automatyzacja",
+      "title": "Dalej dzieje się <em>samo.</em>",
+      "body": "Do klienta idzie mail z listą dokumentów, rozmowa wpada do kalendarza, menedżer dostaje zadanie na rano. CRM, poczta, komunikatory i księgowość działają jak jeden system.",
+      "nodes": [
+        "Zgłoszenie",
+        "CRM",
+        "Mail do klienta",
+        "Kalendarz",
+        "Telegram"
+      ],
+      "stack": "n8n · Make · API · webhooki",
+      "proof": {
+        "value": "210 h",
+        "label": "miesięcznie oddaje właścicielowi menedżer sprzedaży AI. To 1,3 etatu",
+        "link": "Case menedżera AI"
+      }
+    },
+    "app": {
+      "kicker": "08:12 · Aplikacja",
+      "title": "Rano klient jest <em>już w twojej aplikacji.</em>",
+      "body": "Zapisy, płatności, powiadomienia push i panel klienta. iOS i Android z jednej bazy kodu, z publikacją w App Store i Google Play.",
+      "store": {
+        "label": "Twoja aplikacja",
+        "name": "Zgłoszenia i zapisy",
+        "sub": "App Store i Google Play",
+        "get": "Zainstaluj"
+      },
+      "screen": {
+        "time": "9:41",
+        "title": "Zgłoszenia",
+        "count": "Dziś 6 nowych",
+        "badge": "Nowe zgłoszenie",
+        "name": "Oksana P.",
+        "topic": "Karta pobytu · konsultacja",
+        "slot": "Dziś, 10:00",
+        "accept": "Przyjmij",
+        "call": "Zadzwoń",
+        "next": "Dalej w grafiku",
+        "rows": [
+          {
+            "time": "11:30",
+            "name": "Marek W.",
+            "note": "Przedłużenie wizy"
+          },
+          {
+            "time": "14:00",
+            "name": "Anna K.",
+            "note": "Dokumenty · opłacone"
+          },
+          {
+            "time": "16:20",
+            "name": "Piotr S.",
+            "note": "Pierwsza konsultacja"
+          }
+        ],
+        "tabs": [
+          "Zgłoszenia",
+          "Kalendarz",
+          "Klienci",
+          "Profil"
+        ]
+      },
+      "proof": {
+        "value": "~10 s",
+        "label": "na osobistą analizę treningu przez AI w Body Forge",
+        "link": "Case Body Forge"
+      }
+    },
+    "morning": {
+      "kicker": "Teraz · po przebudzeniu",
+      "title": "Klient już <em>czeka na twój telefon.</em>",
+      "body": "W nocy strona znalazła klienta, agent AI odpowiedział, CRM założył szansę, a mail poszedł sam. Taki system składamy pod klucz w 1-3 tygodnie.",
+      "notice": {
+        "app": "Zgłoszenia",
+        "time": "teraz",
+        "title": "Nowe zgłoszenie · Oksana P.",
+        "text": "Karta pobytu, wiza pracująca do grudnia. Zakwalifikowana, rozmowa o 10:00."
+      },
+      "primary": "Omówmy mój projekt",
+      "secondary": "Napisz na Telegramie",
+      "note": "30 minut rozmowy, wycena w 24 godziny, bez sprzedażowego pitchu"
+    },
+    "work": {
+      "eyebrow": "Realizacje",
+      "title": "Siedem wdrożeń. <em>Realne liczby.</em>",
+      "sub": "Każdy projekt działa na produkcji i przynosi zgłoszenia teraz.",
+      "cta": "Zobacz case",
+      "all": "Wszystkie realizacje",
+      "prev": "Poprzedni case",
+      "next": "Następny case"
+    },
+    "services": {
+      "eyebrow": "Usługi i ceny",
+      "title": "Od czego <em>zaczniemy?</em>",
+      "sub": "Możesz wziąć jedną część systemu albo złożyć całość. Ostateczną cenę ustalamy po 30-minutowej rozmowie.",
+      "featured": "Najczęściej wybierane",
+      "offers": "Stała cena",
+      "more": "Szczegóły",
+      "all": "Wszystkie ceny",
+      "customTitle": "Nie ma twojego zadania?",
+      "customBody": "Napisz kilka zdań. Powiemy wprost, czy się podejmiemy i ile to kosztuje.",
+      "customCta": "Omówić zadanie"
+    },
+    "reviews": {
+      "eyebrow": "Opinie",
+      "outOf": "na 5"
+    }
   }
 }

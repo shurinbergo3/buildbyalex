@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { routing, type Locale } from "@/i18n/routing";
 import { getLiveReviewCount } from "@/lib/reviews";
 import { HomeJsonLd } from "@/components/HomeJsonLd";
-import { ClassicHome } from "@/components/home/ClassicHome";
 import { PromoPage } from "@/components/promo/PromoPage";
 
 export default async function HomePage({
@@ -21,16 +20,12 @@ export default async function HomePage({
   const now = Date.now();
   const reviewCount = await getLiveReviewCount(locale as Locale, now);
 
-  // The Russian home is the film version since September 2026. The other
-  // languages keep the classic page until the film is translated.
+  // Every language runs the film version since September 2026; the page it
+  // replaced is kept in ClassicHome.
   return (
     <>
       <HomeJsonLd locale={locale as Locale} />
-      {locale === "ru" ? (
-        <PromoPage reviewCount={reviewCount} now={now} />
-      ) : (
-        <ClassicHome reviewCount={reviewCount} now={now} />
-      )}
+      <PromoPage reviewCount={reviewCount} now={now} />
     </>
   );
 }
