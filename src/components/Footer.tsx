@@ -15,7 +15,7 @@ export function Footer() {
       <Container className="relative z-10">
         <div className="grid grid-cols-2 gap-y-12 md:grid-cols-12 md:gap-y-0">
           <div className="col-span-2 md:col-span-3">
-            <Link href="/" aria-label="buildbyalex — home" className="inline-block">
+            <Link href="/" aria-label="buildbyalex - home" className="inline-block">
               <Logo size={30} />
             </Link>
             <p className="mt-5 max-w-[34ch] text-[15px] leading-[1.5] text-[color:var(--color-text-2)]">

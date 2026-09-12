@@ -22,6 +22,8 @@ import { TelegramMiniAppShowcase } from "./TelegramMiniAppShowcase";
 import { ServiceRelatedCases } from "./ServiceRelatedCases";
 import { ServicePain } from "./ServicePain";
 import { ServiceFormats } from "./ServiceFormats";
+import { ServiceIndustries } from "./ServiceIndustries";
+import { ServiceAnswers } from "./ServiceAnswers";
 import { ServiceGuarantees } from "./ServiceGuarantees";
 import { ServiceTimeline } from "./ServiceTimeline";
 import { ServiceCompare } from "./ServiceCompare";
@@ -71,6 +73,21 @@ const PRICE_KEY: Record<Branch, "site" | "ai" | "automation" | "mobile" | "teleg
   telegram: "telegram",
   ads: "ads",
 };
+
+// Remote-first, but these are the cities the demand actually comes from —
+// naming them lets a local query resolve to this page without doorway pages.
+const SERVED_CITIES = [
+  "Warszawa",
+  "Kraków",
+  "Wrocław",
+  "Gdańsk",
+  "Poznań",
+  "Łódź",
+  "Katowice",
+  "Szczecin",
+  "Lublin",
+  "Bydgoszcz",
+];
 
 const SERVICE_PATH: Record<Branch, string> = {
   websites: "/services/websites",
@@ -138,18 +155,35 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
     ...pricingTiers.map((tier) => Number(tier.price.replace(/[^\d]/g, "")) || Infinity),
   );
 
+  // `seo.aliases` holds the ways clients actually name this service in search.
+  // They feed alternateName so the entity resolves from any of those phrasings,
+  // both for Google and for assistants reading the graph.
+  const aliases: string[] = t.has("seo.aliases") ? (t.raw("seo.aliases") as string[]) : [];
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": `${localizedHref(locale, SERVICE_PATH[branch])}#service`,
     name: t("meta.title"),
-    serviceType: t("eyebrow"),
+    ...(aliases.length ? { alternateName: aliases } : {}),
+    serviceType: aliases[0] ?? t("eyebrow"),
+    category: t("eyebrow"),
     description: t("lead"),
-    areaServed: { "@type": "Country", name: "Poland" },
+    areaServed: [
+      { "@type": "Country", name: "Poland" },
+      ...SERVED_CITIES.map((name) => ({ "@type": "City", name })),
+    ],
+    availableChannel: {
+      "@type": "ServiceChannel",
+      serviceUrl: localizedHref(locale, SERVICE_PATH[branch]),
+      availableLanguage: ["pl", "en", "ru", "uk"],
+    },
     provider: {
       "@type": "Organization",
       "@id": `${SITE_URL}/#business`,
       name: "buildbyalex",
       url: SITE_URL,
+      knowsAbout: [...aliases, ...data.stack.items].slice(0, 24),
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: tr("rating").replace(",", "."),
@@ -158,6 +192,19 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
       },
     },
     url: localizedHref(locale, SERVICE_PATH[branch]),
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: t("meta.title"),
+      itemListElement: pricingTiers.map((tier, i) => ({
+        "@type": "Offer",
+        position: i + 1,
+        name: tier.title,
+        description: tier.body,
+        price: String(Number(tier.price.replace(/[^\d]/g, "")) || ""),
+        priceCurrency: "EUR",
+        url: localizedHref(locale, SERVICE_PATH[branch]),
+      })),
+    },
     offers: {
       "@type": "Offer",
       price: String(Number.isFinite(schemaPrice) ? schemaPrice : ""),
@@ -189,6 +236,9 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
       {/* ── Hero (cinematic key-art stage) ── */}
       <ServiceHero branch={branch} reviewCount={reviewCount} />
 
+      {/* ── Spec sheet: price, timeline, stack — quotable in one row ── */}
+      <ServiceAnswers branch={branch} tone="alt" />
+
       {/* ── Pain: where the money leaks without this service ── */}
       <ServicePain branch={branch}>
         {isWebsites ? <SlowVsFastRace /> : undefined}
@@ -199,6 +249,9 @@ export function ServicePageTemplate({ branch }: { branch: Branch }) {
 
       {/* ── Formats with prices and timelines ── */}
       {hasFormats && <ServiceFormats branch={branch} />}
+
+      {/* ── Who this is built for, by industry ── */}
+      <ServiceIndustries branch={branch} tone="alt" />
 
       {/* ── Agent catalogue + the systems it plugs into (AI page only) ── */}
       {branch === "ai" && (

@@ -205,7 +205,7 @@ const CaseCard = memo(function CaseCard({
         href={{ pathname: "/work/[slug]", params: { slug: data.slug } }}
         onMouseMove={onMove}
         className="work-card group relative block h-full"
-        aria-label={`${data.title} — ${data.industry}`}
+        aria-label={`${data.title} - ${data.industry}`}
       >
         <motion.div
           whileHover={reduce ? undefined : { y: -6 }}

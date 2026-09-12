@@ -12,8 +12,8 @@ import { Button } from "./Button";
    anchor for the Polish market. */
 
 const AMBER = "#FF7A2D";
-// Rough zł price of the entry store tier (€1 500 at ≈4.3 zł/€).
-const STORE_PRICE_ZL = 6450;
+// Rough zł price of the entry store tier (€1 090 at ≈4.3 zł/€).
+const STORE_PRICE_ZL = 4700;
 
 const INTL_LOCALE: Record<string, string> = { ru: "ru-RU", pl: "pl-PL", en: "en-GB", ua: "uk-UA" };
 

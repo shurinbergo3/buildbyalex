@@ -119,7 +119,7 @@ export function PageSpeedMock({
               </svg>
             </span>
             <span className="font-medium text-[#202124]">{page.label}</span>
-            <span className="text-[#70757a]">— {caption.replace("{url}", page.url)}</span>
+            <span className="text-[#70757a]">- {caption.replace("{url}", page.url)}</span>
           </motion.div>
         </AnimatePresence>
       </div>

@@ -65,7 +65,7 @@ export async function generateMetadata({
     const cut = clean.slice(0, max);
     return `${cut.slice(0, cut.lastIndexOf(" ")).trim()}…`;
   };
-  const pageTitle = `${title} — ${industry} · ${siteName}`;
+  const pageTitle = `${title} - ${industry} · ${siteName}`;
   const description = truncate(
     tagline.length > 110 ? tagline : `${tagline} ${results[0] ?? ""}`,
     158,
@@ -161,7 +161,7 @@ function CaseContent({ slug, locale }: { slug: string; locale: string }) {
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: `${c.title} — ${c.tagline}`,
+    headline: `${c.title} - ${c.tagline}`,
     description: c.tagline,
     image: `${SITE_URL}${image.src}`,
     inLanguage: htmlLang(locale as Locale),

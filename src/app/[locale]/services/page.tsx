@@ -22,8 +22,8 @@ export async function generateMetadata({
   return buildLocalizedMetadata({
     locale: locale as Locale,
     pathname: "/services",
-    title: t("headline"),
-    description: t("subhead"),
+    title: t("meta.title"),
+    description: t("meta.description"),
   });
 }
 

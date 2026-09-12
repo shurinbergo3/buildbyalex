@@ -147,10 +147,10 @@ const TYPE_LABEL: Record<string, string> = {
   other: "Другое",
 };
 const BUDGET_LABEL: Record<string, string> = {
-  under1k: "до €1k",
-  to3k: "€1k–3k",
-  to10k: "€3k–10k",
-  over10k: "€10k+",
+  under1k: "до €500",
+  to3k: "€0,5-1,5k",
+  to10k: "€1,5-5k",
+  over10k: "€5k+",
   unknown: "не указан",
 };
 
@@ -167,11 +167,11 @@ function fmtDate(iso: string): string {
 }
 
 function fmtType(t?: string): string {
-  if (!t) return "—";
+  if (!t) return "-";
   return TYPE_LABEL[t] ?? t;
 }
 function fmtBudget(b?: string): string {
-  if (!b) return "—";
+  if (!b) return "-";
   return BUDGET_LABEL[b] ?? b;
 }
 
@@ -277,10 +277,10 @@ export async function viewMenu(
 ): Promise<void> {
   const s = await getStats();
   const text = [
-    `🏠 <b>buildbyalex — панель</b>`,
+    `🏠 <b>buildbyalex - панель</b>`,
     ``,
     `📥 Заявки: <b>${s.leads.total}</b>  (новых: ${s.leads.new}, в работе: ${s.leads.in_progress})`,
-    `⭐ Отзывы: <b>${s.reviews.total}</b>  (новых: ${s.reviews.new}, ср. оценка: ${s.reviews.avgRating || "—"})`,
+    `⭐ Отзывы: <b>${s.reviews.total}</b>  (новых: ${s.reviews.new}, ср. оценка: ${s.reviews.avgRating || "-"})`,
     ``,
     `<i>За 7 дней: ${s.leads.last7} заявок, ${s.reviews.last7} отзывов.</i>`,
   ].join("\n");
@@ -427,7 +427,7 @@ export async function viewStats(
     `<b>Отзывы</b>`,
     `• Всего: ${s.reviews.total}`,
     `• 🟢 Новые: ${s.reviews.new}`,
-    `• Средняя оценка: ${s.reviews.avgRating || "—"}`,
+    `• Средняя оценка: ${s.reviews.avgRating || "-"}`,
     `• За 7 дней: ${s.reviews.last7}`,
   ].join("\n");
   await render(chatId, messageId, text, [[{ text: "🏠 Меню", callback_data: "m" }]]);

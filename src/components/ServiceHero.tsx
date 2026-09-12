@@ -294,7 +294,7 @@ function StoreMock({ m }: { m: Record<string, unknown> }) {
                         <button
                           type="button"
                           onClick={() => addItem(i)}
-                          aria-label={`${m.add as string} — ${pr.n}`}
+                          aria-label={`${m.add as string} - ${pr.n}`}
                           className="grid h-6 w-6 flex-none cursor-pointer place-items-center rounded-full text-[#0a0a0a] transition-transform duration-150 active:scale-90"
                           style={{ background: AMBER }}
                         >

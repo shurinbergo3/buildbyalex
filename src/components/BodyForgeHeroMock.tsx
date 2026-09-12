@@ -54,7 +54,7 @@ export function BodyForgeHeroMock() {
             {reduce ? (
               <Image
                 src={POSTER_SRC}
-                alt="Body Forge — экран статистики с кольцами активности и синхронизацией Apple Health"
+                alt="Body Forge - экран статистики с кольцами активности и синхронизацией Apple Health"
                 fill
                 sizes="330px"
                 className="object-cover"

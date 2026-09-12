@@ -296,7 +296,7 @@ export function StoreSiteMock() {
                   <button
                     type="button"
                     onClick={() => add(i)}
-                    aria-label={`${shop.add} — ${pr.n}`}
+                    aria-label={`${shop.add} - ${pr.n}`}
                     className="grid h-7 w-7 flex-none cursor-pointer place-items-center rounded-full text-[#0a0a0a] transition-transform duration-150 active:scale-90"
                     style={{ background: AMBER }}
                   >

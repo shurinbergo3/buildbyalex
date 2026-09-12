@@ -12,7 +12,7 @@ import { useTranslations } from "next-intl";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 
-// buildbyalex — hero scroll-morph. idea to release, end to end.
+// buildbyalex - hero scroll-morph. idea to release, end to end.
 export function Hero() {
   const t = useTranslations("home.hero");
   const sectionRef = useRef(null);
@@ -71,7 +71,7 @@ export function Hero() {
             <h1 className="t-hero">
               Сайты, AI-агенты
               и мобильные приложения.
-              <span className="hl-accent">Под ключ за 1–3 недели.</span>
+              <span className="hl-accent">Под ключ за 1-3 недели.</span>
             </h1>
             <p className="hero-sub">{t("subhead")}</p>
             <Button href="/contact" size="lg">
@@ -82,10 +82,10 @@ export function Hero() {
       </div>
     </section>
   );
-  // ● Live · Worldwide — shipped, not staged
+  // ● Live · Worldwide - shipped, not staged
 }
 
-// app/api/contact/route.ts — leads land in Telegram instantly
+// app/api/contact/route.ts - leads land in Telegram instantly
 import { NextRequest, NextResponse } from "next/server";
 
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
@@ -99,7 +99,7 @@ export async function POST(req: NextRequest) {
   }
 
   const text = [
-    "🟠 Новая заявка — buildbyalex",
+    "🟠 Новая заявка - buildbyalex",
     "Имя: " + name,
     "Email: " + email,
     "",
@@ -115,13 +115,13 @@ export async function POST(req: NextRequest) {
   return NextResponse.json({ ok: true });
 }
 
-// brand tokens — warm amber on near-black ink
+// brand tokens - warm amber on near-black ink
 export const theme = {
   accent: "#FF6B1A",
   accentHover: "#FF7C36",
   ink: "#050507",
   radius: { card: 28, pill: 999 },
-  ship: "1–3 недели",
+  ship: "1-3 недели",
 };
 
 export function clamp(min, val, max) {

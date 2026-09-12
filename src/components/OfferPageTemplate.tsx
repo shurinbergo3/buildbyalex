@@ -54,7 +54,7 @@ type OfferData = {
   notFor: { title: string; sub: string; items: string[]; instead: string };
   faq: { title: string; items: QA[] };
   resources: { eyebrow: string; headline: string; items: { title: string; href: string }[] };
-  schema: { serviceType: string; price: string; currency: string };
+  schema: { serviceType: string; price: string; currency: string; aliases?: string[] };
 };
 
 type Shape = { offers: Record<OfferKey, OfferData> };
@@ -74,18 +74,28 @@ export function OfferPageTemplate({ offer }: { offer: OfferKey }) {
   const reviewCount = countLiveReviews(tr.raw("list") as Review[], now);
   const headlineLines = data.headline.split("\n");
 
+  // The phrasings buyers actually search for, so the entity resolves from any
+  // of them rather than only from the marketing name of the offer.
+  const aliases = data.schema.aliases ?? [];
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": `${localizedHref(locale, OFFER_PATH[offer])}#service`,
     name: t("meta.title"),
+    ...(aliases.length ? { alternateName: aliases } : {}),
     serviceType: data.schema.serviceType,
     description: t("lead"),
-    areaServed: { "@type": "Country", name: "Poland" },
+    areaServed: [
+      { "@type": "Country", name: "Poland" },
+      { "@type": "AdministrativeArea", name: "European Union" },
+    ],
     provider: {
       "@type": "Organization",
       "@id": `${SITE_URL}/#business`,
       name: "buildbyalex",
       url: SITE_URL,
+      ...(aliases.length ? { knowsAbout: aliases } : {}),
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: tr("rating").replace(",", "."),

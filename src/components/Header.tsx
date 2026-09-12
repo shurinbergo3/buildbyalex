@@ -41,7 +41,7 @@ export function Header() {
       {/* From md up the nav gets its own middle column, so it sits on the page's
           centre axis however wide the logo and the buttons on the right are. */}
       <div className="mx-auto flex h-full max-w-[1280px] items-center justify-between px-5 md:grid md:grid-cols-[1fr_auto_1fr] md:px-8">
-        <Link href="/" aria-label="buildbyalex — home" className="-ml-1 p-1 md:justify-self-start">
+        <Link href="/" aria-label="buildbyalex - home" className="-ml-1 p-1 md:justify-self-start">
           <Logo size={23} />
         </Link>
 

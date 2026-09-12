@@ -49,7 +49,7 @@ export function ServiceRelatedCases({
             <Reveal key={key} delay={i * 70} className="min-w-0">
               <Link
                 href={{ pathname: "/work/[slug]", params: { slug: caseKeyToSlug[key] } }}
-                aria-label={`${tCases(`${key}.title`)} — ${tCases(`${key}.industry`)}`}
+                aria-label={`${tCases(`${key}.title`)} - ${tCases(`${key}.industry`)}`}
                 className="group flex items-stretch overflow-hidden rounded-[18px] border border-[color:var(--c-hairline)] bg-[color:var(--color-bg-elev)] shadow-[var(--shadow-card)] transition-[transform,box-shadow,border-color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:border-[color:color-mix(in_srgb,var(--c-accent)_45%,var(--c-hairline))] hover:shadow-[var(--shadow-card-hover)]"
               >
                 <div className="relative w-[104px] shrink-0 overflow-hidden sm:w-[124px]">

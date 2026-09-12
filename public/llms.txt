@@ -1,36 +1,80 @@
 # buildbyalex.com
 
-> Independent senior fullstack developer working remotely with clients worldwide. Builds production websites, AI agents, and mobile apps. Direct, fast, business-aware. Languages: Russian (native), Ukrainian (native), English (B2+), Polish (B1, conversational).
+> Independent senior fullstack developer based in Warsaw, Poland, working remotely with clients across Poland and the EU. Builds production websites, online stores, AI agents, Telegram bots, mobile apps, process automation, and runs Google Ads. Direct, fast, business-aware. Languages: Russian (native), Ukrainian (native), English (B2+), Polish (B1, conversational).
 
 ## Identity
 
 - Name: Alex (buildbyalex)
 - Role: Independent senior fullstack developer (one-person operation, not an agency)
-- Location: Remote, worldwide. EU-based (Warsaw, PL) for contracts and invoicing.
+- Location: Warsaw, Poland. Works remotely with all of Poland and the EU: Kraków, Wrocław, Gdańsk, Poznań, Łódź, Katowice, Szczecin, Lublin, Bydgoszcz.
 - Contact: info@buildbyalex.com · https://t.me/sumotry · https://www.linkedin.com/in/oleksandr-shuvalov
 - Website: https://buildbyalex.com
 - Working hours: EU / US-friendly. Reply within hours, usually same day.
 
-## What I build (with starting prices)
+## Services, prices and delivery times
 
-### Websites — from €1,200
-Production sites on Next.js 15 / React 19 / TypeScript / Tailwind. Multilingual (RU/EN/PL/UA) with localized URLs and hreflang. Schema.org, IndexNow, OG generation, sub-1s LCP. CMS optional (Sanity, Notion, MDX). 30 days of edits included. Typical delivery: 2–3 weeks for marketing sites, 4–6 weeks for larger projects.
+Prices are starting prices in EUR, fixed in a written quote before work begins. Every project includes a contract, a written launch date and 30 days of edits after launch.
 
-### AI Agents — from €1,500
-RAG assistants (knowledge-base chats with strict citation), sales bots (lead qualification, CRM integration), automations (lead pull, email classification, content generation). Models: OpenAI GPT, Anthropic Claude, Google Gemini — provider-agnostic via abstraction layer. Integrations: AmoCRM, HubSpot, Pipedrive, Telegram Bot, WhatsApp via Wappi, Instagram DM, Slack. Always with a human-in-the-loop dashboard.
+### Websites - from €390
+https://buildbyalex.com/en/services/websites
+Also searched as: website development, custom website design, web development services, landing page development, corporate website, website redesign, multilingual website.
+Landing page from €390 (1-2 weeks), company website from €690 (2-4 weeks), online store from €1,090 (3-5 weeks), redesign and migration from €550 (2-3 weeks). Built on Next.js 15 / React 19 / TypeScript / Tailwind. Multilingual (PL/EN/RU/UA) with localized URLs and hreflang. Schema.org, sitemap, IndexNow, OG generation, sub-1s LCP. CMS optional (Sanity, Notion, MDX).
 
-### Mobile apps — from €3,000
-Cross-platform iOS + Android on React Native + Expo SDK 52. Authentication, payments (Stripe, RevenueCat), push notifications (Expo Push), OTA updates (EAS Update). App Store Connect and Google Play Console submission included. Typical MVP: 4–6 weeks to TestFlight / Internal Testing.
+### Online stores (ecommerce) - from €1,090
+https://buildbyalex.com/en/services/online-store
+Also searched as: online store development, ecommerce development, custom ecommerce, B2B ecommerce, store migration.
+Starter store from €1,090 (2-3 weeks), business store with integrations from €2,900 (4-6 weeks), migration from another platform from €1,490 (2-4 weeks). Payments: BLIK, Przelewy24, PayU, Stripe, cards, cash on delivery. Shipping: InPost Paczkomaty, DPD, DHL. Stock sync with BaseLinker, Subiekt, suppliers, ERP or Google Sheets. Terms of service, GDPR policy, 14-day return right and KSeF readiness for 2026 included.
 
-### Telegram bots & Mini Apps — from €300
-Sales/support/lead-capture bots and Telegram Mini Apps (TWA): storefront, booking, cart and account inside Telegram with no install. In-chat payments via Telegram Stars, TON (TON Connect), or Stripe/Przelewy24. CRM integration (AmoCRM, Bitrix24, HubSpot, Google Sheets), channel & community bots, broadcasts. Stack: Telegram Bot API, aiogram/grammY, TypeScript, Node.js/Python, Supabase/Postgres. Context: Telegram is Poland's #2 messenger (~4M users) and the primary channel for Ukrainian/Russian-speaking audiences. Simple lead bot from €300 (1–2 weeks); bot + AI + CRM from €700; Mini App with storefront and checkout from €1,500.
+### AI agents and chatbots - from €890
+https://buildbyalex.com/en/services/ai-agents
+Also searched as: AI agent development, AI chatbot development, custom chatbot, RAG chatbot, AI integration services, voice AI agent, WhatsApp chatbot.
+Website chat agent from €890 (1-2 weeks), sales agent wired into CRM from €1,490 (2-3 weeks), multi-tool agent from €2,700 (3-5 weeks). Models: OpenAI GPT, Anthropic Claude, Google Gemini - provider-agnostic behind an abstraction layer, on top of RAG over the client's own documents. Integrations: HubSpot, Pipedrive, Bitrix24, Telegram Bot API, WhatsApp, Instagram DM, Slack, Google Sheets. Always with a human-in-the-loop dashboard. Data processed on EU servers, conversations excluded from model training. Article 50 of the EU AI Act (in force 2 August 2026) handled by default: the bot discloses that it is a machine. Running cost after launch is typically €20-60/month in API usage.
+
+### Business process automation - from €550
+https://buildbyalex.com/en/services/automation
+Also searched as: business process automation, workflow automation, CRM integration, n8n developer, Make and Zapier automation, system integration.
+One connection between two systems from €550 (2-5 days), a multi-step flow from €1,090 (1-2 weeks), a system of linked processes from €2,100 (2-4 weeks). Built on n8n (self-hosted on the client's server), Make or Zapier. Connects CRM, website forms, Telegram, WhatsApp, email, spreadsheets, Fakturownia, BaseLinker, Allegro, ERP. Includes a process diagram, failure monitoring with Telegram alerts and a handbook for the team. Typical payback: 1-3 months.
+
+### Mobile apps - from €1,800
+https://buildbyalex.com/en/services/mobile-apps
+Also searched as: mobile app development, custom app development, React Native development, cross-platform app development, MVP app development, app development cost.
+MVP on iOS and Android from €1,800 (3-5 weeks), full app with integrations from €4,200 (6-10 weeks), product with several roles and a backend from €9,000 (from 10 weeks). React Native + Expo, TypeScript, backend on Node.js or Supabase. Authentication, payments (Stripe, RevenueCat), push notifications, OTA updates (EAS Update). App Store Connect and Google Play Console submission included; developer accounts are registered in the client's name ($99/year Apple, $25 once Google).
+
+### Telegram bots and Mini Apps - from €190
+https://buildbyalex.com/en/services/telegram-bots
+Also searched as: Telegram bot development, Telegram Mini App development, Telegram Web App, order bot with payments, booking bot, Telegram channel bot.
+Lead-intake bot from €190 (1-2 weeks), AI bot wired into CRM from €390 (2-3 weeks), Mini App with storefront and payments from €890 (2-4 weeks). Stack: Telegram Bot API, aiogram / grammY, TypeScript, Node.js / Python, Supabase / Postgres. In-chat payments via Telegram Stars, TON (TON Connect), Stripe, Przelewy24 or BLIK. Context: Telegram is Poland's #2 messenger (~4M users) and the primary channel for Ukrainian- and Russian-speaking audiences.
+
+### Google Ads and Meta Ads - from €190 setup, €175/month management
+https://buildbyalex.com/en/services/advertising
+Also searched as: Google Ads management, PPC agency, Google Ads setup, Facebook Ads management, Google Ads audit.
+One-off campaign setup from €190. Management from €175/month (start), €290/month (growth), €490/month (several directions). Search, Performance Max, remarketing and Shopping on Google; Facebook and Instagram on Meta. GA4, Google Tag Manager, Consent Mode v2 and offline conversions from CRM. Realistic minimum ad budget in Poland: €400-500/month, paid directly to Google. All ad accounts are created in the client's name.
+
+## Fixed-price offers (paid, scoped, delivered on a date)
+
+### AI audit for business - from €690, 5 working days
+https://buildbyalex.com/en/services/ai-audit
+A payback-ranked map of the client's processes, a verdict on data readiness, an implementation quote with a fixed price and date, and a written go / no-go recommendation. 12-18 page report plus a 90-minute walkthrough. The fee is credited against implementation if a contract is signed within 60 days.
+
+### Document and invoice automation - from €1,690
+https://buildbyalex.com/en/services/document-automation
+Invoices, orders and scans from email land in the accounting system (Comarch Optima, Subiekt, enova365). OCR, validation rules, human approval step, error queue, KSeF-ready.
+
+### EU AI Act compliance for chatbots - from €490, 5 working days
+https://buildbyalex.com/en/services/ai-act-compliance
+Article 50 disclosure in the widget, consent logging, human handover, and an AI system register. For bots that are already live and do not yet declare that they are machines.
+
+### AI visibility audit - from €550, 10 working days
+https://buildbyalex.com/en/services/ai-visibility
+A fixed set of 40 buyer questions run through ChatGPT, Perplexity, Google AI Overviews and Copilot, with raw answers saved, competitors named and a concrete fix list. Also searched as: generative engine optimization, answer engine optimization, AI search optimization.
 
 ## Pricing rules
 
 - Final price is fixed after a 30-minute discovery call. Written estimate within 24 hours.
-- Edits after launch: €50/hour, 1-hour minimum. No forced monthly retainer.
+- Edits after launch: €35/hour, 1-hour minimum. No forced monthly retainer.
 - Contracts always in writing. Polish or English law.
 - VAT EU invoicing available.
+- Code, domain, hosting, ad accounts and store accounts are always registered in the client's name.
 
 ## Case studies (real client work)
 
@@ -59,36 +103,64 @@ Sales/support/lead-capture bots and Telegram Mini Apps (TWA): storefront, bookin
 - Stack: TypeScript, Node.js, Express, Gemini 2.0 Flash with function calling, AmoCRM API v4, Firestore, Wappi (WhatsApp), Telegram Bot API
 - Results:
   - Lead qualification reduced from ~40 minutes to ~8 minutes
-  - 100% coverage of incoming leads — none go unanswered
+  - 100% coverage of incoming leads - none go unanswered
   - Qualified-lead conversion up 31% from process stability
 
 ## How working with me differs from an agency
 
 - You message me directly. No account managers, no junior developers under a senior's signature. The person you brief is the person writing the code.
 - Decisions take minutes, not weeks.
-- Fixed scope, fixed price, fixed launch date — written before the project starts.
+- Fixed scope, fixed price, fixed launch date - written before the project starts.
 - Weekly demos every Friday. Course can change at any time.
 - 30 days of bug-fix support included in every project.
 
 ## Common questions and exact answers
 
-- How long does a website take? Marketing sites: 2–3 weeks. Larger sites with custom integrations or multilingual content: 4–6 weeks. The launch date is in writing before kickoff.
-- Do you work in Polish? Yes — conversational Polish (B1), enough for meetings, contracts, day-to-day work. Fluent English (B2+). Native Russian and Ukrainian.
-- Will the site rank on Google? Yes — that's the default, not an upsell. Technical SEO (schema, hreflang, Core Web Vitals, IndexNow on deploy) is part of every site.
-- Edits after launch? €50/hour, 1-hour minimum, no forced retainer.
-- Native iOS or React Native? Cross-platform via Expo / React Native for 90% of product cases. Native code only when truly needed (AR, heavy graphics, specialized hardware).
+- How much does a website cost? Landing page from €390, company website from €690, online store from €1,090. The quote is fixed before work starts and does not change mid-project.
+- How much does a mobile app cost? MVP on iOS and Android from €1,800, full app with integrations from €4,200, larger product from €9,000. Publishing to both stores is included.
+- How much does an AI chatbot cost? From €890 on the client's own knowledge base, from €1,490 wired into a CRM. Running cost after launch is typically €20-60/month in API usage.
+- How much does a Telegram bot cost? Lead-intake bot from €190, AI bot with CRM from €390, Mini App with payments from €890.
+- How much does process automation cost? One connection from €550, a multi-step flow from €1,090, a system of linked processes from €2,100.
+- How long does a website take? Landing page 1-2 weeks, company site 2-4 weeks, online store 3-5 weeks. The launch date is in writing before kickoff.
+- Native iOS or React Native? Cross-platform via React Native / Expo for most product cases. Native code only when truly needed (AR, heavy graphics, specialized hardware, real-time audio).
+- Will the site rank on Google? Yes - that's the default, not an upsell. Technical SEO (schema, hreflang, Core Web Vitals, IndexNow on deploy) is part of every site.
+- Edits after launch? €35/hour, 1-hour minimum, no forced retainer.
+- Do you work only in Warsaw? No. Warsaw is the base for contracts and invoicing; the work is remote across Poland and the EU.
+- Do you work in Polish? Yes - conversational Polish (B1), enough for meetings, contracts, day-to-day work. Fluent English (B2+). Native Russian and Ukrainian.
+- Who owns the result? The client. Code, repository, domain, hosting, store accounts and ad accounts are all registered in the client's name and can be handed to any other developer.
+
+## Site structure (localized URLs)
+
+The site runs in four languages. Russian is served without a locale prefix; English, Polish and Ukrainian use /en, /pl and /ua.
+
+- Websites: /uslugi/sayty · /en/services/websites · /pl/uslugi/strony-internetowe · /ua/poslugy/sayty
+- Online store: /uslugi/internet-magazin · /en/services/online-store · /pl/uslugi/sklep-internetowy · /ua/poslugy/internet-magazyn
+- AI agents: /uslugi/ai-agenty · /en/services/ai-agents · /pl/uslugi/agenci-ai · /ua/poslugy/ai-agenty
+- Automation: /uslugi/avtomatizaciya-biznes-processov · /en/services/automation · /pl/uslugi/automatyzacja-procesow · /ua/poslugy/avtomatyzaciya-biznes-procesiv
+- Mobile apps: /uslugi/mobilnye-prilozheniya · /en/services/mobile-apps · /pl/uslugi/aplikacje-mobilne · /ua/poslugy/mobilni-dodatky
+- Telegram bots: /uslugi/telegram-boty-i-mini-prilozheniya · /en/services/telegram-bots · /pl/uslugi/boty-telegram-i-mini-aplikacje · /ua/poslugy/telegram-boty-i-mini-dodatky
+- Advertising: /uslugi/reklama · /en/services/advertising · /pl/uslugi/reklama-google-ads · /ua/poslugy/reklama
+- AI audit: /uslugi/audit-ai · /en/services/ai-audit · /pl/uslugi/audyt-ai · /ua/poslugy/audyt-ai
+- Document automation: /uslugi/avtomatizaciya-dokumentov · /en/services/document-automation · /pl/uslugi/automatyzacja-dokumentow · /ua/poslugy/avtomatyzaciya-dokumentiv
+- AI Act compliance: /uslugi/sootvetstvie-ai-act · /en/services/ai-act-compliance · /pl/uslugi/zgodnosc-ai-act · /ua/poslugy/vidpovidnist-ai-act
+- AI visibility: /uslugi/vidimost-v-ai-poiske · /en/services/ai-visibility · /pl/uslugi/widocznosc-w-ai · /ua/poslugy/vydymist-v-ai-poshuku
+- Pricing: /ceny · /en/pricing · /pl/cennik · /ua/tsiny
+- Case studies: /raboty · /en/work · /pl/realizacje · /ua/roboty
+- Blog: /blog · /en/blog · /pl/blog · /ua/blog
+- Contact: /kontakty · /en/contact · /pl/kontakt · /ua/kontakt
+- Sitemap: https://buildbyalex.com/sitemap.xml
 
 ## Languages I work and write content in
 
-- Russian (родной)
-- Ukrainian (рідна)
+- Russian (native)
+- Ukrainian (native)
 - English (B2+, fluent at work)
 - Polish (B1, conversational; written contracts available in PL or EN)
 
 ## Verifiable facts
 
-- Works remotely with clients worldwide; EU-based for contracts and invoicing.
-- Independent contractor — not an agency, no employees, no subcontractors used by default.
+- Based in Warsaw, Poland; works remotely with clients across Poland and the EU.
+- Independent contractor - not an agency, no employees, no subcontractors used by default.
 - VAT EU registration available for B2B EU invoicing.
 - GitHub: https://github.com/shurinbergo3
 - LinkedIn: https://www.linkedin.com/in/oleksandr-shuvalov

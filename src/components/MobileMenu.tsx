@@ -121,7 +121,7 @@ export function MobileMenu() {
           className="fixed inset-0 z-[60] flex flex-col bg-[color:var(--color-bg)]/85 backdrop-blur-2xl backdrop-saturate-150"
         >
           <div className="flex h-[var(--header-h)] items-center justify-between px-5">
-            <Link href="/" onClick={close} aria-label="buildbyalex — home">
+            <Link href="/" onClick={close} aria-label="buildbyalex - home">
               <Logo size={23} />
             </Link>
             <button

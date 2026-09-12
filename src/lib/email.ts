@@ -29,10 +29,10 @@ const TYPE_LABEL: Record<string, string> = {
 };
 
 const BUDGET_LABEL: Record<string, string> = {
-  under1k: "до €1 000",
-  to3k: "€1 000–3 000",
-  to10k: "€3 000–10 000",
-  over10k: "больше €10 000",
+  under1k: "до €500",
+  to3k: "€500-1 500",
+  to10k: "€1 500-5 000",
+  over10k: "больше €5 000",
   unknown: "не определён",
 };
 

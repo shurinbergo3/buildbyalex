@@ -12,7 +12,7 @@ import { Button } from "./Button";
    answers the visitor's real first question on the spot. */
 
 const AMBER = "#FF7A2D";
-const BASE_PRICE = 3000;
+const BASE_PRICE = 1800;
 const BASE_WEEKS = 4;
 
 const INTL_LOCALE: Record<string, string> = { ru: "ru-RU", pl: "pl-PL", en: "en-GB", ua: "uk-UA" };
@@ -125,14 +125,14 @@ export function MobileCostCalc() {
                     color: "transparent",
                   }}
                 >
-                  €{nf.format(low)}–{nf.format(high)}
+                  €{nf.format(low)}-{nf.format(high)}
                 </p>
                 <p className="mt-4 flex items-center gap-2 text-[13.5px] text-white/60">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
                     <circle cx="12" cy="12" r="9" />
                     <path d="M12 7v5l3.5 2.2" />
                   </svg>
-                  {t("weeksLabel")}: <span className="font-mono font-semibold text-white tabular-nums">{weeks}–{weeks + 2} {t("weeksUnit")}</span>
+                  {t("weeksLabel")}: <span className="font-mono font-semibold text-white tabular-nums">{weeks}-{weeks + 2} {t("weeksUnit")}</span>
                 </p>
                 <p className="mt-5 border-t border-white/[0.08] pt-5 text-[12.5px] leading-[1.55] text-white/40">{t("note")}</p>
                 <div className="mt-auto pt-7">

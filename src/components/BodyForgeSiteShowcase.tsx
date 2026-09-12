@@ -132,7 +132,7 @@ export function BodyForgeSiteShowcase() {
                         transition={{ duration: 0.4 }}
                         className="absolute inset-0"
                       >
-                        <Image src={desktop} alt={`bodyforges.com — ${lang.toUpperCase()}`} fill sizes="(max-width: 768px) 88vw, 650px" className="object-cover object-top" />
+                        <Image src={desktop} alt={`bodyforges.com - ${lang.toUpperCase()}`} fill sizes="(max-width: 768px) 88vw, 650px" className="object-cover object-top" />
                       </motion.div>
                     </AnimatePresence>
                   </div>
