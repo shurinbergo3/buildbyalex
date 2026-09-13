@@ -6,7 +6,6 @@ import { PromoFilm } from "./PromoFilm";
 import type { ChapterId } from "./film";
 import {
   AgentLayer,
-  AppLayer,
   AutoLayer,
   CrmLayer,
   HeroLayer,
@@ -16,7 +15,7 @@ import {
 } from "./layers";
 import { PromoFaq, PromoFit, PromoProcess, PromoReviews, PromoServices, PromoWork } from "./sections";
 
-const NAV: Exclude<ChapterId, "hero">[] = ["search", "site", "agent", "crm", "auto", "app", "morning"];
+const NAV: Exclude<ChapterId, "hero">[] = ["search", "site", "agent", "crm", "auto", "morning"];
 
 export function PromoPage({ reviewCount, now }: { reviewCount: number; now: number }) {
   const t = useTranslations("promo");
@@ -31,7 +30,6 @@ export function PromoPage({ reviewCount, now }: { reviewCount: number; now: numb
           agent: <AgentLayer />,
           crm: <CrmLayer />,
           auto: <AutoLayer />,
-          app: <AppLayer />,
           morning: <MorningLayer />,
         }}
         nav={NAV.map((id) => ({ id, label: t(`nav.${id}`) }))}

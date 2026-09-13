@@ -8646,7 +8646,6 @@
       "agent": "Agent AI",
       "crm": "CRM",
       "auto": "Automatyzacja",
-      "app": "Aplikacja",
       "morning": "Rano"
     },
     "clock": {
@@ -8869,57 +8868,6 @@
         "value": "210 h",
         "label": "miesięcznie oddaje właścicielowi menedżer sprzedaży AI. To 1,3 etatu",
         "link": "Case menedżera AI"
-      }
-    },
-    "app": {
-      "kicker": "08:12 · Aplikacja",
-      "title": "Rano klient jest <em>już w twojej aplikacji.</em>",
-      "body": "Zapisy, płatności, powiadomienia push i panel klienta. iOS i Android z jednej bazy kodu, z publikacją w App Store i Google Play.",
-      "store": {
-        "label": "Twoja aplikacja",
-        "name": "Zgłoszenia i zapisy",
-        "sub": "App Store i Google Play",
-        "get": "Zainstaluj"
-      },
-      "screen": {
-        "time": "9:41",
-        "title": "Zgłoszenia",
-        "count": "Dziś 6 nowych",
-        "badge": "Nowe zgłoszenie",
-        "name": "Oksana P.",
-        "topic": "Karta pobytu · konsultacja",
-        "slot": "Dziś, 10:00",
-        "accept": "Przyjmij",
-        "call": "Zadzwoń",
-        "next": "Dalej w grafiku",
-        "rows": [
-          {
-            "time": "11:30",
-            "name": "Marek W.",
-            "note": "Przedłużenie wizy"
-          },
-          {
-            "time": "14:00",
-            "name": "Anna K.",
-            "note": "Dokumenty · opłacone"
-          },
-          {
-            "time": "16:20",
-            "name": "Piotr S.",
-            "note": "Pierwsza konsultacja"
-          }
-        ],
-        "tabs": [
-          "Zgłoszenia",
-          "Kalendarz",
-          "Klienci",
-          "Profil"
-        ]
-      },
-      "proof": {
-        "value": "~10 s",
-        "label": "na osobistą analizę treningu przez AI w Body Forge",
-        "link": "Case Body Forge"
       }
     },
     "morning": {

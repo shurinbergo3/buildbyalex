@@ -1,8 +1,8 @@
-/* The night-shift film on /promo: eight chapters glued into one continuous
+/* The night-shift film on /promo: seven chapters glued into one continuous
    shot. Every clip starts on the frame the previous one ends on, so swapping
    the <video> at a chapter boundary is invisible. */
 
-export type ChapterId = "hero" | "search" | "site" | "agent" | "crm" | "auto" | "app" | "morning";
+export type ChapterId = "hero" | "search" | "site" | "agent" | "crm" | "auto" | "morning";
 
 /** How the clip sits on a wide screen: filling the stage (real-world shots),
     as a product stage on the right with copy on the left, or morphing between
@@ -18,6 +18,9 @@ export type Chapter = {
   /** The night clock at the start and at the end of the clip. */
   clock: [string, string];
   stage: StageMode;
+  /** Share of the clip over which the previous chapter's last frame dissolves.
+      Longer where the two clips were not generated as one continuous shot. */
+  seam?: number;
 };
 
 export const CHAPTERS: Chapter[] = [
@@ -27,8 +30,7 @@ export const CHAPTERS: Chapter[] = [
   { id: "agent", length: 2.5, clip: [0.03, 0.4], clock: ["02:15:30", "02:16:24"], stage: "product" },
   { id: "crm", length: 2.1, clip: [0.03, 0.46], clock: ["02:16:24", "02:17:05"], stage: "product" },
   { id: "auto", length: 1.9, clip: [0.03, 0.46], clock: ["02:17:05", "02:17:48"], stage: "product" },
-  { id: "app", length: 2.2, clip: [0.03, 0.5], clock: ["02:17:48", "08:12:10"], stage: "product" },
-  { id: "morning", length: 2.6, clip: [0.02, 0.44], clock: ["08:12:10", "09:00:00"], stage: "to-full" },
+  { id: "morning", length: 2.6, clip: [0.02, 0.44], clock: ["02:17:48", "09:00:00"], stage: "to-full", seam: 0.24 },
 ];
 
 /** Where each chapter begins, in screen heights from the top of the film. */

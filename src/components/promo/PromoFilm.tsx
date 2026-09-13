@@ -40,7 +40,7 @@ const LERP = 0.16;
 /** Phones, plus tablets held upright: they get the 4:5 crop and stacked copy.
     Keep in sync with the film's layout media query in promo.css. */
 const PHONE_LAYOUT = "(max-width: 767px), (max-width: 1100px) and (orientation: portrait)";
-/** Share of a clip over which the previous chapter's last frame fades out. */
+/** Default share of a clip over which the previous chapter's last frame fades out. */
 const SEAM = 0.06;
 /** A seek that hasn't reported back by then is treated as lost and re-sent. */
 const SEEK_LOST_MS = 1500;
@@ -278,7 +278,7 @@ export function PromoFilm({
         lastFill = fill;
         stage.style.setProperty("--full", String(fill));
       }
-      const seam = idx > 0 ? Math.round((1 - clamp01(clip.current / SEAM)) * 100) / 100 : 0;
+      const seam = idx > 0 ? Math.round((1 - clamp01(clip.current / (ch.seam ?? SEAM))) * 100) / 100 : 0;
       if (seam !== lastSeam) {
         lastSeam = seam;
         stage.style.setProperty("--seam", String(seam));
@@ -291,7 +291,9 @@ export function PromoFilm({
       let c1 = storyEnd;
       if (last) {
         c1 = warsawNow();
-        if (c1 < c0) c1 += 86400;
+        // Before seven the "now" is still night: roll to the next day so the
+        // clock always runs through the morning the scene shows.
+        if (c1 < Math.max(c0, 7 * 3600)) c1 += 86400;
       }
       const secs = c0 + (c1 - c0) * clip.current;
       const label = formatClock(secs);
