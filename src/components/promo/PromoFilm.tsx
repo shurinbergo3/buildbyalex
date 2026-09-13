@@ -42,6 +42,8 @@ const LERP = 0.16;
 const PHONE_LAYOUT = "(max-width: 767px), (max-width: 1100px) and (orientation: portrait)";
 /** Share of a clip over which the previous chapter's last frame fades out. */
 const SEAM = 0.06;
+/** A seek that hasn't reported back by then is treated as lost and re-sent. */
+const SEEK_LOST_MS = 1500;
 const CLOCKS = CHAPTERS.map((c) => c.clock.map(clockToSeconds) as [number, number]);
 const WARSAW = new Intl.DateTimeFormat("en-GB", {
   timeZone: "Europe/Warsaw",
@@ -77,8 +79,8 @@ export function PromoFilm({
     const h = stage.clientHeight || window.innerHeight;
     const top = section.getBoundingClientRect().top + window.scrollY;
     const c = CHAPTERS[i];
-    // Land where the clip has finished and the chapter's UI is on screen.
-    scrollToY(top + (CHAPTER_STARTS[i] + c.length * (c.clip[1] + 0.04)) * h);
+    // Land where the clip has finished and the in-frame copy has settled.
+    scrollToY(top + (CHAPTER_STARTS[i] + c.length * Math.min(c.clip[1] + 0.15, 0.9)) * h);
   };
 
   useEffect(() => {
@@ -139,7 +141,11 @@ export function PromoFilm({
       const frames = Math.max(1, Math.round(dur * FILM_FPS));
       let t = Math.min(dur - 0.001, (Math.round(clip.current * (frames - 1)) + 0.5) / FILM_FPS);
       const now = performance.now();
-      if (clip.seeking && now - clip.seekAt < 250) return;
+      // Never replace a seek that is still decoding. Safari under load needs
+      // 300 ms and more per seek; re-seeking sooner cancels every one of them
+      // and the picture freezes on the clip's first frame while the copy runs
+      // on. The next seek goes out from `seeked`, aimed at the latest target.
+      if (clip.seeking && now - clip.seekAt < SEEK_LOST_MS) return;
       if (Math.abs(video.currentTime - t) < 0.5 / FILM_FPS) {
         if (!clip.force) return;
         // Same frame, but it has to be decoded again: move a hair inside it.
@@ -326,6 +332,9 @@ export function PromoFilm({
       const onSeeked = () => {
         clips[i].seeking = false;
         clipRefs.current[i]?.setAttribute("data-ready", "");
+        // The scroll has usually moved on while this frame decoded; parked
+        // clips get no per-frame seek, so chase the target from here.
+        seek(i);
       };
       const onError = () => {
         clips[i].status = "failed";

@@ -187,7 +187,7 @@ export function SearchLayer() {
               "--w": RESULT_SLABS[i].w,
               "--hh": `${RESULT_SLABS[i].h}%`,
               "--fs": 0.62 + i * 0.1,
-              "--in": 0.53 + i * 0.025,
+              "--in": 0.51 + i * 0.012,
               "--out": 0.985,
               "--rise": "0px",
             })}
@@ -199,7 +199,7 @@ export function SearchLayer() {
         {/* the chosen card is tilted in the frame, so its label is too */}
         <div
           className="pf-at pf-hit pf-in"
-          style={sv({ "--x": 0.39, "--y": 0.418, "--w": 0.22, "--hh": "10.6%", "--in": 0.52, "--out": 0.985, "--rise": "0px", rotate: "-7.9deg" })}
+          style={sv({ "--x": 0.39, "--y": 0.418, "--w": 0.22, "--hh": "10.6%", "--in": 0.51, "--out": 0.985, "--rise": "0px", rotate: "-7.9deg" })}
         >
           <span className="pf-hit-url">{t("hit.url")}</span>
           <span className="pf-hit-title">{t("hit.title")}</span>
@@ -208,7 +208,7 @@ export function SearchLayer() {
 
         <div
           className="pf-at pf-at--card pf-glass pf-serp pf-in pf-in--zoom"
-          style={sv({ "--x": 0.655, "--y": 0.34, "--w": 0.3, "--in": 0.5, "--out": 0.75 })}
+          style={sv({ "--x": 0.655, "--y": 0.34, "--w": 0.3, "--in": 0.44, "--out": 0.6 })}
         >
           <div className="pf-serp-bar">
             <GoogleG />
@@ -231,7 +231,7 @@ export function SearchLayer() {
 
         <div
           className="pf-at pf-at--card pf-glass pf-gpt pf-in pf-in--zoom"
-          style={sv({ "--x": 0.655, "--y": 0.34, "--w": 0.3, "--in": 0.74, "--out": 0.985 })}
+          style={sv({ "--x": 0.655, "--y": 0.34, "--w": 0.3, "--in": 0.59, "--out": 0.985 })}
         >
           <div className="pf-gpt-head">
             <ChatGptLogo />
@@ -259,14 +259,14 @@ export function SiteLayer() {
           <div
             key={label}
             className="pf-at pf-label pf-only-d pf-in"
-            style={sv({ "--x": 0.7, "--y": SITE_LABEL_Y[i], "--w": 0.28, "--in": 0.5 + i * 0.045, "--out": 0.985, "--rise": "10px" })}
+            style={sv({ "--x": 0.7, "--y": SITE_LABEL_Y[i], "--w": 0.28, "--in": 0.46 + i * 0.015, "--out": 0.985, "--rise": "10px" })}
           >
             {label}
           </div>
         ))}
         <div
           className="pf-at pf-at--card pf-chips pf-only-m pf-in"
-          style={sv({ "--x": 0, "--y": 0, "--in": 0.5, "--out": 0.985 })}
+          style={sv({ "--x": 0, "--y": 0, "--in": 0.46, "--out": 0.985 })}
         >
           {labels.map((label) => (
             <span key={label}>{label}</span>
@@ -307,7 +307,7 @@ export function AgentLayer() {
               "--y": BUBBLES[i].y,
               "--w": BUBBLES[i].w,
               "--hh": `${BUBBLES[i].h}%`,
-              "--in": 0.42 + i * 0.06,
+              "--in": 0.39 + i * 0.018,
               "--out": 0.985,
               "--rise": "6px",
             })}
@@ -333,7 +333,7 @@ export function AgentLayer() {
               <p
                 key={text}
                 className={`pf-mini-msg pf-mini-msg--${i % 2 ? "bot" : "client"} pf-in`}
-                style={sv({ "--in": 0.44 + i * 0.08, "--out": 2, "--d": 0.03, "--rise": "4px" })}
+                style={sv({ "--in": 0.41 + i * 0.03, "--out": 2, "--d": 0.03, "--rise": "4px" })}
               >
                 {text}
               </p>
@@ -359,7 +359,7 @@ export function AgentLayer() {
               <p
                 key={i}
                 className={`pf-msg pf-msg--${m.from} pf-in`}
-                style={sv({ "--in": 0.45 + i * 0.075, "--out": 2, "--d": 0.03, "--rise": "10px" })}
+                style={sv({ "--in": 0.42 + i * 0.022, "--out": 2, "--d": 0.03, "--rise": "10px" })}
               >
                 {m.text}
               </p>
@@ -404,7 +404,7 @@ export function CrmLayer() {
       <div className="pf-box pf-frame">
         <div
           className="pf-at pf-bx-logo pf-only-d pf-in"
-          style={sv({ "--x": 0.318, "--y": 0.1, "--w": 0.4, "--in": 0.46, "--out": 0.985 })}
+          style={sv({ "--x": 0.318, "--y": 0.1, "--w": 0.4, "--in": 0.45, "--out": 0.985 })}
         >
           <BitrixMark brand={t("bx.brand")} />
           <span>{t("bx.board")}</span>
@@ -420,7 +420,7 @@ export function CrmLayer() {
               "--w": BX_HEADS[i].w,
               "--hh": `${BX_HEADS[i].h}%`,
               "--c": BX_COLORS[i],
-              "--in": 0.47 + i * 0.02,
+              "--in": 0.45 + i * 0.012,
               "--out": 0.985,
               "--rise": "0px",
             })}
@@ -441,7 +441,7 @@ export function CrmLayer() {
               "--y": BX_CARDS[i].y,
               "--w": BX_CARDS[i].w,
               "--hh": `${BX_CARDS[i].h}%`,
-              "--in": 0.52 + i * 0.02,
+              "--in": 0.47 + i * 0.012,
               "--out": 0.985,
               "--rise": "0px",
             })}
@@ -453,7 +453,7 @@ export function CrmLayer() {
 
         <div
           className="pf-at pf-at--card pf-glass pf-deal pf-in pf-in--zoom"
-          style={sv({ "--x": 0.595, "--y": 0.5, "--w": 0.3, "--in": 0.56, "--out": 0.985 })}
+          style={sv({ "--x": 0.595, "--y": 0.5, "--w": 0.3, "--in": 0.47, "--out": 0.985 })}
         >
           <div className="pf-deal-board">
             <BitrixMark brand={t("bx.brand")} />
@@ -472,7 +472,7 @@ export function CrmLayer() {
           <div className="pf-steps">
             {stages.map((s, i) => (
               <span key={s} className="pf-step">
-                <i style={sv({ "--in": i < 3 ? 0.6 + i * 0.07 : 9 })} />
+                <i style={sv({ "--in": i < 3 ? 0.5 + i * 0.025 : 9 })} />
               </span>
             ))}
           </div>
@@ -486,7 +486,7 @@ export function CrmLayer() {
               <div
                 key={f.k}
                 className="pf-field pf-in"
-                style={sv({ "--in": 0.62 + i * 0.05, "--out": 2, "--d": 0.03, "--rise": "8px" })}
+                style={sv({ "--in": 0.49 + i * 0.025, "--out": 2, "--d": 0.03, "--rise": "8px" })}
               >
                 <span>{f.k}</span>
                 <i />
@@ -540,7 +540,7 @@ export function AutoLayer() {
           <div
             key={i}
             className="pf-at pf-tile-glow pf-in"
-            style={sv({ "--x": NODE_X[i] - 0.06, "--y": 0.39, "--w": 0.12, "--in": i === 3 ? 0.62 : 0.74, "--out": 2, "--d": 0.05, "--rise": "0px" })}
+            style={sv({ "--x": NODE_X[i] - 0.06, "--y": 0.39, "--w": 0.12, "--in": i === 3 ? 0.5 : 0.53, "--out": 2, "--d": 0.05, "--rise": "0px" })}
             aria-hidden="true"
           />
         ))}
@@ -553,7 +553,7 @@ export function AutoLayer() {
               "--y": 0.391,
               "--w": 0.12,
               "--hh": "21.8%",
-              "--in": i < 3 ? 0.48 + i * 0.05 : i === 3 ? 0.64 : 0.76,
+              "--in": i < 3 ? 0.45 + i * 0.02 : i === 3 ? 0.52 : 0.55,
               "--out": 2,
               "--rise": "0px",
             })}
@@ -568,20 +568,20 @@ export function AutoLayer() {
           <div
             key={node}
             className="pf-at pf-node pf-only-d pf-in"
-            style={sv({ "--x": NODE_X[i] - 0.08, "--y": 0.655, "--w": 0.16, "--in": 0.48 + i * 0.07, "--out": 0.985, "--rise": "10px" })}
+            style={sv({ "--x": NODE_X[i] - 0.08, "--y": 0.655, "--w": 0.16, "--in": 0.46 + i * 0.022, "--out": 0.985, "--rise": "10px" })}
           >
             {node}
           </div>
         ))}
         <div
           className="pf-at pf-stack-note pf-only-d pf-in"
-          style={sv({ "--x": 0.25, "--y": 0.8, "--w": 0.5, "--in": 0.8, "--out": 0.985 })}
+          style={sv({ "--x": 0.25, "--y": 0.8, "--w": 0.5, "--in": 0.53, "--out": 0.985 })}
         >
           {t("stack")}
         </div>
         <div
           className="pf-at pf-at--card pf-chips pf-only-m pf-in"
-          style={sv({ "--x": 0, "--y": 0, "--in": 0.48, "--out": 0.985 })}
+          style={sv({ "--x": 0, "--y": 0, "--in": 0.46, "--out": 0.985 })}
         >
           {nodes.map((node, i) => (
             <span key={node}>
@@ -679,7 +679,7 @@ export function AppLayer() {
         </div>
         <div
           className="pf-at pf-at--card pf-at--low pf-glass pf-store pf-in pf-in--zoom"
-          style={sv({ "--x": 0.645, "--y": 0.36, "--w": 0.305, "--in": 0.56, "--out": 0.985 })}
+          style={sv({ "--x": 0.645, "--y": 0.36, "--w": 0.305, "--in": 0.5, "--out": 0.985 })}
         >
           <span className="pf-store-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="58%" height="58%" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
@@ -757,7 +757,7 @@ export function MorningLayer() {
         </div>
         <div
           className="pf-at pf-glass pf-notice pf-notice--float pf-only-d pf-in pf-in--zoom"
-          style={sv({ "--x": 0.6, "--y": 0.3, "--w": 0.25, "--in": 0.5, "--out": 2 })}
+          style={sv({ "--x": 0.6, "--y": 0.3, "--w": 0.25, "--in": 0.47, "--out": 2 })}
         >
           {notice}
         </div>
