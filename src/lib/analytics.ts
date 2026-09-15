@@ -18,12 +18,11 @@ declare global {
 export const YM_ID = 109616933;
 
 /**
- * GA4 measurement ID, e.g. "G-XXXXXXXXXX". Empty until it's set in the
- * environment, and every GA call below no-ops while it is — so the site runs
- * unchanged with or without it. Set NEXT_PUBLIC_GA_ID at build time (it has to
- * be inlined into the client bundle, hence the NEXT_PUBLIC_ prefix).
+ * GA4 measurement ID. It's public anyway (it ends up in every page), so it lives
+ * here like YM_ID; NEXT_PUBLIC_GA_ID at build time overrides it, and setting it
+ * to an empty string turns GA off.
  */
-export const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "";
+export const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "G-NN2D4W59JH";
 
 export type Goal = "quote_submit" | "lead_submit" | "review_submit" | "contact_click";
 

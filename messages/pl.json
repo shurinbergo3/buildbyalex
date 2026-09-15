@@ -89,7 +89,29 @@
     },
     "location": "Warszawa, Polska",
     "rights": "Wszelkie prawa zastrzeżone.",
-    "legal": "Studio · Warszawa · VAT EU"
+    "legal": "Studio · Warszawa · VAT EU",
+    "cookieSettings": "Ustawienia cookies"
+  },
+  "consent": {
+    "title": "Cookies i analityka",
+    "text": "Analityka (Google Analytics i Yandex Metrica) działa tylko za Twoją zgodą. Pokazuje, które strony pomagają odwiedzającym, a które trzeba poprawić.",
+    "acceptAll": "Akceptuję wszystkie",
+    "reject": "Tylko niezbędne",
+    "customize": "Ustawienia",
+    "save": "Zapisz wybór",
+    "necessary": {
+      "title": "Niezbędne",
+      "description": "Język strony i Twój wybór dotyczący cookies.",
+      "always": "Zawsze"
+    },
+    "analytics": {
+      "title": "Analityczne",
+      "description": "Google Analytics 4 i Yandex Metrica: skąd przychodzą odwiedzający, co czytają, nagrania sesji."
+    },
+    "marketing": {
+      "title": "Marketingowe",
+      "description": "Google Ads: pomiar zapytań z reklam i wyświetlanie reklam osobom, które odwiedziły stronę."
+    }
   },
   "home": {
     "hero": {

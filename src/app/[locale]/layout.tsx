@@ -12,6 +12,7 @@ import { MobileStickyCTA } from "@/components/MobileStickyCTA";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { YandexMetrika } from "@/components/YandexMetrika";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { CookieBanner } from "@/components/CookieBanner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -118,6 +119,7 @@ export default async function LocaleLayout({
           </main>
           <Footer />
           <MobileStickyCTA />
+          <CookieBanner />
           <YandexMetrika />
           <GoogleAnalytics />
         </NextIntlClientProvider>

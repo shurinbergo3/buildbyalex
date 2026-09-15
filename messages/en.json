@@ -89,7 +89,29 @@
     },
     "location": "Warsaw, Poland",
     "rights": "All rights reserved.",
-    "legal": "Studio · Warsaw · VAT EU"
+    "legal": "Studio · Warsaw · VAT EU",
+    "cookieSettings": "Cookie settings"
+  },
+  "consent": {
+    "title": "Cookies & analytics",
+    "text": "Analytics (Google Analytics and Yandex Metrica) only runs if you agree. It shows which pages help visitors and which ones need work.",
+    "acceptAll": "Accept all",
+    "reject": "Necessary only",
+    "customize": "Customize",
+    "save": "Save choice",
+    "necessary": {
+      "title": "Necessary",
+      "description": "Site language and your cookie choice.",
+      "always": "Always on"
+    },
+    "analytics": {
+      "title": "Analytics",
+      "description": "Google Analytics 4 and Yandex Metrica: where visitors come from, what they read, session recordings."
+    },
+    "marketing": {
+      "title": "Advertising",
+      "description": "Google Ads: counting enquiries from ads and showing ads to people who have visited the site."
+    }
   },
   "home": {
     "hero": {

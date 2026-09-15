@@ -4,6 +4,7 @@ import { PHONE_HREF, WHATSAPP_URL, formatPhone } from "@/lib/contacts";
 import { Logo } from "./Logo";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 import { Container } from "./Container";
+import { CookieSettingsButton } from "./CookieSettingsButton";
 
 export function Footer() {
   const t = useTranslations("footer");
@@ -73,6 +74,7 @@ export function Footer() {
         <div className="relative mt-14 flex flex-col-reverse items-center gap-6 border-t border-[color:var(--c-hairline)] pt-6 md:block">
           <p className="text-center text-[12px] text-[color:var(--color-text-3)]">
             © {year} buildbyalex. {t("rights")} <span className="mx-1 opacity-50">·</span> {t("legal")}
+            <span className="mx-1 opacity-50">·</span> <CookieSettingsButton label={t("cookieSettings")} />
           </p>
           <div className="md:absolute md:right-0 md:top-6">
             <LocaleSwitcher />
