@@ -32,7 +32,7 @@ export function saveConsent(next: Consent) {
     /* private mode: the choice holds for this page view only */
   }
 
-  // GA and Metrica can't be unloaded once running, so a withdrawal wipes
+  // GA can't be unloaded once running, so a withdrawal wipes
   // their cookies and reloads into a clean page. GA is told first, otherwise
   // its pagehide beacon writes _ga right back.
   const revoked = prev && ((prev.analytics && !next.analytics) || (prev.marketing && !next.marketing));
@@ -54,13 +54,13 @@ export function openConsentSettings() {
   window.dispatchEvent(new CustomEvent(OPEN_EVENT));
 }
 
-export function clearTrackingCookies() {
+export function clearTrackingCookies(pattern = /^(_ga|_gid|_gat|_gcl|_ym)/) {
   const host = window.location.hostname;
   const apex = host.split(".").slice(-2).join(".");
   const domains = ["", host, `.${host}`, `.${apex}`];
   for (const pair of document.cookie.split(";")) {
     const name = pair.split("=")[0].trim();
-    if (!/^(_ga|_gid|_gat|_gcl|_ym)/.test(name)) continue;
+    if (!pattern.test(name)) continue;
     for (const domain of domains) {
       document.cookie = `${name}=; Max-Age=0; path=/${domain ? `; domain=${domain}` : ""}`;
     }

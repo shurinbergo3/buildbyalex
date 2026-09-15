@@ -21,7 +21,7 @@ export function ThankYouExperience({ type: typeParam = "" }: { type?: string }) 
   const tForm = useTranslations("contact.form");
 
   // Handed over by the form in sessionStorage rather than the query string, so
-  // the visitor's name never reaches Metrika, GA4 or an access log. Read in an
+  // the visitor's name never reaches GA4 or an access log. Read in an
   // effect — reading during render would make SSR and the client disagree.
   const [rawName, setRawName] = useState("");
   useEffect(() => {

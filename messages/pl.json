@@ -94,7 +94,7 @@
   },
   "consent": {
     "title": "Cookies i analityka",
-    "text": "Analityka (Google Analytics i Yandex Metrica) działa tylko za Twoją zgodą. Pokazuje, które strony pomagają odwiedzającym, a które trzeba poprawić.",
+    "text": "Google Analytics działa tylko za Twoją zgodą. Pokazuje, które strony pomagają odwiedzającym, a które trzeba poprawić.",
     "acceptAll": "Akceptuję wszystkie",
     "reject": "Tylko niezbędne",
     "customize": "Ustawienia",
@@ -106,7 +106,7 @@
     },
     "analytics": {
       "title": "Analityczne",
-      "description": "Google Analytics 4 i Yandex Metrica: skąd przychodzą odwiedzający, co czytają, nagrania sesji."
+      "description": "Google Analytics 4: skąd przychodzą odwiedzający, które strony czytają, czy wysłali zapytanie."
     },
     "marketing": {
       "title": "Marketingowe",

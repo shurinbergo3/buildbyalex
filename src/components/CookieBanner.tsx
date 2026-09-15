@@ -33,8 +33,10 @@ export function CookieBanner() {
   }, []);
 
   // Anything a beacon managed to leave behind after a withdrawal goes on the next visit.
+  // Metrica cookies from before it was removed go for everyone.
   useEffect(() => {
     if (consent && !consent.analytics) clearTrackingCookies();
+    else clearTrackingCookies(/^_ym/);
   }, [consent]);
 
   if (consent === undefined || (consent !== null && !reopened)) return null;

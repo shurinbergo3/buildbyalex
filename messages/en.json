@@ -94,7 +94,7 @@
   },
   "consent": {
     "title": "Cookies & analytics",
-    "text": "Analytics (Google Analytics and Yandex Metrica) only runs if you agree. It shows which pages help visitors and which ones need work.",
+    "text": "Google Analytics only runs if you agree. It shows which pages help visitors and which ones need work.",
     "acceptAll": "Accept all",
     "reject": "Necessary only",
     "customize": "Customize",
@@ -106,7 +106,7 @@
     },
     "analytics": {
       "title": "Analytics",
-      "description": "Google Analytics 4 and Yandex Metrica: where visitors come from, what they read, session recordings."
+      "description": "Google Analytics 4: where visitors come from, which pages they read, whether an enquiry was sent."
     },
     "marketing": {
       "title": "Advertising",

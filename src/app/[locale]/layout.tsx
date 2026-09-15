@@ -10,7 +10,6 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileStickyCTA } from "@/components/MobileStickyCTA";
 import { SmoothScroll } from "@/components/SmoothScroll";
-import { YandexMetrika } from "@/components/YandexMetrika";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { CookieBanner } from "@/components/CookieBanner";
 
@@ -120,7 +119,6 @@ export default async function LocaleLayout({
           <Footer />
           <MobileStickyCTA />
           <CookieBanner />
-          <YandexMetrika />
           <GoogleAnalytics />
         </NextIntlClientProvider>
       </body>

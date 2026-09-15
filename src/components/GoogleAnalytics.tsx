@@ -17,8 +17,7 @@ const adConsent = (granted: boolean) => {
  */
 export function GoogleAnalytics() {
   const consent = useConsent();
-  const allowed = Boolean(GA_ID) && process.env.NODE_ENV === "production" && consent?.analytics === true;
-  const marketing = consent?.marketing === true;
+  const allowed = Boolean(GA_ID) && process.env.NODE_ENV === "production" && consent?.analytics === true;  const marketing = consent?.marketing === true;
 
   useEffect(() => {
     if (allowed) window.gtag?.("consent", "update", adConsent(marketing));

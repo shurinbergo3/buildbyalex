@@ -71,9 +71,9 @@ export function ContactForm() {
       }
       trackGoal("lead_submit", { type: payload.type || "unknown" });
       // The name is handed over in sessionStorage, not in the query string:
-      // Metrika and GA4 both record the full page URL, so `?name=…` shipped the
-      // visitor's personal data to two analytics vendors, every access log on
-      // the way, and the Referer of anything they clicked next.
+      // GA4 records the full page URL, so `?name=…` would ship the visitor's
+      // personal data to Google, every access log on the way, and the Referer
+      // of anything they clicked next.
       try {
         sessionStorage.setItem(LEAD_NAME_KEY, payload.name);
       } catch {
