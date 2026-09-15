@@ -3761,12 +3761,12 @@
     },
     "mobile": {
       "meta": {
-        "title": "Tworzenie aplikacji mobilnych na zamówienie - Warszawa",
-        "description": "Aplikacja mobilna dla firmy pod klucz: iOS i Android z jednej bazy kodu w React Native. MVP w 3-5 tygodni, publikacja w sklepach w cenie. Od 1 800 €."
+        "title": "Tworzenie aplikacji mobilnych iOS i Android - Warszawa",
+        "description": "Projektowanie i programowanie aplikacji mobilnych w Warszawie: iOS natywnie w Swift albo iOS i Android w React Native. MVP od 1 800 €, App Store w cenie."
       },
       "eyebrow": "Aplikacje mobilne · Warszawa",
-      "headline": "Tworzenie aplikacji mobilnych w Warszawie,\nktóre trafiają do sklepów.",
-      "lead": "Tworzenie aplikacji mobilnych na zamówienie: iOS i Android z jednej bazy kodu w React Native, działające MVP w 3-5 tygodni, publikacja w App Store i Google Play w cenie.",
+      "headline": "Tworzenie aplikacji iOS i Android w Warszawie,\nktóre trafiają do sklepów.",
+      "lead": "Projektowanie i programowanie aplikacji mobilnych na zamówienie. Aplikację tylko na iPhone'a piszę natywnie w Swift, a iOS i Android razem - z jednej bazy kodu w React Native. Działające MVP w 3-5 tygodni, publikacja w App Store i Google Play w cenie.",
       "from": "Od 1 800 €",
       "primaryCta": "Porozmawiajmy o pomyśle",
       "hero": {
@@ -3881,11 +3881,23 @@
       },
       "cases": "Podobne realizacje",
       "faq": {
-        "title": "Pytania o mobile",
+        "title": "Pytania o tworzenie aplikacji mobilnych",
         "items": [
           {
             "q": "Ile kosztuje stworzenie aplikacji? Od czego zależy cena?",
-            "a": "Od liczby ekranów, integracji, backendu i designu. Prosty projekt / MVP startuje zwykle od kilkunastu tysięcy złotych, rozbudowana aplikacja kosztuje więcej. Wyceniam w modelu fixed price - uzgadniamy zakres i koszt z góry, bez niespodzianek na fakturze."
+            "a": "Od liczby ekranów, integracji, backendu i tego, czy robimy jedną platformę, czy dwie. MVP startuje od 1 800 €, aplikacja z backendem i płatnościami od 4 200 €. Wyceniam w modelu fixed price - zakres i koszt uzgadniamy z góry, bez niespodzianek na fakturze."
+          },
+          {
+            "q": "Tworzysz aplikacje na iOS natywnie, w Swift?",
+            "a": "Tak. Body Forge to moja natywna aplikacja na iPhone'a: SwiftUI, iOS 17+, integracja z Apple Health, synchronizacja przez CloudKit i trener AI na GPT-4o, który w ~10 sekund oddaje analizę treningu. Jest w App Store, więc możesz ją pobrać i sprawdzić, zanim porozmawiamy o Twoim projekcie."
+          },
+          {
+            "q": "Czy projektowanie aplikacji (UX/UI) jest w cenie?",
+            "a": "Tak, projektowanie aplikacji mobilnej wchodzi w każdy pakiet. Zaczynam od mapy ekranów i głównego scenariusza użytkownika, a interfejs składam od razu w kodzie. Zamiast folderu makiet po paru tygodniach masz na telefonie klikalny build w TestFlight i komentujesz żywy ekran."
+          },
+          {
+            "q": "Ile Apple zabiera z płatności w aplikacji na iOS?",
+            "a": "Za treści cyfrowe i subskrypcje sprzedawane w aplikacji Apple wymaga In-App Purchase i bierze prowizję: 15% w programie dla małych firm, standardowo 30%. Towary fizyczne i usługi realizowane poza aplikacją (dowóz, wizyta, bilet) rozliczasz zwykłą bramką, np. Stripe. Wliczam to w model biznesowy przed startem, a nie po odrzuceniu w review."
           },
           {
             "q": "Jak wygląda proces i od czego zacząć?",
@@ -3893,7 +3905,7 @@
           },
           {
             "q": "Ile trwa MVP?",
-            "a": "Zwykle 4-6 tygodni od kickoffu do TestFlight / Internal Testing. Kolejne 1-2 tygodnie do publicznych sklepów (zależy od review Apple)."
+            "a": "Sama praca nad MVP to 3-5 tygodni: od rozmowy do buildu w TestFlight i Internal Testing w Google Play. Razem z publikacją wychodzi 4-8 tygodni, bo review Apple trwa od kilku godzin do kilku dni, a pierwsze zgłoszenie czasem wraca z uwagami."
           },
           {
             "q": "Aplikacja na iOS i Android czy wystarczy jedna platforma?",
@@ -3901,7 +3913,7 @@
           },
           {
             "q": "Czy natywnie nie lepiej?",
-            "a": "Dla 90% zadań produktowych - nie. Expo / React Native daje natywny perf i pełny dostęp do sprzętu. Kod natywny ma sens przy AR, ciężkiej grafice lub specjalistycznym sprzęcie. Powiem otwarcie."
+            "a": "Dla większości aplikacji biznesowych - nie. Expo / React Native daje natywny interfejs i dostęp do sprzętu, a Android dostajesz z tego samego kodu. Natywny Swift wybieram, gdy aplikacja ma być tylko na iOS i mocno korzysta z ekosystemu Apple (Apple Health, iCloud), albo przy AR i ciężkiej grafice. Powiem otwarcie, który wariant ma sens u Ciebie."
           },
           {
             "q": "Nie taniej zrobić to samemu w no-code?",
@@ -3917,7 +3929,7 @@
           },
           {
             "q": "Ile kosztuje utrzymanie aplikacji po wdrożeniu?",
-            "a": "Mniej, niż straszą software house'y. Hosting backendu i usługi to zwykle €10-50/mies. zależnie od ruchu, a konta w sklepach to $99/rok u Apple i jednorazowe $25 w Google. Poprawki i aktualizacje pod nowe wersje iOS/Androida rozliczam €50/h, bez obowiązkowego abonamentu - płacisz tylko wtedy, gdy faktycznie coś trzeba zrobić."
+            "a": "Mniej, niż straszą software house'y. Hosting backendu i usługi to zwykle €10-50/mies. zależnie od ruchu, a konta w sklepach to $99/rok u Apple i jednorazowe $25 w Google. Poprawki i aktualizacje pod nowe wersje iOS/Androida rozliczam €35/godz., bez obowiązkowego abonamentu - płacisz tylko wtedy, gdy faktycznie coś trzeba zrobić."
           },
           {
             "q": "Pracujecie tylko w Warszawie, czy w całej Polsce?",
@@ -4098,7 +4110,7 @@
       "caseProof": {
         "eyebrow": "Case study",
         "headline": "Body Forge: od pomysłu do App Store",
-        "sub": "Nie koncept ani prototyp, tylko żywa aplikacja, którą można pobrać już teraz. Tak wygląda poziom, na jakim robię produkty mobilne.",
+        "sub": "Nie koncept ani prototyp, tylko natywna aplikacja iOS w SwiftUI, którą można pobrać już teraz. Tak wygląda poziom, na jakim robię produkty mobilne.",
         "cta": "Zobacz cały case",
         "storeSub": "Pobierz w"
       },
@@ -4302,6 +4314,10 @@
         "headline": "Warto przeczytać przed startem aplikacji",
         "items": [
           {
+            "slug": "tworzenie-aplikacji-ios",
+            "title": "Tworzenie aplikacji na iOS: koszt, Swift i App Store"
+          },
+          {
             "slug": "ile-kosztuje-aplikacja-mobilna",
             "title": "Ile kosztuje aplikacja mobilna w 2025-2026 (iOS + Android)"
           },
@@ -4324,12 +4340,24 @@
           {
             "slug": "jak-opublikowac-aplikacje-w-app-store",
             "title": "Jak opublikować aplikację w App Store"
+          },
+          {
+            "slug": "programista-aplikacji-mobilnych-warszawa",
+            "title": "Programista aplikacji mobilnych w Warszawie: stawki i wybór"
+          },
+          {
+            "slug": "czy-moja-firma-potrzebuje-aplikacji-mobilnej",
+            "title": "Czy moja firma potrzebuje aplikacji mobilnej?"
           }
         ]
       },
       "seo": {
         "aliases": [
           "tworzenie aplikacji mobilnych",
+          "tworzenie aplikacji iOS",
+          "programowanie aplikacji mobilnych",
+          "projektowanie aplikacji mobilnych",
+          "aplikacja na iPhone'a na zamówienie",
           "aplikacja mobilna dla firmy",
           "aplikacje mobilne na zamówienie",
           "firma tworząca aplikacje mobilne",
@@ -4350,11 +4378,15 @@
           },
           {
             "q": "Termin",
-            "a": "MVP zajmuje 3-5 tygodni od rozmowy do publikacji, aplikacja 6-10 tygodni, duży produkt od 10 tygodni."
+            "a": "MVP to 3-5 tygodni pracy, pełna aplikacja 6-10 tygodni, duży produkt od 10 tygodni. Razem z review w sklepach MVP trafia do App Store w 4-8 tygodni od pierwszej rozmowy."
+          },
+          {
+            "q": "Aplikacja na iOS",
+            "a": "Aplikację tylko na iPhone'a piszę natywnie w SwiftUI - tak powstał Body Forge, dostępny w App Store. Wersję testową dostajesz w TestFlight, a konto Apple Developer (99 $ rocznie) zakładam na Twoją firmę."
           },
           {
             "q": "Technologie",
-            "a": "React Native i Expo - obie platformy z jednego kodu, TypeScript, backend na Node.js albo Supabase. Moduły natywne podpinam tam, gdzie są naprawdę potrzebne."
+            "a": "React Native i Expo, gdy aplikacja ma działać na iOS i Androidzie z jednego kodu. Swift i SwiftUI, gdy powstaje tylko na iPhone'a. Do tego TypeScript i backend na Node.js albo Supabase."
           },
           {
             "q": "Co wchodzi w zakres",
@@ -4367,6 +4399,10 @@
           {
             "q": "Czyj jest kod",
             "a": "Repozytorium, konta w sklepach i cały kod przechodzą na Ciebie. Aplikację można oddać innemu zespołowi bez mojego udziału."
+          },
+          {
+            "q": "Warszawa i cała Polska",
+            "a": "Pracuję z Warszawy: rozmowa, demo i odbiór online albo na spotkaniu na miejscu. Z firmami z Krakowa, Wrocławia, Gdańska i reszty kraju pracuję tak samo, zdalnie."
           }
         ]
       },

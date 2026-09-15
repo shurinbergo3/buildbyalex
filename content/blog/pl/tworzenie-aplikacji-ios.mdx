@@ -1,89 +1,124 @@
 ---
-title: "Tworzenie aplikacji na iOS: ile kosztuje i od czego zacząć"
-description: "Co wchodzi w skład aplikacji na iOS, ile to kosztuje w EUR, ile trwa, czym iOS różni się od Androida i dlaczego wiele firm startuje właśnie z iPhone'a."
+title: "Tworzenie aplikacji na iOS: koszt, Swift i App Store"
+description: "Ile kosztuje aplikacja na iPhone'a, kiedy pisać w Swift, a kiedy w React Native, ile trwa review Apple i ile zabiera App Store. Na przykładzie Body Forge."
 date: "2026-06-17"
 cluster: "ios-app-development"
 keywords:
   - "tworzenie aplikacji na iOS"
   - "aplikacja na iPhone cena"
   - "koszt aplikacji iOS"
-  - "zamówić aplikację iOS"
+  - "aplikacja iOS w Swift"
 ogImage: "/og/ios-app-development.webp"
 ---
 
-Aplikację na iOS firmy często zamawiają jako pierwszą i nie dlatego, że iPhone jest modniejszy. Użytkownicy iOS mają wyższy średni koszyk i chętniej płacą, ekosystem Apple jest bardziej przewidywalny w pracy, a App Store przy dobrym podejściu daje wartościowy ruch. Ale właśnie przez tę "prestiżowość" wokół iOS narosło wiele mitów o kosmicznych budżetach. Robię aplikacje mobilne i powiem wprost: ile naprawdę kosztuje rozwój na iOS, co się na niego składa i jak nie przepłacać za nic.
+Tworzenie aplikacji na iOS zaczyna się u mnie od **1 800 €** za MVP, które działa na iPhonie i przy okazji na Androidzie, a pierwsza wersja powstaje w **3-5 tygodni**. Aplikację czysto natywną w Swift wyceniam osobno, bo jej koszt zależy od tego, jak głęboko wchodzi w ekosystem Apple. Niżej rozpisuję, z czego składa się cena, kiedy Swift ma sens i o czym Apple przypomni ci w review, jeśli nie pomyślisz o tym wcześniej.
+
+Piszę z perspektywy kogoś, kto sam przeprowadził aplikację przez App Store. [Body Forge](/pl/realizacje/body-forge) to natywny tracker treningów w SwiftUI z trenerem AI - można go pobrać z polskiego App Store i sprawdzić, jak działa, zanim uwierzysz w cokolwiek z tego tekstu.
 
 ## Dlaczego firmy często zaczynają od iOS
 
-Kiedy budżet nie pozwala robić od razu na dwie platformy, wybór między iOS a Androidem to kwestia odbiorców, a nie gustu.
+Kiedy budżet nie pozwala od razu na dwie platformy, wybór między iOS a Androidem to kwestia odbiorców, a nie gustu.
 
-Użytkownicy iPhone'a średnio więcej wydają w aplikacjach i łatwiej zgadzają się na płatne funkcje i subskrypcje. Jeśli twój model to sprzedaż albo subskrypcja, iOS zwykle zwraca się szybciej. Do tego na iOS jest znacznie mniejsza różnorodność urządzeń: Apple wypuszcza ograniczoną linię, więc aplikacji nie trzeba testować na setkach ekranów i wersji, jak na Androidzie. To obniża koszt i przyspiesza pracę.
+Użytkownicy iPhone'a chętniej płacą w aplikacjach i łatwiej zgadzają się na subskrypcję. Jeśli zarabiasz na sprzedaży albo abonamencie, iOS zwykle zwraca się szybciej. Druga sprawa to testy: Apple wypuszcza ograniczoną liczbę modeli, a większość ludzi szybko aktualizuje system, więc nie sprawdzasz aplikacji na setkach ekranów i wersji, jak na Androidzie.
 
-Dlatego częsty scenariusz wygląda tak: startujemy na iOS, sprawdzamy, że produkt jest ludziom potrzebny i przynosi pieniądze, a potem rozszerzamy się na Androida. Ale to nie reguła. Jeśli twoja grupa to rynek masowy - dostawy, usługi dla szerokiej publiczności, gdzie udział Androida jest większy - lepiej zacząć od niego albo od razu od obu platform. Patrzę na twoich konkretnych odbiorców, a nie polecam iOS z automatu.
+Ale to nie reguła. W Polsce Android ma większy udział w rynku, więc przy aplikacji masowej - dowóz, lokalne usługi, program lojalnościowy dla sieci sklepów - start tylko na iPhone'a odetnie sporą część klientów. Wtedy od razu robię obie platformy z jednego kodu. Zanim coś polecę, pytam, kto konkretnie ma tę aplikację zainstalować.
 
-## Co wchodzi w skład aplikacji na iOS
+## Z czego składa się aplikacja na iOS
 
-Aplikacja to nie tylko to, co widać na ekranie. Za działającym produktem stoi kilka części i wszystkie wpływają na cenę i terminy.
+To, co widać na ekranie, to może połowa roboty. Reszta decyduje o cenie i o tym, czy aplikacja przejdzie review.
 
-- **Projekt i planowanie.** Ekrany, logika przejść, prototyp. Tu rozstrzyga się, czy z aplikacji będzie się wygodnie korzystać. Oszczędzanie na tym etapie jest najbardziej ryzykowne.
-- **Sama aplikacja na iOS.** Kod w Swift, natywne komponenty, obsługa aparatu, powiadomień, płatności, map - tego, czego potrzebuje twój produkt.
-- **Backend i API.** Serwer, baza danych, logika, synchronizacja. Niemal każda aplikacja poza tymi najprostszymi coś przechowuje i wymienia dane.
-- **Integracje.** Płatności, analityka, powiadomienia push, logowanie przez Apple, połączenie z twoimi systemami albo CRM.
-- **Publikacja w App Store.** Konto dewelopera, przygotowanie strony, przejście przez moderację Apple.
-- **Wsparcie po starcie.** Aktualizacje pod nowe wersje iOS, poprawki, rozwój. W odróżnieniu od strony aplikacja wymaga aktualizacji już po to, żeby po prostu nie przestała działać.
+- **Mapa ekranów i główny scenariusz.** Kto jest użytkownikiem i które działanie przynosi pieniądze. Oszczędzanie tutaj kończy się przerabianiem gotowego kodu.
+- **Interfejs.** W natywnej wersji SwiftUI, w cross-platform React Native z Expo. W obu przypadkach trzymam się Human Interface Guidelines, bo aplikacja, która nie zachowuje się jak aplikacja na iPhone'a, dostaje gorsze oceny.
+- **Backend i API.** Konta, baza danych, synchronizacja. Poza bardzo prostymi narzędziami każda aplikacja coś przechowuje.
+- **Usługi Apple.** Powiadomienia przez APNs, logowanie przez Sign in with Apple, płatności przez StoreKit, dane z Apple Health przez HealthKit, synchronizacja przez iCloud.
+- **Build i dystrybucja.** Xcode, certyfikaty, App Store Connect, wersje testowe w TestFlight, opis, zrzuty ekranu i etykiety prywatności.
+- **Utrzymanie.** Apple co roku wydaje nową wersję iOS i podnosi minimalną wersję Xcode, z którą przyjmuje buildy. Aplikację trzeba aktualizować, nawet jeśli nie dodajesz funkcji.
 
-Kiedy ktoś podaje ci cenę "za aplikację", ważne jest, co dokładnie się w niej mieści. Tania oferta to często same ekrany bez backendu, a prawdziwy koszt wychodzi później.
+Tania oferta "za aplikację" to często same ekrany bez backendu i bez publikacji. Pytaj, co dokładnie jest w cenie, zanim porównasz dwie kwoty.
 
 ## Ile kosztuje aplikacja na iOS
 
-Rozrzut jest duży, bo "aplikacja" to zarówno prosta usługa na kilka ekranów, jak i złożony produkt. Realne widełki rynkowe:
+Moje pakiety i średnie ceny rynkowe w Polsce dla tego samego zakresu:
 
-- **Prosta aplikacja** - 5 000-12 000 €. Kilka ekranów, podstawowy backend, jedna-dwie integracje. Usługa rezerwacji, katalog, proste konto użytkownika.
-- **Średnia aplikacja** - 12 000-30 000 €. Poważny backend, płatności, powiadomienia, kilka ról użytkowników, analityka.
-- **Złożona aplikacja** - od 30 000 €. Funkcje czasu rzeczywistego, skomplikowana logika, wiele integracji, wysokie wymagania co do obciążenia i bezpieczeństwa.
-- **MVP do sprawdzenia pomysłu** - 5 000-15 000 €. Świadomie okrojona pierwsza wersja, żeby szybko wejść na rynek i sprawdzić popyt.
+| Pakiet | Cena u mnie | Średnio na rynku | Termin | Co dostajesz |
+| --- | --- | --- | --- | --- |
+| MVP | od 1 800 € | ok. 3 500 € | 3-5 tygodni | logowanie, główny scenariusz, publikacja w App Store i Google Play, podstawowa analityka |
+| Aplikacja | od 4 200 € | ok. 9 000 € | 6-10 tygodni | backend i API, płatności i subskrypcje, powiadomienia push, wiele ekranów i ról |
+| Produkt | od 9 000 € | ok. 18 000 € | od 10 tygodni | integracje z zewnętrznymi usługami, panel administracyjny, złożona logika, wsparcie po starcie |
 
-Cenę w górę pcha złożoność backendu, liczba integracji i unikalnej logiki, a nie liczba ekranów. Co prawie nie wpływa na wycenę: "ładne przejścia". Co poważnie ją rozdmuchuje bez pożytku: próba upchania wszystkich funkcji od razu w pierwszą wersję zamiast MVP.
+Te pakiety dotyczą aplikacji cross-platform: iOS i Android z jednej bazy kodu. Aplikację tylko na iPhone'a w Swift wyceniam po rozmowie, bo przy HealthKit, widżetach czy synchronizacji przez iCloud zakres rośnie w miejscach, których nie widać na makiecie.
 
-Jeśli dopiero sprawdzasz pomysł, prawie zawsze radzę MVP: mniejszy budżet, szybszy start, a dalej rozwijamy to, z czego ludzie naprawdę korzystają. Więcej o procesie w [usłudze tworzenia aplikacji mobilnych](/pl/uslugi/aplikacje-mobilne).
+Cenę pcha złożoność backendu, liczba integracji i ról, praca offline. Liczba ekranów zmienia wycenę dużo mniej, niż się wydaje. Najdroższy błąd, jaki widzę: upychanie wszystkich pomysłów w pierwszą wersję. MVP z jednym dobrze zrobionym scenariuszem szybciej pokaże, za co ludzie są gotowi płacić. Szerszy przegląd kosztów, także dla Androida, jest w tekście [ile kosztuje aplikacja mobilna](/pl/blog/ile-kosztuje-aplikacja-mobilna).
 
-## Swift czy multiplatforma na iOS
+## Swift czy React Native na iOS
 
-Na iOS można pisać dwoma drogami: natywnie w Swift albo na frameworku wieloplatformowym w rodzaju Flutter czy React Native, który potem daje też Androida.
+Na iPhone'a można pisać natywnie w Swift albo we frameworku wieloplatformowym, takim jak React Native czy Flutter, który przy okazji daje Androida.
 
-Natywny Swift daje maksimum wydajności, od razu dostęp do wszystkich możliwości iPhone'a i najbardziej "applowski" odzew interfejsu. To wybór, gdy aplikacja jest tylko na iOS i liczy się szybkość, złożona grafika, ścisła praca ze sprzętem.
+**Swift i SwiftUI** wybieram, gdy aplikacja ma być tylko na iOS i mocno korzysta z tego, co daje Apple: Apple Health, iCloud, widżety, praca z aparatem i sensorami, ciężka grafika. Interfejs reaguje dokładnie tak, jak użytkownik iPhone'a się spodziewa, a nowe API z WWDC są dostępne od pierwszego dnia.
 
-Multiplatforma opłaca się, gdy w perspektywie potrzebujesz obu platform: jeden kod daje i iOS, i Androida, a to wyraźnie taniej niż robienie dwóch natywnych aplikacji. Dla większości aplikacji biznesowych - rezerwacji, katalogów, usług, kont użytkowników - multiplatforma w pełni zamyka temat i oszczędza budżet.
+**React Native z Expo** wybieram, gdy w planach są obie platformy, a logika jest zwykła biznesowa: rezerwacje, katalog, konto klienta, zamówienia. Jeden kod daje iOS i Androida, więc nie płacisz dwa razy za tę samą funkcję. Poprawki mogą wychodzić przez aktualizacje OTA, bez czekania na review.
 
-Dobieram pod zadanie. Jeśli aplikacja jest tylko na iOS i wymagająca - Swift. Jeśli planowane są obie platformy, a logika to zwykła biznesowa - multiplatforma. Trzeba to rozstrzygnąć przed startem, bo przejście z jednego na drugie kosztuje sporo.
+Tę decyzję trzeba podjąć przed startem. Przepisanie aplikacji z jednej technologii na drugą kosztuje prawie tyle, co zrobienie jej od nowa. Więcej o tym wyborze w tekście [aplikacja natywna czy hybrydowa](/pl/blog/aplikacja-natywna-czy-hybrydowa).
 
-## Co trzeba uwzględnić właśnie na iOS
+## Przykład: Body Forge, natywna aplikacja w SwiftUI
 
-Apple ma swoje zasady i lepiej znać je z wyprzedzeniem, żeby nie utknąć na etapie publikacji.
+Brief był prosty w opisie, trudniejszy w wykonaniu: trener w kieszeni, szybkie zapisywanie serii w trakcie treningu i prawdziwa analiza po nim, a nie ekran pełen wykresów.
 
-App Store moderuje aplikacje surowiej niż Google Play: sprawdza funkcjonalność, bezpieczeństwo, płatności. Jeśli aplikacja sprzedaje treści cyfrowe albo subskrypcje, Apple wymaga użycia własnego systemu płatności i pobiera prowizję - trzeba to od razu wliczyć w model biznesowy. Konto dewelopera Apple jest płatne, około 99 € rocznie. A aktualizacje iOS wychodzą regularnie, pod nie aplikację trzeba utrzymywać, inaczej z czasem zacznie się psuć.
+Dlaczego natywnie, a nie React Native? Bo aplikacja jest tylko na iPhone'a, czyta tętno z Apple Health i synchronizuje dane przez CloudKit, a ekran treningu musi działać jedną ręką między seriami. Przy takim zestawie natywny Swift był oczywistym wyborem.
 
-Nic z tego nie jest groźne, jeśli uwzględnione od początku. Problemy pojawiają się, gdy o zasadach Apple przypomina się na etapie "wszystko już gotowe, publikujmy".
+Co jest w środku:
+
+- SwiftUI, Swift 5.9, iOS 17+, dane w Core Data z synchronizacją przez CloudKit.
+- Integracja z Apple Health (tętno) przez HealthKit.
+- Trener AI na GPT-4o, który czyta cały trening, porównuje go z ostatnimi tygodniami i w około 10 sekund oddaje krótką analizę z konkretną wskazówką na następny raz.
+- Biblioteka ponad 200 ćwiczeń z wideo techniki i programy treningowe, w wersji rosyjskiej i angielskiej.
+
+Aplikacja bez strony nie ma dokąd kierować ruchu, więc dla Body Forge zrobiłem też [dwujęzyczny landing](/pl/realizacje/body-forge-site), który ładuje pierwszy ekran w około 0,7 sekundy i prowadzi prosto do App Store. Przy każdej aplikacji na iOS radzę o tym pomyśleć od razu, a nie po premierze.
+
+## Zasady Apple, o których lepiej wiedzieć przed startem
+
+Część odrzuceń w review nie ma nic wspólnego z jakością kodu. Wynika z zasad, o których nikt nie pomyślał, zanim aplikacja była gotowa.
+
+**Konto Apple Developer** kosztuje 99 $ rocznie. Konto firmowe wymaga numeru D-U-N-S, więc jeśli go nie masz, zacznij od tego - weryfikacja potrafi potrwać. Konto zakładam na twoją firmę, nie na siebie.
+
+**Płatności.** Treści cyfrowe i subskrypcje sprzedawane w aplikacji muszą iść przez In-App Purchase. Apple bierze 15% w programie dla małych firm, standardowo 30%. Towary fizyczne i usługi realizowane poza aplikacją (dowóz, wizyta, bilet) rozliczasz zwykłą bramką, na przykład Stripe. To trzeba wpisać w model biznesowy przed pierwszą linijką kodu.
+
+**Prywatność.** W App Store Connect wypełniasz etykiety prywatności, czyli jakie dane zbierasz i po co. Jeśli śledzisz użytkownika między aplikacjami, musisz zapytać o zgodę przez App Tracking Transparency. Jeśli aplikacja pozwala założyć konto, musi też pozwolić je usunąć z poziomu aplikacji.
+
+**Logowanie.** Jeśli dajesz logowanie przez Google albo Facebooka, Apple oczekuje równorzędnej opcji dbającej o prywatność. W praktyce oznacza to Sign in with Apple.
+
+**Review.** Większość zgłoszeń Apple sprawdza w ciągu doby, ale pierwsze zgłoszenie nowej aplikacji częściej wraca z pytaniami. Wersje testowe przez TestFlight możesz rozdać nawet 10 000 zewnętrznych testerów, zanim aplikacja trafi do sklepu. Cały proces krok po kroku opisałem w tekście [jak opublikować aplikację w App Store](/pl/blog/jak-opublikowac-aplikacje-w-app-store).
 
 ## Terminy i jak pracuję
 
-Prosta aplikacja albo MVP - 1-3 miesiące. Średnia - 3-6 miesięcy. Złożona - od pół roku. Główny hamulec to nie kod, tylko jasność wymagań: im dokładniej na starcie wiadomo, co aplikacja ma robić, tym równiej idą terminy.
+MVP to 3-5 tygodni pracy, pełna aplikacja 6-10 tygodni, większy produkt od 10 tygodni. Do tego dolicz review w sklepach. Najczęściej hamuje nie kod, tylko decyzje: im jaśniej na starcie wiadomo, co ma być w pierwszej wersji, tym równiej idzie reszta.
 
-Zaczynamy od rozbioru pomysłu: jaki problem rozwiązuje aplikacja, kto jest użytkownikiem, jak zarabiasz, co koniecznie ma być w pierwszej wersji, a co poczeka. Dalej prototyp i projekt, rozwój, testy, publikacja w App Store. Po starcie - wsparcie i rozwój zgodnie z tym, jak ludzie naprawdę korzystają. Aplikacja to nie jednorazowy projekt, tylko produkt, który żyje i się aktualizuje, i warto to od razu wpisać w plany.
+Wygląda to tak:
+
+1. **Rozmowa, około 30 minut.** Kto jest użytkownikiem, na czym zarabiasz, co musi być w pierwszej wersji, a co poczeka.
+2. **Mapa ekranów, wycena i umowa.** Cena i data premiery są zapisane, zanim zacznę pisać kod.
+3. **Pierwszy build w TestFlight.** Po paru tygodniach klikasz aplikację na własnym telefonie i komentujesz żywe ekrany zamiast makiet.
+4. **Backend, płatności, powiadomienia.** Każdy nowy build przychodzi do ciebie automatycznie.
+5. **App Store.** Zrzuty ekranu, opisy, etykiety prywatności, odpowiedzi na pytania z review. Po premierze przekazuję dostępy, kod i analitykę.
+
+Jeśli szukasz wykonawcy na miejscu, szczegóły, pakiety i kalkulator kosztów są na stronie [tworzenie aplikacji iOS w Warszawie](/pl/uslugi/aplikacje-mobilne). Pracuję też zdalnie z firmami z całej Polski.
 
 ## FAQ
 
 **Ile kosztuje stworzenie aplikacji na iOS?**
-Prosta aplikacja na iOS to 5 000-12 000 €, średnia z płatnościami i poważnym backendem 12 000-30 000 €, złożona od 30 000 €. MVP do sprawdzenia pomysłu to 5 000-15 000 €. Cenę pcha złożoność backendu i logiki, a nie liczba ekranów. Dokładną wycenę podaję po rozbiorze tego, co dokładnie aplikacja ma robić.
+MVP, które działa na iPhonie i Androidzie, kosztuje u mnie od 1 800 €, aplikacja z backendem i płatnościami od 4 200 €, większy produkt z panelem i integracjami od 9 000 €. Średnie ceny rynkowe w Polsce dla tych zakresów to około 3 500 €, 9 000 € i 18 000 €. Aplikację tylko na iOS w Swift wyceniam po rozmowie.
 
 **Ile trwa tworzenie aplikacji na iOS?**
-Prosta aplikacja albo MVP to 1-3 miesiące, średnia 3-6 miesięcy, złożona od pół roku. Główny czynnik terminów to jasność wymagań na starcie. Im dokładniej wiadomo, co ma być w pierwszej wersji, tym równiej idzie rozwój. Dlatego radzę zacząć od MVP i rozwijać produkt dalej.
+MVP powstaje w 3-5 tygodni, pełna aplikacja w 6-10 tygodni, większy produkt od 10 tygodni. Do tego dochodzi review Apple, zwykle do doby, choć pierwsze zgłoszenie nowej aplikacji częściej wraca z pytaniami. Razem MVP trafia do App Store w 4-8 tygodni od pierwszej rozmowy.
 
-**Robić aplikację tylko na iOS czy od razu też na Androida?**
-Zależy od odbiorców. Użytkownicy iPhone'a mają wyższy średni koszyk i łatwiej przechodzą przez płatne funkcje, dlatego produkty z subskrypcją i sprzedażą często startują z iOS. Jeśli grupa jest masowa, gdzie udział Androida jest większy, lepiej zacząć od niego albo od razu od obu platform. Patrzę na twoich konkretnych odbiorców, a nie polecam iOS z automatu.
+**Czy do tworzenia aplikacji na iOS potrzebny jest Mac?**
+Do natywnej aplikacji w Swift tak, bo Xcode działa tylko na macOS. Przy React Native z Expo buildy na iOS można robić w chmurze przez EAS Build, więc Mac nie jest konieczny. Ty jako zamawiający nie potrzebujesz żadnego sprzętu poza iPhone'em do testów w TestFlight.
 
-**W czym pisać aplikację na iOS - Swift czy Flutter?**
-Natywny Swift daje maksimum wydajności i dostęp do wszystkich możliwości iPhone'a, jest uzasadniony, gdy aplikacja jest tylko na iOS i wymagająca. Multiplatforma w rodzaju Flutter opłaca się, jeśli w perspektywie potrzebujesz obu platform: jeden kod daje iOS i Androida i oszczędza budżet. Dla zwykłych aplikacji biznesowych częściej wystarcza multiplatforma. Wybór robi się przed startem.
+**Swift czy React Native - w czym pisać aplikację na iOS?**
+Swift i SwiftUI, gdy aplikacja jest tylko na iPhone'a i mocno korzysta z Apple Health, iCloud, aparatu albo ciężkiej grafiki. React Native z Expo, gdy w planach są obie platformy, a logika jest biznesowa: rezerwacje, katalog, konto klienta. Decyzję podejmuje się przed startem, bo zmiana technologii w trakcie oznacza pisanie od nowa.
 
-**Co trzeba wiedzieć o App Store przed startem?**
-Apple moderuje aplikacje surowiej niż Google Play, wymaga własnego systemu płatności dla treści cyfrowych i subskrypcji z prowizją, konto dewelopera kosztuje około 99 € rocznie. Do tego aplikację trzeba utrzymywać pod nowe wersje iOS. Te zasady lepiej uwzględnić na starcie i wpisać w model biznesowy, żeby nie utknąć na nich na etapie publikacji.
+**Ile kosztuje konto Apple Developer i publikacja w App Store?**
+Konto Apple Developer kosztuje 99 $ rocznie i powinno być założone na twoją firmę, do czego potrzebny jest numer D-U-N-S. Od sprzedaży treści cyfrowych i subskrypcji w aplikacji Apple pobiera 15% w programie dla małych firm albo 30% standardowo. Przygotowanie buildów, opisów i przejście review mam w cenie projektu.
+
+**Robić aplikację tylko na iOS czy od razu na Androida?**
+Zależy od odbiorców. Przy subskrypcjach i produktach premium start od iPhone'a często zwraca się szybciej. Przy aplikacji masowej w Polsce, gdzie Android ma większy udział, lepiej od razu zrobić obie platformy z jednego kodu w React Native - kosztuje to niewiele więcej niż jedna wersja.

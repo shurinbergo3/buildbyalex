@@ -1,133 +1,142 @@
 ---
-title: "Tworzenie sklepu internetowego w Warszawie - uczciwy przewodnik"
-description: "Ile kosztuje sklep internetowy w Warszawie, jaka platforma, BLIK i InPost, ile trwa i czego nie ma w wycenie. Konkretnie, bez ściemy."
+title: "Tworzenie sklepu internetowego w Warszawie - cennik 2026"
+description: "Ile kosztuje sklep internetowy w Warszawie: od 1 090 €, na rynku 10-18 tys. zł. Platforma, BLIK, InPost, dostawa w dniu zamówienia, KSeF, ukryte koszty."
 date: "2026-06-09"
 cluster: "online-store-development-warsaw"
 keywords:
   - "tworzenie sklepu internetowego Warszawa"
-  - "sklep internetowy Warszawa"
+  - "sklep internetowy Warszawa cena"
+  - "sklepy internetowe Warszawa"
   - "ile kosztuje sklep internetowy"
 ogImage: "/og/online-store-warsaw-pl.webp"
 ---
 
-Chcesz uruchomić **sklep internetowy w Warszawie** i potrzebujesz konkretu? Krótko: solidny sklep na gotowej platformie to **5 000-8 000 €**, a custom na Next.js **8 000-18 000 €**. Czas realizacji: **4-8 tygodni**. Resztę - platformę, płatności, koszty ukryte i czerwone flagi - rozpisuję niżej.
+Chcesz uruchomić **sklep internetowy w Warszawie** i potrzebujesz konkretu? Krótko: sklep na start kosztuje u mnie od **1 090 €** i powstaje w **2-3 tygodnie**, sklep z integracją magazynu, Allegro i księgowości od **2 900 €** w **4-6 tygodni**. Średnio na rynku za te zakresy płaci się **10 000-18 000 zł** i **25 000-60 000 zł**. Resztę - platformę, płatności, logistykę po Warszawie, koszty ukryte i czerwone flagi - rozpisuję niżej.
 
-Bez "od 99 zł", bez agencyjnego mydlenia. Robię sklepy dla firm w Warszawie, więc piszę z perspektywy kogoś, kto potem ten sklep utrzymuje, a nie znika po fakturze.
+Bez „sklepu od 99 zł" i bez agencyjnego mydlenia. Pracuję z Warszawy, a dla firmy z Mokotowa, Woli czy Pragi proces wygląda tak samo jak dla sklepu z Piaseczna, Pruszkowa albo Legionowa. Piszę z perspektywy kogoś, kto potem ten sklep utrzymuje, a nie znika po fakturze.
+
+## Cennik sklepu internetowego w Warszawie (2026)
+
+| Pakiet | Cena u mnie | Średnio na rynku | Termin | Co dostajesz |
+| --- | --- | --- | --- | --- |
+| Sklep Start | od 1 090 € | 10 000-18 000 zł | 2-3 tygodnie | do 100 produktów, filtry i wyszukiwarka, BLIK, Przelewy24, karty, checkout w jednym kroku, GA4 |
+| Sklep dla biznesu | od 2 900 € | 25 000-60 000 zł | 4-6 tygodni | synchronizacja stanów, CRM, InPost, DPD, fiskalizacja, PL/EN/UA/RU z hreflang, feed do Google Shopping, serwerowy tracking |
+| Przeniesienie / redesign | od 1 490 € | 15 000-30 000 zł | 2-4 tygodnie | migracja produktów, zamówień i adresów SEO z przekierowaniami 301, nowy front na Next.js, 30 dni poprawek |
+
+Warszawskie agencje wyceniają wyżej niż reszta kraju, bo płacą za biuro w centrum, account managerów i zespół. Rozpiętość na rynku bierze się głównie z tego, kto robi sklep i na jakim silniku, a nie z tego, ile sklep sprzeda. Cena u mnie jest ustalana przed startem i nie rośnie w trakcie.
 
 ## Najpierw decyzja, która kosztuje najwięcej: platforma
 
-Wybór platformy przesądza o 70% budżetu i o tym, jak będzie ci się żyło za rok. Trzy realne opcje:
+Wybór platformy przesądza o większości budżetu i o tym, jak będzie ci się żyło za rok. Realne opcje:
 
-- **Shopify** - abonament (od ~30 € / mies. wzwyż + prowizja od bramki), wszystko działa od ręki, App Store pełen integracji. Najszybszy start. Płacisz za wygodę co miesiąc i masz mniejszą kontrolę nad checkoutem.
-- **WooCommerce (WordPress)** - najpopularniejszy w Polsce. Bez abonamentu za sam silnik, ale płacisz za hosting, wtyczki i utrzymanie. Elastyczny, ale wymaga opieki - aktualizacje, bezpieczeństwo, wydajność.
-- **Headless / custom na Next.js + Stripe albo Medusa** - najdroższy i najszybszy front. Ma sens, gdy masz nietypową logikę: ceny B2B, subskrypcje, konfigurator produktu, marketplace.
+- **Shopify** - miesięczny abonament w dolarach plus prowizja od płatności, wszystko działa od ręki, dużo gotowych aplikacji. Najszybszy start, ale płacisz za wygodę co miesiąc i masz mniejszą kontrolę nad checkoutem.
+- **WooCommerce albo PrestaShop** - najpopularniejsze w Polsce. Bez abonamentu za sam silnik, ale płacisz za hosting, moduły i opiekę: aktualizacje, bezpieczeństwo, wydajność.
+- **Platformy abonamentowe typu Shoper** - wygodne na start, ale przy rosnącym sklepie abonament i limity pakietu zaczynają uwierać.
+- **Next.js z własnym panelem** - na tym buduję domyślnie. Szybki front, SEO techniczne od pierwszego dnia, bez abonamentu platformy i bez limitu liczby produktów. Nietypową logikę - ceny B2B, subskrypcje, konfigurator - dopisuje się bez walki z wtyczkami.
 
-Prosta zasada: **standardowy sklep z 50-500 produktami → Shopify lub WooCommerce. Nietypowa logika albo ekstremalny ruch → headless.** Nikt rozsądny nie buduje zwykłego sklepu z butami od zera na Next.js - to przepalanie budżetu.
+Prosta zasada: masz działający sklep na WooCommerce albo Shopify i nie blokuje sprzedaży - rozbuduj go. Zaczynasz od zera albo stara platforma muli i kosztuje coraz więcej - buduj od razu na szybkiej architekturze. Porównanie kosztów w skali całego kraju jest w tekście [ile kosztuje sklep internetowy](/pl/blog/ile-kosztuje-sklep-internetowy).
 
-## Polskie płatności i logistyka - tu się wykłada większość zagranicznych szablonów
+## Polskie płatności i logistyka - tu wykłada się większość zagranicznych szablonów
 
-To jest sedno sprawy w Warszawie. Polski klient nie kupi, jeśli nie zobaczy **BLIK-a** i **paczkomatu InPost**. Twardy fakt rynkowy: paczkomaty to pierwszy wybór ~70% kupujących online.
+Polski klient nie kupi, jeśli nie zobaczy **BLIK-a** i **paczkomatu InPost**. Sklep zrobiony pod logikę innego rynku traci koszyki na ostatnich dwóch krokach.
 
-Czego twój sklep potrzebuje, żeby w ogóle sprzedawać:
+Czego potrzebuje sklep, żeby w ogóle sprzedawać:
 
-1. **Płatności:** BLIK, Przelewy24 (P24), PayU albo Tpay. BLIK to absolutna podstawa - bez niego porzucasz połowę koszyka.
-2. **Dostawa:** InPost Paczkomaty (priorytet), kurier DPD / DHL, opcjonalnie odbiór osobisty.
-3. **Integracja statusów:** automatyczne etykiety, śledzenie przesyłki, mail po nadaniu.
+1. **Płatności:** BLIK, Przelewy24, PayU albo Stripe, karty, Apple Pay i Google Pay. Klient płaci w dwóch kliknięciach i nie wychodzi na obcą stronę.
+2. **Dostawa:** InPost Paczkomaty z wyborem punktu w koszyku, kurierzy DPD i DHL, pobranie.
+3. **Automatyzacja statusów:** etykiety generowane z panelu, numer śledzenia w mailu po nadaniu.
 
-Jeśli ktoś wycenia ci sklep i **nie wymienia z nazwy BLIK-a, P24 i InPostu** - albo nie robił sklepów w Polsce, albo dopisze to później jako "dodatkowe integracje". Sam doprowadzam to do działania end-to-end, dlatego [tworzenie sklepu internetowego](/pl/uslugi/sklep-internetowy) traktuję jako pełne wdrożenie sprzedażowe, a nie sam wygląd.
+Jeśli ktoś wycenia ci sklep i **nie wymienia z nazwy BLIK-a, Przelewy24 i InPostu**, albo nie robił sklepów w Polsce, albo dopisze to później jako „dodatkowe integracje". Szczegóły techniczne są w tekstach o [integracji z InPost Paczkomaty](/pl/blog/integracja-sklepu-z-inpost-paczkomaty) i o wyborze między [Przelewy24 a PayU](/pl/blog/przelewy24-czy-payu-integracja-sklep-blik).
 
-## Realny przykład: warszawska marka D2C kosmetyków
+## Warszawska specyfika: dostawa w dniu zamówienia i odbiór osobisty
 
-Warszawska marka naturalnych kosmetyków - sprzedawali na Allegro i przez stary sklep na Wixie. Produkt dobry, ale z obsługą zamówień był bałagan: zamówienia ze strony i z marketplace żyły w różnych miejscach, stany liczyli w głowie, etykiety InPost kleili ręcznie po wieczorach. W sezonie przedświątecznym para osób tonęła w rutynie, a klienci narzekali, że checkout na telefonie jest niewygodny i BLIK nie działa, jak trzeba.
+Warszawa to największy rynek w kraju, a klient ze stolicy jest przyzwyczajony do szybkości. Kilka rzeczy, które tutaj działają lepiej niż w mniejszym mieście:
 
-Co zrobiliśmy. Sklep przenieśliśmy na porządną platformę, płatność doprowadziliśmy do końca - BLIK, Przelewy24 i Stripe do kart, wszystko uczciwie end-to-end, a nie "integracja później". Magazyn i zamówienia spięliśmy przez Baselinker: teraz zamówienia ze strony i z Allegro wpadają do jednego okna, stany się synchronizują, a etykiety InPost i tracking generują się automatycznie. Paczkomat podstawia się w koszyku domyślnie - w Warszawie to połowa sukcesu.
+**Dostawa tego samego dnia po Warszawie.** Przy kwiatach, jedzeniu, kosmetykach czy prezentach „na dziś" osobna metoda dostawy z kurierem miejskim i godziną graniczną zamówienia potrafi być głównym powodem, dla którego ktoś kupuje u ciebie, a nie na Allegro. Ustawiam ją jako strefę: tylko adresy z Warszawy, z osobną ceną i komunikatem w koszyku.
 
-Efekt po dwóch miesiącach od przeprowadzki: konwersja na mobile wzrosła **o jakieś 30%** - głównie dzięki normalnemu BLIK-owi w jeden tap i paczkomatowi z automatu. Obsługa jednego zamówienia od momentu płatności do naklejonej etykiety skróciła się wielokrotnie, bo nikt już nie przepisuje danych między zakładkami. W przedświątecznym szczycie tym samym składem przewieźli zauważalnie więcej zamówień bez awantury. Sama przeprowadzka i konfiguracja zajęły **sześć tygodni**, najdłużej dogadywaliśmy umowę z operatorem płatności, a nie kod.
+**Odbiór osobisty w showroomie.** Jeśli masz lokal na Śródmieściu, Mokotowie czy Pradze, odbiór w godzinach otwarcia kosztuje cię zero, a domyka zamówienia ludzi, którzy i tak przejeżdżają obok.
 
-## Realne przedziały cenowe (Warszawa, 2026)
+**Języki.** W Warszawie mieszka i robi zakupy duża społeczność z Ukrainy i ekspaci z korporacji. Wersja EN i UA z poprawnym hreflang to w pakiecie dla biznesu standard, a nie osobny projekt.
 
-### Sklep na Shopify / WooCommerce - 5 000-8 000 €
+**Allegro obok własnego sklepu.** Warszawskie firmy rzadko rezygnują z marketplace'u. Zamówienia z Allegro i ze sklepu trafiają przez BaseLinker do jednego panelu, stany synchronizują się same.
 
-Solidna konfiguracja: design pod markę, do kilkuset produktów, BLIK + P24, InPost + DPD, podstawowe SEO, analityka, RODO i regulamin. To pokrywa potrzeby ~80% sklepów w Warszawie.
+## Duży katalog w praktyce: Baltic Dockyard
 
-**Za 5 000 €:** porządny szablon dopasowany pod markę, komplet płatności i dostaw, działający checkout.
-**Za 8 000 €:** custom design, optymalizacja konwersji, integracje (Allegro, fakturowanie, mailing), szybkość na zielono.
+Warszawska firma [Baltic Dockyard](/pl/realizacje/baltic-dockyard) dostarcza certyfikowane części do silników okrętowych, pomp i platform wiertniczych. W internecie praktycznie jej nie było, zapytania spływały różnymi kanałami, a zawodowi kupujący nie znajdowali dostawcy w wyszukiwarce.
 
-### Custom na Next.js + Stripe / Medusa - 8 000-18 000 €
+Zbudowałem dwujęzyczny serwis PL i EN na Next.js z katalogiem ponad 12 400 pozycji w sześciu działach, pocztą firmową w domenie i formularzem zapytania o cenę, które trafia do skrzynki firmy w kilka sekund, razem z plikami i specyfikacją. Do tego dane strukturalne, hreflang i baza wiedzy pod zapytania branżowe.
 
-Wchodzi w grę przy nietypowej logice: B2B z cenami per klient, subskrypcje, konfigurator, marketplace wielu sprzedawców. Tu płacisz za kod pod twój model biznesowy, nie za szablon.
-
-### Mały start / MVP - 2 500-4 000 €
-
-Kiedy chcesz zweryfikować pomysł: kilkanaście produktów, jedna bramka, jedna metoda dostawy. Świadomy kompromis, żeby ruszyć i sprawdzić rynek.
+To katalog B2B z zapytaniem o cenę, a nie sklep z koszykiem. Pokazuję go, bo przy sklepie z setkami czy tysiącami produktów problem jest ten sam: każda karta ma się szybko ładować, mieć czysty adres i dane Product, żeby Google indeksował ją od pierwszych dni.
 
 ## Czego zwykle nie ma w wycenie
 
-To pozycje, przez które "4 000 € za sklep" robi się 7 000 € w trakcie:
+To pozycje, przez które tania oferta rośnie w trakcie projektu. Pytaj o każdą z nazwy:
 
-- **Wgranie produktów.** 200 SKU ze zdjęciami i opisami to dni pracy. Albo robisz to sam, albo płacisz 1-3 € za produkt.
-- **Zdjęcia produktowe.** Stock nie sprzeda butów. Sesja - 400-800 € za dzień.
-- **Opisy produktów.** Copy pod SEO - 10-40 € za sztukę.
-- **Konfiguracja płatności i umowy z operatorem.** Sama integracja techniczna ≠ podpisana umowa z P24/PayU.
-- **RODO, regulamin, polityka zwrotów.** Wzór od prawnika - 300-800 €.
-- **SEO po starcie.** Sklep bez SEO nie istnieje w Google. 300-1 500 € jednorazowo lub abonament.
+- **Wgranie produktów.** 200 produktów ze zdjęciami i opisami to dni pracy. Ustal, kto to robi.
+- **Zdjęcia produktowe.** Stock nie sprzeda butów ani kosmetyków. Sesję trzeba zaplanować przed startem, bo zwykle to ona opóźnia premierę.
+- **Opisy produktów pod SEO.** Opis skopiowany od producenta ma kilkaset kopii w Google i nie rankuje.
+- **Umowa z operatorem płatności.** Techniczna integracja to nie to samo co podpisana umowa z Przelewy24 czy PayU. Weryfikacja firmy potrafi potrwać.
+- **Regulamin, RODO, 14 dni na zwrot, baner zgód.** U mnie są w zakresie od razu. U wielu wykonawców to „po stronie klienta".
+- **KSeF.** Od 2026 roku faktury B2B idą przez Krajowy System e-Faktur. Sklep sprzedający firmom musi być z nim spięty albo z programem księgowym. Więcej w tekście o [KSeF w sklepie internetowym](/pl/blog/ksef-2026-sklep-internetowy-integracja).
 - **Utrzymanie.** Aktualizacje, kopie zapasowe, monitoring - szczególnie przy WooCommerce.
 
-## Ile to trwa
+## Ile to trwa i jak wygląda praca
 
-- **Shopify / WooCommerce standardowy sklep:** 4-8 tygodni.
-- **Custom Next.js:** 8-16 tygodni.
-- **MVP:** 2-3 tygodnie.
+- **Sklep na start:** 2-3 tygodnie.
+- **Sklep z integracjami magazynu i logistyki:** 4-6 tygodni.
+- **Migracja z innej platformy:** 2-4 tygodnie.
 
-Jeśli ktoś obiecuje gotowy sklep w 3 dni - dostaniesz goły szablon bez płatności, bez InPostu i bez SEO. To nie sklep, to demo.
+Jeśli ktoś obiecuje gotowy sklep w 3 dni, dostaniesz goły szablon bez płatności, bez InPostu i bez SEO. To demo, nie sklep.
 
-## Ile biorę ja
+Tydzień po tygodniu wygląda to tak:
 
-Buduję sklepy gotowe do sprzedaży, nie do oglądania:
+1. **Rozmowa i struktura katalogu.** 30 minut o produkcie i procesach, potem wycena, struktura kategorii i umowa z datą startu.
+2. **Witryna i karty produktów.** Strona główna, katalog, karta produktu i koszyk od razu w kodzie. Oglądasz z telefonu przez działający link.
+3. **Płatności, dostawa i prawo.** BLIK, Przelewy24, karty, InPost i kurierzy, baner RODO z Consent Mode v2, regulamin, testowe płatności.
+4. **Produkty, testy i start.** Wgrywamy produkty, sprawdzamy zamówienie od koszyka po fakturę, włączamy analitykę i przekazuję dostępy.
 
-- **Sklep na Shopify / WooCommerce od 5 000 €.** Design pod markę, BLIK + P24, InPost + DPD, RODO, SEO w fundamentach.
-- **Custom na Next.js - indywidualnie.** Po 30-minutowej rozmowie dostajesz stałą wycenę i datę startu.
-- **Migracja istniejącego sklepu** (np. z Wix / wolnego WooCommerce) - wycena po przeglądzie.
+Twój udział to kilka godzin w całym projekcie. Pełny zakres, integracje i kalkulator Allegro są na stronie [tworzenie sklepów internetowych w Warszawie](/pl/uslugi/sklep-internetowy).
 
-Cena jest fiksowana przed startem. Płatności, dostawy i SEO są w zakresie - nie jako niespodzianka na fakturze.
+## Dla przedsiębiorców z Ukrainy i osób rosyjskojęzycznych
 
-## To istotne dla przedsiębiorców z Ukrainy i osób rosyjskojęzycznych w Warszawie
-
-Prowadzę projekty po polsku, ukraińsku i rosyjsku. Jeśli rozkręcasz biznes w Warszawie i polski nie jest twoim pierwszym językiem, najczęstszy błąd to **sklep zrobiony pod logikę innego rynku** - bez BLIK-a, bez InPostu, z checkoutem, którego polski klient nie rozumie. To realnie zabija konwersję. Robimy od razu pod polski rynek, a komunikacja idzie w twoim języku.
+Prowadzę projekty po polsku, ukraińsku i rosyjsku. Jeśli rozkręcasz biznes w Warszawie, a polski nie jest twoim pierwszym językiem, najczęstszy błąd to **sklep zrobiony pod logikę innego rynku** - bez BLIK-a, bez InPostu, z checkoutem, którego polski klient nie rozumie. Robimy od razu pod polski rynek, a komunikacja idzie w twoim języku.
 
 ## Checklist: o co spytać każdego wykonawcę
 
-1. **Jaka platforma i dlaczego ta?** Jeśli słyszysz "zawsze robię na X" bez pytania o twój model - to czerwona flaga.
-2. **Czy w cenie są BLIK, Przelewy24 i InPost?** Z nazwy, nie "integracje płatności".
+1. **Jaka platforma i dlaczego ta?** Jeśli słyszysz „zawsze robię na X" bez pytania o twój model sprzedaży, to czerwona flaga.
+2. **Czy w cenie są BLIK, Przelewy24 i InPost?** Z nazwy, nie „integracje płatności".
 3. **Kto wgrywa produkty?** I czy to jest wliczone.
-4. **Co z RODO, regulaminem i zwrotami?**
+4. **Co z regulaminem, RODO, zwrotami i KSeF?**
 5. **Co po starcie?** Aktualizacje, kopie, monitoring, dni poprawek.
-6. **SEO i szybkość?** Jeśli nie pada "Core Web Vitals" - sklep nie będzie rankował.
-7. **Umowa i stała wycena?** Jak nie - uciekaj.
+6. **SEO i szybkość?** Jeśli nie pada „Core Web Vitals", sklep nie będzie rankował.
+7. **Umowa, stała wycena i data startu?** Jak nie - uciekaj.
 
 ## FAQ
 
 **Ile kosztuje stworzenie sklepu internetowego w Warszawie?**
-Solidny sklep na Shopify lub WooCommerce to 5 000-8 000 €. Prosty start / MVP - 2 500-4 000 €. Custom na Next.js z nietypową logiką - 8 000-18 000 €. Ostateczna cena zależy od liczby produktów, integracji i designu. Ceny "od 99 zł" zwykle nie obejmują płatności, dostaw ani SEO.
+Sklep na start z katalogiem do 100 produktów, BLIK-iem, Przelewy24 i kartami kosztuje u mnie od 1 090 €. Sklep z integracją magazynu, CRM, InPost, fiskalizacją i kilkoma językami - od 2 900 €. Przeniesienie z innej platformy - od 1 490 €. Średnio na rynku te zakresy kosztują 10 000-18 000 zł, 25 000-60 000 zł i 15 000-30 000 zł.
 
 **Shopify czy WooCommerce - co wybrać w Polsce?**
-Shopify, jeśli chcesz ruszyć szybko i nie martwić się utrzymaniem - płacisz miesięczny abonament i prowizję od bramki. WooCommerce, jeśli zależy ci na pełnej kontroli i braku abonamentu za silnik - ale musisz zadbać o hosting, aktualizacje i bezpieczeństwo. Dla większości sklepów w Warszawie obie opcje są dobre; różnica jest w modelu kosztów i tym, kto utrzymuje sklep.
+Shopify, jeśli chcesz ruszyć szybko i nie martwić się serwerem - płacisz miesięczny abonament i prowizje. WooCommerce, jeśli zależy ci na kontroli i braku abonamentu za silnik, ale musisz zadbać o hosting, aktualizacje i bezpieczeństwo. Nowe sklepy buduję na Next.js z własnym panelem, a działający sklep na Shopify albo WooCommerce mogę rozbudować.
 
 **Czy sklep musi mieć BLIK i InPost?**
-W praktyce tak. BLIK to najpopularniejsza metoda płatności w Polsce, a paczkomaty InPost wybiera około 70% kupujących online. Sklep bez nich traci ogromną część koszyków. To nie dodatek - to podstawa.
+W praktyce tak. BLIK to najpopularniejsza metoda płatności online w Polsce, a paczkomaty InPost są domyślnym wyborem dostawy dla dużej części kupujących. Sklep bez nich traci koszyki na ostatnich krokach zamówienia.
 
-**Ile trwa zbudowanie sklepu?**
-Standardowy sklep na Shopify lub WooCommerce - 4-8 tygodni. Custom na Next.js - 8-16 tygodni. MVP - 2-3 tygodnie. Wgranie produktów i przygotowanie treści potrafi wydłużyć ten czas, jeśli nie masz ich gotowych.
+**Ile trwa zbudowanie sklepu internetowego?**
+Sklep na start powstaje w 2-3 tygodnie, sklep z integracjami magazynu i logistyki w 4-6 tygodni, migracja w 2-4 tygodnie. Wgranie produktów, zdjęcia i umowa z operatorem płatności potrafią wydłużyć ten czas, jeśli nie są gotowe na starcie.
 
-**Czy obsługujesz klientów po ukraińsku i rosyjsku?**
-Tak. Prowadzę projekty po polsku, ukraińsku i rosyjsku, a sklep od razu konfiguruję pod polski rynek - BLIK, P24, InPost, polskie RODO i regulamin. Dla przedsiębiorców z Ukrainy działających w Warszawie to standard, nie dodatkowa opcja.
+**Czy da się ustawić dostawę tego samego dnia po Warszawie?**
+Tak. Dostawę kurierem miejskim ustawiam jako osobną strefę tylko dla adresów z Warszawy, z godziną graniczną zamówienia i własną ceną widoczną w koszyku. Obok działają paczkomaty InPost, kurierzy i odbiór osobisty, jeśli masz lokal albo showroom.
 
 **Czy mogę sprzedawać też na Allegro?**
-Tak. Sklep można zintegrować z Allegro, żeby zarządzać zamówieniami i magazynem w jednym miejscu. To częste rozwiązanie dla sklepów w Warszawie - własny sklep plus marketplace jako drugi kanał.
+Tak. Sklep łączę z Allegro przez BaseLinker, żeby zamówienia i stany z obu kanałów były w jednym miejscu. Dla wielu warszawskich firm to najlepszy układ: Allegro przyprowadza nowych klientów, a własny sklep obsługuje stałych bez prowizji.
+
+**Czy obsługujesz klientów po ukraińsku i rosyjsku?**
+Tak. Prowadzę projekty po polsku, ukraińsku i rosyjsku, a sklep od razu konfiguruję pod polski rynek: BLIK, Przelewy24, InPost, regulamin i RODO. Wersje językowe sklepu dla klientów z Ukrainy czy ekspatów są w pakiecie dla biznesu.
 
 **Co jeśli mam już sklep, który źle działa?**
-Robię przegląd techniczny i wyceniam migrację lub naprawę. Najczęstsze problemy to wolny WooCommerce bez optymalizacji, brak BLIK-a, słaby checkout na mobile i zero SEO. Część da się naprawić bez budowy od nowa.
+Robię przegląd techniczny i wyceniam naprawę albo migrację. Najczęstsze problemy to wolny WooCommerce, brak BLIK-a, słaby checkout na telefonie i zero SEO. Część da się naprawić bez budowy od nowa, a przeprowadzka z przekierowaniami 301 zaczyna się od 1 490 €.
 
 ---
 
-Krótko: realny sklep internetowy w Warszawie to **5 000-8 000 €**, gotowy w **4-8 tygodni**, z BLIK-iem, InPostem i SEO w standardzie. Chcesz konkretną wycenę pod swój asortyment? [Umów 30-minutową rozmowę](/pl/kontakt) - po rozmowie dostajesz stałą cenę i datę startu.
+Krótko: sklep internetowy w Warszawie to u mnie **od 1 090 €**, gotowy w **2-3 tygodnie**, z BLIK-iem, InPostem i SEO w standardzie. Chcesz wycenę pod swój asortyment? [Umów 30-minutową rozmowę](/pl/kontakt) - po rozmowie dostajesz stałą cenę i datę startu.
