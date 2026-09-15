@@ -90,7 +90,7 @@ Ujawnienie idzie w pierwszym zdaniu, przed "w czym mogę pomóc". Im lepiej brzm
 
 Osobny przypadek to połączenia przekierowane. Recepcja odbiera po godzinach i przerzuca na bota, albo centrala przełącza na asystenta po trzech sygnałach bez odbioru. Dzwoniący nie wie, że go przełączono, więc **ujawnienie musi zabrzmieć jeszcze raz na początku tego etapu połączenia**. To najczęstsza luka, jaką znajduję w gotowych konfiguracjach.
 
-I jedno rozróżnienie, które warto mieć w skrypcie: zgoda na nagrywanie to obowiązek z RODO, a ujawnienie AI to obowiązek z art. 50. Dwa różne zdania, dwie różne podstawy, nie łącz ich w jedno. Przy rozmowach z rodzicami czy pacjentami dochodzi jeszcze kwestia, kto właściwie dzwoni w czyim imieniu, co opisywałem przy [agencie AI dla szkoły i kursów online](/pl/blog/agent-ai-dla-szkoly-i-kursow-online).
+I jedno rozróżnienie, które warto mieć w skrypcie: zgoda na nagrywanie to obowiązek z RODO, a ujawnienie AI to obowiązek z art. 50. Dwa różne zdania, dwie różne podstawy, nie łącz ich w jedno. Przy rozmowach z rodzicami czy pacjentami dochodzi jeszcze kwestia, kto właściwie dzwoni w czyim imieniu, co opisywałem przy agencie AI dla szkoły i kursów online.
 
 ## Oznaczanie treści generowanych: mail, oferta, kreacja
 
@@ -125,7 +125,7 @@ Rekord sesji, który wystarcza, żeby pokazać zgodność bez grzebania w kodzie
 
 Ten rekord udowadnia cztery rzeczy naraz: że ujawnienie było, że padło przed pierwszą wiadomością użytkownika, w jakim dokładnie brzmieniu, i że wyjście do człowieka faktycznie działa. Teksty ujawnień trzymam w repozytorium, nie w panelu narzędzia, żeby każda zmiana miała commit i datę.
 
-Do tego dwie rzeczy poza logiem. Rejestr systemów AI, czyli zwykła tabela: gdzie używasz AI, jaki model, jaki dostawca, kto odpowiada, kiedy ostatnio sprawdzano komunikat. I polityka retencji, bo UODO przypomina, że każda rozmowa, w której padają dane osobowe, jest przetwarzaniem: trzeba mieć podstawę prawną, wiedzieć, jak długo trzymasz transkrypty i gdzie stoją serwery. Ja trzymam 90 dni pełnych transkryptów i 24 miesiące samych rekordów ujawnienia, bez treści rozmowy. Tam, gdzie bot i tak zapisuje statusy i dokumenty, dorzucenie dwóch pól to kwestia jednego wdrożenia, co pokazywałem przy [agencie AI dla firmy transportowej](/pl/blog/agent-ai-dla-firmy-transportowej).
+Do tego dwie rzeczy poza logiem. Rejestr systemów AI, czyli zwykła tabela: gdzie używasz AI, jaki model, jaki dostawca, kto odpowiada, kiedy ostatnio sprawdzano komunikat. I polityka retencji, bo UODO przypomina, że każda rozmowa, w której padają dane osobowe, jest przetwarzaniem: trzeba mieć podstawę prawną, wiedzieć, jak długo trzymasz transkrypty i gdzie stoją serwery. Ja trzymam 90 dni pełnych transkryptów i 24 miesiące samych rekordów ujawnienia, bez treści rozmowy. Tam, gdzie bot i tak zapisuje statusy i dokumenty, dorzucenie dwóch pól to kwestia jednego wdrożenia, co pokazywałem przy agencie AI dla firmy transportowej.
 
 ## Retrofit istniejącego bota: lista poprawek na jedno popołudnie
 

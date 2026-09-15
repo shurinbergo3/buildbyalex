@@ -8,11 +8,12 @@ import { jsonLd } from "@/lib/jsonLd";
 /**
  * Site-wide structured data, rendered once on the homepage.
  *
- * Emits a schema.org @graph with three connected nodes:
+ * Emits a schema.org @graph with two connected nodes:
  *   • WebSite          — name, multilingual, links every node together
  *   • ProfessionalService — the business: area served, price range,
  *                        sameAs profiles, aggregate rating, the four offerings
- *   • Person           — Alex, the founder (first name only), with the same sameAs profiles
+ *
+ * No Person node on purpose: the site names no individual, only the brand.
  *
  * This is what makes the brand eligible for a knowledge panel / local results
  * and is the structured signal LLM-based search (ChatGPT, Gemini, Perplexity)
@@ -20,15 +21,13 @@ import { jsonLd } from "@/lib/jsonLd";
  * in /llms.txt — nothing is asserted here that the site does not also show.
  */
 
-const PERSON_NAME = "Alex";
 // The canonical identity set. Every one of these must resolve to a profile that
-// is actually mine and links back here — `sameAs` is how Google and LLM search
+// is actually ours and links back here — `sameAs` is how Google and LLM search
 // decide "these are the same entity", so a wrong or dead link merges me with
 // someone else. Keep in sync with /llms.txt and the GitHub profile README.
 const SAME_AS = [
   "https://github.com/shurinbergo3",
   "https://t.me/sumotry",
-  "https://www.linkedin.com/in/oleksandr-shuvalov",
 ];
 const EMAIL = "info@buildbyalex.com";
 
@@ -59,7 +58,6 @@ export async function HomeJsonLd({ locale }: { locale: Locale }) {
   }));
 
   const businessId = `${SITE_URL}/#business`;
-  const personId = `${SITE_URL}/#alex`;
   const webSiteId = `${SITE_URL}/#website`;
 
   const offer = (path: string, nameKey: string, price: number) => ({
@@ -110,7 +108,6 @@ export async function HomeJsonLd({ locale }: { locale: Locale }) {
         ],
         serviceType: "Remote software development",
         knowsLanguage: ["ru", "uk", "en", "pl"],
-        founder: { "@id": personId },
         sameAs: SAME_AS,
         aggregateRating: {
           "@type": "AggregateRating",
@@ -123,32 +120,13 @@ export async function HomeJsonLd({ locale }: { locale: Locale }) {
           "@type": "OfferCatalog",
           name: ts("eyebrow"),
           itemListElement: [
-            offer("/services/websites", "items.websites.category", 1200),
-            offer("/services/ai-agents", "items.ai.category", 1500),
-            offer("/services/automation", "automation.title", 900),
-            offer("/services/mobile-apps", "items.mobile.category", 3000),
-            offer("/services/advertising", "ads.title", 300),
+            offer("/services/websites", "items.websites.category", 390),
+            offer("/services/ai-agents", "items.ai.category", 890),
+            offer("/services/automation", "automation.title", 550),
+            offer("/services/mobile-apps", "items.mobile.category", 1800),
+            offer("/services/advertising", "ads.title", 175),
           ],
         },
-      },
-      {
-        "@type": "Person",
-        "@id": personId,
-        name: PERSON_NAME,
-        url: SITE_URL,
-        email: EMAIL,
-        jobTitle: "Independent senior fullstack developer",
-        worksFor: { "@id": businessId },
-        knowsLanguage: ["ru", "uk", "en", "pl"],
-        knowsAbout: [
-          "Web development",
-          "Next.js",
-          "AI agents",
-          "Business process automation",
-          "Mobile app development",
-          "Digital advertising",
-        ],
-        sameAs: SAME_AS,
       },
     ],
   };

@@ -84,7 +84,7 @@ Voice has no header, so everything rides on the script. The disclosure goes in t
 
 Transferred calls are their own case. Reception pushes the caller to the bot after hours, or the PBX routes to the assistant after three rings with no answer. The caller does not know they were moved, so **the disclosure has to be repeated at the start of that leg**. It is the most common gap in off-the-shelf configurations.
 
-Keep two things separate in the script: recording consent is a GDPR duty, AI disclosure is an Article 50 duty. Two sentences, two legal bases. Where the caller speaks on someone else's behalf, a parent about a child for instance, there is a third layer, covered in my piece on the [AI agent for schools and online courses](/en/blog/ai-agent-for-schools-and-online-courses).
+Keep two things separate in the script: recording consent is a GDPR duty, AI disclosure is an Article 50 duty. Two sentences, two legal bases. Where the caller speaks on someone else's behalf, a parent about a child for instance, there is a third layer, covered in my piece on the AI agent for schools and online courses.
 
 ## Marking generated content: email, quote, ad creative
 
@@ -119,7 +119,7 @@ A session record that demonstrates compliance without opening the codebase:
 
 That record proves four things at once: the disclosure happened, it happened before the user's first message, in exactly which wording, and the route to a human works. I keep disclosure strings in the repository rather than in a vendor dashboard, so every change carries a date.
 
-Two more things live outside the log. A register of AI systems, a plain table: where you use AI, which model, which provider, who owns it, when the wording was last reviewed. And a retention policy, because any conversation containing personal data is processing under GDPR, with a legal basis and a known server location behind it. I keep 90 days of full transcripts and 24 months of disclosure records with no conversation content. Where the bot already logs statuses and documents, adding two fields is a single deployment, as in the setup I described for an [AI agent in transport and logistics](/en/blog/ai-agent-for-transport-and-logistics).
+Two more things live outside the log. A register of AI systems, a plain table: where you use AI, which model, which provider, who owns it, when the wording was last reviewed. And a retention policy, because any conversation containing personal data is processing under GDPR, with a legal basis and a known server location behind it. I keep 90 days of full transcripts and 24 months of disclosure records with no conversation content. Where the bot already logs statuses and documents, adding two fields is a single deployment, as in the setup I described for an AI agent in transport and logistics.
 
 ## Retrofitting an existing bot: the afternoon checklist
 

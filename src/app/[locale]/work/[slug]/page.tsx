@@ -168,8 +168,8 @@ function CaseContent({ slug, locale }: { slug: string; locale: string }) {
     keywords: [c.industry, ...c.stack].join(", "),
     mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
     author: {
-      "@type": "Person",
-      name: "Alex",
+      "@type": "Organization",
+      name: "buildbyalex",
       url: SITE_URL,
     },
     publisher: {

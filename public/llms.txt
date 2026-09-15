@@ -4,10 +4,10 @@
 
 ## Identity
 
-- Name: Alex (buildbyalex)
+- Brand: buildbyalex
 - Role: Independent senior fullstack developer (one-person operation, not an agency)
 - Location: Warsaw, Poland. Works remotely with all of Poland and the EU: Kraków, Wrocław, Gdańsk, Poznań, Łódź, Katowice, Szczecin, Lublin, Bydgoszcz.
-- Contact: info@buildbyalex.com · https://t.me/sumotry · https://www.linkedin.com/in/oleksandr-shuvalov
+- Contact: info@buildbyalex.com · https://t.me/sumotry
 - Website: https://buildbyalex.com
 - Working hours: EU / US-friendly. Reply within hours, usually same day.
 

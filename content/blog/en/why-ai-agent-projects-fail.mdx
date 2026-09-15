@@ -47,7 +47,7 @@ An agent is only as good as the source it reads. If product knowledge sits in th
 
 A 2026 MLOps Community study of 143 enterprise RAG deployments found 73% hit at least one critical failure in the first production quarter, and 41% of those went undetected by standard evaluation suites. A separate enterprise-search survey found employees succeed on the first attempt only about 10% of the time. An agent built on that mess inherits all of it, just faster and in a more confident voice.
 
-The first step is boring and contains no AI: one source of truth per topic, with an update date and an owner. If personal data is involved, add the question of where it physically goes, covered in the piece on [where an AI chatbot stores customer data](/en/blog/where-ai-chatbot-stores-customer-data-gdpr).
+The first step is boring and contains no AI: one source of truth per topic, with an update date and an owner. If personal data is involved, add the question of where it physically goes, covered in the piece on where an AI chatbot stores customer data.
 
 ## Reason 3: integrating with the systems you already run
 
@@ -71,7 +71,7 @@ These three travel together, and they kill projects that were technically fine.
 
 Reason seven is autonomy bought too early: an agent that sends the quote itself, issues the credit note or changes order status looks great in a demo and is unacceptable in a company with no history of trusting it. One wrong price sent to thirty customers closes the project that day.
 
-An approval gate solves this for free: the agent prepares, a human approves with one click, everything lands in a log. After two months the data shows which case types the agent never got wrong, and those go through automatically. The same logic governs handover, where autonomy is most visible to the customer - rules in the piece on [when a bot must hand over to a human](/en/blog/chatbot-handover-to-human-escalation).
+An approval gate solves this for free: the agent prepares, a human approves with one click, everything lands in a log. After two months the data shows which case types the agent never got wrong, and those go through automatically. The same logic governs handover, where autonomy is most visible to the customer - rules in the piece on when a bot must hand over to a human.
 
 Reason eight is awkward for my own trade: a lot of agent projects should have been plain deterministic automations. If the rule reads "if the email contains an order number, look it up and reply with the status template", an LLM agent adds cost, uncertainty and a new attack surface rather than value. Same with agents that click through interfaces: published scores look decent (87% on WebVoyager for OpenAI's computer-use model, 82.3% on OSWorld for Claude Opus 4.7) but they break predictably on enterprise UIs. I bring a model in where unstructured text has to be read, or a judgement call has to be made that no rule can describe.
 

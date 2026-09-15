@@ -160,12 +160,8 @@ export default async function BlogPostPage({
     datePublished: post.date,
     dateModified: post.date,
     inLanguage: locale === "ua" ? "uk" : locale,
-    author: {
-      "@type": "Person",
-      name: "Alex",
-      url: "https://buildbyalex.com",
-    },
-    publisher: { "@type": "Organization", name: "buildbyalex" },
+    author: { "@type": "Organization", name: "buildbyalex", url: SITE_URL },
+    publisher: { "@type": "Organization", name: "buildbyalex", url: SITE_URL },
     keywords: post.keywords?.join(", "),
   };
 

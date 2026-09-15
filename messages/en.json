@@ -3917,7 +3917,7 @@
           },
           {
             "q": "What does it cost to run the app after launch?",
-            "a": "Less than the software houses make you fear. Backend hosting and services are typically €10-50/month depending on traffic; the store accounts are $99/year for Apple and a one-time $25 for Google. Fixes and updates for new iOS/Android versions are €50/hour with no mandatory retainer - you only pay when something actually needs doing."
+            "a": "Less than the software houses make you fear. Backend hosting and services are typically €10-50/month depending on traffic; the store accounts are $99/year for Apple and a one-time $25 for Google. Fixes and updates for new iOS/Android versions are €35/hour with no mandatory retainer - you only pay when something actually needs doing."
           },
           {
             "q": "Do you work only in Warsaw, or across Poland?",
@@ -8354,16 +8354,16 @@
             "href": "/en/blog/eu-ai-act-chatbot-requirements-2026"
           },
           {
-            "title": "When a bot must hand over to a human",
-            "href": "/en/blog/chatbot-handover-to-human-escalation"
+            "title": "Labelling a chatbot under the EU AI Act: text, placement and logs",
+            "href": "/en/blog/ai-act-chatbot-disclosure-implementation"
           },
           {
-            "title": "Where an AI chatbot stores customer data: a GDPR breakdown",
-            "href": "/en/blog/where-ai-chatbot-stores-customer-data-gdpr"
+            "title": "Poland's AI Act: what the new supervisor KRiBSI can do to you",
+            "href": "/en/blog/poland-ai-act-implementation-kribsi"
           },
           {
-            "title": "Cookie banners and Consent Mode v2 in Poland",
-            "href": "/en/blog/cookie-banner-consent-mode-v2-poland"
+            "title": "AI Act Article 4: Staff AI Training Is an Obligation, Not Optional",
+            "href": "/en/blog/ai-act-article-4-staff-training"
           }
         ]
       },
@@ -8636,8 +8636,8 @@
         "headline": "How this works, without the promises",
         "items": [
           {
-            "title": "What ChatGPT says about your company and how to change it",
-            "href": "/en/blog/what-chatgpt-says-about-your-company"
+            "title": "Where AI Gets Its Opinion of Your Company: Directories and Reviews",
+            "href": "/en/blog/where-ai-gets-its-opinion-of-your-company"
           },
           {
             "title": "How to get cited by ChatGPT, Gemini and Google AI Overviews",
