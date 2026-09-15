@@ -113,6 +113,19 @@
       "description": "Google Ads: counting enquiries from ads and showing ads to people who have visited the site."
     }
   },
+  "privacy": {
+    "meta": {
+      "title": "Privacy policy",
+      "description": "What data buildbyalex.com collects, why, who receives it and how to have it deleted."
+    },
+    "eyebrow": "Legal",
+    "title": "Privacy policy",
+    "lead": "What data the site collects, why it is needed, who sees it and how to have it deleted.",
+    "updated": "Updated 15 September 2026",
+    "binding": "The Polish version is legally binding",
+    "link": "Privacy policy",
+    "formNote": "How we handle your data is explained in our <link>privacy policy</link>."
+  },
   "home": {
     "hero": {
       "eyebrow": "Web development & AI agents · Warsaw",

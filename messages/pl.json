@@ -113,6 +113,19 @@
       "description": "Google Ads: pomiar zapytań z reklam i wyświetlanie reklam osobom, które odwiedziły stronę."
     }
   },
+  "privacy": {
+    "meta": {
+      "title": "Polityka prywatności",
+      "description": "Jakie dane zbiera buildbyalex.com, po co, komu je przekazuje i jak je usunąć."
+    },
+    "eyebrow": "Informacje prawne",
+    "title": "Polityka prywatności",
+    "lead": "Jakie dane zbiera strona, do czego są potrzebne, kto je widzi i jak je usunąć.",
+    "updated": "Aktualizacja: 15 września 2026",
+    "binding": "",
+    "link": "Polityka prywatności",
+    "formNote": "Jak przetwarzamy dane, opisujemy w <link>polityce prywatności</link>."
+  },
   "home": {
     "hero": {
       "eyebrow": "Tworzenie stron i agenci AI · Warszawa",

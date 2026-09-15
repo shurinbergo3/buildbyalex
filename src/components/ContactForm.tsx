@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { useRouter } from "@/i18n/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 import { Button } from "./Button";
 import { trackGoal } from "@/lib/analytics";
 import { LEAD_NAME_KEY } from "@/lib/leadName";
@@ -14,6 +14,7 @@ const isValidEmail = (s: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
 
 export function ContactForm() {
   const t = useTranslations("contact.form");
+  const privacy = useTranslations("privacy");
   const locale = useLocale();
   const router = useRouter();
   const [state, setState] = useState<"idle" | "sending" | "error">("idle");
@@ -149,6 +150,15 @@ export function ContactForm() {
             <path d="M5.5 7V5.2a2.5 2.5 0 0 1 5 0V7" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
           </svg>
           {t("formNote")}
+        </p>
+        <p className="text-center text-[12.5px] leading-[1.45] text-[color:var(--color-text-3)]">
+          {privacy.rich("formNote", {
+            link: (chunks) => (
+              <Link href="/privacy" className="underline underline-offset-4 hover:text-[color:var(--color-text)]">
+                {chunks}
+              </Link>
+            ),
+          })}
         </p>
       </div>
     </form>

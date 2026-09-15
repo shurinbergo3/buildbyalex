@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Button } from "@/components/Button";
+import { Link } from "@/i18n/navigation";
 
 function StarPicker({
   value,
@@ -49,6 +50,7 @@ function StarPicker({
 
 export function ReviewForm() {
   const t = useTranslations("home.testimonials.form");
+  const privacy = useTranslations("privacy");
   const locale = useLocale();
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
@@ -151,6 +153,15 @@ export function ReviewForm() {
           <p role="alert" className="text-[14px] text-[#C4470A]">{error}</p>
         )}
       </div>
+      <p className="mt-4 text-[12.5px] leading-[1.45] text-[color:var(--color-text-3)]">
+        {privacy.rich("formNote", {
+          link: (chunks) => (
+            <Link href="/privacy" className="underline underline-offset-4 hover:text-[color:var(--color-text)]">
+              {chunks}
+            </Link>
+          ),
+        })}
+      </p>
     </form>
   );
 }

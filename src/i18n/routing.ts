@@ -107,6 +107,12 @@ export const routing = defineRouting({
       pl: "/kontakt",
       ua: "/kontakt",
     },
+    "/privacy": {
+      ru: "/politika-konfidencialnosti",
+      en: "/privacy-policy",
+      pl: "/polityka-prywatnosci",
+      ua: "/polityka-konfidencijnosti",
+    },
     "/contact/thank-you": {
       ru: "/kontakty/spasibo",
       en: "/contact/thank-you",

@@ -9,6 +9,7 @@ import { CookieSettingsButton } from "./CookieSettingsButton";
 export function Footer() {
   const t = useTranslations("footer");
   const nav = useTranslations("nav");
+  const privacy = useTranslations("privacy");
   const year = new Date().getFullYear();
 
   return (
@@ -74,6 +75,10 @@ export function Footer() {
         <div className="relative mt-14 flex flex-col-reverse items-center gap-6 border-t border-[color:var(--c-hairline)] pt-6 md:block">
           <p className="text-center text-[12px] text-[color:var(--color-text-3)]">
             © {year} buildbyalex. {t("rights")} <span className="mx-1 opacity-50">·</span> {t("legal")}
+            <span className="mx-1 opacity-50">·</span>{" "}
+            <Link href="/privacy" className="underline-offset-4 transition-colors hover:text-[color:var(--color-text)] hover:underline">
+              {privacy("link")}
+            </Link>
             <span className="mx-1 opacity-50">·</span> <CookieSettingsButton label={t("cookieSettings")} />
           </p>
           <div className="md:absolute md:right-0 md:top-6">

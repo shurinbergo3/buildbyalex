@@ -11,9 +11,11 @@ import {
   type Consent,
 } from "@/lib/consent";
 import { cn } from "@/lib/utils";
+import { Link } from "@/i18n/navigation";
 
 export function CookieBanner() {
   const t = useTranslations("consent");
+  const privacy = useTranslations("privacy");
   const consent = useConsent();
   const titleId = useId();
   const [reopened, setReopened] = useState(false);
@@ -53,7 +55,12 @@ export function CookieBanner() {
         <h2 id={titleId} className="text-[16px] font-medium tracking-[-0.014em] text-[color:var(--color-text)]">
           {t("title")}
         </h2>
-        <p className="mt-2 text-[14px] leading-[1.5] text-[color:var(--color-text-2)]">{t("text")}</p>
+        <p className="mt-2 text-[14px] leading-[1.5] text-[color:var(--color-text-2)]">
+          {t("text")}{" "}
+          <Link href="/privacy" className="text-[color:var(--color-text)] underline underline-offset-4">
+            {privacy("link")}
+          </Link>
+        </p>
 
         {customizing && (
           <ul className="mt-4 divide-y divide-[color:var(--c-hairline)] border-y border-[color:var(--c-hairline)]">

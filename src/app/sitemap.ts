@@ -32,6 +32,7 @@ const staticPaths: (keyof typeof routing.pathnames)[] = [
   "/work",
   "/blog",
   "/contact",
+  "/privacy",
 ];
 
 // All published case studies — derived from the single source of truth in

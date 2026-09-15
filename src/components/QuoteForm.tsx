@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { Section } from "./Section";
 import { Container } from "./Container";
 import { Reveal } from "./Reveal";
@@ -33,6 +34,7 @@ export function QuoteForm({
   tone?: "default" | "alt";
 }) {
   const t = useTranslations("quote");
+  const privacy = useTranslations("privacy");
   const locale = useLocale();
   const [state, setState] = useState<State>("idle");
   const [error, setError] = useState<string | null>(null);
@@ -209,6 +211,15 @@ export function QuoteForm({
 
                     <p className="pt-1 text-center text-[13px] leading-[1.45] text-white/45">
                       {t("note")}
+                    </p>
+                    <p className="text-center text-[12.5px] leading-[1.45] text-white/40">
+                      {privacy.rich("formNote", {
+                        link: (chunks) => (
+                          <Link href="/privacy" className="underline underline-offset-4 hover:text-white/70">
+                            {chunks}
+                          </Link>
+                        ),
+                      })}
                     </p>
                   </form>
                 )}
